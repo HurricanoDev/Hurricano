@@ -1,0 +1,20 @@
+{
+  "name": "dragonnight",
+  "version": "1.0.0",
+  "description": "An open-sourced Discord bot meant to enhance your Discord experience, as both an admin and an owner.",
+  "main": "index.js",
+  "scripts": {
+    "test": "dn!ping"
+  },
+  "keywords": [
+    "Discord",
+    "bot",
+    "Discord bot"
+  ],
+  "author": "Dragonizedpizza, NightZan999",
+  "license": "ISC",
+  "dependencies": {
+    "discord-giveaways": "^4.4.3",
+    "discord.js": "^12.5.1"
+  }
+}
