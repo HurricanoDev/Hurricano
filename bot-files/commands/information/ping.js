@@ -6,9 +6,9 @@ module.exports = {
     description: "Returns the bot's ping!",
     run: async(client, message) => {
         const embed = new Discord.MessageEmbed()
-        .setTitle("Bot's ping")
-        .setDescription(`Ping - ${client.ws.ping}ms`)
-        .setColor('BLACK')
+        .setAuthor("<:DragonNight_Settings:803919154405965864> DragonNight Latency")
+        .setDescription(`Client Latency - \`\`${client.ws.ping}\ms`)
+        .setColor('#034ea2')
         message.channel.send(embed)
     }
 }
