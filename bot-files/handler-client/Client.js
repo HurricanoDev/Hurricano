@@ -3,10 +3,9 @@ const client = new Discord.Client();
 const config = require('../../config.json');
 client.on('message', async message => {
 
-    const prefixMention = new RegExp(`^<@!?${client.user.id}>( |)$`);
-    if (message.content.match(prefixMention)) {
-    return message.channel.send(`Hii! <@${message.author.id}>, My prefix is \`${config.prefix}\`!`);
- }
+    if (message.content === '<@!803169312827113483>') {
+        message.channel.send('Hey! Work in progress for this.')
+    }
     if(message.author.bot || message.channel.type === "dm") return;
     if (!message.content.startsWith(config.prefix)) return;
     if (!message.guild) return;
