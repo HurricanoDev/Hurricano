@@ -94,7 +94,7 @@ client.on('message', async message => {
 
       const embed = new Discord.MessageEmbed()
     .setAuthor("Hello!", "https://media.discordapp.net/attachments/803204453321670700/804186498688876584/circle-cropped_20.png")
-    .setDescription("Hello! I'm **DragonNight#3437**. My prefix is `dn!`. I have a variety of commands you can use! If you want to view information about me please do `dn!info`. That's it for now, bye and have a great time!")
+    .setDescription(`Hello! I'm **${client.user.username}**. My prefix is \`${config.prefix}\`. I have a variety of commands you can use! If you want to view information about me please do \`dn!info\`. That's it for now, bye and have a great time!`)
     .setColor("#034ea2")
     .setImage("https://media.discordapp.net/attachments/803204453321670700/804187690362732565/Untitled_6.jpg?width=1025&height=342")
     .setFooter("© DragonNight v1.0.0")
