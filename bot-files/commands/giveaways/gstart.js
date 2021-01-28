@@ -10,13 +10,15 @@ module.exports = {
       if (!message.member.hasPermission("MANAGE_GUILD") && !message.member.roles.cache.includes(r => r.name.toLowerCase() === "Giveaway Manager")) {
 return message.channel.send({ embed: {
     title: "An Error Occured.",
-    description: "Smh, you need the `MANAGE_GUILD` permission or the role `Giveaway Manager` to host a giveaway."
+    description: "Smh, you need the `MANAGE_GUILD` permission or the role `Giveaway Manager` to host a giveaway.",
+    color: "#034ea2"
 }})
         } else if (message.author.id === this.ownerId) return true
 
         if (client.giveawaysManager.giveaways.filter((g) => g.guildID === message.guild.id && !g.ended).length + 1 > 10) return message.channel.send({ embed: {
             title: "An Error Occured.",
             description: "Maximum giveaway limit 10 reached for this server! Please try again later.",
+            color: "#034ea2",
             footer: {text: "Thanks for hosting so many giveaways with this bot though ;)"}
         }});
         let time = args[0];
@@ -33,6 +35,7 @@ return message.channel.send({ embed: {
                     value: "W stands for winner. **Remember**, the maximum giveaway winner count should be less than 15."
                 }
             ],
+            color: "#034ea2",
             footer: {text: "How do you think I'll host a giveaway without the time given smh?"}
         }})
         if (ms(time) > ms("20d")) return message.channel.send({ embed: {
@@ -47,7 +50,8 @@ return message.channel.send({ embed: {
                     name: "Winner Values",
                     value: "W stands for winner. **Remember**, the maximum giveaway winner count should be less than 15."
                 }
-            ]
+            ],
+            color: "#034ea2"
         }})
         let winners = args[1];
         if (!winners) return message.channel.send({ embed: {
@@ -63,6 +67,7 @@ return message.channel.send({ embed: {
                     value: "W stands for winner. **Remember**, the maximum giveaway winner count should be less than 15."
                 }
             ],
+            color: "#034ea2",
             footer: {text: "Imagine a giveaway without any winners-"}
         }})
         winners = num(winners, 1);
@@ -78,7 +83,8 @@ return message.channel.send({ embed: {
                     name: "Winner Values",
                     value: "W stands for winner."
                 }
-            ]
+            ],
+            color: "#034ea2"
         }})
         let prize = args.slice(2).join(" ");
         if (!prize) return message.channel.send({ embed: {
@@ -93,7 +99,8 @@ return message.channel.send({ embed: {
                     name: "Winner Values",
                     value: "W stands for winner. **Remember**, the maximum giveaway winner count should be less than 15."
                 }
-            ]
+            ],
+            color: "#034ea2"
         }})
         client.giveawaysManager.start(message.channel, {
             time: ms(time),

@@ -1,5 +1,5 @@
-const mongoose = require('mongoose');
-const config = require('../../config.json');
+const mongoose = require('mongoose')
+const config = require('../../config.json')
 const mongoPath = config.mongouri;
 
 module.exports = async () => {

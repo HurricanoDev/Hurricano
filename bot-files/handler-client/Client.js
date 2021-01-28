@@ -83,8 +83,8 @@ const manager = new GiveawayManagerWithMongoose(client, {
     updateCountdownEvery: 6969,
     default: {
         botsCanWin: false,
-        exemptPermissions: ['MANAGE_MESSAGES', 'ADMINISTRATOR'],
-        embedColor: '#FF0000',
+        exemptPermissions: ['ADMINISTRATOR'],
+        embedColor: '#034ea2',
         reaction: '🎉'
     }
 });

@@ -21,7 +21,7 @@ module.exports = {
             var text = index.selftext;
             const textembed = new MessageEmbed()
               .setTitle(subRedditName)
-              .setColor(message.guild.me.displayHexColor)
+              .setColor('#034ea2')
               .setDescription(`[${title}](${link})\n\n${text}`)
               .setURL(`https://reddit.com/${subRedditName}`)
 
@@ -45,7 +45,7 @@ module.exports = {
           const imageembed = new MessageEmbed()
             .setTitle(subRedditName)
             .setImage(image)
-            .setColor("DARK_ORANGE")
+            .setColor("#034ea2")
             .setDescription(`[${title}](${link})`)
             .setURL(`https://reddit.com/${subRedditName}`)
           message.channel.send(imageembed);
