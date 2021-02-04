@@ -44,6 +44,13 @@ client.on('message', async message => {
   if (cmd.length == 0) return;
   const command = client.commands.get(cmd);
   if (!message.member) message.member = await message.guild.fetchMember(message);
+   if (command.permissions) {
+  	const authorPerms = message.channel.permissionsFor(message.author);
+   	if (!authorPerms || !authorPerms.has(command.permissions)) {
+ 		return message.reply(new Discord.MessageEmbed().setTitle('Permission Error.').setDescription(`Stop disturbing me bro, you require the \`${command.permissions}\` permission to use that command...`)
+     .setFooter('Smh, imagine trying to use a command without having the perms-'));
+   	}
+  }
   if (command.args && !args.length) {
     return message.channel.send(`You didn't provide any arguments, ${message.author}!`);
     }
@@ -58,7 +65,11 @@ client.on('message', async message => {
       const expirationTime = timestamps.get(message.author.id) + cooldownAmount;
       if (now < expirationTime) {
         const timeLeft = (expirationTime - now) / 1000;
-        return message.reply(`please wait ${timeLeft.toFixed(1)} more second(s) before reusing the \`${command.name}\` command.`);
+        return message.reply({ embed: {
+          title: "Chillza.",
+          description: `You need to wait ${timeLeft.toFixed(1)} more second(s) before reusing the \`${command.name}\` command.`,
+          footer: {text: `"Patience is the key my child."`}
+        }});
       }
     }
     timestamps.set(message.author.id, now);

@@ -4,7 +4,7 @@ const config = require('../../../config.json')
 module.exports = {
     name: "help",
     description: "Provides help about the bot.",
-    run: async (client, message, args) => {
+    run: async (message, args) => {
         const make = (args[0]) ? args[0].toLowerCase() : '';
         const { INFORMATION, FUN } = client.categories;
         const helpmap = {
