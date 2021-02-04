@@ -1,7 +1,7 @@
-const { Collection, Intents } = require('discord.js')
+const { Collection, Intents, MessageEmbed } = require('discord.js');
 const Discord = require('discord.js');
-const { MessageEmbed } = require('discord.js')
-const fs = require('fs')
+const fs = require('fs');
+const ms = require('ms');
 const intents = new Intents();
 const client = require('./bot-files/handler-client/Client.js');
 const giveaway = require('./bot-files/schemas/giveaway.js');
@@ -14,7 +14,7 @@ intents.add(
 	'GUILD_MESSAGES',
 	'GUILD_MESSAGE_REACTIONS'
 );
-const config = require('./config.json')
+const config = require('./config.json');
 client.config = config;
 client.commands = new Collection();
 client.aliases = new Collection();
@@ -24,8 +24,8 @@ client.categories = fs.readdirSync("./bot-files/commands/");
     require(`./bot-files/handler-client/Handle.js`)(client);
 });
 client.on('ready', () => {
-   client.user.setActivity({ name:`${config.prefix}help`, type: 'STREAMING', url: 'https://twitch.tv/Pewdiepie'})
-   console.log(`${client.user.username} Successfully Logged in!`)
+   client.user.setActivity({ name:`${config.prefix}help`, type: 'STREAMING', url: 'https://twitch.tv/Pewdiepie'});
+   console.log(`${client.user.username} Successfully Logged in!`);
 })
 if (config.topggapi === true) {
 	let DBL = require("dblapi.js");
