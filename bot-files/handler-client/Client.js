@@ -1,121 +1,72 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
 const config = require('../../config.json');
-
-//--------------------------------------------------GIVEAWAYS CONFIG-------------------------------------------------
+const guildPrefixes = {};
+const mongoconnect = require('../utilities/mongoconnect.js')
 const mongoose = require('mongoose');
-mongoose.connect(config.mongouri, { 
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-  useFindAndModify: false,
-});
-const db = mongoose.connection;
-
-db.on('error', console.error.bind(console, 'Connection error:'));
-db.once('open', () => {
-    console.log('Giveaway DB connected to MongoDB!');
-});
-
-const giveawaySchema = new mongoose.Schema({
-    messageID: String,
-    channelID: String,
-    guildID: String,
-    startAt: Number,
-    endAt: Number,
-    ended: Boolean,
-    winnerCount: Number,
-    prize: String,
-    messages: {
-        giveaway: String,
-        giveawayEnded: String,
-        inviteToParticipate: String,
-        timeRemaining: String,
-        winMessage: String,
-        embedFooter: String,
-        noWinner: String,
-        winners: String,
-        endedAt: String,
-        hostedBy: String,
-        units: {
-            seconds: String,
-            minutes: String,
-            hours: String,
-            days: String,
-            pluralS: Boolean,
-        },
-    },
-    hostedBy: String,
-    winnerIDs: [],
-    reaction: String,
-    botsCanWin: Boolean,
-    embedColor: String,
-    embedColorEnd: String,
-    exemptPermissions: [],
-    extraData: {}
-});
-
-const giveawayModel = mongoose.model('giveaways', giveawaySchema);
-
-const { GiveawaysManager } = require('discord-giveaways');
-class GiveawayManagerWithMongoose extends GiveawaysManager {
-    async getAllGiveaways() {
-        return await giveawayModel.find({});
-    }
-    async saveGiveaway(messageID, giveawayData) {
-        await giveawayModel.create(giveawayData);
-        return true;
-    }
-    async editGiveaway(messageID, giveawayData) {
-        await giveawayModel
-            .findOneAndUpdate({ messageID: messageID }, giveawayData)
-            .exec();
-        return true;
-    }
-    async deleteGiveaway(messageID) {
-        await giveawayModel
-            .findOneAndDelete({ messageID: messageID })
-            .exec();
-        return true;
-    }
-}
-
-const manager = new GiveawayManagerWithMongoose(client, {
-    updateCountdownEvery: 6969,
-    default: {
-        botsCanWin: false,
-        exemptPermissions: ['ADMINISTRATOR'],
-        embedColor: '#034ea2',
-        reaction: '🎉'
-    }
-});
-client.giveawaysManager = manager;
-//-------------------------------------------------------------------DONE--------------------------------------
 client.on('message', async message => {
-
+  const prefixMention = new RegExp(`^<@!?${client.user.id}>( |)$`);
+  const prefix = guildPrefixes[message.guild.id] || config.prefix || prefixMention;
       const embed = new Discord.MessageEmbed()
     .setAuthor("Hello!", "https://media.discordapp.net/attachments/803204453321670700/804186498688876584/circle-cropped_20.png")
-    .setDescription(`Hello! I'm **${client.user.username}**. My prefix is \`${config.prefix}\`. I have a variety of commands you can use! If you want to view information about me please do \`dn!info\`. That's it for now, bye and have a great time!`)
+    .setDescription(`Hello! I'm **DragonNight™**. My prefix is \`${prefix}\`. I have a variety of commands you can use! If you want to view information about me please do \`dn!info\`. That's it for now, bye and have a great time!`)
     .setColor("#034ea2")
     .setImage("https://media.discordapp.net/attachments/803204453321670700/804187690362732565/Untitled_6.jpg?width=1025&height=342")
-    .setFooter("© DragonNight v1.0.0")
-      
-    const prefixMention = new RegExp(`^<@!?${client.user.id}>( |)$`);
+    .setFooter(`© DragonNight™ v1.0.0`)
+    
+    const prefixSchema = require('../schemas/prefix.js')
+    module.exports.updateCache = (guildId, newPrefix) => {
+      guildPrefixes[guildId] = newPrefix
+    }
+    
+    module.exports.loadPrefixes = async (client) => {
+      await mongoconnect().then(async (mongoose) => {
+        try {
+          for (const guild of client.guilds.cache) {
+            const guildId = guild[1].id
+    
+            const result = await prefixSchema.findOne({ _id: guildId })
+            guildPrefixes[guildId] = result ? result.prefix : globalPrefix
+          }
+        } finally {
+          mongoose.connection.close()
+        }
+      })
+    }
     if (message.content.match(prefixMention)) {
     return message.channel.send(embed);
  }
-    if(message.author.bot || message.channel.type === "dm") return;
-    if (!message.content.startsWith(config.prefix)) return;
-    if (!message.guild) return;
-    if (!message.member) message.member = await message.guild.fetchMember(message);
-    const args = message.content.slice(config.prefix.length).trim().split(/ +/g);
-    const cmd = args.shift().toLowerCase();
-    if (cmd.length == 0) return;
-    let command = client.commands.get(cmd)
-    if (!command) command = client.commands.get(client.aliases.get(cmd));
-    if (command) command.run(client, message, args)
-  }) 
-const mongoconnect = require('../utilities/mongoconnect.js')
+ if(message.author.bot || message.channel.type === "dm") return;
+ if (!message.content.startsWith(prefix)) return;
+  const args = message.content.slice(prefix.length).trim().split(/ +/g);
+  const cmd = args.shift().toLowerCase();
+  if (!message.guild) return;
+  if (cmd.length == 0) return;
+  const command = client.commands.get(cmd);
+  if (!message.member) message.member = await message.guild.fetchMember(message);
+  if (command.args && !args.length) {
+    return message.channel.send(`You didn't provide any arguments, ${message.author}!`);
+    }
+    if (!client.cooldowns.has(command.name)) {
+      client.cooldowns.set(command.name, new Discord.Collection());
+    }
+    const now = Date.now();
+    const timestamps = client.cooldowns.get(command.name);
+    const cooldownAmount = (command.cooldown || 3) * 1000;
+    
+    if (timestamps.has(message.author.id)) {
+      const expirationTime = timestamps.get(message.author.id) + cooldownAmount;
+      if (now < expirationTime) {
+        const timeLeft = (expirationTime - now) / 1000;
+        return message.reply(`please wait ${timeLeft.toFixed(1)} more second(s) before reusing the \`${command.name}\` command.`);
+      }
+    }
+    timestamps.set(message.author.id, now);
+setTimeout(() => timestamps.delete(message.author.id), cooldownAmount);
 
+    if (!command) command = client.commands.get(client.aliases.get(cmd));
+    if (command) command.run(message, args)
+  })
 const connectmongo = async () => {
   await mongoconnect().then((mongoose) => {
     try {

@@ -1,10 +1,12 @@
 const Discord = require('discord.js')
-
+const client = require('../../handler-client/Client.js');
 module.exports = {
     name: "ping",
     aliases: ["latency", "pong"],
+    cooldown: 5,
+    args: false,
     description: "Returns the bot's ping!",
-    run: async(client, message) => {
+    run: async(message, args) => {
         const msgamount = (message.editedTimestamp) ? message.editedTimestamp : message.createdTimestamp;
         const embed = new Discord.MessageEmbed()
         .setAuthor("DragonNight Latency", "https://media.discordapp.net/attachments/803204453321670700/803930305135116288/circle-cropped_13.png")

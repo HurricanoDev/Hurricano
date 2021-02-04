@@ -3,8 +3,10 @@ const { MessageEmbed } = require("discord.js");
 const url = "https://www.reddit.com/r/meme/hot/.json?limit=100";
 module.exports = {
   name: "meme",
+  cooldown: 7,
+  args: false,
   description: "Gets a random meme.",
-  run: async(client, message, args) => {
+  run: async(message, args) => {
     https.get(url, (result) => {
       var body = "";
       result.on("data", (chunk) => {
@@ -38,7 +40,6 @@ module.exports = {
               .setColor(message.guild.me.displayHexColor)
               .setDescription(`[${title}](${link})\n\n${text}`)
               .setURL(`https://reddit.com/${subRedditName}`)
-              .setFooter("Not associated with RoboLiam.");
 
             message.channel.send(textembed);
           }
