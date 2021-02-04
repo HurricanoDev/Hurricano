@@ -1,5 +1,8 @@
 {
     "token": "ODAzMTY5MzEyODI3MTEzNDgz.YA53tg.TyPjFdicaey7pQyXG41dRibK4ZE",
     "prefix": "dn!",
-    "mongouri": "mongodb+srv://dragon-night:rrkxFcxeruBZg7Vo@dragonnight.q8fu0.mongodb.net/dragon-night?retryWrites=true&w=majority&ssl=true"
+    "mongouri": "mongodb+srv://dragon-night:rrkxFcxeruBZg7Vo@dragonnight.q8fu0.mongodb.net/dragon-night?retryWrites=true&w=majority&ssl=true",
+    "ownerIds" : [
+        701780722444402758, 575706831192719370, 742972160158728283
+    ]
 }
