@@ -5,7 +5,7 @@ const ms = require('ms');
 const intents = new Intents();
 const client = require('./bot-files/handler-client/Client.js');
 const giveaway = require('./bot-files/schemas/giveaway.js');
-
+const { readdirSync } = require("fs");
 intents.add(
 	'GUILD_PRESENCES',
 	'GUILD_MEMBERS',
@@ -19,7 +19,9 @@ client.config = config;
 client.commands = new Collection();
 client.aliases = new Collection();
 client.cooldowns = new Collection();
-client.categories = fs.readdirSync("./bot-files/commands/");
+client.categories = readdirSync("./bot-files/commands")
+console.log(client.categories);
+
 ["command"].forEach(handler => {
     require(`./bot-files/handler-client/Handle.js`)(client);
 });

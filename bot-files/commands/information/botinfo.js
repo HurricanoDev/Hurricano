@@ -1,10 +1,11 @@
 const Discord = require('discord.js');
-
+const client = require('../../handler-client/Client.js');
 module.exports = {
   name: "botinfo",
   description: "About the bot!",
   aliases: ["info", "bi"],
-  run: async (client, message, args) => {
+  permissions: 'SEND_MESSAGES',
+  run: async (message, args) => {
 
 
     const embed = new Discord.MessageEmbed()

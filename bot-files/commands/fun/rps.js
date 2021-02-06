@@ -6,15 +6,10 @@ module.exports = {
       name: 'rps',
       aliases: ['rockpaperscissors'],
       description: 'Rock, paper, scissors with DragonNight!',
-      run: async(client, message, args) => {
+      args: true,
+      run: async(message, args) => {
     let userChoice;
     if (args.length) userChoice = args[0].toLowerCase();
-    if (!rps.includes(userChoice)) 
-      return message.channel.send({ embed: {
-          title: "An Error Occured.",
-          description: "How do you expect me to play rock, paper, scissors without you choosing any option huh?",
-          footer: {text: "smh-"}
-        }});
     userChoice = rps.indexOf(userChoice);
     const botChoice = Math.floor(Math.random()*3);
     let result;

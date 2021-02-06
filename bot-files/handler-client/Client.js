@@ -1,12 +1,15 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
 const config = require('../../config.json');
+const escapeRegex = str => str.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 const guildPrefixes = {};
 const mongoconnect = require('../utilities/mongoconnect.js')
 const mongoose = require('mongoose');
 client.on('message', async message => {
-  const prefixMention = new RegExp(`^<@!?${client.user.id}>( |)$`);
-  const prefix = guildPrefixes[message.guild.id] || config.prefix || prefixMention;
+  const prefixMention = new RegExp(`^<@!?${client.user.id}>`);
+  const matchedPrefix = message.content.match(prefixMention);
+  const prefix = guildPrefixes[message.guild.id] || config.prefix;
+  
       const embed = new Discord.MessageEmbed()
     .setAuthor("Hello!", "https://media.discordapp.net/attachments/803204453321670700/804186498688876584/circle-cropped_20.png")
     .setDescription(`Hello! I'm **DragonNight™**. My prefix is \`${prefix}\`. I have a variety of commands you can use! If you want to view information about me please do \`dn!info\`. That's it for now, bye and have a great time!`)
@@ -40,6 +43,7 @@ client.on('message', async message => {
  if (!message.content.startsWith(prefix)) return;
   const args = message.content.slice(prefix.length).trim().split(/ +/g);
   const cmd = args.shift().toLowerCase();
+
   if (!message.guild) return;
   if (cmd.length == 0) return;
   const command = client.commands.get(cmd);
@@ -60,7 +64,7 @@ client.on('message', async message => {
     const now = Date.now();
     const timestamps = client.cooldowns.get(command.name);
     const cooldownAmount = (command.cooldown || 3) * 1000;
-    
+
     if (timestamps.has(message.author.id)) {
       const expirationTime = timestamps.get(message.author.id) + cooldownAmount;
       if (now < expirationTime) {

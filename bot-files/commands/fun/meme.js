@@ -5,6 +5,7 @@ module.exports = {
   name: "meme",
   cooldown: 7,
   args: false,
+  ownerOnly: true,
   description: "Gets a random meme.",
   run: async(message, args) => {
     https.get(url, (result) => {

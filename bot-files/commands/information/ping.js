@@ -6,6 +6,7 @@ module.exports = {
     cooldown: 5,
     args: false,
     description: "Returns the bot's ping!",
+    permissions: "SEND_MESSAGES",
     run: async(message, args) => {
         const msgamount = (message.editedTimestamp) ? message.editedTimestamp : message.createdTimestamp;
         const embed = new Discord.MessageEmbed()
