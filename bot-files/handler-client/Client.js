@@ -41,12 +41,7 @@ client.on('message', async message => {
  if (!message.content.startsWith(prefix)) return;
   const args = message.content.slice(prefix.length).trim().split(/ +/g);
   const cmd = args.shift().toLowerCase();
-  client.categories = {
-    "CONFIG": "config",
-    "FUN": "fun",
-    "GIVEAWAYS": "giveaways",
-    "INFORMATION": "information",
-}
+
   if (!message.guild) return;
   if (cmd.length == 0) return;
   const command = client.commands.get(cmd);
