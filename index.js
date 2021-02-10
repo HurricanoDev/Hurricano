@@ -19,9 +19,8 @@ client.config = config;
 client.commands = new Collection();
 client.aliases = new Collection();
 client.cooldowns = new Collection();
-client.categories = readdirSync("./bot-files/commands")
-console.log(client.categories);
 
+readdirSync("./bot-files/commands");
 ["command"].forEach(handler => {
     require(`./bot-files/handler-client/Handle.js`)(client);
 });

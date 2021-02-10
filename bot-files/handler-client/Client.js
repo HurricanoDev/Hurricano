@@ -1,13 +1,11 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
 const config = require('../../config.json');
-const escapeRegex = str => str.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 const guildPrefixes = {};
 const mongoconnect = require('../utilities/mongoconnect.js')
 const mongoose = require('mongoose');
 client.on('message', async message => {
   const prefixMention = new RegExp(`^<@!?${client.user.id}>`);
-  const matchedPrefix = message.content.match(prefixMention);
   const prefix = guildPrefixes[message.guild.id] || config.prefix;
   
       const embed = new Discord.MessageEmbed()
@@ -43,7 +41,12 @@ client.on('message', async message => {
  if (!message.content.startsWith(prefix)) return;
   const args = message.content.slice(prefix.length).trim().split(/ +/g);
   const cmd = args.shift().toLowerCase();
-
+  client.categories = {
+    "CONFIG": "config",
+    "FUN": "fun",
+    "GIVEAWAYS": "giveaways",
+    "INFORMATION": "information",
+}
   if (!message.guild) return;
   if (cmd.length == 0) return;
   const command = client.commands.get(cmd);
