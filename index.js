@@ -19,11 +19,20 @@ client.config = config;
 client.commands = new Collection();
 client.aliases = new Collection();
 client.cooldowns = new Collection();
-
 readdirSync("./bot-files/commands");
 ["command"].forEach(handler => {
     require(`./bot-files/handler-client/Handle.js`)(client);
 });
+const init = async () => {
+const evtFiles = await readdirSync("./bot-files/events/");
+console.log(`Loading a total of ${evtFiles.length} events.`);
+evtFiles.forEach(file => {
+  const eventName = file.split(".")[0];
+  console.log(`Loading Event: ${eventName}`);
+  const event = require(`./bot-files/events/${file}`);
+  client.on(eventName, event.bind(null, client));
+});
+}
 client.on('ready', () => {
    client.user.setActivity({ name:`${config.prefix}help`, type: 'STREAMING', url: 'https://twitch.tv/Pewdiepie'});
    console.log(`${client.user.username} Successfully Logged in!`);
@@ -38,3 +47,5 @@ if (config.topggapi === true) {
 });
 }
 client.login(config.token)
+
+init();

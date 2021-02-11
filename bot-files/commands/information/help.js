@@ -17,7 +17,7 @@ module.exports = {
   aliases: ["cmd", "commands", "h"],
   usage: "ham help / ham help [command]",
   run: async (message, args) => {
-
+console.log(cmdmap);
  const client = require('../../handler-client/Client.js');
     let tips = ["HamBot was made in the early september of 2020.", "HamBot used to have an economy system but was sadly removed :sad:", "HamBot is mainly based on Image Manpulation", "HamBot had over 100 commands before it was remade.", "HamBot has several partners: Raccoon and Cosmic!", "The heads on Easter Island have bodies.", "The moon has moonquakes.", "Goosebumps are meant to ward off predators", "Humans are the only animals that blush.", "HamBot is coded in a language called JavaScript.", "HamBot has over 7000 lines of code if put in one file!"]
  
