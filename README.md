@@ -6,8 +6,8 @@ An open source Discord bot, with features such as:
 * Args required or not Option
 * Reaction Help Command (using package `discord.js-menu`)
 * Giveaways (using package `discord-giveaways`) which uses MongoDB
-* Setprefix comamnd, using MongoDB
-...And some interesting commands!
+* Setprefix command, using MongoDB
+* ...And some interesting commands!
 
 This bot is currently in development, very early stages of it too.
 
