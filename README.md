@@ -1,12 +1,12 @@
 ### DragonNight!
 An open source Discord bot, with features such as:
-\n Command Cooldowns
-\n Command Permissions
-\n OwnerOnly Commands
-\n Args required or not Option
-\n Reaction Help Command (using package `discord.js-menu`)
-\n Giveaways (using package `discord-giveaways`) which uses MongoDB
-\n Setprefix comamnd, using MongoDB
+* Command Cooldowns
+* Command Permissions
+* OwnerOnly Commands
+* Args required or not Option
+* Reaction Help Command (using package `discord.js-menu`)
+* Giveaways (using package `discord-giveaways`) which uses MongoDB
+* Setprefix comamnd, using MongoDB
 ...And some interesting commands!
 
 This bot is currently in development, very early stages of it too.
