@@ -1,14 +1,14 @@
 const { MessageEmbed } = require("discord.js");
 const { Menu } = require('discord.js-menu')
 const { readdirSync } = require('fs');
-const lmao = {};
+const cmdmap = {};
 readdirSync("./bot-files/commands").forEach(dir => {
    readdirSync(`./bot-files/commands/${dir}/`).filter(file =>
      file.endsWith(".js")).forEach(kek => {
-        if (lmao[dir] == undefined) {
-            lmao[dir] = []
+        if (cmdmap[dir] == undefined) {
+            cmdmap[dir] = []
                    }
-                   lmao[dir].push(`\`${kek.replace('.js', '').split(', ')}\``)
+                   cmdmap[dir].push(`\`${kek.replace('.js', '')}\`, `)
      })
     })
 module.exports = {
@@ -47,29 +47,17 @@ module.exports = {
     .setTitle(":game_die:  Important Commands")
     .setColor("#ffb6c1")
     .setDescription("The most important commands in the bot such as support, help, invite etc. **React** with :house: to get back to the main page.")
-    .addField("Commands", lmao.config)
+    .addField("Commands", cmdmap.config.join(' '))
     .setImage("https://media.discordapp.net/attachments/779867901246570549/790356472935743518/Hammy_Important.jpg?width=1025&height=342")
     .setFooter("Copyright © 2020 HjsamBot")
  
-    //--------------------------------------
- 
-    //-------------------------------------
-
-    const important = new MessageEmbed()
-    .setTitle(":game_die:  Important Commands")
-    .setColor("#ffb6c1")
-    .setDescription("The most important commands in the bot such as support, help, invite etc. **React** with :house: to get back to the main page.")
-    .addField("Commands", "`help`, `ping`, `invite`, `support`, `bug`")
-    .setImage("https://media.discordapp.net/attachments/779867901246570549/790356472935743518/Hammy_Important.jpg?width=1025&height=342")
-    .setFooter("Copyright © 2020 HamBot")
-
     //--------------------------------------
 
     const information = new MessageEmbed()
     .setTitle(":card_index:  Information Commands")
     .setColor("#ffb6c1")
     .setDescription("Shows information about users, servers, bots, maybe some other things too! **React** with :house: to get back to the main page.")
-    .addField("Commands", lmao.information)
+    .addField("Commands", cmdmap.information.join(' '))
     .setImage("https://media.discordapp.net/attachments/779867901246570549/790035545522438184/Hammy_Information.png?width=1025&height=342")
     .setFooter("Copyright © 2020 HamBot")
  
@@ -79,7 +67,7 @@ module.exports = {
     .setTitle(":dolphin:  Fun Commands")
     .setColor("#ffb6c1")
     .setDescription("This is a fun category with some fun commands, many coming soon! **React** with :house: to get back to the main page.")
-    .addField("Commands", lmao.fun)
+    .addField("Commands", cmdmap.fun.join(' '))
     .setImage("https://media.discordapp.net/attachments/779867901246570549/790350270781063188/Hammy_Fun.png?width=1025&height=342")
     .setFooter("Copyright © 2020 HamBot")
  
@@ -88,7 +76,7 @@ module.exports = {
     .setTitle(":dolphin:  Fun Commands")
     .setColor("#ffb6c1")
     .setDescription("This is a fun category with some fun commands, many coming soon! **React** with :house: to get back to the main page.")
-    .addField("Commands", lmao.giveaways)
+    .addField("Commands", cmdmap.giveaways.join(' '))
     .setImage("https://media.discordapp.net/attachments/779867901246570549/790350270781063188/Hammy_Fun.png?width=1025&height=342")
     .setFooter("Copyright © 2020 HamBot")
  
