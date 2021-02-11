@@ -2,5 +2,7 @@
     "token": "Your Bot Token",
     "prefix": "Your Prefix",
     "mongouri": "Your MongoDB uri",
-    "ownerIds" : ["the bot owner IDS", "like this", "these can be as many ids as you want"]
+    "ownerIds" : ["the bot owner IDS", "like this", "these can be as many ids as you want"],
+    "topggapi": false,
+    "toptoken": "only put something here if you set topggapi to true"
 }
