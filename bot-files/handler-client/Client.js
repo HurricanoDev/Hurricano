@@ -37,7 +37,8 @@ client.on('message', async message => {
     if (message.content.match(prefixMention)) {
     return message.channel.send(embed);
  }
- if(message.author.bot || message.channel.type === "dm") return;
+ if(message.author.bot) return;
+ if (message.channel.type == "dm") return message.channel.send("Dude, use my commands in servers only! My commands do not work here!"); 
  if (!message.content.startsWith(prefix)) return;
   const args = message.content.slice(prefix.length).trim().split(/ +/g);
   const cmd = args.shift().toLowerCase();
@@ -90,5 +91,4 @@ const connectmongo = async () => {
     })
   } 
 connectmongo()
-
 module.exports = client;
