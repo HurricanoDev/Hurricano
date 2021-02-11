@@ -33,10 +33,6 @@ evtFiles.forEach(file => {
   client.on(eventName, event.bind(null, client));
 });
 }
-client.on('ready', () => {
-   client.user.setActivity({ name:`${config.prefix}help`, type: 'STREAMING', url: 'https://twitch.tv/Pewdiepie'});
-   console.log(`${client.user.username} Successfully Logged in!`);
-})
 if (config.topggapi === true) {
 	let DBL = require("dblapi.js");
     let dbl = new DBL(config.toptoken, client);
