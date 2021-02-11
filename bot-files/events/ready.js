@@ -21,6 +21,7 @@ module.exports = async (client) => { //ready event
       }
     })
   
+   client.connectMongo()
    client.user.setActivity({ name:`${config.prefix}help`, type: 'STREAMING', url: 'https://twitch.tv/Pewdiepie'});
    console.log(`${client.user.username} Successfully Logged in!`);
   }

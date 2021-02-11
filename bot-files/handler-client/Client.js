@@ -6,7 +6,7 @@ const mongoconnect = require('../utilities/mongoconnect.js')
 const mongoose = require('mongoose');
 
 
-const connectmongo = async () => {
+clinet.connectmongo = async function (){
   await mongoconnect().then((mongoose) => {
     try {
       console.log('MongoDB Connected!')
@@ -15,5 +15,5 @@ const connectmongo = async () => {
     }
     })
   } 
-connectmongo()
+
 module.exports = client;
