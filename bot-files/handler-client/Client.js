@@ -5,8 +5,7 @@ const guildPrefixes = {};
 const mongoconnect = require('../utilities/mongoconnect.js')
 const mongoose = require('mongoose');
 
-
-clinet.connectmongo = async function (){
+client.connectmongo = async () => {
   await mongoconnect().then((mongoose) => {
     try {
       console.log('MongoDB Connected!')
@@ -15,5 +14,5 @@ clinet.connectmongo = async function (){
     }
     })
   } 
-
+connectmongo()
 module.exports = client;
