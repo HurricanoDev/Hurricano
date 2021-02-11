@@ -82,14 +82,9 @@ module.exports = {
  
 
     let helpMenu = new Menu(message.channel, message.author.id, [
-            // Each object in this array is a unique page.
             {
-                // A page object consists of a name, used as a destination by reactions...
                 name: 'main',
-                // A MessageEmbed to actually send in chat, and...
                 content: main,
-                // A set of reactions with destination names attached.
-                // Note there's also special destination names (read below)
                 reactions: {
                     '🎲': 'config',
                     '📇': 'information',
@@ -133,12 +128,7 @@ module.exports = {
                     '🐬': 'fun',
                 }
             },
-            // The last parameter is the number of milliseconds you want the menu to collect reactions for each page before it stops to save resources
-            // The timer is reset when a user interacts with the menu.
-            // This is optional, and defaults to 180000 (3 minutes).
         ], 15000)
-        // Run Menu.start() when you're ready to send the menu in chat.
-        // Once sent, the menu will automatically handle everything else.
         helpMenu.start()
   }
 }
