@@ -14,5 +14,5 @@ client.connectmongo = async () => {
     }
     })
   } 
-connectmongo()
+client.connectmongo()
 module.exports = client;
