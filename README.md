@@ -20,7 +20,7 @@ How to host this bot.
 - Using GitHub cli and doing `gh repo clone DragonNightBot/DragonNight`
 3. Run `npm i` in the bot directory.
 4. Configure [config.json](https://github.com/DragonNightBot/DragonNight/blob/main/config.json)
-5. Run the bot by using `node index`, `node index` or `node .`!
+5. Run the bot by using `node index`, `node index.js` or `node .`!
 
 Please respect the [LICENSE](https://github.com/DragonNightBot/DragonNight/blob/main/LICENSE.md).
 
