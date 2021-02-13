@@ -6,6 +6,9 @@ const intents = new Intents();
 const client = require('./bot-files/handler-client/Client.js');
 const giveaway = require('./bot-files/schemas/giveaway.js');
 const { readdirSync } = require("fs");
+// website initialization
+require('./website/index.js');
+// over
 intents.add(
 	'GUILD_PRESENCES',
 	'GUILD_MEMBERS',

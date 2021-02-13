@@ -3,6 +3,10 @@
     "prefix": "Your Prefix",
     "mongouri": "Your MongoDB uri",
     "ownerIds" : ["the bot owner IDS", "like this", "these can be as many ids as you want"],
+    "website": {
+    "ip": "Your website IP.",
+    "port": "Your website port."
+},
     "topggapi": false,
     "toptoken": "only put something here if you set topggapi to true"
 }
