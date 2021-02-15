@@ -33,6 +33,5 @@ This bot is currently a work in progress, don't expect much here yet!
 Bot developed by:
 * [Dragonizedpizza](https://github.com/Dragonizedpizza)
 * [Militia21](https://github.com/Militia21)
-* [Anogh297](https://github.com/Anogh297)
-\n Website developed by:
+* [Anogh297](https://github.com/Anogh297) \n Website developed by:
 * [NightZan999](https://github.com/NightZan999)
