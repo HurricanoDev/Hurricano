@@ -34,5 +34,5 @@ Bot developed by:
 * [Dragonizedpizza](https://github.com/Dragonizedpizza)
 * [Militia21](https://github.com/Militia21)
 * [Anogh297](https://github.com/Anogh297)
-Website developed by:
+\n Website developed by:
 * [NightZan999](https://github.com/NightZan999)
