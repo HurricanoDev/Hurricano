@@ -5,6 +5,7 @@ module.exports = {
     ownerOnly: true,
     args: true,
     run: (message, args) => {
+    const client = message.client;
     const input = args.join(' ');
     const embed = new MessageEmbed();
      try {
