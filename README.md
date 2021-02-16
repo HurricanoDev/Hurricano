@@ -6,8 +6,8 @@ An open source Discord bot, with features such as:
 * Args required or not Option
 * Reaction Help Command (using package `discord.js-menu`)
 * Giveaways (using package `discord-giveaways`) which uses MongoDB
-* Setprefix command, using MongoDB
-* ...And some interesting commands!
+* Customizable server settings using MongoDB
+* ...And many interesting commands!
 
 This bot is currently in development, very early stages of it too.
 
@@ -24,7 +24,16 @@ How to host this bot.
 
 Please respect the [LICENSE](https://github.com/DragonNightBot/DragonNight/blob/main/LICENSE.md).
 
-This bot is currently a work in progress, don't expect much here!
+This bot is currently a work in progress, don't expect much here yet!
 
 [Support Server](https://discord.gg/dNc3EvABCA)
 [Invite](https://discord.com/oauth2/authorize?client_id=803169312827113483&permissions=8&scope=bot)
+
+## Credits
+Bot developed by:
+* [Dragonizedpizza](https://github.com/Dragonizedpizza)
+* [Militia21](https://github.com/Militia21)
+* [Anogh297](https://github.com/Anogh297)
+
+Website developed by:
+* [NightZan999](https://github.com/NightZan999)
