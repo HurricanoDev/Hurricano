@@ -12,9 +12,6 @@ module.exports = async (client) => { //ready event
           const prefix =  result ? result.prefix : config.prefix
            client.prefixes.set(guild.id, prefix)
            const guildId = guild.id;
-           module.exports.updateCache = (guildId, newPrefix) => {
-             client.prefixes.set(guildId) = newPrefix
-           }
         }}
        finally {
         mongoose.connection.close()

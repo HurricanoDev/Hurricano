@@ -2,6 +2,11 @@ module.exports = async (client, message) => {
   const Discord = require('discord.js');
   const { MessageEmbed } = require('discord.js'); 
   const config = require('../../config.json'); 
+const { author } = message
+
+if (message.channel.type == "dm") return; 
+  if (!message.guild) return;
+if(author.bot) return;
   const guildId = message.guild.id;
   const emojis = require('../utilities/emojis.json');
   const prefixRegex = new RegExp(`^(<@!?${client.user.id}>|${client.prefixes.get(guildId).replace(/[.*+?^${}()|[\]\\]/g, '\\$&')})\\s*`);
@@ -16,23 +21,19 @@ module.exports = async (client, message) => {
     (message.content === `<@${client.user.id}>` || message.content === `<@!${client.user.id}>`)) {
   return message.channel.send(embed);
 }
-const author = message.author; 
 const argsEmbed = new MessageEmbed()
 .setTitle(`${emojis.fail} Missing Arguments`)
 .setColor('#FF0000')
-.setDescription(`You did not provide all the arguments ${author.mention}`); 
+.setDescription(`You did not provide all the arguments ${author.toString()}`); 
 const ownerFailEmbed = new MessageEmbed()
 .setTitle(`${emojis.fail} Not Owner Error`)
 .setColor("#FF0000")
-.setDescription(`You are not an owner of DragonNight ${author.mention}`); 
+.setDescription(`You are not an owner of DragonNight ${author.toString()}`); 
 const [, match] = message.content.match(prefixRegex);
-if(author.bot) return;
-if (message.channel.type == "dm") return message.channel.send("Dude, use my commands in servers only! My commands do not work here!"); 
 if (!message.content.startsWith(match)) return;
 const args = message.content.slice(match.length).trim().split(/ +/g);
 const cmd = args.shift().toLowerCase();
 
-if (!message.guild) return;
 if (cmd.length == 0) return;
 const command = client.commands.get(cmd);
 let checkAdmin = config.ownerIds.includes(author.id);

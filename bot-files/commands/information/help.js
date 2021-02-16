@@ -39,41 +39,41 @@ module.exports = {
     //-------------------------------------
  
     const config = new MessageEmbed()
-    .setTitle(":game_die:  Important Commands")
+    .setAuthor('Configuration!', 'https://raw.githubusercontent.com/DragonNightBot/DragonNightImages/master/SetAuthorEmojis/Config.png')
     .setColor("#ffb6c1")
     .setDescription("The most important commands in the bot such as support, help, invite etc. **React** with :house: to get back to the main page.")
     .addField("Commands", cmdmap.config.join(' '))
-    .setImage("https://media.discordapp.net/attachments/779867901246570549/790356472935743518/Hammy_Important.jpg?width=1025&height=342")
-    .setFooter("Copyright © 2020 HjsamBot")
+    .setImage("https://raw.githubusercontent.com/DragonNightBot/DragonNightImages/master/categories/Config.jpg")
+    .setFooter("Copyright DragonNight™")
  
     //--------------------------------------
 
     const information = new MessageEmbed()
-    .setTitle(":card_index:  Information Commands")
+    .setAuthor('Information!', 'https://raw.githubusercontent.com/DragonNightBot/DragonNightImages/master/SetAuthorEmojis/Information.png')
     .setColor("#ffb6c1")
     .setDescription("Shows information about users, servers, bots, maybe some other things too! **React** with :house: to get back to the main page.")
     .addField("Commands", cmdmap.information.join(' '))
-    .setImage("https://media.discordapp.net/attachments/779867901246570549/790035545522438184/Hammy_Information.png?width=1025&height=342")
-    .setFooter("Copyright © 2020 HamBot")
+    .setImage("https://raw.githubusercontent.com/DragonNightBot/DragonNightImages/master/categories/Information.jpg")
+    .setFooter("Copyright DragonNight™")
  
     //---------------------------------------
  
     const fun = new MessageEmbed()
-    .setTitle(":dolphin:  Fun Commands")
+    .setAuthor('Fun!', 'https://raw.githubusercontent.com/DragonNightBot/DragonNightImages/master/SetAuthorEmojis/Fun.png')
     .setColor("#ffb6c1")
     .setDescription("This is a fun category with some fun commands, many coming soon! **React** with :house: to get back to the main page.")
     .addField("Commands", cmdmap.fun.join(' '))
     .setImage("https://media.discordapp.net/attachments/779867901246570549/790350270781063188/Hammy_Fun.png?width=1025&height=342")
-    .setFooter("Copyright © 2020 HamBot")
+    .setFooter("Copyright DragonNight™")
  
     //-----------------------------------------
     const giveaways = new MessageEmbed()
-    .setTitle(":dolphin:  Fun Commands")
+    .setAuthor('Giveaways!', 'https://raw.githubusercontent.com/DragonNightBot/DragonNightImages/master/SetAuthorEmojis/Giveaway.gif')
     .setColor("#ffb6c1")
     .setDescription("This is a fun category with some fun commands, many coming soon! **React** with :house: to get back to the main page.")
     .addField("Commands", cmdmap.giveaways.join(' '))
-    .setImage("https://media.discordapp.net/attachments/779867901246570549/790350270781063188/Hammy_Fun.png?width=1025&height=342")
-    .setFooter("Copyright © 2020 HamBot")
+    .setImage("https://raw.githubusercontent.com/DragonNightBot/DragonNightImages/master/categories/Giveaway.jpg")
+    .setFooter("Copyright DragonNight™")
  
 
     let helpMenu = new Menu(message.channel, message.author.id, [

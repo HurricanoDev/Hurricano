@@ -13,6 +13,5 @@ client.connectmongo = async () => {
       mongoose.connection.close()
     }
     })
-  } 
-client.connectmongo()
+  }
 module.exports = client;

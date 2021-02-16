@@ -1,13 +1,16 @@
 const { Collection, Intents, MessageEmbed } = require('discord.js');
 const Discord = require('discord.js');
 const fs = require('fs');
+const config = require('./config.json');
 const ms = require('ms');
 const intents = new Intents();
 const client = require('./bot-files/handler-client/Client.js');
 const giveaway = require('./bot-files/schemas/giveaway.js');
 const { readdirSync } = require("fs");
 // website initialization
+if (config.website.enabled === true) {
 require('./website/index.js');
+}
 // over
 intents.add(
 	'GUILD_PRESENCES',
@@ -17,7 +20,6 @@ intents.add(
 	'GUILD_MESSAGES',
 	'GUILD_MESSAGE_REACTIONS'
 );
-const config = require('./config.json');
 client.config = config;
 client.commands = new Collection();
 client.aliases = new Collection();
