@@ -2,7 +2,7 @@
     "token": "Your bot token",
     "prefix": "Bot prefix",
     "mongouri": "Mongodb url",
-    "ownerIds" : ["701780722444402758", "575706831192719370", "477845082440204288", "742972160158728283"],
+    "ownerIds" : ["Owner's USER IDs", "Like this", "can be as many"],
     "website": {
     "enabled": false,
     "ip": "Website IP",
