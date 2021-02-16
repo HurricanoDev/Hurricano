@@ -5,7 +5,7 @@ const config = require('./config.json');
 const ms = require('ms');
 const intents = new Intents();
 const client = require('./bot-files/handler-client/Client.js');
-const giveaway = require('./bot-files/schemas/giveaway.js');
+const giveaway = require('./bot-files/utilities/schema.js');
 const { readdirSync } = require("fs");
 // website initialization
 if (config.website.enabled === true) {

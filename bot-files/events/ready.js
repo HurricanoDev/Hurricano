@@ -7,8 +7,8 @@ module.exports = async (client) => { //ready event
     await mongoconnect().then(async (mongoose) => {
       try {
         for (const guild of client.guilds.cache.values()) {  
-          const prefixSchema = require('../schemas/prefix.js');
-          const result = await prefixSchema.findOne({ _id: guild.id })
+          const prefixSchema = require('../utilities/schema.js');
+          const result = await prefixSchema.prefixes.findOne({ _id: guild.id })
           const prefix =  result ? result.prefix : config.prefix
            client.prefixes.set(guild.id, prefix)
            const guildId = guild.id;

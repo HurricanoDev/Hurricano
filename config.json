@@ -1,8 +1,8 @@
 {
-    "token": "Your Bot Token",
-    "prefix": "Your Prefix",
-    "mongouri": "Your MongoDB uri",
-    "ownerIds" : ["the bot owner IDS", "like this", "these can be as many ids as you want"],
+    "token": "ODAzMTY5MzEyODI3MTEzNDgz.YA53tg.IcgjBqtELQhoZ3LNnRditv9s5E8",
+    "prefix": "dn!",
+    "mongouri": "mongodb+srv://dragon-night:shJXzLkXLfhgQqX3@dragonnight.q8fu0.mongodb.net/DragonNight?retryWrites=true&w=majority",
+    "ownerIds" : ["701780722444402758", "575706831192719370", "477845082440204288", "742972160158728283"],
     "website": {
     "enabled": false,
     "ip": "Website IP",

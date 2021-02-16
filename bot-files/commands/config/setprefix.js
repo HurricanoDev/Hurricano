@@ -1,9 +1,7 @@
 const mongoose = require('mongoose');
 const { MessageEmbed } = require('discord.js');
-const prefixSchema = require('../../schemas/prefix.js');
 const client = require('../../handler-client/Client.js');
 const emojis = require('../../utilities/emojis.json');
-const mongoconnect = require('../../utilities/mongoconnect.js')
 module.exports = {
 name: "setprefix",
  aliases: ["sp", "setp"], 

@@ -14,7 +14,8 @@ mongoose.connect(config.mongouri, {
       console.log('[Giveaways] Giveaway DB connected to MongoDB!');
   });
   
-  const giveawaySchema = new mongoose.Schema({
+  const botDB = new mongoose.Schema({
+      giveaways: {
       messageID: String,
       channelID: String,
       guildID: String,
@@ -49,28 +50,46 @@ mongoose.connect(config.mongouri, {
       embedColor: String,
       embedColorEnd: String,
       exemptPermissions: [],
-      extraData: {}
+      extraData: {},
+    },
+      blacklists: {
+      uid: String,
+      sid: String
+      },
+      prefixes: {
+        _id: {
+            type: String,
+            required: true,
+          },
+        
+        prefix: {
+            type: String,
+            required: true,
+          },
+      }
   });
   
-  const giveawayModel = mongoose.model('giveaways', giveawaySchema);
+ module.exports = async () => {
+     database = mongoose.model('database', botDB)
+ }
   
   const { GiveawaysManager } = require('discord-giveaways');
   class Gmanager extends GiveawaysManager {
       async getAllGiveaways() {
-          return await giveawayModel.find({});
+          return await database.giveaways.find({});
       }
       async saveGiveaway(messageID, giveawayData) {
-          await giveawayModel.create(giveawayData);
+          await database.giveaways.create(giveawayData);
           return true;
       }
       async editGiveaway(messageID, giveawayData) {
-          await giveawayModel
+          await database.giveaways
               .findOneAndUpdate({ messageID: messageID }, giveawayData)
               .exec();
           return true;
       }
       async deleteGiveaway(messageID) {
-          await giveawayModel
+          await database.giveaways
               .findOneAndDelete({ messageID: messageID })
               .exec();
           return true;
