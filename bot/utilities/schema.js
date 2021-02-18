@@ -56,17 +56,6 @@ mongoose.connect(config.mongouri, {
       uid: String,
       sid: String
       },
-      prefixes: {
-        _id: {
-            type: String,
-            required: true,
-          },
-        
-        prefix: {
-            type: String,
-            required: true,
-          },
-      }
   });
   
  module.exports = async () => {
