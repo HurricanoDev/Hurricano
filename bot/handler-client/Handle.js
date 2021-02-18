@@ -5,8 +5,8 @@ const ascii = require("ascii-table");
 let table = new ascii("Commands");
 table.setHeading("Command File", "Command Name", "Load status");
 module.exports = client => {
-  readdirSync("./bot-files/commands").forEach(dir => {
-    const commands = readdirSync(`./bot-files/commands/${dir}/`).filter(file =>
+  readdirSync("./bot/commands").forEach(dir => {
+    const commands = readdirSync(`./bot/commands/${dir}/`).filter(file =>
       file.endsWith(".js")
     );
     for (let file of commands) {

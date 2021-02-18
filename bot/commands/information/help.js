@@ -2,8 +2,8 @@ const { MessageEmbed } = require("discord.js");
 const { Menu } = require('discord.js-menu')
 const { readdirSync } = require('fs');
 const cmdmap = {};
-readdirSync("./bot-files/commands").forEach(dir => {
-   readdirSync(`./bot-files/commands/${dir}/`).filter(file =>
+readdirSync("./bot/commands").forEach(dir => {
+   readdirSync(`./bot/commands/${dir}/`).filter(file =>
      file.endsWith(".js")).forEach(cmds => {
         if (cmdmap[dir] == undefined) {
             cmdmap[dir] = []

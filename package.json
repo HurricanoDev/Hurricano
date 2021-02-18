@@ -29,7 +29,6 @@
     "superagent": "^6.1.0"
   },
   "_moduleAliases": {
-    "@schemas": "./bot-files/schemas",
     "@config": "./config.json"
   }
 }

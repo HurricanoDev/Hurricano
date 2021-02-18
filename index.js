@@ -4,8 +4,8 @@ const fs = require('fs');
 const config = require('./config.json');
 const ms = require('ms');
 const intents = new Intents();
-const client = require('./bot-files/handler-client/Client.js');
-const giveaway = require('./bot-files/utilities/schema.js');
+const client = require('./bot/handler-client/Client.js');
+const giveaway = require('./bot/utilities/schema.js');
 const { readdirSync } = require("fs");
 // website initialization
 if (config.website.enabled === true) {
@@ -24,17 +24,17 @@ client.config = config;
 client.commands = new Collection();
 client.aliases = new Collection();
 client.cooldowns = new Collection();
-readdirSync("./bot-files/commands");
+readdirSync("./bot/commands");
 ["command"].forEach(handler => {
-    require(`./bot-files/handler-client/Handle.js`)(client);
+    require(`./bot/handler-client/Handle.js`)(client);
 });
 const init = async () => {
-const evtFiles = await readdirSync("./bot-files/events/");
+const evtFiles = await readdirSync("./bot/events/");
 console.log(`Loading a total of ${evtFiles.length} events.`);
 evtFiles.forEach(file => {
   const eventName = file.split(".")[0];
   console.log(`Loading Event: ${eventName}`);
-  const event = require(`./bot-files/events/${file}`);
+  const event = require(`./bot/events/${file}`);
   client.on(eventName, event.bind(null, client));
 });
 }
