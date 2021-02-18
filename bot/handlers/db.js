@@ -1,6 +1,6 @@
 require('module-alias/register');
 const mongoose = require('mongoose');
-const client = require('@root/index.js');
+const client = global.client;
 const mongoPath = require('@config').mongouri;
 
 module.exports = {

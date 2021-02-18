@@ -2,13 +2,12 @@ const ms = require("ms");
 const num = require("num-parse");
 const emojis = require('../../utilities/emojis.json');
 const config = require('../../../config.json');
-const client = require('@root/bot/Client.js');
-
 module.exports = {
   name: "gstart",
   aliases: ['gs', 'giveawaystart', 'g-start', 'giveaway', 'gcreate'],
   description: "Starts a giveaway!",
   run: async(message, args) => {
+      const client = message.client;
       if (!message.member.hasPermission("MANAGE_GUILD") && !message.member.roles.cache.includes(r => r.name.toLowerCase() === "Giveaway Manager")) {
 return message.channel.send({ embed: {
     title: "An Error Occured.",

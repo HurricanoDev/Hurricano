@@ -4,7 +4,7 @@ module.exports = {
   name: "invite",
   aliases: ["inv"],
   description: "Invite The Bot!",
-  run: async (message, args) => {
+  run: async (message) => {
 
     const embed = new Discord.MessageEmbed()
     .setAuthor("Invite DragonNight")

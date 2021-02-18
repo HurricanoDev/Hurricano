@@ -16,7 +16,6 @@ module.exports = {
   description: "Shows the commands list and also specific command categories/commands!",
   aliases: ["cmd", "commands", "h"],
   run: async (message, args) => {
- const client = require('@root/bot/Client.js');
     let tips = ["Tips..."]
  
     let TIP = Math.floor(Math.random() * tips.length);
@@ -34,7 +33,7 @@ module.exports = {
     .addField("> :card_index:  Information", "Shows information about users, servers, bots, maybe some other things too!", inline)
     .addField("> :hammer:  Moderation", "Make your life easier with my moderation module.", inline)
     .addField(":bulb:  TIP:", `${Fact}`)
-    .setFooter("Copyright © 2020 HamBot")
+    .setFooter("Copyright DragonNight™")
  
     //-------------------------------------
  

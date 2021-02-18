@@ -40,9 +40,11 @@ if (!message.member) message.member = await message.guild.fetchMember(message);
  if (command.permissions) {
   const authorPerms = message.channel.permissionsFor(author);
    if (!authorPerms || !authorPerms.has(command.permissions)) {
-   return message.reply(new MessageEmbed().setTitle('Permission Error.').setDescription(`Stop disturbing me bro, you require the \`${command.permissions}\` permission to use that command...`)
+   return message.reply(new MessageEmbed()
+   .setTitle('Permission Error.')
+   .setDescription(`Stop disturbing me bro, you require the \`${command.permissions.join(", ")}\` permission(s) to use that command...`)
    .setFooter('Smh, imagine trying to use a command without having the perms-'));
-   }
+  } 
 }
 if (command.args && !args.length) {
   return message.channel.send(argsEmbed);
