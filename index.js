@@ -1,3 +1,4 @@
+require('module-alias/register');
 const { Intents } = require('discord.js');
 const Client = require('./bot/Client.js');
 const config = require('./config.json')
@@ -11,7 +12,6 @@ intents.add(
 	'GUILD_MESSAGE_REACTIONS'
 );
 const client = new Client(config, { ws: { intents: intents } })
-global.client = client;
 
 // website initialization
 if (client.config.website.enabled) {
@@ -26,3 +26,5 @@ function init(){
 }
 
 init();
+
+module.exports = client;

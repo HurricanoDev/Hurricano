@@ -2,7 +2,7 @@ const ms = require("ms");
 const num = require("num-parse");
 const emojis = require('../../utilities/emojis.json');
 const config = require('../../../config.json');
-const client = require('../../handler-client/Client.js');
+const client = require('@root/bot/Client.js');
 
 module.exports = {
   name: "gstart",

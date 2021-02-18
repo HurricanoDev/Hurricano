@@ -1,5 +1,5 @@
 const mongoose = require('mongoose')
-
+const config = require('@config');
 module.exports = async (client) => { 
   //find and create data
   for (const guild of client.guilds.cache.values()) {

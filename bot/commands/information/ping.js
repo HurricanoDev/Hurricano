@@ -1,5 +1,5 @@
 const Discord = require('discord.js')
-const client = require('../../handler-client/Client.js');
+const client = require('@root/bot/Client.js');
 module.exports = {
     name: "ping",
     aliases: ["latency", "pong"],

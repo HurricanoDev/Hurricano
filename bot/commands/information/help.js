@@ -16,7 +16,7 @@ module.exports = {
   description: "Shows the commands list and also specific command categories/commands!",
   aliases: ["cmd", "commands", "h"],
   run: async (message, args) => {
- const client = require('../../handler-client/Client.js');
+ const client = require('@root/bot/Client.js');
     let tips = ["Tips..."]
  
     let TIP = Math.floor(Math.random() * tips.length);

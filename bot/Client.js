@@ -1,6 +1,6 @@
 const Discord = require('discord.js');
 const { readdirSync } = require('fs');
-
+const ascii = require("ascii-table");
 /**
  * Extend Client class
  * @extends Discord.Client
@@ -55,7 +55,7 @@ class Client extends Discord.Client {
      * E m o j i s
      * @type {Object}
      */
-    this.emojis = require('./utilities/emojis.json')
+    this._emojis = require('./utilities/emojis.json')
 
   }
 
@@ -66,7 +66,7 @@ class Client extends Discord.Client {
     evtFiles.forEach(file => {
       const eventName = file.split(".")[0];
       console.log(`Loading Event: ${eventName}`);
-      const event = require(`./bot/events/${file}`);
+      const event = require(`./events/${file}`);
       super.on(eventName, event.bind(null, this));
     });
     }
@@ -76,8 +76,9 @@ class Client extends Discord.Client {
           file.endsWith(".js")
         );
         for (let file of commands) {
-          let pull = require(`../commands/${dir}/${file}`);
+          let pull = require(`./commands/${dir}/${file}`);
           if (pull.name) {
+            let table = new ascii("Commands");
             this.commands.set(pull.name, pull);
             table.addRow(file, pull.name, "Loaded!");
           } else {
