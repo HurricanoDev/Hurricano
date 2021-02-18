@@ -26,6 +26,11 @@ module.exports = {
         getPrefix: async (guildID) => {
             const data = await client.schemas.guild.findOne({ id: guildID })
             return data.prefix;
+        },
+
+        //Updates
+        updatePrefix: async (guildID, newPrefix) => {
+            return await client.schemas.guild.findOneAndUpdate({ id: guildID }, { prefix: newPrefix })
         }
     }
 }
