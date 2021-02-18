@@ -40,6 +40,13 @@ class Client extends Discord.Client {
     this.db = require('./handlers/db.js')
 
     /**
+     * Import Schemas
+     */
+    this.schemas = {
+      guild: require('./schemas/guild')
+    }
+
+    /**
      * Cooldowns
      */
     this.cooldowns = new Discord.Collection();

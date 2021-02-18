@@ -1,18 +1,15 @@
-module.exports = async (client, message) => {
-  const Discord = require('discord.js');
-  const { MessageEmbed } = require('discord.js'); 
-  const config = require('../../config.json'); 
-const { author } = message
+const Discord = require('discord.js');
+const { MessageEmbed } = require('discord.js'); 
+const config = require('../../config.json'); 
 
-if (message.channel.type == "dm") return; 
-  if (!message.guild) return;
-if(author.bot) return;
-  const guildId = message.guild.id;
-  const emojis = require('../utilities/emojis.json');
-  const prefixRegex = new RegExp(`^(<@!?${client.user.id}>|${client.prefixes.get(guildId).replace(/[.*+?^${}()|[\]\\]/g, '\\$&')})\\s*`);
-    const embed = new Discord.MessageEmbed()
+module.exports = async (client, message) => {
+ if (message.author.bot || message.channel.type == "dm") return; 
+  const prefix = await client.db.guild.getPrefix(message.guild.id)
+  const emojis = client.emojis;
+  const prefixRegex = new RegExp(`^(<@!?${client.user.id}>|${prefix.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')})\\s*`);
+    const embed = new MessageEmbed()
   .setAuthor("Hello!", "https://media.discordapp.net/attachments/803204453321670700/804186498688876584/circle-cropped_20.png")
-  .setDescription(`Hello! I'm **DragonNight™**. My prefix is \`${client.prefixes.get(guildId)}\`. I have a variety of commands you can use which you can view by doing \`${client.prefixes.get(message.guild.id)}help\`! If you want to view information about me please do \`dn!bot!info\`. That's it for now, bye and have a great time!`)
+  .setDescription(`Hello! I'm **DragonNight™**. My prefix is \`${prefix}\`. I have a variety of commands you can use which you can view by doing \`${client.prefixes.get(message.guild.id)}help\`! If you want to view information about me please do \`dn!bot!info\`. That's it for now, bye and have a great time!`)
   .setColor("#034ea2")
   .setImage("https://media.discordapp.net/attachments/803204453321670700/804187690362732565/Untitled_6.jpg?width=1025&height=342")
   .setFooter(`© DragonNight™ v1.0.0`)
@@ -43,7 +40,7 @@ if (!message.member) message.member = await message.guild.fetchMember(message);
  if (command.permissions) {
   const authorPerms = message.channel.permissionsFor(author);
    if (!authorPerms || !authorPerms.has(command.permissions)) {
-   return message.reply(new Discord.MessageEmbed().setTitle('Permission Error.').setDescription(`Stop disturbing me bro, you require the \`${command.permissions}\` permission to use that command...`)
+   return message.reply(new MessageEmbed().setTitle('Permission Error.').setDescription(`Stop disturbing me bro, you require the \`${command.permissions}\` permission to use that command...`)
    .setFooter('Smh, imagine trying to use a command without having the perms-'));
    }
 }
@@ -69,7 +66,7 @@ if (command.args && !args.length) {
     }
   }
   timestamps.set(author.id, now);
-setTimeout(() => timestamps.delete(author.id), cooldownAmount);
+    setTimeout(() => timestamps.delete(author.id), cooldownAmount);
 
   if (!command) command = client.commands.get(client.aliases.get(cmd));
   if (command) command.run(message, args)
