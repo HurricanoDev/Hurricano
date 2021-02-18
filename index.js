@@ -21,6 +21,7 @@ function init(){
 	client.loadCommands()
 	client.loadEvents()
 	client.loadTopgg()
+	client.db.init()
 	client.login(client.token);
 }
 
