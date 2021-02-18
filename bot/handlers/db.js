@@ -1,6 +1,5 @@
 require('module-alias/register');
 const mongoose = require('mongoose');
-const client = global.client;
 const mongoPath = require('@config').mongouri;
 
 module.exports = {
@@ -21,17 +20,17 @@ module.exports = {
     //Guild functions
     guild: {
         getInfo: async (guildID) => {
-            const data = await client.schemas.guild.findOne({ id: guildID })
+            const data = await global.client.schemas.guild.findOne({ id: guildID })
             return data;
         },
         getPrefix: async (guildID) => {
-            const data = await client.schemas.guild.findOne({ id: guildID })
+            const data = await global.client.schemas.guild.findOne({ id: guildID })
             return data.prefix;
         },
 
         //Updates
         updatePrefix: async (guildID, newPrefix) => {
-            return await client.schemas.guild.findOneAndUpdate({ id: guildID }, { prefix: newPrefix })
+            return await global.client.schemas.guild.findOneAndUpdate({ id: guildID }, { prefix: newPrefix })
         }
     }
 }
