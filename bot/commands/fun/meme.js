@@ -1,58 +1,24 @@
-const https = require("https");
-const { MessageEmbed } = require("discord.js");
-const url = "https://www.reddit.com/r/meme/hot/.json?limit=100";
+const { MessageEmbed } = require('discord.js');
+const fetch = require('node-fetch');
+
 module.exports = {
-  name: "meme",
-  cooldown: 7,
-  args: false,
-  ownerOnly: true,
-  description: "Gets a random meme.",
-  run: async(message, args) => {
-    https.get(url, (result) => {
-      var body = "";
-      result.on("data", (chunk) => {
-        body += chunk;
-      });
-
-      result
-        .on("end", () => {
-          var response = JSON.parse(body);
-          var index =
-            response.data.children[Math.floor(Math.random() * 99) + 1].data;
-
-          if (index.post_hint !== "image") {
-            var text = index.selftext;
-            const textembed = new MessageEmbed()
-              .setTitle(subRedditName)
-              .setColor('#034ea2')
-              .setDescription(`[${title}](${link})\n\n${text}`)
-              .setURL(`https://reddit.com/${subRedditName}`)
-
-            message.channel.send(textembed);
-          }
-          var image = index.preview.images[0].source.url.replace("&amp;", "&");
-          var title = index.title;
-          var link = "https://reddit.com" + index.permalink;
-          var subRedditName = index.subreddit_name_prefixed;
-
-          if (index.post_hint !== "image") {
-            const textembed = new MessageEmbed()
-              .setTitle(subRedditName)
-              .setColor(message.guild.me.displayHexColor)
-              .setDescription(`[${title}](${link})\n\n${text}`)
-              .setURL(`https://reddit.com/${subRedditName}`)
-
-            message.channel.send(textembed);
-          }
-          const imageembed = new MessageEmbed()
-            .setTitle(subRedditName)
-            .setImage(image)
-            .setColor("#034ea2")
-            .setDescription(`[${title}](${link})`)
-            .setURL(`https://reddit.com/${subRedditName}`)
-          message.channel.send(imageembed);
-        })
-        .on("error", console.error);
-    });
-  },
+      name: 'meme',
+      description: 'Displays a random meme from the `memes`, `dankmemes`, or `me_irl` subreddits.',
+      run: async (message, args) => {
+    try {
+      let res = await fetch('https://meme-api.herokuapp.com/gimme');
+      res = await res.json();
+      const embed = new MessageEmbed()
+        .setTitle(res.title)
+        .setDescription(`Subreddit: r/${res.subreddit} \n Link: ${res.postLink}`)
+        .setURL(res.postLink)
+        .setImage(res.url)
+        .setFooter(message.member.displayName, `${res.ups}`)
+        .setTimestamp()
+	      .setColor('#0099ff')
+      message.channel.send(embed);
+    } catch (err) {
+      message.channel.send(`Oops! Something went wrong. Error: \n ${err.message}`)
+    }
+  }
 };
