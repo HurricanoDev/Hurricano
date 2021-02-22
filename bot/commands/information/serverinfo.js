@@ -8,6 +8,6 @@ module.exports = {
         em.setTitle(`Info about ${message.guild}`); 
         em.setColor("#FF0000"); 
         em.addField('Owner:', `${message.guild.owner}`)
-        message.channel.send(em); 
+        message.reply(em); 
     }
 }

@@ -5,18 +5,19 @@ const config = require('../../config.json');
 module.exports = async (client, message) => {
  if (message.author.bot || message.channel.type == "dm") return; 
   const prefix = await client.db.guild.getPrefix(message.guild.id)
-  const emojis = client.emojis;
+  const emojis = client._emojis;
+  const { author } = message;
   const prefixRegex = new RegExp(`^(<@!?${client.user.id}>|${prefix.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')})\\s*`);
     const embed = new MessageEmbed()
   .setAuthor("Hello!", "https://media.discordapp.net/attachments/803204453321670700/804186498688876584/circle-cropped_20.png")
-  .setDescription(`Hello! I'm **DragonNight™**. My prefix is \`${prefix}\`. I have a variety of commands you can use which you can view by doing \`${client.prefixes.get(message.guild.id)}help\`! If you want to view information about me please do \`dn!bot!info\`. That's it for now, bye and have a great time!`)
+  .setDescription(`Hello! I'm **DragonNight™**. My prefix is \`${prefix}\`. I have a variety of commands you can use which you can view by doing \`${prefix}help\`! If you want to view information about me please do \`dn!bot!info\`. That's it for now, bye and have a great time!`)
   .setColor("#034ea2")
   .setImage("https://media.discordapp.net/attachments/803204453321670700/804187690362732565/Untitled_6.jpg?width=1025&height=342")
   .setFooter(`© DragonNight™ v1.0.0`)
   if (prefixRegex.test(message.content)) {
   if ( 
     (message.content === `<@${client.user.id}>` || message.content === `<@!${client.user.id}>`)) {
-  return message.channel.send(embed);
+  return message.reply(embed);
 }
 const argsEmbed = new MessageEmbed()
 .setTitle(`${emojis.fail} Missing Arguments`)
@@ -34,7 +35,7 @@ const cmd = args.shift().toLowerCase();
 if (cmd.length == 0) return;
 const command = client.commands.get(cmd);
 let checkAdmin = config.ownerIds.includes(author.id);
-if (command.ownerOnly === true && !checkAdmin) return message.channel.send(ownerFailEmbed);
+if (command.ownerOnly === true && !checkAdmin) return message.reply(ownerFailEmbed);
 
 if (!message.member) message.member = await message.guild.fetchMember(message);
  if (command.permissions) {
@@ -47,7 +48,7 @@ if (!message.member) message.member = await message.guild.fetchMember(message);
   } 
 }
 if (command.args && !args.length) {
-  return message.channel.send(argsEmbed);
+  return message.reply(argsEmbed);
   }
   if (!client.cooldowns.has(command.name)) {
     client.cooldowns.set(command.name, new Discord.Collection());

@@ -10,13 +10,13 @@ module.exports = {
       res = await res.json();
       const embed = new MessageEmbed()
         .setTitle(res.title)
-        .setDescription(`Subreddit: r/${res.subreddit} \n Link: ${res.postLink}`)
+        .setDescription(`Subreddit: [r/${res.subreddit}](https://reddit.com/r/${res.subreddit}) \n Link: ${res.postLink}`)
         .setURL(res.postLink)
         .setImage(res.url)
-        .setFooter(message.member.displayName, `${res.ups}`)
+        .setFooter(`${message.member.displayName} | 👍 ${res.ups}`)
         .setTimestamp()
 	      .setColor('#0099ff')
-      message.channel.send(embed);
+      message.reply(embed);
     } catch (err) {
       message.channel.send(`Oops! Something went wrong. Error: \n ${err.message}`)
     }

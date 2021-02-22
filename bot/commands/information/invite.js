@@ -12,6 +12,6 @@ module.exports = {
     .addField("<:DragonNight_Info:803920668080472144>  Support Server Link", "Click [here](https://discord.gg/dNc3EvABCA) to join the support server.")
     .setColor("#90ee90")
     .setImage("https://media.discordapp.net/attachments/770953232318726144/804251677950869514/Untitled_9.jpg?width=1025&height=342")
-    message.channel.send(embed)
+    message.reply(embed)
   }
 }

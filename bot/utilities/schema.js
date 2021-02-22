@@ -1,4 +1,4 @@
-const client = require('../handler-client/Client.js');
+const client = require('@root/index.js');
 const config = require('../../config.json');
 const mongoose = require('mongoose'); 
 mongoose.connect(config.mongouri, {
@@ -58,10 +58,9 @@ mongoose.connect(config.mongouri, {
       },
   });
   
- module.exports = async () => {
-     database = mongoose.model('database', botDB)
- }
-  
+ module.exports = async (client) => {
+     const database = mongoose.model('database', botDB)
+       
   const { GiveawaysManager } = require('discord-giveaways');
   class Gmanager extends GiveawaysManager {
       async getAllGiveaways() {
@@ -84,7 +83,6 @@ mongoose.connect(config.mongouri, {
           return true;
       }
   }
-  
   const manager = new Gmanager(client, {
       updateCountdownEvery: 6969,
       default: {
@@ -95,3 +93,4 @@ mongoose.connect(config.mongouri, {
       }
   });
   client.giveawaysManager = manager;
+ }

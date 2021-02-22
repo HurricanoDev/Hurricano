@@ -9,21 +9,21 @@ module.exports = {
   run: async(message, args) => {
       const client = message.client;
       if (!message.member.hasPermission("MANAGE_GUILD") && !message.member.roles.cache.includes(r => r.name.toLowerCase() === "Giveaway Manager")) {
-return message.channel.send({ embed: {
+return message.reply({ embed: {
     title: "An Error Occured.",
     description: "Smh, you need the `MANAGE_GUILD` permission or the role `Giveaway Manager` to host a giveaway.",
     color: "#034ea2"
 }})
         } else if (message.author.id === this.ownerId) return true
 
-        if (client.giveawaysManager.giveaways.filter((g) => g.guildID === message.guild.id && !g.ended).length + 1 > 10) return message.channel.send({ embed: {
+        if (client.giveawaysManager.giveaways.filter((g) => g.guildID === message.guild.id && !g.ended).length + 1 > 10) return message.reply({ embed: {
             title: "An Error Occured.",
             description: "Maximum giveaway limit 10 reached for this server! Please try again later.",
             color: "#034ea2",
             footer: {text: "Thanks for hosting so many giveaways with this bot though ;)"}
         }});
         let time = args[0];
-        if (!time) return message.channel.send({ embed: {
+        if (!time) return message.reply({ embed: {
             title: "An Error Occured.",
             description: `You need to mention the giveaway time as well! \n Ex: \`${config.prefix}gstart 1d 1w Discord Nitro\``,
             fields: [
@@ -39,7 +39,7 @@ return message.channel.send({ embed: {
             color: "#034ea2",
             footer: {text: "How do you think I'll host a giveaway without the time given smh?"}
         }})
-        if (ms(time) > ms("20d")) return message.channel.send({ embed: {
+        if (ms(time) > ms("20d")) return message.reply({ embed: {
             title: "An Error Occured.",
             description: `The giveaway duration has to be lesser than 20 days. \n Ex: \`${config.prefix}gstart 1d 1w Discord Nitro\``,
             fields: [
@@ -55,7 +55,7 @@ return message.channel.send({ embed: {
             color: "#034ea2"
         }})
         let winners = args[1];
-        if (!winners) return message.channel.send({ embed: {
+        if (!winners) return message.reply({ embed: {
             title: "An Error Occured.",
             description: `Please provide a valid winner count! \n Ex: \`${config.prefix}gstart 1d 1w Discord Nitro\``,
             fields: [
@@ -72,7 +72,7 @@ return message.channel.send({ embed: {
             footer: {text: "Imagine a giveaway without any winners-"}
         }})
         winners = num(winners, 1);
-        if (winners > 15) return message.channel.send({ embed: {
+        if (winners > 15) return message.reply({ embed: {
             title: "An Error Occured.",
             description: `The giveaway winners should be lesser than 15. \n Ex: \`${config.prefix}gstart 1d 8w Discord Nitro\``,
             fields: [
@@ -88,7 +88,7 @@ return message.channel.send({ embed: {
             color: "#034ea2"
         }})
         let prize = args.slice(2).join(" ");
-        if (!prize) return message.channel.send({ embed: {
+        if (!prize) return message.reply({ embed: {
             title: "An Error Occured.",
             description: `Please mention a valid giveaway prize! \n Ex: \`${config.prefix}gstart 1d 1w Discord Nitro\``,
             fields: [

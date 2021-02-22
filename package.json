@@ -15,6 +15,7 @@
   "license": "ISC",
   "dependencies": {
     "ascii-table": "0.0.9",
+    "canvacord": "^5.0.8",
     "danbot-hosting": "^0.1.6",
     "dblapi.js": "^2.4.1",
     "discord-giveaways": "^4.4.3",
@@ -26,6 +27,7 @@
     "mongoose": "^5.11.13",
     "ms": "^2.1.3",
     "num-parse": "^1.0.1",
+    "sourcebin_js": "0.0.3-ignore",
     "superagent": "^6.1.0"
   },
   "_moduleAliases": {

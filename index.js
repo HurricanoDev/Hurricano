@@ -1,5 +1,6 @@
 require('module-alias/register');
 const { Intents } = require('discord.js');
+require('./bot/utilities/reply.js')
 const Client = require('./bot/Client.js');
 const config = require('./config.json')
 const intents = new Intents();
@@ -13,6 +14,7 @@ intents.add(
 );
 
 const client = new Client(config, { ws: { intents: intents } })
+// require('./bot/utilities/schema.js')(client);
 global.client = client;
 
 // website initialization

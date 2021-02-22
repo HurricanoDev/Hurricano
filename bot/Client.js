@@ -1,7 +1,9 @@
 const Discord = require('discord.js');
-const { readdirSync } = require('fs');
+const { readdirSync, constants } = require('fs');
 const ascii = require("ascii-table");
 const config = require('@config');
+let table = new ascii("Commands");
+table.setHeading("Command File", "Command Name", "Load status");
 /**
  * Extend Client class
  * @extends Discord.Client
@@ -79,7 +81,6 @@ class Client extends Discord.Client {
         for (let file of commands) {
           let pull = require(`./commands/${dir}/${file}`);
           if (pull.name) {
-            let table = new ascii("Commands");
             this.commands.set(pull.name, pull);
             table.addRow(file, pull.name, "Loaded!");
           } else {
@@ -94,6 +95,7 @@ class Client extends Discord.Client {
             pull.aliases.forEach(alias => this.aliases.set(alias, pull.name));
         }
       });
+      console.log(table.toString());
   }
   loadTopgg() {
     if (this.config.topggapi && typeof this.config.topggapi === 'boolean') {
@@ -108,3 +110,4 @@ class Client extends Discord.Client {
   }
 }
 module.exports = Client;
+
