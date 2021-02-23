@@ -1,4 +1,4 @@
-### DragonNight!
+### Hurricano!
 An open source Discord bot, with features such as:
 * Command Cooldowns
 * Command Permissions
