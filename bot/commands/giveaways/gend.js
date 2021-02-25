@@ -1,5 +1,4 @@
 const ms = require("ms");
-const client = require('@root/index.js')
 module.exports = {
       name: 'gend',
       aliases: [, 'giveawayend', 'g-end', 'g-end', 'gfinish'],
@@ -19,7 +18,7 @@ return message.reply({ embed: {
             color: "#034ea2",
             footer: {text: "Pfft, why don't you try to end a giveaway without a message ID?"}
         }});
-        let hasGiveaway = client.giveawaysManager.giveaways.find((g) => g.messageID === id);
+        let hasGiveaway = global.client.giveawaysManager.giveaways.find((g) => g.messageID === id);
         if (!hasGiveaway) return message.reply({ embed: {
             title: "An Error Occured.",
             description: `The giveaway ID you gave me (${id}), is an invalid giveaway ID.`,
@@ -33,11 +32,11 @@ return message.reply({ embed: {
             footer: {text: "Join the support server if you have any more errors!"}
         }});
 
-        client.giveawaysManager.edit(hasGiveaway.messageID, {
+        global.client.giveawaysManager.edit(hasGiveaway.messageID, {
             setEndTimestamp: Date.now()
         })
         .then(() => {
-            message.reply('Giveaway will end in less than ' + (client.giveawaysManager.options.updateCountdownEvery / 1000) + ' seconds...').then(m => m.delete({ timeout: 2000 }));
+            message.reply('Giveaway will end in less than ' + (global.client.giveawaysManager.options.updateCountdownEvery / 1000) + ' seconds...').then(m => m.delete({ timeout: 2000 }));
         })
         .catch((e) => {
             message.reply({ embed: {

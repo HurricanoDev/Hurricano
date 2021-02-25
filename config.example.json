@@ -8,6 +8,8 @@
     "ip": "Website IP",
     "port": "Port"
 },
-    "topggapi": false,
-    "toptoken": "only put something here if you set topggapi to true"
+    "topgg": {
+        "enabled": false,
+        "token": "only put something here if you set top.gg api to true"
+    }
 }

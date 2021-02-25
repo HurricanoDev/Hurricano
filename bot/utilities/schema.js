@@ -1,4 +1,3 @@
-const client = require('@root/index.js');
 const config = require('../../config.json');
 const mongoose = require('mongoose'); 
 mongoose.connect(config.mongouri, {
@@ -58,7 +57,7 @@ mongoose.connect(config.mongouri, {
       },
   });
   
- module.exports = async (client) => {
+ module.exports = async () => {
      const database = mongoose.model('database', botDB)
        
   const { GiveawaysManager } = require('discord-giveaways');
@@ -83,7 +82,7 @@ mongoose.connect(config.mongouri, {
           return true;
       }
   }
-  const manager = new Gmanager(client, {
+  const manager = new Gmanager(global.client, {
       updateCountdownEvery: 6969,
       default: {
           botsCanWin: false,
@@ -92,5 +91,5 @@ mongoose.connect(config.mongouri, {
           reaction: '🎉'
       }
   });
-  client.giveawaysManager = manager;
+  global.client.giveawaysManager = manager;
  }

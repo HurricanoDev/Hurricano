@@ -8,7 +8,7 @@ module.exports = {
     run: async(message, args) => {
     
       const canvacord = require('canvacord')
-      let person = message.mentions.users.first() || await message.client.users.fetch(args[0]) || message.author;
+      let person = message.mentions.users.first() || await message.client.users.fetch(args[0]).catch(e => {}) || message.author;
       let avatar = person.displayAvatarURL({ dynamic: false, format: 'png' });
       const img = await canvacord.Canvas.rip(avatar)
       const embed = new Discord.MessageEmbed()

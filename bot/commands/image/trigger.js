@@ -6,8 +6,8 @@ module.exports = {
     cooldown: 5,
     description: "Shows a triggered version of someone's avatar!",
     run: async(message, args) => {
-    
-      let person = message.mentions.users.first() || await message.client.users.fetch(args[0]) || message.author;
+    const canvacord = require('canvacord');
+      let person = message.mentions.users.first() || await message.client.users.fetch(args[0]).catch(e => {}) || message.author;
       let avatar = person.displayAvatarURL({ dynamic: false, format: 'png' });
       const img = await canvacord.Canvas.trigger(avatar)
       const embed = new Discord.MessageEmbed()
