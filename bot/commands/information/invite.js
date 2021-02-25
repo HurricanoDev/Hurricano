@@ -7,7 +7,7 @@ module.exports = {
   run: async (message) => {
 
     const embed = new Discord.MessageEmbed()
-    .setAuthor("Invite DragonNight")
+    .setAuthor("Invite Hurricano™")
     .addField(emojis.plus + "Invite Link", "Click [here](https://discord.com/oauth2/authorize?client_id=803169312827113483&permissions=8&scope=bot) to invite the bot")
     .addField(emojis.info + "Support Server Link", "Click [here](https://discord.gg/dNc3EvABCA) to join the support server.")
     .setColor("#90ee90")
