@@ -35,14 +35,14 @@ module.exports = {
          .addField("Output: :outbox_tray:", `Output is to large! [Click here.](${src.url})`)
          message.channel.send({ embed: embed })
           }).catch(e => {
-            message.channel.send(`Error: ${e}`)
+            message.reply(`Error: ${e}`)
       });
 } else {
         var embed2 = new Discord.MessageEmbed()
         .setColor("#ffb6c1")
         .addField("Evaled: :inbox_tray:",  `\`\`\`js\n${code}\n\`\`\``)
         .addField("Output: :outbox_tray:", `\`\`\`js\n${clean(evaled)}\n\`\`\``)
-        message.channel.send({embed : embed2 });
+        message.reply({embed : embed2 });
 }
     } catch (err) {
         const code = args.join(" ");
@@ -56,7 +56,7 @@ module.exports = {
                  .setColor("#ffb6c1")
                  .addField("Evaled: :inbox_tray:",  `\`\`\`js\n${code}\n\`\`\``)
                  .addField("Output: :outbox_tray:", `Output is to large! [Click here.](${src.url})`)
-                 message.channel.send({ embed: embed })
+                 message.reply({ embed: embed })
                   })
 };
       var embed3 = new Discord.MessageEmbed()

@@ -9,24 +9,24 @@ module.exports = async (client, message) => {
   const { author } = message;
   const prefixRegex = new RegExp(`^(<@!?${client.user.id}>|${prefix.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')})\\s*`);
     const embed = new MessageEmbed()
-  .setAuthor("Hello!", "https://media.discordapp.net/attachments/803204453321670700/804186498688876584/circle-cropped_20.png")
-  .setDescription(`Hello! I'm **DragonNight™**. My prefix is \`${prefix}\`. I have a variety of commands you can use which you can view by doing \`${prefix}help\`! If you want to view information about me please do \`dn!bot!info\`. That's it for now, bye and have a great time!`)
+  .setAuthor("Hello!", "https://raw.githubusercontent.com/HurricanoBot/HurricanoImages/master/SetAuthorEmojis/Wave.png")
+  .setDescription(`Hello! I'm **Hurricano™**. My prefix is \`${prefix}\`. I have a variety of commands you can use which you can view by doing \`${prefix}help\`! If you want to view information about me please do \`dn!bot!info\`. That's it for now, bye and have a great time!`)
   .setColor("#034ea2")
-  .setImage("https://media.discordapp.net/attachments/803204453321670700/804187690362732565/Untitled_6.jpg?width=1025&height=342")
-  .setFooter(`© DragonNight™ v1.0.0`)
+  .setImage("https://raw.githubusercontent.com/HurricanoBot/HurricanoImages/master/other/Wave.jpg")
+  .setFooter(`© Hurricano™ v1.0.0`)
   if (prefixRegex.test(message.content)) {
   if ( 
     (message.content === `<@${client.user.id}>` || message.content === `<@!${client.user.id}>`)) {
   return message.reply(embed);
 }
 const argsEmbed = new MessageEmbed()
-.setTitle(`${emojis.fail} Missing Arguments`)
+  .setAuthor("Arguments Error.", "https://raw.githubusercontent.com/HurricanoBot/HurricanoImages/master/SetAuthorEmojis/Error.png")
 .setColor('#FF0000')
-.setDescription(`You did not provide all the arguments ${author.toString()}`); 
+.setDescription(`You did not provide all the arguments, ${author}!`); 
 const ownerFailEmbed = new MessageEmbed()
-.setTitle(`${emojis.fail} Not Owner Error`)
+.setAuthor("Owner Error.", "https://raw.githubusercontent.com/HurricanoBot/HurricanoImages/master/SetAuthorEmojis/Owner.png")
 .setColor("#FF0000")
-.setDescription(`You are not an owner of DragonNight ${author.toString()}`); 
+.setDescription(`You are not an owner of Hurricano™, ${author}!`); 
 const [, match] = message.content.match(prefixRegex);
 if (!message.content.startsWith(match)) return;
 const args = message.content.slice(match.length).trim().split(/ +/g);

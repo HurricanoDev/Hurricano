@@ -5,7 +5,7 @@ const res = ['Scissors :scissors:','Rock :rock:', 'Paper :roll_of_paper:'];
 module.exports = {
       name: 'rps',
       aliases: ['rockpaperscissors'],
-      description: 'Rock, paper, scissors with DragonNight!',
+      description: 'Rock, paper, scissors with Hurricano!',
       args: true,
       run: async(message, args) => {
     let userChoice;
