@@ -2,7 +2,9 @@ const Discord = require('discord.js');
 const { MessageEmbed } = require('discord.js'); 
 const config = require('../../config.json'); 
 
-module.exports = async (client, message) => {
+module.exports = {
+	name: 'message',
+	run: async (message, client) => {
  if (message.author.bot || message.channel.type == "dm") return; 
   const prefix = await client.db.guild.getPrefix(message.guild.id)
   const emojis = client._emojis;
@@ -33,7 +35,7 @@ const args = message.content.slice(match.length).trim().split(/ +/g);
 const cmd = args.shift().toLowerCase();
 
 if (cmd.length == 0) return;
-const command = client.commands.get(cmd);
+const command = client.commands.get(cmd) || client.commands.get(client.aliases.get(cmd));
 let checkAdmin = config.ownerIds.includes(author.id);
 if (command.ownerOnly === true && !checkAdmin) return message.reply(ownerFailEmbed);
 
@@ -53,10 +55,16 @@ if (command.args && !args.length) {
   if (!client.cooldowns.has(command.name)) {
     client.cooldowns.set(command.name, new Discord.Collection());
   }
+
   const now = Date.now();
   const timestamps = client.cooldowns.get(command.name);
   const cooldownAmount = (command.cooldown || 3) * 1000;
 
+  config.ownerIds.forEach(owner => {
+  if (timestamps.has(owner)) {
+    timestamps.delete(owner);
+  };
+})
   if (timestamps.has(author.id)) {
     const expirationTime = timestamps.get(author.id) + cooldownAmount;
     if (now < expirationTime) {
@@ -70,9 +78,8 @@ if (command.args && !args.length) {
   }
   timestamps.set(author.id, now);
     setTimeout(() => timestamps.delete(author.id), cooldownAmount);
-
-  if (!command) command = client.commands.get(client.aliases.get(cmd));
   if (command) command.run(message, args)
 }
 
+}
 }

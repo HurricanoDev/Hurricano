@@ -4,6 +4,7 @@ const ascii = require("ascii-table");
 const config = require('@config');
 let table = new ascii("Commands");
 table.setHeading("Command File", "Command Name", "Load status");
+const fs = require('fs');
 /**
  * Extend Client class
  * @extends Discord.Client
@@ -64,15 +65,16 @@ class Client extends Discord.Client {
 
   // ---------------------------------------------------   Functions    -------------------------------------------------------------
   loadEvents() {
-    const evtFiles = readdirSync("./bot/events/");
-    console.log(`Loading a total of ${evtFiles.length} events.`);
-    evtFiles.forEach(file => {
-      const eventName = file.split(".")[0];
-      console.log(`Loading Event: ${eventName}`);
+    const eventFiles = fs.readdirSync('./bot/events').filter(file => file.endsWith('.js'));
+
+    for (const file of eventFiles) {
       const event = require(`./events/${file}`);
-      super.on(eventName, event.bind(null, this));
-    });
-    }
+      if (event.once) {
+        client.once(event.name, (...args) => event.run(...args, client));
+      } else {
+        client.on(event.name, (...args) => event.run(...args, client));
+      }
+    }};
   loadCommands(){
     readdirSync("./bot/commands").forEach(dir => {
         const commands = readdirSync(`./bot/commands/${dir}/`).filter(file =>

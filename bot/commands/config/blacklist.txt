@@ -8,7 +8,7 @@ module.exports = {
  ownerOnly: true,
  args: true,
  cooldown: 20,
- description: "Set your server's custom prefix!",
+ description: "Blacklist someone from the bot.",
  run: async (message, args) => {
       await mongoconnect().then(async (mongoose) => {
         try {

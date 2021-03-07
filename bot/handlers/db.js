@@ -7,7 +7,7 @@ module.exports = {
         mongoose.connect(mongoPath, {
             useNewUrlParser: true,
             useUnifiedTopology: true,
-            useFindAndModify: true,
+            useFindAndModify: false,
           })
           mongoose.connection.on("connected", () => {
             console.log("Connected to MongoDB!");

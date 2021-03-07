@@ -12,7 +12,7 @@ module.exports = {
     await message.client.db.guild.updatePrefix(message.guild.id, prefix)
     
     const embed = new MessageEmbed()
-    .setTitle(`${emojis.fail} Server Settings Change.`)
+    .setTitle(`${message.client._emojis.fail} Server Settings Change.`)
     .setDescription(`The prefix is now \`${prefix}\`.`)
     
     message.reply(embed)

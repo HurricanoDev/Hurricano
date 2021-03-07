@@ -46,11 +46,11 @@ module.exports = {
 }
     } catch (err) {
         const code = args.join(" ");
-                if (clean(err).length > 1024 || code.length > 1024) {
-                  sourcebin.create([{
-                    name: `Code by ${message.author.tag}`,
-                    content: clean(err),
-                    languageId: 'js'
+        if (clean(err).length > 1024 || code.length > 1024) {
+          sourcebin.create([{
+            name: `Code by ${message.author.tag}`,
+            content: clean(err),
+            languageId: 'js'
                   }]).then(src => {
                  var embed = new Discord.MessageEmbed()
                  .setColor("#ffb6c1")

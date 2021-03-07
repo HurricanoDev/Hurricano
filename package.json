@@ -16,6 +16,7 @@
   "dependencies": {
     "ascii-table": "0.0.9",
     "canvacord": "^5.0.8",
+    "common-tags": "^1.8.0",
     "danbot-hosting": "^0.1.6",
     "dblapi.js": "^2.4.1",
     "discord-giveaways": "^4.4.3",

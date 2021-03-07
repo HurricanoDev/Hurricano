@@ -12,7 +12,7 @@ manager.on('shardCreate', shard => {
 		console.log(`[Shard ${shard.id}] Shard Ready!`)
 	})
 	shard.on('disconnect', (a, b) => {
-		console.log(`[Shard ${shard.id}] Shard disconnected`)
+		console.log(`[Shard ${shard.id}] Shard disconnected.`)
 		console.log(a)
 		console.log(b)
 	})
