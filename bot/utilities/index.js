@@ -1,6 +1,7 @@
 const { Intents } = require('discord.js');
 require('module-alias/register');
 require('./reply.js')
+const mongoose = require('mongoose')
 const Client = require('@root/bot/Client.js');
 const config = require('@config')
 const intents = new Intents();
@@ -16,7 +17,6 @@ intents.add(
 const client = new Client(config, { ws: { intents: intents } })
 // require('@root/bot/utilities/schema.js')(client);
 global.client = client;
-
 // website initialization
 if (client.config.website.enabled) {
     require('@root/website/index.js');

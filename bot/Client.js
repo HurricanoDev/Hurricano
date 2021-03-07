@@ -5,6 +5,8 @@ const config = require('@config');
 let table = new ascii("Commands");
 table.setHeading("Command File", "Command Name", "Load status");
 const fs = require('fs');
+const { Player } = require('discord-player');
+
 /**
  * Extend Client class
  * @extends Discord.Client
@@ -56,25 +58,42 @@ class Client extends Discord.Client {
     this.cooldowns = new Discord.Collection();
 
     /**
+     * Giveaways Manager
+     */
+    this.giveawaysManager = global.giveawaysManager;
+
+    /**
      * E m o j i s
      * @type {Object}
      */
     this._emojis = require('./utilities/emojis.json')
-
+    
+    /**
+     * Music
+     */
+     this.player = new Player(this);
   }
 
   // ---------------------------------------------------   Functions    -------------------------------------------------------------
   loadEvents() {
-    const eventFiles = fs.readdirSync('./bot/events').filter(file => file.endsWith('.js'));
+    // BOT EVENTS
+    const botevents = fs.readdirSync('./bot/events/bot').filter(file => file.endsWith('.js'));
 
-    for (const file of eventFiles) {
-      const event = require(`./events/${file}`);
+    for (const file of botevents) {
+      const event = require(`./events/bot/${file}`);
       if (event.once) {
-        client.once(event.name, (...args) => event.run(...args, client));
+        this.once(event.name, (...args) => event.run(...args, this));
       } else {
-        client.on(event.name, (...args) => event.run(...args, client));
+        this.on(event.name, (...args) => event.run(...args, this));
       }
-    }};
+    }
+  // MUSIC EVENTS
+  const musicevents = fs.readdirSync('./bot/events/music').filter(file => file.endsWith('.js'));
+  for (const file of musicevents) {
+    const event = require(`./events/music/${file}`);
+      this.player.on(event.name, (...args) => event.run(...args, this));
+  }
+  };
   loadCommands(){
     readdirSync("./bot/commands").forEach(dir => {
         const commands = readdirSync(`./bot/commands/${dir}/`).filter(file =>

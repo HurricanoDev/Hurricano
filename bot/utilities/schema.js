@@ -1,11 +1,5 @@
 const config = require('../../config.json');
 const mongoose = require('mongoose'); 
-mongoose.connect(config.mongouri, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-    useFindAndModify: false,
-    useCreateIndex: true,
-    });
   const db = mongoose.connection;
   
   db.on('error', console.error.bind(console, 'Connection error:'));
@@ -13,52 +7,10 @@ mongoose.connect(config.mongouri, {
       console.log('[Giveaways] Giveaway DB connected to MongoDB!');
   });
   
-  const botDB = new mongoose.Schema({
-      giveaways: {
-      messageID: String,
-      channelID: String,
-      guildID: String,
-      startAt: Number,
-      endAt: Number,
-      ended: Boolean,
-      winnerCount: Number,
-      prize: String,
-      messages: {
-          giveaway: String,
-          giveawayEnded: String,
-          inviteToParticipate: String,
-          timeRemaining: String,
-          winMessage: String,
-          embedFooter: String,
-          noWinner: String,
-          winners: String,
-          endedAt: String,
-          hostedBy: String,
-          units: {
-              seconds: String,
-              minutes: String,
-              hours: String,
-              days: String,
-              pluralS: Boolean,
-          },
-      },
-      hostedBy: String,
-      winnerIDs: [],
-      reaction: String,
-      botsCanWin: Boolean,
-      embedColor: String,
-      embedColorEnd: String,
-      exemptPermissions: [],
-      extraData: {},
-    },
-      blacklists: {
-      uid: String,
-      sid: String
-      },
-  });
+  const giveawaySchema = require('../schemas/giveaway')
   
  module.exports = async () => {
-     const database = mongoose.model('database', botDB)
+     const database = mongoose.model('database', giveawaySchema)
        
   const { GiveawaysManager } = require('discord-giveaways');
   class Gmanager extends GiveawaysManager {
@@ -91,5 +43,9 @@ mongoose.connect(config.mongouri, {
           reaction: '🎉'
       }
   });
-  global.client.giveawaysManager = manager;
+
+  /**
+   * @type {Object}
+   */
+  global.giveawaysManager = manager;
  }
