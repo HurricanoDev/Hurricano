@@ -34,6 +34,7 @@ module.exports = {
     .addField("> :mag:  Information", "Pretty self-explanitory! This module is meant for information commands.", inline)
     .addField("> :video_game:  Fun", "Commands in which you're sure to have fun!", inline)
     .addField(`> ${emojis.giveaways}  Giveaways`, "Host giveaways with Hurricano™️!", inline)
+    .addField('> :musical_note:  Music', 'Feel like listening to some music? You can do it with Hurricano™️!', inline)
     .addField(`> :camera:  Image Manipulation`, "Make funny images with Hurricano™️!", inline)
     .addField(`> ${emojis.owner}  Owner`, "Commands meant for the bot owners.", inline)
     .addField(":bulb:  TIP:", `${Fact}`)
@@ -86,6 +87,14 @@ module.exports = {
  .setImage("https://raw.githubusercontent.com/HurricanoBot/HurricanoImages/master/categories/Image.jpg")
  .setFooter("Copyright Hurricano™")
  // - - --- - - - - -- - - - - - - -- - - - - - -------------------------------------------------------
+ const music = new MessageEmbed()
+ .setAuthor('Music!', 'https://raw.githubusercontent.com/HurricanoBot/HurricanoImages/master/SetAuthorEmojis/Music.png')
+ .setColor("#ffb6c1")
+ .setDescription("Feel like listening to some music? You can do it with Hurricano™️!")
+ .addField("Commands", cmdmap.music.join(' '))
+ .setImage("https://raw.githubusercontent.com/HurricanoBot/HurricanoImages/master/categories/Music.jpg")
+ .setFooter("Copyright Hurricano™")
+ // -----------------------------------------------------------------------
  const owner = new MessageEmbed()
  .setAuthor('Bot Owner Commands!', 'https://raw.githubusercontent.com/HurricanoBot/HurricanoImages/master/SetAuthorEmojis/owner.png')
  .setColor("#ffb6c1")
@@ -107,6 +116,7 @@ module.exports = {
                     '🎮': 'fun',
                     [gwid]: 'giveaways',
                     '📷': 'image',
+                    '🎵': 'music',
                     [owid]: 'owner',
 
                 }
@@ -119,6 +129,7 @@ module.exports = {
                     '🎮': 'fun',
                     [gwid]: 'giveaways',
                     '📷': 'image',
+                    '🎵': 'music',
                     [owid]: 'owner',
 
                 }
@@ -131,6 +142,7 @@ module.exports = {
                     '🎮': 'fun',
                     [gwid]: 'giveaways',
                     '📷': 'image',
+                    '🎵': 'music',
                     [owid]: 'owner',
                 }
             },
@@ -142,6 +154,7 @@ module.exports = {
                     '🔍': 'information',
                     [gwid]: 'giveaways',
                     '📷': 'image',
+                    '🎵': 'music',
                     [owid]: 'owner',
                 }
             },
@@ -153,6 +166,7 @@ module.exports = {
                     '🔍': 'information',
                     '🎮': 'fun',
                     '📷': 'image',
+                    '🎵': 'music',
                     [owid]: 'owner',
                 }
             },
@@ -164,9 +178,22 @@ module.exports = {
                     '🔍': 'information',
                     '🎮': 'fun',
                     [gwid]: 'giveaways',
+                    '🎵': 'music',
                     [owid]: 'owner',
                 },
             },
+            {
+                name: 'music',
+                content: music,
+                reactions: {
+                    '⚙️': 'config',
+                    '🔍': 'information',
+                    '🎮': 'fun',
+                    [gwid]: 'giveaways',
+                    '📷': 'image',
+                    [owid]: 'owner',
+            }
+        },
             {
                 name: 'owner',
                 content: owner,
@@ -175,9 +202,10 @@ module.exports = {
                     '🔍': 'information',
                     '🎮': 'fun',
                     [gwid]: 'giveaways',
+                    '🎵': 'music',
                     '📷': 'image',
                 },
-            }
+            },
         ], 30000)
         helpMenu.start()
   }
