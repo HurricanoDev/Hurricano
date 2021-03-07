@@ -2,7 +2,7 @@ const { MessageEmbed } = require('discord.js');
 
 module.exports = {
 	name: 'error',
-	run: async (client, error, message, ...args) => {
+	run: async (error, message, ...args) => {
     switch (error) {
         case 'NotPlaying':
             message.channel.send(new MessageEmbed().setAuthor("No Music Being Played.", "https://raw.githubusercontent.com/HurricanoBot/HurricanoImages/master/SetAuthorEmojis/Error.png").setDescription(`There is no music being played in this server.`));

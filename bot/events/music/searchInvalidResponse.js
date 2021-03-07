@@ -2,7 +2,7 @@ const { MessageEmbed } = require('discord.js');
 
 module.exports = {
 	name: 'searchInvalidResponse',
-	run: async (message, client, query, tracks, content, collector) => {
+	run: async (message, query, tracks, content, collector) => {
         if (content === 'cancel') {
             collector.stop();
     return message.channel.send(new MessageEmbed().setAuthor("Selection Cancelled.", "https://raw.githubusercontent.com/HurricanoBot/HurricanoImages/master/SetAuthorEmojis/Success.png").setDescription(`The selection has successfully been cancelled.`));
