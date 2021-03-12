@@ -36,6 +36,7 @@ const cmd = args.shift().toLowerCase();
 
 if (cmd.length == 0) return;
 const command = client.commands.get(cmd) || client.commands.get(client.aliases.get(cmd));
+if (!command) return;
 let checkAdmin = config.ownerIds.includes(author.id);
 if (command.ownerOnly === true && !checkAdmin) return message.reply(ownerFailEmbed);
 

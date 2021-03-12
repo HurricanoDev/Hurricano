@@ -32,11 +32,11 @@ module.exports = {
     .setColor("#ffb6c1")
     .addField("> :gear: Config", "The commands meant to modify the bot.", inline)
     .addField("> :mag:  Information", "Pretty self-explanitory! This module is meant for information commands.", inline)
-    .addField("> :video_game:  Fun", "Commands in which you're sure to have fun!", inline)
-    .addField(`> ${emojis.giveaways}  Giveaways`, "Host giveaways with Hurricano™️!", inline)
-    .addField('> :musical_note:  Music', 'Feel like listening to some music? You can do it with Hurricano™️!', inline)
+    .addField(`> ${emojis.categories.fun}  Fun`, "Commands in which you're sure to have fun!", inline)
+    .addField(`> ${emojis.categories.giveaways}  Giveaways`, "Host giveaways with Hurricano™️!", inline)
+    .addField(`> ${emojis.categories.music}  Music`, 'Feel like listening to some music? You can do it with Hurricano™️!', inline)
     .addField(`> :camera:  Image Manipulation`, "Make funny images with Hurricano™️!", inline)
-    .addField(`> ${emojis.owner}  Owner`, "Commands meant for the bot owners.", inline)
+    .addField(`> ${emojis.categories.owner}  Owner`, "Commands meant for the bot owners.", inline)
     .addField(":bulb:  TIP:", `${Fact}`)
     .setFooter("Copyright Hurricano™")
  
@@ -88,7 +88,7 @@ module.exports = {
  .setFooter("Copyright Hurricano™")
  // - - --- - - - - -- - - - - - - -- - - - - - -------------------------------------------------------
  const music = new MessageEmbed()
- .setAuthor('Music!', 'https://raw.githubusercontent.com/HurricanoBot/HurricanoImages/master/SetAuthorEmojis/Music.png')
+ .setAuthor('Music!', 'https://raw.githubusercontent.com/HurricanoBot/HurricanoImages/master/SetAuthorEmojis/Music.gif')
  .setColor("#ffb6c1")
  .setDescription("Feel like listening to some music? You can do it with Hurricano™️!")
  .addField("Commands", cmdmap.music.join(' '))
@@ -103,9 +103,12 @@ module.exports = {
  .setImage("https://raw.githubusercontent.com/HurricanoBot/HurricanoImages/master/categories/Owner.jpg")
  .setFooter("Copyright Hurricano™")
 
+const emojimap = {
+    ['giveaways']: [emojis.categories.giveaways.split(':')[2].split('<')[0].split('>')[0]],
+    ['owner']: [emojis.categories.owner.split(':')[2].split('<')[0].split('>')[0]],
+    ['music']: [emojis.categories.music.split(':')[2].split('<')[0].split('>')[0]]
+}
 
- const gwid = emojis.giveaways.split(':')[2].split('<')[0].split('>')[0];
- const owid = emojis.owner.split(':')[2].split('<')[0].split('>')[0]
     let helpMenu = new Menu(message.channel, message.author.id, [
             {
                 name: 'main',
@@ -114,10 +117,10 @@ module.exports = {
                     '⚙️': 'config',
                     '🔍': 'information',
                     '🎮': 'fun',
-                    [gwid]: 'giveaways',
+                    [emojimap.giveaways]: 'giveaways',
                     '📷': 'image',
-                    '🎵': 'music',
-                    [owid]: 'owner',
+                    [emojimap.music]: 'music',
+                    [emojimap.owner]: 'owner',
 
                 }
             },
@@ -127,10 +130,10 @@ module.exports = {
                 reactions: {
                     '🔍': 'information',
                     '🎮': 'fun',
-                    [gwid]: 'giveaways',
+                    [emojimap.giveaways]: 'giveaways',
                     '📷': 'image',
-                    '🎵': 'music',
-                    [owid]: 'owner',
+                    [emojimap.music]: 'music',
+                    [emojimap.owner]: 'owner',
 
                 }
             },
@@ -140,10 +143,10 @@ module.exports = {
                 reactions: {
                     '⚙️': 'config',
                     '🎮': 'fun',
-                    [gwid]: 'giveaways',
+                    [emojimap.giveaways]: 'giveaways',
                     '📷': 'image',
-                    '🎵': 'music',
-                    [owid]: 'owner',
+                    [emojimap.music]: 'music',
+                    [emojimap.owner]: 'owner',
                 }
             },
             {
@@ -152,10 +155,10 @@ module.exports = {
                 reactions: {
                     '⚙️': 'config',
                     '🔍': 'information',
-                    [gwid]: 'giveaways',
+                    [emojimap.giveaways]: 'giveaways',
                     '📷': 'image',
-                    '🎵': 'music',
-                    [owid]: 'owner',
+                    [emojimap.music]: 'music',
+                    [emojimap.owner]: 'owner',
                 }
             },
             {
@@ -166,8 +169,8 @@ module.exports = {
                     '🔍': 'information',
                     '🎮': 'fun',
                     '📷': 'image',
-                    '🎵': 'music',
-                    [owid]: 'owner',
+                    [emojimap.music]: 'music',
+                    [emojimap.owner]: 'owner',
                 }
             },
             {
@@ -177,9 +180,9 @@ module.exports = {
                     '⚙️': 'config',
                     '🔍': 'information',
                     '🎮': 'fun',
-                    [gwid]: 'giveaways',
-                    '🎵': 'music',
-                    [owid]: 'owner',
+                    [emojimap.giveaways]: 'giveaways',
+                    [emojimap.music]: 'music',
+                    [emojimap.owner]: 'owner',
                 },
             },
             {
@@ -189,9 +192,9 @@ module.exports = {
                     '⚙️': 'config',
                     '🔍': 'information',
                     '🎮': 'fun',
-                    [gwid]: 'giveaways',
+                    [emojimap.giveaways]: 'giveaways',
                     '📷': 'image',
-                    [owid]: 'owner',
+                    [emojimap.owner]: 'owner',
             }
         },
             {
@@ -201,8 +204,8 @@ module.exports = {
                     '⚙️': 'config',
                     '🔍': 'information',
                     '🎮': 'fun',
-                    [gwid]: 'giveaways',
-                    '🎵': 'music',
+                    [emojimap.giveaways]: 'giveaways',
+                    [emojimap.music]: 'music',
                     '📷': 'image',
                 },
             },

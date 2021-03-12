@@ -12,7 +12,7 @@ module.exports = {
     await message.client.db.guild.updatePrefix(message.guild.id, prefix)
     
     const embed = new MessageEmbed()
-    .setTitle(`${message.client._emojis.fail} Server Settings Change.`)
+    .setAuthor(`Server Settings Change.`, 'https://raw.githubusercontent.com/HurricanoBot/HurricanoImages/master/SetAuthorEmojis/Success.png')
     .setDescription(`The prefix is now \`${prefix}\`.`)
     
     message.reply(embed)

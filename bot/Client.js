@@ -72,6 +72,12 @@ class Client extends Discord.Client {
      * Music
      */
      this.player = new Player(this);
+     
+    /**
+     * Filters for Moosik
+     */
+     this.filters = ['8D', 'gate', 'haas', 'phaser', 'treble', 'tremolo', 'vibrato', 'reverse', 'karaoke', 'flanger', 'mcompand', 'pulsator', 'subboost', 'bassboost', 'vaporwave', 'nightcore', 'normalizer', 'surrounding']
+
   }
 
   // ---------------------------------------------------   Functions    -------------------------------------------------------------
