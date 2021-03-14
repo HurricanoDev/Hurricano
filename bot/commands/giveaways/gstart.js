@@ -15,7 +15,7 @@ return message.reply({ embed: {
     color: "#034ea2"
 }})
         } else if (message.author.id === this.ownerId) return true
-const prefix = message.client.db.getPrefix(message.guild.id);
+
         if (client.giveawaysManager.giveaways.filter((g) => g.guildID === message.guild.id && !g.ended).length + 1 > 10) return message.reply({ embed: {
             title: "An Error Occured.",
             description: "Maximum giveaway limit 10 reached for this server! Please try again later.",
@@ -25,7 +25,7 @@ const prefix = message.client.db.getPrefix(message.guild.id);
         let time = args[0];
         if (!time) return message.reply({ embed: {
             title: "An Error Occured.",
-            description: `You need to mention the giveaway time as well! \n Ex: \`${prefix}gstart 1d 1w Discord Nitro\``,
+            description: `You need to mention the giveaway time as well! \n Ex: \`${config.prefix}gstart 1d 1w Discord Nitro\``,
             fields: [
                 {
                     name: "Time Values",
@@ -41,7 +41,7 @@ const prefix = message.client.db.getPrefix(message.guild.id);
         }})
         if (ms(time) > ms("20d")) return message.reply({ embed: {
             title: "An Error Occured.",
-            description: `The giveaway duration has to be lesser than 20 days. \n Ex: \`${prefix}gstart 1d 1w Discord Nitro\``,
+            description: `The giveaway duration has to be lesser than 20 days. \n Ex: \`${config.prefix}gstart 1d 1w Discord Nitro\``,
             fields: [
                 {
                     name: "Time Values",
@@ -57,7 +57,7 @@ const prefix = message.client.db.getPrefix(message.guild.id);
         let winners = args[1];
         if (!winners) return message.reply({ embed: {
             title: "An Error Occured.",
-            description: `Please provide a valid winner count! \n Ex: \`${prefix}gstart 1d 1w Discord Nitro\``,
+            description: `Please provide a valid winner count! \n Ex: \`${config.prefix}gstart 1d 1w Discord Nitro\``,
             fields: [
                 {
                     name: "Time Values",
@@ -74,7 +74,7 @@ const prefix = message.client.db.getPrefix(message.guild.id);
         winners = num(winners, 1);
         if (winners > 15) return message.reply({ embed: {
             title: "An Error Occured.",
-            description: `The giveaway winners should be lesser than 15. \n Ex: \`${prefix}gstart 1d 8w Discord Nitro\``,
+            description: `The giveaway winners should be lesser than 15. \n Ex: \`${config.prefix}gstart 1d 8w Discord Nitro\``,
             fields: [
                 {
                     name: "Time Values",
@@ -90,7 +90,7 @@ const prefix = message.client.db.getPrefix(message.guild.id);
         let prize = args.slice(2).join(" ");
         if (!prize) return message.reply({ embed: {
             title: "An Error Occured.",
-            description: `Please mention a valid giveaway prize! \n Ex: \`${prefix}gstart 1d 1w Discord Nitro\``,
+            description: `Please mention a valid giveaway prize! \n Ex: \`${config.prefix}gstart 1d 1w Discord Nitro\``,
             fields: [
                 {
                     name: "Time Values",
@@ -109,7 +109,7 @@ const prefix = message.client.db.getPrefix(message.guild.id);
             prize: prize,
             hostedBy: message.author,
             messages: {
-                giveaway: `${emojis.categories.giveaways} **Giveaway** ${emojis.categories.giveaways}`,
+                giveaway: `${emojis.giveaways} **Giveaway** ${emojis.giveaways}`,
                 giveawayEnded: "🎊 **Giveaway Ended!** 🎊",
                 timeRemaining: "Time left: **{duration}**!",
                 inviteToParticipate: "React with \"🎉\" to participate!",

@@ -17,6 +17,7 @@ intents.add(
 const client = new Client(config, { ws: { intents: intents } })
 // require('@root/bot/utilities/schema.js')(client);
 global.client = client;
+
 // website initialization
 if (client.config.website.enabled) {
     require('@root/website/index.js');

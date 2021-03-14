@@ -1,24 +1,19 @@
 {
-  "signs": {
   "success": "<a:success:797783550078091267>",
   "fail": "<:failed:797785009406476288>",
   "info": "<:Info:814390489008046101>",
+  "fun": ":video_game:",
   "color": ":art:",
+  "points": ":trophy:",
+  "misc": "<:mention:761292264936046613>",
+  "mod": "<:moderation:761292265049686057>",
+  "admin": "<:settings:761301883792654386>",
+  "owner": "<:owner:761302143331205131>",
+  "logs": ":book:",
+  "giveaways": "<a:giveaway:797783000820875274>",
   "ping": "<:Ping:804131592062632008>",
   "servers": "<:Servers:804133920324452392>",
   "users": "<:Users:804135471269412884>",
   "bot": "<:Bot:804127527248855060>",
   "plus": "<:Plus:814407403998412800>"
-  },
-  "categories": {
-  "music": "<a:Music:818328350283399208>",
-  "fun": ":video_game:",
-  "misc": "<:mention:761292264936046613>",
-  "information": "<a:Information:818334840763711500>",
-  "mod": "<:moderation:761292265049686057>",
-  "admin": "<:settings:761301883792654386>",
-  "owner": "<:owner:761302143331205131>",
-  "logs": ":book:",
-  "giveaways": "<a:giveaway:797783000820875274>"
-  }
 }
