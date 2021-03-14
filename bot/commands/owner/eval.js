@@ -1,6 +1,6 @@
 const Discord = require ("discord.js");
-const sourcebin = require('sourcebin_js')
-
+const sourcebin = require('sourcebin_js');
+const config = require('../../../config.json');
 module.exports = {
     name: "eval",
     description: "Evaluates arbituary JavaScript.",
@@ -18,13 +18,17 @@ module.exports = {
         const code = args.join(" ");
       let evaled = eval(code);
 
-      if (typeof evaled !== 'string') evaled = require('util').inspect(evaled, { depth: 4 });
-      if (typeof evaled !== "string")
-        evaled = require("util").inspect(evaled);
-
+      if (typeof evaled !== 'string') evaled = require('util').inspect(evaled, { depth: 0 });
+                   if (evaled.includes(config.token) || evaled.includes(config.mongouri)) {
+message.channel.send({ embed: {
+    title: "Eval Error.",
+    description: "This eval has the bot credentials! Please try without using the bot's credentials."
+}});
+                       return;
+                   }
 
         if (clean(evaled).length > 1024 || code.length > 1024) {
-          sourcebin.create([{
+          await sourcebin.create([{
             name: `Code by ${message.author.tag}`,
             content: clean(evaled),
             languageId: 'js'
