@@ -5,6 +5,9 @@ module.exports = class Gmanager extends GiveawaysManager {
       async getAllGiveaways() {
           return await database.find({});
       }
+      async refreshStorage() {
+          return global.client.shard.broadcastEval(() => this.giveawaysManager.getAllGiveaways());
+    }
       async saveGiveaway(messageID, giveawayData) {
           await database.create(giveawayData);
           return true;
