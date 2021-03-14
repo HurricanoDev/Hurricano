@@ -64,7 +64,7 @@ class Client extends Discord.Client {
       updateCountdownEvery: 5 * 1000,
       default: {
           botsCanWin: false,
-          exemptPermissions: ['ADMINISTRATOR'],
+          exemptPermissions: [],
           embedColor: '#034ea2',
           reaction: '🎉'
       }
