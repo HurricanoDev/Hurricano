@@ -24,7 +24,11 @@ module.exports = Structures.extend(
           .resolveFiles();
 
         this.client.api.channels[this.channel.id].messages.post({
-          data: { ...parsed, message_reference: reference },
+          data: { ...parsed, 
+          message_reference: reference, 
+          allowed_mentions: {
+            replied_user: false
+          } },
           files,
         });
       }

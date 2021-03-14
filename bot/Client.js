@@ -1,11 +1,11 @@
 const Discord = require('discord.js');
-const { readdirSync, constants } = require('fs');
+const { readdirSync } = require('fs');
 const ascii = require("ascii-table");
-const config = require('@config');
 let table = new ascii("Commands");
 table.setHeading("Command File", "Command Name", "Load status");
 const fs = require('fs');
 const { Player } = require('discord-player');
+const giveawaysManager = require('./utilities/giveaway')
 
 /**
  * Extend Client class
@@ -60,7 +60,15 @@ class Client extends Discord.Client {
     /**
      * Giveaways Manager
      */
-    this.giveawaysManager = global.giveawaysManager;
+    this.giveawaysManager = new giveawaysManager(this, {
+      updateCountdownEvery: 5 * 1000,
+      default: {
+          botsCanWin: false,
+          exemptPermissions: ['ADMINISTRATOR'],
+          embedColor: '#034ea2',
+          reaction: '🎉'
+      }
+    });
 
     /**
      * E m o j i s

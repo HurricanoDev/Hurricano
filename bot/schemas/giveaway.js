@@ -1,7 +1,7 @@
 const { model, Schema } = require("mongoose");
 
 module.exports = model(
-  "guild",
+  "giveaway",
   new Schema({
     giveaways: {
     messageID: String,

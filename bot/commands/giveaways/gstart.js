@@ -1,7 +1,7 @@
 const ms = require("ms");
 const num = require("num-parse");
 const emojis = require('../../utilities/emojis.json');
-const config = require('../../../config.json');
+
 module.exports = {
   name: "gstart",
   aliases: ['gs', 'giveawaystart', 'g-start', 'giveaway', 'gcreate'],
@@ -15,7 +15,7 @@ return message.reply({ embed: {
     color: "#034ea2"
 }})
         } else if (message.author.id === this.ownerId) return true
-const prefix = message.client.db.getPrefix(message.guild.id);
+const prefix = await message.client.db.guild.getPrefix(message.guild.id);
         if (client.giveawaysManager.giveaways.filter((g) => g.guildID === message.guild.id && !g.ended).length + 1 > 10) return message.reply({ embed: {
             title: "An Error Occured.",
             description: "Maximum giveaway limit 10 reached for this server! Please try again later.",
