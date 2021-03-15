@@ -35,20 +35,6 @@ module.exports = {
       ) {
         return message.reply(embed);
       }
-      const argsEmbed = new MessageEmbed()
-        .setAuthor(
-          "Arguments Error.",
-          "https://raw.githubusercontent.com/HurricanoBot/HurricanoImages/master/SetAuthorEmojis/Error.png"
-        )
-        .setColor("#FF0000")
-        .setDescription(`You did not provide all the arguments, ${author}!`);
-      const ownerFailEmbed = new MessageEmbed()
-        .setAuthor(
-          "Owner Error.",
-          "https://raw.githubusercontent.com/HurricanoBot/HurricanoImages/master/SetAuthorEmojis/Owner.png"
-        )
-        .setColor("#FF0000")
-        .setDescription(`You are not an owner of Hurricano™, ${author}!`);
       const [, match] = message.content.match(prefixRegex);
       if (!message.content.startsWith(match)) return;
       const args = message.content.slice(match.length).trim().split(/ +/g);
@@ -61,7 +47,10 @@ module.exports = {
       if (!command) return;
       let checkAdmin = config.ownerIds.includes(author.id);
       if (command.ownerOnly === true && !checkAdmin)
-        return message.reply(ownerFailEmbed);
+        return message.sendError(
+          "Permission Error.",
+          `You are not the owner of Hurricano™, ${author}.`
+        );
 
       if (!message.member)
         message.member = await message.guild.fetchMember(message);
@@ -83,7 +72,10 @@ module.exports = {
         }
       }
       if (command.args && !args.length) {
-        return message.reply(argsEmbed);
+        return message.sendError(
+          "Arguments Error.",
+          `You did not provide all the arguments, ${author}.`
+        );
       }
       if (!client.cooldowns.has(command.name)) {
         client.cooldowns.set(command.name, new Discord.Collection());

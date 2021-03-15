@@ -2,9 +2,8 @@ const Discord = require("discord.js");
 const sourcebin = require("sourcebin_js");
 const config = require("@config");
 module.exports = {
-  name: "fulleval",
-  aliases: ["feval"],
-  description: "Evaluates arbituary JavaScript, with no restrictions.",
+  name: "eval",
+  description: "Evaluates arbituary JavaScript.",
   ownerOnly: true,
   args: true,
   run: async (message, args) => {
@@ -17,14 +16,11 @@ module.exports = {
     };
     try {
       const code = args.join(" ");
-      let evaled = eval(`(async () => {
- ${code} 
-})()`);
-
+      let evaled = eval(code);
       if (typeof evaled !== "string")
-        evaled = require("util").inspect(evaled, { depth: 0 });
+        evaled = require("util").inspect(evaled, { depth: 4 });
 
-      if (clean(evaled).length > 1024 || code.length > 1024) {
+        if (clean(evaled).length > 1024 || code.length > 1024) {
         await sourcebin
           .create([
             {

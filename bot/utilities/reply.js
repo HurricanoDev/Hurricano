@@ -34,11 +34,15 @@ module.exports = Structures.extend(
           files,
         });
       }
+      
       sendError(Header, Msg, Footer) {
-        const embed = new MessageEmbed().setAuthor(
-          Header,
-          "https://raw.githubusercontent.com/HurricanoBot/HurricanoImages/master/SetAuthorEmojis/Error.png"
-        );
+        const embed = new MessageEmbed()
+          .setAuthor(
+            Header,
+            "https://raw.githubusercontent.com/HurricanoBot/HurricanoImages/master/SetAuthorEmojis/Error.png"
+          )
+          .setColor("#FF0000");
+
         if (Msg) {
           embed.setDescription(Msg);
         }
@@ -49,6 +53,7 @@ module.exports = Structures.extend(
         }
         this.channel.send(embed);
       }
+
       sendErrorReply(Header, Msg, Footer) {
         const embed = new MessageEmbed().setAuthor(
           Header,
@@ -64,6 +69,7 @@ module.exports = Structures.extend(
         }
         this.reply(embed);
       }
+
       sendSuccess(Header, Msg, Footer) {
         const embed = new MessageEmbed().setAuthor(
           Header,
@@ -79,6 +85,7 @@ module.exports = Structures.extend(
         }
         this.channel.send(embed);
       }
+
       sendSuccessReply(Header, Msg, Footer) {
         const embed = new MessageEmbed().setAuthor(
           Header,
