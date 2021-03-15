@@ -1,9 +1,9 @@
 const { MessageEmbed } = require("discord.js");
-
 module.exports = {
-  name: "stop",
-  aliases: ["dc"],
-  run: (message, args) => {
+  name: "skip",
+  aliases: ["sk"],
+  cooldown: 20,
+  run: async (message, args) => {
     if (!message.member.voice.channel)
       return message.channel.send(
         new MessageEmbed()
@@ -13,7 +13,6 @@ module.exports = {
           )
           .setDescription("Please join a voice channel to play music.")
       );
-
     if (
       message.guild.me.voice.channel &&
       message.member.voice.channel.id !== message.guild.me.voice.channel.id
@@ -27,7 +26,7 @@ module.exports = {
           .setDescription("Please join the same voice channel as me.")
       );
 
-    if (!client.player.getQueue(message))
+    if (!message.client.player.getQueue(message))
       return message.channel.send(
         new MessageEmbed()
           .setAuthor(
@@ -37,17 +36,16 @@ module.exports = {
           .setDescription("No music is being played right now.")
       );
 
-    client.player.setRepeatMode(message, false);
-    const success = client.player.stop(message);
+    const success = message.client.player.skip(message);
 
     if (success)
       message.channel.send(
         new MessageEmbed()
           .setAuthor(
-            `Music Stopped.`,
+            "Skipped.",
             "https://raw.githubusercontent.com/HurricanoBot/HurricanoImages/master/SetAuthorEmojis/Success.png"
           )
-          .setDescription(`Successfully stopped music on this server.`)
+          .setDescription("I have skipped that song.")
       );
   },
 };

@@ -26,6 +26,7 @@
     "ejs": "^3.1.6",
     "express": "^4.17.1",
     "ffmpeg-static": "^4.2.7",
+    "lyrics-finder": "^21.7.0",
     "module-alias": "^2.2.2",
     "mongoose": "^5.11.13",
     "ms": "^2.1.3",

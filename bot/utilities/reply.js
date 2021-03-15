@@ -1,4 +1,4 @@
-const { Structures, APIMessage } = require("discord.js")
+const { Structures, APIMessage, MessageEmbed } = require("discord.js");
 module.exports = Structures.extend(
   "Message",
   (Message) =>
@@ -6,6 +6,22 @@ module.exports = Structures.extend(
       constructor(...args) {
         super(...args);
       }
+      sendError(Header, Msg, Footer) {
+        const embed = new MessageEmbed().setAuthor(
+          Header,
+          "https://raw.githubusercontent.com/HurricanoBot/HurricanoImages/master/SetAuthorEmojis/Error.png"
+        );
+        if (Msg) {
+          embed.setDescription(Msg);
+        }
+        if (Footer) {
+          embed.setFooter(Footer);
+        } else {
+          embed.setFooter(this.author.username, this.author.displayAvatarURL());
+        }
+        this.channel.send(embed);
+      }
+
       async reply(content, options) {
         const reference = {
           message_id:
@@ -24,11 +40,13 @@ module.exports = Structures.extend(
           .resolveFiles();
 
         this.client.api.channels[this.channel.id].messages.post({
-          data: { ...parsed, 
-          message_reference: reference, 
-          allowed_mentions: {
-            replied_user: false
-          } },
+          data: {
+            ...parsed,
+            message_reference: reference,
+            allowed_mentions: {
+              replied_user: false,
+            },
+          },
           files,
         });
       }
