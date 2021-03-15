@@ -15,9 +15,8 @@ module.exports = {
 
     let track = args[0];
     if (!args.length) {
-      track = message.client.player.nowPlaying(message);
+      track = (client.player.getQueue(message)).playing
     }
-    if (!track) return;
     try {
       if (!args.length) {
         lyrics = await lyricsFinder(track.title, "");
@@ -53,11 +52,10 @@ module.exports = {
           "lyrics {Your song}`."
       );
     }
-    let lyricsEmbed = new MessageEmbed();
-    if ((track = message.client.player.nowPlaying(message).title)) {
-      lyricsEmbed
+    if ((track = (client.player.getQueue(message)).playing)) {
+      const lyricsEmbed = new MessageEmbed()
         .setAuthor(
-          `Lyrics for ${track.title}`,
+          'Lyrics for '+ track.title,
           "https://raw.githubusercontent.com/HurricanoBot/HurricanoImages/master/SetAuthorEmojis/Music.gif"
         )
         .setURL(track.url)
@@ -67,8 +65,12 @@ module.exports = {
           message.author.displayAvatarURL()
         )
         .setThumbnail(track.thumbnail);
+        
+        if (lyricsEmbed.description.length >= 2048)
+        lyricsEmbed.description = `${lyricsEmbed.description.substr(0, 2045)}...`;
+      return message.channel.send(lyricsEmbed).catch(console.error);
     } else if ((track = args[0])) {
-      lyricsEmbed
+      const lyricsEmbed = new MessageEmbed()
         .setAuthor(
           `Lyrics found for ${args[0]}`,
           "https://raw.githubusercontent.com/HurricanoBot/HurricanoImages/master/SetAuthorEmojis/Music.gif"
@@ -78,10 +80,11 @@ module.exports = {
           `Requested by ${message.author.username}`,
           message.author.displayAvatarURL()
         );
+        if (lyricsEmbed.description.length >= 2048)
+        lyricsEmbed.description = `${lyricsEmbed.description.substr(0, 2045)}...`;
+      return message.channel.send(lyricsEmbed).catch(console.error);
     }
 
-    if (lyricsEmbed.description.length >= 2048)
-      lyricsEmbed.description = `${lyricsEmbed.description.substr(0, 2045)}...`;
-    return message.channel.send(lyricsEmbed).catch(console.error);
+
   },
 };
