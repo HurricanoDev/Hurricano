@@ -6,22 +6,6 @@ module.exports = Structures.extend(
       constructor(...args) {
         super(...args);
       }
-      sendError(Header, Msg, Footer) {
-        const embed = new MessageEmbed().setAuthor(
-          Header,
-          "https://raw.githubusercontent.com/HurricanoBot/HurricanoImages/master/SetAuthorEmojis/Error.png"
-        );
-        if (Msg) {
-          embed.setDescription(Msg);
-        }
-        if (Footer) {
-          embed.setFooter(Footer);
-        } else {
-          embed.setFooter(this.author.username, this.author.displayAvatarURL());
-        }
-        this.channel.send(embed);
-      }
-
       async reply(content, options) {
         const reference = {
           message_id:
@@ -49,6 +33,66 @@ module.exports = Structures.extend(
           },
           files,
         });
+      }
+      sendError(Header, Msg, Footer) {
+        const embed = new MessageEmbed().setAuthor(
+          Header,
+          "https://raw.githubusercontent.com/HurricanoBot/HurricanoImages/master/SetAuthorEmojis/Error.png"
+        );
+        if (Msg) {
+          embed.setDescription(Msg);
+        }
+        if (Footer) {
+          embed.setFooter(Footer);
+        } else {
+          embed.setFooter(this.author.username, this.author.displayAvatarURL());
+        }
+        this.channel.send(embed);
+      }
+      sendErrorReply(Header, Msg, Footer) {
+        const embed = new MessageEmbed().setAuthor(
+          Header,
+          "https://raw.githubusercontent.com/HurricanoBot/HurricanoImages/master/SetAuthorEmojis/Error.png"
+        );
+        if (Msg) {
+          embed.setDescription(Msg);
+        }
+        if (Footer) {
+          embed.setFooter(Footer);
+        } else {
+          embed.setFooter(this.author.username, this.author.displayAvatarURL());
+        }
+        this.reply(embed);
+      }
+      sendSuccess(Header, Msg, Footer) {
+        const embed = new MessageEmbed().setAuthor(
+          Header,
+          "https://raw.githubusercontent.com/HurricanoBot/HurricanoImages/master/SetAuthorEmojis/Success.png"
+        );
+        if (Msg) {
+          embed.setDescription(Msg);
+        }
+        if (Footer) {
+          embed.setFooter(Footer);
+        } else {
+          embed.setFooter(this.author.username, this.author.displayAvatarURL());
+        }
+        this.channel.send(embed);
+      }
+      sendSuccessReply(Header, Msg, Footer) {
+        const embed = new MessageEmbed().setAuthor(
+          Header,
+          "https://raw.githubusercontent.com/HurricanoBot/HurricanoImages/master/SetAuthorEmojis/Success.png"
+        );
+        if (Msg) {
+          embed.setDescription(Msg);
+        }
+        if (Footer) {
+          embed.setFooter(Footer);
+        } else {
+          embed.setFooter(this.author.username, this.author.displayAvatarURL());
+        }
+        this.reply(embed);
       }
     }
 );
