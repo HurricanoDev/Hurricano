@@ -1,5 +1,5 @@
 const Discord = require("discord.js");
-const sourcebin = require("sourcebin_js");
+const sourcebin = require("sourcebin");
 const config = require("@config");
 module.exports = {
   name: "eval",
@@ -34,11 +34,14 @@ module.exports = {
         await sourcebin
           .create([
             {
-              name: `Code by ${message.author.tag}`,
               content: clean(evaled),
-              languageId: "js",
-            },
-          ])
+              language: "js",
+            }
+          ],
+          {
+            name: `Code by ${message.author.tag}`,
+            description: `Output of the eval command used by ${message.author.tag}.`
+          })
           .then(async (src) => {
             var embed = new Discord.MessageEmbed()
               .setColor("#ffb6c1")
@@ -68,11 +71,14 @@ module.exports = {
         sourcebin
           .create([
             {
-              name: `Code by ${message.author.tag}`,
-              content: clean(err),
-              languageId: "js",
-            },
-          ])
+              content: clean(evaled),
+              language: "js",
+            }
+          ],
+          {
+            name: `Code by ${message.author.tag}`,
+            description: `Output of the eval command used by ${message.author.tag}.`
+          })
           .then(async (src) => {
             var embed = new Discord.MessageEmbed()
               .setColor("#ffb6c1")

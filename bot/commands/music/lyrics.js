@@ -14,14 +14,14 @@ module.exports = {
         "Please join a voice channel to play music."
       );
 
-    let track = args[0];
+    let track = args;
     if (!args.length) {
       track = client.player.getQueue(message).playing;
     }
     try {
       if (!args.length) {
         lyrics = await lyricsFinder(track.title, "");
-      } else if ((track = args[0])) {
+      } else if ((track = args)) {
         lyrics = await lyricsFinder(args[0], "");
       }
       if ((track = message.client.player.nowPlaying(message) && !lyrics)) {
@@ -34,7 +34,7 @@ module.exports = {
             prefix +
             "lyrics {Your song}`."
         );
-      } else if ((track = args[0] && !lyrics)) {
+      } else if ((track = args && !lyrics)) {
         return message.channel.sendError(
           message,
           "No Lyrics Found.",
@@ -76,10 +76,10 @@ module.exports = {
           2045
         )}...`;
       return message.channel.send(lyricsEmbed).catch(console.error);
-    } else if ((track = args[0])) {
+    } else if ((track = args)) {
       const lyricsEmbed = new MessageEmbed()
         .setAuthor(
-          `Lyrics found for ${args[0]}`,
+          `Lyrics found for ${track}`,
           "https://raw.githubusercontent.com/HurricanoBot/HurricanoImages/master/SetAuthorEmojis/Music.gif"
         )
         .setDescription(lyrics)

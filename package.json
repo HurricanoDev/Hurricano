@@ -11,7 +11,7 @@
     "bot",
     "Discord bot"
   ],
-  "author": "Dragonizedpizza, NightZan999, Militia21 and Anogh297",
+  "author": "Dragonizedpizza, Militia21 and Anogh297",
   "license": "ISC",
   "dependencies": {
     "@discordjs/opus": "^0.4.0",
@@ -31,8 +31,9 @@
     "mongoose": "^5.11.13",
     "ms": "^2.1.3",
     "num-parse": "^1.0.1",
-    "sourcebin_js": "0.0.3-ignore",
-    "superagent": "^6.1.0"
+    "sourcebin": "^4.0.2",
+    "superagent": "^6.1.0",
+    "weird-to-normal-chars": "^1.3.0"
   },
   "_moduleAliases": {
     "@config": "./config.json",

@@ -12,14 +12,14 @@ module.exports = {
         "Please join a voice channel to play music."
       );
 
-    if (!client.player.getQueue(message))
+    if (!message.client.player.getQueue(message))
       return message.channel.sendError(
         message,
         "No Music is Playing.",
         "Please play some music to play filters."
       );
 
-    const filterToUpdate = client.filters.find(
+    const filterToUpdate = message.client.filters.find(
       (x) => x.toLowerCase() === args[0].toLowerCase()
     );
 
@@ -32,13 +32,13 @@ module.exports = {
 
     const filtersUpdated = {};
 
-    filtersUpdated[filterToUpdate] = client.player.getQueue(message).filters[
+    filtersUpdated[filterToUpdate] = message.client.player.getQueue(message).filters[
       filterToUpdate
     ]
       ? false
       : true;
 
-    client.player.setFilters(message, filtersUpdated);
+    message.client.player.setFilters(message, filtersUpdated);
     if (filtersUpdated[filterToUpdate])
       message.channel.sendSuccess(
         message,
