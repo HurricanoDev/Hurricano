@@ -130,7 +130,26 @@ module.exports = {
           color: "#034ea2",
         },
       });
-    let prize = args.slice(2).join(" ");
+    let role = undefined;
+    if (!args[2])
+      return message.channel.sendError(
+        message,
+        "Invalid Arguments Provided.",
+        "Please provide a required role for this giveaway."
+      );
+    role =
+      args[2].toLowerCase() == "none" ||
+      message.guild.roles.cache.get(args[2]) ||
+      message.guild.roles.cache.find((role) => role.name == args[2]) ||
+      message.mentions.roles.first();
+    if (!role)
+      return message.channel.sendError(
+        message,
+        "Invalid Required Role Provided.",
+        "Please check if the role you provided exists, or if you spelled none wrong."
+      );
+
+    let prize = args.slice(3).join(" ");
     if (!prize)
       return message.reply({
         embed: {
@@ -151,30 +170,60 @@ module.exports = {
           color: "#034ea2",
         },
       });
-    client.giveawaysManager.start(message.channel, {
-      time: ms(time),
-      winnerCount: winners,
-      prize: prize,
-      hostedBy: message.author,
-      messages: {
-        giveaway: `${emojis.categories.giveaways} **Giveaway** ${emojis.categories.giveaways}`,
-        giveawayEnded: "🎊 **Giveaway Ended!** 🎊",
-        timeRemaining: "Time left: **{duration}**!",
-        inviteToParticipate: 'React with "🎉" to participate!',
-        winMessage: "🎊 Congrats, {winners} for winning **{prize}**!",
-        embedFooter: `${client.user.tag}`,
-        noWinner: "Nobody won because of the invalid participations!",
-        hostedBy: "Hosted by: {user}",
-        winners: "winner(s)",
-        endedAt: "Ended at",
-        units: {
-          seconds: "seconds",
-          minutes: "minutes",
-          hours: "hours",
-          days: "days",
+    if (!role || role === true) {
+      client.giveawaysManager.start(message.channel, {
+        time: ms(time),
+        winnerCount: winners,
+        prize: prize,
+        hostedBy: message.author,
+        messages: {
+          giveaway: `${emojis.categories.giveaways} **Giveaway** ${emojis.categories.giveaways}`,
+          giveawayEnded: "🎊 **Giveaway Ended!** 🎊",
+          timeRemaining: "Time left: **{duration}**!",
+          inviteToParticipate: 'React with "🎉" to participate!',
+          winMessage: "🎊 Congrats, {winners} for winning **{prize}**!",
+          embedFooter: `${client.user.tag}`,
+          noWinner: "Nobody won because of the invalid participations!",
+          hostedBy: "Hosted by: {user}",
+          winners: "winner(s)",
+          endedAt: "Ended at",
+          units: {
+            seconds: "seconds",
+            minutes: "minutes",
+            hours: "hours",
+            days: "days",
+          },
         },
-      },
-    });
+      });
+    } else if (role) {
+      client.giveawaysManager.start(message.channel, {
+        time: ms(time),
+        winnerCount: winners,
+        prize: prize,
+        hostedBy: message.author,
+        extraData: {
+          role: role,
+        },
+        messages: {
+          giveaway: `${emojis.categories.giveaways} **Giveaway** ${emojis.categories.giveaways}`,
+          giveawayEnded: "🎊 **Giveaway Ended!** 🎊",
+          timeRemaining: `Time left: **{duration}**!`,
+          inviteToParticipate: 'React with "🎉" to participate!',
+          winMessage: "🎊 Congrats, {winners} for winning **{prize}**!",
+          embedFooter: `${client.user.tag}`,
+          noWinner: "Nobody won because of the invalid participations!",
+          hostedBy: `Hosted by: {user} \n Required Role: **${role}**`,
+          winners: "winner(s)",
+          endedAt: "Ended at",
+          units: {
+            seconds: "seconds",
+            minutes: "minutes",
+            hours: "hours",
+            days: "days",
+          },
+        },
+      });
+    }
     if (message.deletable) message.delete();
     return;
   },

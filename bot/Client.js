@@ -110,7 +110,6 @@ class Client extends Discord.Client {
     const botevents = fs
       .readdirSync("./bot/events/bot")
       .filter((file) => file.endsWith(".js"));
-
     for (const file of botevents) {
       const event = require(`./events/bot/${file}`);
       if (event.once) {
@@ -127,7 +126,27 @@ class Client extends Discord.Client {
       const event = require(`./events/music/${file}`);
       this.player.on(event.name, (...args) => event.run(...args, this));
     }
+    // GIVEAWAYS EVENTS
+    const giveawaysevents = fs
+      .readdirSync("./bot/events/giveaways")
+      .filter((file) => file.endsWith(".js"));
+    for (const file of giveawaysevents) {
+      const event = require(`./events/giveaways/${file}`);
+      this.giveawaysManager.on(event.name, (...args) =>
+        event.run(...args, this)
+      );
+    }
   }
+  loadStructures() {
+    const structures = fs
+      .readdirSync("./bot/structures")
+      .filter((file) => file.endsWith(".js"));
+
+    for (const file of structures) {
+      require("./structures/" + file);
+    }
+  }
+
   loadCommands() {
     readdirSync("./bot/commands").forEach((dir) => {
       const commands = readdirSync(`./bot/commands/${dir}/`).filter((file) =>

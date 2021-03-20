@@ -12,6 +12,9 @@ module.exports = model(
       ended: Boolean,
       winnerCount: Number,
       prize: String,
+      extraData: {
+        role: String,
+      },
       messages: {
         giveaway: String,
         giveawayEnded: String,

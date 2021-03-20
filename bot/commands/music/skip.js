@@ -6,7 +6,8 @@ module.exports = {
   run: async (message, args) => {
     if (!message.member.voice.channel)
       if (!message.member.voice.channel)
-        return message.sendError(
+        return message.channel.sendError(
+          message,
           "Not in A Voice Channel.",
           "Please join a voice channel to play music."
         );
@@ -14,13 +15,15 @@ module.exports = {
       message.guild.me.voice.channel &&
       message.member.voice.channel.id !== message.guild.me.voice.channel.id
     )
-      return message.sendError(
+      return message.channel.sendError(
+        message,
         "Different Voice Channel.",
         "Please join the same voice channel as me."
       );
 
     if (!client.player.getQueue(message))
-      return message.sendError(
+      return message.channel.sendError(
+        message,
         "No Music is Playing.",
         "Please join a voice channel to play music."
       );
@@ -28,6 +31,10 @@ module.exports = {
     const success = message.client.player.skip(message);
 
     if (success)
-      message.sendSuccess("Skipped.", "I have successfully skipped that song.");
+      message.channel.sendSuccess(
+        message,
+        "Skipped.",
+        "I have successfully skipped that song."
+      );
   },
 };

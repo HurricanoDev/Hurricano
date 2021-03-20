@@ -8,14 +8,15 @@ module.exports = {
     let lyrics = null;
     const prefix = await message.client.db.guild.getPrefix(message.guild.id);
     if (!client.player.getQueue(message))
-      return message.sendError(
+      return message.channel.sendError(
+        message,
         "No Music is Playing.",
         "Please join a voice channel to play music."
       );
 
     let track = args[0];
     if (!args.length) {
-      track = (client.player.getQueue(message)).playing
+      track = client.player.getQueue(message).playing;
     }
     try {
       if (!args.length) {
@@ -24,7 +25,8 @@ module.exports = {
         lyrics = await lyricsFinder(args[0], "");
       }
       if ((track = message.client.player.nowPlaying(message) && !lyrics)) {
-        message.sendError(
+        message.channel.sendError(
+          message,
           "No Lyrics Found.",
           "No lyrics were found for **" +
             track.title +
@@ -33,7 +35,8 @@ module.exports = {
             "lyrics {Your song}`."
         );
       } else if ((track = args[0] && !lyrics)) {
-        return message.sendError(
+        return message.channel.sendError(
+          message,
           "No Lyrics Found.",
           "No lyrics were found for **" +
             track +
@@ -43,7 +46,8 @@ module.exports = {
         );
       }
     } catch (error) {
-      message.sendError(
+      message.channel.sendError(
+        message,
         "No Lyrics Found.",
         "No lyrics were found for **" +
           track +
@@ -52,10 +56,10 @@ module.exports = {
           "lyrics {Your song}`."
       );
     }
-    if ((track = (client.player.getQueue(message)).playing)) {
+    if ((track = client.player.getQueue(message).playing)) {
       const lyricsEmbed = new MessageEmbed()
         .setAuthor(
-          'Lyrics for '+ track.title,
+          "Lyrics for " + track.title,
           "https://raw.githubusercontent.com/HurricanoBot/HurricanoImages/master/SetAuthorEmojis/Music.gif"
         )
         .setURL(track.url)
@@ -65,9 +69,12 @@ module.exports = {
           message.author.displayAvatarURL()
         )
         .setThumbnail(track.thumbnail);
-        
-        if (lyricsEmbed.description.length >= 2048)
-        lyricsEmbed.description = `${lyricsEmbed.description.substr(0, 2045)}...`;
+
+      if (lyricsEmbed.description.length >= 2048)
+        lyricsEmbed.description = `${lyricsEmbed.description.substr(
+          0,
+          2045
+        )}...`;
       return message.channel.send(lyricsEmbed).catch(console.error);
     } else if ((track = args[0])) {
       const lyricsEmbed = new MessageEmbed()
@@ -80,11 +87,12 @@ module.exports = {
           `Requested by ${message.author.username}`,
           message.author.displayAvatarURL()
         );
-        if (lyricsEmbed.description.length >= 2048)
-        lyricsEmbed.description = `${lyricsEmbed.description.substr(0, 2045)}...`;
+      if (lyricsEmbed.description.length >= 2048)
+        lyricsEmbed.description = `${lyricsEmbed.description.substr(
+          0,
+          2045
+        )}...`;
       return message.channel.send(lyricsEmbed).catch(console.error);
     }
-
-
   },
 };

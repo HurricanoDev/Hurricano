@@ -5,7 +5,8 @@ module.exports = {
   aliases: ["dc"],
   run: (message, args) => {
     if (!message.member.voice.channel)
-      return message.sendError(
+      return message.channel.sendError(
+        message,
         "Not in A Voice Channel.",
         "Please join a voice channel to play music."
       );
@@ -14,13 +15,15 @@ module.exports = {
       message.guild.me.voice.channel &&
       message.member.voice.channel.id !== message.guild.me.voice.channel.id
     )
-      return message.sendError(
+      return message.channel.sendError(
+        message,
         "Different Voice Channel.",
         "Please join the same voice channel as me."
       );
 
     if (!client.player.getQueue(message))
-      return message.sendError(
+      return message.channel.sendError(
+        message,
         "No Music is Playing.",
         "Please join a voice channel to play music."
       );
@@ -29,6 +32,10 @@ module.exports = {
     const success = client.player.stop(message);
 
     if (success)
-      message.sendSuccess("Stopped.", "I have successfully stopped the music.");
+      message.channel.sendSuccess(
+        message,
+        "Stopped.",
+        "I have successfully stopped the music."
+      );
   },
 };

@@ -47,7 +47,8 @@ module.exports = {
       if (!command) return;
       let checkAdmin = config.ownerIds.includes(author.id);
       if (command.ownerOnly === true && !checkAdmin)
-        return message.sendError(
+        return message.channel.sendError(
+          message,
           "Permission Error.",
           `You are not the owner of Hurricano™, ${author}.`
         );
@@ -72,7 +73,8 @@ module.exports = {
         }
       }
       if (command.args && !args.length) {
-        return message.sendError(
+        return message.channel.sendError(
+          message,
           "Arguments Error.",
           `You did not provide all the arguments, ${author}.`
         );

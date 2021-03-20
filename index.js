@@ -26,3 +26,5 @@ manager.on("shardCreate", (shard) => {
   });
 });
 manager.spawn();
+
+process.on("error", (e) => {});

@@ -6,15 +6,17 @@ module.exports = {
   args: true,
   run: async (message, args) => {
     if (!message.member.voice.channel)
-      return message.sendError(
+      return message.channel.sendError(
+        message,
         "Not in A Voice Channel.",
         "Please join a voice channel to play music."
       );
 
     if (!client.player.getQueue(message))
-      return message.sendError(
+      return message.channel.sendError(
+        message,
         "No Music is Playing.",
-        "Please join a voice channel to play music."
+        "Please play some music to play filters."
       );
 
     const filterToUpdate = client.filters.find(
@@ -22,7 +24,8 @@ module.exports = {
     );
 
     if (!filterToUpdate)
-      return message.sendError(
+      return message.channel.sendError(
+        message,
         "Invalid Filter",
         "This filter doesn't exist. Filters you can use are: \n 8D \n gate \n haas \n phaser \n treble \n tremolo \n vibrato \n reverse \n karaoke \n flanger \n mcompand \n pulsator \n subboost \n bassboost \n vaporwave \n nightcore \n normalizer \n surrounding"
       );
@@ -37,12 +40,14 @@ module.exports = {
 
     client.player.setFilters(message, filtersUpdated);
     if (filtersUpdated[filterToUpdate])
-      message.sendSuccess(
+      message.channel.sendSuccess(
+        message,
         "Filter Being Added.",
         "I am adding the filter the the song. Please wait. The longer the song is, the longer it takes."
       );
     else
-      message.sendSuccess(
+      message.channel.sendSuccess(
+        message,
         "Filter Being Removed.",
         "I am removing the filters. Please wait. The longer the song is, the longer this will take."
       );

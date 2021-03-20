@@ -20,7 +20,7 @@ module.exports = {
       if (typeof evaled !== "string")
         evaled = require("util").inspect(evaled, { depth: 4 });
 
-        if (clean(evaled).length > 1024 || code.length > 1024) {
+      if (clean(evaled).length > 1024 || code.length > 1024) {
         await sourcebin
           .create([
             {

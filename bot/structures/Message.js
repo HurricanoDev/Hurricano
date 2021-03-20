@@ -2,7 +2,7 @@ const { Structures, APIMessage, MessageEmbed } = require("discord.js");
 module.exports = Structures.extend(
   "Message",
   (Message) =>
-    class DragonMessage extends Message {
+    class HurricanoMessage extends Message {
       constructor(...args) {
         super(...args);
       }
@@ -34,26 +34,6 @@ module.exports = Structures.extend(
           files,
         });
       }
-      
-      sendError(Header, Msg, Footer) {
-        const embed = new MessageEmbed()
-          .setAuthor(
-            Header,
-            "https://raw.githubusercontent.com/HurricanoBot/HurricanoImages/master/SetAuthorEmojis/Error.png"
-          )
-          .setColor("#FF0000");
-
-        if (Msg) {
-          embed.setDescription(Msg);
-        }
-        if (Footer) {
-          embed.setFooter(Footer);
-        } else {
-          embed.setFooter(this.author.username, this.author.displayAvatarURL());
-        }
-        this.channel.send(embed);
-      }
-
       sendErrorReply(Header, Msg, Footer) {
         const embed = new MessageEmbed().setAuthor(
           Header,
@@ -69,23 +49,6 @@ module.exports = Structures.extend(
         }
         this.reply(embed);
       }
-
-      sendSuccess(Header, Msg, Footer) {
-        const embed = new MessageEmbed().setAuthor(
-          Header,
-          "https://raw.githubusercontent.com/HurricanoBot/HurricanoImages/master/SetAuthorEmojis/Success.png"
-        );
-        if (Msg) {
-          embed.setDescription(Msg);
-        }
-        if (Footer) {
-          embed.setFooter(Footer);
-        } else {
-          embed.setFooter(this.author.username, this.author.displayAvatarURL());
-        }
-        this.channel.send(embed);
-      }
-
       sendSuccessReply(Header, Msg, Footer) {
         const embed = new MessageEmbed().setAuthor(
           Header,
