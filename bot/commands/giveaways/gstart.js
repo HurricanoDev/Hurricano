@@ -130,7 +130,7 @@ module.exports = {
           color: "#034ea2",
         },
       });
-    let role = undefined;
+    let role = null;
     if (!args[2])
       return message.channel.sendError(
         message,
@@ -138,17 +138,19 @@ module.exports = {
         "Please provide a required role for this giveaway."
       );
     role =
-      args[2].toLowerCase() == "none" ||
       message.guild.roles.cache.get(args[2]) ||
       message.guild.roles.cache.find((role) => role.name == args[2]) ||
       message.mentions.roles.first();
-    if (!role)
+
+    if (!role && !args[2].toLowerCase().startsWith('none'))
       return message.channel.sendError(
         message,
         "Invalid Required Role Provided.",
         "Please check if the role you provided exists, or if you spelled none wrong."
       );
-
+      if (args[2].toLowerCase().startsWith('none')) {
+        role = null;
+      };
     let prize = args.slice(3).join(" ");
     if (!prize)
       return message.reply({
@@ -170,12 +172,15 @@ module.exports = {
           color: "#034ea2",
         },
       });
-    if (!role || role === true) {
+    if (!role || role === null) {
       client.giveawaysManager.start(message.channel, {
         time: ms(time),
         winnerCount: winners,
         prize: prize,
         hostedBy: message.author,
+        extraData: {
+         role: 'null' 
+        },
         messages: {
           giveaway: `${emojis.categories.giveaways} **Giveaway** ${emojis.categories.giveaways}`,
           giveawayEnded: "🎊 **Giveaway Ended!** 🎊",
