@@ -24,7 +24,6 @@
     "discord.js": "^12.5.1",
     "discord.js-menu": "^2.3.1",
     "ejs": "^3.1.6",
-    "eslint": "^7.22.0",
     "express": "^4.17.1",
     "ffmpeg-static": "^4.2.7",
     "lyrics-finder": "^21.7.0",
@@ -39,6 +38,7 @@
   },
   "_moduleAliases": {
     "@config": "./config.json",
-    "@root": "."
+    "@root": ".",
+    "@command": "./bot/utilities/Command.js"
   }
 }

@@ -10,11 +10,11 @@ module.exports = {
       useFindAndModify: false,
     });
     mongoose.connection.on("connected", () => {
-      console.log("Connected to MongoDB!");
+      client.logger.db("Connected to MongoDB!");
     });
 
     mongoose.connection.on("disconnected", () => {
-      console.log("Disconnected from MongoDB!");
+      client.logger.db("Disconnected from MongoDB!");
     });
   },
   //Guild functions

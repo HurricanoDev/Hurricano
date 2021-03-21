@@ -75,7 +75,7 @@ module.exports = {
           0,
           2045
         )}...`;
-      return message.channel.send(lyricsEmbed).catch(console.error);
+      return message.channel.send(lyricsEmbed).catch(x => client.logger.warn(x));
     } else if ((track = args)) {
       const lyricsEmbed = new MessageEmbed()
         .setAuthor(
@@ -92,7 +92,7 @@ module.exports = {
           0,
           2045
         )}...`;
-      return message.channel.send(lyricsEmbed).catch(console.error);
+      return message.channel.send(lyricsEmbed).catch(x => client.logger.warn(x));
     }
   },
 };

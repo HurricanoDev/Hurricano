@@ -7,23 +7,23 @@ const manager = new ShardingManager("./bot/utilities/index.js", {
   token: config.token,
 });
 manager.on("shardCreate", (shard) => {
-  logger.info(`[Shard ${shard.id}] Shard Launched!`);
+  logger.shard(`[Shard ${shard.id}] Shard Launched!`);
 
   shard.on("ready", () => {
-    logger.info(`[Shard ${shard.id}] Shard Ready!`);
+    logger.shard(`[Shard ${shard.id}] Shard Ready!`);
   });
   shard.on("disconnect", (a, b) => {
-    logger.info(`[Shard ${shard.id}] Shard disconnected.`);
-    logger.info(a);
-    logger.info(b);
+    logger.shard(`[Shard ${shard.id}] Shard disconnected.`);
+    logger.shard(a);
+    logger.shard(b);
   });
   shard.on("reconnecting", (a, b) => {
-    logger.info(`[Shard ${shard.id}] Reconnecting.`);
-    logger.info(a);
-    logger.info(b);
+    logger.shard(`[Shard ${shard.id}] Reconnecting.`);
+    logger.shard(a);
+    logger.shard(b);
   });
   shard.on("death", (a, b) => {
-    logger.info(`[Shard ${shard.id}] Shard died.`);
+    logger.shard(`[Shard ${shard.id}] Shard died.`);
   });
 });
 manager.spawn();

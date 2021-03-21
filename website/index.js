@@ -1,4 +1,5 @@
 const express = require("express");
+const logger = require('../bot/utilities/logger.js')
 const app = express();
 const config = require("../config.json");
 app.set("view engine", "ejs");
@@ -13,6 +14,6 @@ app.get("/about", function (req, res) {
 
 app
   .listen(config.website.port, config.website.ip, function () {
-    console.log(`Server up on ${config.ip}:${config.port}!`);
+    logger.info(`Server up on ${config.ip}:${config.port}!`);
   })
-  .on("error", console.error);
+  .on("error", logger.warn);

@@ -31,4 +31,4 @@ init();
 
 module.exports = client;
 
-process.on("unhandledRejection", (error) => console.error(error));
+process.on("unhandledRejection", (error) => client.logger.warn(error));

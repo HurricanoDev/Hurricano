@@ -11,7 +11,7 @@ module.exports = {
               name: guild.name,
             }).save();
         } catch (err) {
-          console.error(err);
+          client.logger.warn(err)
         }
       }
 }

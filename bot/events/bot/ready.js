@@ -15,7 +15,7 @@ module.exports = {
             name: guild.name,
           }).save();
       } catch (err) {
-        console.error(err);
+        client.logger.warn(err);
       }
     }
     client.user.setActivity({
@@ -23,6 +23,6 @@ module.exports = {
       type: "STREAMING",
       url: "https://twitch.tv/Pewdiepie",
     });
-    console.log(`${client.user.username} Successfully Logged in!`);
+    client.logger.client(`${client.user.username} Successfully Logged in!`);
   },
 };

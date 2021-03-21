@@ -9,11 +9,11 @@ const ms = require("ms");
       if (!channel) {
           message.channel.sendError("Invalid Channel Provided.", "Please provide a valid channel.")
       }
-      let time = args[0];
+      let time = ms(args[0]);
       let validUnlocks = ['release', 'unlock'];
       var notimeembed = new Discord.MessageEmbed()
       .setTitle('Error')
-      .setDescription("👾 You must set a duration for the lockdown in either hours, minutes or seconds")  
+      .setDescription("Please provide a valid time. \n You must set a duration for the lockdown in either hours, minutes or seconds.")  
       .setColor('36393e')
       if (!time) return message.channel.send(notimeembed);
   
@@ -29,7 +29,7 @@ const ms = require("ms");
           await clearTimeout(lockit[channel.id]);
           await delete lockit[channel.id];
         message.sendSuccessReply('Success.', `Successfully lifted the lock in ${channel}.`).catch(error => {
-          console.log(error);
+          client.logger.warn(error);
         });
       } else {
         await channel.createOverwrite(message.guild.id, {
@@ -38,7 +38,7 @@ const ms = require("ms");
           var lockdownembed = new Discord.MessageEmbed()
           .setTitle("🔒 Channel Locked")
           .addField("Locked by", message.author, true)
-          .addField("Locked for", ms(ms(time), { long:true }), true)
+          .addField("Locked for", ms(time, { long: true }), true)
           .setFooter(`To unlock, use '${await message.client.db.guild.getPrefix(message.guild.id)}lock unlock'`)
           .setColor("36393e");
           await channel.send(lockdownembed)
@@ -51,9 +51,9 @@ const ms = require("ms");
               await channel.createOverwrite(message.guild.id, {
                 SEND_MESSAGES: null
               })
-                await channel.send(liftedembed).catch(console.error);
+                await channel.send(liftedembed).catch(x => client.logger.warn(x));
               delete lockit[channel.id];
-            }, ms(time));
+            }, time);
       }
   }
 };

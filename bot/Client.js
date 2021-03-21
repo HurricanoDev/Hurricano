@@ -6,7 +6,8 @@ table.setHeading("Command File", "Command Name", "Load status");
 const fs = require("fs");
 const { Player } = require("discord-player");
 const giveawaysManager = require("./utilities/giveaway");
-
+const logger = require("./utilities/logger.js");
+const path = require('path');
 /**
  * Extend Client class
  * @extends Discord.Client
@@ -150,17 +151,17 @@ class Client extends Discord.Client {
     }
   }
 
-  loadCommands() {
+loadCommands() {
     readdirSync("./bot/commands").forEach((dir) => {
       const commands = readdirSync(`./bot/commands/${dir}/`).filter((file) =>
         file.endsWith(".js")
       );
+    try {
       for (let file of commands) {
-        let pull = require(`./commands/${dir}/${file}`);
-        if (pull.name) {
-          this.commands.set(pull.name, pull);
-          table.addRow(file, pull.name, "Loaded!");
-        } else {
+    const props = new (require(`./commands/${dir}/${file}`))(this);
+      if (props.name) {
+table.addRow(file, props.help.name, "Loaded!");
+} else {
           table.addRow(
             file,
             pull.name,
@@ -168,12 +169,21 @@ class Client extends Discord.Client {
           );
           continue;
         }
-        if (pull.aliases && Array.isArray(pull.aliases))
-          pull.aliases.forEach((alias) => this.aliases.set(alias, pull.name));
+      if (props.init) {
+        props.init(this);
       }
-    });
-    console.log(table.toString());
-  }
+      this.commands.set(props.help.name, props);
+      props.conf.aliases.forEach(alias => {
+        this.aliases.set(alias, props.help.name);
+      });
+      return false;
+    } 
+    } catch (e) {
+      logger.error(e)
+    }
+  logger.client('\n' + table.toString())
+})
+};
   loadTopgg() {
     if (this.config.topggapi && typeof this.config.topggapi === "boolean") {
       let DBL = require("dblapi.js");

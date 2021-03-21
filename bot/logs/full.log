@@ -1,0 +1,177 @@
+2021-03-22 00:00:00 - error [index.js]: require(...) is not a cons2021-03-22 00:00:04 - shard [index.js]: [Shard 0] Shard Ready!
+tor
+    at /home/dragonizedpizza/Desktop/Hurricanp/bot/Client.js:161:19
+    at Array.forEach (<anonymous>)
+    at Client.loadCommands (/home/dragonizedpizza/Desktop/Hurricanp/bot/Client.js:155:35)
+    at init (/home/dragonizedpizza/Desktop/Hurricanp/bot/utilities/index.js:22:10)
+    at Object.<anonymous> (/home/dragonizedpizza/Desktop/Hurricanp/bot/utilities/index.js:30:1)
+    at Module._compile (internal/modules/cjs/loader.js:1063:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1092:10)
+    at Module.load (internal/modules/cjs/loader.js:928:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:769:14)
+    at Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)
+    at internal/main/run_main_module.js:17:47"
+}
+2021-03-22 00:00:00 - client [index.js]: 
+.
+||
+|
+ |
+-|
+'
+2021-03-22 00:00:00 - error [index.js]: require(...) is not a constructor
+{
+  "stack": "TypeError: require(...) is not a constructor
+    at /home/dragonizedpizza/Desktop/Hurricanp/bot/Client.js:161:19
+    at Array.forEach (<anonymous>)
+    at Client.loadCommands (/home/dragonizedpizza/Desktop/Hurricanp/bot/Client.js:155:35)
+    at init (/home/dragonizedpizza/Desktop/Hurricanp/bot/utilities/index.js:22:10)
+    at Object.<anonymous> (/home/dragonizedpizza/Desktop/Hurricanp/bot/utilities/index.js:30:1)
+    at Module._compile (internal/modules/cjs/loader.js:1063:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1092:10)
+    at Module.load (internal/modules/cjs/loader.js:928:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:769:14)
+    at Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)
+    at internal/main/run_main_module.js:17:47"
+}
+2021-03-22 00:00:00 - client [index.js]: 
+.
+||
+|
+ |
+-|
+'
+2021-03-22 00:00:00 - error [index.js]: require(...) is not a constructor
+{
+  "stack": "TypeError: require(...) is not a constructor
+    at /home/dragonizedpizza/Desktop/Hurricanp/bot/Client.js:161:19
+    at Array.forEach (<anonymous>)
+    at Client.loadCommands (/home/dragonizedpizza/Desktop/Hurricanp/bot/Client.js:155:35)
+    at init (/home/dragonizedpizza/Desktop/Hurricanp/bot/utilities/index.js:22:10)
+    at Object.<anonymous> (/home/dragonizedpizza/Desktop/Hurricanp/bot/utilities/index.js:30:1)
+    at Module._compile (internal/modules/cjs/loader.js:1063:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1092:10)
+    at Module.load (internal/modules/cjs/loader.js:928:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:769:14)
+    at Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)
+    at internal/main/run_main_module.js:17:47"
+}
+2021-03-22 00:00:00 - client [index.js]: 
+.
+||
+|
+ |
+-|
+'
+2021-03-22 00:00:00 - error [index.js]: require(...) is not a constructor
+{
+  "stack": "TypeError: require(...) is not a constructor
+    at /home/dragonizedpizza/Desktop/Hurricanp/bot/Client.js:161:19
+    at Array.forEach (<anonymous>)
+    at Client.loadCommands (/home/dragonizedpizza/Desktop/Hurricanp/bot/Client.js:155:35)
+    at init (/home/dragonizedpizza/Desktop/Hurricanp/bot/utilities/index.js:22:10)
+    at Object.<anonymous> (/home/dragonizedpizza/Desktop/Hurricanp/bot/utilities/index.js:30:1)
+    at Module._compile (internal/modules/cjs/loader.js:1063:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1092:10)
+    at Module.load (internal/modules/cjs/loader.js:928:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:769:14)
+    at Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)
+    at internal/main/run_main_module.js:17:47"
+}
+2021-03-22 00:00:00 - client [index.js]: 
+.
+||
+|
+ |
+-|
+'
+2021-03-22 00:00:00 - error [index.js]: require(...) is not a constructor
+{
+  "stack": "TypeError: require(...) is not a constructor
+    at /home/dragonizedpizza/Desktop/Hurricanp/bot/Client.js:161:19
+    at Array.forEach (<anonymous>)
+    at Client.loadCommands (/home/dragonizedpizza/Desktop/Hurricanp/bot/Client.js:155:35)
+    at init (/home/dragonizedpizza/Desktop/Hurricanp/bot/utilities/index.js:22:10)
+    at Object.<anonymous> (/home/dragonizedpizza/Desktop/Hurricanp/bot/utilities/index.js:30:1)
+    at Module._compile (internal/modules/cjs/loader.js:1063:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1092:10)
+    at Module.load (internal/modules/cjs/loader.js:928:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:769:14)
+    at Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)
+    at internal/main/run_main_module.js:17:47"
+}
+2021-03-22 00:00:00 - client [index.js]: 
+.
+||
+|
+ |
+-|
+'
+2021-03-22 00:00:00 - error [index.js]: require(...) is not a constructor
+{
+  "stack": "TypeError: require(...) is not a constructor
+    at /home/dragonizedpizza/Desktop/Hurricanp/bot/Client.js:161:19
+    at Array.forEach (<anonymous>)
+    at Client.loadCommands (/home/dragonizedpizza/Desktop/Hurricanp/bot/Client.js:155:35)
+    at init (/home/dragonizedpizza/Desktop/Hurricanp/bot/utilities/index.js:22:10)
+    at Object.<anonymous> (/home/dragonizedpizza/Desktop/Hurricanp/bot/utilities/index.js:30:1)
+    at Module._compile (internal/modules/cjs/loader.js:1063:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1092:10)
+    at Module.load (internal/modules/cjs/loader.js:928:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:769:14)
+    at Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)
+    at internal/main/run_main_module.js:17:47"
+}
+2021-03-22 00:00:00 - client [index.js]: 
+.
+||
+|
+ |
+-|
+'
+2021-03-22 00:00:00 - error [index.js]: require(...) is not a constructor
+{
+  "stack": "TypeError: require(...) is not a constructor
+    at /home/dragonizedpizza/Desktop/Hurricanp/bot/Client.js:161:19
+    at Array.forEach (<anonymous>)
+    at Client.loadCommands (/home/dragonizedpizza/Desktop/Hurricanp/bot/Client.js:155:35)
+    at init (/home/dragonizedpizza/Desktop/Hurricanp/bot/utilities/index.js:22:10)
+    at Object.<anonymous> (/home/dragonizedpizza/Desktop/Hurricanp/bot/utilities/index.js:30:1)
+    at Module._compile (internal/modules/cjs/loader.js:1063:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1092:10)
+    at Module.load (internal/modules/cjs/loader.js:928:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:769:14)
+    at Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)
+    at internal/main/run_main_module.js:17:47"
+}
+2021-03-22 00:00:00 - client [index.js]: 
+.
+||
+|
+ |
+-|
+'
+2021-03-22 00:00:00 - error [index.js]: require(...) is not a constructor
+{
+  "stack": "TypeError: require(...) is not a constructor
+    at /home/dragonizedpizza/Desktop/Hurricanp/bot/Client.js:161:19
+    at Array.forEach (<anonymous>)
+    at Client.loadCommands (/home/dragonizedpizza/Desktop/Hurricanp/bot/Client.js:155:35)
+    at init (/home/dragonizedpizza/Desktop/Hurricanp/bot/utilities/index.js:22:10)
+    at Object.<anonymous> (/home/dragonizedpizza/Desktop/Hurricanp/bot/utilities/index.js:30:1)
+    at Module._compile (internal/modules/cjs/loader.js:1063:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1092:10)
+    at Module.load (internal/modules/cjs/loader.js:928:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:769:14)
+    at Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)
+    at internal/main/run_main_module.js:17:47"
+}
+2021-03-22 00:00:00 - client [index.js]: 
+.
+||
+|
+ |
+-|
+'
+2021-03-22 00:00:03 - db [index.js]: Connected to MongoDB!
+2021-03-22 00:00:08 - client [index.js]: Hurricano™ Successfully Logged in!
