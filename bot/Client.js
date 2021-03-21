@@ -42,7 +42,10 @@ class Client extends Discord.Client {
      * @type {Object}
      */
     this.db = require("./handlers/db.js");
-
+    /**
+     * Logger
+     */
+    this.logger = require('./utilities/logger.js')
     /**
      * Import Schemas
      */
