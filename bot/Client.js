@@ -158,6 +158,7 @@ loadCommands() {
       );
     try {
       for (let file of commands) {
+        logger.error(dir + '/' + file)
     const props = new (require(`./commands/${dir}/${file}`))(this);
       if (props.name) {
 table.addRow(file, props.help.name, "Loaded!");
@@ -181,8 +182,8 @@ table.addRow(file, props.help.name, "Loaded!");
     } catch (e) {
       logger.error(e)
     }
-  logger.client('\n' + table.toString())
 })
+logger.client('\n' + table.toString());
 };
   loadTopgg() {
     if (this.config.topggapi && typeof this.config.topggapi === "boolean") {

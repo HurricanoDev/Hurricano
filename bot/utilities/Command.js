@@ -1,5 +1,8 @@
 const logger = require("../utilities/logger.js");
 const config = require('@config');
+const Discord = require('discord.js');
+const permissions = require('./permissions.js');
+
 module.exports = class Command {
     constructor(client, opts) {
         this.constructor.validateOptions(client, opts),
@@ -10,9 +13,10 @@ module.exports = class Command {
         this.description = opts.description || 'No description provided.';
         this.ownerOnly = opts.ownerOnly || false;
         this.examples = opts.examples || "No example provided.";
-        this.cooldown = opts.cooldowns || null;
+        this.cooldown = opts.cooldown || null;
         this.userPermissions = opts.userPermissions || null;
         this.clientPermissions = opts.clientPermissions || null;
+        const { cooldown, ownerOnly, aliases, userPermissions, clientPermissions, name, description, usage, examples } = this;
         this.conf = { cooldown, ownerOnly, aliases, userPermissions, clientPermissions };
         this.help = { name, description, usage, examples };
     
@@ -24,7 +28,7 @@ module.exports = class Command {
         if (!client) throw new Error('No client was found.');
         if (typeof opts !== 'object') throw new TypeError(`Command: ${this.name}: Options are not an Object.`);
         if (typeof opts.name !== 'string') throw new TypeError(`Command: ${this.name}: Name is not a string.`);
-        if (opts !== opts.name.toLowerCase()) throw new Error(`Command: ${this.name}: Name is not lowercase.`);
+        if (opts.name !== opts.name.toLowerCase()) throw new Error(`Command: ${this.name}: Name is not lowercase.`);
         if (opts.aliases) {
             if (!Array.isArray(opts.aliases) || opts.aliases.some(ali => typeof ali !== 'string'))
               throw new TypeError(`Command: ${this.name}: Aliases are not an array of strings.`);
@@ -40,14 +44,14 @@ module.exports = class Command {
           if (opts.clientPermissions) {
             if (!Array.isArray(opts.clientPermissions))
               throw new TypeError(`Command: ${this.name}: User permissions(s) are not an array of permission key strings.`);
-    }
     for (const perm of opts.clientPermissions) {
         if (!permissions[perm]) throw new RangeError(`Command: ${this.name}: Invalid command client permission(s): ${perm}`);
       }
+    }
     if (opts.userPermissions) {
         if (!Array.isArray(opts.userPermissions))
           throw new TypeError(`Command: ${this.name}: User permissions(s) are not an array of permission key strings.`);
-          for (const perm of opts.permissions.user) {
+          for (const perm of opts.userPermissions) {
             if (!permissions[perm]) throw new RangeError(`Command: ${this.name}: Invalid command user permission(s): ${perm}`);
           }
         }
@@ -55,36 +59,6 @@ module.exports = class Command {
     throw new TypeError(`Command: ${this.name}: Command examples is not an Array of permission key strings.`);
  if (opts.ownerOnly && typeof opts.ownerOnly !== 'boolean') 
     throw new TypeError(`Command: ${this.name}: ownerOnly is not a boolean.`);
-
-      if (!this.client.cooldowns.has(this.name)) {
-        this.client.cooldowns.set(this.name, new Discord.Collection());
-      }
-      const now = Date.now();
-      const timestamps = this.client.cooldowns.get(this.name);
-      const cooldownAmount = (this.cooldown || 3) * 1000;
-const { author } = message;
-      if (timestamps.has(author.id)) {
-        const expirationTime = timestamps.get(author.id) + cooldownAmount;
-        if (now < expirationTime) {
-          const timeLeft = (expirationTime - now) / 1000;
-          return message.reply({
-            embed: {
-              title: "Chillza.",
-              description: `You need to wait ${timeLeft.toFixed(
-                1
-              )} more second(s) before reusing the \`${
-                command.name
-              }\` command.`,
-              footer: { text: `"Patience is the key my child."` },
-            },
-          });
-        }
-      };
-
-      if (!config.ownerIds.includes(author.id)) timestamps.set(author.id, now);
-      setTimeout(() => timestamps.delete(author.id), cooldownAmount);
-      if (command) command.run(message, args);
-
     }
 
 }

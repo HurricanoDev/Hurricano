@@ -1,11 +1,15 @@
 const Discord = require("discord.js");
-
-module.exports = {
+const Command = require('@Command');
+module.exports = class Connect4Command extends Command {
+  constructor(client) {
+    super(client, {
   name: "connect4",
   aliases: ["c4", "connectfour"],
   description: "Play the connect four game!",
   permissions: "SEND_MESSAGES",
-  run: async (message, args) => {
+    });
+  };
+  async run(message, args) {
     const embed = new Discord.MessageEmbed()
       .setAuthor(
         "Please mention a user to play against.",
@@ -19,5 +23,5 @@ module.exports = {
     if (!message.mentions.users.first()) return message.channel.send(embed);
 
     connect4.newGame(message);
-  },
+  }
 };

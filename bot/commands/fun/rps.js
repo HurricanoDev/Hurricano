@@ -1,13 +1,18 @@
 const { MessageEmbed } = require("discord.js");
 const rps = ["scissors", "rock", "paper"];
 const res = ["Scissors :scissors:", "Rock :rock:", "Paper :roll_of_paper:"];
+const Command = require('@Command');
 
-module.exports = {
+module.exports = class RockPaperScissorsCommand extends Command {
+  constructor(client) {
+    super(client, {
   name: "rps",
   aliases: ["rockpaperscissors"],
   description: "Rock, paper, scissors with Hurricano!",
   args: true,
-  run: async (message, args) => {
+    });
+  };
+  async run(message, args) {
     let userChoice;
     if (args.length) userChoice = args[0].toLowerCase();
     userChoice = rps.indexOf(userChoice);
@@ -29,5 +34,5 @@ module.exports = {
       .setTimestamp()
       .setColor(message.guild.me.displayHexColor);
     message.reply(embed);
-  },
+  }
 };

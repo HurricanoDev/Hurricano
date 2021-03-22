@@ -1,31 +1,11 @@
-2021-03-22 07:36:03 - error [index.js]: Command: SetPrefixCommand:2021-03-22 07:36:06 - shard [index.js]: [Shard 0] Shard Ready!
-Command: Name is not lowercase.
-    at Function.validateOptions (/home/dragonizedpizza/Desktop/Hurricanp/bot/utilities/Command.js:27:53)
-    at new Command (/home/dragonizedpizza/Desktop/Hurricanp/bot/utilities/Command.js:5:26)
-    at new SetPrefixCommand (/home/dragonizedpizza/Desktop/Hurricanp/bot/commands/config/setprefix.js:5:5)
-    at /home/dragonizedpizza/Desktop/Hurricanp/bot/Client.js:161:19
-    at Array.forEach (<anonymous>)
-    at Client.loadCommands (/home/dragonizedpizza/Desktop/Hurricanp/bot/Client.js:155:35)
-    at init (/home/dragonizedpizza/Desktop/Hurricanp/bot/utilities/index.js:22:10)
-    at Object.<anonymous> (/home/dragonizedpizza/Desktop/Hurricanp/bot/utilities/index.js:30:1)
-    at Module._compile (internal/modules/cjs/loader.js:1063:30)
-    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1092:10)
-    at Module.load (internal/modules/cjs/loader.js:928:32)
-    at Function.Module._load (internal/modules/cjs/loader.js:769:14)
-    at Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)
-    at internal/main/run_main_module.js:17:47"
-}
-2021-03-22 07:36:03 - client [index.js]: 
-.
-||
-|
- |
--|
-'
-2021-03-22 07:36:03 - error [index.js]: require(...) is not a constructor
+2021-03-22 10:26:43 - error [index.js]: config/setprefix.js
+2021-02021-03-22 10:26:45 - shard [index.js]: [Shard 0] Shard Ready!
+:26:43 - error [index.js]: giveaways/gend.js
+2021-03-22 10:26:43 - error [index.js]: image/beautify.js
+2021-03-22 10:26:43 - error [index.js]: Cannot read property 'forEach' of null
 {
-  "stack": "TypeError: require(...) is not a constructor
-    at /home/dragonizedpizza/Desktop/Hurricanp/bot/Client.js:161:19
+  "stack": "TypeError: Cannot read property 'forEach' of null
+    at /home/dragonizedpizza/Desktop/Hurricanp/bot/Client.js:177:26
     at Array.forEach (<anonymous>)
     at Client.loadCommands (/home/dragonizedpizza/Desktop/Hurricanp/bot/Client.js:155:35)
     at init (/home/dragonizedpizza/Desktop/Hurricanp/bot/utilities/index.js:22:10)
@@ -37,20 +17,12 @@ Command: Name is not lowercase.
     at Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)
     at internal/main/run_main_module.js:17:47"
 }
-2021-03-22 07:36:03 - client [index.js]: 
-.
-||
-|
- |
--|
-'
-2021-03-22 07:36:03 - error [index.js]: Command: GiveawayEndCommand: Name is not lowercase.
+2021-03-22 10:26:43 - error [index.js]: information/botinfo.js
+2021-03-22 10:26:43 - error [index.js]: moderation/lock.js
+2021-03-22 10:26:43 - error [index.js]: Cannot read property 'forEach' of null
 {
-  "stack": "Error: Command: GiveawayEndCommand: Name is not lowercase.
-    at Function.validateOptions (/home/dragonizedpizza/Desktop/Hurricanp/bot/utilities/Command.js:27:53)
-    at new Command (/home/dragonizedpizza/Desktop/Hurricanp/bot/utilities/Command.js:5:26)
-    at new GiveawayEndCommand (/home/dragonizedpizza/Desktop/Hurricanp/bot/commands/giveaways/gend.js:5:5)
-    at /home/dragonizedpizza/Desktop/Hurricanp/bot/Client.js:161:19
+  "stack": "TypeError: Cannot read property 'forEach' of null
+    at /home/dragonizedpizza/Desktop/Hurricanp/bot/Client.js:177:26
     at Array.forEach (<anonymous>)
     at Client.loadCommands (/home/dragonizedpizza/Desktop/Hurricanp/bot/Client.js:155:35)
     at init (/home/dragonizedpizza/Desktop/Hurricanp/bot/utilities/index.js:22:10)
@@ -62,20 +34,12 @@ Command: Name is not lowercase.
     at Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)
     at internal/main/run_main_module.js:17:47"
 }
-2021-03-22 07:36:03 - client [index.js]: 
-.
-||
-|
- |
--|
-'
-2021-03-22 07:36:03 - error [index.js]: Command: BeautifyCommand: Name is not lowercase.
+2021-03-22 10:26:43 - error [index.js]: music/filters.js
+2021-03-22 10:26:43 - error [index.js]: owner/eval.js
+2021-03-22 10:26:43 - error [index.js]: Cannot read property 'forEach' of null
 {
-  "stack": "Error: Command: BeautifyCommand: Name is not lowercase.
-    at Function.validateOptions (/home/dragonizedpizza/Desktop/Hurricanp/bot/utilities/Command.js:27:53)
-    at new Command (/home/dragonizedpizza/Desktop/Hurricanp/bot/utilities/Command.js:5:26)
-    at new BeautifyCommand (/home/dragonizedpizza/Desktop/Hurricanp/bot/commands/image/beautify.js:5:5)
-    at /home/dragonizedpizza/Desktop/Hurricanp/bot/Client.js:161:19
+  "stack": "TypeError: Cannot read property 'forEach' of null
+    at /home/dragonizedpizza/Desktop/Hurricanp/bot/Client.js:177:26
     at Array.forEach (<anonymous>)
     at Client.loadCommands (/home/dragonizedpizza/Desktop/Hurricanp/bot/Client.js:155:35)
     at init (/home/dragonizedpizza/Desktop/Hurricanp/bot/utilities/index.js:22:10)
@@ -87,112 +51,20 @@ Command: Name is not lowercase.
     at Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)
     at internal/main/run_main_module.js:17:47"
 }
-2021-03-22 07:36:03 - client [index.js]: 
-.
-||
-|
- |
--|
-'
-2021-03-22 07:36:03 - error [index.js]: Command: BotInfoCommand: Name is not lowercase.
-{
-  "stack": "Error: Command: BotInfoCommand: Name is not lowercase.
-    at Function.validateOptions (/home/dragonizedpizza/Desktop/Hurricanp/bot/utilities/Command.js:27:53)
-    at new Command (/home/dragonizedpizza/Desktop/Hurricanp/bot/utilities/Command.js:5:26)
-    at new BotInfoCommand (/home/dragonizedpizza/Desktop/Hurricanp/bot/commands/information/botinfo.js:6:5)
-    at /home/dragonizedpizza/Desktop/Hurricanp/bot/Client.js:161:19
-    at Array.forEach (<anonymous>)
-    at Client.loadCommands (/home/dragonizedpizza/Desktop/Hurricanp/bot/Client.js:155:35)
-    at init (/home/dragonizedpizza/Desktop/Hurricanp/bot/utilities/index.js:22:10)
-    at Object.<anonymous> (/home/dragonizedpizza/Desktop/Hurricanp/bot/utilities/index.js:30:1)
-    at Module._compile (internal/modules/cjs/loader.js:1063:30)
-    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1092:10)
-    at Module.load (internal/modules/cjs/loader.js:928:32)
-    at Function.Module._load (internal/modules/cjs/loader.js:769:14)
-    at Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)
-    at internal/main/run_main_module.js:17:47"
-}
-2021-03-22 07:36:03 - client [index.js]: 
-.
-||
-|
- |
--|
-'
-2021-03-22 07:36:03 - error [index.js]: Command: LockCommand: Name is not lowercase.
-{
-  "stack": "Error: Command: LockCommand: Name is not lowercase.
-    at Function.validateOptions (/home/dragonizedpizza/Desktop/Hurricanp/bot/utilities/Command.js:27:53)
-    at new Command (/home/dragonizedpizza/Desktop/Hurricanp/bot/utilities/Command.js:5:26)
-    at new LockCommand (/home/dragonizedpizza/Desktop/Hurricanp/bot/commands/moderation/lock.js:6:7)
-    at /home/dragonizedpizza/Desktop/Hurricanp/bot/Client.js:161:19
-    at Array.forEach (<anonymous>)
-    at Client.loadCommands (/home/dragonizedpizza/Desktop/Hurricanp/bot/Client.js:155:35)
-    at init (/home/dragonizedpizza/Desktop/Hurricanp/bot/utilities/index.js:22:10)
-    at Object.<anonymous> (/home/dragonizedpizza/Desktop/Hurricanp/bot/utilities/index.js:30:1)
-    at Module._compile (internal/modules/cjs/loader.js:1063:30)
-    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1092:10)
-    at Module.load (internal/modules/cjs/loader.js:928:32)
-    at Function.Module._load (internal/modules/cjs/loader.js:769:14)
-    at Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)
-    at internal/main/run_main_module.js:17:47"
-}
-2021-03-22 07:36:03 - client [index.js]: 
-.
-||
-|
- |
--|
-'
-2021-03-22 07:36:03 - error [index.js]: Command: FiltersCommand: Name is not lowercase.
-{
-  "stack": "Error: Command: FiltersCommand: Name is not lowercase.
-    at Function.validateOptions (/home/dragonizedpizza/Desktop/Hurricanp/bot/utilities/Command.js:27:53)
-    at new Command (/home/dragonizedpizza/Desktop/Hurricanp/bot/utilities/Command.js:5:26)
-    at new FiltersCommand (/home/dragonizedpizza/Desktop/Hurricanp/bot/commands/music/filters.js:5:5)
-    at /home/dragonizedpizza/Desktop/Hurricanp/bot/Client.js:161:19
-    at Array.forEach (<anonymous>)
-    at Client.loadCommands (/home/dragonizedpizza/Desktop/Hurricanp/bot/Client.js:155:35)
-    at init (/home/dragonizedpizza/Desktop/Hurricanp/bot/utilities/index.js:22:10)
-    at Object.<anonymous> (/home/dragonizedpizza/Desktop/Hurricanp/bot/utilities/index.js:30:1)
-    at Module._compile (internal/modules/cjs/loader.js:1063:30)
-    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1092:10)
-    at Module.load (internal/modules/cjs/loader.js:928:32)
-    at Function.Module._load (internal/modules/cjs/loader.js:769:14)
-    at Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)
-    at internal/main/run_main_module.js:17:47"
-}
-2021-03-22 07:36:03 - client [index.js]: 
-.
-||
-|
- |
--|
-'
-2021-03-22 07:36:03 - error [index.js]: Command: evalcommand: Name is not lowercase.
-{
-  "stack": "Error: Command: evalcommand: Name is not lowercase.
-    at Function.validateOptions (/home/dragonizedpizza/Desktop/Hurricanp/bot/utilities/Command.js:27:53)
-    at new Command (/home/dragonizedpizza/Desktop/Hurricanp/bot/utilities/Command.js:5:26)
-    at new evalcommand (/home/dragonizedpizza/Desktop/Hurricanp/bot/commands/owner/eval.js:7:5)
-    at /home/dragonizedpizza/Desktop/Hurricanp/bot/Client.js:161:19
-    at Array.forEach (<anonymous>)
-    at Client.loadCommands (/home/dragonizedpizza/Desktop/Hurricanp/bot/Client.js:155:35)
-    at init (/home/dragonizedpizza/Desktop/Hurricanp/bot/utilities/index.js:22:10)
-    at Object.<anonymous> (/home/dragonizedpizza/Desktop/Hurricanp/bot/utilities/index.js:30:1)
-    at Module._compile (internal/modules/cjs/loader.js:1063:30)
-    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1092:10)
-    at Module.load (internal/modules/cjs/loader.js:928:32)
-    at Function.Module._load (internal/modules/cjs/loader.js:769:14)
-    at Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)
-    at internal/main/run_main_module.js:17:47"
-}
-2021-03-22 07:36:03 - client [index.js]: 
-.
-||
-|
- |
--|
-'
-2021-03-22 07:36:04 - db [index.js]: Connected to MongoDB!
-2021-03-22 07:36:06 - client [index.js]: Hurricano™ Successfully Logged in!
+2021-03-22 10:26:43 - client [index.js]: 
+.-------------------------------------------.
+|                 Commands                  |
+|-------------------------------------------|
+| Command File | Command Name | Load status |
+|--------------|--------------|-------------|
+| setprefix.js | setprefix    | Loaded!     |
+| connect4.js  | connect4     | Loaded!     |
+| gend.js      | gend         | Loaded!     |
+| beautify.js  | beautify     | Loaded!     |
+| botinfo.js   | botinfo      | Loaded!     |
+| lock.js      | lock         | Loaded!     |
+| filters.js   | filters      | Loaded!     |
+| eval.js      | eval         | Loaded!     |
+'-------------------------------------------'
+2021-03-22 10:26:46 - db [index.js]: Connected to MongoDB!
+2021-03-22 10:26:50 - client [index.js]: Hurricano™ Successfully Logged in!

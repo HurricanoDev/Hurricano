@@ -1,11 +1,16 @@
 const { MessageEmbed } = require("discord.js");
 const fetch = require("node-fetch");
+const Command = require('@Command');
 
-module.exports = {
+module.exports = class MemeCommand extends Command {
+  constructor(client) {
+    super(client, {
   name: "meme",
   description:
     "Displays a random meme from the `memes`, `dankmemes`, or `me_irl` subreddits.",
-  run: async (message, args) => {
+    });
+  };
+  async run(message, args) {
     try {
       let res = await fetch("https://meme-api.herokuapp.com/gimme");
       res = await res.json();
@@ -25,5 +30,5 @@ module.exports = {
         `Oops! Something went wrong. Error: \n ${err.message}`
       );
     }
-  },
+  }
 };

@@ -7,7 +7,7 @@ module.exports = class BeautifyCommand extends Command {
   cooldown: 5,
   description: "Make you more beautiful :D",
     });
-  };
+  }
   async run(message, args) {
     const canvacord = require("canvacord");
     let person =
