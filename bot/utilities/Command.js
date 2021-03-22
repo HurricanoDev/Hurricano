@@ -2,7 +2,7 @@ const logger = require("../utilities/logger.js");
 const config = require('@config');
 module.exports = class Command {
     constructor(client, opts) {
-        this.constructor.validateOptions(client, options),
+        this.constructor.validateOptions(client, opts),
         this.client = client;
         this.name = opts.name || null;
         this.aliases = opts.aliases || null;

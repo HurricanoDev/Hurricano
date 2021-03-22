@@ -1,9 +1,14 @@
 var Discord = require("discord.js");
 const ms = require("ms");
-  module.exports = {
+const Command = require('@Command');
+  module.exports = class LockCommand extends Command {
+    constructor(client) {
+      super(client, {
       name: "lock",
       description: "Locks down a channel",
-      run: async (message, args) => {
+      });
+    };
+      async run(message, args) {
           let lockit = [];
       let channel = message.guild.channels.cache.get(args[1]) || message.mentions.channels.first() || message.guild.channels.cache.find(x => x.name == args[1]) ||message.channel;
       if (!channel) {

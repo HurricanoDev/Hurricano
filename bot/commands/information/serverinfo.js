@@ -1,6 +1,7 @@
 const { MessageEmbed } = require("discord.js");
 const moment = require("moment");
 const { stripIndent } = require("common-tags"); // optionnal
+// by YoungDaggerD btw
 const region = {
   "us-central": ":flag_us:  **US Central**",
   "us-east": ":flag_us:  **US East**",
@@ -23,12 +24,17 @@ const verif = {
   HIGH: "**High**",
   VERY_HIGH: "**Highest**",
 };
+const Command = require('@Command');
 
-module.exports = {
+module.exports = class ServerInfoCommand extends Command {
+  constructor(client) {
+    super(client, {
   name: "serverinfo",
   aliases: ["serveri", "si", "guildinfo", "gi"],
   description: "Shows information about the server!",
-  run: async (message, args) => {
+    });
+  };
+  async run(message, args) {
     const oldmem = message.guild.members.cache
       .filter((m) => !m.user.bot)
       .sort((a, b) => a.user.createdAt - b.user.createdAt)
@@ -98,5 +104,5 @@ module.exports = {
       );
 
     message.channel.send(em);
-  },
+  }
 };

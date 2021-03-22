@@ -1,12 +1,17 @@
 const Discord = require("discord.js");
 const sourcebin = require("sourcebin");
 const config = require("@config");
-module.exports = {
+const Command = require('@Command');
+module.exports = class EvalCommand extends Command {
+  constructor(client) {
+    super(client, {
   name: "eval",
   description: "Evaluates arbituary JavaScript.",
   ownerOnly: true,
   args: true,
-  run: async (message, args) => {
+    });
+  };
+  async run(message, args) {
     const clean = (text) => {
       if (typeof text === "string")
         return text
@@ -96,5 +101,5 @@ module.exports = {
         .addField("Output: :outbox_tray:", `\`\`\`js\n${clean(err)}\n\`\`\``);
       await message.reply({ embed: embed3 });
     }
-  },
+  }
 };

@@ -1,9 +1,14 @@
 const { MessageEmbed } = require("discord.js");
-module.exports = {
+const Command = require('@Command');
+module.exports = class SkipCommand extends Command {
+  constructor(client) {
+    super(client, {
   name: "skip",
   aliases: ["sk"],
   cooldown: 20,
-  run: async (message, args) => {
+    });
+  };
+  async run(message, args) {
     if (!message.member.voice.channel)
       if (!message.member.voice.channel)
         return message.channel.sendError(
@@ -36,5 +41,5 @@ module.exports = {
         "Skipped.",
         "I have successfully skipped that song."
       );
-  },
+  }
 };

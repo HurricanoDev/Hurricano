@@ -1,11 +1,16 @@
 const Discord = require("discord.js");
 const emojis = require("../../utilities/emojis.json");
-module.exports = {
+const Command = require('@Command');
+module.exports = class BotInfoCommand extends Command {
+  constructor(client) {
+    super(client, {
   name: "botinfo",
   description: "About the bot!",
   aliases: ["info", "bi"],
   permissions: "SEND_MESSAGES",
-  run: async (message, args) => {
+    });
+  };
+  async run(message, args) {
     const embed = new Discord.MessageEmbed()
       .setAuthor(
         "Hurricano™ Botinfo",
@@ -24,5 +29,5 @@ module.exports = {
         `${emojis.signs.ping} Ping: \`${message.client.ws.ping}\`ms\n${emojis.categories.owner} Owners: \`Dragonizedpizza\`, \`Militia21\`, \`Anogh297\`. \n${emojis.signs.servers} Servers: \`${message.client.guilds.cache.size} Servers.\`\n${emojis.signs.users} Users: \`${message.client.users.cache.size} Users.\``
       );
     message.reply(embed);
-  },
+  }
 };

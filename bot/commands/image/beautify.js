@@ -1,10 +1,14 @@
 const Discord = require("discord.js");
-
-module.exports = {
+const Command = require('@Command');
+module.exports = class BeautifyCommand extends Command {
+  constructor(client) {
+    super(client, {
   name: "beautify",
   cooldown: 5,
   description: "Make you more beautiful :D",
-  run: async (message, args) => {
+    });
+  };
+  async run(message, args) {
     const canvacord = require("canvacord");
     let person =
       message.mentions.users.first() ||
@@ -18,5 +22,5 @@ module.exports = {
       .attachFiles([new Discord.MessageAttachment(img, "img.png")])
       .setImage("attachment://img.png");
     message.reply(embed);
-  },
+  }
 };

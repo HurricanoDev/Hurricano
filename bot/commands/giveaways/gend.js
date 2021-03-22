@@ -1,9 +1,14 @@
 const ms = require("ms");
-module.exports = {
+const Command = require('@Command');
+module.exports = class GiveawayEndCommand extends Command {
+  constructor(client) {
+    super(client, {
   name: "gend",
   aliases: [, "giveawayend", "g-end", "g-end", "gfinish"],
   description: "Ends a giveaway.",
-  run: async (message, args) => {
+    });
+  };
+  async run(message, args) {
     if (
       !message.member.hasPermission("MANAGE_GUILD") &&
       !message.member.roles.cache.includes(
@@ -77,5 +82,5 @@ module.exports = {
       });
     if (message.deletable) message.delete();
     return;
-  },
+  }
 };

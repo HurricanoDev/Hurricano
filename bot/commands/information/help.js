@@ -13,12 +13,17 @@ readdirSync("./bot/commands").forEach((dir) => {
       cmdmap[dir].push(`\`${cmds.replace(".js", "")}\`, `);
     });
 });
-module.exports = {
+const Command = require('@Command');
+module.exports = class HelpCommand extends Command {
+  constructor(client) {
+    super(client, {
   name: "help",
   description:
     "Shows the commands list and also specific command categories/commands!",
   aliases: ["cmd", "commands", "h"],
-  run: async (message, args) => {
+    });
+  };
+  async run(message, args) {
     let tips = ["Tips..."];
 
     let TIP = Math.floor(Math.random() * tips.length);
@@ -301,5 +306,5 @@ module.exports = {
       30000
     );
     helpMenu.start();
-  },
+  }
 };

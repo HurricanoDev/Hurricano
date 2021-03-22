@@ -1,10 +1,15 @@
 const { MessageEmbed } = require("discord.js");
-module.exports = {
+const Command = require('@Command');
+module.exports = class PlayCommand extends Command {
+  constructor(client) {
+    super(client, {
   name: "play",
   aliases: ["p"],
   args: true,
   cooldown: 15,
-  run: (message, args) => {
+    });
+  };
+  async run(message, args) {
     if (!message.member.voice.channel)
       return message.channel.sendError(
         message,
@@ -22,5 +27,5 @@ module.exports = {
       );
 
     client.player.play(message, args.join(" "), { firstResult: true });
-  },
+  }
 };
