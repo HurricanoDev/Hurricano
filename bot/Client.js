@@ -158,7 +158,6 @@ loadCommands() {
       );
     try {
       for (let file of commands) {
-        logger.error(dir + '/' + file)
     const props = new (require(`./commands/${dir}/${file}`))(this);
       if (props.name) {
 table.addRow(file, props.help.name, "Loaded!");
@@ -174,10 +173,12 @@ table.addRow(file, props.help.name, "Loaded!");
         props.init(this);
       }
       this.commands.set(props.help.name, props);
+      if (props.aliases) {
       props.conf.aliases.forEach(alias => {
         this.aliases.set(alias, props.help.name);
       });
       return false;
+    }
     } 
     } catch (e) {
       logger.error(e)
