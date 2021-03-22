@@ -7,7 +7,6 @@ module.exports = class Ping extends Command {
   name: "ping",
   aliases: ["latency", "pong"],
   cooldown: 5,
-  args: false,
   description: "Returns the bot's ping!",
   permissions: "SEND_MESSAGES",
     });

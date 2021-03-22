@@ -1,4 +1,5 @@
 const { MessageEmbed } = require("discord.js");
+const command = require('@Command')
 module.exports = {
   name: "setprefix",
   aliases: ["sp", "setp"],

@@ -9,6 +9,8 @@ module.exports = class Command {
         this.usage = opts.usage || "No usage provided.";
         this.description = opts.description || 'No description provided.';
         this.ownerOnly = opts.ownerOnly || false;
+        this.examples = opts.examples || "No example provided.";
+        this.cooldown = opts.cooldowns || null;
     }
         run(message, args) {
             throw new Error(`The ${this.name} command has no run() method`);
@@ -20,7 +22,7 @@ module.exports = class Command {
         if (opts !== opts.name.toLowerCase()) throw new Error(`Command: ${this.name}: Name is not lowercase.`);
         if (opts.aliases) {
             if (!Array.isArray(opts.aliases) || opts.aliases.some(ali => typeof ali !== 'string'))
-              throw new TypeError(`Command: ${this.name}: Aliases is not an array of strings.`);
+              throw new TypeError(`Command: ${this.name}: Aliases are not an array of strings.`);
       
             if (opts.aliases.some(ali => ali !== ali.toLowerCase()))
               throw new RangeError(`Command: ${this.name}: Aliases are not lowercase.`);
@@ -48,5 +50,12 @@ module.exports = class Command {
     throw new TypeError(`Command: ${this.name}: Command examples is not an Array of permission key strings.`);
  if (opts.ownerOnly && typeof opts.ownerOnly !== 'boolean') 
     throw new TypeError(`Command: ${this.name}: ownerOnly is not a boolean.`);
-        }
-}
+
+      if (!this.client.cooldowns.has(this.name)) {
+        this.client.cooldowns.set(this.name, new Discord.Collection());
+      }
+      const now = Date.now();
+      const timestamps = this.client.cooldowns.get(this.name);
+      const cooldownAmount = (this.cooldown || 3) * 1000;
+
+}}
