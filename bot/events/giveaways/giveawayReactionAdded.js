@@ -2,7 +2,7 @@ module.exports = {
   name: "giveawayReactionAdded",
   run: async (giveaway, member, reaction) => {
     if (
-      giveaway.extraData.role !== 'null' &&
+      giveaway.extraData.role !== "null" &&
       !member.roles.cache.get(giveaway.extraData.role.id)
     ) {
       reaction.users.remove(member.user);

@@ -7,7 +7,7 @@ const fs = require("fs");
 const { Player } = require("discord-player");
 const giveawaysManager = require("./utilities/giveaway");
 const logger = require("./utilities/logger.js");
-const path = require('path');
+const path = require("path");
 /**
  * Extend Client class
  * @extends Discord.Client
@@ -46,7 +46,7 @@ class Client extends Discord.Client {
     /**
      * Logger
      */
-    this.logger = require('./utilities/logger.js')
+    this.logger = require("./utilities/logger.js");
     /**
      * Import Schemas
      */
@@ -151,41 +151,41 @@ class Client extends Discord.Client {
     }
   }
 
-loadCommands() {
+  loadCommands() {
     readdirSync("./bot/commands").forEach((dir) => {
       const commands = readdirSync(`./bot/commands/${dir}/`).filter((file) =>
         file.endsWith(".js")
       );
-    try {
-      for (let file of commands) {
-    const props = new (require(`./commands/${dir}/${file}`))(this);
-      if (props.name) {
-table.addRow(file, props.help.name, "Loaded!");
-} else {
-          table.addRow(
-            file,
-            pull.name,
-            "Not Loaded -> Missing a help.name, or help.name is not a string."
-          );
-          continue;
+      try {
+        for (let file of commands) {
+          const props = new (require(`./commands/${dir}/${file}`))(this);
+          if (props.name) {
+            table.addRow(file, props.help.name, "Loaded!");
+          } else {
+            table.addRow(
+              file,
+              pull.name,
+              "Not Loaded -> Missing a help.name, or help.name is not a string."
+            );
+            continue;
+          }
+          if (props.init) {
+            props.init(this);
+          }
+          this.commands.set(props.help.name, props);
+          if (props.aliases) {
+            props.conf.aliases.forEach((alias) => {
+              this.aliases.set(alias, props.help.name);
+            });
+            return false;
+          }
         }
-      if (props.init) {
-        props.init(this);
+      } catch (e) {
+        logger.error(e);
       }
-      this.commands.set(props.help.name, props);
-      if (props.aliases) {
-      props.conf.aliases.forEach(alias => {
-        this.aliases.set(alias, props.help.name);
-      });
-      return false;
-    }
-    } 
-    } catch (e) {
-      logger.error(e)
-    }
-})
-logger.client('\n' + table.toString());
-};
+    });
+    logger.client("\n" + table.toString());
+  }
   loadTopgg() {
     if (this.config.topggapi && typeof this.config.topggapi === "boolean") {
       let DBL = require("dblapi.js");

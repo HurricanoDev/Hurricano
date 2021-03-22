@@ -1,13 +1,13 @@
 const Discord = require("discord.js");
-const Command = require('@Command');
+const Command = require("@Command");
 module.exports = class PixelateCommand extends Command {
   constructor(client) {
     super(client, {
-  name: "pixelate",
-  cooldown: 5,
-  description: "Shows a pixelated version of someone's avatar!",
+      name: "pixelate",
+      cooldown: 5,
+      description: "Shows a pixelated version of someone's avatar!",
     });
-  };
+  }
   async run(message, args) {
     const canvacord = require("canvacord");
     let person =

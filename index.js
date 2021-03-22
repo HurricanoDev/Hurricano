@@ -1,7 +1,7 @@
 require("module-alias/register");
 const config = require("@config");
 const { ShardingManager } = require("discord.js");
-const logger = require('./bot/utilities/logger.js')
+const logger = require("./bot/utilities/logger.js");
 const manager = new ShardingManager("./bot/utilities/index.js", {
   totalShards: "auto",
   token: config.token,

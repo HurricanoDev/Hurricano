@@ -1,14 +1,14 @@
 const Discord = require("discord.js");
-const Command = require('@Command');
+const Command = require("@Command");
 
 module.exports = class PingCommand extends Command {
-  constructor (client) {
+  constructor(client) {
     super(client, {
-  name: "ping",
-  aliases: ["latency", "pong"],
-  cooldown: 5,
-  description: "Returns the bot's ping!",
-  permissions: "SEND_MESSAGES",
+      name: "ping",
+      aliases: ["latency", "pong"],
+      cooldown: 5,
+      description: "Returns the bot's ping!",
+      permissions: "SEND_MESSAGES",
     });
   }
   async run(message) {
@@ -39,4 +39,5 @@ module.exports = class PingCommand extends Command {
         "https://media.discordapp.net/attachments/803204453321670700/803931313483939850/Ping.png?width=1025&height=342"
       );
     ping.edit(embed);
-  }};
+  }
+};

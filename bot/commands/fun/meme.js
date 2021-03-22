@@ -1,13 +1,16 @@
 const { MessageEmbed } = require("discord.js");
 const fetch = require("node-fetch");
-const Command = require('@Command');
+const Command = require("@Command");
 
 module.exports = class MemeCommand extends Command {
   constructor(client) {
     super(client, {
-  name: "meme",
-  description:
-    "Displays a random meme from the `memes`, `dankmemes`, or `me_irl` subreddits.",
+      name: "meme",
+      aliases: ["sp", "setp"],
+      userPermissions: ["SEND_MESSAGES"],
+      cooldown: 20,
+      description:
+        "Displays a random meme from the `memes`, `dankmemes`, or `me_irl` subreddits.",
     });
   };
   async run(message, args) {
@@ -29,6 +32,6 @@ module.exports = class MemeCommand extends Command {
       message.channel.send(
         `Oops! Something went wrong. Error: \n ${err.message}`
       );
-    }
-  }
+    };
+  };
 };

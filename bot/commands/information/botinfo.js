@@ -1,15 +1,15 @@
 const Discord = require("discord.js");
 const emojis = require("../../utilities/emojis.json");
-const Command = require('@Command');
+const Command = require("@Command");
 module.exports = class BotInfoCommand extends Command {
   constructor(client) {
     super(client, {
-  name: "botinfo",
-  description: "About the bot!",
-  aliases: ["info", "bi"],
-  permissions: "SEND_MESSAGES",
+      name: "botinfo",
+      description: "About the bot!",
+      aliases: ["info", "bi"],
+      permissions: "SEND_MESSAGES",
     });
-  };
+  }
   async run(message, args) {
     const embed = new Discord.MessageEmbed()
       .setAuthor(

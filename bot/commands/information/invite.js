@@ -1,14 +1,14 @@
 const Discord = require("discord.js");
 const emojis = require("../../utilities/emojis.json");
-const Command = require('@Command');
+const Command = require("@Command");
 module.exports = class InviteCommand extends Command {
   constructor(client) {
     super(client, {
-  name: "invite",
-  aliases: ["inv"],
-  description: "Invite The Bot!",
+      name: "invite",
+      aliases: ["inv"],
+      description: "Invite The Bot!",
     });
-  };
+  }
   async run(message) {
     const embed = new Discord.MessageEmbed()
       .setAuthor("Invite Hurricano™")

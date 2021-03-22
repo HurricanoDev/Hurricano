@@ -1,14 +1,14 @@
 const { MessageEmbed } = require("discord.js");
 const lyricsFinder = require("lyrics-finder");
-const Command = require('@Command');
+const Command = require("@Command");
 module.exports = class LyricsCommand extends Command {
   constructor(client) {
     super(client, {
-  name: "lyrics",
-  aliases: ["ly"],
-  description: "Get a song's lyrics!",
-});
-};
+      name: "lyrics",
+      aliases: ["ly"],
+      description: "Get a song's lyrics!",
+    });
+  }
   async run(message, args) {
     let lyrics = null;
     const prefix = await message.client.db.guild.getPrefix(message.guild.id);
@@ -80,7 +80,9 @@ module.exports = class LyricsCommand extends Command {
           0,
           2045
         )}...`;
-      return message.channel.send(lyricsEmbed).catch(x => client.logger.warn(x));
+      return message.channel
+        .send(lyricsEmbed)
+        .catch((x) => client.logger.warn(x));
     } else if ((track = args)) {
       const lyricsEmbed = new MessageEmbed()
         .setAuthor(
@@ -97,7 +99,9 @@ module.exports = class LyricsCommand extends Command {
           0,
           2045
         )}...`;
-      return message.channel.send(lyricsEmbed).catch(x => client.logger.warn(x));
+      return message.channel
+        .send(lyricsEmbed)
+        .catch((x) => client.logger.warn(x));
     }
   }
 };

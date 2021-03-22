@@ -1,17 +1,17 @@
 const { MessageEmbed } = require("discord.js");
 const rps = ["scissors", "rock", "paper"];
 const res = ["Scissors :scissors:", "Rock :rock:", "Paper :roll_of_paper:"];
-const Command = require('@Command');
+const Command = require("@Command");
 
 module.exports = class RockPaperScissorsCommand extends Command {
   constructor(client) {
     super(client, {
-  name: "rps",
-  aliases: ["rockpaperscissors"],
-  description: "Rock, paper, scissors with Hurricano!",
-  args: true,
+      name: "rps",
+      aliases: ["rockpaperscissors"],
+      description: "Rock, paper, scissors with Hurricano!",
+      args: true,
     });
-  };
+  }
   async run(message, args) {
     let userChoice;
     if (args.length) userChoice = args[0].toLowerCase();

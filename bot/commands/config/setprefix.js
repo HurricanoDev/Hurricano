@@ -1,16 +1,16 @@
 const { MessageEmbed } = require("discord.js");
-const Command = require('@Command')
+const Command = require("@Command");
 module.exports = class SetPrefixCommand extends Command {
-  constructor (client) {
+  constructor(client) {
     super(client, {
-  name: "setprefix",
-  aliases: ["sp", "setp"],
-  userPermissions: ["MANAGE_MESSAGES", "MANAGE_CHANNELS"],
-  args: true,
-  cooldown: 20,
-  description: "Set your server's custom prefix!",
+      name: "setprefix",
+      aliases: ["sp", "setp"],
+      userPermissions: ["MANAGE_SERVER"],
+      args: true,
+      cooldown: 20,
+      description: "Set your server's custom prefix!",
     });
-  };
+  }
   async run(message, args) {
     const prefix = args[0];
 

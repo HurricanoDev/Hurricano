@@ -1,14 +1,14 @@
 const Discord = require("discord.js");
-const Command = require('@Command');
+const Command = require("@Command");
 
 module.exports = class TriggerCommand extends Command {
   constructor(client) {
     super(client, {
-  name: "trigger",
-  cooldown: 5,
-  description: "Shows a triggered version of someone's avatar!",
+      name: "trigger",
+      cooldown: 5,
+      description: "Shows a triggered version of someone's avatar!",
     });
-  };
+  }
   async run(message, args) {
     const canvacord = require("canvacord");
     let person =

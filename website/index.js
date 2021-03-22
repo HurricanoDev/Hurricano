@@ -1,5 +1,5 @@
 const express = require("express");
-const logger = require('../bot/utilities/logger.js')
+const logger = require("../bot/utilities/logger.js");
 const app = express();
 const config = require("../config.json");
 app.set("view engine", "ejs");

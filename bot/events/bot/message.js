@@ -2,7 +2,9 @@ const Discord = require("discord.js");
 const { MessageEmbed } = require("discord.js");
 const config = require("../../../config.json");
 
-module.exports = async(message, client) => {
+module.exports = {
+  name: "message",
+  run: async (message, client) => {
     if (message.author.bot || message.channel.type == "dm") return;
     const prefix = await client.db.guild.getPrefix(message.guild.id);
     const emojis = client._emojis;
@@ -101,10 +103,11 @@ module.exports = async(message, client) => {
             },
           });
         }
-      };
+      }
 
       if (!config.ownerIds.includes(author.id)) timestamps.set(author.id, now);
       setTimeout(() => timestamps.delete(author.id), cooldownAmount);
       if (command) command.run(message, args);
     }
-  };
+  },
+};

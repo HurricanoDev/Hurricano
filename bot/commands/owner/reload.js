@@ -1,15 +1,15 @@
 const fs = require("fs");
-const Command = require('@Command');
+const Command = require("@Command");
 
 module.exports = class ReloadCommand extends Command {
   constructor(client) {
     super(client, {
-  name: "reload",
-  description: "Reloads a command",
-  args: true,
-  ownerOnly: true,
+      name: "reload",
+      description: "Reloads a command",
+      args: true,
+      ownerOnly: true,
     });
-  };
+  }
   async run(message, args) {
     const commandName = args[0].toLowerCase();
     const command =

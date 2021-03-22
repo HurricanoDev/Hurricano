@@ -1,17 +1,17 @@
 const { exec } = require("child_process");
 const { MessageEmbed } = require("discord.js");
 const Discord = require("discord.js");
-const Command = require('@Command');
+const Command = require("@Command");
 
 module.exports = class ExecCommand extends Command {
   constructor(client) {
     super(client, {
-  name: "exec",
-  description:
-    "Executes the provided code in the bash console and shows the output.",
-  ownerOnly: true,
+      name: "exec",
+      description:
+        "Executes the provided code in the bash console and shows the output.",
+      ownerOnly: true,
     });
-  };
+  }
   async run(message, args) {
     try {
       message.channel.startTyping();

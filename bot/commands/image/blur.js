@@ -1,14 +1,14 @@
 const Discord = require("discord.js");
-const Command = require('@Command');
+const Command = require("@Command");
 
 module.exports = class BlurCommand extends Command {
   constructor(client) {
     super(client, {
-  name: "blur",
-  cooldown: 5,
-  description: "Blur you!",
+      name: "blur",
+      cooldown: 5,
+      description: "Blur you!",
     });
-  };
+  }
   async run(message, args) {
     const canvacord = require("canvacord");
     let person =

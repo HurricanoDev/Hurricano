@@ -1,14 +1,14 @@
 const Discord = require("discord.js");
-const Command = require('@Command');
+const Command = require("@Command");
 
 module.exports = class RipCommand extends Command {
   constructor(client) {
     super(client, {
-  name: "rip",
-  cooldown: 5,
-  description: "Shows you someone's grave!",
+      name: "rip",
+      cooldown: 5,
+      description: "Shows you someone's grave!",
     });
-  };
+  }
   async run(message, args) {
     const canvacord = require("canvacord");
     let person =
@@ -23,5 +23,5 @@ module.exports = class RipCommand extends Command {
       .attachFiles([new Discord.MessageAttachment(img, "img.png")])
       .setImage("attachment://img.png");
     message.reply(embed);
-  };
+  }
 };

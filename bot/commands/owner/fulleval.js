@@ -1,17 +1,17 @@
 const Discord = require("discord.js");
 const sourcebin = require("sourcebin");
 const config = require("@config");
-const Command = require('@Command');
+const Command = require("@Command");
 
 module.exports = class EvalCommand extends Command {
   constructor(client) {
     super(client, {
-  name: "eval",
-  description: "Evaluates arbituary JavaScript.",
-  ownerOnly: true,
-  args: true,
+      name: "eval",
+      description: "Evaluates arbituary JavaScript.",
+      ownerOnly: true,
+      args: true,
     });
-  };
+  }
   async run(message, args) {
     const clean = (text) => {
       if (typeof text === "string")
@@ -28,16 +28,18 @@ module.exports = class EvalCommand extends Command {
 
       if (clean(evaled).length > 1024 || code.length > 1024) {
         await sourcebin
-          .create([
+          .create(
+            [
+              {
+                content: clean(evaled),
+                language: "javascript",
+              },
+            ],
             {
-              content: clean(evaled),
-              language: "javascript",
+              name: `Code by ${message.author.tag}`,
+              description: `Output of the eval command used by ${message.author.tag}.`,
             }
-          ],
-          {
-            name: `Code by ${message.author.tag}`,
-            description: `Output of the eval command used by ${message.author.tag}.`
-          })
+          )
           .then(async (src) => {
             var embed = new Discord.MessageEmbed()
               .setColor("#ffb6c1")
@@ -65,16 +67,18 @@ module.exports = class EvalCommand extends Command {
       const code = args.join(" ");
       if (clean(err).length > 1024 || code.length > 1024) {
         sourcebin
-          .create([
+          .create(
+            [
+              {
+                content: clean(evaled),
+                language: "javascript",
+              },
+            ],
             {
-              content: clean(evaled),
-              language: "javascript",
+              name: `Code by ${message.author.tag}`,
+              description: `Output of the eval command used by ${message.author.tag}.`,
             }
-          ],
-          {
-            name: `Code by ${message.author.tag}`,
-            description: `Output of the eval command used by ${message.author.tag}.`
-          })
+          )
           .then(async (src) => {
             var embed = new Discord.MessageEmbed()
               .setColor("#ffb6c1")

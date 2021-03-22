@@ -1,15 +1,15 @@
 const ms = require("ms");
 const num = require("num-parse");
 const emojis = require("../../utilities/emojis.json");
-const Command = require('@Command');
+const Command = require("@Command");
 module.exports = class GivewayStartCommand extends Command {
   constructor(client) {
     super(client, {
-  name: "gstart",
-  aliases: ["gs", "giveawaystart", "g-start", "giveaway", "gcreate"],
-  description: "Starts a giveaway!",
+      name: "gstart",
+      aliases: ["gs", "giveawaystart", "g-start", "giveaway", "gcreate"],
+      description: "Starts a giveaway!",
     });
-  };
+  }
   async run(message, args) {
     const client = message.client;
     if (
@@ -146,15 +146,15 @@ module.exports = class GivewayStartCommand extends Command {
       message.guild.roles.cache.find((role) => role.name == args[2]) ||
       message.mentions.roles.first();
 
-    if (!role && !args[2].toLowerCase().startsWith('none'))
+    if (!role && !args[2].toLowerCase().startsWith("none"))
       return message.channel.sendError(
         message,
         "Invalid Required Role Provided.",
         "Please check if the role you provided exists, or if you spelled none wrong."
       );
-      if (args[2].toLowerCase().startsWith('none')) {
-        role = null;
-      };
+    if (args[2].toLowerCase().startsWith("none")) {
+      role = null;
+    }
     let prize = args.slice(3).join(" ");
     if (!prize)
       return message.reply({
@@ -183,7 +183,7 @@ module.exports = class GivewayStartCommand extends Command {
         prize: prize,
         hostedBy: message.author,
         extraData: {
-         role: 'null' 
+          role: "null",
         },
         messages: {
           giveaway: `${emojis.categories.giveaways} **Giveaway** ${emojis.categories.giveaways}`,

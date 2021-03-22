@@ -24,16 +24,16 @@ const verif = {
   HIGH: "**High**",
   VERY_HIGH: "**Highest**",
 };
-const Command = require('@Command');
+const Command = require("@Command");
 
 module.exports = class ServerInfoCommand extends Command {
   constructor(client) {
     super(client, {
-  name: "serverinfo",
-  aliases: ["serveri", "si", "guildinfo", "gi"],
-  description: "Shows information about the server!",
+      name: "serverinfo",
+      aliases: ["serveri", "si", "guildinfo", "gi"],
+      description: "Shows information about the server!",
     });
-  };
+  }
   async run(message, args) {
     const oldmem = message.guild.members.cache
       .filter((m) => !m.user.bot)

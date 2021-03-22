@@ -1,13 +1,13 @@
 const { MessageEmbed } = require("discord.js");
-const Command = require('@Command');
+const Command = require("@Command");
 module.exports = class FiltersCommand extends Command {
   constructor(client) {
     super(client, {
-  name: "filters",
-  aliases: ["filter"],
-  args: true,
+      name: "filters",
+      aliases: ["filter"],
+      args: true,
     });
-  };
+  }
   async run(message, args) {
     if (!message.member.voice.channel)
       return message.channel.sendError(
@@ -36,9 +36,8 @@ module.exports = class FiltersCommand extends Command {
 
     const filtersUpdated = {};
 
-    filtersUpdated[filterToUpdate] = message.client.player.getQueue(message).filters[
-      filterToUpdate
-    ]
+    filtersUpdated[filterToUpdate] = message.client.player.getQueue(message)
+      .filters[filterToUpdate]
       ? false
       : true;
 

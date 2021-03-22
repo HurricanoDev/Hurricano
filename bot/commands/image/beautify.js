@@ -1,11 +1,11 @@
 const Discord = require("discord.js");
-const Command = require('@Command');
+const Command = require("@Command");
 module.exports = class BeautifyCommand extends Command {
   constructor(client) {
     super(client, {
-  name: "beautify",
-  cooldown: 5,
-  description: "Make you more beautiful :D",
+      name: "beautify",
+      cooldown: 5,
+      description: "Make you more beautiful :D",
     });
   }
   async run(message, args) {

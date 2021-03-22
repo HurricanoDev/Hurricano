@@ -1,15 +1,15 @@
 const { MessageEmbed } = require("discord.js");
-const Command = require('@Command');
+const Command = require("@Command");
 module.exports = class SearchCommand extends Command {
   constructor(client) {
     super(client, {
-  name: "search",
-  description: "Search for a song!",
-  aliases: ["p"],
-  args: true,
-  cooldown: 15,
+      name: "search",
+      description: "Search for a song!",
+      aliases: ["p"],
+      args: true,
+      cooldown: 15,
     });
-  };
+  }
   async run(message, args) {
     if (!message.member.voice.channel)
       return message.channel.sendError(
