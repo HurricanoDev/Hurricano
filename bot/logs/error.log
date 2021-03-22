@@ -1,8 +1,8 @@
-2021-03-22 10:26:43 - error [index.js]: config/setprefix.js
-2021-03-22 10:26:43 - error [index.js]: fun/connect4.js
-2021-03-22 10:26:43 - error [index.js]: giveaways/gend.js
-2021-03-22 10:26:43 - error [index.js]: image/beautify.js
-2021-03-22 10:26:43 - error [index.js]: Cannot read property 'forEach' of null
+2021-03-22 10:28:31 - error [index.js]: config/setprefix.js
+2021-03-22 10:28:31 - error [index.js]: fun/connect4.js
+2021-03-22 10:28:31 - error [index.js]: giveaways/gend.js
+2021-03-22 10:28:31 - error [index.js]: image/beautify.js
+2021-03-22 10:28:31 - error [index.js]: Cannot read property 'forEach' of null
 {
   "stack": "TypeError: Cannot read property 'forEach' of null
     at /home/dragonizedpizza/Desktop/Hurricanp/bot/Client.js:177:26
@@ -17,9 +17,9 @@
     at Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)
     at internal/main/run_main_module.js:17:47"
 }
-2021-03-22 10:26:43 - error [index.js]: information/botinfo.js
-2021-03-22 10:26:43 - error [index.js]: moderation/lock.js
-2021-03-22 10:26:43 - error [index.js]: Cannot read property 'forEach' of null
+2021-03-22 10:28:31 - error [index.js]: information/botinfo.js
+2021-03-22 10:28:31 - error [index.js]: moderation/lock.js
+2021-03-22 10:28:31 - error [index.js]: Cannot read property 'forEach' of null
 {
   "stack": "TypeError: Cannot read property 'forEach' of null
     at /home/dragonizedpizza/Desktop/Hurricanp/bot/Client.js:177:26
@@ -34,9 +34,9 @@
     at Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)
     at internal/main/run_main_module.js:17:47"
 }
-2021-03-22 10:26:43 - error [index.js]: music/filters.js
-2021-03-22 10:26:43 - error [index.js]: owner/eval.js
-2021-03-22 10:26:43 - error [index.js]: Cannot read property 'forEach' of null
+2021-03-22 10:28:31 - error [index.js]: music/filters.js
+2021-03-22 10:28:31 - error [index.js]: owner/eval.js
+2021-03-22 10:28:31 - error [index.js]: Cannot read property 'forEach' of null
 {
   "stack": "TypeError: Cannot read property 'forEach' of null
     at /home/dragonizedpizza/Desktop/Hurricanp/bot/Client.js:177:26
