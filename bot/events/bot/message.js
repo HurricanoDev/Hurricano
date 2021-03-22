@@ -106,7 +106,8 @@ module.exports = class {
             },
           });
         }
-      }
+      };
+
       if (!config.ownerIds.includes(author.id)) timestamps.set(author.id, now);
       setTimeout(() => timestamps.delete(author.id), cooldownAmount);
       if (command) command.run(message, args);

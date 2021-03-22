@@ -1,4 +1,4 @@
-2021-03-22 04:12:37 - error [index.js]: Cannot find module '@Command'
+2021-03-22 04:42:31 - error [index.js]: Cannot find module '@Command'
 Require stack:
 - /home/dragonizedpizza/Desktop/Hurricanp/bot/commands/config/setprefix.js
 - /home/dragonizedpizza/Desktop/Hurricanp/bot/Client.js
@@ -32,7 +32,7 @@ Require stack:
     at Client.loadCommands (/home/dragonizedpizza/Desktop/Hurricanp/bot/Client.js:155:35)
     at init (/home/dragonizedpizza/Desktop/Hurricanp/bot/utilities/index.js:22:10)"
 }
-2021-03-22 04:12:37 - error [index.js]: require(...) is not a constructor
+2021-03-22 04:42:31 - error [index.js]: require(...) is not a constructor
 {
   "stack": "TypeError: require(...) is not a constructor
     at /home/dragonizedpizza/Desktop/Hurricanp/bot/Client.js:161:19
@@ -47,7 +47,7 @@ Require stack:
     at Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)
     at internal/main/run_main_module.js:17:47"
 }
-2021-03-22 04:12:37 - error [index.js]: require(...) is not a constructor
+2021-03-22 04:42:31 - error [index.js]: require(...) is not a constructor
 {
   "stack": "TypeError: require(...) is not a constructor
     at /home/dragonizedpizza/Desktop/Hurricanp/bot/Client.js:161:19
@@ -62,7 +62,7 @@ Require stack:
     at Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)
     at internal/main/run_main_module.js:17:47"
 }
-2021-03-22 04:12:37 - error [index.js]: require(...) is not a constructor
+2021-03-22 04:42:31 - error [index.js]: require(...) is not a constructor
 {
   "stack": "TypeError: require(...) is not a constructor
     at /home/dragonizedpizza/Desktop/Hurricanp/bot/Client.js:161:19
@@ -77,7 +77,7 @@ Require stack:
     at Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)
     at internal/main/run_main_module.js:17:47"
 }
-2021-03-22 04:12:37 - error [index.js]: require(...) is not a constructor
+2021-03-22 04:42:31 - error [index.js]: require(...) is not a constructor
 {
   "stack": "TypeError: require(...) is not a constructor
     at /home/dragonizedpizza/Desktop/Hurricanp/bot/Client.js:161:19
@@ -92,7 +92,7 @@ Require stack:
     at Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)
     at internal/main/run_main_module.js:17:47"
 }
-2021-03-22 04:12:37 - error [index.js]: require(...) is not a constructor
+2021-03-22 04:42:31 - error [index.js]: require(...) is not a constructor
 {
   "stack": "TypeError: require(...) is not a constructor
     at /home/dragonizedpizza/Desktop/Hurricanp/bot/Client.js:161:19
@@ -107,7 +107,7 @@ Require stack:
     at Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)
     at internal/main/run_main_module.js:17:47"
 }
-2021-03-22 04:12:37 - error [index.js]: require(...) is not a constructor
+2021-03-22 04:42:31 - error [index.js]: require(...) is not a constructor
 {
   "stack": "TypeError: require(...) is not a constructor
     at /home/dragonizedpizza/Desktop/Hurricanp/bot/Client.js:161:19
@@ -122,7 +122,7 @@ Require stack:
     at Function.executeUserEntryPoint [as runMain] (internal/modules/run_main.js:72:12)
     at internal/main/run_main_module.js:17:47"
 }
-2021-03-22 04:12:38 - error [index.js]: require(...) is not a constructor
+2021-03-22 04:42:31 - error [index.js]: require(...) is not a constructor
 {
   "stack": "TypeError: require(...) is not a constructor
     at /home/dragonizedpizza/Desktop/Hurricanp/bot/Client.js:161:19

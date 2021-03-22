@@ -1,5 +1,5 @@
 const logger = require("../utilities/logger.js");
-
+const config = require('@config');
 module.exports = class Command {
     constructor(client, opts) {
         this.constructor.validateOptions(client, options),
@@ -11,7 +11,12 @@ module.exports = class Command {
         this.ownerOnly = opts.ownerOnly || false;
         this.examples = opts.examples || "No example provided.";
         this.cooldown = opts.cooldowns || null;
-    }
+        this.userPermissions = opts.userPermissions || null;
+        this.clientPermissions = opts.clientPermissions || null;
+        this.conf = { cooldown, ownerOnly, aliases, userPermissions, clientPermissions };
+        this.help = { name, description, usage, examples };
+    
+      }
         run(message, args) {
             throw new Error(`The ${this.name} command has no run() method`);
         }
@@ -32,15 +37,15 @@ module.exports = class Command {
             }
           }
           if (opts.usage && typeof opts.usage !== 'string') throw new TypeError(`Command: ${this.name}: usage is not a string.`);
-          if (opts.permissions.client) {
-            if (!Array.isArray(opts.permissions.client))
+          if (opts.clientPermissions) {
+            if (!Array.isArray(opts.clientPermissions))
               throw new TypeError(`Command: ${this.name}: User permissions(s) are not an array of permission key strings.`);
     }
-    for (const perm of opts.permissions.client) {
+    for (const perm of opts.clientPermissions) {
         if (!permissions[perm]) throw new RangeError(`Command: ${this.name}: Invalid command client permission(s): ${perm}`);
       }
-    if (opts.permissions.user) {
-        if (!Array.isArray(opts.permissions.user))
+    if (opts.userPermissions) {
+        if (!Array.isArray(opts.userPermissions))
           throw new TypeError(`Command: ${this.name}: User permissions(s) are not an array of permission key strings.`);
           for (const perm of opts.permissions.user) {
             if (!permissions[perm]) throw new RangeError(`Command: ${this.name}: Invalid command user permission(s): ${perm}`);
@@ -57,5 +62,29 @@ module.exports = class Command {
       const now = Date.now();
       const timestamps = this.client.cooldowns.get(this.name);
       const cooldownAmount = (this.cooldown || 3) * 1000;
+const { author } = message;
+      if (timestamps.has(author.id)) {
+        const expirationTime = timestamps.get(author.id) + cooldownAmount;
+        if (now < expirationTime) {
+          const timeLeft = (expirationTime - now) / 1000;
+          return message.reply({
+            embed: {
+              title: "Chillza.",
+              description: `You need to wait ${timeLeft.toFixed(
+                1
+              )} more second(s) before reusing the \`${
+                command.name
+              }\` command.`,
+              footer: { text: `"Patience is the key my child."` },
+            },
+          });
+        }
+      };
 
-}}
+      if (!config.ownerIds.includes(author.id)) timestamps.set(author.id, now);
+      setTimeout(() => timestamps.delete(author.id), cooldownAmount);
+      if (command) command.run(message, args);
+
+    }
+
+}
