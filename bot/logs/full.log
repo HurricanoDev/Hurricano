@@ -1,29 +1,41 @@
-2021-03-23 05:26:51 - client [index.js]: 
-.-----------------------2021-03-23 05:26:55 - shard [index.js]: [Shard 0] Shard Ready!
-   |
-|-------------------------------------------|
-| Command File | Command Name | Load status |
-|--------------|--------------|-------------|
-| setprefix.js | setprefix    | Loaded!     |
-| connect4.js  | connect4     | Loaded!     |
-| gend.js      | gend         | Loaded!     |
-| beautify.js  | beautify     | Loaded!     |
-| blur.js      | blur         | Loaded!     |
-| pixelate.js  | pixelate     | Loaded!     |
-| rainbow.js   | rainbow      | Loaded!     |
-| rip.js       | rip          | Loaded!     |
-| trigger.js   | trigger      | Loaded!     |
-| wanted.js    | wanted       | Loaded!     |
-| botinfo.js   | botinfo      | Loaded!     |
-| lock.js      | lock         | Loaded!     |
-| filters.js   | filters      | Loaded!     |
-| eval.js      | eval         | Loaded!     |
-| exec.js      | exec         | Loaded!     |
-| fulleval.js  | eval         | Loaded!     |
-| reboot.js    | reboot       | Loaded!     |
-| reload.js    | reload       | Loaded!     |
-'-------------------------------------------'
-2021-03-23 05:26:55 - db [index.js]: Connected to MongoDB!
-2021-03-23 05:26:56 - client [index.js]: Hurricano™ Successfully Logged in!
-2021-03-23 05:50:16 - db [index.js]: Disconnected from MongoDB!
-2021-03-23 05:50:27 - db [index.js]: Connected to MongoDB!
+2021-03-23 11:40:38 - client [index.js]: 
+.--------------------------------------------.
+|                  Commands                  |
+|--------------------------------------------|
+| Command File  | Command Name | Load status |
+|---------------|--------------|-------------|
+| setprefix.js  | setprefix    | Loaded!     |
+| connect4.js   | connect4     | Loaded!     |
+| meme.js       | meme         | Loaded!     |
+| rps.js        | rps          | Loaded!     |
+| gend.js       | gend         | Loaded!     |
+| gstart.js     | gstart       | Loaded!     |
+| beaut2021-03-23 11:40:41 - shard [index.js]: [Shard 0] Shard Ready!
+        | Loaded!     |
+| pixelate.js   | pixelate     | Loaded!     |
+| rainbow.js    | rainbow      | Loaded!     |
+| rip.js        | rip          | Loaded!     |
+| trigger.js    | trigger      | Loaded!     |
+| wanted.js     | wanted       | Loaded!     |
+| botinfo.js    | botinfo      | Loaded!     |
+| help.js       | help         | Loaded!     |
+| invite.js     | invite       | Loaded!     |
+| ping.js       | ping         | Loaded!     |
+| serverinfo.js | serverinfo   | Loaded!     |
+| lock.js       | lock         | Loaded!     |
+| filters.js    | filters      | Loaded!     |
+| lyrics.js     | lyrics       | Loaded!     |
+| play.js       | play         | Loaded!     |
+| search.js     | search       | Loaded!     |
+| skip.js       | skip         | Loaded!     |
+| stop.js       | stop         | Loaded!     |
+| eval.js       | eval         | Loaded!     |
+| exec.js       | exec         | Loaded!     |
+| fulleval.js   | eval         | Loaded!     |
+| reboot.js     | reboot       | Loaded!     |
+| reload.js     | reload       | Loaded!     |
+'--------------------------------------------'
+2021-03-23 11:40:41 - db [index.js]: Connected to MongoDB!
+2021-03-23 11:40:44 - client [index.js]: Hurricano™ Successfully Logged in!
+2021-03-23 11:42:27 - db [index.js]: Disconnected from MongoDB!
+2021-03-23 11:43:09 - db [index.js]: Connected to MongoDB!

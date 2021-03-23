@@ -177,7 +177,6 @@ class Client extends Discord.Client {
             props.conf.aliases.forEach((alias) => {
               this.aliases.set(alias, props.help.name);
             });
-            return false;
           }
         }
       } catch (e) {

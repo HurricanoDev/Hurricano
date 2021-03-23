@@ -54,7 +54,7 @@ module.exports = {
         );
 
       if (!message.member)
-        message.member = await message.guild.fetchMember(message);
+        message.member = await message.guild.members.fetch(message);
       if (command.permissions) {
         const authorPerms = message.channel.permissionsFor(author);
         if (!authorPerms || !authorPerms.has(command.permissions)) {
