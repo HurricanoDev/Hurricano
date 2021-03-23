@@ -47,7 +47,7 @@ module.exports = class Command {
     if (opts.name !== opts.name.toLowerCase())
       throw new Error(`Command: ${this.name}: Name is not lowercase.`);
     if (opts.aliases) {
-      if (
+      if (this.aliases &&
         !Array.isArray(opts.aliases) ||
         opts.aliases.some((ali) => typeof ali !== "string")
       )

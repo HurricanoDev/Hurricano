@@ -6,7 +6,6 @@ module.exports = class MemeCommand extends Command {
   constructor(client) {
     super(client, {
       name: "meme",
-      aliases: ["sp", "setp"],
       userPermissions: ["SEND_MESSAGES"],
       cooldown: 20,
       description:

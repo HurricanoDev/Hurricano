@@ -5,7 +5,7 @@ module.exports = class SetPrefixCommand extends Command {
     super(client, {
       name: "setprefix",
       aliases: ["sp", "setp"],
-      userPermissions: ["MANAGE_SERVER"],
+      userPermissions: ["MANAGE_GUILD"],
       args: true,
       cooldown: 20,
       description: "Set your server's custom prefix!",

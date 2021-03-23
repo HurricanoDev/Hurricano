@@ -31,7 +31,7 @@
     "mongoose": "^5.11.13",
     "ms": "^2.1.3",
     "num-parse": "^1.0.1",
-    "sourcebin": "^4.0.2",
+    "sourcebin": "^4.1.2",
     "superagent": "^6.1.0",
     "weird-to-normal-chars": "^1.3.0",
     "winston": "^3.3.3"
