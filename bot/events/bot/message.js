@@ -35,7 +35,7 @@ module.exports = {
       ) {
         return message.reply(embed);
       }
-      const [, match] = message.content.match(prefixRegex);
+      const match = message.content.match(prefixRegex);
       if (!message.content.startsWith(match)) return;
       const args = message.content.slice(match.length).trim().split(/ +/g);
       const cmd = args.shift().toLowerCase();
@@ -55,7 +55,7 @@ module.exports = {
 
       if (!message.member)
         message.member = await message.guild.members.fetch(message);
-      if (command.permissions) {
+      if (command.conf.permissions) {
         const authorPerms = message.channel.permissionsFor(author);
         if (!authorPerms || !authorPerms.has(command.permissions)) {
           return message.reply(
@@ -72,12 +72,13 @@ module.exports = {
           );
         }
       }
-      if (command.args && !args.length) {
-        return message.channel.sendError(
+      if (command.conf.args && !args.length) {
+          message.channel.sendError(
           message,
           "Arguments Error.",
           `You did not provide all the arguments, ${author}.`
         );
+        return;
       }
       if (!client.cooldowns.has(command.name)) {
         client.cooldowns.set(command.name, new Discord.Collection());
@@ -85,7 +86,7 @@ module.exports = {
 
       const now = Date.now();
       const timestamps = client.cooldowns.get(command.name);
-      const cooldownAmount = (command.cooldown || 3) * 1000;
+      const cooldownAmount = (command.conf.cooldown || 3) * 1000;
 
       if (timestamps.has(author.id)) {
         const expirationTime = timestamps.get(author.id) + cooldownAmount;
