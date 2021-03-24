@@ -7,7 +7,7 @@ module.exports = class BotInfoCommand extends Command {
       name: "botinfo",
       description: "About the bot!",
       aliases: ["info", "bi"],
-      permissions: "SEND_MESSAGES",
+      userPermissions: ["SEND_MESSAGES"],
     });
   }
   async run(message, args) {

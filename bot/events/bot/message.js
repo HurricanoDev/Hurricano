@@ -35,7 +35,7 @@ module.exports = {
       ) {
         return message.reply(embed);
       }
-      const match = message.content.match(prefixRegex);
+      const [, match] = message.content.match(prefixRegex);
       if (!message.content.startsWith(match)) return;
       const args = message.content.slice(match.length).trim().split(/ +/g);
       const cmd = args.shift().toLowerCase();
@@ -55,14 +55,14 @@ module.exports = {
 
       if (!message.member)
         message.member = await message.guild.members.fetch(message);
-      if (command.conf.permissions) {
+      if (command.conf.userPermissions) {
         const authorPerms = message.channel.permissionsFor(author);
-        if (!authorPerms || !authorPerms.has(command.permissions)) {
+        if (!authorPerms || !authorPerms.has(command.userPermissions)) {
           return message.reply(
             new MessageEmbed()
               .setTitle("Permission Error.")
               .setDescription(
-                `Stop disturbing me bro, you require the \`${command.permissions.join(
+                `Stop disturbing me bro, you require the \`${command.userPermissions.join(
                   ", "
                 )}\` permission(s) to use that command...`
               )
