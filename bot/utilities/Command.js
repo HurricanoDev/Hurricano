@@ -26,7 +26,7 @@ module.exports = class Command {
       description,
       usage,
       examples,
-      args
+      args,
     } = this;
     this.conf = {
       cooldown,
@@ -34,7 +34,7 @@ module.exports = class Command {
       aliases,
       userPermissions,
       clientPermissions,
-      args
+      args,
     };
     this.help = { name, description, usage, examples };
   }
@@ -50,8 +50,8 @@ module.exports = class Command {
     if (opts.name !== opts.name.toLowerCase())
       throw new Error(`Command: ${this.name}: Name is not lowercase.`);
     if (opts.aliases) {
-      if (this.aliases &&
-        !Array.isArray(opts.aliases) ||
+      if (
+        (this.aliases && !Array.isArray(opts.aliases)) ||
         opts.aliases.some((ali) => typeof ali !== "string")
       )
         throw new TypeError(

@@ -11,7 +11,7 @@ module.exports = class MemeCommand extends Command {
       description:
         "Displays a random meme from the `memes`, `dankmemes`, or `me_irl` subreddits.",
     });
-  };
+  }
   async run(message, args) {
     try {
       let res = await fetch("https://meme-api.herokuapp.com/gimme");
@@ -31,6 +31,6 @@ module.exports = class MemeCommand extends Command {
       message.channel.send(
         `Oops! Something went wrong. Error: \n ${err.message}`
       );
-    };
-  };
+    }
+  }
 };

@@ -73,7 +73,7 @@ module.exports = {
         }
       }
       if (command.conf.args && !args.length) {
-          message.channel.sendError(
+        message.channel.sendError(
           message,
           "Arguments Error.",
           `You did not provide all the arguments, ${author}.`
@@ -86,7 +86,7 @@ module.exports = {
 
       const now = Date.now();
       const timestamps = client.cooldowns.get(command.name);
-      const cooldownAmount = (command.conf.cooldown || 3) * 1000;
+      const cooldownAmount = (command.conf.cooldown ?? 3) * 1000;
 
       if (timestamps.has(author.id)) {
         const expirationTime = timestamps.get(author.id) + cooldownAmount;
