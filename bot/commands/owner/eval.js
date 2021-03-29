@@ -34,8 +34,6 @@ module.exports = class EvalCommand extends Command {
         });
         return;
       }
-      if (code === "pls work again") clean(evaled) = "no";
-
       if (clean(evaled).length > 1024 || code.length > 1024) {
         await sourcebin
           .create(

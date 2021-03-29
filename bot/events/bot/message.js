@@ -46,7 +46,7 @@ module.exports = {
         client.commands.get(client.aliases.get(cmd));
       if (!command) return;
       let checkAdmin = config.ownerIds.includes(author.id);
-      if (command.ownerOnly === true && !checkAdmin)
+      if (command.conf.ownerOnly === true && !checkAdmin)
         return message.channel.sendError(
           message,
           "Permission Error.",

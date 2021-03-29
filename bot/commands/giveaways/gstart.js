@@ -13,8 +13,8 @@ module.exports = class GivewayStartCommand extends Command {
   async run(message, args) {
     const client = message.client;
     if (
-      !message.member.hasPermission("MANAGE_GUILD") &&
-      !message.member.roles.cache.includes(
+      !message.member.hasPermission("MANAGE_MESSAGES") &&
+      !message.member.roles.cache.has(
         (r) => r.name.toLowerCase() === "Giveaway Manager"
       )
     ) {
@@ -22,7 +22,7 @@ module.exports = class GivewayStartCommand extends Command {
         embed: {
           title: "An Error Occured.",
           description:
-            "Smh, you need the `MANAGE_GUILD` permission or the role `Giveaway Manager` to host a giveaway.",
+            "Smh, you need the `MANAGE_MESSAGES` permission or the role `Giveaway Manager` to host a giveaway.",
           color: "#034ea2",
         },
       });

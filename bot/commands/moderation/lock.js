@@ -9,6 +9,15 @@ module.exports = class LockCommand extends Command {
     });
   }
   async run(message, args) {
+    const prefix = await this.client.db.guild.getPrefix(message.guild.id);
+    if (!args.length) {
+      message.channel.sendError(
+        message,
+        "Invalid Arguments.",
+        `Please provide valid arguments. Arguments you can use: \n \`${prefix}lock none\`: Locks the channel until you unlock it. \n \`${prefix}lock {time}\`: Locks the channel for a specific amount of time. \n S stands for seconds, \n H stands for hours, \n D stands for days. \n You can also use the channel argument to choose which channel you would like to lock. Ex: \`${prefix}lock none #general\` or \`${prefix}lock 20m #general\``
+      );
+      return;
+    }
     let lockit = [];
     let channel =
       message.guild.channels.cache.get(args[1]) ||
@@ -21,16 +30,24 @@ module.exports = class LockCommand extends Command {
         "Please provide a valid channel."
       );
     }
-    let time = ms(args[0]);
+    if (!channel.permissionsFor(message.guild.id).has('SEND_MESSAGES')) {
+      message.channel.sendError(message, "Already Locked.", `The channel you provided, ${channel}, is already locked. Use \`${prefix}lock unlock\` to unlock it.`)
+      return;
+    }
+    let time = null;
     let validUnlocks = ["release", "unlock"];
-    var notimeembed = new Discord.MessageEmbed()
-      .setTitle("Error")
-      .setDescription(
+    if (args[0].toLowerCase() !== "none" && !validUnlocks.includes(args[0])) {
+      time = ms(args[0]);
+    } else if (args[0] === "none" || validUnlocks.includes(args[0])) {
+      time = args[0];
+    }
+    if (!time) {
+      message.channel.sendError(
+        message,
+        "Time Error.",
         "Please provide a valid time. \n You must set a duration for the lockdown in either hours, minutes or seconds."
-      )
-      .setColor("36393e");
-    if (!time) return message.channel.send(notimeembed);
-
+      );
+    }
     if (validUnlocks.includes(time)) {
       await channel.createOverwrite(message.guild.id, {
         SEND_MESSAGES: null,
@@ -42,28 +59,26 @@ module.exports = class LockCommand extends Command {
       await channel.send(liftedembed);
       await clearTimeout(lockit[channel.id]);
       await delete lockit[channel.id];
-      message
-        .sendSuccessReply(
-          "Success.",
-          `Successfully lifted the lock in ${channel}.`
-        )
-        .catch((error) => {
-          client.logger.warn(error);
-        });
+      message.sendSuccessReply(
+        "Success.",
+        `Successfully lifted the lock in ${channel}.`
+      );
     } else {
       await channel.createOverwrite(message.guild.id, {
         SEND_MESSAGES: false,
       });
-      var lockdownembed = new Discord.MessageEmbed()
+      const lockdownembed = new Discord.MessageEmbed()
         .setTitle("🔒 Channel Locked")
         .addField("Locked by", message.author, true)
-        .addField("Locked for", ms(time, { long: true }), true)
         .setFooter(
           `To unlock, use '${await message.client.db.guild.getPrefix(
             message.guild.id
           )}lock unlock'`
         )
         .setColor("36393e");
+      if (time != "none") {
+        lockdownembed.addField("Locked for", ms(time, { long: true }), true);
+      }
       await channel.send(lockdownembed);
       await message.sendSuccessReply(
         "Success.",
@@ -72,17 +87,19 @@ module.exports = class LockCommand extends Command {
           message.guild.id
         )}lock unlock ${channel.name}'`
       );
-      lockit[channel.id] = setTimeout(async () => {
-        var liftedembed = new Discord.MessageEmbed()
-          .setTitle("🔒 Lockdown")
-          .setDescription("🔓 Lockdown lifted.")
-          .setColor("36393e");
-        await channel.createOverwrite(message.guild.id, {
-          SEND_MESSAGES: null,
-        });
-        await channel.send(liftedembed).catch((x) => client.logger.warn(x));
-        delete lockit[channel.id];
-      }, time);
+      if (time !== "none") {
+        lockit[channel.id] = setTimeout(async () => {
+          var liftedembed = new Discord.MessageEmbed()
+            .setTitle("🔒 Lockdown")
+            .setDescription("🔓 Lockdown lifted.")
+            .setColor("36393e");
+          await channel.createOverwrite(message.guild.id, {
+            SEND_MESSAGES: null,
+          });
+          await channel.send(liftedembed).catch((x) => client.logger.warn(x));
+          delete lockit[channel.id];
+        }, time);
+      }
     }
   }
 };

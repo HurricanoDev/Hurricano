@@ -60,10 +60,15 @@ class Client extends Discord.Client {
     this.cooldowns = new Discord.Collection();
 
     /**
+     * Snipes
+     */
+    this.snipes = new Discord.Collection();
+
+    /**
      * Giveaways Manager
      */
     this.giveawaysManager = new giveawaysManager(this, {
-      updateCountdownEvery: 5 * 1000,
+      updateCountdownEvery: 6969,
       default: {
         botsCanWin: false,
         exemptPermissions: [],

@@ -12,7 +12,7 @@ intents.add(
   "GUILD_MESSAGE_REACTIONS"
 );
 
-const client = new Client(config, { ws: { intents: intents } });
+const client = new Client(config, { intents: intents });
 global.client = client;
 // website initialization
 if (client.config.website.enabled) {

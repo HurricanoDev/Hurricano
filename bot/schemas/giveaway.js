@@ -43,9 +43,5 @@ module.exports = model(
       exemptPermissions: [],
       extraData: {},
     },
-    blacklists: {
-      uid: String,
-      sid: String,
-    },
   })
 );
