@@ -13,7 +13,7 @@ module.exports = class GListCommand extends Command {
       .filter((g) => g.guildID === message.guild.id)
       .filter((g) => !g.ended);
     if (gws.length) {
-      gws.forEach((x) => embed.addField(x.prize, "xd"));
+      gws.forEach((x) => embed.addField(x.prize, `work in progress, ok`));
       message.channel.send(embed);
     } else if (!gws.length) {
       message.channel.sendError(

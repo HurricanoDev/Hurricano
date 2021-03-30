@@ -6,7 +6,7 @@ module.exports = class ReloadCommand extends Command {
     super(client, {
       name: "reload",
       description: "Reloads a command",
-      args: true,
+      args: "Please provide which command you would like to reload!",
       ownerOnly: true,
     });
   }

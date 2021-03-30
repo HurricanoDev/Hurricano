@@ -13,7 +13,7 @@ module.exports = class GivewayStartCommand extends Command {
   async run(message, args) {
     const client = message.client;
     if (
-      !message.member.hasPermission("MANAGE_MESSAGES") &&
+      !message.member.permissions.has("MANAGE_MESSAGES") &&
       !message.member.roles.cache.has(
         (r) => r.name.toLowerCase() === "Giveaway Manager"
       )
