@@ -24,7 +24,20 @@ module.exports = class HelpCommand extends Command {
     });
   }
   async run(message, args) {
-    let tips = ["Tips..."];
+    let tips = [
+      "The first person convicted of speeding was going eight mph.",
+      '"New car smell" is the scent of dozens of chemicals.',
+      "Some sea snakes can breathe through their skin.",
+      "The heads on Easter Island have bodies.",
+      "The moon has moonquakes.",
+      "Humans are the only animals that blush.",
+      "The wood frog can hold its pee for up to eight months.",
+      "The feeling of getting lost inside a mall is known as the Gruen transfer.",
+      "You lose up to 30 percent of your taste buds during flight.",
+      "Cotton candy was invented by a dentist.",
+      "Sharks can live for five centuries.",
+      "The world wastes about 1 billion metric tons of food each year. Help reduce that number and stop wasting food :D"
+    ];
 
     let TIP = Math.floor(Math.random() * tips.length);
     let Fact = tips[TIP];
@@ -60,13 +73,18 @@ module.exports = class HelpCommand extends Command {
         inline
       )
       .addField(
-        `> ${emojis.categories.music}  Music`,
-        "Feel like listening to some music? You can do it with Hurricano™️!",
+        `> :camera:  Image Manipulation`,
+        "Make funny images with Hurricano™️!",
         inline
       )
       .addField(
-        `> :camera:  Image Manipulation`,
-        "Make funny images with Hurricano™️!",
+        `> ${emojis.categories.moderation}  Moderation`,
+        "Let Hurricano™️ help the moderators and admins with its moderation system!",
+        inline
+      )
+      .addField(
+        `> ${emojis.categories.music}  Music`,
+        "Feel like listening to some music? You can do it with Hurricano™️!",
         inline
       )
       .addField(
@@ -74,7 +92,7 @@ module.exports = class HelpCommand extends Command {
         "Commands meant for the bot owners.",
         inline
       )
-      .addField(":bulb:  TIP:", `${Fact}`)
+      .addField(":bulb:  Fact:", `**${Fact}**`)
       .setFooter("Copyright Hurricano™");
 
     //-------------------------------------
@@ -188,7 +206,22 @@ module.exports = class HelpCommand extends Command {
         "https://raw.githubusercontent.com/HurricanoBot/HurricanoImages/master/categories/Owner.jpg"
       )
       .setFooter("Copyright Hurricano™");
-
+    // -------------------------------------------------------------------------------
+    const moderation = new MessageEmbed()
+      .setAuthor(
+        "Moderation",
+        "https://raw.githubusercontent.com/HurricanoBot/HurricanoImages/master/SetAuthorEmojis/Moderation.png"
+      )
+      .setColor("#ffb6c1")
+      .setDescription(
+        "Moderation commands! **React** with other emojis to see what else there is!"
+      )
+      .addField("Commands", cmdmap.moderation.join(" "))
+      .setImage(
+        "https://raw.githubusercontent.com/HurricanoBot/HurricanoImages/master/categories/Moderation.jpg"
+      )
+      .setFooter("Copyright Hurricano™");
+    // ------------------------------------------------------------------------------------
     const emojimap = {
       ["giveaways"]: [
         emojis.categories.giveaways.split(":")[2].split("<")[0].split(">")[0],
@@ -198,6 +231,9 @@ module.exports = class HelpCommand extends Command {
       ],
       ["music"]: [
         emojis.categories.music.split(":")[2].split("<")[0].split(">")[0],
+      ],
+      ["moderation"]: [
+        emojis.categories.moderation.split(":")[2].split("<")[0].split(">")[0],
       ],
     };
 
@@ -214,6 +250,7 @@ module.exports = class HelpCommand extends Command {
             "🎮": "fun",
             [emojimap.giveaways]: "giveaways",
             "📷": "image",
+            [emojimap.moderation]: "moderation",
             [emojimap.music]: "music",
             [emojimap.owner]: "owner",
           },
@@ -226,6 +263,7 @@ module.exports = class HelpCommand extends Command {
             "🎮": "fun",
             [emojimap.giveaways]: "giveaways",
             "📷": "image",
+            [emojimap.moderation]: "moderation",
             [emojimap.music]: "music",
             [emojimap.owner]: "owner",
           },
@@ -238,6 +276,7 @@ module.exports = class HelpCommand extends Command {
             "🎮": "fun",
             [emojimap.giveaways]: "giveaways",
             "📷": "image",
+            [emojimap.moderation]: "moderation",
             [emojimap.music]: "music",
             [emojimap.owner]: "owner",
           },
@@ -250,6 +289,7 @@ module.exports = class HelpCommand extends Command {
             "🔍": "information",
             [emojimap.giveaways]: "giveaways",
             "📷": "image",
+            [emojimap.moderation]: "moderation",
             [emojimap.music]: "music",
             [emojimap.owner]: "owner",
           },
@@ -262,6 +302,7 @@ module.exports = class HelpCommand extends Command {
             "🔍": "information",
             "🎮": "fun",
             "📷": "image",
+            [emojimap.moderation]: "moderation",
             [emojimap.music]: "music",
             [emojimap.owner]: "owner",
           },
@@ -274,6 +315,20 @@ module.exports = class HelpCommand extends Command {
             "🔍": "information",
             "🎮": "fun",
             [emojimap.giveaways]: "giveaways",
+            [emojimap.moderation]: "moderation",
+            [emojimap.music]: "music",
+            [emojimap.owner]: "owner",
+          },
+        },
+        {
+          name: "moderation",
+          content: moderation,
+          reactions: {
+            "⚙️": "config",
+            "🔍": "information",
+            "🎮": "fun",
+            [emojimap.giveaways]: "giveaways",
+            "📷": "image",
             [emojimap.music]: "music",
             [emojimap.owner]: "owner",
           },

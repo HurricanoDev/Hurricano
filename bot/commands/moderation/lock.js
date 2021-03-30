@@ -30,8 +30,12 @@ module.exports = class LockCommand extends Command {
         "Please provide a valid channel."
       );
     }
-    if (!channel.permissionsFor(message.guild.id).has('SEND_MESSAGES')) {
-      message.channel.sendError(message, "Already Locked.", `The channel you provided, ${channel}, is already locked. Use \`${prefix}lock unlock\` to unlock it.`)
+    if (!channel.permissionsFor(message.guild.id).has("SEND_MESSAGES")) {
+      message.channel.sendError(
+        message,
+        "Already Locked.",
+        `The channel you provided, ${channel}, is already locked. Use \`${prefix}lock unlock\` to unlock it.`
+      );
       return;
     }
     let time = null;

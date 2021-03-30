@@ -76,7 +76,7 @@ module.exports = {
         message.channel.sendError(
           message,
           "Arguments Error.",
-          `You did not provide all the arguments, ${author}.`
+          `${command.conf.args}`
         );
         return;
       }

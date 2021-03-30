@@ -1,5 +1,5 @@
-2021-03-29 15:04:43 - client [index.js]: 
-.-----------------------2021-03-29 15:04:46 - shard [index.js]: [Shard 0] Shard Ready!
+2021-03-30 08:20:58 - client [index.js]: 
+.-----------------------2021-03-30 08:21:01 - shard [index.js]: [Shard 0] Shard Ready!
      |
 |--------------------------------------------|
 | Command File  | Command Name | Load status |
@@ -34,39 +34,9 @@
 | volume.js     | volume       | Loaded!     |
 | eval.js       | eval         | Loaded!     |
 | exec.js       | exec         | Loaded!     |
-| fulleval.js   | eval         | Loaded!     |
+| fulleval.js   | fulleval     | Loaded!     |
 | reboot.js     | reboot       | Loaded!     |
 | reload.js     | reload       | Loaded!     |
 '--------------------------------------------'
-2021-03-29 15:04:44 - db [index.js]: Connected to MongoDB!
-2021-03-29 15:04:46 - client [index.js]: Hurricano Beta Successfully Logged in!
-2021-03-29 15:13:14 - warn [index.js]: message.guild.emojis.fetch(...).find is not a function
-{
-  "stack": "TypeError: message.guild.emojis.fetch(...).find is not a function
-    at eval (eval at run (/home/dragonizedpizza/Desktop/Bots/Hurricanp/bot/commands/owner/fulleval.js:25:20), <anonymous>:2:46)
-    at eval (eval at run (/home/dragonizedpizza/Desktop/Bots/Hurricanp/bot/commands/owner/fulleval.js:25:20), <anonymous>:4:3)
-    at EvalCommand.run (/home/dragonizedpizza/Desktop/Bots/Hurricanp/bot/commands/owner/fulleval.js:25:20)
-    at Object.run (/home/dragonizedpizza/Desktop/Bots/Hurricanp/bot/events/bot/message.js:111:28)
-    at runMicrotasks (<anonymous>)
-    at processTicksAndRejections (internal/process/task_queues.js:93:5)"
-}
-2021-03-29 15:14:17 - warn [index.js]: e is not defined
-{
-  "stack": "ReferenceError: e is not defined
-    at eval (eval at run (/home/dragonizedpizza/Desktop/Bots/Hurricanp/bot/commands/owner/fulleval.js:25:20), <anonymous>:4:22)
-    at runMicrotasks (<anonymous>)
-    at processTicksAndRejections (internal/process/task_queues.js:93:5)"
-}
-2021-03-29 15:14:39 - warn [index.js]: Cannot send an empty message
-{
-  "name": "DiscordAPIError",
-  "method": "post",
-  "path": "/channels/787649614777286656/messages",
-  "code": 50006,
-  "httpStatus": 400,
-  "stack": "DiscordAPIError: Cannot send an empty message
-    at RequestHandler.execute (/home/dragonizedpizza/Desktop/Bots/Hurricanp/node_modules/discord.js/src/rest/RequestHandler.js:152:13)
-    at runMicrotasks (<anonymous>)
-    at processTicksAndRejections (internal/process/task_queues.js:93:5)
-    at async RequestHandler.push (/home/dragonizedpizza/Desktop/Bots/Hurricanp/node_modules/discord.js/src/rest/RequestHandler.js:37:14)"
-}
+2021-03-30 08:21:02 - db [index.js]: Connected to MongoDB!
+2021-03-30 08:21:03 - client [index.js]: Hurricano Beta Successfully Logged in!

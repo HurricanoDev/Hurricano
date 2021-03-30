@@ -5,7 +5,7 @@ module.exports = class FiltersCommand extends Command {
     super(client, {
       name: "filters",
       aliases: ["filter"],
-      args: true,
+      args: `Please provide which filter you would like to use!`,
     });
   }
   async run(message, args) {

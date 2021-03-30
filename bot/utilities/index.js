@@ -12,7 +12,10 @@ intents.add(
   "GUILD_MESSAGE_REACTIONS"
 );
 
-const client = new Client(config, { intents: intents });
+const client = new Client(config, {
+  intents: intents,
+  allowedMentions: { parse: ["users"], repliedUser: false },
+});
 global.client = client;
 // website initialization
 if (client.config.website.enabled) {

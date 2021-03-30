@@ -14,9 +14,7 @@ module.exports = class ReloadCommand extends Command {
     const commandName = args[0].toLowerCase();
     const command =
       message.client.commands.get(commandName) ||
-      message.client.commands.find(
-        (cmd) => cmd.aliases && cmd.aliases.includes(commandName)
-      );
+      message.client.commands.get(message.client.aliases.get(commandName));
 
     if (!command) {
       return message.channel.send(

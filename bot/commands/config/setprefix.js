@@ -6,7 +6,7 @@ module.exports = class SetPrefixCommand extends Command {
       name: "setprefix",
       aliases: ["sp", "setp"],
       userPermissions: ["ADMINISTRATOR"],
-      args: true,
+      args: "Please mention what you would like to set as your prefix!",
       cooldown: 20,
       description: "Set your server's custom prefix!",
     });

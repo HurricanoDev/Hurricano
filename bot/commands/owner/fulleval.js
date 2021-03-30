@@ -2,12 +2,11 @@ const Discord = require("discord.js");
 const sourcebin = require("sourcebin");
 const config = require("@config");
 const Command = require("@Command");
-
 module.exports = class EvalCommand extends Command {
   constructor(client) {
     super(client, {
-      name: "eval",
-      description: "Evaluates arbituary JavaScript.",
+      name: "fulleval",
+      description: "Evaluates arbituary JavaScript, with no restrictions.",
       ownerOnly: true,
       args: true,
     });
@@ -25,14 +24,13 @@ module.exports = class EvalCommand extends Command {
       let evaled = eval(code);
       if (typeof evaled !== "string")
         evaled = require("util").inspect(evaled, { depth: 4 });
-
-      if (clean(evaled).length > 1024 || code.length > 1024) {
+      if (clean(evaled).length > 2048 || code.length > 2048) {
         await sourcebin
           .create(
             [
               {
                 content: clean(evaled),
-                language: "javascript",
+                language: "js",
               },
             ],
             {
@@ -43,11 +41,8 @@ module.exports = class EvalCommand extends Command {
           .then(async (src) => {
             var embed = new Discord.MessageEmbed()
               .setColor("#ffb6c1")
-              .addField("Evaled: :inbox_tray:", `\`\`\`js\n${code}\n\`\`\``)
-              .addField(
-                "Output: :outbox_tray:",
-                `Output is to large! [Click here.](${src.url})`
-              );
+              .setTitle("Output: :outbox_tray:")
+              .setDescription(`Output is too large! [Click here.](${src.url})`);
             await message.reply({ embed: embed });
           })
           .catch(async (e) => {
@@ -56,11 +51,8 @@ module.exports = class EvalCommand extends Command {
       } else {
         var embed2 = new Discord.MessageEmbed()
           .setColor("#ffb6c1")
-          .addField("Evaled: :inbox_tray:", `\`\`\`js\n${code}\n\`\`\``)
-          .addField(
-            "Output: :outbox_tray:",
-            `\`\`\`js\n${clean(evaled)}\n\`\`\``
-          );
+          .setTitle("Output: :outbox_tray:")
+          .setDescription(`\`\`\`js\n${clean(evaled)}\n\`\`\``);
         await message.reply({ embed: embed2 });
       }
     } catch (err) {
@@ -71,7 +63,7 @@ module.exports = class EvalCommand extends Command {
             [
               {
                 content: clean(evaled),
-                language: "javascript",
+                language: "js",
               },
             ],
             {
@@ -82,18 +74,15 @@ module.exports = class EvalCommand extends Command {
           .then(async (src) => {
             var embed = new Discord.MessageEmbed()
               .setColor("#ffb6c1")
-              .addField("Evaled: :inbox_tray:", `\`\`\`js\n${code}\n\`\`\``)
-              .addField(
-                "Output: :outbox_tray:",
-                `Output is to large! [Click here.](${src.url})`
-              );
+              .setTitle("Output: :outbox_tray:")
+              .setDescription(`Output is to large! [Click here.](${src.url})`);
             await message.reply({ embed: embed });
           });
       }
       var embed3 = new Discord.MessageEmbed()
         .setColor("#ffb6c1")
-        .addField("Evaled: :inbox_tray:", `\`\`\`js\n${code}\n\`\`\``)
-        .addField("Output: :outbox_tray:", `\`\`\`js\n${clean(err)}\n\`\`\``);
+        .setTitle("Output: :outbox_tray:")
+        .setDescription(`\`\`\`js\n${clean(err)}\n\`\`\``);
       await message.reply({ embed: embed3 });
     }
   }

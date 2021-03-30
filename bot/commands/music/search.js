@@ -5,7 +5,7 @@ module.exports = class SearchCommand extends Command {
     super(client, {
       name: "search",
       description: "Search for a song!",
-      args: true,
+      args: "Please provide what you would like to search!",
       cooldown: 15,
     });
   }

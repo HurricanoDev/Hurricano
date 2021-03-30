@@ -77,11 +77,11 @@ module.exports = class ServerInfoCommand extends Command {
       )
       .addField(
         "Members:",
-        `Total Member Count: ${memberCount} Member(s) \n Online Member(s): ${online} Online Member(s) \n Do not Disturb Member(s): ${dnd} DND Member(s) \n Idle Member(s): ${afk} AFK Member(s) \n Offline Member(s): ${offline} Offline Member(s) \n Bot(s): ${bots} Bot(s)`
+        `${this.client._emojis.signs.members} ${memberCount} Total Member(s) \n ${this.client._emojis.signs.online} ${online} Online Member(s) \n ${this.client._emojis.signs.dnd} ${dnd} DND Member(s) \n ${this.client._emojis.signs.idle} ${afk} Idle Member(s) \n ${this.client._emojis.signs.offline} ${offline} Offline Member(s) \n ${this.client._emojis.signs.bot} ${bots} Bot(s)`
       )
       .addField(
         "Channels:",
-        `Channels: ${channelCount} \n Text Channels: ${textChannels.length} Text Channel(s) \n Voice Channels: ${voiceChannels} Voice Channel(s) \n News Channels: ${newsChannels} News Channel(s) \n Categories: ${categoryChannels} Categories \n Roles: ${roleCount}`
+        `${this.client._emojis.signs.channel} ${channelCount} Total Channels \n 📔 ${textChannels.length} Text Channel(s) \n 🔊 ${voiceChannels} Voice Channel(s) \n 📰 ${newsChannels} News Channel(s) \n 📑 ${categoryChannels} Categories \n 👑 ${roleCount} Roles`
       )
       .addField("Region:", region[message.guild.region], true)
       .addField(
@@ -100,7 +100,7 @@ module.exports = class ServerInfoCommand extends Command {
       )
       .addField(
         "Other",
-        `**Youngest:** \`${newmem.user.tag}\` (${newmem.user.createdAt})\n**Oldest:** \`${oldmem.user.tag}\` (${oldmem.user.createdAt})`
+        `**Youngest Account:** \`${newmem.user.tag}\` (${newmem.user.createdAt})\n \n**Oldest Account:** \`${oldmem.user.tag}\` (${oldmem.user.createdAt})`
       );
 
     message.channel.send(em);

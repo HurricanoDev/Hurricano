@@ -5,7 +5,7 @@ module.exports = class PlayCommand extends Command {
     super(client, {
       name: "play",
       aliases: ["p"],
-      args: true,
+      args: "Please provide which song you would like to play!",
       cooldown: 15,
     });
   }
