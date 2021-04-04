@@ -75,7 +75,7 @@ class Client extends Discord.Client {
         embedColor: "#034ea2",
         reaction: "🎉",
       },
-    });
+    }, false);
 
     /**
      * E m o j i s
@@ -135,6 +135,14 @@ class Client extends Discord.Client {
       const event = require(`./events/music/${file}`);
       this.player.on(event.name, (...args) => event.run(...args, this));
     }
+        // WEBSOCKET EVENTS
+        const wsevents = fs
+        .readdirSync("./bot/events/ws")
+        .filter((file) => file.endsWith(".js"));
+      for (const file of wsevents) {
+        const event = require(`./events/ws/${file}`);
+        this.ws.on(event.name, (...args) => event.run(...args, this));
+      }
     // GIVEAWAYS EVENTS
     const giveawaysevents = fs
       .readdirSync("./bot/events/giveaways")

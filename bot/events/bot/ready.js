@@ -4,6 +4,18 @@ module.exports = {
   name: "ready",
   once: true,
   run: async (client) => {
+    const slashs = client.commands.filter(cmd => cmd.slash);
+    slashs.forEach(async x => {
+      await client.api.applications(client.user.id).commands.post({
+        data: {
+          name: x.name,
+          description: x.description,
+          options: x.options,
+        },
+      });
+    });
+
+    client.giveawaysManager._init();
     //find and create data
     for (const guild of client.guilds.cache.values()) {
       try {
@@ -23,6 +35,6 @@ module.exports = {
       type: "STREAMING",
       url: "https://twitch.tv/Pewdiepie",
     });
-    client.logger.client(`${client.user.username} Successfully Logged in!`);
+    client.logger.client(`${client.user.tag} Successfully Logged in!`);
   },
 };

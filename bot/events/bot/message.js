@@ -41,9 +41,11 @@ module.exports = {
       const cmd = args.shift().toLowerCase();
 
       if (cmd.length == 0) return;
+      const commands = client.commands.filter(x => !x.slash)
+
       const command =
-        client.commands.get(cmd) ||
-        client.commands.get(client.aliases.get(cmd));
+        commands.get(cmd) ||
+        commands.get(client.aliases.get(cmd));
       if (!command) return;
       let checkAdmin = config.ownerIds.includes(author.id);
       if (command.conf.ownerOnly === true && !checkAdmin)

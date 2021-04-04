@@ -3,7 +3,6 @@ const { model, Schema } = require("mongoose");
 module.exports = model(
   "giveaway",
   new Schema({
-    giveaways: {
       messageID: String,
       channelID: String,
       guildID: String,
@@ -43,5 +42,5 @@ module.exports = model(
       exemptPermissions: [],
       extraData: {},
     },
-  })
+  )
 );

@@ -15,6 +15,10 @@ module.exports = class Command {
     this.cooldown = opts.cooldown || null;
     this.userPermissions = opts.userPermissions || null;
     this.clientPermissions = opts.clientPermissions || null;
+    if (opts.slash) {
+      this.slash = opts.slash || null;
+      this.options = opts.options || null;
+    }
     this.args = opts.args || null;
     const {
       cooldown,
@@ -27,6 +31,8 @@ module.exports = class Command {
       usage,
       examples,
       args,
+      slash, 
+      options
     } = this;
     this.conf = {
       cooldown,
@@ -35,6 +41,8 @@ module.exports = class Command {
       userPermissions,
       clientPermissions,
       args,
+      slash,
+      options
     };
     this.help = { name, description, usage, examples };
   }

@@ -30,7 +30,8 @@ module.exports = class LockCommand extends Command {
         "Please provide a valid channel."
       );
     }
-    if (!channel.permissionsFor(message.guild.id).has("SEND_MESSAGES")) {
+    let validUnlocks = ["release", "unlock"];
+    if (!channel.permissionsFor(message.guild.id).has("SEND_MESSAGES") && !validUnlocks.includes(args[0])) {
       message.channel.sendError(
         message,
         "Already Locked.",
@@ -39,7 +40,6 @@ module.exports = class LockCommand extends Command {
       return;
     }
     let time = null;
-    let validUnlocks = ["release", "unlock"];
     if (args[0].toLowerCase() !== "none" && !validUnlocks.includes(args[0])) {
       time = ms(args[0]);
     } else if (args[0] === "none" || validUnlocks.includes(args[0])) {
