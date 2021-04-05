@@ -1,5 +1,5 @@
-2021-04-05 01:24:56 - client [index.js]: 
-.-----------------------2021-04-05 01:24:59 - shard [index.js]: [Shard 0] Shard Ready!
+2021-04-05 10:06:51 - client [index.js]: 
+.-----------------------2021-04-05 10:06:54 - shard [index.js]: [Shard 0] Shard Ready!
      |
 |--------------------------------------------|
 | Command File  | Command Name | Load status |
@@ -19,6 +19,7 @@
 | rip.js        | rip          | Loaded!     |
 | trigger.js    | trigger      | Loaded!     |
 | wanted.js     | wanted       | Loaded!     |
+| avatar.js     | avatar       | Loaded!     |
 | botinfo.js    | botinfo      | Loaded!     |
 | help.js       | help         | Loaded!     |
 | invite.js     | invite       | Loaded!     |
@@ -39,5 +40,9 @@
 | reboot.js     | reboot       | Loaded!     |
 | reload.js     | reload       | Loaded!     |
 '--------------------------------------------'
-2021-04-05 01:25:00 - db [index.js]: Connected to MongoDB!
-2021-04-05 01:25:00 - client [index.js]: Hurricano Beta#2437 Successfully Logged in!
+2021-04-05 10:06:52 - db [index.js]: Connected to MongoDB!
+2021-04-05 10:06:54 - client [index.js]: Hurricano Beta#2437 Successfully Logged in!
+2021-04-05 10:36:46 - db [index.js]: Disconnected from MongoDB!
+2021-04-05 10:36:46 - db [index.js]: Connected to MongoDB!
+2021-04-05 10:52:16 - db [index.js]: Disconnected from MongoDB!
+2021-04-05 10:52:28 - db [index.js]: Connected to MongoDB!

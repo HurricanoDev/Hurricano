@@ -41,11 +41,9 @@ module.exports = {
       const cmd = args.shift().toLowerCase();
 
       if (cmd.length == 0) return;
-      const commands = client.commands.filter(x => !x.slash)
-
       const command =
-        commands.get(cmd) ||
-        commands.get(client.aliases.get(cmd));
+        client.commands.get(cmd) ||
+        client.commands.get(client.aliases.get(cmd));
       if (!command) return;
       let checkAdmin = config.ownerIds.includes(author.id);
       if (command.conf.ownerOnly === true && !checkAdmin)
@@ -107,10 +105,14 @@ module.exports = {
           });
         }
       }
-
+      console.log('recieved')
       if (!config.ownerIds.includes(author.id)) timestamps.set(author.id, now);
       setTimeout(() => timestamps.delete(author.id), cooldownAmount);
-      if (command) command.run(message, args);
+      if (command && !command.slash && !command.double) {
+        command.run(message, args);
+      } else if (command.slash && command.double) {
+        command.run(message, args);
+      }
     }
   },
 };

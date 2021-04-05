@@ -8,7 +8,7 @@ module.exports = class EvalCommand extends Command {
       name: "fulleval",
       description: "Evaluates arbituary JavaScript, with no restrictions.",
       ownerOnly: true,
-      args: "Please provide what you'd like to eval!"
+      args: "Please provide what you'd like to eval!",
     });
   }
   async run(message, args) {

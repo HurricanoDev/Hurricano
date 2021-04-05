@@ -31,7 +31,10 @@ module.exports = class LockCommand extends Command {
       );
     }
     let validUnlocks = ["release", "unlock"];
-    if (!channel.permissionsFor(message.guild.id).has("SEND_MESSAGES") && !validUnlocks.includes(args[0])) {
+    if (
+      !channel.permissionsFor(message.guild.id).has("SEND_MESSAGES") &&
+      !validUnlocks.includes(args[0])
+    ) {
       message.channel.sendError(
         message,
         "Already Locked.",

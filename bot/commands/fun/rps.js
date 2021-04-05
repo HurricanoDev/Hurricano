@@ -9,7 +9,8 @@ module.exports = class RockPaperScissorsCommand extends Command {
       name: "rps",
       aliases: ["rockpaperscissors"],
       description: "Rock, paper, scissors with Hurricano!",
-      args: "Please choose whether you'd like to choose rock paper or scissors!",
+      args:
+        "Please choose whether you'd like to choose rock paper or scissors!",
     });
   }
   async run(message, args) {

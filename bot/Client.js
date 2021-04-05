@@ -67,15 +67,19 @@ class Client extends Discord.Client {
     /**
      * Giveaways Manager
      */
-    this.giveawaysManager = new giveawaysManager(this, {
-      updateCountdownEvery: 6969,
-      default: {
-        botsCanWin: false,
-        exemptPermissions: [],
-        embedColor: "#034ea2",
-        reaction: "🎉",
+    this.giveawaysManager = new giveawaysManager(
+      this,
+      {
+        updateCountdownEvery: 6969,
+        default: {
+          botsCanWin: false,
+          exemptPermissions: [],
+          embedColor: "#034ea2",
+          reaction: "🎉",
+        },
       },
-    }, false);
+      false
+    );
 
     /**
      * E m o j i s
@@ -135,14 +139,14 @@ class Client extends Discord.Client {
       const event = require(`./events/music/${file}`);
       this.player.on(event.name, (...args) => event.run(...args, this));
     }
-        // WEBSOCKET EVENTS
-        const wsevents = fs
-        .readdirSync("./bot/events/ws")
-        .filter((file) => file.endsWith(".js"));
-      for (const file of wsevents) {
-        const event = require(`./events/ws/${file}`);
-        this.ws.on(event.name, (...args) => event.run(...args, this));
-      }
+    // WEBSOCKET EVENTS
+    const wsevents = fs
+      .readdirSync("./bot/events/ws")
+      .filter((file) => file.endsWith(".js"));
+    for (const file of wsevents) {
+      const event = require(`./events/ws/${file}`);
+      this.ws.on(event.name, (...args) => event.run(...args, this));
+    }
     // GIVEAWAYS EVENTS
     const giveawaysevents = fs
       .readdirSync("./bot/events/giveaways")

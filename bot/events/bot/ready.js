@@ -4,8 +4,8 @@ module.exports = {
   name: "ready",
   once: true,
   run: async (client) => {
-    const slashs = client.commands.filter(cmd => cmd.slash);
-    slashs.forEach(async x => {
+    const slashs = client.commands.filter((cmd) => cmd.slash);
+    slashs.forEach(async (x) => {
       await client.api.applications(client.user.id).commands.post({
         data: {
           name: x.name,
@@ -14,7 +14,6 @@ module.exports = {
         },
       });
     });
-
     client.giveawaysManager._init();
     //find and create data
     for (const guild of client.guilds.cache.values()) {

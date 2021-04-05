@@ -31,8 +31,8 @@ module.exports = class Command {
       usage,
       examples,
       args,
-      slash, 
-      options
+      slash,
+      options,
     } = this;
     this.conf = {
       cooldown,
@@ -42,7 +42,7 @@ module.exports = class Command {
       clientPermissions,
       args,
       slash,
-      options
+      options,
     };
     this.help = { name, description, usage, examples };
   }

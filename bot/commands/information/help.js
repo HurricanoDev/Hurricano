@@ -1,5 +1,5 @@
 const { MessageEmbed } = require("discord.js");
-const { Menu } = require("discord.js-menu");
+const { Menu } = require("../../utilities/ReactionMenu.js");
 const { readdirSync } = require("fs");
 const emojis = require("../../utilities/emojis.json");
 const cmdmap = {};
@@ -36,7 +36,7 @@ module.exports = class HelpCommand extends Command {
       "You lose up to 30 percent of your taste buds during flight.",
       "Cotton candy was invented by a dentist.",
       "Sharks can live for five centuries.",
-      "The world wastes about 1 billion metric tons of food each year. Help reduce that number and stop wasting food :D"
+      "The world wastes about 1 billion metric tons of food each year. Help reduce that number and stop wasting food :D",
     ];
 
     let TIP = Math.floor(Math.random() * tips.length);
