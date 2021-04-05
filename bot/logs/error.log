@@ -1,0 +1,37 @@
+2021-04-05 20:38:20 - warn [index.js]: Cannot find module '../commands/config/setprefix.js'
+Require stack:
+- /home/dragonizedpizza/Desktop/Hurricano/bot/commands/information/help.js
+- /home/dragonizedpizza/Desktop/Hurricano/bot/commands/owner/reload.js
+- /home/dragonizedpizza/Desktop/Hurricano/bot/Client.js
+- /home/dragonizedpizza/Desktop/Hurricano/bot/utilities/index.js
+{
+  "code": "MODULE_NOT_FOUND",
+  "requireStack": [
+    "/home/dragonizedpizza/Desktop/Hurricano/bot/commands/information/help.js",
+    "/home/dragonizedpizza/Desktop/Hurricano/bot/commands/owner/reload.js",
+    "/home/dragonizedpizza/Desktop/Hurricano/bot/Client.js",
+    "/home/dragonizedpizza/Desktop/Hurricano/bot/utilities/index.js"
+  ],
+  "stack": "Error: Cannot find module '../commands/config/setprefix.js'
+Require stack:
+- /home/dragonizedpizza/Desktop/Hurricano/bot/commands/information/help.js
+- /home/dragonizedpizza/Desktop/Hurricano/bot/commands/owner/reload.js
+- /home/dragonizedpizza/Desktop/Hurricano/bot/Client.js
+- /home/dragonizedpizza/Desktop/Hurricano/bot/utilities/index.js
+    at Function.Module._resolveFilename (internal/modules/cjs/loader.js:880:15)
+    at Function.Module._resolveFilename (/home/dragonizedpizza/Desktop/Hurricano/node_modules/module-alias/index.js:49:29)
+    at Function.Module._load (internal/modules/cjs/loader.js:725:27)
+    at Module.require (internal/modules/cjs/loader.js:952:19)
+    at require (internal/modules/cjs/helpers.js:88:18)
+    at /home/dragonizedpizza/Desktop/Hurricano/bot/commands/information/help.js:13:23
+    at Array.forEach (<anonymous>)
+    at /home/dragonizedpizza/Desktop/Hurricano/bot/commands/information/help.js:9:6
+    at Array.forEach (<anonymous>)
+    at Object.<anonymous> (/home/dragonizedpizza/Desktop/Hurricano/bot/commands/information/help.js:6:31)
+    at Module._compile (internal/modules/cjs/loader.js:1063:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1092:10)
+    at Module.load (internal/modules/cjs/loader.js:928:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:769:14)
+    at Module.require (internal/modules/cjs/loader.js:952:19)
+    at require (internal/modules/cjs/helpers.js:88:18)"
+}

@@ -19,14 +19,7 @@ module.exports = class TestCommand extends Command {
     });
   }
 
-  async run(message, args) {
-    client.api.interactions(message.id, message.token).callback.post({
-      data: {
-        type: 4,
-        data: {
-          content: args[0].value,
-        },
-      },
-    });
+  async run(message, args, quicksend) {
+    quicksend(message, args[0].value);
   }
 };

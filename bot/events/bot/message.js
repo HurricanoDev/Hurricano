@@ -109,7 +109,7 @@ module.exports = {
       setTimeout(() => timestamps.delete(author.id), cooldownAmount);
       if (command && !command.slash && !command.double) {
         command.run(message, args);
-      } 
+      }
       if (command.slash && command.double) {
         command.run(message, args);
       }

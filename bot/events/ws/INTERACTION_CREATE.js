@@ -23,12 +23,6 @@ module.exports = {
           },
         });
     };
-    if (cmd)
-      cmd.run(
-        interaction,
-        interaction.data.options,
-        createAPIMessage,
-        quicksend
-      );
+    if (cmd) cmd.run(interaction, interaction.data.options, quicksend);
   },
 };

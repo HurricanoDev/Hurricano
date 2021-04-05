@@ -19,7 +19,7 @@ module.exports = class AvatarCommand extends Command {
       description: "Displays a user's avatar.",
     });
   }
-  async run(message, args, APIMessage, quicksend) {
+  async run(message, args, quicksend) {
     if (message.token) {
       const guild = this.client.guilds.cache.get(message.guild_id);
       const member = await guild.members.fetch(args[0].value);
@@ -41,10 +41,7 @@ module.exports = class AvatarCommand extends Command {
         member = message.author;
       }
       const embed = new MessageEmbed()
-        .setAuthor(
-          member.username,
-          member.displayAvatarURL({ dynamic: true })
-        )
+        .setAuthor(member.username, member.displayAvatarURL({ dynamic: true }))
         .setImage(member.displayAvatarURL({ dynamic: true, size: 1024 }))
         .setTimestamp();
       await message.channel.send(embed);

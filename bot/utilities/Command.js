@@ -45,7 +45,7 @@ module.exports = class Command {
       args,
       slash,
       options,
-      double
+      double,
     };
     this.help = { name, description, usage, examples };
   }

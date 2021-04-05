@@ -18,7 +18,7 @@ module.exports = class PingCommand extends Command {
     const embed = new Discord.MessageEmbed()
       .setAuthor(
         "Hurricano™ Latency",
-        "https://media.discordapp.net/attachments/803204453321670700/803930305135116288/circle-cropped_13.png"
+        "https://raw.githubusercontent.com/HurricanoBot/HurricanoImages/master/SetAuthorEmojis/Ping.png"
       )
       .setDescription("Pinging...");
     const ping = await message.channel.send(embed);
@@ -26,7 +26,7 @@ module.exports = class PingCommand extends Command {
       .setDescription("")
       .setAuthor(
         "Hurricano™",
-        "https://media.discordapp.net/attachments/803204453321670700/803930305135116288/circle-cropped_13.png"
+        "https://raw.githubusercontent.com/HurricanoBot/HurricanoImages/master/SetAuthorEmojis/Ping.png"
       )
       .addField("Latency", `\`${ping.createdTimestamp - msgamount}ms\``)
       .addField("API Latency", `\`${message.client.ws.ping}ms\``)
@@ -36,7 +36,7 @@ module.exports = class PingCommand extends Command {
       )
       .setColor("#034ea2")
       .setImage(
-        "https://media.discordapp.net/attachments/803204453321670700/803931313483939850/Ping.png?width=1025&height=342"
+        "https://raw.githubusercontent.com/HurricanoBot/HurricanoImages/master/other/Ping.png"
       );
     ping.edit(embed);
   }
