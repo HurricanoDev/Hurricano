@@ -12,6 +12,7 @@ module.exports = class Command {
     this.description = opts.description || "No description provided.";
     this.ownerOnly = opts.ownerOnly || false;
     this.examples = opts.examples || "No example provided.";
+    this.double = opts.double || null;
     this.cooldown = opts.cooldown || null;
     this.userPermissions = opts.userPermissions || null;
     this.clientPermissions = opts.clientPermissions || null;
@@ -33,6 +34,7 @@ module.exports = class Command {
       args,
       slash,
       options,
+      double,
     } = this;
     this.conf = {
       cooldown,
@@ -43,6 +45,7 @@ module.exports = class Command {
       args,
       slash,
       options,
+      double
     };
     this.help = { name, description, usage, examples };
   }

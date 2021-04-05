@@ -22,6 +22,7 @@
     "dblapi.js": "^2.4.1",
     "discord-giveaways": "github:Androz2091/discord-giveaways#develop",
     "discord-player": "^3.4.0",
+    "discord-xp": "^1.1.11",
     "discord.js": "github:discordjs/discord.js",
     "discord.js-menu": "^2.3.1",
     "ejs": "^3.1.6",

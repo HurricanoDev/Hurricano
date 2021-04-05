@@ -105,12 +105,12 @@ module.exports = {
           });
         }
       }
-      console.log('recieved')
       if (!config.ownerIds.includes(author.id)) timestamps.set(author.id, now);
       setTimeout(() => timestamps.delete(author.id), cooldownAmount);
       if (command && !command.slash && !command.double) {
         command.run(message, args);
-      } else if (command.slash && command.double) {
+      } 
+      if (command.slash && command.double) {
         command.run(message, args);
       }
     }

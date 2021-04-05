@@ -7,6 +7,7 @@ module.exports = class AvatarCommand extends Command {
       name: "avatar",
       aliases: ["profilepic", "pic", "ava"],
       slash: true,
+      double: true,
       options: [
         {
           name: "User",
@@ -15,7 +16,6 @@ module.exports = class AvatarCommand extends Command {
           required: true,
         },
       ],
-      double: true,
       description: "Displays a user's avatar.",
     });
   }
@@ -32,17 +32,20 @@ module.exports = class AvatarCommand extends Command {
         .setTimestamp();
       await quicksend(message, embed);
     } else {
-      const member =
-        message.mentions.members.first() ||
-        (await message.guild.members.fetch(args[0]).catch((e) => {})) ||
-        message.member;
-      console.log(member);
+      let member = null;
+      if (args[0]) {
+        member =
+          message.mentions.users.first() ||
+          (await message.guild.members.fetch(args[0]).catch((e) => {}));
+      } else {
+        member = message.author;
+      }
       const embed = new MessageEmbed()
         .setAuthor(
-          member.displayName,
-          member.user.displayAvatarURL({ dynamic: true })
+          member.username,
+          member.displayAvatarURL({ dynamic: true })
         )
-        .setImage(member.user.displayAvatarURL({ dynamic: true, size: 1024 }))
+        .setImage(member.displayAvatarURL({ dynamic: true, size: 1024 }))
         .setTimestamp();
       await message.channel.send(embed);
     }
