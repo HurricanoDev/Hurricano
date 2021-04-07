@@ -14,7 +14,7 @@ module.exports = class InviteCommand extends Command {
       .setAuthor("Invite Hurricano™")
       .addField(
         emojis.signs.plus + "  Invite Link",
-        "Click [here](https://discord.com/oauth2/authorize?client_id=803169312827113483&permissions=8&scope=bot) to invite the bot."
+        "Click [here](https://discord.com/oauth2/authorize?client_id=803169312827113483&scope=bot&permissions=8589934591&scope=applications.commands%20bot) to invite the bot."
       )
       .addField(
         emojis.signs.info + "  Support Server Link",

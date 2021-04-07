@@ -77,7 +77,7 @@ module.exports.Menu = class extends EventEmitter {
         );
     } else {
       console.log(
-        `\x1B[96m[discord.js-menu]\x1B[0m Looks like you're trying to send a menu as a DM (to ${this.channel.recipient.tag}). DMs don't allow removing other people's reactions, making the menu fundamentally broken. The menu will still send, but you have been warned that what you're doing almost certainly won't work, so don't come complaining to me.`
+        `Sending a reaction menu in DMs won't work. DMs don't allow removing other people's reactions, making the menu fundamentally broken. The menu will still send, but will almost certainly not work.`
       );
     }
 
@@ -89,6 +89,12 @@ module.exports.Menu = class extends EventEmitter {
 
     let i = 0;
     pages.forEach((page) => {
+      this.reactionsQuickObj = page.reactions;
+      page.reactions = {};
+      Object.entries(this.reactionsQuickObj).forEach((reaction) => {
+        if (!reaction[1]) return;
+        page.reactions[reaction[0]] = reaction[1];
+      });
       this.pages.push(new Page(page.name, page.content, page.reactions, i));
       i++;
     });
@@ -121,7 +127,7 @@ module.exports.Menu = class extends EventEmitter {
       .catch((error) => {
         if (this.channel.type === "dm") {
           console.log(
-            `\x1B[96m[discord.js-menu]\x1B[0m ${error.toString()} (whilst trying to send menu message in DMs) | The person you're trying to DM (${
+            `(whilst trying to send menu message in DMs) | The person you're trying to DM (${
               this.channel.client.users.cache.get(this.userID).tag
             }) probably has DMs turned off.`
           );
@@ -163,7 +169,7 @@ module.exports.Menu = class extends EventEmitter {
       return this.menu.reactions.removeAll().catch((error) => {
         if (this.channel.type === "dm") {
           console.log(
-            `\x1B[96m[discord.js-menu]\x1B[0m ${error.toString()} (whilst trying to remove message reactions) | Told you so.`
+            `${error.toString()} (whilst trying to remove message reactions) | Told you so.`
           );
         } else {
           this.channel.send(
@@ -200,7 +206,7 @@ module.exports.Menu = class extends EventEmitter {
       this.menu.react(reaction).catch((error) => {
         if (error.toString().indexOf("Unknown Emoji") >= 0) {
           console.log(
-            `\x1B[96m[discord.js-menu]\x1B[0m ${error.toString()} (whilst trying to add reactions to message) | The emoji you were trying to add to page "${
+            `${error.toString()} (whilst trying to add reactions to message) | The emoji you were trying to add to page "${
               this.currentPage.name
             }" (${reaction}) probably doesn't exist. You probably entered the ID wrong when adding a custom emoji.`
           );

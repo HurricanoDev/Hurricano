@@ -80,6 +80,30 @@ module.exports = {
         );
         return;
       }
+      const userLevel = await client.levels.fetch(
+        message.author.id,
+        message.guild.id
+      );
+
+      if (!userLevel)
+        await client.levels.createUser(message.author.id, message.guild.id);
+      const randomAmountOfXp = Math.floor(Math.random() * 29) + 1; // Min 1, Max 30
+      const hasLeveledUp = await client.levels.appendXp(
+        message.author.id,
+        message.guild.id,
+        randomAmountOfXp
+      );
+      if (hasLeveledUp) {
+        const user = await client.levels.fetch(
+          message.author.id,
+          message.guild.id
+        );
+        message.sendSuccessReply(
+          `Level Up!`,
+          `${message.author}, congratulations! You have leveled up to **${user.level}**! :tada:`
+        );
+      }
+
       if (!client.cooldowns.has(command.name)) {
         client.cooldowns.set(command.name, new Discord.Collection());
       }

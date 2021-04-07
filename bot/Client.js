@@ -53,7 +53,11 @@ class Client extends Discord.Client {
     this.schemas = {
       guild: require("./schemas/guild"),
     };
-
+    /*
+     * Levelling
+     */
+    this.levels = require("./utilities/Levels.js");
+    this.levels.setURL(config.mongouri);
     /**
      * Cooldowns
      */

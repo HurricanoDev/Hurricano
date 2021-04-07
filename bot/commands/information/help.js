@@ -83,18 +83,25 @@ module.exports = class HelpCommand extends Command {
         inline
       )
       .addField(
-        `> ${emojis.categories.music}  Music`,
-        "Feel like listening to some music? You can do it with Hurricano™️!",
+        "> :up:  Levelling",
+        "Commands for Hurricano™️'s levelling module!",
         inline
       )
       .addField(
-        `> ${emojis.categories.owner}  Owner`,
-        "Commands meant for the bot owners.",
+        `> ${emojis.categories.music}  Music`,
+        "Feel like listening to some music? You can do it with Hurricano™️!",
         inline
-      )
-      .addField(":bulb:  Fact:", `**${Fact}**`)
-      .setFooter("Copyright Hurricano™");
+      );
 
+    client.config.ownerIds.includes(message.author.id)
+      ? main.addField(
+          `> ${emojis.categories.owner}  Owner`,
+          "Commands meant for the bot owners.",
+          inline
+        )
+      : main
+          .addField(":bulb:  Fact:", `**${Fact}**`)
+          .setFooter("Copyright Hurricano™");
     //-------------------------------------
 
     const config = new MessageEmbed()
@@ -192,6 +199,17 @@ module.exports = class HelpCommand extends Command {
       )
       .setFooter("Copyright Hurricano™");
     // -----------------------------------------------------------------------
+    const levelling = new MessageEmbed()
+      .setAuthor(
+        "Levelling Commands!",
+        "https://raw.githubusercontent.com/HurricanoBot/HurricanoImages/master/SetAuthorEmojis/Levelling.png"
+      )
+      .setColor("#ffb6c1")
+      .setDescription(
+        "Commands meant for the bot owners. **React** with other emojis to see what else there is!"
+      )
+      .addField("Commands", cmdmap.levelling.join(" "));
+
     const owner = new MessageEmbed()
       .setAuthor(
         "Bot Owner Commands!",
@@ -235,6 +253,11 @@ module.exports = class HelpCommand extends Command {
       ["moderation"]: [
         emojis.categories.moderation.split(":")[2].split("<")[0].split(">")[0],
       ],
+      ["config"]: "⚙️",
+      ["information"]: "🔍",
+      ["fun"]: "🎮",
+      ["image"]: "📷",
+      ["levelling"]: "🆙",
     };
 
     let helpMenu = new Menu(
@@ -245,116 +268,161 @@ module.exports = class HelpCommand extends Command {
           name: "main",
           content: main,
           reactions: {
-            "⚙️": "config",
-            "🔍": "information",
-            "🎮": "fun",
+            [emojimap.config]: "config",
+            [emojimap.information]: "information",
+            [emojimap.fun]: "fun",
             [emojimap.giveaways]: "giveaways",
-            "📷": "image",
+            [emojimap.image]: "image",
             [emojimap.moderation]: "moderation",
+            [emojimap.levelling]: "levelling",
             [emojimap.music]: "music",
-            [emojimap.owner]: "owner",
+            [emojimap.owner]: client.config.ownerIds.includes(message.author.id)
+              ? "owner"
+              : null,
           },
         },
         {
           name: "config",
           content: config,
           reactions: {
-            "🔍": "information",
-            "🎮": "fun",
+            [emojimap.config]: "config",
+            [emojimap.information]: "information",
+            [emojimap.fun]: "fun",
             [emojimap.giveaways]: "giveaways",
-            "📷": "image",
+            [emojimap.image]: "image",
             [emojimap.moderation]: "moderation",
+            [emojimap.levelling]: "levelling",
             [emojimap.music]: "music",
-            [emojimap.owner]: "owner",
+            [emojimap.owner]: client.config.ownerIds.includes(message.author.id)
+              ? "owner"
+              : null,
           },
         },
         {
           name: "information",
           content: information,
           reactions: {
-            "⚙️": "config",
-            "🎮": "fun",
+            [emojimap.config]: "config",
+            [emojimap.fun]: "fun",
             [emojimap.giveaways]: "giveaways",
-            "📷": "image",
+            [emojimap.image]: "image",
             [emojimap.moderation]: "moderation",
+            [emojimap.levelling]: "levelling",
             [emojimap.music]: "music",
-            [emojimap.owner]: "owner",
+            [emojimap.owner]: client.config.ownerIds.includes(message.author.id)
+              ? "owner"
+              : null,
           },
         },
         {
           name: "fun",
           content: fun,
           reactions: {
-            "⚙️": "config",
-            "🔍": "information",
+            [emojimap.config]: "config",
+            [emojimap.information]: "information",
             [emojimap.giveaways]: "giveaways",
-            "📷": "image",
+            [emojimap.image]: "image",
             [emojimap.moderation]: "moderation",
+            [emojimap.levelling]: "levelling",
             [emojimap.music]: "music",
-            [emojimap.owner]: "owner",
+            [emojimap.owner]: client.config.ownerIds.includes(message.author.id)
+              ? "owner"
+              : null,
           },
         },
         {
           name: "giveaways",
           content: giveaways,
           reactions: {
-            "⚙️": "config",
-            "🔍": "information",
-            "🎮": "fun",
-            "📷": "image",
+            [emojimap.config]: "config",
+            [emojimap.information]: "information",
+            [emojimap.fun]: "fun",
+            [emojimap.image]: "image",
             [emojimap.moderation]: "moderation",
+            [emojimap.levelling]: "levelling",
             [emojimap.music]: "music",
-            [emojimap.owner]: "owner",
+            [emojimap.owner]: client.config.ownerIds.includes(message.author.id)
+              ? "owner"
+              : null,
           },
         },
         {
           name: "image",
           content: image,
           reactions: {
-            "⚙️": "config",
-            "🔍": "information",
-            "🎮": "fun",
+            [emojimap.config]: "config",
+            [emojimap.information]: "information",
+            [emojimap.fun]: "fun",
             [emojimap.giveaways]: "giveaways",
             [emojimap.moderation]: "moderation",
+            [emojimap.levelling]: "levelling",
             [emojimap.music]: "music",
-            [emojimap.owner]: "owner",
+            [emojimap.owner]: client.config.ownerIds.includes(message.author.id)
+              ? "owner"
+              : null,
           },
         },
         {
           name: "moderation",
           content: moderation,
           reactions: {
-            "⚙️": "config",
-            "🔍": "information",
-            "🎮": "fun",
+            [emojimap.config]: "config",
+            [emojimap.information]: "information",
+            [emojimap.fun]: "fun",
             [emojimap.giveaways]: "giveaways",
-            "📷": "image",
+            [emojimap.image]: "image",
+            [emojimap.levelling]: "levelling",
             [emojimap.music]: "music",
-            [emojimap.owner]: "owner",
+            [emojimap.owner]: client.config.ownerIds.includes(message.author.id)
+              ? "owner"
+              : null,
+          },
+        },
+        {
+          name: "levelling",
+          content: levelling,
+          reactions: {
+            [emojimap.config]: "config",
+            [emojimap.information]: "information",
+            [emojimap.fun]: "fun",
+            [emojimap.giveaways]: "giveaways",
+            [emojimap.image]: "image",
+            [emojimap.moderation]: "moderation",
+            [emojimap.music]: "music",
+            [emojimap.owner]: client.config.ownerIds.includes(message.author.id)
+              ? "owner"
+              : null,
           },
         },
         {
           name: "music",
           content: music,
           reactions: {
-            "⚙️": "config",
-            "🔍": "information",
-            "🎮": "fun",
+            [emojimap.config]: "config",
+            [emojimap.information]: "information",
+            [emojimap.fun]: "fun",
             [emojimap.giveaways]: "giveaways",
-            "📷": "image",
-            [emojimap.owner]: "owner",
+            [emojimap.image]: "image",
+            [emojimap.moderation]: "moderation",
+            [emojimap.levelling]: "levelling",
+            [emojimap.owner]: client.config.ownerIds.includes(message.author.id)
+              ? "owner"
+              : null,
           },
         },
         {
           name: "owner",
           content: owner,
           reactions: {
-            "⚙️": "config",
-            "🔍": "information",
-            "🎮": "fun",
+            [emojimap.config]: "config",
+            [emojimap.information]: "information",
+            [emojimap.fun]: "fun",
             [emojimap.giveaways]: "giveaways",
             [emojimap.music]: "music",
-            "📷": "image",
+            [emojimap.image]: "image",
+            [emojimap.moderation]: "moderation",
+            [emojimap.levelling]: "levelling",
+            [emojimap.levelling]: "levelling",
           },
         },
       ],
