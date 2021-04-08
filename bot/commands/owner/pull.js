@@ -59,6 +59,22 @@ module.exports = class PullCommand extends Command {
       message.channel.send(embed);
       return message.channel.stopTyping(true);
     }
-     process.exit()
+      let response;
+      
+    await message.channel.awaitMessages(m => m.author.id === message.author.id, {
+        max: 1,
+        time: 20000,
+    }).then(collected => {
+        response = collected.first().content.toLowerCase();
+    })
+      if (!response.includes('yes') || !response.includes('no')) {
+     message.sendErrorReply('Invalid Response Provided', 'You did not provide a valid response (`yes` or `no`). I will not reboot the bot right now.')
+    }
+    if (response.includes('yes')) {
+      message.channel.sendSuccess(message, 'Rebooting...', 'Rebooting the bot now.').then(() => process.exit())
+  }
+    if (response.includes('no')) {
+      message.channel.sendSuccess(message, 'Reboot Cancelled.', 'Will not reboot the bot now.')
+    }
     }
   }
