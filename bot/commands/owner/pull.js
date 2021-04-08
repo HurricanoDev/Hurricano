@@ -1,6 +1,8 @@
 const Command = require('@Command');
 const { MessageEmbed } = require('discord.js');
 const { exec } = require('child_process');
+const Discord = require('discord.js');
+
 module.exports = class PullCommand extends Command {
   constructor(client) {
     super(client, {
