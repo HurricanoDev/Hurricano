@@ -1,7 +1,6 @@
 const Command = require('@Command');
 const { MessageEmbed } = require('discord.js');
 const { exec } = require('child_process');
-const Discord = require('discord.js');
 
 module.exports = class PullCommand extends Command {
   constructor(client) {
@@ -16,7 +15,7 @@ module.exports = class PullCommand extends Command {
       exec('git reset --hard');
       exec('git pull' || "date", function (err, stdout, stderr) {
         if (err) {
-          const emErr = new Discord.MessageEmbed()
+          const emErr = new MessageEmbed()
             .setAuthor(`GitHub Pull Successful!`, 'https://raw.githubusercontent.com/HurricanoBot/HurricanoImages/master/SetAuthorEmojis/Success.png')
             .setDescription(
               `\`\`\`xl\n${err.toString().substr(0, 1000)}\n\`\`\``
@@ -26,7 +25,7 @@ module.exports = class PullCommand extends Command {
           message.channel.stopTyping(true);
           return message.channel.send(emErr);
         }
-        const emSuccess = new Discord.MessageEmbed()
+        const emSuccess = new MessageEmbed()
             .setAuthor(`GitHub Pull Successful!`, 'https://raw.githubusercontent.com/HurricanoBot/HurricanoImages/master/SetAuthorEmojis/Success.png')
             .setDescription(
               `\`\`\`xl\n${stdout}\n\`\`\``
@@ -36,7 +35,7 @@ module.exports = class PullCommand extends Command {
           .setFooter(`Requested by: ${message.author.tag}`);
         message.channel.stopTyping(true);
         return message.channel.send(emSuccess).catch((err) => {
-          const emSuccess = new Discord.MessageEmbed()
+          const emSuccess = new MessageEmbed()
             .setAuthor(`GitHub Pull Successful!`, 'https://raw.githubusercontent.com/HurricanoBot/HurricanoImages/master/SetAuthorEmojis/Success.png')
             .setDescription(
               `\`\`\`xl\n${stdout}\n\`\`\``
@@ -49,7 +48,7 @@ module.exports = class PullCommand extends Command {
         });
       });
     } catch (err) {
-      const embed = new Discord.MessageEmbed()
+      const embed = new MessageEmbed()
             .setAuthor(`GitHub Pull Successful!`, 'https://raw.githubusercontent.com/HurricanoBot/HurricanoImages/master/SetAuthorEmojis/Success.png')
             .setDescription(
               `\`\`\`xl\n${stdout}\n\`\`\``
@@ -61,7 +60,10 @@ module.exports = class PullCommand extends Command {
       return message.channel.stopTyping(true);
     }
       let response;
-      
+      const permissionEmbed = new MessageEmbed()
+      .setTitle('Would you like to reboot the bot now?')
+      .setDescription('If you would like to reboot the bot now, please respond with `yes`, and if not, please respond with `no`. You have 20 seconds.')
+      message.channel.send(permissionEmbed)
     await message.channel.awaitMessages(m => m.author.id === message.author.id, {
         max: 1,
         time: 20000,
