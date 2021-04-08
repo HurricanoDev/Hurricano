@@ -209,7 +209,7 @@ module.exports = class HelpCommand extends Command {
         "Commands meant for the bot owners. **React** with other emojis to see what else there is!"
       )
     .setImage("https://raw.githubusercontent.com/HurricanoBot/HurricanoImages/master/categories/Levelling.jpg")
-      .addField("Commands", cmdmap.levelling.join(" "));
+      .addField("Commands", cmdmap.levelling.join(" "))
       .setFooter("Copyright Hurricano™");
     const owner = new MessageEmbed()
       .setAuthor(
