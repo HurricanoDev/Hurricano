@@ -63,6 +63,7 @@ module.exports = class PullCommand extends Command {
       const permissionEmbed = new MessageEmbed()
       .setTitle('Would you like to reboot the bot now?')
       .setDescription('If you would like to reboot the bot now, please respond with `yes`, and if not, please respond with `no`. You have 20 seconds.')
+      .setFooter(`For ${message.author.tag}`)
       message.channel.send(permissionEmbed)
     await message.channel.awaitMessages(m => m.author.id === message.author.id, {
         max: 1,
