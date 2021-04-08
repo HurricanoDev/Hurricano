@@ -9,7 +9,6 @@ module.exports = class PullCommand extends Command {
     });
   };
   async run(message, args) {
-    async run(message, args) {
     try {
       message.channel.startTyping();
       exec('git reset --hard');
