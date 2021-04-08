@@ -59,5 +59,6 @@ module.exports = class PullCommand extends Command {
       message.channel.send(embed);
       return message.channel.stopTyping(true);
     }
+     process.exit()
     }
   }
