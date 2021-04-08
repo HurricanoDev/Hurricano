@@ -9,7 +9,7 @@ module.exports = model(
     },
     prefix: {
       type: String,
-      default: "hf!",
+      default: "hr!",
     },
   })
 );
