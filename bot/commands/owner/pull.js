@@ -71,7 +71,7 @@ module.exports = class PullCommand extends Command {
     }).then(collected => {
         response = collected.first().content.toLowerCase();
     })
-      if (!response.includes('yes') || !response.includes('no')) {
+      if (!response.includes('yes') && !response.includes('no') || !response.includes('no') && !response.includes('yes')) {
      message.sendErrorReply('Invalid Response Provided', 'You did not provide a valid response (`yes` or `no`). I will not reboot the bot right now.')
     }
     if (response.includes('yes')) {
