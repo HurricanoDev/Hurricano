@@ -2,6 +2,8 @@ let config = {};
     config = require(`${process.cwd()}/config.json`);
 
 if(!config.token) {
+    const website = JSON.parse(JSON.stringify(process.env.website))
+    const topgg = JSON.parse(JSON.stringify(proces.env.topgg))
     config = {
         token: process.env.token,
         prefix: process.env.prefix,
@@ -9,15 +11,8 @@ if(!config.token) {
         ownerIds: [
             process.env.ownerIds
         ],
-        website: {
-          enabled: process.env.website.enabled,
-          ip: process.env.website.ip,
-          port: process.env.website.port 
-        },
-        topgg: {
-          enabled: process.env.topgg.enabled,
-          token: process.env.topgg.token
-        }
+        website: website,
+        topgg: topgg
     }
 }
 
