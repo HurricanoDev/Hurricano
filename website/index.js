@@ -1,7 +1,7 @@
 const express = require("express");
 const logger = require("../bot/utilities/logger.js");
 const app = express();
-const config = require("../config.json");
+const config = require("@config");
 app.set("view engine", "ejs");
 
 app.get("/", function (req, res) {

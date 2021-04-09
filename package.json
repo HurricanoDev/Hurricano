@@ -41,7 +41,7 @@
     "winston": "^3.3.3"
   },
   "_moduleAliases": {
-    "@config": "./config.json",
+    "@config": "./bot/utilities/config.js",
     "@root": ".",
     "@Command": "./bot/utilities/Command.js"
   }
