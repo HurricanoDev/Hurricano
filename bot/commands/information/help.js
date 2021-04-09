@@ -99,7 +99,9 @@ module.exports = class HelpCommand extends Command {
           "Commands meant for the bot owners.",
           inline
         )
-      : main
+      : null;
+       
+      main
           .addField(":bulb:  Fact:", `**${Fact}**`)
           .setFooter("Copyright Hurricano™");
     //-------------------------------------

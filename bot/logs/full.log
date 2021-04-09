@@ -1,9 +1,11 @@
-2021-04-07 23:44:22 - client [index.js]: 
-.-----------------------2021-04-07 23:44:36 - shard [index.js]: [Shard 0] Shard Ready!
+2021-04-09 08:24:47 - client [index.js]: 
+.-----------------------2021-04-09 08:24:50 - shard [index.js]: [Shard 0] Shard Ready!
      |
 |--------------------------------------------|
 | Command File  | Command Name | Load status |
 |---------------|--------------|-------------|
+| disable.js    | disable      | Loaded!     |
+| enable.js     | enable       | Loaded!     |
 | setprefix.js  | setprefix    | Loaded!     |
 | connect4.js   | connect4     | Loaded!     |
 | meme.js       | meme         | Loaded!     |
@@ -38,22 +40,9 @@
 | eval.js       | eval         | Loaded!     |
 | exec.js       | exec         | Loaded!     |
 | fulleval.js   | fulleval     | Loaded!     |
+| pull.js       | pull         | Loaded!     |
 | reboot.js     | reboot       | Loaded!     |
 | reload.js     | reload       | Loaded!     |
 '--------------------------------------------'
-2021-04-07 23:44:46 - warn [index.js]: Operation `giveaways.find()` buffering timed out after 10000ms
-{
-  "stack": "MongooseError: Operation `giveaways.find()` buffering timed out after 10000ms
-    at Timeout.<anonymous> (/home/dragonizedpizza/Desktop/Hurricano/node_modules/mongoose/lib/drivers/node-mongodb-native/collection.js:185:20)
-    at listOnTimeout (internal/timers.js:554:17)
-    at processTimers (internal/timers.js:497:7)"
-}
-2021-04-07 23:44:46 - warn [index.js]: Operation `guilds.findOne()` buffering timed out after 10000ms
-{
-  "stack": "MongooseError: Operation `guilds.findOne()` buffering timed out after 10000ms
-    at Timeout.<anonymous> (/home/dragonizedpizza/Desktop/Hurricano/node_modules/mongoose/lib/drivers/node-mongodb-native/collection.js:185:20)
-    at listOnTimeout (internal/timers.js:554:17)
-    at processTimers (internal/timers.js:497:7)"
-}
-2021-04-07 23:44:55 - db [index.js]: Connected to MongoDB!
-2021-04-07 23:44:55 - client [index.js]: Hurricano Beta#2437 Successfully Logged in!
+2021-04-09 08:24:50 - db [index.js]: Connected to MongoDB!
+2021-04-09 08:24:53 - client [index.js]: Hurricano Beta#2437 Successfully Logged in!

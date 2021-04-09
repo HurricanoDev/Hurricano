@@ -52,9 +52,13 @@ module.exports = {
           "Permission Error.",
           `You are not the owner of Hurricano™, ${author}.`
         );
-
       if (!message.member)
         message.member = await message.guild.members.fetch(message);
+
+        let guildSchema = await client.schemas.guild.findOne({ id: message.guild.id });
+        let disabledModules = guildSchema.disabledModules;
+        if (disabledModules && disabledModules.includes(command.category)) return;
+
       if (command.conf.userPermissions) {
         const authorPerms = message.channel.permissionsFor(author);
         if (!authorPerms || !authorPerms.has(command.userPermissions)) {
@@ -80,6 +84,8 @@ module.exports = {
         );
         return;
       }
+
+      if (disabledModules && !disabledModules.includes('levelling')) {
       const userLevel = await client.levels.fetch(
         message.author.id,
         message.guild.id
@@ -103,7 +109,7 @@ module.exports = {
           `${message.author}, congratulations! You have leveled up to **${user.level}**! :tada:`
         );
       }
-
+    };
       if (!client.cooldowns.has(command.name)) {
         client.cooldowns.set(command.name, new Discord.Collection());
       }
