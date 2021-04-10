@@ -34,7 +34,7 @@ module.exports = class EnableCommand extends Command {
       let guildSchema = await client.schemas.guild.findOne({
         id: message.guild.id,
       });
-      let disabledModules = guildSchema.disabledModules;
+      let disabledModules = await guildSchema.disabledModules;
       if (!disabledModules.includes(argss)) {
         message.channel.sendError(
           message,
