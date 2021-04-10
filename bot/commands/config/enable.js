@@ -34,10 +34,11 @@ module.exports = class EnableCommand extends Command {
       let guildSchema = await client.schemas.guild.findOne({
         id: message.guild.id,
       });
-      let disabledModules = guildSchema.disabledModules;
-      if (!disabledModules) {
+      if (!guildSchema.disabledModules) {
       client.schemas.guild.findOneAndUpdate({ id: message.guild.id }, { disabledModules: ['levelling'] })
 }
+      
+      let disabledModules = guildSchema.disabledModules;
       if (!disabledModules.includes(argss)) {
         message.channel.sendError(
           message,
