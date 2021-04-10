@@ -1,19 +1,10 @@
-let config = {};
-    config = require(`${process.cwd()}/config.json`);
+let config = require(`${process.cwd()}/config.json`);
 
-if(!config.token) {
-    const website = JSON.parse(JSON.stringify(process.env.website))
-    const topgg = JSON.parse(JSON.stringify(proces.env.topgg))
-    config = {
-        token: process.env.token,
-        prefix: process.env.prefix,
-        mongouri: process.env.mongouri,
-        ownerIds: [
-            process.env.ownerIds
-        ],
-        website: website,
-        topgg: topgg
-    }
-}
-
-module.exports = config;
+module.exports = {
+  token: config.token || process.env.token,
+  prefix: config.prefix || process.env.prefix,
+  mongouri: config.mongouri || process.env.mongouri,
+  ownerIds: config.ownerIds || process.env.ownerIds,
+  website: config.website || JSON.parse(JSON.stringify(process.env.website)),
+  topgg: config.topgg || JSON.parse(JSON.stringify(proces.env.topgg)),
+};

@@ -11,7 +11,7 @@ module.exports = class DisableCommand extends Command {
   }
   async run(message, args) {
     let avaliableModules = readdirSync(`${process.cwd()}/bot/commands`);
-    avaliableModules.splice((avaliableModules.indexOf('owner')), 1)
+    avaliableModules.splice(avaliableModules.indexOf("owner"), 1);
     const prefix = await client.db.guild.getPrefix(message.guild.id);
     const modulesEmbed = new MessageEmbed().setTitle("Avaliable Modules.");
     avaliableModules.forEach((d) =>
