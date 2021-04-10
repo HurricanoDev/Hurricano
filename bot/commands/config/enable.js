@@ -34,10 +34,6 @@ module.exports = class EnableCommand extends Command {
       let guildSchema = await client.schemas.guild.findOne({
         id: message.guild.id,
       });
-      if (!guildSchema.disabledModules) {
-      client.schemas.guild.findOneAndUpdate({ id: message.guild.id }, { disabledModules: ['levelling'] })
-}
-      
       let disabledModules = guildSchema.disabledModules;
       if (!disabledModules.includes(argss)) {
         message.channel.sendError(
@@ -47,7 +43,6 @@ module.exports = class EnableCommand extends Command {
         );
         return;
       }
-
       const indexValue = disabledModules.indexOf(argss);
       disabledModules.splice(indexValue);
       guildSchema.disabledModules = disabledModules;
