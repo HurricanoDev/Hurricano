@@ -9,6 +9,6 @@ module.exports = class RebootCommand extends Command {
   }
   async run(message, args) {
     await message.sendSuccessReply("Reboot Initiated.", "Rebooting now.");
-    process.exit(0);
+    setTimeout(() => { process.exit}, 5000);
   }
 };
