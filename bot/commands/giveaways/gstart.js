@@ -139,11 +139,12 @@ module.exports = class GivewayStartCommand extends Command {
       return message.channel.sendError(
         message,
         "Invalid Arguments Provided.",
-        "Please provide a required role for this giveaway."
+        "Please provide a required role for this giveaway, or if you want none just type none."
       );
     role =
       message.guild.roles.cache.get(args[2]) ||
       message.guild.roles.cache.find((role) => role.name == args[2]) ||
+      message.guild.roles.cache.find((role) => role.name.includes(args[0])) ||
       message.mentions.roles.first();
 
     if (!role && !args[2].toLowerCase().startsWith("none"))
