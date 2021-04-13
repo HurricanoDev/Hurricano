@@ -3,7 +3,7 @@ module.exports = {
   run: async (giveaway, member, reaction) => {
     if (
       giveaway.extraData.role !== "null" &&
-      !member.roles.cache.get(giveaway.extraData.role.id)
+      !member.roles.cache.get(giveaway.extraData.role)
     ) {
       reaction.users.remove(member.user);
       member.send({
