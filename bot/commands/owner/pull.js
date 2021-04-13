@@ -93,8 +93,7 @@ module.exports = class PullCommand extends Command {
     if (response.includes("yes")) {
       await message.channel
         .sendSuccess(message, "Rebooting...", "Rebooting the bot now.")
- 
-      process.exit()
+      setTimeout(() => { process.exit() }, 1000)
     }
     if (response.includes("no")) {
       message.channel.sendSuccess(
