@@ -28,8 +28,9 @@ module.exports = class SetPrefixCommand extends Command {
     );
     if (message.token) {
       const prefix = args[0].value;
-      const channel = client.channels.cache.get(message.channel_id)
-      if (!channel.permissionsFor(message.user_id).has('ADMINISTRATOR')) return quicksend(message, new MessageEmbed().setTitle('no perms kbye')); 
+      const channel = client.channels.cache.get(message.channel_id);
+      if (!channel.permissionsFor(message.user_id).has("ADMINISTRATOR"))
+        return quicksend(message, new MessageEmbed().setTitle("no perms kbye"));
       await client.db.guild.updatePrefix(message.guild_id, prefix);
 
       embed.setDescription(

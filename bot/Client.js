@@ -206,6 +206,14 @@ class Client extends Discord.Client {
     });
     logger.client("\n" + table.toString());
   }
+  connect() {
+    return this.login(config.token);
+  }
+  getCommand(command) {
+    return (
+      this.commands.get(command) || this.commands.get(this.aliases.get(command))
+    );
+  }
   loadTopgg() {
     if (this.config.topggapi && typeof this.config.topggapi === "boolean") {
       let DBL = require("dblapi.js");

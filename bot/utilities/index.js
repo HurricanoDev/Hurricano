@@ -27,7 +27,7 @@ function init() {
   client.loadStructures();
   client.loadTopgg();
   client.db.init();
-  client.login(client.token);
+  client.connect();
 }
 
 init();
