@@ -21,7 +21,6 @@ module.exports = {
         const data = await client.db.guild.getInfo(guild.id);
         if (!data)
           await new client.schemas.guild({
-            _id: mongoose.Types.ObjectId(),
             id: guild.id,
             name: guild.name,
           }).save();

@@ -2,6 +2,7 @@ const Discord = require("discord.js");
 const sourcebin = require("sourcebin");
 const config = require("@config");
 const Command = require("@Command");
+const { MessageEmbed } = require("discord.js");
 module.exports = class EvalCommand extends Command {
   constructor(client) {
     super(client, {
@@ -34,13 +35,13 @@ module.exports = class EvalCommand extends Command {
         });
         return;
       }
-      if (clean(evaled).length > 2048 || code.length > 2048) {
+      if (clean(evaled).length > 2032) {
         await sourcebin
           .create(
             [
               {
                 content: clean(evaled),
-                language: "js",
+                language: "javascript",
               },
             ],
             {
@@ -49,10 +50,20 @@ module.exports = class EvalCommand extends Command {
             }
           )
           .then(async (src) => {
+            const msg = await message.author.send(
+              new MessageEmbed()
+                .setTitle("Eval Output.")
+                .setDescription(
+                  `The output of the code you evaluated is larger than 2032 characters. To view it, [click here](${src.url}).`
+                )
+            );
             var embed = new Discord.MessageEmbed()
+              .addField("Input", `\`\`\`js\n${code}\`\`\``, true)
               .setColor("#ffb6c1")
-              .setTitle("Output: :outbox_tray:")
-              .setDescription(`Output is too large! [Click here.](${src.url})`);
+              .setTitle("Eval Output.")
+              .setDescription(
+                `**Output** \n Output is too large! Check your DMs, or click [here](${msg.url}).`
+              );
             await message.reply({ embed: embed });
           })
           .catch(async (e) => {
@@ -60,20 +71,20 @@ module.exports = class EvalCommand extends Command {
           });
       } else {
         var embed2 = new Discord.MessageEmbed()
+          .addField("Input", `\`\`\`js\n${code}\`\`\``, true)
           .setColor("#ffb6c1")
-          .setTitle("Output: :outbox_tray:")
-          .setDescription(`\`\`\`js\n${clean(evaled)}\n\`\`\``);
+          .setDescription(`**Output**\n \`\`\`js\n${clean(evaled)}\n\`\`\``);
         await message.reply({ embed: embed2 });
       }
     } catch (err) {
       const code = args.join(" ");
-      if (clean(err).length > 1024 || code.length > 1024) {
+      if (clean(err).length > 2032) {
         sourcebin
           .create(
             [
               {
                 content: clean(evaled),
-                language: "js",
+                language: "javascript",
               },
             ],
             {
@@ -82,18 +93,30 @@ module.exports = class EvalCommand extends Command {
             }
           )
           .then(async (src) => {
+            const msg = await message.author.send(
+              new MessageEmbed()
+                .setTitle("Eval Output.")
+                .setDescription(
+                  `The output of the code you evaluated is larger than 2032 characters. To view it, [click here](${src.url}).`
+                )
+            );
             var embed = new Discord.MessageEmbed()
+              .addField("Input", `\`\`\`js\n${code}\`\`\``, true)
               .setColor("#ffb6c1")
               .setTitle("Output: :outbox_tray:")
-              .setDescription(`Output is to large! [Click here.](${src.url})`);
+              .setDescription(
+                `**Output** \n Output is too large! Check your DMs, or click [here](${msg.url}).`
+              );
             await message.reply({ embed: embed });
           });
       }
       var embed3 = new Discord.MessageEmbed()
+        .addField("Input", `\`\`\`js\n${code}\`\`\``, true)
         .setColor("#ffb6c1")
         .setTitle("Output: :outbox_tray:")
-        .setDescription(`\`\`\`js\n${clean(err)}\n\`\`\``);
+        .setDescription(`**Output**\n \`\`\`js\n${clean(err)}\n\`\`\``);
       await message.reply({ embed: embed3 });
     }
   }
 };
+0;

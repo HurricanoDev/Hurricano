@@ -7,9 +7,21 @@ module.exports = model(
       type: String,
       required: true,
     },
+    name: {
+      type: String,
+      required: true,
+    },
     prefix: {
       type: String,
       default: "hr!",
+    },
+    disabledModules: {
+      type: Array,
+      default: ["levelling"],
+    },
+    disabledCommands: {
+      type: Array,
+      default: [],
     },
   })
 );
