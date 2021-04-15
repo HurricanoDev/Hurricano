@@ -8,6 +8,7 @@ const { Player } = require("discord-player");
 const giveawaysManager = require("./utilities/giveaway");
 const logger = require("./utilities/logger.js");
 const path = require("path");
+let configFile;
 /**
  * Extend Client class
  * @extends Discord.Client
@@ -25,7 +26,7 @@ class Client extends Discord.Client {
      * Add Credentials
      */
     this.config = config;
-
+    configFile = config;
     this.token = config.token;
 
     /**
@@ -207,7 +208,7 @@ class Client extends Discord.Client {
     logger.client("\n" + table.toString());
   }
   connect() {
-    return this.login(config.token);
+    return this.login(configFile.token);
   }
   getCommand(command) {
     return (
