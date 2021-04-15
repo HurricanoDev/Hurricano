@@ -1,5 +1,5 @@
-2021-04-15 10:06:56 - client [index.js]: 
-.-----------------------2021-04-15 10:06:58 - shard [index.js]: [Shard 0] Shard Ready!
+2021-04-15 15:18:28 - client [index.js]: 
+.-----------------------2021-04-15 15:18:31 - shard [index.js]: [Shard 0] Shard Ready!
      |
 |--------------------------------------------|
 | Command File  | Command Name | Load status |
@@ -43,6 +43,7 @@
 | pull.js       | pull         | Loaded!     |
 | reboot.js     | reboot       | Loaded!     |
 | reload.js     | reload       | Loaded!     |
+| shutdown.js   | shutdown     | Loaded!     |
 '--------------------------------------------'
-2021-04-15 10:06:56 - db [index.js]: Connected to MongoDB!
-2021-04-15 10:06:59 - client [index.js]: Hurricano Beta#2437 Successfully Logged in!
+2021-04-15 15:18:30 - db [index.js]: Connected to MongoDB!
+2021-04-15 15:18:31 - client [index.js]: Hurricano Beta#2437 Successfully Logged in!

@@ -77,6 +77,7 @@ module.exports = class PullCommand extends Command {
       .awaitMessages((m) => m.author.id === message.author.id, {
         max: 1,
         time: 20000,
+        errors: ["time"],
       })
       .then((collected) => {
         response = collected.first().content.toLowerCase();

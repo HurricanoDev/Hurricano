@@ -39,8 +39,8 @@ class Client extends Discord.Client {
      */
     this.aliases = new Discord.Collection();
     /*
-    * Sharding Manager
-    */
+     * Sharding Manager
+     */
 
     /**
      * Mongo Database

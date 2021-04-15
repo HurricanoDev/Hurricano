@@ -8,10 +8,14 @@ const manager = new ShardingManager("./bot/utilities/index.js", {
 });
 manager.on("shardCreate", (shard) => {
   logger.shard(`[Shard ${shard.id}] Shard Launched!`);
-
   shard.on("ready", () => {
     logger.shard(`[Shard ${shard.id}] Shard Ready!`);
   });
+
+  shard.on("message", (message) => {
+    if (message === "kill") return shard.kill();
+  });
+
   shard.on("disconnect", (a, b) => {
     logger.shard(`[Shard ${shard.id}] Shard disconnected.`);
     logger.shard(a);

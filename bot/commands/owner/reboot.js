@@ -1,4 +1,3 @@
-const { MessageEmbed } = require("discord.js");
 const Command = require("@Command");
 module.exports = class RebootCommand extends Command {
   constructor(client) {
