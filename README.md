@@ -26,7 +26,7 @@ Please respect the [LICENSE](https://github.com/HurricanoBot/Hurricano/blob/main
 
 This bot is currently a work in progress, don't expect much here yet!
 
-[Support Server](https://discord.gg/dNc3EvABCA)
+[Support Server](https://discord.gg/n26drKmB)
 [Invite](https://discord.com/oauth2/authorize?client_id=803169312827113483&permissions=8&scope=bot)
 
 ## Credits
