@@ -10,7 +10,7 @@ const logger = require("./utilities/logger.js");
 const path = require("path");
 let configFile;
 /**
- * Extend Client class
+ * Extended Client class
  * @extends Discord.Client
  */
 class Client extends Discord.Client {
@@ -55,7 +55,8 @@ class Client extends Discord.Client {
      * Import Schemas
      */
     this.schemas = {
-      guild: require("./schemas/guild"),
+      guild: require("./schemas/guild.js"),
+      user: require("./schemas/user"),
     };
     /*
      * Levelling
@@ -183,13 +184,13 @@ class Client extends Discord.Client {
       );
       try {
         for (let file of commands) {
-          const props = new (require(`./commands/${dir}/${file}`))(this);
+          const props = require(`./commands/${dir}/${file}`);
           if (props.name) {
-            table.addRow(file, props.help.name, "Loaded!");
+            table.addRow(file, props.name, "Loaded!");
           } else {
             table.addRow(
               file,
-              pull.name,
+              props.name,
               "Not Loaded -> Missing a help.name, or help.name is not a string."
             );
             continue;

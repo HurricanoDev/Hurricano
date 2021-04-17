@@ -1,15 +1,11 @@
 const fs = require("fs");
 const Command = require("@Command");
 
-module.exports = class ReloadCommand extends Command {
-  constructor(client) {
-    super(client, {
-      name: "reload",
-      description: "Reloads a command",
-      args: "Please provide which command you would like to reload!",
-      ownerOnly: true,
-    });
-  }
+module.exports = new Command({
+  name: "reload",
+  description: "Reloads a command",
+  args: "Please provide which command you would like to reload!",
+  ownerOnly: true,
   async run(message, args) {
     const commandName = args[0].toLowerCase();
     const command =
@@ -41,5 +37,5 @@ module.exports = class ReloadCommand extends Command {
         `There was an error while reloading a command \`${command.name}\`:\n\`${error.message}\``
       );
     }
-  }
-};
+  },
+});

@@ -1,13 +1,9 @@
 const Command = require("@Command");
 
-module.exports = class ShutDownCommand extends Command {
-  constructor(client) {
-    super(client, {
-      name: "shutdown",
-      description: "Shut the bot down.",
-      ownerOnly: true
-    });
-  }
+module.exports = new Command({
+  name: "shutdown",
+  description: "Shut the bot down.",
+  ownerOnly: true,
   async run(message, args) {
     message.channel.sendSuccess(
       message,
@@ -27,13 +23,13 @@ module.exports = class ShutDownCommand extends Command {
           "You took more than 20 seconds. Please try again."
         );
       });
-    
-      collected = collected.first();
+
+    collected = collected.first();
     if (collected.content == "yes") {
       message.sendSuccessReply("Rebooting...", "Rebooting the bot now.");
       setTimeout(() => {
-          client.shard.send('kill')
-      }, 2000)
+        client.shard.send("kill");
+      }, 2000);
     } else if (collected.content == "no") {
       message.sendSuccessReply(
         "Cancelling Reboot.",
@@ -45,5 +41,5 @@ module.exports = class ShutDownCommand extends Command {
         "You did not provide a valid response between `yes` or `no`. Please try again."
       );
     }
-  }
-}
+  },
+});

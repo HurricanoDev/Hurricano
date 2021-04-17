@@ -1,12 +1,8 @@
 const { MessageEmbed } = require("discord.js");
 const Command = require("@Command");
-module.exports = class StopCommand extends Command {
-  constructor(client) {
-    super(client, {
-      name: "stop",
-      aliases: ["dc"],
-    });
-  }
+module.exports = new Command({
+  name: "stop",
+  aliases: ["dc"],
   async run(message, args) {
     if (!message.member.voice.channel)
       return message.channel.sendError(
@@ -41,5 +37,5 @@ module.exports = class StopCommand extends Command {
         "Stopped.",
         "I have successfully stopped the music."
       );
-  }
-};
+  },
+});

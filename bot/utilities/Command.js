@@ -4,7 +4,7 @@ const Discord = require("discord.js");
 const permissions = require("./permissions.js");
 
 module.exports = class Command {
-  constructor(client, opts) {
+  constructor(opts) {
     this.constructor.validateOptions(client, opts), (this.client = client);
     this.name = opts.name || null;
     this.aliases = opts.aliases || null;
@@ -16,6 +16,8 @@ module.exports = class Command {
     this.cooldown = opts.cooldown || null;
     this.userPermissions = opts.userPermissions || null;
     this.clientPermissions = opts.clientPermissions || null;
+    this.run =
+      opts.run || console.log(`Command ${this.name} has no run method`);
     if (opts.slash) {
       this.slash = opts.slash || null;
       this.options = opts.options || null;
@@ -35,6 +37,7 @@ module.exports = class Command {
       slash,
       options,
       double,
+      run,
     } = this;
     this.conf = {
       cooldown,
@@ -46,11 +49,14 @@ module.exports = class Command {
       slash,
       options,
       double,
+      run,
     };
-    this.help = { name, description, usage, examples };
-  }
-  run(message, args) {
-    throw new Error(`The ${this.name} command has no run() method`);
+    this.help = {
+      name,
+      description,
+      usage,
+      examples,
+    };
   }
   static validateOptions(client, opts) {
     if (!client) throw new Error("No client was found.");

@@ -34,3 +34,4 @@ Bot developed by:
 * [Dragonizedpizza](https://github.com/Dragonizedpizza)
 * [Militia21](https://github.com/Militia21)
 * [Anogh297](https://github.com/Anogh297)
+# HurricanoBeta

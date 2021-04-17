@@ -2,16 +2,12 @@ const { MessageEmbed } = require("discord.js");
 const fetch = require("node-fetch");
 const Command = require("@Command");
 
-module.exports = class MemeCommand extends Command {
-  constructor(client) {
-    super(client, {
-      name: "meme",
-      userPermissions: ["SEND_MESSAGES"],
-      cooldown: 20,
-      description:
-        "Displays a random meme from the `memes`, `dankmemes`, or `me_irl` subreddits.",
-    });
-  }
+module.exports = new Command({
+  name: "meme",
+  userPermissions: ["SEND_MESSAGES"],
+  cooldown: 20,
+  description:
+    "Displays a random meme from the `memes`, `dankmemes`, or `me_irl` subreddits.",
   async run(message, args) {
     try {
       let res = await fetch("https://meme-api.herokuapp.com/gimme");
@@ -32,5 +28,5 @@ module.exports = class MemeCommand extends Command {
         `Oops! Something went wrong. Error: \n ${err.message}`
       );
     }
-  }
-};
+  },
+});

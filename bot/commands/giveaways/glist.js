@@ -1,12 +1,8 @@
 const { MessageEmbed } = require("discord.js");
 const Command = require("@Command");
-module.exports = class GListCommand extends Command {
-  constructor(client) {
-    super(client, {
-      name: "glist",
-      description: "List all giveaways in your server.",
-    });
-  }
+module.exports = new Command({
+  name: "glist",
+  description: "List all giveaways in your server.",
   async run(message, args) {
     const embed = new MessageEmbed();
     const gws = this.client.giveawaysManager.giveaways
@@ -22,5 +18,5 @@ module.exports = class GListCommand extends Command {
         "No giveaways are being hosted on this server. Please host a giveaway and try this command."
       );
     }
-  }
-};
+  },
+});

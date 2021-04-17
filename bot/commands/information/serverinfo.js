@@ -26,16 +26,12 @@ const verif = {
 };
 const Command = require("@Command");
 
-module.exports = class ServerInfoCommand extends Command {
-  constructor(client) {
-    super(client, {
-      name: "serverinfo",
-      aliases: ["serveri", "si", "guildinfo", "gi"],
-      description: "Shows information about the server!",
-      slash: true,
-      double: true,
-    });
-  }
+module.exports = new Command({
+  name: "serverinfo",
+  aliases: ["serveri", "si", "guildinfo", "gi"],
+  description: "Shows information about the server!",
+  slash: true,
+  double: true,
   async run(message, args, quicksend) {
     if (message.token) {
       const guild = client.guilds.cache.get(message.guild_id);
@@ -173,5 +169,5 @@ module.exports = class ServerInfoCommand extends Command {
 
       message.channel.send(em);
     }
-  }
-};
+  },
+});

@@ -1,16 +1,12 @@
 const Discord = require("discord.js");
 const Command = require("@Command");
 
-module.exports = class PingCommand extends Command {
-  constructor(client) {
-    super(client, {
-      name: "ping",
-      aliases: ["latency", "pong"],
-      cooldown: 5,
-      description: "Returns the bot's ping!",
-      userPermissions: ["SEND_MESSAGES"],
-    });
-  }
+module.exports = new Command({
+  name: "ping",
+  aliases: ["latency", "pong"],
+  cooldown: 5,
+  description: "Returns the bot's ping!",
+  userPermissions: ["SEND_MESSAGES"],
   async run(message) {
     const msgamount = message.editedTimestamp
       ? message.editedTimestamp
@@ -39,5 +35,5 @@ module.exports = class PingCommand extends Command {
         "https://raw.githubusercontent.com/HurricanoBot/HurricanoImages/master/other/Ping.png"
       );
     ping.edit(embed);
-  }
-};
+  },
+});

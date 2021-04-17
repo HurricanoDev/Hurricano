@@ -1,14 +1,10 @@
 const Discord = require("discord.js");
 const Command = require("@Command");
-module.exports = class Connect4Command extends Command {
-  constructor(client) {
-    super(client, {
-      name: "connect4",
-      aliases: ["c4", "connectfour"],
-      description: "Play the connect four game!",
-      ClientPermissions: "SEND_MESSAGES",
-    });
-  }
+module.exports = new Command({
+  name: "connect4",
+  aliases: ["c4", "connectfour"],
+  description: "Play the connect four game!",
+  ClientPermissions: "SEND_MESSAGES",
   async run(message, args) {
     const embed = new Discord.MessageEmbed()
       .setAuthor(
@@ -23,5 +19,5 @@ module.exports = class Connect4Command extends Command {
     if (!message.mentions.users.first()) return message.channel.send(embed);
 
     connect4.newGame(message);
-  }
-};
+  },
+});

@@ -1,13 +1,9 @@
 const ms = require("ms");
 const Command = require("@Command");
-module.exports = class GiveawayEndCommand extends Command {
-  constructor(client) {
-    super(client, {
-      name: "gend",
-      aliases: [, "giveawayend", "g-end", "g-end", "gfinish"],
-      description: "Ends a giveaway.",
-    });
-  }
+module.exports = new Command({
+  name: "gend",
+  aliases: [, "giveawayend", "g-end", "g-end", "gfinish"],
+  description: "Ends a giveaway.",
   async run(message, args) {
     if (
       !message.member.hasPermission("MANAGE_GUILD") &&
@@ -82,5 +78,5 @@ module.exports = class GiveawayEndCommand extends Command {
       });
     if (message.deletable) message.delete();
     return;
-  }
-};
+  },
+});

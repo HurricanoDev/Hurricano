@@ -1,13 +1,9 @@
 const { MessageEmbed } = require("discord.js");
 const Command = require("@Command");
-module.exports = class FiltersCommand extends Command {
-  constructor(client) {
-    super(client, {
-      name: "filters",
-      aliases: ["filter"],
-      args: `Please provide which filter you would like to use!`,
-    });
-  }
+module.exports = new Command({
+  name: "filters",
+  aliases: ["filter"],
+  args: `Please provide which filter you would like to use!`,
   async run(message, args) {
     if (!message.member.voice.channel)
       return message.channel.sendError(
@@ -54,5 +50,5 @@ module.exports = class FiltersCommand extends Command {
         "Filter Being Removed.",
         "I am removing the filters. Please wait. The longer the song is, the longer this will take."
       );
-  }
-};
+  },
+});

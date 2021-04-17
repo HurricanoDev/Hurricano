@@ -2,13 +2,9 @@ const Command = require("@Command");
 const { MessageEmbed } = require("discord.js");
 const { exec } = require("child_process");
 
-module.exports = class PullCommand extends Command {
-  constructor(client) {
-    super(client, {
-      name: "pull",
-      description: "Pull a change from GitHub.",
-    });
-  }
+module.exports = new Command({
+  name: "pull",
+  description: "Pull a change from GitHub.",
   async run(message, args) {
     try {
       message.channel.startTyping();
@@ -108,5 +104,5 @@ module.exports = class PullCommand extends Command {
         "Will not reboot the bot now."
       );
     }
-  }
-};
+  },
+});

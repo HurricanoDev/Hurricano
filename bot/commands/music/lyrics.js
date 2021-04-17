@@ -1,14 +1,10 @@
 const { MessageEmbed } = require("discord.js");
 const lyricsFinder = require("lyrics-finder");
 const Command = require("@Command");
-module.exports = class LyricsCommand extends Command {
-  constructor(client) {
-    super(client, {
-      name: "lyrics",
-      aliases: ["ly"],
-      description: "Get a song's lyrics!",
-    });
-  }
+module.exports = new Command({
+  name: "lyrics",
+  aliases: ["ly"],
+  description: "Get a song's lyrics!",
   async run(message, args) {
     let lyrics = null;
     const prefix = await message.client.db.guild.getPrefix(message.guild.id);
@@ -103,5 +99,5 @@ module.exports = class LyricsCommand extends Command {
         .send(lyricsEmbed)
         .catch((x) => client.logger.warn(x));
     }
-  }
-};
+  },
+});

@@ -1,13 +1,7 @@
 const Command = require("@Command");
-module.exports = class VolumeCommand extends Command {
-  constructor(client) {
-    super(client, {
-      name: "volume",
-      aliases: [],
-      category: "Music",
-      utilisation: "{prefix}volume [1-100]",
-    });
-  }
+module.exports = new Command({
+  name: "volume",
+  description: "Set the volume.",
   async run(message, args) {
     if (!message.member.voice.channel)
       return message.channel.sendError(
@@ -57,5 +51,5 @@ module.exports = class VolumeCommand extends Command {
         "Success.",
         `Volume successfully set to **${parseInt(args[0])}%**!`
       );
-  }
-};
+  },
+});

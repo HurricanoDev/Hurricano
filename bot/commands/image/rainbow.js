@@ -1,13 +1,9 @@
 const Discord = require("discord.js");
 const Command = require("@Command");
-module.exports = class RainbowCommand extends Command {
-  constructor(client) {
-    super(client, {
-      name: "rainbow",
-      cooldown: 5,
-      description: "Makes someone's avatar rainbow!",
-    });
-  }
+module.exports = new Command({
+  name: "rainbow",
+  cooldown: 5,
+  description: "Makes someone's avatar rainbow!",
   async run(message, args) {
     const canvacord = require("canvacord");
     let person =
@@ -22,5 +18,5 @@ module.exports = class RainbowCommand extends Command {
       .attachFiles([new Discord.MessageAttachment(img, "img.png")])
       .setImage("attachment://img.png");
     message.reply(embed);
-  }
-};
+  },
+});

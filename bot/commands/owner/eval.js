@@ -3,15 +3,11 @@ const sourcebin = require("sourcebin");
 const config = require("@config");
 const Command = require("@Command");
 const { MessageEmbed } = require("discord.js");
-module.exports = class EvalCommand extends Command {
-  constructor(client) {
-    super(client, {
-      name: "eval",
-      description: "Evaluates arbituary JavaScript.",
-      ownerOnly: true,
-      args: "Please provide what you would like to eval!",
-    });
-  }
+module.exports = new Command({
+  name: "eval",
+  description: "Evaluates arbituary JavaScript.",
+  ownerOnly: true,
+  args: "Please provide what you would like to eval!",
   async run(message, args) {
     const clean = (text) => {
       if (typeof text === "string")
@@ -117,6 +113,5 @@ module.exports = class EvalCommand extends Command {
         .setDescription(`**Output**\n \`\`\`js\n${clean(err)}\n\`\`\``);
       await message.reply({ embed: embed3 });
     }
-  }
-};
-0;
+  },
+});

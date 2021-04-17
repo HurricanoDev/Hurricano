@@ -1,13 +1,9 @@
 var Discord = require("discord.js");
 const ms = require("ms");
 const Command = require("@Command");
-module.exports = class LockCommand extends Command {
-  constructor(client) {
-    super(client, {
-      name: "lock",
-      description: "Locks down a channel",
-    });
-  }
+module.exports = new Command({
+  name: "lock",
+  description: "Locks down a channel",
   async run(message, args) {
     const prefix = await this.client.db.guild.getPrefix(message.guild.id);
     if (!args.length) {
@@ -108,5 +104,5 @@ module.exports = class LockCommand extends Command {
         }, time);
       }
     }
-  }
-};
+  },
+});

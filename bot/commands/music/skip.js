@@ -1,13 +1,9 @@
 const { MessageEmbed } = require("discord.js");
 const Command = require("@Command");
-module.exports = class SkipCommand extends Command {
-  constructor(client) {
-    super(client, {
-      name: "skip",
-      aliases: ["sk"],
-      cooldown: 20,
-    });
-  }
+module.exports = new Command({
+  name: "skip",
+  aliases: ["sk"],
+  cooldown: 20,
   async run(message, args) {
     if (!message.member.voice.channel)
       if (!message.member.voice.channel)
@@ -41,5 +37,5 @@ module.exports = class SkipCommand extends Command {
         "Skipped.",
         "I have successfully skipped that song."
       );
-  }
-};
+  },
+});

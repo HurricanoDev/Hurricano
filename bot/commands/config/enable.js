@@ -1,14 +1,10 @@
 const Command = require("@Command");
 const { MessageEmbed, MessageFlags } = require("discord.js");
 const { readdirSync } = require("fs");
-module.exports = class EnableCommand extends Command {
-  constructor(client) {
-    super(client, {
-      name: "enable",
-      descripton: "Enable a module.",
-      userPermissions: ["ADMINISTRATOR"],
-    });
-  }
+module.exports = new Command({
+  name: "enable",
+  descripton: "Enable a module.",
+  userPermissions: ["ADMINISTRATOR"],
   async run(message, args) {
     let avaliableModules = readdirSync(`${process.cwd()}/bot/commands`);
     avaliableModules.splice(avaliableModules.indexOf("owner"), 1);
@@ -53,5 +49,5 @@ module.exports = class EnableCommand extends Command {
         `The module \`${argss}\` has been enabled.`
       );
     }
-  }
-};
+  },
+});

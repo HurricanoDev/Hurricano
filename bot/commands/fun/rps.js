@@ -3,16 +3,11 @@ const rps = ["scissors", "rock", "paper"];
 const res = ["Scissors :scissors:", "Rock :rock:", "Paper :roll_of_paper:"];
 const Command = require("@Command");
 
-module.exports = class RockPaperScissorsCommand extends Command {
-  constructor(client) {
-    super(client, {
-      name: "rps",
-      aliases: ["rockpaperscissors"],
-      description: "Rock, paper, scissors with Hurricano!",
-      args:
-        "Please choose whether you'd like to choose rock paper or scissors!",
-    });
-  }
+module.exports = new Command({
+  name: "rps",
+  aliases: ["rockpaperscissors"],
+  description: "Rock, paper, scissors with Hurricano!",
+  args: "Please choose whether you'd like to choose rock paper or scissors!",
   async run(message, args) {
     let userChoice;
     if (args.length) userChoice = args[0].toLowerCase();
@@ -35,5 +30,5 @@ module.exports = class RockPaperScissorsCommand extends Command {
       .setTimestamp()
       .setColor(message.guild.me.displayHexColor);
     message.reply(embed);
-  }
-};
+  },
+});

@@ -1,12 +1,8 @@
 const Command = require("@Command");
 
-module.exports = class RankCommand extends Command {
-  constructor(client) {
-    super(client, {
-      name: "rank",
-      description: "Check your rank in a server!",
-    });
-  }
+module.exports = new Command({
+  name: "rank",
+  description: "Check your rank in a server!",
   async run(message, args) {
     let target = null;
     if (args[0]) {
@@ -27,5 +23,5 @@ module.exports = class RankCommand extends Command {
         .setDescription(`${target} us currently on ${user.level}.`)
         .setThumbnail(target.displayAvatarURL())
     );
-  }
-};
+  },
+});

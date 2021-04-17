@@ -2,15 +2,11 @@ const Discord = require("discord.js");
 const sourcebin = require("sourcebin");
 const config = require("@config");
 const Command = require("@Command");
-module.exports = class EvalCommand extends Command {
-  constructor(client) {
-    super(client, {
-      name: "fulleval",
-      description: "Evaluates arbituary JavaScript, with no restrictions.",
-      ownerOnly: true,
-      args: "Please provide what you'd like to eval!",
-    });
-  }
+module.exports = new Command({
+  name: "fulleval",
+  description: "Evaluates arbituary JavaScript, with no restrictions.",
+  ownerOnly: true,
+  args: "Please provide what you'd like to eval!",
   async run(message, args) {
     const clean = (text) => {
       if (typeof text === "string")
@@ -85,5 +81,5 @@ module.exports = class EvalCommand extends Command {
         .setDescription(`\`\`\`js\n${clean(err)}\n\`\`\``);
       await message.reply({ embed: embed3 });
     }
-  }
-};
+  },
+});

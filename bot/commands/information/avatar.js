@@ -1,24 +1,20 @@
 const Command = require("@Command");
 const { MessageEmbed } = require("discord.js");
 
-module.exports = class AvatarCommand extends Command {
-  constructor(client) {
-    super(client, {
-      name: "avatar",
-      aliases: ["profilepic", "pic", "ava", "pfp"],
-      slash: true,
-      double: true,
-      options: [
-        {
-          name: "User",
-          description: "Which user you would like to see the avatar of.",
-          type: 6,
-          required: true,
-        },
-      ],
-      description: "Displays a user's avatar.",
-    });
-  }
+module.exports = new Command({
+  name: "avatar",
+  aliases: ["profilepic", "pic", "ava", "pfp"],
+  slash: true,
+  double: true,
+  options: [
+    {
+      name: "User",
+      description: "Which user you would like to see the avatar of.",
+      type: 6,
+      required: true,
+    },
+  ],
+  description: "Displays a user's avatar.",
   async run(message, args, quicksend) {
     if (message.token) {
       const guild = this.client.guilds.cache.get(message.guild_id);
@@ -46,5 +42,5 @@ module.exports = class AvatarCommand extends Command {
         .setTimestamp();
       await message.channel.send(embed);
     }
-  }
-};
+  },
+});

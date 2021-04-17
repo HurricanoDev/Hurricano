@@ -1,14 +1,10 @@
 const Discord = require("discord.js");
 const emojis = require("../../utilities/emojis.json");
 const Command = require("@Command");
-module.exports = class InviteCommand extends Command {
-  constructor(client) {
-    super(client, {
-      name: "invite",
-      aliases: ["inv"],
-      description: "Invite The Bot!",
-    });
-  }
+module.exports = new Command({
+  name: "invite",
+  aliases: ["inv"],
+  description: "Invite The Bot!",
   async run(message) {
     const embed = new Discord.MessageEmbed()
       .setAuthor("Invite Hurricano™")
@@ -25,5 +21,5 @@ module.exports = class InviteCommand extends Command {
         "https://media.discordapp.net/attachments/770953232318726144/804251677950869514/Untitled_9.jpg?width=1025&height=342"
       );
     message.reply(embed);
-  }
-};
+  },
+});

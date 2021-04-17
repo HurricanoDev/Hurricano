@@ -3,15 +3,11 @@ const { MessageEmbed } = require("discord.js");
 const Discord = require("discord.js");
 const Command = require("@Command");
 
-module.exports = class ExecCommand extends Command {
-  constructor(client) {
-    super(client, {
-      name: "exec",
-      description:
-        "Executes the provided code in the bash console and shows the output.",
-      ownerOnly: true,
-    });
-  }
+module.exports = new Command({
+  name: "exec",
+  description:
+    "Executes the provided code in the bash console and shows the output.",
+  ownerOnly: true,
   async run(message, args) {
     try {
       message.channel.startTyping();
@@ -64,5 +60,5 @@ module.exports = class ExecCommand extends Command {
       message.channel.send(embed);
       return message.channel.stopTyping(true);
     }
-  }
-};
+  },
+});

@@ -14,15 +14,11 @@ readdirSync("./bot/commands").forEach((dir) => {
     });
 });
 const Command = require("@Command");
-module.exports = class HelpCommand extends Command {
-  constructor(client) {
-    super(client, {
-      name: "help",
-      description:
-        "Shows the commands list and also specific command categories/commands!",
-      aliases: ["cmd", "commands", "h"],
-    });
-  }
+module.exports = new Command({
+  name: "help",
+  description:
+    "Shows the commands list and also specific command categories/commands!",
+  aliases: ["cmd", "commands", "h"],
   async run(message, args) {
     let tips = [
       "The first person convicted of speeding was going eight mph.",
@@ -434,5 +430,5 @@ module.exports = class HelpCommand extends Command {
       30000
     );
     helpMenu.start();
-  }
-};
+  },
+});

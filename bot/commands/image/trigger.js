@@ -1,14 +1,10 @@
 const Discord = require("discord.js");
 const Command = require("@Command");
 
-module.exports = class TriggerCommand extends Command {
-  constructor(client) {
-    super(client, {
-      name: "trigger",
-      cooldown: 5,
-      description: "Shows a triggered version of someone's avatar!",
-    });
-  }
+module.exports = new Command({
+  name: "trigger",
+  cooldown: 5,
+  description: "Shows a triggered version of someone's avatar!",
   async run(message, args) {
     const canvacord = require("canvacord");
     let person =
@@ -23,5 +19,5 @@ module.exports = class TriggerCommand extends Command {
       .attachFiles([new Discord.MessageAttachment(img, "img.png")])
       .setImage("attachment://img.png");
     message.reply(embed);
-  }
-};
+  },
+});
