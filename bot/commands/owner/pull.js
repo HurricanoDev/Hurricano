@@ -17,7 +17,7 @@ module.exports = new Command({
               "https://raw.githubusercontent.com/HurricanoBot/HurricanoImages/master/SetAuthorEmojis/Success.png"
             )
             .setDescription(
-              `\`\`\`xl\n${err.toString().substr(0, 1000)}\n\`\`\``
+              `\`\`\`xl\n${err.toString().substr(0, 1000) > 2038 ? "Pull summary is larger than 2038 characters." : err.toString().substr(0, 1000)}\n\`\`\``
             )
             .setTimestamp()
             .setFooter(`Requested by: ${message.author.tag}`);
@@ -29,7 +29,7 @@ module.exports = new Command({
             `GitHub Pull Successful!`,
             "https://raw.githubusercontent.com/HurricanoBot/HurricanoImages/master/SetAuthorEmojis/Success.png"
           )
-          .setDescription(`\`\`\`xl\n${stdout}\n\`\`\``)
+          .setDescription(`\`\`\`xl\n${stdout > 2038 ? "Pull summary is larger than 2038 characters." : stdout}\n\`\`\``)
           .setTimestamp()
           .setColor(123456)
           .setFooter(`Requested by: ${message.author.tag}`);
@@ -40,7 +40,7 @@ module.exports = new Command({
               `GitHub Pull Successful!`,
               "https://raw.githubusercontent.com/HurricanoBot/HurricanoImages/master/SetAuthorEmojis/Success.png"
             )
-            .setDescription(`\`\`\`xl\n${stdout}\n\`\`\``)
+            .setDescription(`\`\`\`xl\n${stdout > 2038 ? "Pull summary is larger than 2038 characters." : stdout}\n\`\`\``)
             .setTimestamp()
             .setColor(123456)
             .setFooter(`Requested by: ${message.author.tag}`);
@@ -54,7 +54,7 @@ module.exports = new Command({
           `GitHub Pull Successful!`,
           "https://raw.githubusercontent.com/HurricanoBot/HurricanoImages/master/SetAuthorEmojis/Success.png"
         )
-        .setDescription(`\`\`\`xl\n${stdout}\n\`\`\``)
+        .setDescription(`\`\`\`xl\n${stdout > 2038 ? "Pull summary is larger than 2038 characters." : stdout}\n\`\`\``)
         .setTimestamp()
         .setColor(123456)
         .setFooter(`Requested by: ${message.author.tag}`);
