@@ -17,7 +17,7 @@ module.exports = class Command {
     this.userPermissions = opts.userPermissions || null;
     this.clientPermissions = opts.clientPermissions || null;
     this.run =
-      opts.run || console.log(`Command ${this.name} has no run method`);
+      opts.run ?? console.log(`Command ${this.name} has no run method`);
     if (opts.slash) {
       this.slash = opts.slash || null;
       this.options = opts.options || null;
