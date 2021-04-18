@@ -18,7 +18,11 @@ module.exports = new Command({
             .addField(`📥 INPUT 📥`, `\`\`\`xl\n${args.join(" ")}\`\`\``)
             .addField(
               `📤 OUTPUT 📤`,
-              `\`\`\`xl\n${err.toString().substr(0, 1000)}\n\`\`\``
+              `\`\`\`xl\n${
+                err.toString().substr(0, 1000) > 2038
+                  ? "Pull summary is larger than 2038 characters."
+                  : err.toString().substr(0, 1000)
+              }\n\`\`\``
             )
             .setTimestamp()
             .setColor("#FF0000")
@@ -29,7 +33,13 @@ module.exports = new Command({
         const emSuccess = new Discord.MessageEmbed()
           .setAuthor(`Command Executed!`)
           .addField(`📥 INPUT 📥`, `\`\`\`xl\n${args.join(" ")}\`\`\``)
-          .addField(`📤 OUTPUT 📤`, `\`\`\`xl\n${stdout}\n\`\`\``)
+          .setDescription(
+            `\`\`\`xl\n${
+              stdout > 2038
+                ? "Pull summary is larger than 2038 characters."
+                : stdout
+            }\n\`\`\``
+          )
           .setTimestamp()
           .setColor(123456)
           .setFooter(`Requested by: ${message.author.tag}`);

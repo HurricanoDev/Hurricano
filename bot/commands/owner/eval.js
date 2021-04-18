@@ -57,7 +57,9 @@ module.exports = new Command({
               .addField(
                 "Input",
                 `\`\`\`js\n${
-                  code > 1016 ? "Input is larger than 1016 characters." : code
+                  code.length > 1016
+                    ? "Input is larger than 1016 characters."
+                    : code
                 }\`\`\``,
                 true
               )
@@ -76,7 +78,9 @@ module.exports = new Command({
           .addField(
             "Input",
             `\`\`\`js\n${
-              code > 1016 ? "Input is larger than 1016 characters." : code
+              code.length > 1016
+                ? "Input is larger than 1016 characters."
+                : code
             }\`\`\``,
             true
           )
@@ -112,7 +116,9 @@ module.exports = new Command({
               .addField(
                 "Input",
                 `\`\`\`js\n${
-                  code > 1016 ? "Input is larger than 1016 characters." : code
+                  code.length > 1016
+                    ? "Input is larger than 1016 characters."
+                    : code
                 }\`\`\``,
                 true
               )
@@ -128,7 +134,7 @@ module.exports = new Command({
         .addField(
           "Input",
           `\`\`\`js\n${
-            code > 1016 ? "Input is larger than 1016 characters." : code
+            code.length > 1016 ? "Input is larger than 1016 characters." : code
           }\`\`\``,
           true
         )

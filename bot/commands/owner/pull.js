@@ -18,7 +18,7 @@ module.exports = new Command({
             )
             .setDescription(
               `\`\`\`xl\n${
-                err.toString().substr(0, 1000) > 2038
+                err.toString().substr(0, 1000).length > 2038
                   ? "Pull summary is larger than 2038 characters."
                   : err.toString().substr(0, 1000)
               }\n\`\`\``
@@ -35,7 +35,7 @@ module.exports = new Command({
           )
           .setDescription(
             `\`\`\`xl\n${
-              stdout > 2038
+              stdout.length > 2038
                 ? "Pull summary is larger than 2038 characters."
                 : stdout
             }\n\`\`\``
@@ -52,7 +52,7 @@ module.exports = new Command({
             )
             .setDescription(
               `\`\`\`xl\n${
-                stdout > 2038
+                stdout.length > 2038
                   ? "Pull summary is larger than 2038 characters."
                   : stdout
               }\n\`\`\``
@@ -72,7 +72,7 @@ module.exports = new Command({
         )
         .setDescription(
           `\`\`\`xl\n${
-            stdout > 2038
+            stdout.length > 2038
               ? "Pull summary is larger than 2038 characters."
               : stdout
           }\n\`\`\``
