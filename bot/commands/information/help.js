@@ -301,7 +301,10 @@ module.exports = new Command({
             .split(">")[0],
         ],
         ["config"]: "⚙️",
-        ["information"]: "🔍",
+        ["information"]: emojis.categories.information
+          .split(":")[2]
+          .split("<")[0]
+          .split(">")[0],
         ["fun"]: "🎮",
         ["image"]: "📷",
         ["levelling"]: "🆙",
@@ -486,7 +489,6 @@ module.exports = new Command({
               [emojimap.music]: "music",
               [emojimap.image]: "image",
               [emojimap.moderation]: "moderation",
-              [emojimap.levelling]: "levelling",
               [emojimap.levelling]: "levelling",
             },
           },
