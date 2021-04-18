@@ -54,7 +54,13 @@ module.exports = new Command({
                 )
             );
             var embed = new Discord.MessageEmbed()
-              .addField("Input", `\`\`\`js\n${code}\`\`\``, true)
+              .addField(
+                "Input",
+                `\`\`\`js\n${
+                  code > 1016 ? "Input is larger than 1016 characters." : code
+                }\`\`\``,
+                true
+              )
               .setColor("#ffb6c1")
               .setTitle("Eval Output.")
               .setDescription(
@@ -67,7 +73,13 @@ module.exports = new Command({
           });
       } else {
         var embed2 = new Discord.MessageEmbed()
-          .addField("Input", `\`\`\`js\n${code}\`\`\``, true)
+          .addField(
+            "Input",
+            `\`\`\`js\n${
+              code > 1016 ? "Input is larger than 1016 characters." : code
+            }\`\`\``,
+            true
+          )
           .setColor("#ffb6c1")
           .setDescription(`**Output**\n \`\`\`js\n${clean(evaled)}\n\`\`\``);
         await message.reply({ embed: embed2 });
@@ -97,7 +109,13 @@ module.exports = new Command({
                 )
             );
             var embed = new Discord.MessageEmbed()
-              .addField("Input", `\`\`\`js\n${code}\`\`\``, true)
+              .addField(
+                "Input",
+                `\`\`\`js\n${
+                  code > 1016 ? "Input is larger than 1016 characters." : code
+                }\`\`\``,
+                true
+              )
               .setColor("#ffb6c1")
               .setTitle("Output: :outbox_tray:")
               .setDescription(
@@ -107,7 +125,13 @@ module.exports = new Command({
           });
       }
       var embed3 = new Discord.MessageEmbed()
-        .addField("Input", `\`\`\`js\n${code}\`\`\``, true)
+        .addField(
+          "Input",
+          `\`\`\`js\n${
+            code > 1016 ? "Input is larger than 1016 characters." : code
+          }\`\`\``,
+          true
+        )
         .setColor("#ffb6c1")
         .setTitle("Output: :outbox_tray:")
         .setDescription(`**Output**\n \`\`\`js\n${clean(err)}\n\`\`\``);

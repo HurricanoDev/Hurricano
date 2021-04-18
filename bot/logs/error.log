@@ -1,0 +1,15 @@
+2021-04-18 13:09:27 - warn [index.js]: Invalid Form Body
+embed.fields[0].value: Must be 1024 or fewer in length.
+{
+  "name": "DiscordAPIError",
+  "method": "post",
+  "path": "/channels/787649614777286656/messages",
+  "code": 50035,
+  "httpStatus": 400,
+  "stack": "DiscordAPIError: Invalid Form Body
+embed.fields[0].value: Must be 1024 or fewer in length.
+    at RequestHandler.execute (/home/dragonizedpizza/Desktop/HurricanoBeta/node_modules/discord.js/src/rest/RequestHandler.js:237:13)
+    at processTicksAndRejections (internal/process/task_queues.js:93:5)
+    at async RequestHandler.push (/home/dragonizedpizza/Desktop/HurricanoBeta/node_modules/discord.js/src/rest/RequestHandler.js:45:14)
+    at async Command.run (/home/dragonizedpizza/Desktop/HurricanoBeta/bot/commands/owner/eval.js:114:7)"
+}

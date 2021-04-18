@@ -198,6 +198,7 @@ class Client extends Discord.Client {
           if (props.init) {
             props.init(this);
           }
+          props.category = dir;
           this.commands.set(props.name, props);
           if (props.aliases) {
             props.conf.aliases.forEach((alias) => {

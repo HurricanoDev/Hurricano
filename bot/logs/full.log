@@ -1,5 +1,5 @@
-2021-04-18 10:04:46 - client [index.js]: 
-.-----------------------2021-04-18 10:04:49 - shard [index.js]: [Shard 0] Shard Ready!
+2021-04-18 13:07:09 - client [index.js]: 
+.-----------------------2021-04-18 13:07:10 - shard [index.js]: [Shard 0] Shard Ready!
      |
 |--------------------------------------------|
 | Command File  | Command Name | Load status |
@@ -45,5 +45,20 @@
 | reload.js     | reload       | Loaded!     |
 | shutdown.js   | shutdown     | Loaded!     |
 '--------------------------------------------'
-2021-04-18 10:04:47 - db [index.js]: Connected to MongoDB!
-2021-04-18 10:04:49 - client [index.js]: Hurricano Beta#2437 Successfully Logged in!
+2021-04-18 13:07:09 - db [index.js]: Connected to MongoDB!
+2021-04-18 13:07:11 - client [index.js]: Hurricano Beta#2437 Successfully Logged in!
+2021-04-18 13:09:27 - warn [index.js]: Invalid Form Body
+embed.fields[0].value: Must be 1024 or fewer in length.
+{
+  "name": "DiscordAPIError",
+  "method": "post",
+  "path": "/channels/787649614777286656/messages",
+  "code": 50035,
+  "httpStatus": 400,
+  "stack": "DiscordAPIError: Invalid Form Body
+embed.fields[0].value: Must be 1024 or fewer in length.
+    at RequestHandler.execute (/home/dragonizedpizza/Desktop/HurricanoBeta/node_modules/discord.js/src/rest/RequestHandler.js:237:13)
+    at processTicksAndRejections (internal/process/task_queues.js:93:5)
+    at async RequestHandler.push (/home/dragonizedpizza/Desktop/HurricanoBeta/node_modules/discord.js/src/rest/RequestHandler.js:45:14)
+    at async Command.run (/home/dragonizedpizza/Desktop/HurricanoBeta/bot/commands/owner/eval.js:114:7)"
+}

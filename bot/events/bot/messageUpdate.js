@@ -4,9 +4,7 @@ module.exports = {
   name: "messageUpdate",
   run: async (oldMessage, newMessage, client) => {
     if (newMessage.webhookID) return;
-    if (
-      newMessage.member
-    ) {
+    if (newMessage.member) {
       client.emit("message", newMessage);
     }
   },
