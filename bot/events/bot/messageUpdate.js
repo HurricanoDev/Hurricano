@@ -5,9 +5,7 @@ module.exports = {
   run: async (oldMessage, newMessage, client) => {
     if (newMessage.webhookID) return;
     if (
-      newMessage.member &&
-      newMessage.id === newMessage.member.lastMessageID &&
-      !oldMessage.command
+      newMessage.member
     ) {
       client.emit("message", newMessage);
     }
