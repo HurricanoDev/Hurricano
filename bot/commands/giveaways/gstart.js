@@ -208,7 +208,7 @@ module.exports = new Command({
         prize: prize,
         hostedBy: message.author,
         extraData: {
-          role: role,
+          role: role.id,
         },
         messages: {
           giveaway: `${emojis.categories.giveaways} **Giveaway** ${emojis.categories.giveaways}`,
