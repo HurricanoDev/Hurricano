@@ -1,5 +1,5 @@
 const Command = require('@Command');
-
+const Discord = require('discord.js');
 module.exports = new Command({
     name: "unlock",
     description: "Unlocks a channel.",
