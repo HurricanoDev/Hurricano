@@ -16,7 +16,9 @@ module.exports = new Command({
           "Please provide a valid channel."
         );
       }
-
+      await channel.createOverwrite(message.guild.id, {
+        SEND_MESSAGES: null,
+      });
         var liftedembed = new Discord.MessageEmbed()
         .setTitle("🔒 Lockdown")
         .setDescription("🔓 Lockdown lifted.")

@@ -7,6 +7,7 @@ module.exports = {
       if (!data)
         await new client.schemas.guild({
           _id: mongoose.Types.ObjectId(),
+          name: guild.name,
           id: guild.id,
           name: guild.name,
         }).save();
