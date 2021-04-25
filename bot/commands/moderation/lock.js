@@ -4,7 +4,7 @@ const Command = require("@Command");
 module.exports = new Command({
   name: "lock",
   description: "Locks down a channel",
-  userPermissions: ["MANAGE_CHANNEL"],
+  userPermissions: ["MANAGE_CHANNELS"],
   async run(message, args) {
     const prefix = await this.client.db.guild.getPrefix(message.guild.id);
     if (!args.length) {

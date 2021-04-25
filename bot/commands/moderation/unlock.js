@@ -3,7 +3,7 @@ const Discord = require("discord.js");
 module.exports = new Command({
   name: "unlock",
   description: "Unlocks a channel.",
-  userPermissions: ["MANAGE_CHANNEL"],
+  userPermissions: ["MANAGE_CHANNELS"],
   async run(message, args) {
     let channel =
       message.guild.channels.cache.get(args[0]) ||
