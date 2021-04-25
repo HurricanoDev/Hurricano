@@ -2,9 +2,6 @@ const mongoose = require("mongoose");
 const levels = require("../schemas/level.js");
 var mongoUrl;
 
-// MADE BY MRAUGU
-// MADE BY MRAUGU
-// MADE BY MRAUGU
 class DiscordXp {
   /**
    * @param {string} [dbUrl] - A valid mongo database URI.

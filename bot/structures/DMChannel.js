@@ -1,6 +1,6 @@
 const { Structures, MessageEmbed } = require("discord.js");
 
-Structures.extend("DMChannel", (channel) => {
+module.exports = Structures.extend("DMChannel", (channel) => {
   class HurricanoDMChannel extends channel {
     constructor(...args) {
       super(...args);
