@@ -59,11 +59,20 @@ module.exports = {
         id: message.guild.id,
       });
       let disabledModules = guildSchema.disabledModules;
-      if (disabledModules && disabledModules.includes(command.category) && !client.config.ownerIds.includes(message.author.id)) return;
+      if (
+        disabledModules &&
+        disabledModules.includes(command.category) &&
+        !client.config.ownerIds.includes(message.author.id)
+      )
+        return;
 
       if (command.conf.userPermissions) {
         const authorPerms = message.channel.permissionsFor(author);
-        if (!authorPerms || !authorPerms.has(command.userPermissions) && !client.config.ownerIds.includes(message.author.id)) {
+        if (
+          !authorPerms ||
+          (!authorPerms.has(command.userPermissions) &&
+            !client.config.ownerIds.includes(message.author.id))
+        ) {
           return message.reply(
             new MessageEmbed()
               .setTitle("Permission Error.")
