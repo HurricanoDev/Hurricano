@@ -4,7 +4,7 @@ const config = require("@config");
 const Command = require("@Command");
 const { MessageEmbed } = require("discord.js");
 module.exports = new Command({
-  name: "eval",
+  name: "asynceval",
   description: "Evaluates arbituary JavaScript.",
   aliases: ['aeval'],
   ownerOnly: true,
