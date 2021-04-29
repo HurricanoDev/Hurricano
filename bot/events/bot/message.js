@@ -44,7 +44,25 @@ module.exports = {
       const command =
         client.commands.get(cmd) ||
         client.commands.get(client.aliases.get(cmd));
-      if (!command) return;
+      if (!command) {
+      const best = [
+        ...client.commands.map(cmd => cmd.name),
+        ...client.aliases.keys()
+      ].filter(c => leven(cmd.toLowerCase(), c.toLowerCase()) < c.length * 0.4);
+      const dym =
+        best.length == 0
+          ? ""
+          : best.length == 1
+            ? `Did you mean this?\n**${best[0]}**`
+            : `Did you mean one of these?\n${best
+                .slice(0, 3)
+                .map(value => `**${value}**`)
+                .join("\n")}`;
+
+      return message.channel.send(
+        new MessageEmbed({ description: `Couldn't find that command!\n${dym}` })
+      );
+      }
       let checkAdmin = config.ownerIds.includes(author.id);
       if (command.conf.ownerOnly === true && !checkAdmin)
         return message.channel.sendError(
