@@ -7,6 +7,12 @@ module.exports = new Command({
   aliases: ["info", "bi"],
   userPermissions: ["SEND_MESSAGES"],
   async run(message, args) {
+   //Uptime
+     let days = Math.floor(client.uptime / 86400000);
+     let hours = Math.floor(client.uptime / 3600000) % 24;
+     let minutes = Math.floor(client.uptime / 60000) % 60;
+     let seconds = Math.floor(client.uptime / 1000) % 60;
+    
     const embed = new Discord.MessageEmbed()
       .setAuthor(
         "Hurricano™ Botinfo",
@@ -22,7 +28,7 @@ module.exports = new Command({
       )
       .addField(
         "Extra Information",
-        `${emojis.signs.ping} Ping: \`${message.client.ws.ping}\`ms\n${emojis.categories.owner} Owners: \`Dragonizedpizza\`, \`Militia21\`, \`Anogh297\`. \n${emojis.signs.servers} Servers: \`${message.client.guilds.cache.size} Servers.\`\n${emojis.signs.users} Users: \`${message.client.users.cache.size} Users.\``
+        `${emojis.signs.ping} Ping: \`${message.client.ws.ping}\`ms\n${emojis.categories.owner} Owners: \`Dragonizedpizza\`, \`Militia21\`, \`Anogh297\`. \n${emojis.signs.servers} Servers: \`${message.client.guilds.cache.size} Servers.\`\n${emojis.signs.users} Users: \`${message.client.users.cache.size} Users.\` 📥 Uptime: \`${days}d ${hours}h ${minutes}m ${seconds}s\``
       );
     message.reply(embed);
   },
