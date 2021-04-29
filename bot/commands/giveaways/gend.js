@@ -1,4 +1,4 @@
-const ms = require("ms");
+const ms = require("../../utilities/ms.js");
 const Command = require("@Command");
 module.exports = new Command({
   name: "gend",

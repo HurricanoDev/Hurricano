@@ -1,7 +1,7 @@
 const Discord = require("discord.js");
 const { MessageEmbed } = require("discord.js");
 const config = require("@config");
-const leven = require("leven");
+const leven = require("../../utilities/leven.js");
 
 module.exports = {
   name: "message",
@@ -54,15 +54,15 @@ module.exports = {
         best.length == 0
           ? ""
           : best.length == 1
-            ? `Did you mean this?\n**${best[0]}**`
-            : `Did you mean one of these?\n${best
+            ? `+ ${best[0]}`
+            : `${best
                 .slice(0, 3)
-                .map(value => `**${value}**`)
+                .map(value => `+ ${value}`)
                 .join("\n")}`;
 
-      return message.channel.send(
-        new MessageEmbed({ description: `Couldn't find that command!\n${dym}` })
-      );
+      return dym ? message.channel.sendError(message, 'Invalid Command!',
+        `I don't have that command! Did you hapen to mean: \n\`\`\`diff\n${dym}\`\`\``
+      ) : null;
       }
       let checkAdmin = config.ownerIds.includes(author.id);
       if (command.conf.ownerOnly === true && !checkAdmin)

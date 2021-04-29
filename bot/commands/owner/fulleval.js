@@ -15,16 +15,23 @@ module.exports = new Command({
           .replace(/@/g, "@" + String.fromCharCode(8203));
       else return text;
     };
-    const types = ['async', 'sync'];
+    const types = ["async", "sync"];
     const pref = await client.db.guild.getPrefix(message.guild.id);
-    if (!types.includes(args[0])) return message.channel.sendError(message, 'Invalid Arguments Provided!', `Please provide if you would like to eval in \`sync, or async\`. \n Examples: \`${pref}eval sync <code>\`, \n \`${pref}eval async <code>\`.`);
+    if (!types.includes(args[0]))
+      return message.channel.sendError(
+        message,
+        "Invalid Arguments Provided!",
+        `Please provide if you would like to eval in \`sync, or async\`. \n Examples: \`${pref}eval sync <code>\`, \n \`${pref}eval async <code>\`.`
+      );
     try {
-      const code = args.join(" ").replace(args[0], '');
-      console.log(code)
+      const code = args.join(" ").replace(args[0], "");
+      console.log(code);
       let evaled;
-      args[0] === 'sync' ? evaled = eval(code) : evaled = await eval(`(async () => {
+      args[0] === "sync"
+        ? (evaled = eval(code))
+        : (evaled = await eval(`(async () => {
         ${code}
-      })()`)
+      })()`));
       if (typeof evaled !== "string")
         evaled = require("util").inspect(evaled, { depth: 4 });
       if (evaled.includes(config.token) || evaled.includes(config.mongouri)) {
@@ -95,7 +102,7 @@ module.exports = new Command({
         await message.reply({ embed: embed2 });
       }
     } catch (err) {
-      const code = args.join(" ").replace(args[0], '');
+      const code = args.join(" ").replace(args[0], "");
       if (clean(err).length > 2032) {
         sourcebin
           .create(

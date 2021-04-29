@@ -9,7 +9,7 @@ module.exports = model(
     },
     name: {
       type: String,
-      required: true,
+      required: false,
     },
     prefix: {
       type: String,
