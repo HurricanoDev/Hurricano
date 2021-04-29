@@ -1,5 +1,4 @@
 let config = require(`${process.cwd()}/config.json`);
-require('dotenv').config();
 module.exports = {
   token: config.token || process.env.token,
   prefix: config.prefix || process.env.prefix,
