@@ -3,6 +3,7 @@ const Command = require("@Command");
 module.exports = new Command({
   name: "burn",
   cooldown: 5,
+  slash: true,
   description: "Burn someone's avatar :(",
   async run(message, args) {
     const canvacord = require('canvacord')
