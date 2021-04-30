@@ -2,7 +2,7 @@ const { MessageEmbed } = require("discord.js");
 const Command = require("@Command");
 module.exports = new Command({
   name: "supreme",
-  args: "Please mention what you would like to set as your prefix!",
+  args: "Please provide something to supreme!",
   cooldown: 5,
   description: "Convert text to supreme text :D",
   slash: false,
