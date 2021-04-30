@@ -5,16 +5,7 @@ module.exports = new Command({
   args: "Please mention what you would like to set as your prefix!",
   cooldown: 5,
   description: "Convert text to supreme text :D",
-  slash: true,
-  double: true,
-  options: [
-    {
-      name: "Text",
-      description: "Provide text to convert to supreme text.",
-      type: 3,
-      required: true,
-    },
-  ],
+  slash: false,
   async run(message, args, quicksend) {
     const massage = args.join(" ");
     if (!massage) return message.reply(embed1);
