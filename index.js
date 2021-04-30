@@ -31,5 +31,3 @@ manager.on("shardCreate", (shard) => {
   });
 });
 manager.spawn();
-
-module.exports = manager;
