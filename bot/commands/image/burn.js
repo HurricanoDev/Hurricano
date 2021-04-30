@@ -4,6 +4,7 @@ module.exports = new Command({
   name: "burn",
   cooldown: 5,
   slash: true,
+  double: true,
   description: "Burn someone's avatar :(",
   async run(message, args) {
     const canvacord = require('canvacord')
