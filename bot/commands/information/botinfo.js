@@ -28,7 +28,7 @@ module.exports = new Command({
       )
       .addField(
         "Extra Information",
-        `${emojis.signs.ping} Ping: \`${message.client.ws.ping}\`ms\n${emojis.categories.owner} Owners: \`Dragonizedpizza\`, \`Militia21\`. \n${emojis.signs.servers} Servers: \`${message.client.guilds.cache.size} Servers.\`\n${emojis.signs.users} Users: \`${message.client.users.cache.size} Users.\` 📥 Uptime: \`${days}d ${hours}h ${minutes}m ${seconds}s\``
+        `${emojis.signs.ping} Ping: \`${message.client.ws.ping}\`ms\n${emojis.categories.owner} Owners: \`Dragonizedpizza\`, \`Militia21\`. \n${emojis.signs.servers} Servers: \`${message.client.guilds.cache.size} Servers.\`\n${emojis.signs.users} Users: \`${message.client.users.cache.size} Users.\` \n📥 Uptime: \`${days}d ${hours}h ${minutes}m ${seconds}s\``
       );
     message.reply(embed);
   },
