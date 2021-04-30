@@ -9,7 +9,9 @@ module.exports = new Command({
   async run(message, args) {
     const validDocs = ["discord.js", "djs", "discordjs"];
     if (!validDocs.includes(args[0]))
-      return message.reply("Please provide a valid docs source! Currently valid sources: \n `discord.js`");
+      return message.reply(
+        "Please provide a valid docs source! Currently valid sources: \n `discord.js`"
+      );
     switch (args[0]) {
       case "discord.js":
       case "djs":

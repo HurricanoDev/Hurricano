@@ -46,23 +46,29 @@ module.exports = {
         client.commands.get(cmd) ||
         client.commands.get(client.aliases.get(cmd));
       if (!command) {
-      const best = [
-        ...client.commands.map(cmd => cmd.name),
-        ...client.aliases.keys()
-      ].filter(c => leven(cmd.toLowerCase(), c.toLowerCase()) < c.length * 0.4);
-      const dym =
-        best.length == 0
-          ? ""
-          : best.length == 1
+        const best = [
+          ...client.commands.map((cmd) => cmd.name),
+          ...client.aliases.keys(),
+        ].filter(
+          (c) => leven(cmd.toLowerCase(), c.toLowerCase()) < c.length * 0.4
+        );
+        const dym =
+          best.length == 0
+            ? ""
+            : best.length == 1
             ? `+ ${best[0]}`
             : `${best
                 .slice(0, 3)
-                .map(value => `+ ${value}`)
+                .map((value) => `+ ${value}`)
                 .join("\n")}`;
 
-      return dym ? message.channel.sendError(message, 'Invalid Command!',
-        `I don't have that command! Did you hapen to mean: \n\`\`\`diff\n${dym}\`\`\``
-      ) : null;
+        return dym
+          ? message.channel.sendError(
+              message,
+              "Invalid Command!",
+              `I don't have that command! Did you hapen to mean: \n\`\`\`diff\n${dym}\`\`\``
+            )
+          : null;
       }
       let checkAdmin = config.ownerIds.includes(author.id);
       if (command.conf.ownerOnly === true && !checkAdmin)

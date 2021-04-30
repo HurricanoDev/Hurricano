@@ -169,11 +169,11 @@ class Client extends Discord.Client {
   }
   loadStructures() {
     const structures = fs
-      .readdirSync("./bot/structures")
+      .readdirSync("./bot/structures/ImmediateExecute")
       .filter((file) => file.endsWith(".js"));
 
     for (const file of structures) {
-      require("./structures/" + file);
+      require("./structures/ImmediateExecute/" + file);
     }
   }
 
@@ -194,9 +194,6 @@ class Client extends Discord.Client {
               "Not Loaded -> Missing a help.name, or help.name is not a string."
             );
             continue;
-          }
-          if (props.init) {
-            props.init(this);
           }
           props.category = dir;
           this.commands.set(props.name, props);
