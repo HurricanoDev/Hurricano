@@ -1,5 +1,6 @@
 const { MessageEmbed } = require("discord.js");
 const moment = require("moment");
+const emojis = require("../../utilities/emojis.json");
 const { stripIndent } = require("common-tags"); // optionnal
 // by YoungDaggerD btw
 const region = {
@@ -69,8 +70,8 @@ module.exports = new Command({
         .setTitle(`Info about ${guild}`)
         .setThumbnail(guild.iconURL({ dynamic: true }))
         .setColor(guild.me.displayHexColor)
-        .addField("Owner:", guild.owner, true)
-        .addField("Verification:", verif[guild.verificationLevel], true)
+        .addField(`${emojis.categories.owner} Owner:`, guild.owner, true)
+        .addField(`${emojis.signs.key} Verification:`, verif[guild.verificationLevel], true)
         .addField(
           "Creation Date:",
           `**${moment(guild.createdAt).format("MMM DD YYYY")}**`,
@@ -84,7 +85,7 @@ module.exports = new Command({
           "Channels:",
           `${this.client._emojis.signs.channel} ${channelCount} Total Channels \n 📔 ${textChannels.length} Text Channel(s) \n 🔊 ${voiceChannels} Voice Channel(s) \n 📰 ${newsChannels} News Channel(s) \n 📑 ${categoryChannels} Categories \n 👑 ${roleCount} Roles`
         )
-        .addField("Region:", region[guild.region], true)
+        .addField(`${emojis.signs.world} Region:`, region[guild.region], true)
         .addField("Boosts:", `**${guild.premiumSubscriptionCount || 0}**`, true)
         .addField(
           "Boost Tier:",
@@ -132,8 +133,8 @@ module.exports = new Command({
         .setTitle(`Info about ${message.guild}`)
         .setThumbnail(message.guild.iconURL({ dynamic: true }))
         .setColor(message.guild.me.displayHexColor)
-        .addField("Owner:", message.guild.owner, true)
-        .addField("Verification:", verif[message.guild.verificationLevel], true)
+        .addField(`${emojis.categories.owner} Owner:`, message.guild.owner, true)
+        .addField(`${emojis.signs.key} Verification:`, verif[message.guild.verificationLevel], true)
         .addField(
           "Creation Date:",
           `**${moment(message.guild.createdAt).format("MMM DD YYYY")}**`,
@@ -147,7 +148,7 @@ module.exports = new Command({
           "Channels:",
           `${this.client._emojis.signs.channel} ${channelCount} Total Channels \n 📔 ${textChannels.length} Text Channel(s) \n 🔊 ${voiceChannels} Voice Channel(s) \n 📰 ${newsChannels} News Channel(s) \n 📑 ${categoryChannels} Categories \n 👑 ${roleCount} Roles`
         )
-        .addField("Region:", region[message.guild.region], true)
+        .addField(`${emojis.signs.world} Region:`, region[message.guild.region], true)
         .addField(
           "Boosts:",
           `**${message.guild.premiumSubscriptionCount || 0}**`,
