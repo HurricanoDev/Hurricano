@@ -7,6 +7,7 @@ module.exports = new Command({
   description: "Convert text to supreme text :D",
   slash: false,
   async run(message, args, quicksend) {
+    let massage = args.join(" ")
     let hasil = `https://api.alexflipnote.dev/supreme?text=${massage}`;
     let Attach = new Discord.MessageAttachment(hasil, "supreme.png");
     message.reply(Attach);
