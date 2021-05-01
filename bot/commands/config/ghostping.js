@@ -10,7 +10,7 @@ module.exports = new Command({
   cooldown: 20,
   description: "Set your server's custom prefix!",
   async run(message, args, quicksend) {
-    onst { mentions, guild } = message;
+    const { mentions, guild } = message;
 
     const targetChannel = mentions.channels.first();
 
