@@ -89,9 +89,9 @@ module.exports.Menu = class extends EventEmitter {
 
     let i = 0;
     pages.forEach((page) => {
-      this.reactionsQuickObj = page.reactions;
+      this.totalReactions = page.reactions;
       page.reactions = {};
-      Object.entries(this.reactionsQuickObj).forEach((reaction) => {
+      Object.entries(this.totalReactions).forEach((reaction) => {
         if (!reaction[1]) return;
         page.reactions[reaction[0]] = reaction[1];
       });
