@@ -1,4 +1,4 @@
-const ghostPingSchema = require("../../models/ghostping.js");
+const ghostPingSchema = require("../../schemas/ghostping.js");
 const { MessageEmbed } = require("discord.js");
 const cache = {};
 
