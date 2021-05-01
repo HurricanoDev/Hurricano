@@ -66,7 +66,7 @@ module.exports = {
           ? message.channel.sendError(
               message,
               "Invalid Command!",
-              `I don't have that command! Did you hapen to mean: \n\`\`\`diff\n${dym}\`\`\``
+              `Sorry! I don't have that command! Did you happen to mean: \n\`\`\`diff\n${dym}\`\`\``
             )
           : null;
       }
