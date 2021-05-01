@@ -23,5 +23,9 @@ module.exports = model(
       type: Array,
       default: [],
     },
+    messageLogs: {
+      type: String,
+      default: "null",
+    },
   })
 );

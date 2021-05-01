@@ -1,7 +1,4 @@
-const ghostPingSchema = require("../../schemas/ghostping.js");
 const { MessageEmbed } = require("discord.js");
-const cache = {};
-
 module.exports = {
   name: "messageDelete",
   run: async (message, client) => {
@@ -14,34 +11,36 @@ module.exports = {
         ? message.attachments.first().proxyURL
         : null,
     });
-    //GhostPing Detector Start-
-    const { content, channel, author, guild, mentions } = message;
 
-    if (!author || author.bot || mentions.users.size === 0) {
-      return;
-    }
+    // LOGS
+    const guildSchema = await client.schemas.guild.findOne({
+      id: message.guild.id,
+    });
+    if (guildSchema.messageLogs && guildSchema.messageLogs !== "null") {
+      const guildChannel = message.guild.channels.cache.get(
+        guildSchema.messageLogs
+      );
+      let embed = new MessageEmbed()
+        .setAuthor(
+          `Message Deleted By ${message.author.tag}! | ID: ${message.author.id})`,
+          message.author.displayAvatarURL()
+        )
+        .setDescription(
+          `${
+            message.content.length > 2034
+              ? "Message content is larger than 2034 characters."
+              : "**Content:**\n" + message.toString()
+          }`
+        )
+        .setFooter(`Deleted by ${message.author.tag} | ${message.author.id}`);
+      message.attachments.first()
+        ? (() => {
+            embed.setImage(message.attachments.first().proxyURL);
+            embed.addField("Images:", "True. Attaching the first image.");
+          })()
+        : embed.addField("Images:", "False.");
 
-    let channelId = cache[guild.id];
-    if (!channelId) {
-      const result = await ghostPingSchema.findById(guild.id);
-      if (!result) {
-        return;
-      }
-
-      channelId = result.channelId;
-      cache[guild.id] = channelId;
-    }
-
-    const embed = new MessageEmbed()
-      .setTitle("Possible Ghost Ping Detected")
-      .setDescription(`Message\n\n"${content}"`)
-      .addField("Channel", channel)
-      .addField("Message Author", author)
-      .setColor("#FFFFFF")
-
-    const targetChannel = guild.channels.cache.get(channelId);
-    if (targetChannel) {
-      targetChannel.send(embed);
+      guildChannel.send(embed);
     }
   },
 };

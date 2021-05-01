@@ -176,7 +176,6 @@ class Client extends Discord.Client {
       require("./structures/ImmediateExecute/" + file);
     }
   }
-  
 
   loadCommands() {
     readdirSync("./bot/commands").forEach((dir) => {
