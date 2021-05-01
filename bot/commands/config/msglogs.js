@@ -30,7 +30,7 @@ module.exports = new Command({
     });
     switch (args[0]) {
       case "set":
-        if (guildLog.messageLogs)
+        if (guildLog.messageLogs && guildLog.messageLogs !== "null")
           return message.sendErrorReply(
             "Logs already set!",
             `The channel you provided already has logs set! If you would like to remove logs from that channel, send: \n \`${prefix}msglogs remove\``
