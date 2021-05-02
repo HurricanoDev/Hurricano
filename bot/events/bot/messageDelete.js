@@ -28,7 +28,7 @@ module.exports = {
         .setDescription(
           `${
             message.content.length > 2034
-              ? "Message content is larger than 2034 characters."
+              ? "Message content is larger than 2034 characters!"
               : "**Content:**\n" + message.toString()
           }`
         )
