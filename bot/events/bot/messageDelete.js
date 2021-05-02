@@ -32,7 +32,8 @@ module.exports = {
               : "**Content:**\n" + message.toString()
           }`
         )
-        .setFooter(`Deleted by ${message.author.tag} | ${message.author.id}`);
+        .setFooter(`Deleted by ${message.author.tag} | ${message.author.id}`)
+        .setColor("#6082b6");
       message.attachments.first()
         ? (() => {
             embed.setImage(message.attachments.first().proxyURL);
