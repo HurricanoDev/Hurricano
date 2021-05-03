@@ -14,6 +14,8 @@ const statusMessages = {
     color: 0xc20808,
   },
 };
+
+let suggestionCache = {} 
 const fetchSuggestionChannel = async (guildId) => {
     let guildSchema = await client.schemas.guild.findOne({ id: guildId });
     if (!guildSchema) throw new Error('Invalid guild ID provided for getting suggestion channel.');
@@ -21,4 +23,10 @@ const fetchSuggestionChannel = async (guildId) => {
     if (guildSchema.suggestionChannel === 'null') return null;
     return (await client.channels.fetch(guildSchema.suggestionChannel));
 }
-module.exports.fetchSuggestionChannel = fetchSuggestionChannel;
+module.exports.fetchSuggestionChannels = fetchSuggestionChannels
+
+module.exports.statusMessages = statusMessages
+
+module.exports.suggestionCache = () => {
+  return suggestionCache
+}
