@@ -22,7 +22,7 @@ module.exports = new Command({
       },
       {
         id: guildId,
-        channelId,
+        suggestionChannel: channelId,
       },
       {
         upsert: true,
