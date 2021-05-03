@@ -129,10 +129,10 @@ class Client extends Discord.Client {
       createUserDB: async (userObj) => {
         await new this.schemas.user({
           name: userObj.name,
-          id: userObj.id
-        })
-      }
-    }
+          id: userObj.id,
+        });
+      },
+    };
   }
   // ---------------------------------------------------   Functions    -------------------------------------------------------------
   loadEvents() {

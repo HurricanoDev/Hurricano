@@ -2,7 +2,8 @@ const Command = require("@Command");
 
 module.exports = new Command({
   name: "blacklist",
-  description: "Set your server's message logs. This includes: Message deletion, Ghostping logging. More coming soon!",
+  description:
+    "Set your server's message logs. This includes: Message deletion, Ghostping logging. More coming soon!",
   ownerOnly: true,
   args: "Please provide who you would like to blacklist!",
   async run(message, args) {
@@ -28,8 +29,9 @@ module.exports = new Command({
         limit: 30000,
         errors: ["time"],
       })
-      .catch(e => {
-        return message.channel.sendError(message, 
+      .catch((e) => {
+        return message.channel.sendError(
+          message,
           "Time Limit Reached.",
           "You took too long to respond. You can try again later."
         );

@@ -5,7 +5,8 @@ module.exports = new Command({
   aliases: ["messagelogs", "messagelog"],
   userPermissions: ["ADMINISTRATOR"],
   cooldown: 20,
-  description: "Set your server's message logs. This includes: Message deletion, Ghostping logging. More coming soon!",
+  description:
+    "Set your server's message logs. This includes: Message deletion, Ghostping logging. More coming soon!",
   async run(message, args) {
     const prefix = await client.db.guild.getPrefix(message.guild.id);
     if (!args.length)
