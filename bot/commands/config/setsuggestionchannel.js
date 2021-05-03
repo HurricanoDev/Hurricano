@@ -29,7 +29,7 @@ module.exports = new Command({
       }
     )
 
-    message.channel.sendSuccessReply("Success!", `The suggestions channel has been set to ${channel}`)
+    message.channel.sendSuccessReply(message, "Success!", `The suggestions channel has been set to ${channel}`)
 
     fetchSuggestionChannels(guildId)
   },
