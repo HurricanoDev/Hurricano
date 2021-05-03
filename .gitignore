@@ -4,3 +4,4 @@ package-lock.json
 /.vscode
 bot/schemas/guild.js
 bot/logs/
+.env
