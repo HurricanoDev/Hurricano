@@ -26,7 +26,8 @@ class Client extends Discord.Client {
      * Add Credentials
      */
     this.config = config;
-    configFile = config;
+
+    this.globalPrefix = "hr!";
     this.token = config.token;
 
     /**
@@ -124,8 +125,15 @@ class Client extends Discord.Client {
       "normalizer",
       "surrounding",
     ];
+    this.functions = {
+      createUserDB: async (userObj) => {
+        await new this.schemas.user({
+          name: userObj.name,
+          id: userObj.id
+        })
+      }
+    }
   }
-
   // ---------------------------------------------------   Functions    -------------------------------------------------------------
   loadEvents() {
     // BOT EVENTS
@@ -135,9 +143,9 @@ class Client extends Discord.Client {
     for (const file of botevents) {
       const event = require(`./events/bot/${file}`);
       if (event.once) {
-        this.once(event.name, (...args) => event.run(...args, this));
+        super.once(event.name, (...args) => event.run(...args, this));
       } else {
-        this.on(event.name, (...args) => event.run(...args, this));
+        super.on(event.name, (...args) => event.run(...args, this));
       }
     }
     // MUSIC EVENTS
@@ -210,7 +218,7 @@ class Client extends Discord.Client {
     logger.client("\n" + table.toString());
   }
   connect() {
-    return this.login(configFile.token);
+    return this.login(this.config.token);
   }
   getCommand(command) {
     return (

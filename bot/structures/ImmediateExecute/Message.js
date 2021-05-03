@@ -12,7 +12,6 @@ module.exports = Structures.extend(
           Header,
           "https://raw.githubusercontent.com/HurricanoBot/HurricanoImages/master/SetAuthorEmojis/Error.png"
         );
-        embed.setColor("RED")
         if (Msg) {
           embed.setDescription(Msg);
         }
@@ -28,7 +27,6 @@ module.exports = Structures.extend(
           Header,
           "https://raw.githubusercontent.com/HurricanoBot/HurricanoImages/master/SetAuthorEmojis/Success.png"
         );
-        embed.setColor("GREEN")
         if (Msg) {
           embed.setDescription(Msg);
         }

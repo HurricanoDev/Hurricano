@@ -1,0 +1,15 @@
+{
+  "token": "Your bot token",
+  "prefix": "Bot prefix",
+  "mongouri": "Mongodb uri",
+  "ownerIds": ["Owner's USER IDs", "Like this", "can be as many"],
+  "website": {
+    "enabled": false,
+    "ip": "Website IP",
+    "port": "Port"
+  },
+  "topgg": {
+    "enabled": false,
+    "token": "only put something here if you set top.gg api to true"
+  }
+}

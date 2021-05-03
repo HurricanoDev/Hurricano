@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 const levels = require("../schemas/level.js");
 var mongoUrl;
 
-class DiscordXp {
+class Levels {
   /**
    * @param {string} [dbUrl] - A valid mongo database URI.
    */
@@ -334,4 +334,4 @@ class DiscordXp {
   }
 }
 
-module.exports = DiscordXp;
+module.exports = Levels;

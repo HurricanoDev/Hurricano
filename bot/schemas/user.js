@@ -5,7 +5,7 @@ module.exports = model(
   new Schema({
     name: {
       type: String,
-      required: true,
+      required: false,
     },
     id: {
       type: String,
@@ -26,6 +26,10 @@ module.exports = model(
     bank: {
       type: String,
       default: 0,
+    },
+    cooldowns: {
+      type: Object,
+      default: {},
     },
   })
 );

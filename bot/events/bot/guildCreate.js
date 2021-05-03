@@ -9,7 +9,6 @@ module.exports = {
           _id: mongoose.Types.ObjectId(),
           name: guild.name,
           id: guild.id,
-          name: guild.name,
         }).save();
     } catch (err) {
       client.logger.warn(err);

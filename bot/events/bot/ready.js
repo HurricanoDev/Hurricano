@@ -29,7 +29,7 @@ module.exports = {
       }
     }
     client.user.setActivity({
-      name: `${config.prefix}help`,
+      name: `${client.globalPrefix}help`,
       type: "STREAMING",
       url: "https://twitch.tv/Pewdiepie",
     });

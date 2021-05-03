@@ -7,7 +7,6 @@ An open source Discord bot, with features such as:
 * Reaction Help Command (using package `discord.js-menu`)
 * Giveaways (using package `discord-giveaways`) which uses MongoDB
 * Customizable server settings using MongoDB
-* Ongoing logging features.
 * ...And many interesting commands!
 
 This bot is currently in development, very early stages of it too.

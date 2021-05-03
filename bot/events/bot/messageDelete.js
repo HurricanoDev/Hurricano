@@ -44,13 +44,13 @@ module.exports = {
 
       guildChannel.send(embed);
     }
-    
+
     const { content, channel, author, guild, mentions } = message;
 
     if (!author || author.bot || mentions.users.size === 0) {
       return;
     }
-    
+
     const embed = new MessageEmbed()
       .setTitle("Possible Ghost Ping Detected")
       .setDescription(`Message\n\n"${content}"`)

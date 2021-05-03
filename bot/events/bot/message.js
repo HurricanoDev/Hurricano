@@ -16,6 +16,16 @@ module.exports = {
         "\\$&"
       )})\\s*`
     );
+    let userSchema = await client.schemas.user.findOne({
+      id: message.author.id,
+    });
+    if (!userSchema) {
+      userSchema = await new client.schemas.user({
+        name: message.author.username,
+        id: message.author.id,
+      }).save();
+    }
+
     const embed = new MessageEmbed()
       .setAuthor(
         "Hello!",
@@ -45,6 +55,12 @@ module.exports = {
       const command =
         client.commands.get(cmd) ||
         client.commands.get(client.aliases.get(cmd));
+      if (userSchema.blacklisted)
+        return message.channel.sendError(
+          message,
+          "You have been blacklisted!",
+          "Damn it! You have been blacklisted by a bot moderator! This means you will be unable to use any of the bot commands."
+        );
       if (!command) {
         const best = [
           ...client.commands.map((cmd) => cmd.name),
