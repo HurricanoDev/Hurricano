@@ -28,8 +28,8 @@ module.exports = new Command({
         limit: 30000,
         errors: ["time"],
       })
-      .catch(() => {
-        return message.channel.sendError(
+      .catch(e => {
+        return message.channel.sendError(message, 
           "Time Limit Reached.",
           "You took too long to respond. You can try again later."
         );
