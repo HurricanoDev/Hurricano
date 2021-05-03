@@ -1,12 +1,38 @@
 const Discord = require("discord.js");
 const { MessageEmbed } = require("discord.js");
 const config = require("@config");
+const { fetchSuggestionChannels, suggestionCache, statusMessages } = require('../../utilities/Suggestions.js')
 const leven = require("../../utilities/leven.js");
 
 module.exports = {
   name: "message",
   run: async (message, client) => {
+    //Suggestion System.
+    fetchSuggestionChannels()
     if (message.author.bot || message.channel.type == "dm") return;
+    const cachedChannelId = suggestionCache[message.guild.id]
+    if (cachedChannelId && cachedChannelId === message.channel.id && !member.user.bot) {
+      message.delete()
+
+      const status = statusMessages.WAITING
+
+      const embed = new MessageEmbed()
+        .setColor(status.color)
+        .setAuthor(message.member.displayName, message.member.user.displayAvatarURL())
+        .setDescription(message.content)
+        .addFields({
+          name: 'Status',
+          value: status.text,
+        })
+        .setFooter('Want to suggest something? Simply type it in this channel')
+
+      message.channel.send(embed).then((message) => {
+        message.react('👍').then(() => {
+          message.react('👎')
+        })
+      })
+    }
+    //------------------------------------------------------------------
     const prefix = await client.db.guild.getPrefix(message.guild.id);
     const emojis = client._emojis;
     const { author } = message;
