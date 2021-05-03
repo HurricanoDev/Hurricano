@@ -29,7 +29,8 @@ module.exports = model(
     },
     suggestionChannel: {
       type: String,
-      required: false
-    }
+      required: false,
+      default: 'null'
+    },
   })
 );
