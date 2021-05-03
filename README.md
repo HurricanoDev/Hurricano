@@ -4,9 +4,9 @@ An open source Discord bot, with features such as:
 * Command Permissions
 * OwnerOnly Commands
 * Args required or not Option
-* Reaction Help Command (using package `discord.js-menu`)
 * Giveaways (using package `discord-giveaways`) which uses MongoDB
 * Customizable server settings using MongoDB
+* Logging
 * ...And many interesting commands!
 
 This bot is currently in development, very early stages of it too.
@@ -34,4 +34,3 @@ Bot developed by:
 * [Dragonizedpizza](https://github.com/Dragonizedpizza)
 * [Militia21](https://github.com/Militia21)
 * [Anogh297](https://github.com/Anogh297)
-# HurricanoBeta
