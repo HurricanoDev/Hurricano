@@ -16,7 +16,7 @@ module.exports = new Command({
         "Invalid user provided! Please provide a valid user."
       );
     let userSchema = await client.schemas.user.findOne({ id: user.id });
-    if (!userSchema) await this.functions.createUserDB(user);
+    if (!userSchema) await client.functions.createUserDB(user);
 
     message.channel.sendSuccess(
       message,
