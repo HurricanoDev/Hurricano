@@ -21,7 +21,7 @@
     "chatcord": "0.0.5",
     "common-tags": "^1.8.0",
     "dblapi.js": "^2.4.1",
-    "discord-giveaways": "github:Androz2091/discord-giveaways#develop",
+    "discord-giveaways": "^4.5.1",
     "discord-player": "^3.4.0",
     "discord.js": "github:discordjs/discord.js",
     "dotenv": "^8.2.0",
