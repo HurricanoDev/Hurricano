@@ -1,5 +1,5 @@
 const { MessageEmbed } = require("discord.js");
-const { fetchSuggestionChannels } = require('../../events/bot/suggestions.js');
+const { fetchSuggestionChannels, statusMessages, suggestionCache } = require('../../utilities/Suggestions.js');
 const Command = require("@Command");
 module.exports = new Command({
   name: "suggestion",
