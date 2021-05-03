@@ -19,7 +19,8 @@ module.exports = new Command({
     const newStatus = statusMessages[status]
 
     if (!newStatus) {
-      message.sendErrorReply("Error!",
+      message.sendErrorReply(message,
+        "Error!",
         `Unknown status "${status}", please use ${Object.keys(statusMessages)}`
       )
       return
