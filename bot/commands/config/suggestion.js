@@ -28,7 +28,7 @@ module.exports = new Command({
 
     const channelId = suggestionCache()[guild.id]
     if (!channelId) {
-      message.reply('An error occurred, please report this')
+      message.channel.sendErrorReply(message, "Error!", 'An error occurred, please report this.')
       return
     }
 
