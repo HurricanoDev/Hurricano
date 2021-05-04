@@ -12,15 +12,21 @@ module.exports = new Command({
         message.mentions.members.first() ||
         (await message.guild.members.fetch(args[0]).catch((e) => {}));
     }
-    if (!target || target.size) message.channel.send("Invalid user provided!");
+    if (!target || target.size) message.channel.sendErrorReply(message, "Error", "Invalid user provided!");
     if (target.id === message.author.id)
-      return message.channel.send("You can't decancer youtself!");
+      return message.channel.sendErrorReply(message, "Error!", "You can't decancer youtself!");
     const origiName = target.displayName;
     const nick = decancer(target.displayName);
     if (nick === origiName)
-      return message.channel.send("Target has already been decancered.");
+      return message.channel.sendErrorReply(
+          message, 
+          "Error!", 
+          "Target has already been decancered."
+        );
+    
+    //Actually decancering the nickname smh.
     target.setNickname(nick);
-    message.channel.sendSuccess(
+    message.channel.sendSuccessReply(
       message,
       "Nickname Decancered.",
       `${target}'s name has been decancered. \n \`${origiName}\` => \`${nick}\``
