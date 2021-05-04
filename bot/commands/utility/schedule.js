@@ -1,6 +1,8 @@
 const { MessageEmbed } = require("discord.js");
 const Command = require("@Command");
 const scheduledSchema = require("@schemas/schedule.js");
+const momentTimezone = require('moment-timezone');
+
 module.exports = new Command({
   name: "schedule",
   userPermissions: ["MANAGE_GUILD"],
