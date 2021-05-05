@@ -4,6 +4,9 @@ module.exports = {
   name: "ready",
   once: true,
   run: async (client) => {
+    const feedbackChannel = client.channels.cache.get(client.feedbackChannel);
+    const bugReportChannel = client.channels.cache.get(client.bugReportChannel);
+    if (!feedbackChannel || !bugReportChannel) client.logger.warn('No feedback/bugreport channel found.');
     const slashs = client.commands.filter((cmd) => cmd.slash);
     slashs.forEach(async (x) => {
       await client.api.applications(client.user.id).commands.post({
