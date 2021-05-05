@@ -9,7 +9,7 @@ module.exports = new Command({
   async run (message, args) {
     const guildId = args[0];
     if (!rgx.test(guildId))
-      return this.sendErrorMessage(message, 0, 'Please provide a valid server ID');
+      return message.channel.sendErrorReply(message, "Error", 'Please provide a valid server ID');
     const guild = message.client.guilds.cache.get(guildId);
     if (!guild) return message.channel.sendErrorReply(message, "Error", 'Unable to find server, please check the provided ID');
     await guild.leave();
