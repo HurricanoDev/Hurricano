@@ -7,6 +7,7 @@ const fs = require("fs");
 const { Player } = require("discord-player");
 const giveawaysManager = require("./utilities/giveaway");
 const logger = require("./utilities/logger.js");
+const systemChannels = require('./utilites/systemChannels.json')
 const path = require("path");
 let configFile;
 /**
@@ -73,6 +74,12 @@ class Client extends Discord.Client {
      * Snipes
      */
     this.snipes = new Discord.Collection();
+    
+    /**
+     * Channels
+     */
+    this.bugReportChannel = systemChannels.bugReport
+    this.feedbackChannel = systemChannels.feedback
 
     /**
      * Giveaways Manager
