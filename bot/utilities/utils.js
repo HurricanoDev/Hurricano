@@ -5,7 +5,7 @@ const { stripIndent } = require('common-tags');
 
 function trimStringFromArray(arr, maxLen = 2048, joinChar = '\n') {
   let string = arr.join(joinChar);
-  const diff = maxLen - 15; // Leave room for "And ___ more..."
+  const diff = maxLen - 15;
   if (string.length > maxLen) {
     string = string.slice(0, string.length - (string.length - diff)); 
     string = string.slice(0, string.lastIndexOf(joinChar));
