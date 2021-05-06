@@ -36,6 +36,11 @@ module.exports = model(
       type: String,
       required: false,
       default: 'null'
+    },
+    autoRole: {
+      type: String,
+      required: false,
+      default: 'null'
     }
   })
 );
