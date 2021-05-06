@@ -80,7 +80,11 @@ class Client extends Discord.Client {
      */
     this.bugReportChannel = systemChannels.bugReport
     this.feedbackChannel = systemChannels.feedback
-
+    
+    /**
+     * Utilities
+     */
+    this.utils = require('./utilities/utils.js')
     /**
      * Giveaways Manager
      */
