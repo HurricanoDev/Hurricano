@@ -6,6 +6,7 @@ module.exports = new Command({
   name: "leaveguild",
   description: "Force Hurricano to leave a server.",
   args: "Give me a ID of a server to leave.",
+  ownerOnly: true,
   async run (message, args) {
     const guildId = args[0];
     if (!rgx.test(guildId))
