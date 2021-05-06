@@ -32,5 +32,10 @@ module.exports = model(
       required: false,
       default: 'null'
     },
+    systemChannel: {
+      type: String,
+      required: false,
+      default: 'null'
+    }
   })
 );
