@@ -41,6 +41,11 @@ module.exports = model(
       type: String,
       required: false,
       default: 'null'
+    },
+    memberLog: {
+      type: String,
+      required: false,
+      default: 'null'
     }
   })
 );
