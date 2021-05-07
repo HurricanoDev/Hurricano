@@ -35,5 +35,9 @@ module.exports = {
         { prefix: newPrefix }
       );
     },
+    getMemberLog: async (guildID) => {
+      const data = await global.client.schemas.guild.findOne({ guild: guildID });
+      return data.memberLog
+    }
   },
 };
