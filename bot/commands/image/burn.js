@@ -16,10 +16,10 @@ module.exports = new Command({
       required: true,
     },
   ],
-  async run(message, args, quicksend) {
+  async run(message, args) {
     if (message.token) {
       const canvacord = require("canvacord");
-      let person = await client.users.fetch(args[0].value);
+      let person = interaction.mentions;
       let avatar = person.displayAvatarURL({ dynamic: false, format: "png" });
       const img = await canvacord.Canvas.burn(avatar, 4);
       const embed = new MessageEmbed()
@@ -27,7 +27,7 @@ module.exports = new Command({
         .setDescription(`Get burnt, ${person}.`)
         .attachFiles([new MessageAttachment(img, "img.png")])
         .setImage("attachment://img.png");
-      quicksend(message, embed);
+      message.reply(embed);
     } else {
       let person =
         message.mentions.users.first() ||
