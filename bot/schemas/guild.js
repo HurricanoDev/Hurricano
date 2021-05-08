@@ -30,7 +30,17 @@ module.exports = model(
     suggestionChannel: {
       type: String,
       required: false,
-      default: 'null'
+      default: "null",
+    },
+    suggestions: {
+      type: Schema.Types.Mixed,
+      required: false,
+      default: {},
+    },
+    suggestionNumber: {
+      type: String,
+      required: false,
+      default: '1',
     },
     systemChannel: {
       type: String,

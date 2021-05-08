@@ -1,22 +1,21 @@
 const mongoose = require("mongoose");
 const config = require("@config");
+const message = require("./message");
 module.exports = {
   name: "ready",
   once: true,
   run: async (client) => {
-    const feedbackChannel = client.channels.cache.get(client.feedbackChannel);
-    const bugReportChannel = client.channels.cache.get(client.bugReportChannel);
-    if (!feedbackChannel || !bugReportChannel) client.logger.warn('No feedback/bugreport channel found.');
     const slashs = client.commands.filter((cmd) => cmd.slash);
-    slashs.forEach(async (x) => {
-      await client.api.applications(client.user.id).commands.post({
-        data: {
-          name: x.name,
-          description: x.description,
-          options: x.options,
-        },
-      });
-    });
+    let slashies = [];
+    slashs.forEach(slash => {
+      let cmd = {
+        name: slash.name,
+        description: slash.description,
+        options: slash.options
+      }
+      slashies.push(cmd);
+    })
+    client.application?.commands.set(slashies)
     client.giveawaysManager._init();
     //find and create data
     for (const guild of client.guilds.cache.values()) {
@@ -26,7 +25,13 @@ module.exports = {
           await new client.schemas.guild({
             id: guild.id,
             name: guild.name,
+            suggestions: {},
           }).save();
+          const guildSchema = await client.schemas.guild.findOne({ id: guild.id });
+          if (typeof guildSchema.suggestions !== 'object') {
+            guildSchema.suggestions = {};
+            await guildSchema.save();
+          }
       } catch (err) {
         client.logger.warn(err);
       }

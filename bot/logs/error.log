@@ -1,0 +1,21 @@
+2021-05-08 04:04:53 - warn [index.js]: Invalid Form Body
+0.options[0].name: Command name is invalid
+1.options[0].name: Command name is invalid
+2.options[0].name: Command name is invalid
+4.options[0].name: Command name is invalid
+{
+  "name": "DiscordAPIError",
+  "method": "put",
+  "path": "/applications/825574412178423859/commands",
+  "code": 50035,
+  "httpStatus": 400,
+  "stack": "DiscordAPIError: Invalid Form Body
+0.options[0].name: Command name is invalid
+1.options[0].name: Command name is invalid
+2.options[0].name: Command name is invalid
+4.options[0].name: Command name is invalid
+    at RequestHandler.execute (/home/dragonizedpizza/Desktop/breh/Hurricano/node_modules/discord.js/src/rest/RequestHandler.js:243:13)
+    at processTicksAndRejections (internal/process/task_queues.js:93:5)
+    at async RequestHandler.push (/home/dragonizedpizza/Desktop/breh/Hurricano/node_modules/discord.js/src/rest/RequestHandler.js:49:14)
+    at async ApplicationCommandManager.set (/home/dragonizedpizza/Desktop/breh/Hurricano/node_modules/discord.js/src/managers/ApplicationCommandManager.js:119:18)"
+}

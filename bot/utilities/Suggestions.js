@@ -1,4 +1,5 @@
 const { MessageEmbed } = require("discord.js");
+
 const statusMessages = {
   WAITING: {
     text: "📊 Waiting for community feedback, please vote!",
@@ -15,18 +16,10 @@ const statusMessages = {
   },
 };
 
-let suggestionCache = {} 
 const fetchSuggestionChannel = async (guildId) => {
     let guildSchema = await client.schemas.guild.findOne({ id: guildId });
     if (!guildSchema) throw new Error('Invalid guild ID provided for getting suggestion channel.');
-    if (!guildSchema.suggestionChannel) return null;
-    if (guildSchema.suggestionChannel === 'null') return null;
+    if (!guildSchema.suggestionChannel || guildSchema.suggestionChannel === 'null') return null;
     return (await client.channels.fetch(guildSchema.suggestionChannel));
 }
-module.exports.fetchSuggestionChannels = fetchSuggestionChannels
-
-module.exports.statusMessages = statusMessages
-
-module.exports.suggestionCache = () => {
-  return suggestionCache
-}
+module.exports.fetchSuggestionChannel = fetchSuggestionChannel;

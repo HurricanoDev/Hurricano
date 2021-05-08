@@ -10,5 +10,10 @@
   "topgg": {
     "enabled": false,
     "token": "only put something here if you set top.gg api to true"
+  },
+  "botChannels": {
+    "bugReport": "...",
+    "feedback": "..."
   }
+  
 }

@@ -1,21 +1,9 @@
 const mongoose = require("mongoose");
 const levels = require("../schemas/level.js");
-var mongoUrl;
-
 class Levels {
   /**
    * @param {string} [dbUrl] - A valid mongo database URI.
    */
-
-  static async setURL(dbUrl) {
-    if (!dbUrl) throw new TypeError("A database url was not provided.");
-    mongoUrl = dbUrl;
-    return mongoose.connect(dbUrl, {
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
-      useFindAndModify: false,
-    });
-  }
 
   /**
    * @param {string} [userId] - Discord user id.

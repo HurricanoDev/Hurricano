@@ -7,7 +7,6 @@ const fs = require("fs");
 const { Player } = require("discord-player");
 const giveawaysManager = require("./utilities/giveaway");
 const logger = require("./utilities/logger.js");
-const systemChannels = require('./utilites/systemChannels.json')
 const path = require("path");
 let configFile;
 /**
@@ -64,7 +63,6 @@ class Client extends Discord.Client {
      * Levelling
      */
     this.levels = require("./utilities/Levels.js");
-    this.levels.setURL(config.mongouri);
     /**
      * Cooldowns
      */
@@ -78,13 +76,9 @@ class Client extends Discord.Client {
     /**
      * Channels
      */
-    this.bugReportChannel = systemChannels.bugReport
-    this.feedbackChannel = systemChannels.feedback
-    
-    /**
-     * Utilities
-     */
-    this.utils = require('./utilities/utils.js')
+    this.bugReportChannel = this.channels.cache.get(this.config.botChannels.bugReport);
+    this.feedbackChannel = this.channels.cache.get(this.config.botChannels.feedback);
+
     /**
      * Giveaways Manager
      */
@@ -136,12 +130,29 @@ class Client extends Discord.Client {
       "normalizer",
       "surrounding",
     ];
+
+    this.links = {
+      errorImage: "https://raw.githubusercontent.com/HurricanoBot/HurricanoImages/master/SetAuthorEmojis/Error.png",
+      successImage: "https://raw.githubusercontent.com/HurricanoBot/HurricanoImages/master/SetAuthorEmojis/Success.png"
+    }
     this.functions = {
       createUserDB: async (userObj) => {
         await new this.schemas.user({
           name: userObj.name,
           id: userObj.id,
         });
+        getMember: async (returnAuthor, message, args) => {
+          if (!returnAuthor) throw new Error(`Returning message.author not specified.`);
+          if (!message) throw new Error(`Message object not provided.`);
+          if (!args) throw new Error(`Arguments array not provided.`);
+          if (typeof returnAuthor !== 'boolean') throw new Error(`Whether to return author or not option is not boolean.`);
+          if (typeof message !== 'object') throw new Error(`Message provided is not an object.`);
+          if (typeof args !== 'string') throw new Error(`Args provided is not a string.`);
+          let user = args ? await message.guild.members.fetch(args) : message.mentions.members.first();
+
+          if (returnAuthor && !user) return message.author;
+          return user;
+        };
       },
     };
   }
@@ -167,14 +178,7 @@ class Client extends Discord.Client {
       const event = require(`./events/music/${file}`);
       this.player.on(event.name, (...args) => event.run(...args, this));
     }
-    // WEBSOCKET EVENTS
-    const wsevents = fs
-      .readdirSync("./bot/events/ws")
-      .filter((file) => file.endsWith(".js"));
-    for (const file of wsevents) {
-      const event = require(`./events/ws/${file}`);
-      this.ws.on(event.name, (...args) => event.run(...args, this));
-    }
+
     // GIVEAWAYS EVENTS
     const giveawaysevents = fs
       .readdirSync("./bot/events/giveaways")

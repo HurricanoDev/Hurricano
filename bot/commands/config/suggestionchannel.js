@@ -45,6 +45,12 @@ module.exports = new Command({
           suggestionChannel: 'null'
         })
         message.channel.sendSuccess(message, 'Success!', 'Successfully removed the suggestions channel!')
+        break;
+        default: 
+        return message.sendErrorReply(
+          "Invalid Arguments.",
+          `Please provide whether you would like to set a channel, or remove it! \n To set a suggestions channel, type: \`\`\`xl\n${prefix}suggestionchannel set {channel}\`\`\`, and if you would like to remove a suggestions channel, type \`\`\`js\n${prefix}suggestionchannel remove\`\`\``
+        );
       };
   },
 });

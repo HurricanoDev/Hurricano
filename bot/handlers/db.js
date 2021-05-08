@@ -25,6 +25,7 @@ module.exports = {
     },
     getPrefix: async (guildID) => {
       const data = await global.client.schemas.guild.findOne({ id: guildID });
+      if (!data) throw new Error(`Guild data not found.`);
       return data.prefix;
     },
 

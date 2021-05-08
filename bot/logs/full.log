@@ -1,13 +1,18 @@
-2021-05-03 14:06:56 - client [index.js]: 
-.-----------------------2021-05-03 14:06:59 - shard [index.js]: [Shard 0] Shard Ready!
+2021-05-08 04:04:49 - client [index.js]: 
+.-----------------------2021-05-08 04:04:53 - shard [index.js]: [Shard 0] Shard Ready!
 mands                        |
 |--------------------------------------------------------|
 |     Command File     |   Command Name    | Load status |
 |----------------------|-------------------|-------------|
+| accept.js            | deny              | Loaded!     |
+| deny.js              | deny              | Loaded!     |
 | disable.js           | disable           | Loaded!     |
 | enable.js            | enable            | Loaded!     |
 | msglogs.js           | msglogs           | Loaded!     |
+| setautorole.js       | setautorole       | Loaded!     |
 | setprefix.js         | setprefix         | Loaded!     |
+| setsystemchannel.js  | setsystemchannel  | Loaded!     |
+| suggestion.js        | suggestion        | Loaded!     |
 | suggestionchannel.js | suggestionchannel | Loaded!     |
 | connect4.js          | connect4          | Loaded!     |
 | meme.js              | meme              | Loaded!     |
@@ -47,40 +52,63 @@ mands                        |
 | eval.js              | eval              | Loaded!     |
 | exec.js              | exec              | Loaded!     |
 | fulleval.js          | fulleval          | Loaded!     |
+| leaveguild.js        | leaveguild        | Loaded!     |
 | pull.js              | pull              | Loaded!     |
 | reboot.js            | reboot            | Loaded!     |
 | reload.js            | reload            | Loaded!     |
 | shutdown.js          | shutdown          | Loaded!     |
 | unblacklist.js       | ablacklist        | Loaded!     |
+| suggest.js           | suggest           | Loaded!     |
 '--------------------------------------------------------'
-2021-05-03 14:06:56 - info [index.js]: Provided token: ODAzMTY5MzEyODI3MTEzNDgz.YA53tg.***************************
-2021-05-03 14:06:56 - info [index.js]: Preparing to connect to the gateway...
-2021-05-03 14:06:57 - db [index.js]: Connected to MongoDB!
-2021-05-03 14:06:57 - info [index.js]: [WS => Manager] Fetched Gateway Information
+2021-05-08 04:04:49 - info [index.js]: Provided token: ODI1NTc0NDEyMTc4NDIzODU5.YF_6Fg.***************************
+2021-05-08 04:04:49 - info [index.js]: Preparing to connect to the gateway...
+2021-05-08 04:04:49 - info [index.js]: [WS => Manager] Fetched Gateway Information
     URL: wss://gateway.discord.gg
     Recommended Shards: 1
-2021-05-03 14:06:57 - info [index.js]: [WS => Manager] Session Limit Information
+2021-05-08 04:04:49 - info [index.js]: [WS => Manager] Session Limit Information
     Total: 1000
-    Remaining: 992
-2021-05-03 14:06:57 - info [index.js]: [WS => Manager] Spawning shards: 0
-2021-05-03 14:06:57 - info [index.js]: [WS => Shard 0] [CONNECT]
+    Remaining: 962
+2021-05-08 04:04:49 - info [index.js]: [WS => Manager] Spawning shards: 0
+2021-05-08 04:04:49 - info [index.js]: [WS => Shard 0] [CONNECT]
     Gateway    : wss://gateway.discord.gg/
     Version    : 8
     Encoding   : json
     Compression: none
-2021-05-03 14:06:57 - info [index.js]: [WS => Shard 0] Setting a HELLO timeout for 20s.
-2021-05-03 14:06:58 - info [index.js]: [WS => Shard 0] [CONNECTED] wss://gateway.discord.gg/?v=8&encoding=json in 535ms
-2021-05-03 14:06:58 - info [index.js]: [WS => Shard 0] Clearing the HELLO timeout.
-2021-05-03 14:06:58 - info [index.js]: [WS => Shard 0] Setting a heartbeat interval for 41250ms.
-2021-05-03 14:06:58 - info [index.js]: [WS => Shard 0] [IDENTIFY] Shard 0/1
-2021-05-03 14:06:58 - info [index.js]: [WS => Shard 0] [READY] Session b8be46d14b48473ac60aa273df0cae1b.
-2021-05-03 14:06:58 - info [index.js]: [WS => Shard 0] [ReadyHeartbeat] Sending a heartbeat.
-2021-05-03 14:06:59 - info [index.js]: [WS => Shard 0] Shard received all its guilds. Marking as fully ready.
-2021-05-03 14:06:59 - info [index.js]: [WS => Shard 0] Heartbeat acknowledged, latency of 1482ms.
-2021-05-03 14:07:00 - client [index.js]: Hurricano™#3437 Successfully Logged in!
-2021-05-03 14:07:39 - info [index.js]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
-2021-05-03 14:07:39 - info [index.js]: [WS => Shard 0] Heartbeat acknowledged, latency of 329ms.
-2021-05-03 14:08:20 - info [index.js]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
-2021-05-03 14:08:20 - info [index.js]: [WS => Shard 0] Heartbeat acknowledged, latency of 337ms.
-2021-05-03 14:09:01 - info [index.js]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
-2021-05-03 14:09:02 - info [index.js]: [WS => Shard 0] Heartbeat acknowledged, latency of 342ms.
+2021-05-08 04:04:49 - info [index.js]: [WS => Shard 0] Setting a HELLO timeout for 20s.
+2021-05-08 04:04:51 - db [index.js]: Connected to MongoDB!
+2021-05-08 04:04:51 - info [index.js]: [WS => Shard 0] [CONNECTED] wss://gateway.discord.gg/?v=8&encoding=json in 1302ms
+2021-05-08 04:04:51 - info [index.js]: [WS => Shard 0] Clearing the HELLO timeout.
+2021-05-08 04:04:51 - info [index.js]: [WS => Shard 0] Setting a heartbeat interval for 41250ms.
+2021-05-08 04:04:51 - info [index.js]: [WS => Shard 0] [IDENTIFY] Shard 0/1
+2021-05-08 04:04:51 - info [index.js]: [WS => Shard 0] [READY] Session 24ef89a075937e7daa80035bbfea3969.
+2021-05-08 04:04:51 - info [index.js]: [WS => Shard 0] [ReadyHeartbeat] Sending a heartbeat.
+2021-05-08 04:04:53 - info [index.js]: [WS => Shard 0] Shard received all its guilds. Marking as fully ready.
+2021-05-08 04:04:53 - info [index.js]: [WS => Shard 0] Heartbeat acknowledged, latency of 1463ms.
+2021-05-08 04:04:53 - warn [index.js]: Invalid Form Body
+0.options[0].name: Command name is invalid
+1.options[0].name: Command name is invalid
+2.options[0].name: Command name is invalid
+4.options[0].name: Command name is invalid
+{
+  "name": "DiscordAPIError",
+  "method": "put",
+  "path": "/applications/825574412178423859/commands",
+  "code": 50035,
+  "httpStatus": 400,
+  "stack": "DiscordAPIError: Invalid Form Body
+0.options[0].name: Command name is invalid
+1.options[0].name: Command name is invalid
+2.options[0].name: Command name is invalid
+4.options[0].name: Command name is invalid
+    at RequestHandler.execute (/home/dragonizedpizza/Desktop/breh/Hurricano/node_modules/discord.js/src/rest/RequestHandler.js:243:13)
+    at processTicksAndRejections (internal/process/task_queues.js:93:5)
+    at async RequestHandler.push (/home/dragonizedpizza/Desktop/breh/Hurricano/node_modules/discord.js/src/rest/RequestHandler.js:49:14)
+    at async ApplicationCommandManager.set (/home/dragonizedpizza/Desktop/breh/Hurricano/node_modules/discord.js/src/managers/ApplicationCommandManager.js:119:18)"
+}
+2021-05-08 04:04:53 - client [index.js]: Hurricano Beta#2437 Successfully Logged in!
+2021-05-08 04:05:32 - info [index.js]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+2021-05-08 04:05:32 - info [index.js]: [WS => Shard 0] Heartbeat acknowledged, latency of 332ms.
+2021-05-08 04:06:13 - info [index.js]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+2021-05-08 04:06:14 - info [index.js]: [WS => Shard 0] Heartbeat acknowledged, latency of 341ms.
+2021-05-08 04:07:31 - db [index.js]: Disconnected from MongoDB!
+2021-05-08 04:07:43 - db [index.js]: Connected to MongoDB!

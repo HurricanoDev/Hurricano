@@ -41,6 +41,7 @@
   "_moduleAliases": {
     "@config": "./bot/utilities/config.js",
     "@root": ".",
-    "@Command": "./bot/utilities/Command.js"
+    "@Command": "./bot/utilities/Command.js",
+    "@Utils": "./bot/utilities/"
   }
 }

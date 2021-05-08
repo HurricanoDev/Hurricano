@@ -8,6 +8,7 @@ try {
     ownerIds: config.ownerIds,
     website: config.website,
     topgg: config.topgg,
+    botChannels: config.botChannels,
   };
   module.exports = config;
 } catch (err) {
@@ -17,6 +18,7 @@ try {
     ownerIds: process.env.ownerIds,
     website: JSON.parse(process.env.website),
     topgg: JSON.parse(process.env.topgg),
+    botChannels: JSON.parse(process.env.botChannels),
   };
   module.exports = config;
 }
@@ -25,3 +27,4 @@ if (!config.token) logger.emerg("No bot token provided!");
 if (!config.mongouri) logger.emerg("No MongoDB uri provided!");
 if (!config.website) logger.emerg("No website object provided!");
 if (!config.topgg) logger.emerg("No Top.gg object provided!");
+if (!config.botChannels) logger.emerg("No bot channels provided!");
