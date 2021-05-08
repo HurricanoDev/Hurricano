@@ -15,19 +15,18 @@ module.exports = new Command({
       description: "What you would you like to set your prefix as.",
       type: 3,
       required: true,
-    },
+    }
   ],
-  async run(message, args, quicksend) {
+  async run(message, args) {
     const embed = new MessageEmbed().setAuthor(
       "Server Settings Change.",
       "https://raw.githubusercontent.com/HurricanoBot/HurricanoImages/master/SetAuthorEmojis/Success.png"
     );
     if (message.token) {
       const prefix = args[0].value;
-      const channel = client.channels.cache.get(message.channel_id);
-      if (!channel.permissionsFor(message.member.user.id).has("ADMINISTRATOR"))
-        return quicksend(message, new MessageEmbed().setTitle("no perms kbye"));
-      await client.db.guild.updatePrefix(message.guild_id, prefix);
+      if (!message.channel.permissionsFor(message.member.user.id).has("ADMINISTRATOR"))
+        return await message.reply("You don't have permission to do this!", { ephemeral: true });
+      await client.db.guild.updatePrefix(message.guild.id, prefix);
 
       embed.setDescription(
         "The server prefix has now been changed to **`" + prefix + "`**."
