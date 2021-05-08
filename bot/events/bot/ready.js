@@ -15,7 +15,8 @@ module.exports = {
       };
       slashies.push(cmd);
     });
-    client.application?.commands.set(slashies);
+    slashies = slashies.filter(x => x.name && typeof x.name === 'string');
+    await client.application?.commands.set(slashies)
     client.giveawaysManager._init();
     //find and create data
     for (const guild of client.guilds.cache.values()) {
