@@ -18,7 +18,10 @@ try {
     ownerIds: process.env.ownerIds,
     website: JSON.parse(process.env.website),
     topgg: JSON.parse(process.env.topgg),
-    botChannels: JSON.parse(process.env.botChannels),
+    botChannels: {
+      bugReport: "840514842460422174",
+      feedback: "840511240988262400"
+    },
   };
   module.exports = config;
 }
