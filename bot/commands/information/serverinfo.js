@@ -33,9 +33,9 @@ module.exports = new Command({
   description: "Shows information about the server!",
   slash: true,
   double: true,
-  async run(message, args, quicksend) {
+  async run(message, args) {
     if (message.token) {
-      const guild = client.guilds.cache.get(message.guild_id);
+      const guild = message.guild;
       const oldmem = guild.members.cache
         .filter((m) => !m.user.bot)
         .sort((a, b) => a.user.createdAt - b.user.createdAt)
@@ -101,7 +101,7 @@ module.exports = new Command({
           `**Youngest Account:** \`${newmem.user.tag}\` (${newmem.user.createdAt})\n \n**Oldest Account:** \`${oldmem.user.tag}\` (${oldmem.user.createdAt})`
         );
 
-      quicksend(message, em);
+      message.reply(em);
     } else {
       const oldmem = message.guild.members.cache
         .filter((m) => !m.user.bot)
