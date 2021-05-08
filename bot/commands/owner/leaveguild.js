@@ -1,5 +1,5 @@
 const Command = require("@Command");
-const { MessageEmbed } = require('discord.js');
+const { MessageEmbed } = require("discord.js");
 const rgx = /^(?:<@!?)?(\d+)>?$/;
 
 module.exports = new Command({
@@ -7,19 +7,31 @@ module.exports = new Command({
   description: "Force Hurricano to leave a server.",
   args: "Give me a ID of a server to leave.",
   ownerOnly: true,
-  async run (message, args) {
+  async run(message, args) {
     const guildId = args[0];
     if (!rgx.test(guildId))
-      return message.channel.sendErrorReply(message, "Error", 'Please provide a valid server ID');
+      return message.channel.sendErrorReply(
+        message,
+        "Error",
+        "Please provide a valid server ID"
+      );
     const guild = message.client.guilds.cache.get(guildId);
-    if (!guild) return message.channel.sendErrorReply(message, "Error", 'Unable to find server, please check the provided ID');
+    if (!guild)
+      return message.channel.sendErrorReply(
+        message,
+        "Error",
+        "Unable to find server, please check the provided ID"
+      );
     await guild.leave();
     const embed = new MessageEmbed()
-      .setTitle('Leave Guild')
+      .setTitle("Leave Guild")
       .setDescription(`I have successfully left **${guild.name}**.`)
-      .setFooter(message.member.displayName,  message.author.displayAvatarURL({ dynamic: true }))
+      .setFooter(
+        message.member.displayName,
+        message.author.displayAvatarURL({ dynamic: true })
+      )
       .setTimestamp()
       .setColor("#6082b6");
     message.channel.send(embed);
-  }
-})
+  },
+});

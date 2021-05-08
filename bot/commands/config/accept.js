@@ -12,7 +12,8 @@ module.exports = new Command({
       message.guild.id
     );
     if (!suggestionChannel)
-      return message.channel.sendError(message, 
+      return message.channel.sendError(
+        message,
         "No Suggestions Channel!",
         "This guild does not have a suggestions channel set! Ask an administrator to set it up."
       );
@@ -31,12 +32,12 @@ module.exports = new Command({
     let suggestionUser = client.users.cache.get(suggestion[1]);
     let embed = new MessageEmbed()
       .setAuthor("Suggestion Accepted!", client.links.successImage)
-      .setDescription(
-        "Accepted idea! Will be implemented soon!"
-      )
+      .setDescription("Accepted idea! Will be implemented soon!")
       .addField(
         `Suggestion from \`${suggestionUser.tag}\`:`,
-        suggestionMsg.embeds[0].description > 1024 ? 'Suggestion content is larger than 1024.' : suggestionMsg.embeds[0].description,
+        suggestionMsg.embeds[0].description > 1024
+          ? "Suggestion content is larger than 1024."
+          : suggestionMsg.embeds[0].description,
         true
       )
       .addField("Approved By:", message.author.tag + ` (${message.author.id})`);
@@ -47,6 +48,10 @@ module.exports = new Command({
     guildSchema.suggestions = suggestionsObj;
     await guildSchema.save();
 
-    message.channel.sendSuccess(message, 'Success!', `Successfully approved [this suggestion!](${suggestionMsg.url})`)
+    message.channel.sendSuccess(
+      message,
+      "Success!",
+      `Successfully approved [this suggestion!](${suggestionMsg.url})`
+    );
   },
 });

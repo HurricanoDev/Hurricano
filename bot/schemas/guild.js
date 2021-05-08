@@ -40,22 +40,22 @@ module.exports = model(
     suggestionNumber: {
       type: String,
       required: false,
-      default: '1',
+      default: "1",
     },
     systemChannel: {
       type: String,
       required: false,
-      default: 'null'
+      default: "null",
     },
     autoRole: {
       type: String,
       required: false,
-      default: 'null'
+      default: "null",
     },
     memberLog: {
       type: String,
       required: false,
-      default: 'null'
-    }
+      default: "null",
+    },
   })
 );

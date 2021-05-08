@@ -72,12 +72,16 @@ class Client extends Discord.Client {
      * Snipes
      */
     this.snipes = new Discord.Collection();
-    
+
     /**
      * Channels
      */
-    this.bugReportChannel = this.channels.cache.get(this.config.botChannels.bugReport);
-    this.feedbackChannel = this.channels.cache.get(this.config.botChannels.feedback);
+    this.bugReportChannel = this.channels.cache.get(
+      this.config.botChannels.bugReport
+    );
+    this.feedbackChannel = this.channels.cache.get(
+      this.config.botChannels.feedback
+    );
 
     /**
      * Giveaways Manager
@@ -132,9 +136,11 @@ class Client extends Discord.Client {
     ];
 
     this.links = {
-      errorImage: "https://raw.githubusercontent.com/HurricanoBot/HurricanoImages/master/SetAuthorEmojis/Error.png",
-      successImage: "https://raw.githubusercontent.com/HurricanoBot/HurricanoImages/master/SetAuthorEmojis/Success.png"
-    }
+      errorImage:
+        "https://raw.githubusercontent.com/HurricanoBot/HurricanoImages/master/SetAuthorEmojis/Error.png",
+      successImage:
+        "https://raw.githubusercontent.com/HurricanoBot/HurricanoImages/master/SetAuthorEmojis/Success.png",
+    };
     this.functions = {
       createUserDB: async (userObj) => {
         await new this.schemas.user({
@@ -142,13 +148,21 @@ class Client extends Discord.Client {
           id: userObj.id,
         });
         getMember: async (returnAuthor, message, args) => {
-          if (!returnAuthor) throw new Error(`Returning message.author not specified.`);
+          if (!returnAuthor)
+            throw new Error(`Returning message.author not specified.`);
           if (!message) throw new Error(`Message object not provided.`);
           if (!args) throw new Error(`Arguments array not provided.`);
-          if (typeof returnAuthor !== 'boolean') throw new Error(`Whether to return author or not option is not boolean.`);
-          if (typeof message !== 'object') throw new Error(`Message provided is not an object.`);
-          if (typeof args !== 'string') throw new Error(`Args provided is not a string.`);
-          let user = args ? await message.guild.members.fetch(args) : message.mentions.members.first();
+          if (typeof returnAuthor !== "boolean")
+            throw new Error(
+              `Whether to return author or not option is not boolean.`
+            );
+          if (typeof message !== "object")
+            throw new Error(`Message provided is not an object.`);
+          if (typeof args !== "string")
+            throw new Error(`Args provided is not a string.`);
+          let user = args
+            ? await message.guild.members.fetch(args)
+            : message.mentions.members.first();
 
           if (returnAuthor && !user) return message.author;
           return user;

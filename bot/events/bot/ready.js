@@ -7,15 +7,15 @@ module.exports = {
   run: async (client) => {
     const slashs = client.commands.filter((cmd) => cmd.slash);
     let slashies = [];
-    slashs.forEach(slash => {
+    slashs.forEach((slash) => {
       let cmd = {
         name: slash.name,
         description: slash.description,
-        options: slash.options
-      }
+        options: slash.options,
+      };
       slashies.push(cmd);
-    })
-    client.application?.commands.set(slashies)
+    });
+    client.application?.commands.set(slashies);
     client.giveawaysManager._init();
     //find and create data
     for (const guild of client.guilds.cache.values()) {
@@ -27,11 +27,13 @@ module.exports = {
             name: guild.name,
             suggestions: {},
           }).save();
-          const guildSchema = await client.schemas.guild.findOne({ id: guild.id });
-          if (typeof guildSchema.suggestions !== 'object') {
-            guildSchema.suggestions = {};
-            await guildSchema.save();
-          }
+        const guildSchema = await client.schemas.guild.findOne({
+          id: guild.id,
+        });
+        if (typeof guildSchema.suggestions !== "object") {
+          guildSchema.suggestions = {};
+          await guildSchema.save();
+        }
       } catch (err) {
         client.logger.warn(err);
       }
