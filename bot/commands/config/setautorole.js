@@ -9,7 +9,6 @@ module.exports = new Command({
   description:
     "Set an autorole to give to new members upon joining your server.",
   async run(message, args) {
-    const Schema = client.schemas.guild;
     const prefix = await client.db.guild.getPrefix(message.guild.id);
 
     if (!message.guild.me.permissions.has("MANAGE_ROLES"))
@@ -19,7 +18,7 @@ module.exports = new Command({
         "I am missing the `MANAGE_ROLES` permission to execute this command."
       );
     if (!args.length) {
-      const data = await Schema.findOne({ id: message.guild.id });
+      const data = await client.schemas.guild.findOne({ id: message.guild.id });
       if (data.autoRole) {
         message.sendSuccessReply(
           "AutoRole Updated!",
@@ -38,7 +37,7 @@ module.exports = new Command({
         );
       }
     } else {
-      const data = await Schema.findOne({ id: message.guild.id });
+      const data = await client.schemas.guild.findOne({ id: message.guild.id });
       const role =
         message.mentions.roles.first() ||
         message.guild.roles.cache.get(args[0]);
@@ -49,7 +48,7 @@ module.exports = new Command({
           "That is not a valid role!"
         );
       if (data.autoRole) {
-        await Schema.findOneAndUpdate(
+        await client.schemas.guild.findOneAndUpdate(
           { id: message.guild.id },
           { autoRole: args[0] },
           { upsert: true }
@@ -59,7 +58,7 @@ module.exports = new Command({
           `${data.autoRole} ➔ \`${role}\``
         );
       }
-      await Schema.findOneAndUpdate(
+      await client.schemas.guild.findOneAndUpdate(
         { id: message.guild.id },
         { autoRole: role.id },
         { upsert: true }
