@@ -9,64 +9,53 @@ module.exports = new Command({
   description:
     "Set an autorole to give to new members upon joining your server.",
   async run(message, args) {
-    const prefix = await client.db.guild.getPrefix(message.guild.id);
+    switch (args[0]) {
+      case "set":
+        //Some stuff
+        const prefix = await client.db.guild.getPrefix(message.guild.id);
+        const role =
+          message.mentions.roles.first() ||
+          message.guild.roles.cache.get(args[1]);
+        //No Permission
+        if (!message.guild.me.permissions.has("MANAGE_ROLES"))
+          return message.channel.sendError(
+            message,
+            "Errpr",
+            "I am missing the: `MANAGE_ROLES` permission needed to execute this command."
+          );
+        //Invalid role
+        if (!role)
+          return message.channel.sendError(
+            message,
+            "Error",
+            `The role you provided was invalid.`
+          );
 
-    if (!message.guild.me.permissions.has("MANAGE_ROLES"))
-      return message.channel.sendError(
-        message,
-        "Error",
-        "I am missing the `MANAGE_ROLES` permission to execute this command."
-      );
-    if (!args.length) {
-      const data = await client.schemas.guild.findOne({ id: message.guild.id });
-      if (data.autoRole) {
-        message.sendSuccessReply(
-          "AutoRole Updated!",
-          `${data.autoRole} ➔ \`None\``
-        );
-        data.findOneAndUpdate(
-          { id: message.guild.id },
-          { autoRole: "null" },
-          { upsert: true }
-        );
-      } else if (!data.autoRole) {
-        message.channel.sendError(
-          message,
-          "Error",
-          `There is no current autorole set! Use ${prefix}setautorole to set an autorole.`
-        );
-      }
-    } else {
-      const data = await client.schemas.guild.findOne({ id: message.guild.id });
-      const role =
-        message.mentions.roles.first() ||
-        message.guild.roles.cache.get(args[0]);
-      if (!role)
-        return message.channel.sendError(
-          message,
-          "Error",
-          "That is not a valid role!"
-        );
-      if (data.autoRole) {
         await client.schemas.guild.findOneAndUpdate(
           { id: message.guild.id },
-          { autoRole: args[0] },
+          { autoRole: role.id },
           { upsert: true }
         );
-        message.sendSuccessReply(
-          "Autorole Updated!",
-          `${data.autoRole} ➔ \`${role}\``
+        return message.sendSuccessReply(
+          "Autorole set!",
+          `The autorole for this server was set to: ${role}`
         );
-      }
-      await client.schemas.guild.findOneAndUpdate(
-        { id: message.guild.id },
-        { autoRole: role.id },
-        { upsert: true }
-      );
-      message.sendSuccessReply(
-        "Autorole Updated!",
-        `\`None\` ➔ ${role}`
-      );
+        break;
+      case "remove":
+        await client.schemas.guild.findOneAndUpdate(
+          { id: message.guild.id },
+          { autoRole: "null" }
+        );
+        return message.sendSuccessReply(
+          "Autorole Removed!",
+          `The autorole for this guild has been removed!`
+        );
+        break;
+      default:
+        return message.sendErrorReply(
+          "Invalid Arguments.",
+          `Please provide whether you would like to set a role, or remove it! \n To set a autorole, type: \`\`\`xl\n${prefix}autorole set {role/id}\`\`\`, and if you would like to remove a autorole, type \`\`\`js\n${prefix}autorole remove\`\`\``
+        );
     }
   },
 });
