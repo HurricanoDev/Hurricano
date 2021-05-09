@@ -7,6 +7,8 @@ module.exports = {
   run: async (member, client) => {
     const memberLogId = await client.schemas.guild.findOne({ id: member.guild.id });
     const memberLog = member.guild.channels.cache.get(memberLogId.memberLog);
+    const systemChannelId = memberLogId.systemChannel;
+    const systemChannel = member.guild.channels.cache.get(systemChannel);
     if (
       memberLog &&
       memberLog.viewable &&
@@ -36,18 +38,16 @@ module.exports = {
     const autoRole = member.guild.roles.cache.get(autoRoleId.autoRole);
     if (autoRole !== "null") {
       try {
-        await member.roles.add(autorole);
+        await member.roles.add(autoRole);
       } catch (e) {
         client.logger.warn(e);
-        const systemChannelId = autoRoleId.systemChannel;
-        const systemChannel = member.guild.channels.cache.get(systemChannel);
         const systemError = new MessageEmbed()
           .setTitle("Error")
           .setColor("RED")
           .setDescription(
             `I was unable to assign the autorole to new members.\n\nError: \`${e}\``
           );
-        if (systemChannelId) await systemChannelId.send(systemError);
+        if (systemChannel) await systemChannel.send(systemError);
       }
     }
   },
