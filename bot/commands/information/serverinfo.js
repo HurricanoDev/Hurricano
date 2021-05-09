@@ -36,7 +36,7 @@ module.exports = new Command({
     isSlash: true,
     name: "serverinfo",
     async run(interaction, args) {
-      const guild = message.guild;
+      const guild = interaction.guild;
       const oldmem = guild.members.cache
         .filter((m) => !m.user.bot)
         .sort((a, b) => a.user.createdAt - b.user.createdAt)
@@ -102,7 +102,7 @@ module.exports = new Command({
           `**Youngest Account:** \`${newmem.user.tag}\` (${newmem.user.createdAt})\n \n**Oldest Account:** \`${oldmem.user.tag}\` (${oldmem.user.createdAt})`
         );
 
-      await message.reply(em);
+      await interaction.reply(em);
     },
   },
   async run(message, args) {
