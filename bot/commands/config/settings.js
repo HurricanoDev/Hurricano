@@ -33,9 +33,9 @@ module.exports = new Command({
           .setTitle("Settings: **`System`**")
           .setColor("#6082b6")
           .addField("Prefix", `\`${prefix}\``)
-          .addField("System Channel", `\`${systemChannel}\``)
-          .addField("Auto Role", `\`${autoRole}\``)
-          .addField("Suggestion Channel", `\`${suggestionChannel}\``)
+          .addField("System Channel", `${systemChannel}`)
+          .addField("Auto Role", `${autoRole}`)
+          .addField("Suggestion Channel", `${suggestionChannel}`)
           .setTimestamp()
           .setFooter(`Hurricano ${client.version}`);
         await message.channel.send(systemEmbed);
