@@ -8,7 +8,7 @@ module.exports = {
     const memberLogId = await client.schemas.guild.findOne({ id: member.guild.id });
     const memberLog = member.guild.channels.cache.get(memberLogId.memberLog);
     const systemChannelId = memberLogId.systemChannel;
-    const systemChannel = member.guild.channels.cache.get(systemChannel);
+    const systemChannel = member.guild.channels.cache.get(systemChannelId);
     if (
       memberLog &&
       memberLog.viewable &&
