@@ -38,7 +38,7 @@ module.exports = new Command({
         );
         return message.sendSuccessReply(
           "Memberlog Updated!",
-          `The guild's memberlog channel was updated from \`${currentChannel}\` ➔ <#${channel.id}>`
+          `The guild's memberlog channel was updated from <#${currentChannel}> ➔ <#${channel.id}>`
         );
       }
     }
