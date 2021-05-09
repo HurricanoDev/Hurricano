@@ -19,7 +19,7 @@ module.exports = new Command({
     async run(interaction, args) {
       const canvacord = require("canvacord");
       let person = args[0].user;
-      let avatar = person.displayAvatarURL({ dynamic: false, format: "png" });
+      let avatar = person.displayAvatarURL({ dynamic: false, format: "png", size: 1024 });
       const img = await canvacord.Canvas.burn(avatar, 4);
       const embed = new MessageEmbed()
         .setTitle("B u r n .")
