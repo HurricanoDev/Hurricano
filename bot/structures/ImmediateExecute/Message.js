@@ -10,7 +10,7 @@ module.exports = Structures.extend(
       sendErrorReply(Header, Msg, Footer) {
         const embed = new MessageEmbed().setAuthor(
           Header,
-          "https://raw.githubusercontent.com/HurricanoBot/HurricanoImages/master/SetAuthorEmojis/Error.png"
+          "https://raw.githubusercontent.com/HurricanoBot/HurricanoImages/master/other/HurricanoError.jpg"
         ).setColor("#ff6962");
         if (Msg) {
           embed.setDescription(Msg);
