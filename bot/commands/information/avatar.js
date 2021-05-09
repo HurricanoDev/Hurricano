@@ -18,8 +18,7 @@ module.exports = new Command({
     ],
     description: "Display a user's avatar.",
     async run(interaction, args) {
-      const member = (await client.functions.getMember(true, message, args))
-        .user;
+      const member = args[0].user;
       const embed = new MessageEmbed()
         .setAuthor(
           member.displayName,
@@ -32,12 +31,15 @@ module.exports = new Command({
   },
   description: "Displays a user's avatar.",
   async run(message, args) {
-    let member = null;
-
-    const embed = new MessageEmbed()
-      .setAuthor(member.username, member.displayAvatarURL({ dynamic: true }))
-      .setImage(member.displayAvatarURL({ dynamic: true, size: 1024 }))
-      .setTimestamp();
+      const member = (await client.functions.getMember(true, message, args))
+        .user;
+      const embed = new MessageEmbed()
+        .setAuthor(
+          member.displayName,
+          member.displayAvatarURL({ dynamic: true })
+        )
+        .setImage(member.displayAvatarURL({ dynamic: true, size: 1024 }))
+        .setTimestamp();
     await message.channel.send(embed);
   },
 });
