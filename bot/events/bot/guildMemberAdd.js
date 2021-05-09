@@ -4,7 +4,7 @@ const moment = require("moment");
 
 module.exports = {
   name: "guildMemberAdd",
-  run: async (client, member) => {
+  run: async (member, client) => {
     const memberLogId = client.db.guild.getMemberLog(member.guild.id);
     const memberLog = member.guild.channels.cache.get(memberLogId);
     if (

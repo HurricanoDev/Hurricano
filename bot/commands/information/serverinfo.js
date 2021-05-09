@@ -84,11 +84,11 @@ module.exports = new Command({
         )
         .addField(
           "Members:",
-          `${this.client._emojis.signs.members} ${memberCount} Total Member(s) \n ${this.client._emojis.signs.online} ${online} Online Member(s) \n ${this.client._emojis.signs.dnd} ${dnd} DND Member(s) \n ${this.client._emojis.signs.idle} ${afk} Idle Member(s) \n ${this.client._emojis.signs.offline} ${offline} Offline Member(s) \n ${this.client._emojis.signs.bot} ${bots} Bot(s)`
+          `${client._emojis.signs.members} ${memberCount} Total Member(s) \n ${client._emojis.signs.online} ${online} Online Member(s) \n ${client._emojis.signs.dnd} ${dnd} DND Member(s) \n ${client._emojis.signs.idle} ${afk} Idle Member(s) \n ${client._emojis.signs.offline} ${offline} Offline Member(s) \n ${client._emojis.signs.bot} ${bots} Bot(s)`
         )
         .addField(
           "Channels:",
-          `${this.client._emojis.signs.channel} ${channelCount} Total Channels \n 📔 ${textChannels.length} Text Channel(s) \n 🔊 ${voiceChannels} Voice Channel(s) \n 📰 ${newsChannels} News Channel(s) \n 📑 ${categoryChannels} Categories \n 👑 ${roleCount} Roles`
+          `${client._emojis.signs.channel} ${channelCount} Total Channels \n 📔 ${textChannels.length} Text Channel(s) \n 🔊 ${voiceChannels} Voice Channel(s) \n 📰 ${newsChannels} News Channel(s) \n 📑 ${categoryChannels} Categories \n 👑 ${roleCount} Roles`
         )
         .addField(`${emojis.signs.world} Region:`, region[guild.region], true)
         .addField("Boosts:", `**${guild.premiumSubscriptionCount || 0}**`, true)
@@ -152,11 +152,11 @@ module.exports = new Command({
       )
       .addField(
         "Members:",
-        `${this.client._emojis.signs.members} ${memberCount} Total Member(s) \n ${this.client._emojis.signs.online} ${online} Online Member(s) \n ${this.client._emojis.signs.dnd} ${dnd} DND Member(s) \n ${this.client._emojis.signs.idle} ${afk} Idle Member(s) \n ${this.client._emojis.signs.offline} ${offline} Offline Member(s) \n ${this.client._emojis.signs.bot} ${bots} Bot(s)`
+        `${client._emojis.signs.members} ${memberCount} Total Member(s) \n ${client._emojis.signs.online} ${online} Online Member(s) \n ${client._emojis.signs.dnd} ${dnd} DND Member(s) \n ${client._emojis.signs.idle} ${afk} Idle Member(s) \n ${client._emojis.signs.offline} ${offline} Offline Member(s) \n ${client._emojis.signs.bot} ${bots} Bot(s)`
       )
       .addField(
         "Channels:",
-        `${this.client._emojis.signs.channel} ${channelCount} Total Channels \n 📔 ${textChannels.length} Text Channel(s) \n 🔊 ${voiceChannels} Voice Channel(s) \n 📰 ${newsChannels} News Channel(s) \n 📑 ${categoryChannels} Categories \n 👑 ${roleCount} Roles`
+        `${client._emojis.signs.channel} ${channelCount} Total Channels \n 📔 ${textChannels.length} Text Channel(s) \n 🔊 ${voiceChannels} Voice Channel(s) \n 📰 ${newsChannels} News Channel(s) \n 📑 ${categoryChannels} Categories \n 👑 ${roleCount} Roles`
       )
       .addField(
         `${emojis.signs.world} Region:`,
