@@ -5,8 +5,8 @@ const moment = require("moment");
 module.exports = {
   name: "guildMemberAdd",
   run: async (member, client) => {
-    const memberLogId = client.db.guild.getMemberLog(member.guild.id);
-    const memberLog = member.guild.channels.cache.get(memberLogId);
+    const memberLogId = await client.schemas.guild.findOne({ id: member.guild.id });
+    const memberLog = member.guild.channels.cache.get(memberLogId.memberLog);
     if (
       memberLog &&
       memberLog.viewable &&
@@ -32,9 +32,9 @@ module.exports = {
         .setColor("#6082b6");
       memberLog.send(embed);
     }
-    const autoRoleId = client.schemas.guild.findOne({ id: member.guild.id });
+    const autoRoleId = await client.schemas.guild.findOne({ id: member.guild.id });
     const autoRole = member.guild.roles.cache.get(autoRoleId.autoRole);
-    if (autoRole) {
+    if (autoRole !== "null") {
       try {
         await member.roles.add(autorole);
       } catch (e) {
