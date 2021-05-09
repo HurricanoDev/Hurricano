@@ -149,7 +149,7 @@ class Client extends Discord.Client {
         });
       },
       getMember: async (returnAuthor, message, args) => {
-        if (!returnAuthor)
+        if (!returnAuthor && returnAuthor !== false)
           throw new Error(`Returning message.author not specified.`);
         if (!message) throw new Error(`Message object not provided.`);
         if (!args) throw new Error(`Arguments array not provided.`);
