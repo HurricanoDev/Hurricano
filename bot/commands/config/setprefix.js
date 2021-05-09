@@ -39,7 +39,7 @@ module.exports = new Command({
       embed.setDescription(
         "The server prefix has now been changed to **`" + prefix + "`**."
       );
-      await interaction.reply(embed, { ephemeral: true });
+      await interaction.reply(embed);
     },
   },
   async run(message, args) {
