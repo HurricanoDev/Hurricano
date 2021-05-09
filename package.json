@@ -42,6 +42,7 @@
     "@config": "./bot/utilities/config.js",
     "@root": ".",
     "@Command": "./bot/utilities/Command.js",
-    "@Utils": "./bot/utilities/"
+    "@Utils": "./bot/utilities/",
+    "@schemas": "./bot/schemas"
   }
 }
