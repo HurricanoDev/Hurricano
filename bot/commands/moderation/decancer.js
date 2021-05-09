@@ -26,7 +26,7 @@ module.exports = new Command({
 
     //Actually decancering the nickname smh.
     target.setNickname(nick);
-    message.channel.sendSuccessReply(
+    message.sendSuccessReply(
       "Nickname Decancered.",
       `${target}'s name has been decancered. \n \`${origiName}\` => \`${nick}\``
     );
