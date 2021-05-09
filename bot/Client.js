@@ -8,7 +8,6 @@ const { Player } = require("discord-player");
 const giveawaysManager = require("./utilities/giveaway");
 const logger = require("./utilities/logger.js");
 const path = require("path");
-const { endsWith } = require("ffmpeg-static");
 let configFile;
 /**
  * Extended Client class
