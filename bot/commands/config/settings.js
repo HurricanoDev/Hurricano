@@ -17,6 +17,10 @@ module.exports = new Command({
     let autoRole = message.guild.roles.cache.get(guildInfo.autoRole) || "None";
     let suggestionChannel =
       message.guild.channels.cache.get(guildInfo.suggestionChannel) || "None";
+    let memberLogChannel =
+      message.guild.channels.cache.get(guildInfo.memberLog) || "None";
+    let messageLogChannel =
+      message.guild.channels.cache.get(guildInfo.messageLogs) || "None";
 
     const mainEmbed = new MessageEmbed()
       .setTitle("Settings")
@@ -27,7 +31,7 @@ module.exports = new Command({
       .setColor("#6082b6")
       .setFooter(`© Hurricano ${client.version}`);
 
-    switch (args[0]) {
+    switch (args[0].toLowerCase()) {
       case "system":
         const systemEmbed = new MessageEmbed()
           .setTitle("Settings: **`System`**")
@@ -37,8 +41,18 @@ module.exports = new Command({
           .addField("Auto Role", `${autoRole}`)
           .addField("Suggestion Channel", `${suggestionChannel}`)
           .setTimestamp()
-          .setFooter(`Hurricano ${client.version}`);
+          .setFooter(`Hurricano v1.0.0`);
         await message.channel.send(systemEmbed);
+        break;
+      case "logging":
+        const loggingEmbed = new MessageEmbed()
+          .setTitle("Settings: **`Logging`**")
+          .setColor("#6082b6")
+          .addField("Memberlog Channel", `${memberLogChannel}`)
+          .addField("Messagelog Channel", `${messageLogChannel}`)
+          .setTimestamp()
+          .setFooter(`Hurricano v1.0.0`);
+        await message.channel.send(loggingEmbed);
         break;
     }
   },
