@@ -5,18 +5,25 @@ module.exports = {
   name: "ready",
   once: true,
   run: async (client) => {
-    const slashs = client.commands.filter((cmd) => cmd.slash);
+    const slashs = client.commands.filter((cmd) => cmd.slash.isSlash);
     let slashies = [];
     slashs.forEach((slash) => {
       let cmd = {
-        name: slash.name,
+        name: slash.slash.name.toLowerCase(),
         description: slash.description,
-        options: slash.options,
       };
+      let options = [];
+      if (slash.slash.options)
+        slash.slash.options.forEach((opt) => {
+          let option = opt;
+          option.name = opt.name.toLowerCase();
+          options.push(option);
+        });
+      slash.slash.options ? (cmd.options = options) : undefined;
       slashies.push(cmd);
     });
-    slashies = slashies.filter(x => x.name && typeof x.name === 'string');
-    await client.application?.commands.set(slashies)
+    slashies = slashies.filter((x) => x.name && typeof x.name === "string");
+    await client.application?.commands.set(slashies);
     client.giveawaysManager._init();
     //find and create data
     for (const guild of client.guilds.cache.values()) {

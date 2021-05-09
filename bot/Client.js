@@ -8,6 +8,7 @@ const { Player } = require("discord-player");
 const giveawaysManager = require("./utilities/giveaway");
 const logger = require("./utilities/logger.js");
 const path = require("path");
+const { endsWith } = require("ffmpeg-static");
 let configFile;
 /**
  * Extended Client class
@@ -147,26 +148,27 @@ class Client extends Discord.Client {
           name: userObj.name,
           id: userObj.id,
         });
-        getMember: async (returnAuthor, message, args) => {
-          if (!returnAuthor)
-            throw new Error(`Returning message.author not specified.`);
-          if (!message) throw new Error(`Message object not provided.`);
-          if (!args) throw new Error(`Arguments array not provided.`);
-          if (typeof returnAuthor !== "boolean")
-            throw new Error(
-              `Whether to return author or not option is not boolean.`
-            );
-          if (typeof message !== "object")
-            throw new Error(`Message provided is not an object.`);
-          if (typeof args !== "string")
-            throw new Error(`Args provided is not a string.`);
-          let user = args
-            ? await message.guild.members.fetch(args)
-            : message.mentions.members.first();
-
-          if (returnAuthor && !user) return message.author;
-          return user;
-        };
+      },
+      getMember: async (returnAuthor, message, args) => {
+        if (!returnAuthor)
+          throw new Error(`Returning message.author not specified.`);
+        if (!message) throw new Error(`Message object not provided.`);
+        if (!args) throw new Error(`Arguments array not provided.`);
+        if (typeof returnAuthor !== "boolean")
+          throw new Error(
+            `Whether to return author or not option is not boolean.`
+          );
+        if (typeof message !== "object")
+          throw new Error(`Message provided is not an object.`);
+        if (typeof args !== "string")
+          throw new Error(`Args provided is not a string.`);
+        let user =
+          args?.startsWith("<") && args?.endsWith(">")
+            ? message.mentions.members.first()
+            : await message.guild.members.fetch(args).catch(() => {});
+        if (returnAuthor && !user) return message.author;
+        if (user) return user;
+        if (!user) return null;
       },
     };
   }

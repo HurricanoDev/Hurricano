@@ -7,11 +7,13 @@ module.exports = new Command({
   description: "Makes someone's avatar wanted.",
   async run(message, args) {
     const canvacord = require("canvacord");
-    let person =
-      message.mentions.users.first() ||
-      (await message.client.users.fetch(args[0]).catch((e) => {})) ||
-      message.author;
-    let avatar = person.displayAvatarURL({ dynamic: false, format: "png" });
+    let person = (await client.functions.getMember(true, message, args[0]))
+      .user;
+    let avatar = person.displayAvatarURL({
+      dynamic: false,
+      format: "png",
+      size: 1024,
+    });
     const img = await canvacord.Canvas.wanted(avatar);
     const embed = new Discord.MessageEmbed()
       .setTitle("Wanted.")

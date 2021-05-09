@@ -202,12 +202,7 @@ module.exports = {
       }
       if (!config.ownerIds.includes(author.id)) timestamps.set(author.id, now);
       setTimeout(() => timestamps.delete(author.id), cooldownAmount);
-      if (command && !command.slash && !command.double) {
-        command.run(message, args);
-      }
-      if (command.slash && command.double) {
-        command.run(message, args);
-      }
+      command.run(message, args);
     }
   },
 };

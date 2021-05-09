@@ -9,18 +9,17 @@ module.exports = new Command({
   description:
     "Set an autorole to give to new members upon joining your server.",
   async run(message, args) {
-      //Some stuff
-        const prefix = await client.db.guild.getPrefix(message.guild.id);
-        const role =
-          message.mentions.roles.first() ||
-          message.guild.roles.cache.get(args[1]);
-        //No Permission
-        if (!message.guild.me.permissions.has("MANAGE_ROLES"))
-          return message.channel.sendError(
-            message,
-            "Error",
-            "I am missing the: `MANAGE_ROLES` permission needed to execute this command."
-          );
+    //Some stuff
+    const prefix = await client.db.guild.getPrefix(message.guild.id);
+    const role =
+      message.mentions.roles.first() || message.guild.roles.cache.get(args[1]);
+    //No Permission
+    if (!message.guild.me.permissions.has("MANAGE_ROLES"))
+      return message.channel.sendError(
+        message,
+        "Error",
+        "I am missing the: `MANAGE_ROLES` permission needed to execute this command."
+      );
     switch (args[0]) {
       case "set":
         //Invalid role

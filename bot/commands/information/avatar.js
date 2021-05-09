@@ -4,43 +4,40 @@ const { MessageEmbed } = require("discord.js");
 module.exports = new Command({
   name: "avatar",
   aliases: ["profilepic", "pic", "ava", "pfp"],
-  slash: true,
-  double: true,
-  options: [
-    {
-      name: "User",
-      description: "Which user you would like to see the avatar of.",
-      type: 6,
-      required: true,
-    },
-  ],
-  description: "Displays a user's avatar.",
-  async run(message, args, quicksend) {
-    if (message.token) {
-      const guild = this.client.guilds.cache.get(message.guild_id);
-      const member = await guild.members.fetch(args[0].value);
+  args: "Please provide who's avatar you would like to see!",
+  slash: {
+    name: "avatar",
+    isSlash: true,
+    options: [
+      {
+        name: "user",
+        description: "Which user you would like to see the avatar of.",
+        type: 6,
+        required: true,
+      },
+    ],
+    description: "Display a user's avatar.",
+    async run(interaction, args) {
+      const member = (await client.functions.getMember(true, message, args))
+        .user;
       const embed = new MessageEmbed()
         .setAuthor(
           member.displayName,
-          member.user.displayAvatarURL({ dynamic: true })
+          member.displayAvatarURL({ dynamic: true })
         )
-        .setImage(member.user.displayAvatarURL({ dynamic: true, size: 1024 }))
-        .setTimestamp();
-      await quicksend(message, embed);
-    } else {
-      let member = null;
-      if (args[0]) {
-        member =
-          message.mentions.users.first() ||
-          (await message.guild.members.fetch(args[0]).catch((e) => {}));
-      } else {
-        member = message.author;
-      }
-      const embed = new MessageEmbed()
-        .setAuthor(member.username, member.displayAvatarURL({ dynamic: true }))
         .setImage(member.displayAvatarURL({ dynamic: true, size: 1024 }))
         .setTimestamp();
-      await message.channel.send(embed);
-    }
+      await interaction.reply(embed);
+    },
+  },
+  description: "Displays a user's avatar.",
+  async run(message, args) {
+    let member = null;
+
+    const embed = new MessageEmbed()
+      .setAuthor(member.username, member.displayAvatarURL({ dynamic: true }))
+      .setImage(member.displayAvatarURL({ dynamic: true, size: 1024 }))
+      .setTimestamp();
+    await message.channel.send(embed);
   },
 });
