@@ -40,7 +40,6 @@ module.exports = {
       try {
         await member.roles.add(autoRole);
       } catch (e) {
-        client.logger.warn(e);
         const systemChannelId = autoRoleId.systemChannel;
         const systemChannel = member.guild.channels.cache.get(autoRoleId.systemChannel);
         const systemError = new MessageEmbed()
