@@ -284,6 +284,36 @@ module.exports = new Command({
         )
         .setFooter("Copyright Hurricano™");
       // ------------------------------------------------------------------------------------
+      const owner = new MessageEmbed()
+        .setAuthor(
+          "Bot Owner Commands!",
+          "https://raw.githubusercontent.com/HurricanoBot/HurricanoImages/master/SetAuthorEmojis/owner.png"
+        )
+        .setColor("#ffb6c1")
+        .setDescription(
+          "Commands meant for the bot owners. **React** with other emojis to see what else there is!"
+        )
+        .addField("Commands", cmdmap.owner.join(" "))
+        .setImage(
+          "https://raw.githubusercontent.com/HurricanoBot/HurricanoImages/master/categories/Owner.jpg"
+        )
+        .setFooter("Copyright Hurricano™");
+      // -------------------------------------------------------------------------------
+      const utility = new MessageEmbed()
+        .setAuthor(
+          "Utility",
+          "https://raw.githubusercontent.com/HurricanoBot/HurricanoImages/master/categories/HurricanoUtility.png"
+        )
+        .setColor("#d3d3d3")
+        .setDescription(
+          "Utility commands! **React** with other emojis to see what else there is!"
+        )
+        .addField("Commands", cmdmap.utility.join(" "))
+        .setImage(
+          "https://raw.githubusercontent.com/HurricanoBot/HurricanoImages/master/other/HurricanoUtility%20(1).jpg"
+        )
+        .setFooter("Copyright Hurricano™");
+      // ------------------------------------------------------------------------------------
       const emojimap = {
         ["giveaways"]: [
           emojis.categories.giveaways.split(":")[2].split("<")[0].split(">")[0],
@@ -490,6 +520,25 @@ module.exports = new Command({
               [emojimap.image]: "image",
               [emojimap.moderation]: "moderation",
               [emojimap.levelling]: "levelling",
+            },
+          },
+          {
+            name: "utility",
+            content: utility, 
+            reactions: {
+              [emojimap.config]: "config",
+              [emojimap.information]: "information",
+              [emojimap.fun]: "fun",
+              [emojimap.giveaways]: "giveaways",
+              [emojimap.music]: "music",
+              [emojimap.image]: "image",
+              [emojimap.moderation]: "moderation",
+              [emojimap.levelling]: "levelling",
+              [emojimap.owner]: client.config.ownerIds.includes(
+                message.author.id
+              )
+                ? "owner"
+                : null,
             },
           },
         ],
