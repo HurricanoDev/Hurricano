@@ -40,7 +40,7 @@ module.exports = new Command({
 
     checkForPosts();
   },
-  async run (message, args) => {
+  async run (message, args) {
     const { mentions, guild, channel } = message;
 
     const targetChannel = mentions.channels.first();
