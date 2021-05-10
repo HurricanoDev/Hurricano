@@ -284,21 +284,6 @@ module.exports = new Command({
         )
         .setFooter("Copyright Hurricano™");
       // ------------------------------------------------------------------------------------
-      const owner = new MessageEmbed()
-        .setAuthor(
-          "Bot Owner Commands!",
-          "https://raw.githubusercontent.com/HurricanoBot/HurricanoImages/master/SetAuthorEmojis/owner.png"
-        )
-        .setColor("#ffb6c1")
-        .setDescription(
-          "Commands meant for the bot owners. **React** with other emojis to see what else there is!"
-        )
-        .addField("Commands", cmdmap.owner.join(" "))
-        .setImage(
-          "https://raw.githubusercontent.com/HurricanoBot/HurricanoImages/master/categories/Owner.jpg"
-        )
-        .setFooter("Copyright Hurricano™");
-      // -------------------------------------------------------------------------------
       const utility = new MessageEmbed()
         .setAuthor(
           "Utility",
