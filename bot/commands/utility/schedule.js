@@ -5,7 +5,7 @@ const scheduledSchema = require("@schemas/schedule.js");
 
 module.exports = new Command({
   name: "schedule",
-  description: "Schedule a message to be sent in a channel at a specific time.",
+  description: "Schedule a message to be sent in a specific channel",
   userPermissions: ["ADMINISTRATOR"],
   args: 'Usage: <channel> <YYYY/MM/DD> <HH:MM> <"AM" or "PM"> <Timezone>',
   init: (client) => {
@@ -41,7 +41,7 @@ module.exports = new Command({
 
     checkForPosts();
   },
-  async run (message, args) {
+  async run(message, args) {
     const { mentions, guild, channel } = message;
 
     const targetChannel = mentions.channels.first();
