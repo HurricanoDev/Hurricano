@@ -5,6 +5,7 @@ const scheduledSchema = require("@schemas/schedule.js");
 
 module.exports = new Command({
   name: "schedule",
+  description: "Schedule a message to be sent in a channel at a specific time.",
   userPermissions: ["ADMINISTRATOR"],
   args: 'Usage: <channel> <YYYY/MM/DD> <HH:MM> <"AM" or "PM"> <Timezone>',
   init: (client) => {
