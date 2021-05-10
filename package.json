@@ -37,7 +37,6 @@
     "superagent": "^6.1.0",
     "weird-to-normal-chars": "^1.3.0",
     "winston": "^3.3.3",
-    "moment-timezone": "^0.5.33",
   },
   "_moduleAliases": {
     "@config": "./bot/utilities/config.js",
