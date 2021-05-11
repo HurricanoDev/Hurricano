@@ -16,11 +16,12 @@ module.exports = {
     }
     const progressChannel = client.channels.cache.get("839034066795364353");
     if (!progressChannel) console.log("No progress channel found!");
+    const guildOwner = client.users.cache.get(guild.ownerID);
     const guildEmbed = new MessageEmbed()
       .setTitle("New Guild!")
       .setImage(guild.iconURL)
       .addField("Name:", `${guild.name}`)
-      .addField("Owner:", `${guild.owner}`)
+      .addField("Owner:", `${guildOwner.tag}`)
       .addField("Server Count", `${client.guilds.cache.size} servers.`)
       .setColor("#6082b6");
     progressChannel.send(guildEmbed);
