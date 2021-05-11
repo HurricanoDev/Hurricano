@@ -6,12 +6,7 @@ module.exports = new Command({
   aliases: ["joinp"],
   description: "View the position a user joined the server.",
   async run(message, args) {
-    const member =
-      message.mentions.members.first() ||
-      message.guild.users.cache.get(args[0]) ||
-      message.author;
-    if (!member) return message.channel.sendError("Please specify a member!");
-
+    const member = await client.functions.getMember(true, message, args[0]);
     const members = message.guild.members.cache
       .sort((a, b) => a.joinedTimestamp - b.joinedTimestamp)
       .array();
