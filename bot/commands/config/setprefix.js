@@ -23,6 +23,7 @@ module.exports = new Command({
         required: true,
       },
     ],
+    isNormal: true,
     async run(interaction, args) {
       const prefix = args[0].value;
       if (
@@ -34,12 +35,12 @@ module.exports = new Command({
           "You don't have `ADMINISTRATOR` permission to do this!",
           { ephemeral: true }
         );
-      await client.db.guild.updatePrefix(interaction.guild.id, prefix);
+      await client.db.guild.updatePrefix(message.guild.id, prefix);
 
       embed.setDescription(
         "The server prefix has now been changed to **`" + prefix + "`**."
       );
-      await interaction.reply(embed);
+      await interaction.reply(embed, { ephemeral: true });
     },
   },
   async run(message, args) {
