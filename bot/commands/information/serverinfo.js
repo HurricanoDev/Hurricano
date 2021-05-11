@@ -33,6 +33,7 @@ module.exports = new Command({
   aliases: ["serveri", "si", "guildinfo", "gi"],
   description: "Shows information about the server!",
   slash: {
+    isNormal: true,
     isSlash: true,
     name: "serverinfo",
     async run(interaction, args) {
