@@ -17,8 +17,7 @@ module.exports = new Command({
       }
     });
 
-    message.sendSuccessReply(
-      message,
+    await message.sendSuccessReply(
       "Success!",
       `${member} is the ${await position} member to join the server!`
     );
