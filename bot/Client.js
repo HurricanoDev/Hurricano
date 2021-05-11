@@ -159,9 +159,7 @@ class Client extends Discord.Client {
           );
         if (typeof message !== "object")
           throw new Error(`Message provided is not an object.`);
-        if (typeof args[0] !== "string")
-          throw new Error(`Args provided is not a string.`);
-        args = args[0]
+         args = args[0]
 let user =
           args?.startsWith("<") && args?.endsWith(">")
             ? message.mentions.members.first()
