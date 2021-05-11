@@ -23,6 +23,7 @@ module.exports = class Command {
       };
     this.slash = {
       isSlash: opts.slash?.isSlash ?? false,
+      isNormal: opts.slash?.isNormal ?? true,
       run:
         opts.slash?.run ??
         function run() {
