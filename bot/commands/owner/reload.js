@@ -17,18 +17,13 @@ module.exports = new Command({
         `There is no command with name or alias \`${commandName}\`, ${message.author}!`
       );
     }
-
-    const commandFolders = fs.readdirSync("./bot/commands");
-    const folderName = commandFolders.find((folder) =>
-      fs.readdirSync(`./bot/commands/${folder}`).includes(`${commandName}.js`)
-    );
-
+    if (command.aliases) command.aliases.forEach(x => client.aliases.delete(x));
     delete require.cache[
-      require.resolve(`../${folderName}/${command.name}.js`)
+      require.resolve(`../${command.category}/${command.name}.js`)
     ];
 
     try {
-      const newCommand = require(`../${folderName}/${command.name}.js`);
+      const newCommand = require(`../${command.category}/${command.name}.js`);
       message.client.commands.set(newCommand.name, newCommand);
       message.channel.send(`Command \`${command.name}\` was reloaded!`);
     } catch (error) {
