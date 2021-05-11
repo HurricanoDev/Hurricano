@@ -148,20 +148,21 @@ class Client extends Discord.Client {
           id: userObj.id,
         });
       },
-      getMember: async (returnAuthor, message, args) => {
+      getMember: async (returnAuthor, message, ...args) => {
         if (!returnAuthor && returnAuthor !== false)
           throw new Error(`Returning message.author not specified.`);
         if (!message) throw new Error(`Message object not provided.`);
-        if (!args) throw new Error(`Arguments array not provided.`);
+        if (!args.length) throw new Error(`Arguments string not provided.`);
         if (typeof returnAuthor !== "boolean")
           throw new Error(
             `Whether to return author or not option is not boolean.`
           );
         if (typeof message !== "object")
           throw new Error(`Message provided is not an object.`);
-        if (typeof args !== "string")
+        if (typeof args[0] !== "string")
           throw new Error(`Args provided is not a string.`);
-        let user =
+        args = args[0]
+let user =
           args?.startsWith("<") && args?.endsWith(">")
             ? message.mentions.members.first()
             : await message.guild.members.fetch(args).catch(() => {});
