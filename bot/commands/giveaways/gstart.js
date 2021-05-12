@@ -38,8 +38,7 @@ module.exports = new Command({
             "Maximum giveaway limit 10 reached for this server! Please try again later.",
           color: "#034ea2",
           footer: {
-            text:
-              "Thanks for hosting so many giveaways with this bot though ;)",
+            text: "Thanks for hosting so many giveaways with this bot though ;)",
           },
         },
       });
@@ -63,8 +62,7 @@ module.exports = new Command({
           ],
           color: "#034ea2",
           footer: {
-            text:
-              "How do you think I'll host a giveaway without the time given smh?",
+            text: "How do you think I'll host a giveaway without the time given smh?",
           },
         },
       });

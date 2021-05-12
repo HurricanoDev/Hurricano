@@ -10,8 +10,7 @@ const statusMessages = {
     color: 0x34eb5b,
   },
   DENIED: {
-    text:
-      "❌ Thank you for the feedback, but we are not interested at the moment.",
+    text: "❌ Thank you for the feedback, but we are not interested at the moment.",
     color: 0xc20808,
   },
 };

@@ -1,10 +1,10 @@
 const Command = require("@Command");
 
 module.exports = new Command({
-  name: "ablacklist",
-  description: "Blacklist a user from the bot!",
+  name: "unblacklist",
+  description: "Unblacklist a user from the bot!",
   ownerOnly: true,
-  args: "Please provide who you would like to blacklist!",
+  args: "Please provide who you would like to unblacklist!",
   async run(message, args) {
     let user =
       message.mentions.users.first() ||
@@ -24,7 +24,7 @@ module.exports = new Command({
     message.channel.sendSuccess(
       message,
       "Confirmation.",
-      `Are you sure you would like to blacklist ${user}? Please respond with \`yes\` or \`no\`.`
+      `Are you sure you would like to unblacklist ${user}? Please respond with \`yes\` or \`no\`.`
     );
     let confirmation = await message.channel
       .awaitMessages((m) => m.author.id === message.author.id, {

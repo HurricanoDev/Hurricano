@@ -50,10 +50,12 @@ module.exports = new Command({
       const roleCount = guild.roles.cache.size - 1;
       const members = guild.members.cache.array();
       const memberCount = members.length;
-      const online = members.filter((m) => m.presence.status === "online")
-        .length;
-      const offline = members.filter((m) => m.presence.status === "offline")
-        .length;
+      const online = members.filter(
+        (m) => m.presence.status === "online"
+      ).length;
+      const offline = members.filter(
+        (m) => m.presence.status === "offline"
+      ).length;
       const dnd = members.filter((m) => m.presence.status === "dnd").length;
       const afk = members.filter((m) => m.presence.status === "idle").length;
       const bots = members.filter((b) => b.user.bot).length;
@@ -65,8 +67,9 @@ module.exports = new Command({
         .sort((a, b) => a.rawPosition - b.rawPosition);
       const voiceChannels = channels.filter((c) => c.type === "voice").length;
       const newsChannels = channels.filter((c) => c.type === "news").length;
-      const categoryChannels = channels.filter((c) => c.type === "category")
-        .length;
+      const categoryChannels = channels.filter(
+        (c) => c.type === "category"
+      ).length;
 
       const em = new MessageEmbed()
         .setTitle(`Info about ${guild}`)
@@ -120,8 +123,9 @@ module.exports = new Command({
     const members = message.guild.members.cache.array();
     const memberCount = members.length;
     const online = members.filter((m) => m.presence.status === "online").length;
-    const offline = members.filter((m) => m.presence.status === "offline")
-      .length;
+    const offline = members.filter(
+      (m) => m.presence.status === "offline"
+    ).length;
     const dnd = members.filter((m) => m.presence.status === "dnd").length;
     const afk = members.filter((m) => m.presence.status === "idle").length;
     const bots = members.filter((b) => b.user.bot).length;
@@ -133,8 +137,9 @@ module.exports = new Command({
       .sort((a, b) => a.rawPosition - b.rawPosition);
     const voiceChannels = channels.filter((c) => c.type === "voice").length;
     const newsChannels = channels.filter((c) => c.type === "news").length;
-    const categoryChannels = channels.filter((c) => c.type === "category")
-      .length;
+    const categoryChannels = channels.filter(
+      (c) => c.type === "category"
+    ).length;
 
     const em = new MessageEmbed()
       .setTitle(`Info about ${message.guild}`)

@@ -28,8 +28,7 @@ module.exports = new Command({
           description: "Please provide a giveaway/message ID.",
           color: "#034ea2",
           footer: {
-            text:
-              "Pfft, why don't you try to end a giveaway without a message ID?",
+            text: "Pfft, why don't you try to end a giveaway without a message ID?",
           },
         },
       });

@@ -17,7 +17,8 @@ module.exports = new Command({
         `There is no command with name or alias \`${commandName}\`, ${message.author}!`
       );
     }
-    if (command.aliases) command.aliases.forEach(x => client.aliases.delete(x));
+    if (command.aliases)
+      command.aliases.forEach((x) => client.aliases.delete(x));
     delete require.cache[
       require.resolve(`../${command.category}/${command.name}.js`)
     ];

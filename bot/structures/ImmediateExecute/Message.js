@@ -8,10 +8,12 @@ module.exports = Structures.extend(
         super(...args);
       }
       sendErrorReply(Header, Msg, Footer) {
-        const embed = new MessageEmbed().setAuthor(
-          Header,
-          "https://raw.githubusercontent.com/HurricanoBot/HurricanoImages/master/other/HurricanoError.jpg"
-        ).setColor("#ff6962");
+        const embed = new MessageEmbed()
+          .setAuthor(
+            Header,
+            "https://raw.githubusercontent.com/HurricanoBot/HurricanoImages/master/SetAuthorEmojis/Error.png"
+          )
+          .setColor("#ff6962");
         if (Msg) {
           embed.setDescription(Msg);
         }
@@ -23,10 +25,12 @@ module.exports = Structures.extend(
         this.reply(embed);
       }
       sendSuccessReply(Header, Msg, Footer) {
-        const embed = new MessageEmbed().setAuthor(
-          Header,
-          "https://raw.githubusercontent.com/HurricanoBot/HurricanoImages/master/SetAuthorEmojis/Success.png"
-        ).setColor("#32ba7c");
+        const embed = new MessageEmbed()
+          .setAuthor(
+            Header,
+            "https://raw.githubusercontent.com/HurricanoBot/HurricanoImages/master/SetAuthorEmojis/Success.png"
+          )
+          .setColor("#32ba7c");
         if (Msg) {
           embed.setDescription(Msg);
         }

@@ -5,7 +5,9 @@ const moment = require("moment");
 module.exports = {
   name: "guildMemberAdd",
   run: async (member, client) => {
-    const memberLogId = await client.schemas.guild.findOne({ id: member.guild.id });
+    const memberLogId = await client.schemas.guild.findOne({
+      id: member.guild.id,
+    });
     const memberLog = member.guild.channels.cache.get(memberLogId.memberLog);
     const systemChannelId = memberLogId.systemChannel;
     const systemChannel = member.guild.channels.cache.get(systemChannelId);
@@ -34,14 +36,18 @@ module.exports = {
         .setColor("#6082b6");
       memberLog.send(embed);
     }
-    const autoRoleId = await client.schemas.guild.findOne({ id: member.guild.id });
+    const autoRoleId = await client.schemas.guild.findOne({
+      id: member.guild.id,
+    });
     const autoRole = member.guild.roles.cache.get(autoRoleId.autoRole);
     if (autoRole !== "null") {
       try {
         await member.roles.add(autoRole);
       } catch (e) {
         const systemChannelId = autoRoleId.systemChannel;
-        const systemChannel = member.guild.channels.cache.get(autoRoleId.systemChannel);
+        const systemChannel = member.guild.channels.cache.get(
+          autoRoleId.systemChannel
+        );
         const systemError = new MessageEmbed()
           .setTitle("Error")
           .setColor("RED")

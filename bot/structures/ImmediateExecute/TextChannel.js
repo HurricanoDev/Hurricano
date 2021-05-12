@@ -9,7 +9,7 @@ module.exports = Structures.extend("TextChannel", (channel) => {
       const embed = new MessageEmbed()
         .setAuthor(
           Header,
-          "https://raw.githubusercontent.com/HurricanoBot/HurricanoImages/master/other/HurricanoError.jpg"
+          "https://raw.githubusercontent.com/HurricanoBot/HurricanoImages/master/SetAuthorEmojis/Error.png"
         )
         .setColor("#ff6962");
 
@@ -27,10 +27,12 @@ module.exports = Structures.extend("TextChannel", (channel) => {
       this.send(embed);
     }
     sendSuccess(message, Header, Msg, Footer) {
-      const embed = new MessageEmbed().setAuthor(
-        Header,
-        "https://raw.githubusercontent.com/HurricanoBot/HurricanoImages/master/SetAuthorEmojis/Success.png"
-      ).setColor("#32ba7c")
+      const embed = new MessageEmbed()
+        .setAuthor(
+          Header,
+          "https://raw.githubusercontent.com/HurricanoBot/HurricanoImages/master/SetAuthorEmojis/Success.png"
+        )
+        .setColor("#32ba7c");
       if (Msg) {
         embed.setDescription(Msg);
       }

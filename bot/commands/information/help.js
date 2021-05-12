@@ -72,12 +72,19 @@ module.exports = new Command({
       message.channel.send(emb);
     } else {
       let cmdmap = {};
-      client.commands.forEach(command => {
+      client.commands.forEach((command) => {
         if (!cmdmap[command.category]) cmdmap[command.category] = [];
-        if (command.slash.isSlash && !command.slash.isNormal) cmdmap[command.category].push(`\`[Slash Command] ${command.name}\`, `);
-        if (!command.slash.isSlash) cmdmap[command.category].push(`\`${command.name}\`, `);
-        if (command.slash.isSlash && command.slash.isNormal) cmdmap[command.category].push(`\`[Slash And Normal Command] ${command.name}\`, `)
-      })
+        if (command.slash.isSlash && !command.slash.isNormal)
+          cmdmap[command.category].push(
+            `\`[Slash Command] ${command.name}\`, `
+          );
+        if (!command.slash.isSlash)
+          cmdmap[command.category].push(`\`${command.name}\`, `);
+        if (command.slash.isSlash && command.slash.isNormal)
+          cmdmap[command.category].push(
+            `\`[Slash And Normal Command] ${command.name}\`, `
+          );
+      });
       const main = new MessageEmbed()
         .setTitle("Help Categories")
         .setDescription(
@@ -142,160 +149,96 @@ module.exports = new Command({
         .addField(":bulb:  Fact:", `**${Fact}**`)
         .setFooter("Copyright Hurricano™");
       //-------------------------------------
+      function generateHelpEmbed(
+        AuthorName,
+        AuthorURL,
+        description,
+        CategoryCommands,
+        Image
+      ) {
+        let emb = new MessageEmbed()
+          .setAuthor(AuthorName, AuthorURL)
+          .setDescription(description)
+          .addField("Commands", CategoryCommands.join(" "))
+          .setColor("#ffb6c1")
+          .setImage(Image)
+          .setFooter("Copyright Hurricano™");
+        return emb;
+      }
+      const config = generateHelpEmbed(
+        "Configuration!",
+        "https://raw.githubusercontent.com/HurricanoBot/HurricanoImages/master/SetAuthorEmojis/Config.png",
+        "The commands meant to modify the bot. **React** with other emojis to see what else there is!",
+        cmdmap.config,
+        "https://raw.githubusercontent.com/HurricanoBot/HurricanoImages/master/categories/Config.jpg"
+      );
+      const information = generateHelpEmbed(
+        "Information!",
+        "https://raw.githubusercontent.com/HurricanoBot/HurricanoImages/master/SetAuthorEmojis/Information.png",
+        "Pretty self-explanitory! This module is meant for information commands. **React** with other emojis to see what else there is!",
+        cmdmap.information,
+        "https://raw.githubusercontent.com/HurricanoBot/HurricanoImages/master/categories/Information.jpg"
+      );
 
-      const config = new MessageEmbed()
-        .setAuthor(
-          "Configuration!",
-          "https://raw.githubusercontent.com/HurricanoBot/HurricanoImages/master/SetAuthorEmojis/Config.png"
-        )
-        .setColor("#ffb6c1")
-        .setDescription(
-          "The commands meant to modify the bot. **React** with other emojis to see what else there is!"
-        )
-        .addField("Commands", cmdmap.config.join(" "))
-        .setImage(
-          "https://raw.githubusercontent.com/HurricanoBot/HurricanoImages/master/categories/Config.jpg"
-        )
-        .setFooter("Copyright Hurricano™");
-
-      //--------------------------------------
-
-      const information = new MessageEmbed()
-        .setAuthor(
-          "Information!",
-          "https://raw.githubusercontent.com/HurricanoBot/HurricanoImages/master/SetAuthorEmojis/Information.png"
-        )
-        .setColor("#ffb6c1")
-        .setDescription(
-          "Pretty self-explanitory! This module is meant for information commands. **React** with other emojis to see what else there is!"
-        )
-        .addField("Commands", cmdmap.information.join(" "))
-        .setImage(
-          "https://raw.githubusercontent.com/HurricanoBot/HurricanoImages/master/categories/Information.jpg"
-        )
-        .setFooter("Copyright Hurricano™");
-
-      //---------------------------------------
-
-      const fun = new MessageEmbed()
-        .setAuthor(
-          "Fun!",
-          "https://raw.githubusercontent.com/HurricanoBot/HurricanoImages/master/SetAuthorEmojis/Fun.png"
-        )
-        .setColor("#ffb6c1")
-        .setDescription(
-          "Commands in which you're sure to have fun! **React** with other emojis to see what else there is!"
-        )
-        .addField("Commands", cmdmap.fun.join(" "))
-        .setImage(
-          "https://raw.githubusercontent.com/HurricanoBot/HurricanoImages/master/categories/Fun.jpg"
-        )
-        .setFooter("Copyright Hurricano™");
-
+      const fun = generateHelpEmbed(
+        "Fun!",
+        "https://raw.githubusercontent.com/HurricanoBot/HurricanoImages/master/SetAuthorEmojis/Fun.png",
+        "Commands in which you're sure to have fun! **React** with other emojis to see what else there is!",
+        cmdmap.fun,
+        "https://raw.githubusercontent.com/HurricanoBot/HurricanoImages/master/categories/Fun.jpg"
+      );
       //-----------------------------------------
-      const giveaways = new MessageEmbed()
-        .setAuthor(
-          "Giveaways!",
-          "https://raw.githubusercontent.com/HurricanoBot/HurricanoImages/master/SetAuthorEmojis/Giveaway.gif"
-        )
-        .setColor("#ffb6c1")
-        .setDescription(
-          "Host giveaways with Hurricano™️! **React** with other emojis to see what else there is!"
-        )
-        .addField("Commands", cmdmap.giveaways.join(" "))
-        .setImage(
-          "https://raw.githubusercontent.com/HurricanoBot/HurricanoImages/master/categories/Giveaway.jpg"
-        )
-        .setFooter("Copyright Hurricano™");
-      // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-      const image = new MessageEmbed()
-        .setAuthor(
-          "Image Manipulation!",
-          "https://raw.githubusercontent.com/HurricanoBot/HurricanoImages/master/SetAuthorEmojis/ImageManip.png"
-        )
-        .setColor("#ffb6c1")
-        .setDescription(
-          "Make funny images with Hurricano™️! **React** with other emojis to see what else there is!"
-        )
-        .addField("Commands", cmdmap.image.join(" "))
-        .setImage(
-          "https://raw.githubusercontent.com/HurricanoBot/HurricanoImages/master/categories/Image.jpg"
-        )
-        .setFooter("Copyright Hurricano™");
-      // - - --- - - - - -- - - - - - - -- - - - - - -------------------------------------------------------
-      const music = new MessageEmbed()
-        .setAuthor(
-          "Music!",
-          "https://raw.githubusercontent.com/HurricanoBot/HurricanoImages/master/SetAuthorEmojis/Music.gif"
-        )
-        .setColor("#ffb6c1")
-        .setDescription(
-          "Feel like listening to some music? You can do it with Hurricano™️!"
-        )
-        .addField("Commands", cmdmap.music.join(" "))
-        .setImage(
-          "https://raw.githubusercontent.com/HurricanoBot/HurricanoImages/master/categories/Music.jpg"
-        )
-        .setFooter("Copyright Hurricano™");
-      // -----------------------------------------------------------------------
-      const levelling = new MessageEmbed()
-        .setAuthor(
-          "Levelling Commands!",
-          "https://raw.githubusercontent.com/HurricanoBot/HurricanoImages/master/SetAuthorEmojis/Levelling.png"
-        )
-        .setColor("#ffb6c1")
-        .setDescription(
-          "Commands meant for the bot owners. **React** with other emojis to see what else there is!"
-        )
-        .setImage(
-          "https://raw.githubusercontent.com/HurricanoBot/HurricanoImages/master/categories/Levelling.jpg"
-        )
-        .addField("Commands", cmdmap.levelling.join(" "))
-        .setFooter("Copyright Hurricano™");
-      const owner = new MessageEmbed()
-        .setAuthor(
-          "Bot Owner Commands!",
-          "https://raw.githubusercontent.com/HurricanoBot/HurricanoImages/master/SetAuthorEmojis/owner.png"
-        )
-        .setColor("#ffb6c1")
-        .setDescription(
-          "Commands meant for the bot owners. **React** with other emojis to see what else there is!"
-        )
-        .addField("Commands", cmdmap.owner.join(" "))
-        .setImage(
-          "https://raw.githubusercontent.com/HurricanoBot/HurricanoImages/master/categories/Owner.jpg"
-        )
-        .setFooter("Copyright Hurricano™");
+      const giveaways = generateHelpEmbed(
+        "Giveaways!",
+        "https://raw.githubusercontent.com/HurricanoBot/HurricanoImages/master/SetAuthorEmojis/Giveaway.gif",
+        "Host giveaways with Hurricano™️! **React** with other emojis to see what else there is",
+        cmdmap.giveaways,
+        "https://raw.githubusercontent.com/HurricanoBot/HurricanoImages/master/categories/Giveaway.jpg"
+      );
+      const image = generateHelpEmbed(
+        "Image Manipulation!",
+        "https://raw.githubusercontent.com/HurricanoBot/HurricanoImages/master/SetAuthorEmojis/ImageManip.png",
+        "Make funny images with Hurricano™️! **React** with other emojis to see what else there is!",
+        cmdmap.image,
+        "https://raw.githubusercontent.com/HurricanoBot/HurricanoImages/master/categories/Image.jpg"
+      ); // - - --- - - - - -- - - - - - - -- - - - - - -------------------------------------------------------
+      const music = generateHelpEmbed(
+        "Music!",
+        "https://raw.githubusercontent.com/HurricanoBot/HurricanoImages/master/SetAuthorEmojis/Music.gif",
+        "Feel like listening to some music? You can do it with Hurricano™️!",
+        cmdmap.music,
+        "https://raw.githubusercontent.com/HurricanoBot/HurricanoImages/master/categories/Music.jpg"
+      );
+      const levelling = generateHelpEmbed(
+        "Levelling Commands!",
+        "https://raw.githubusercontent.com/HurricanoBot/HurricanoImages/master/SetAuthorEmojis/Levelling.png",
+        "Commands meant for the bot owners. **React** with other emojis to see what else there is!",
+        cmdmap.levelling,
+        "https://raw.githubusercontent.com/HurricanoBot/HurricanoImages/master/categories/Levelling.jpg"
+      );
+      const owner = generateHelpEmbed(
+        "Bot Owner Commands!",
+        "https://raw.githubusercontent.com/HurricanoBot/HurricanoImages/master/SetAuthorEmojis/owner.png",
+        "Commands meant for the bot owners. **React** with other emojis to see what else there is!",
+        cmdmap.owner,
+        "https://raw.githubusercontent.com/HurricanoBot/HurricanoImages/master/categories/Owner.jpg"
+      );
       // -------------------------------------------------------------------------------
-      const moderation = new MessageEmbed()
-        .setAuthor(
-          "Moderation",
-          "https://raw.githubusercontent.com/HurricanoBot/HurricanoImages/master/SetAuthorEmojis/Moderation.png"
-        )
-        .setColor("#ffb6c1")
-        .setDescription(
-          "Moderation commands! **React** with other emojis to see what else there is!"
-        )
-        .addField("Commands", cmdmap.moderation.join(" "))
-        .setImage(
-          "https://raw.githubusercontent.com/HurricanoBot/HurricanoImages/master/categories/Moderation.jpg"
-        )
-        .setFooter("Copyright Hurricano™");
+      const moderation = generateHelpEmbed(
+        "Moderation",
+        "https://raw.githubusercontent.com/HurricanoBot/HurricanoImages/master/SetAuthorEmojis/Moderation.png",
+        "Moderation commands! **React** with other emojis to see what else there is!",
+        cmdmap.moderation,
+        "https://raw.githubusercontent.com/HurricanoBot/HurricanoImages/master/categories/Moderation.jpg"
+      );
       // ------------------------------------------------------------------------------------
-      const utility = new MessageEmbed()
-        .setAuthor(
-          "Utility",
-          "https://raw.githubusercontent.com/HurricanoBot/HurricanoImages/master/categories/HurricanoUtility.png"
-        )
-        .setColor("#d3d3d3")
-        .setDescription(
-          "Utility commands! **React** with other emojis to see what else there is!"
-        )
-        .addField("Commands", cmdmap.utility.join(" "))
-        .setImage(
-          "https://raw.githubusercontent.com/HurricanoBot/HurricanoImages/master/other/HurricanoUtility%20(1).jpg"
-        )
-        .setFooter("Copyright Hurricano™");
+      const utility = generateHelpEmbed(
+        "Utility",
+        "https://raw.githubusercontent.com/HurricanoBot/HurricanoImages/master/SetAuthorEmojis/Utility.png",
+        "Utility commands! **React** with other emojis to see what else there is!",
+        cmdmap.utility,
+        "https://github.com/HurricanoBot/HurricanoImages/blob/master/categories/Utility.jpg"
+      );
       // ------------------------------------------------------------------------------------
       const emojimap = {
         ["giveaways"]: [
@@ -340,12 +283,12 @@ module.exports = new Command({
               [emojimap.moderation]: "moderation",
               [emojimap.levelling]: "levelling",
               [emojimap.music]: "music",
+              [emojimap.utility]: "utility",
               [emojimap.owner]: client.config.ownerIds.includes(
                 message.author.id
               )
                 ? "owner"
                 : null,
-              [emojimap.utility]: "utility",
             },
           },
           {
@@ -360,12 +303,12 @@ module.exports = new Command({
               [emojimap.moderation]: "moderation",
               [emojimap.levelling]: "levelling",
               [emojimap.music]: "music",
+              [emojimap.utility]: "utility",
               [emojimap.owner]: client.config.ownerIds.includes(
                 message.author.id
               )
                 ? "owner"
                 : null,
-              [emojimap.utility]: "utility",
             },
           },
           {
@@ -379,12 +322,12 @@ module.exports = new Command({
               [emojimap.moderation]: "moderation",
               [emojimap.levelling]: "levelling",
               [emojimap.music]: "music",
+              [emojimap.utility]: "utility",
               [emojimap.owner]: client.config.ownerIds.includes(
                 message.author.id
               )
                 ? "owner"
                 : null,
-              [emojimap.utility]: "utility",
             },
           },
           {
@@ -398,12 +341,12 @@ module.exports = new Command({
               [emojimap.moderation]: "moderation",
               [emojimap.levelling]: "levelling",
               [emojimap.music]: "music",
+              [emojimap.utility]: "utility",
               [emojimap.owner]: client.config.ownerIds.includes(
                 message.author.id
               )
                 ? "owner"
                 : null,
-              [emojimap.utility]: "utility",
             },
           },
           {
@@ -417,12 +360,12 @@ module.exports = new Command({
               [emojimap.moderation]: "moderation",
               [emojimap.levelling]: "levelling",
               [emojimap.music]: "music",
+              [emojimap.utility]: "utility",
               [emojimap.owner]: client.config.ownerIds.includes(
                 message.author.id
               )
                 ? "owner"
                 : null,
-              [emojimap.utility]: "utility",
             },
           },
           {
@@ -436,12 +379,12 @@ module.exports = new Command({
               [emojimap.moderation]: "moderation",
               [emojimap.levelling]: "levelling",
               [emojimap.music]: "music",
+              [emojimap.utility]: "utility",
               [emojimap.owner]: client.config.ownerIds.includes(
                 message.author.id
               )
                 ? "owner"
                 : null,
-              [emojimap.utility]: "utility",
             },
           },
           {
@@ -455,12 +398,12 @@ module.exports = new Command({
               [emojimap.image]: "image",
               [emojimap.levelling]: "levelling",
               [emojimap.music]: "music",
+              [emojimap.utility]: "utility",
               [emojimap.owner]: client.config.ownerIds.includes(
                 message.author.id
               )
                 ? "owner"
                 : null,
-              [emojimap.utility]: "utility",
             },
           },
           {
@@ -474,12 +417,12 @@ module.exports = new Command({
               [emojimap.image]: "image",
               [emojimap.moderation]: "moderation",
               [emojimap.music]: "music",
+              [emojimap.utility]: "utility",
               [emojimap.owner]: client.config.ownerIds.includes(
                 message.author.id
               )
                 ? "owner"
                 : null,
-              [emojimap.utility]: "utility",
             },
           },
           {
@@ -493,27 +436,12 @@ module.exports = new Command({
               [emojimap.image]: "image",
               [emojimap.moderation]: "moderation",
               [emojimap.levelling]: "levelling",
+              [emojimap.utility]: "utility",
               [emojimap.owner]: client.config.ownerIds.includes(
                 message.author.id
               )
                 ? "owner"
                 : null,
-              [emojimap.utility]: "utility",
-            },
-          },
-          {
-            name: "owner",
-            content: owner,
-            reactions: {
-              [emojimap.config]: "config",
-              [emojimap.information]: "information",
-              [emojimap.fun]: "fun",
-              [emojimap.giveaways]: "giveaways",
-              [emojimap.music]: "music",
-              [emojimap.image]: "image",
-              [emojimap.moderation]: "moderation",
-              [emojimap.levelling]: "levelling",
-              [emojimap.utility]: "utility",
             },
           },
           {
@@ -533,6 +461,21 @@ module.exports = new Command({
               )
                 ? "owner"
                 : null,
+            },
+          },
+          {
+            name: "owner",
+            content: owner,
+            reactions: {
+              [emojimap.config]: "config",
+              [emojimap.information]: "information",
+              [emojimap.fun]: "fun",
+              [emojimap.giveaways]: "giveaways",
+              [emojimap.music]: "music",
+              [emojimap.image]: "image",
+              [emojimap.moderation]: "moderation",
+              [emojimap.utility]: "utility",
+              [emojimap.levelling]: "levelling",
             },
           },
         ],
