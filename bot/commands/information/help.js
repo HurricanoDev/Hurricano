@@ -130,6 +130,11 @@ module.exports = new Command({
           `> ${emojis.categories.music}  Music`,
           "Feel like listening to some music? You can do it with Hurricano™️!",
           inline
+        )
+      .addField(
+          `> 🛠️  Utility`,
+          "Want some handy tools? Well, here you go!",
+          inline
         );
 
       client.config.ownerIds.includes(message.author.id)
@@ -323,6 +328,7 @@ module.exports = new Command({
         ["fun"]: "🎮",
         ["image"]: "📷",
         ["levelling"]: "🆙",
+        ["utility"]: "🛠️",
       };
 
       let helpMenu = new Menu(
@@ -505,6 +511,7 @@ module.exports = new Command({
               [emojimap.image]: "image",
               [emojimap.moderation]: "moderation",
               [emojimap.levelling]: "levelling",
+              [emojimap.utility]: "utility",
             },
           },
           {
