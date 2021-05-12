@@ -131,7 +131,7 @@ module.exports = new Command({
           "Feel like listening to some music? You can do it with Hurricano™️!",
           inline
         )
-      .addField(
+        .addField(
           `> 🛠️  Utility`,
           "Want some handy tools? Well, here you go!",
           inline
@@ -516,7 +516,7 @@ module.exports = new Command({
           },
           {
             name: "utility",
-            content: utility, 
+            content: utility,
             reactions: {
               [emojimap.config]: "config",
               [emojimap.information]: "information",
