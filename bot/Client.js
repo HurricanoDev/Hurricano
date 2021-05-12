@@ -166,8 +166,8 @@ class Client extends Discord.Client {
           throw new Error(`Message provided is not an object.`);
         args = args[0];
         let user;
-        if (!args) user = message.mentions.members.first();
-        if (args)
+        if (args.startsWith('<') && args.endsWith('>')) user = message.mentions.members.first();
+        else
           user =
             (await message.guild.members.fetch(args).catch(() => {})) ??
             message.mentions.members.first();
