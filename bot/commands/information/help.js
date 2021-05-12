@@ -1,18 +1,21 @@
 const { MessageEmbed } = require("discord.js");
 const { Menu } = require("../../utilities/ReactionMenu.js");
-const { readdirSync } = require("fs");
 const emojis = require("../../utilities/emojis.json");
-const cmdmap = {};
-readdirSync("./bot/commands").forEach((dir) => {
-  readdirSync(`./bot/commands/${dir}/`)
-    .filter((file) => file.endsWith(".js"))
-    .forEach((cmds) => {
-      if (cmdmap[dir] == undefined) {
-        cmdmap[dir] = [];
-      }
-      cmdmap[dir].push(`\`${cmds.replace(".js", "")}\`, `);
-    });
-});
+let tips = [
+  "The first person convicted of speeding was going eight mph.",
+  '"New car smell" is the scent of dozens of chemicals.',
+  "Some sea snakes can breathe through their skin.",
+  "The heads on Easter Island have bodies.",
+  "The moon has moonquakes.",
+  "Humans are the only animals that blush.",
+  "The wood frog can hold its pee for up to eight months.",
+  "The feeling of getting lost inside a mall is known as the Gruen transfer.",
+  "You lose up to 30 percent of your taste buds during flight.",
+  "Cotton candy was invented by a dentist.",
+  "Sharks can live for five centuries.",
+  "The world wastes about 1 billion metric tons of food each year. Help reduce that number and stop wasting food :D",
+];
+
 const Command = require("@Command");
 module.exports = new Command({
   name: "help",
@@ -20,26 +23,9 @@ module.exports = new Command({
     "Shows the commands list and also specific command categories/commands!",
   aliases: ["cmd", "commands", "h"],
   async run(message, args) {
-    let tips = [
-      "The first person convicted of speeding was going eight mph.",
-      '"New car smell" is the scent of dozens of chemicals.',
-      "Some sea snakes can breathe through their skin.",
-      "The heads on Easter Island have bodies.",
-      "The moon has moonquakes.",
-      "Humans are the only animals that blush.",
-      "The wood frog can hold its pee for up to eight months.",
-      "The feeling of getting lost inside a mall is known as the Gruen transfer.",
-      "You lose up to 30 percent of your taste buds during flight.",
-      "Cotton candy was invented by a dentist.",
-      "Sharks can live for five centuries.",
-      "The world wastes about 1 billion metric tons of food each year. Help reduce that number and stop wasting food :D",
-    ];
-
     let TIP = Math.floor(Math.random() * tips.length);
     let Fact = tips[TIP];
-
     const author = message.author;
-
     let inline = true;
     const pref = await message.client.db.guild.getPrefix(message.guild.id);
     if (args.length) {
@@ -85,6 +71,13 @@ module.exports = new Command({
       else emb.addField("Both Slash And Normal?", "No.", true);
       message.channel.send(emb);
     } else {
+      let cmdmap = {};
+      client.commands.forEach(command => {
+        if (!cmdmap[command.category]) cmdmap[command.category] = [];
+        if (command.slash.isSlash && !command.slash.isNormal) cmdmap[command.category].push(`\`[Slash Command] ${command.name}\`, `);
+        if (!command.slash.isSlash) cmdmap[command.category].push(`\`${command.name}\`, `);
+        if (command.slash.isSlash && command.slash.isNormal) cmdmap[command.category].push(`\`[Slash And Normal Command] ${command.name}\`, `)
+      })
       const main = new MessageEmbed()
         .setTitle("Help Categories")
         .setDescription(
