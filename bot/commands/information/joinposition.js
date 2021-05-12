@@ -19,7 +19,7 @@ module.exports = new Command({
 
     await message.sendSuccessReply(
       "Success!",
-      `${member} is the ${client.utils.getOrdinalSuffix(await position)} member to join the server!`
+      `${member} is the ${client.functions.getOrdinalSuffix(await position)} member to join the server!`
     );
   },
 });
