@@ -39,6 +39,11 @@ class Client extends Discord.Client {
      * Aliases
      */
     this.aliases = new Discord.Collection();
+    /**
+     * Utils
+     */
+    this.utils = require('./utilities/utils.js');
+    
     /*
      * Sharding Manager
      */
