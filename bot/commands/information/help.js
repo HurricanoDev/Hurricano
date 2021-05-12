@@ -352,6 +352,7 @@ module.exports = new Command({
               )
                 ? "owner"
                 : null,
+              [emojimap.utility]: "utility",
             },
           },
           {
@@ -371,6 +372,7 @@ module.exports = new Command({
               )
                 ? "owner"
                 : null,
+              [emojimap.utility]: "utility",
             },
           },
           {
@@ -389,6 +391,7 @@ module.exports = new Command({
               )
                 ? "owner"
                 : null,
+              [emojimap.utility]: "utility",
             },
           },
           {
@@ -407,6 +410,7 @@ module.exports = new Command({
               )
                 ? "owner"
                 : null,
+              [emojimap.utility]: "utility",
             },
           },
           {
@@ -425,6 +429,7 @@ module.exports = new Command({
               )
                 ? "owner"
                 : null,
+              [emojimap.utility]: "utility",
             },
           },
           {
@@ -443,6 +448,7 @@ module.exports = new Command({
               )
                 ? "owner"
                 : null,
+              [emojimap.utility]: "utility",
             },
           },
           {
@@ -461,6 +467,7 @@ module.exports = new Command({
               )
                 ? "owner"
                 : null,
+              [emojimap.utility]: "utility",
             },
           },
           {
@@ -479,6 +486,7 @@ module.exports = new Command({
               )
                 ? "owner"
                 : null,
+              [emojimap.utility]: "utility",
             },
           },
           {
@@ -497,6 +505,7 @@ module.exports = new Command({
               )
                 ? "owner"
                 : null,
+              [emojimap.utility]: "utility",
             },
           },
           {
