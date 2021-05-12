@@ -42,8 +42,8 @@ class Client extends Discord.Client {
     /**
      * Utils
      */
-    this.utils = require('./utilities/utils.js');
-    
+    this.utils = require("./utilities/utils.js");
+
     /*
      * Sharding Manager
      */
@@ -164,13 +164,30 @@ class Client extends Discord.Client {
           );
         if (typeof message !== "object")
           throw new Error(`Message provided is not an object.`);
-         args = args[0]
-let user;
-if (!args) user = message.mentions.members.first();
-if (args) user = await message.guild.members.fetch(args).catch(() => {}) ?? message.mentions.members.first();
+        args = args[0];
+        let user;
+        if (!args) user = message.mentions.members.first();
+        if (args)
+          user =
+            (await message.guild.members.fetch(args).catch(() => {})) ??
+            message.mentions.members.first();
         if (returnAuthor && !user) return message.member;
         if (user) return user;
         if (!user) return null;
+      },
+      getOrdialSuffix: async (i) => {
+        var j = i % 10,
+          k = i % 100;
+        if (j == 1 && k != 11) {
+          return i + "st";
+        }
+        if (j == 2 && k != 12) {
+          return i + "nd";
+        }
+        if (j == 3 && k != 13) {
+          return i + "rd";
+        }
+        return i + "th";
       },
     };
   }
