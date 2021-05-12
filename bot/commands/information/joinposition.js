@@ -16,24 +16,10 @@ module.exports = new Command({
         if (members[i - 1].id === member.id) ful(i);
       }
     });
-    function ordinal(i) {
-      var j = i % 10,
-        k = i % 100;
-      if (j == 1 && k != 11) {
-        return i + "st";
-      }
-      if (j == 2 && k != 12) {
-        return i + "nd";
-      }
-      if (j == 3 && k != 13) {
-        return i + "rd";
-      }
-      return i + "th";
-    }
 
     await message.sendSuccessReply(
       "Success!",
-      `${member} is the ${ordinal(await position)} member to join the server!`
+      `${member} is the ${client.utils.getOrdinalSuffix(await position)} member to join the server!`
     );
   },
 });
