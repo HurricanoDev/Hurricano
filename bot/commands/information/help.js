@@ -85,6 +85,38 @@ module.exports = new Command({
             `\`[Slash And Normal Command] ${command.name}\`, `
           );
       });
+      const emojimap = {
+        ["giveaways"]: [
+          emojis.categories.giveaways.split(":")[2].split("<")[0].split(">")[0],
+        ],
+        ["owner"]: [
+          emojis.categories.owner.split(":")[2].split("<")[0].split(">")[0],
+        ],
+        ["music"]: [
+          emojis.categories.music.split(":")[2].split("<")[0].split(">")[0],
+        ],
+        ["moderation"]: [
+          emojis.categories.moderation
+            .split(":")[2]
+            .split("<")[0]
+            .split(">")[0],
+        ],
+        ["config"]: "⚙️",
+        ["information"]: emojis.categories.information
+          .split(":")[2]
+          .split("<")[0]
+          .split(">")[0],
+        ["fun"]: "🎮",
+        ["image"]: "📷",
+        ["levelling"]: "🆙",
+        ["utility"]: "842193834922344476",
+      };
+      function getEmoji (emoji) {
+        let emote;
+        if (!isNaN(emoji)) emote = client.emojis.cache.get(emoji.toString());
+        else emote = emoji;
+        return emote;
+      }
       const main = new MessageEmbed()
         .setTitle("Help Categories")
         .setDescription(
@@ -92,47 +124,47 @@ module.exports = new Command({
         )
         .setColor("#ffb6c1")
         .addField(
-          "> :gear: Config",
+          `> ${getEmoji(emojimap.config)} Config`,
           "The commands meant to modify the bot.",
           inline
         )
         .addField(
-          "> :mag:  Information",
+          `> ${getEmoji(emojimap.information)}  Information`,
           "Pretty self-explanitory! This module is meant for information commands.",
           inline
         )
         .addField(
-          `> ${emojis.categories.fun}  Fun`,
+          `> ${getEmoji(emojimap.fun)}  Fun`,
           "Commands in which you're sure to have fun!",
           inline
         )
         .addField(
-          `> ${emojis.categories.giveaways}  Giveaways`,
+          `> ${getEmoji(emojimap.giveaways)}  Giveaways`,
           "Host giveaways with Hurricano™️!",
           inline
         )
         .addField(
-          `> :camera:  Image Manipulation`,
+          `> ${getEmoji(emojimap.image)}  Image Manipulation`,
           "Make funny images with Hurricano™️!",
           inline
         )
         .addField(
-          `> ${emojis.categories.moderation}  Moderation`,
+          `> ${getEmoji(emojimap.moderation)}  Moderation`,
           "Let Hurricano™️ help the moderators and admins with its moderation system!",
           inline
         )
         .addField(
-          "> :up:  Levelling",
+          `> ${getEmoji(emojimap.levelling)}  Levelling`,
           "Commands for Hurricano™️'s levelling module!",
           inline
         )
         .addField(
-          `> ${emojis.categories.music}  Music`,
+          `> ${getEmoji(emojimap.music)}  Music`,
           "Feel like listening to some music? You can do it with Hurricano™️!",
           inline
         )
         .addField(
-          `> 🛠️  Utility`,
+          `> ${getEmoji(emojimap.utility)}  Utility`,
           "Want some handy tools? Well, here you go!",
           inline
         );
@@ -237,35 +269,9 @@ module.exports = new Command({
         "https://raw.githubusercontent.com/HurricanoBot/HurricanoImages/master/SetAuthorEmojis/Utility.png",
         "Utility commands! **React** with other emojis to see what else there is!",
         cmdmap.utility,
-        "https://github.com/HurricanoBot/HurricanoImages/blob/master/categories/Utility.jpg"
+        "https://raw.githubusercontent.com/HurricanoBot/HurricanoImages/master/categories/Utility.jpg"
       );
       // ------------------------------------------------------------------------------------
-      const emojimap = {
-        ["giveaways"]: [
-          emojis.categories.giveaways.split(":")[2].split("<")[0].split(">")[0],
-        ],
-        ["owner"]: [
-          emojis.categories.owner.split(":")[2].split("<")[0].split(">")[0],
-        ],
-        ["music"]: [
-          emojis.categories.music.split(":")[2].split("<")[0].split(">")[0],
-        ],
-        ["moderation"]: [
-          emojis.categories.moderation
-            .split(":")[2]
-            .split("<")[0]
-            .split(">")[0],
-        ],
-        ["config"]: "⚙️",
-        ["information"]: emojis.categories.information
-          .split(":")[2]
-          .split("<")[0]
-          .split(">")[0],
-        ["fun"]: "🎮",
-        ["image"]: "📷",
-        ["levelling"]: "🆙",
-        ["utility"]: "🛠️",
-      };
 
       let helpMenu = new Menu(
         message.channel,
