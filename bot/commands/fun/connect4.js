@@ -4,7 +4,7 @@ module.exports = new Command({
   name: "connect4",
   aliases: ["c4", "connectfour"],
   description: "Play the connect four game!",
-  ClientPermissions: "SEND_MESSAGES",
+  clientPermissions: ["SEND_MESSAGES"],
   async run(message, args) {
     const embed = new Discord.MessageEmbed()
       .setAuthor(
