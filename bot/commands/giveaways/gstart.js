@@ -109,7 +109,7 @@ module.exports = new Command({
         },
       });
     winners = num(winners, 1);
-    if (winners > 15)
+    if (winners > 100)
       return message.reply({
         embed: {
           title: "An Error Occured.",
