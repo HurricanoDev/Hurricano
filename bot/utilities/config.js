@@ -12,6 +12,7 @@ try {
   };
   module.exports = config;
 } catch (err) {
+  console.log(process.env);
   config = {
     token: process.env.token,
     mongouri: process.env.mongouri,
