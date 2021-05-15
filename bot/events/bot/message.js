@@ -52,7 +52,7 @@ module.exports = {
         "https://raw.githubusercontent.com/HurricanoBot/HurricanoImages/master/other/Wave.jpg"
       )
       .setFooter(`© Hurricano™ v1.0.0`);
-    if (prefixRegex.test(message.content)) {
+    if (prefixRegex.test(message.content.toLowerCase())) {
       if (
         message.content === `<@${client.user.id}>` ||
         message.content === `<@!${client.user.id}>`
