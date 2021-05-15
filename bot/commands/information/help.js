@@ -111,7 +111,7 @@ module.exports = new Command({
         ["levelling"]: "🆙",
         ["utility"]: "842193834922344476",
       };
-      function getEmoji (emoji) {
+      function getEmoji(emoji) {
         let emote;
         if (!isNaN(emoji)) emote = client.emojis.cache.get(emoji.toString());
         else emote = emoji;

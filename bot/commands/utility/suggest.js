@@ -36,7 +36,7 @@ module.exports = new Command({
     guildSchema.suggestions = suggestionsObj;
     guildSchema.suggestionNumber = guildSchema.suggestionNumber - 0 + 1;
     await guildSchema.save();
-    message.channel.sendSuccess(
+    await message.channel.sendSuccesss(
       message,
       "Success!",
       `Successfully sent a suggestion! You can check it [here](${suggestionSent.url}).`

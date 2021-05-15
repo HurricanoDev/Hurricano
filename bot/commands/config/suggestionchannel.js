@@ -65,7 +65,7 @@ module.exports = new Command({
             suggestionChannel: "null",
           }
         );
-        message.channel.sendSuccess(
+        await message.channel.sendSuccesss(
           message,
           "Success!",
           "Successfully removed the suggestions channel!"

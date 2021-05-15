@@ -21,7 +21,7 @@ module.exports = new Command({
         "Invalid user provided! Please provide a valid user that has used the bot."
       );
 
-    message.channel.sendSuccess(
+    await message.channel.sendSuccesss(
       message,
       "Confirmation.",
       `Are you sure you would like to unblacklist ${user}? Please respond with \`yes\` or \`no\`.`
@@ -41,7 +41,7 @@ module.exports = new Command({
     confirmation = confirmation.first();
     let negativeResponses = ["nope", "no", "nah"];
     if (negativeResponses.includes(confirmation.content.toLowerCase()))
-      return message.channel.sendSuccess(
+      return await message.channel.sendSuccesss(
         "Cancelling Blacklist.",
         "Cancelling blacklist."
       );

@@ -43,7 +43,7 @@ module.exports = new Command({
       disabledModules.splice(indexValue);
       guildSchema.disabledModules = disabledModules;
       await guildSchema.save();
-      message.channel.sendSuccess(
+      await message.channel.sendSuccesss(
         message,
         "Module Enabled.",
         `The module \`${argss}\` has been enabled.`

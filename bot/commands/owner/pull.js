@@ -110,7 +110,7 @@ module.exports = new Command({
       );
     }
     if (response.includes("yes")) {
-      await message.channel.sendSuccess(
+      await message.channel.sendSuccesss(
         message,
         "Rebooting...",
         "Rebooting the bot now."
@@ -120,7 +120,7 @@ module.exports = new Command({
       }, 1000);
     }
     if (response.includes("no")) {
-      message.channel.sendSuccess(
+      await message.channel.sendSuccesss(
         message,
         "Reboot Cancelled.",
         "Will not reboot the bot now."

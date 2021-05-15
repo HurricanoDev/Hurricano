@@ -1,6 +1,6 @@
 module.exports = {
   name: "debug",
   run: async (debug, client) => {
-    client.logger.info(debug);
+    if (!debug.toLowerCase().includes('voice')) client.logger.info(debug);
   },
 };

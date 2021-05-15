@@ -50,7 +50,7 @@ module.exports = new Command({
     guildSchema.suggestions = suggestionsObj;
     await guildSchema.save();
 
-    message.channel.sendSuccess(
+    await message.channel.sendSuccesss(
       message,
       "Success!",
       `Successfully denied [this suggestion!](${suggestionMsg.url})`

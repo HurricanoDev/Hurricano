@@ -5,7 +5,7 @@ module.exports = Structures.extend("TextChannel", (channel) => {
       super(...args);
     }
 
-    sendError(message, Header, Msg, Footer) {
+    async sendError(message, Header, Msg, Footer) {
       const embed = new MessageEmbed()
         .setAuthor(
           Header,
@@ -24,9 +24,10 @@ module.exports = Structures.extend("TextChannel", (channel) => {
           message.author.displayAvatarURL()
         );
       }
-      this.send(embed);
+      const msg = await this.send(embed);
+      return msg;
     }
-    sendSuccess(message, Header, Msg, Footer) {
+    async sendSuccess(message, Header, Msg, Footer) {
       const embed = new MessageEmbed()
         .setAuthor(
           Header,
@@ -44,7 +45,8 @@ module.exports = Structures.extend("TextChannel", (channel) => {
           message.author.displayAvatarURL()
         );
       }
-      this.send(embed);
+      const msg = await this.send(embed);
+      return msg;
     }
   }
   return HurricanoChannel;

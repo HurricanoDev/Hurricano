@@ -7,9 +7,14 @@ module.exports = new Command({
   args: "Give me a ID of a server to leave.",
   ownerOnly: true,
   async run(message, args) {
-    const guild = client.guilds.cache.find(x => x.id === args[0]);
-    if (!guild) return message.channel.sendError(message, 'Invalid Guild ID!', 'You haven\'t provided me a valid guild ID.')
+    const guild = client.guilds.cache.find((x) => x.id === args[0]);
+    if (!guild)
+      return message.channel.sendError(
+        message,
+        "Invalid Guild ID!",
+        "You haven't provided me a valid guild ID."
+      );
     guild.leave();
-    message.channel.send('done')
+    message.channel.send("done");
   },
 });

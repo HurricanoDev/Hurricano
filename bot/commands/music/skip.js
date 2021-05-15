@@ -32,7 +32,7 @@ module.exports = new Command({
     const success = message.client.player.skip(message);
 
     if (success)
-      message.channel.sendSuccess(
+      await message.channel.sendSuccesss(
         message,
         "Skipped.",
         "I have successfully skipped that song."

@@ -111,6 +111,11 @@ class Client extends Discord.Client {
      */
     this._emojis = require("./utilities/emojis.json");
 
+    /*
+     * Cache
+     */
+    this.cache = {};
+
     /**
      * Music
      */

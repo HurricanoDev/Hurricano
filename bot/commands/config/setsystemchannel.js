@@ -31,7 +31,7 @@ module.exports = new Command({
         }
       );
 
-      await message.channel.sendSuccessReply(
+      await message.channel.sendSuccesssReply(
         message,
         "Success!",
         `Updated the system channel from ${currentChannel} => <#${ch.id}>!`
@@ -48,7 +48,7 @@ module.exports = new Command({
           upsert: true,
         }
       );
-      await message.channel.sendSuccessReply(
+      await message.channel.sendSuccesssReply(
         message,
         "Success!",
         `The system channel has been set to ${ch}`

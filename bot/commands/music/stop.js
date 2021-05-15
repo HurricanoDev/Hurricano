@@ -32,7 +32,7 @@ module.exports = new Command({
     const success = client.player.stop(message);
 
     if (success)
-      message.channel.sendSuccess(
+      await message.channel.sendSuccess(
         message,
         "Stopped.",
         "I have successfully stopped the music."

@@ -3,7 +3,7 @@ module.exports = {
   run: async (message, query, tracks, content, collector) => {
     if (content === "cancel") {
       collector.stop();
-      return message.channel.sendSuccess(
+      return await message.channel.sendSuccesss(
         message,
         "Selection Cancelled.",
         `The selection has successfully been cancelled.`

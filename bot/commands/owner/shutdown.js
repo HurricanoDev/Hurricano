@@ -5,7 +5,7 @@ module.exports = new Command({
   description: "Shut the bot down.",
   ownerOnly: true,
   async run(message, args) {
-    message.channel.sendSuccess(
+    await message.channel.sendSuccesss(
       message,
       "Confirmation.",
       "Are you sure you want to shutdown the bot? Please respond with `yes` if you would like to reboot the bot and `no` if you wouldn't."

@@ -59,9 +59,9 @@ module.exports = {
       ) {
         return message.reply(embed);
       }
-      const [, match] = message.content.match(prefixRegex);
-      if (!message.content.startsWith(match)) return;
-      const args = message.content.slice(match.length).trim().split(/ +/g);
+      const [, match] = message.content.toLowerCase().match(prefixRegex);
+      if (!message.content.toLowerCase().startsWith(match)) return;
+      let args = message.content.slice(match.length).trim().split(/ +/g);
       const cmd = args.shift().toLowerCase();
 
       if (cmd.length == 0) return;
@@ -142,12 +142,33 @@ module.exports = {
         }
       }
       if (command.conf.args && !args.length) {
-        message.channel.sendError(
+        let argsMsg = await message.channel.sendError(
           message,
           "Arguments Error.",
-          `${command.conf.args}`
+          `${command.conf.args} \n Please send the required arguments, or type \`cancel\` to cancel the command.`
         );
-        return;
+        let argsConf = await message.channel
+          .awaitMessages((m) => m.author.id === message.author.id, {
+            max: 1,
+            time: 30000,
+            errors: ["time"],
+          })
+          .catch(() => {
+            return argsMsg.edit(
+              new MessageEmbed()
+                .setAuthor("Cancelled Command.", client.links.errorImage)
+                .setDescription(
+                  `You took more than 20 seconds. This command has been cancelled.`
+                )
+                .setFooter(
+                  message.member.displayName,
+                  message.author.displayAvatarURL()
+                )
+            );
+          });
+          argsConf = argsConf.first();
+          if (argsConf.content.toLowerCase() === 'cancel') return message.channel.sendSuccess(message, 'Command Cancelled!', 'You cancelled this command.');
+          args = argsConf.content.trim().split(/ +/g);
       }
 
       if (disabledModules && !disabledModules.includes("levelling")) {
