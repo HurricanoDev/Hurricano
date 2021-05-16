@@ -30,6 +30,8 @@ module.exports = new Command({
       .setTimestamp()
       .setColor("#6082b6")
       .setFooter(`© Hurricano ${client.version}`);
+    
+    if(!args.length) return message.channel.send(mainEmbed);
 
     switch (args[0].toLowerCase()) {
       case "system":
