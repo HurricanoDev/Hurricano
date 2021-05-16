@@ -61,5 +61,10 @@ module.exports = model(
       required: false,
       default: "null",
     },
+    globalChatChannel: {
+      type: String,
+      required: false,
+      default: "null",
+    },
   })
 );

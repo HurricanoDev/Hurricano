@@ -21,11 +21,12 @@ module.exports = new Command({
       message.guild.channels.cache.get(guildInfo.memberLog) || "None";
     let messageLogChannel =
       message.guild.channels.cache.get(guildInfo.messageLogs) || "None";
+    let globalChatChannel = message.guild.channels.cache.get(guildInfo.globalChatChannel) || "None";
 
     const mainEmbed = new MessageEmbed()
       .setTitle("Settings")
       .setDescription(`**More information:** \`${prefix}settings [category]\``)
-      .addField("System", "`4` settings")
+      .addField("System", "`5` settings")
       .addField("Logging", "`2` settings")
       .setTimestamp()
       .setColor("#6082b6")
@@ -42,6 +43,7 @@ module.exports = new Command({
           .addField("System Channel", `${systemChannel}`)
           .addField("Auto Role", `${autoRole}`)
           .addField("Suggestion Channel", `${suggestionChannel}`)
+          .addField("Global Chat Channel", `${globalChatChannel}`)
           .setTimestamp()
           .setFooter(`Hurricano v1.0.0`);
         await message.channel.send(systemEmbed);
