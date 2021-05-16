@@ -30,7 +30,7 @@ module.exports = new Command({
     });
     switch (args[0]) {
       case "set":
-        if (guildLog.messageLogs && guildLog.messageLogs !== "null")
+        if (guildLog.messageLogs)
           return message.sendErrorReply(
             "Logs already set!",
             `The channel you provided already has logs set! If you would like to remove logs from that channel, send: \n \`${prefix}msglogs remove\``
@@ -52,7 +52,7 @@ module.exports = new Command({
         );
         break;
       case "remove":
-        if (guildLog.messageLogs === "null")
+        if (guildLog.messageLogs)
           return message.sendErrorReply(
             "Already Disabled!",
             `The logs are already disabled. You can enable them via: \n \`${prefix}msglogs set {channel name}\``
@@ -62,7 +62,7 @@ module.exports = new Command({
             id: message.guild.id,
           },
           {
-            messageLogs: "null",
+            messageLogs: null,
           },
           {
             upsert: true,

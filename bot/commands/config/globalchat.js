@@ -2,49 +2,21 @@ const Command = require("@Command");
 const { MessageEmbed } = require("discord.js");
 
 module.exports = new Command({
-  name: "setglobalchat",
-  aliases: ["sgc", "setglobalchannel"],
+  name: "globalchat",
+  aliases: ["sgc", "globalchannel"],
   description: "Set your server's global chat channel",
   args: "Possible subcommands: `set`, `remove`",
   async run(message, args) {
     const Guild = await client.schemas.guild.findOne({ id: message.guild.id });
 
     switch (args[0]) {
+      default: 
+      return message.channel.sendError(message, 'Error!', 'Invalid subcommand provided! Please provide if you would like to set a channel or remove it!');
       case "set":
-        const setChannel =
-          message.guild.channels.cache.get(args[1]) ||
-          message.mentions.channels.first();
-        if (!setChannel)
-          return message.sendErrorReply(
-            message,
-            "Error",
-            "Please provide a valid channel."
-          );
-
-        if (Guild.globalChatChannel !== "null") {
-          await message.channel.sendSuccess(
-            message,
-            "Done!",
-            `The global chat channel was updated from ${Guild.globalChatChannel} => ${setChannel}`
-          );
-          await client.schemas.guild.findOneAndUpdate(
-            { id: message.guild.id },
-            { globalChatChannel: setChannel.id },
-            { upsert: true }
-          );
-        } else if (Guild.globalChatChannel == "null") {
-          await message.channel.sendSuccess(
-            message,
-            "Done!",
-            `The global chat channel was updated from \`None\` => ${setChannel}`
-          );
-          await client.schemas.guild.findOneAndUpdate(
-            { id: message.guild.id },
-            { globalChatChannel: setChannel.id },
-            { upsert: true }
-          );
-        }
-        break;
+        let channel = await client.functions.getChannel(false, message, args[1]);
+        if (!channel) return message.channel.sendErrorReply('Invalid Channel!', 'Invalid Channel Provided! Please provide a valid channel.');
+        Guild.globalChatChannel = channel.id;
+        await Guild.save();
       case "remove":
         let response;
         const permissionEmbed = new MessageEmbed()
@@ -78,13 +50,11 @@ module.exports = new Command({
             "Removing...",
             "Removed the global chat channel for this guild."
           );
-          setTimeout(() => {
             await client.schemas.guild.findOneAndDelete(
               { id: message.guild.id },
-              { globalChatChannel: "null" }
+              { globalChatChannel: null }
             );
-          }, 1000);
-        }
+        };
         if (response.includes("no")) {
           return message.channel.sendSuccesss(
             message,

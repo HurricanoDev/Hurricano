@@ -20,7 +20,7 @@ module.exports = new Command({
     } else {
       const data = await client.schemas.guild.findOne({ id: message.guild.id });
       const currentChannel = data.memberLog;
-      if (data.memberLog == "null") {
+      if (data.memberLog) {
         await client.schemas.guild.findOneAndUpdate(
           { id: message.guild.id },
           { memberLog: channel.id },
@@ -30,7 +30,7 @@ module.exports = new Command({
           "Memberlog Updated!",
           `The guild's memberlog channel was updated from \`None\` ➔ <#${channel.id}>`
         );
-      } else if (data.memberLog !== "null") {
+      } else if (data.memberLog) {
         await client.schemas.guild.findOneAndUpdate(
           { id: message.guild.id },
           { memberLog: channel.id },

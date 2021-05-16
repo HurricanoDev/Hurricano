@@ -11,7 +11,7 @@ module.exports = {
     const guildSchema = await client.schemas.guild.findOne({
       id: oldMessage.guild.id,
     });
-    if (guildSchema.messageLogs && guildSchema.messageLogs !== "null") {
+    if (guildSchema.messageLogs) {
       const guildChannel = newMessage.guild.channels.cache.get(
         guildSchema.messageLogs
       );

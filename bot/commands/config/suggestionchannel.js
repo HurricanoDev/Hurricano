@@ -22,9 +22,7 @@ module.exports = new Command({
     });
     switch (args[0]) {
       case "set":
-        const channel =
-          message.mentions.channels.first() ||
-          message.guild.channels.cache.get(args[1]);
+        const channel = client.functions.getChannel(false, message, args[1])
         if (!channel)
           return message.channel.sendError(
             message,
@@ -62,7 +60,7 @@ module.exports = new Command({
             id: message.guild.id,
           },
           {
-            suggestionChannel: "null",
+            suggestionChannel: null,
           }
         );
         await message.channel.sendSuccesss(

@@ -40,7 +40,7 @@ module.exports = {
       id: member.guild.id,
     });
     const autoRole = member.guild.roles.cache.get(autoRoleId.autoRole);
-    if (autoRole !== "null") {
+    if (autoRole) {
       try {
         await member.roles.add(autoRole);
       } catch (e) {

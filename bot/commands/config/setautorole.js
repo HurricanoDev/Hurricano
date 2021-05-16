@@ -42,7 +42,7 @@ module.exports = new Command({
       case "remove":
         await client.schemas.guild.findOneAndUpdate(
           { id: message.guild.id },
-          { autoRole: "null" }
+          { autoRole: null }
         );
         return message.sendSuccessReply(
           "Autorole Removed!",

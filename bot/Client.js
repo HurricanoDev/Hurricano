@@ -170,6 +170,26 @@ class Client extends Discord.Client {
         if (typeof message !== "object")
           throw new Error(`Message provided is not an object.`);
         args = args[0];
+        let chan;
+        if (message.mentions.channels.first())
+          chan = message.mentions.channels.first();
+        else chan = await message.guild.channels.cache.get(args);
+        if (returnChannel && !chan) return message.channel;
+        if (chan) return chan;
+        if (!chan) return chan;
+      },
+      getChannel: async (returnChannel, message, ...args) => {
+        if (!returnChannel && returnChannel !== false)
+          throw new Error(`Returning message.author not specified.`);
+        if (!message) throw new Error(`Message object not provided.`);
+        if (!args.length) throw new Error(`Arguments string not provided.`);
+        if (typeof returnChannel !== "boolean")
+          throw new Error(
+            `Whether to return channel or not option is not boolean.`
+          );
+        if (typeof message !== "object")
+          throw new Error(`Message provided is not an object.`);
+        args = args[0];
         let user;
         if (message.mentions.members.first())
           user = message.mentions.members.first();
