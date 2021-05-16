@@ -1,6 +1,5 @@
 node_modules
 config.json
-package-lock.json
 /.vscode
 bot/schemas/guild.js
 bot/logs/
