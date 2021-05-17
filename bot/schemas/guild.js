@@ -66,5 +66,9 @@ module.exports = model(
       required: false,
       default: "null",
     },
+    isActive: {
+      type: Boolean,
+      default: false
+    }
   })
 );

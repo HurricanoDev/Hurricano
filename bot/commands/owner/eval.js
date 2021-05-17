@@ -113,7 +113,12 @@ module.exports = new Command({
           "Invalid Arguments Provided!",
           "Please provide what you would like to eval!"
         );
-
+        let evaled;
+        args[0] === "sync"
+          ? (evaled = eval(code))
+          : (evaled = await eval(`(async () => {
+          ${code}
+        })()`));
       if (clean(err).length > 2032) {
         sourcebin
           .create(

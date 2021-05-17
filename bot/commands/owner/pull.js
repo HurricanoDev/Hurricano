@@ -5,6 +5,7 @@ const { exec } = require("child_process");
 module.exports = new Command({
   name: "pull",
   description: "Pull a change from GitHub.",
+  ownerOnly: true,
   async run(message, args) {
     try {
       message.channel.startTyping();
