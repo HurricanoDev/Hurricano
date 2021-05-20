@@ -11,7 +11,7 @@ app.get("*", (req, res) => {
 });
 
 
-app.listen(process.env.PORT, process.env.IP, () =>{
+app.listen(client.config.website.port, client.config.website.ip, () =>{
   console.log("Server Up!")
 })
 
