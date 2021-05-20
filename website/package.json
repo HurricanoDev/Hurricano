@@ -1,0 +1,15 @@
+{
+  "name": "huricanno",
+  "version": "1.0.0",
+  "description": "bot website",
+  "main": "index.js",
+  "scripts": {
+    "main": "index.js",
+    "start": "node index.js"
+  },
+  "keywords": [
+    "huricanno",
+  ],
+  "author": "Hurricano",
+  "license": "MIT",
+}
