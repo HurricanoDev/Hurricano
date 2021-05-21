@@ -4,7 +4,7 @@ module.exports = new Command({
   aliases: ["joinp"],
   description: "View the position a user joined the server.",
   async run(message, args) {
-    const member = parseInt(args[0]);
+    let member = parseInt(args[0]);
     if (!member)
     member = await client.functions.getMember(true, message, args[0]);
     const members = (await message.guild.members.fetch())
