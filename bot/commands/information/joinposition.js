@@ -17,13 +17,17 @@ module.exports = new Command({
       if (members[i - 1].id === member.id) position = i;
     }
   } else {
-    position = members[member];
-  }
+    position = members[member - 1];
+    }
+    if (!parseInt(member)) {
     await message.sendSuccessReply(
       "Success!",
       `${member} is the ${client.functions.getOrdinalSuffix(
         position
       )} member to join the server!`
     );
+      } else {
+        await message.sendSuccessReply('Success!', `${position} is the ${client.functions.getOrdinalSuffix(member)} to join the server!`)
+      }
   },
 });
