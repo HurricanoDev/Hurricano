@@ -22,9 +22,12 @@ const fetchSuggestionChannel = async (guildId) => {
       "Invalid guild ID provided for getting suggestion channel."
     );
   if (
-    !guildSchema.suggestionChannel
+    !guildSchema.suggestionChannel ||
+    guildSchema.suggestionChannel === "null"
   )
     return null;
-  return await client.channels.fetch(guildSchema.suggestionChannel);
+  return await client.channels
+    .fetch(guildSchema.suggestionChannel)
+    .catch(() => {});
 };
 module.exports.fetchSuggestionChannel = fetchSuggestionChannel;

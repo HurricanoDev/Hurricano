@@ -10,11 +10,23 @@ module.exports = new Command({
     const Guild = await client.schemas.guild.findOne({ id: message.guild.id });
 
     switch (args[0]) {
-      default: 
-      return message.channel.sendError(message, 'Error!', 'Invalid subcommand provided! Please provide if you would like to set a channel or remove it!');
+      default:
+        return message.channel.sendError(
+          message,
+          "Error!",
+          "Invalid subcommand provided! Please provide if you would like to set a channel or remove it!"
+        );
       case "set":
-        let channel = await client.functions.getChannel(false, message, args[1]);
-        if (!channel) return message.channel.sendErrorReply('Invalid Channel!', 'Invalid Channel Provided! Please provide a valid channel.');
+        let channel = await client.functions.getChannel(
+          false,
+          message,
+          args[1]
+        );
+        if (!channel)
+          return message.channel.sendErrorReply(
+            "Invalid Channel!",
+            "Invalid Channel Provided! Please provide a valid channel."
+          );
         Guild.globalChatChannel = channel.id;
         await Guild.save();
       case "remove":
@@ -50,19 +62,19 @@ module.exports = new Command({
             "Removing...",
             "Removed the global chat channel for this guild."
           );
-            await client.schemas.guild.findOneAndDelete(
-              { id: message.guild.id },
-              { globalChatChannel: null }
-            );
-        };
+          await client.schemas.guild.findOneAndDelete(
+            { id: message.guild.id },
+            { globalChatChannel: null }
+          );
+        }
         if (response.includes("no")) {
           return message.channel.sendSuccesss(
             message,
             "Global Chat Removal Cancelled",
             "Will not remove the global chat data for this guild!"
           );
-        };
-      break;
+        }
+        break;
     }
   },
 });

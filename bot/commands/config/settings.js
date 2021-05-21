@@ -21,7 +21,8 @@ module.exports = new Command({
       message.guild.channels.cache.get(guildInfo.memberLog) || "None";
     let messageLogChannel =
       message.guild.channels.cache.get(guildInfo.messageLogs) || "None";
-    let globalChatChannel = message.guild.channels.cache.get(guildInfo.globalChatChannel) || "None";
+    let globalChatChannel =
+      message.guild.channels.cache.get(guildInfo.globalChatChannel) || "None";
 
     const mainEmbed = new MessageEmbed()
       .setTitle("Settings")
@@ -31,8 +32,8 @@ module.exports = new Command({
       .setTimestamp()
       .setColor("#6082b6")
       .setFooter(`© Hurricano ${client.version}`);
-    
-    if(!args.length) return message.channel.send(mainEmbed);
+
+    if (!args.length) return message.channel.send(mainEmbed);
 
     switch (args[0].toLowerCase()) {
       case "system":

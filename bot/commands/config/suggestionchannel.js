@@ -22,7 +22,7 @@ module.exports = new Command({
     });
     switch (args[0]) {
       case "set":
-        const channel = client.functions.getChannel(false, message, args[1])
+        const channel = client.functions.getChannel(false, message, args[1]);
         if (!channel)
           return message.channel.sendError(
             message,
@@ -35,6 +35,7 @@ module.exports = new Command({
             "Suggestions Channel Already Set!",
             `A suggestions channel has already been set! You can use \`${prefix}suggestionchannel remove\` to remove it.`
           );
+          console.log(channel.id)
         await client.schemas.guild.findOneAndUpdate(
           {
             id: message.guild.id,
@@ -63,7 +64,7 @@ module.exports = new Command({
             suggestionChannel: null,
           }
         );
-        await message.channel.sendSuccesss(
+        await message.channel.sendSuccess(
           message,
           "Success!",
           "Successfully removed the suggestions channel!"

@@ -141,35 +141,12 @@ module.exports = {
           );
         }
       }
-      if (command.conf.args && !args.length) {
-        let argsMsg = await message.channel.sendError(
+      if (command.conf.args && !args.length) return message.channel.sendError(
           message,
           "Arguments Error.",
-          `${command.conf.args} \n Please send the required arguments, or type \`cancel\` to cancel the command.`
+          command.conf.args
         );
-        let argsConf = await message.channel
-          .awaitMessages((m) => m.author.id === message.author.id, {
-            max: 1,
-            time: 30000,
-            errors: ["time"],
-          })
-          .catch(() => {
-            return argsMsg.edit(
-              new MessageEmbed()
-                .setAuthor("Cancelled Command.", client.links.errorImage)
-                .setDescription(
-                  `You took more than 20 seconds. This command has been cancelled.`
-                )
-                .setFooter(
-                  message.member.displayName,
-                  message.author.displayAvatarURL()
-                )
-            );
-          });
-          argsConf = argsConf.first();
-          if (argsConf.content.toLowerCase() === 'cancel') return message.channel.sendSuccess(message, 'Command Cancelled!', 'You cancelled this command.');
-          args = argsConf.content.trim().split(/ +/g);
-      }
+
 
       if (disabledModules && !disabledModules.includes("levelling")) {
         const userLevel = await client.levels.fetch(
@@ -199,7 +176,6 @@ module.exports = {
       if (!client.cooldowns.has(command.name)) {
         client.cooldowns.set(command.name, new Discord.Collection());
       }
-
       const now = Date.now();
       const timestamps = client.cooldowns.get(command.name);
       const cooldownAmount = (command.conf.cooldown ?? 3) * 1000;

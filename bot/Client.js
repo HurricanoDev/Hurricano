@@ -170,13 +170,15 @@ class Client extends Discord.Client {
         if (typeof message !== "object")
           throw new Error(`Message provided is not an object.`);
         args = args[0];
-        let chan;
-        if (message.mentions.channels.first())
-          chan = message.mentions.channels.first();
-        else chan = await message.guild.channels.cache.get(args);
-        if (returnChannel && !chan) return message.channel;
-        if (chan) return chan;
-        if (!chan) return chan;
+        let user;
+        if (message.mentions.members.first())
+          user = message.mentions.members.first();
+        else user = await message.guild.members.fetch(args).catch(() => {});
+        if (user.size) user = null;
+
+        if (returnAuthor && !user) return message.author;
+        if (user) return user;
+        if (!user) return null;
       },
       getChannel: async (returnChannel, message, ...args) => {
         if (!returnChannel && returnChannel !== false)
@@ -192,8 +194,10 @@ class Client extends Discord.Client {
         args = args[0];
         let user;
         if (message.mentions.channels.first())
-          user = message.mentions.channels.first() || message.guild.channels.cache.find(x => x.name === args);
-        else user = await message.guild.channels.cache.get(args);
+          user =
+            message.mentions.channels.first() ||
+            message.guild.channels.cache.find((x) => x.name === args);
+        else user = message.guild.channels.cache.get(args);
         if (returnChannel && !user) return message.channel;
         if (user) return user;
         if (!user) return null;

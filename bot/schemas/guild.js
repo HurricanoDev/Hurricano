@@ -29,46 +29,53 @@ module.exports = model(
     },
     messageLogs: {
       type: String,
-      default: "null",
+      allowNull: true,
+      default: null,
     },
     suggestionChannel: {
       type: String,
       required: false,
-      default: "null",
+      allowNull: true,
+      default: null,
     },
     suggestions: {
       type: Schema.Types.Mixed,
+      allowNull: true,
       required: false,
       default: {},
     },
     suggestionNumber: {
-      type: String,
+      type: Number,
       required: false,
-      default: "1",
+      default: 1,
     },
     systemChannel: {
       type: String,
       required: false,
-      default: "null",
+      allowNull: true,
+      default: null,
     },
     autoRole: {
       type: String,
       required: false,
-      default: "null",
+      allowNull: true,
+      default: null,
     },
     memberLog: {
       type: String,
       required: false,
-      default: "null",
+      allowNull: true,
+      default: null,
     },
     globalChatChannel: {
       type: String,
       required: false,
-      default: "null",
+      allowNull: true,
+      default: null,
     },
     isActive: {
       type: Boolean,
-      default: false
-    }
+      default: false,
+    },
   })
 );

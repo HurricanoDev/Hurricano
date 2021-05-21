@@ -2,7 +2,7 @@ const { MessageEmbed } = require("discord.js");
 const Suggestions = require("@Utils/Suggestions.js");
 const Command = require("@Command");
 module.exports = new Command({
-  name: "deny",
+  name: "accept",
   userPermissions: ["ADMINISTRATOR"],
   args: "Please provide which suggestion you would like to approve!",
   cooldown: 20,
@@ -42,13 +42,8 @@ module.exports = new Command({
       )
       .addField("Approved By:", message.author.tag + ` (${message.author.id})`);
     await suggestionMsg.edit(embed);
-    let suggestionsObj = guildSchema.suggestions;
 
-    delete suggestionsObj[args[0]];
-    guildSchema.suggestions = suggestionsObj;
-    await guildSchema.save();
-
-    await message.channel.sendSuccesss(
+    await message.channel.sendSuccess(
       message,
       "Success!",
       `Successfully approved [this suggestion!](${suggestionMsg.url})`

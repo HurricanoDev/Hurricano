@@ -1,16 +1,16 @@
-2021-05-16 04:27:34 - client [index.js]: 
-.-----------------------2021-05-16 04:27:37 - shard [index.js]: [Shard 0] Shard Ready!
+2021-05-21 09:50:35 - client [index.js]: 
+.-----------------------2021-05-21 09:50:38 - shard [index.js]: [Shard 0] Shard Ready!
 mands                        |
 |--------------------------------------------------------|
 |     Command File     |   Command Name    | Load status |
 |----------------------|-------------------|-------------|
-| accept.js            | deny              | Loaded!     |
+| accept.js            | accept            | Loaded!     |
 | deny.js              | deny              | Loaded!     |
 | disable.js           | disable           | Loaded!     |
 | enable.js            | enable            | Loaded!     |
+| globalchat.js        | globalchat        | Loaded!     |
 | msglogs.js           | msglogs           | Loaded!     |
 | setautorole.js       | setautorole       | Loaded!     |
-| setglobalchat.js     | setglobalchat     | Loaded!     |
 | setmemberlog.js      | setmemberlog      | Loaded!     |
 | setprefix.js         | setprefix         | Loaded!     |
 | setsystemchannel.js  | setsystemchannel  | Loaded!     |
@@ -64,32 +64,122 @@ mands                        |
 | unblacklist.js       | unblacklist       | Loaded!     |
 | suggest.js           | suggest           | Loaded!     |
 '--------------------------------------------------------'
-2021-05-16 04:27:34 - info [index.js]: Provided token: ODI1NTc0NDEyMTc4NDIzODU5.YF_6Fg.***************************
-2021-05-16 04:27:34 - info [index.js]: Preparing to connect to the gateway...
-2021-05-16 04:27:35 - info [index.js]: [WS => Manager] Fetched Gateway Information
+2021-05-21 09:50:35 - info [index.js]: Provided token: ODI1NTc0NDEyMTc4NDIzODU5.YF_6Fg.***************************
+2021-05-21 09:50:35 - info [index.js]: Preparing to connect to the gateway...
+2021-05-21 09:50:36 - info [index.js]: [WS => Manager] Fetched Gateway Information
     URL: wss://gateway.discord.gg
     Recommended Shards: 1
-2021-05-16 04:27:35 - info [index.js]: [WS => Manager] Session Limit Information
+2021-05-21 09:50:36 - info [index.js]: [WS => Manager] Session Limit Information
     Total: 1000
-    Remaining: 994
-2021-05-16 04:27:35 - info [index.js]: [WS => Manager] Spawning shards: 0
-2021-05-16 04:27:35 - info [index.js]: [WS => Shard 0] [CONNECT]
+    Remaining: 940
+2021-05-21 09:50:36 - info [index.js]: [WS => Manager] Spawning shards: 0
+2021-05-21 09:50:36 - info [index.js]: [WS => Shard 0] [CONNECT]
     Gateway    : wss://gateway.discord.gg/
     Version    : 8
     Encoding   : json
     Compression: none
-2021-05-16 04:27:35 - info [index.js]: [WS => Shard 0] Setting a HELLO timeout for 20s.
-2021-05-16 04:27:35 - info [index.js]: [WS => Shard 0] [CONNECTED] wss://gateway.discord.gg/?v=8&encoding=json in 556ms
-2021-05-16 04:27:35 - info [index.js]: [WS => Shard 0] Clearing the HELLO timeout.
-2021-05-16 04:27:35 - info [index.js]: [WS => Shard 0] Setting a heartbeat interval for 41250ms.
-2021-05-16 04:27:35 - info [index.js]: [WS => Shard 0] [IDENTIFY] Shard 0/1
-2021-05-16 04:27:36 - info [index.js]: [WS => Shard 0] [READY] Session 514ad9d90026f9c1e9dd132ab6ac06a7.
-2021-05-16 04:27:36 - info [index.js]: [WS => Shard 0] [ReadyHeartbeat] Sending a heartbeat.
-2021-05-16 04:27:37 - info [index.js]: [WS => Shard 0] Shard received all its guilds. Marking as fully ready.
-2021-05-16 04:27:37 - info [index.js]: [WS => Shard 0] Heartbeat acknowledged, latency of 1355ms.
-2021-05-16 04:27:38 - db [index.js]: Connected to MongoDB!
-2021-05-16 04:27:38 - client [index.js]: Hurricano Beta#2437 Successfully Logged in!
-2021-05-16 04:28:17 - info [index.js]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
-2021-05-16 04:28:17 - info [index.js]: [WS => Shard 0] Heartbeat acknowledged, latency of 362ms.
-2021-05-16 04:28:58 - info [index.js]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
-2021-05-16 04:28:58 - info [index.js]: [WS => Shard 0] Heartbeat acknowledged, latency of 358ms.
+2021-05-21 09:50:36 - info [index.js]: [WS => Shard 0] Setting a HELLO timeout for 20s.
+2021-05-21 09:50:36 - info [index.js]: [WS => Shard 0] [CONNECTED] wss://gateway.discord.gg/?v=8&encoding=json in 844ms
+2021-05-21 09:50:36 - info [index.js]: [WS => Shard 0] Clearing the HELLO timeout.
+2021-05-21 09:50:36 - info [index.js]: [WS => Shard 0] Setting a heartbeat interval for 41250ms.
+2021-05-21 09:50:36 - info [index.js]: [WS => Shard 0] [IDENTIFY] Shard 0/1
+2021-05-21 09:50:37 - info [index.js]: [WS => Shard 0] [READY] Session a0ef62a9c5882cf15965b029f8b0b8b2.
+2021-05-21 09:50:37 - info [index.js]: [WS => Shard 0] [ReadyHeartbeat] Sending a heartbeat.
+2021-05-21 09:50:38 - info [index.js]: [WS => Shard 0] Shard received all its guilds. Marking as fully ready.
+2021-05-21 09:50:38 - info [index.js]: [WS => Shard 0] Heartbeat acknowledged, latency of 752ms.
+2021-05-21 09:50:38 - db [index.js]: Connected to MongoDB!
+2021-05-21 09:50:41 - client [index.js]: Hurricano Beta#2437 Successfully Logged in!
+2021-05-21 09:51:18 - info [index.js]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+2021-05-21 09:51:18 - info [index.js]: [WS => Shard 0] Heartbeat acknowledged, latency of 345ms.
+2021-05-21 09:51:59 - info [index.js]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+2021-05-21 09:51:59 - info [index.js]: [WS => Shard 0] Heartbeat acknowledged, latency of 267ms.
+2021-05-21 09:52:40 - info [index.js]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+2021-05-21 09:52:40 - info [index.js]: [WS => Shard 0] Heartbeat acknowledged, latency of 269ms.
+2021-05-21 09:53:21 - info [index.js]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+2021-05-21 09:53:22 - info [index.js]: [WS => Shard 0] Heartbeat acknowledged, latency of 310ms.
+2021-05-21 09:54:03 - info [index.js]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+2021-05-21 09:54:03 - info [index.js]: [WS => Shard 0] Heartbeat acknowledged, latency of 305ms.
+2021-05-21 09:54:44 - info [index.js]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+2021-05-21 09:54:44 - info [index.js]: [WS => Shard 0] Heartbeat acknowledged, latency of 274ms.
+2021-05-21 09:55:25 - info [index.js]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+2021-05-21 09:55:25 - info [index.js]: [WS => Shard 0] Heartbeat acknowledged, latency of 272ms.
+2021-05-21 09:56:06 - info [index.js]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+2021-05-21 09:56:07 - info [index.js]: [WS => Shard 0] Heartbeat acknowledged, latency of 356ms.
+2021-05-21 09:56:48 - info [index.js]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+2021-05-21 09:56:48 - info [index.js]: [WS => Shard 0] Heartbeat acknowledged, latency of 269ms.
+2021-05-21 09:57:29 - info [index.js]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+2021-05-21 09:57:29 - info [index.js]: [WS => Shard 0] Heartbeat acknowledged, latency of 267ms.
+2021-05-21 09:58:10 - info [index.js]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+2021-05-21 09:58:11 - info [index.js]: [WS => Shard 0] Heartbeat acknowledged, latency of 344ms.
+2021-05-21 09:58:51 - info [index.js]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+2021-05-21 09:58:52 - info [index.js]: [WS => Shard 0] Heartbeat acknowledged, latency of 270ms.
+2021-05-21 09:59:33 - info [index.js]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+2021-05-21 09:59:33 - info [index.js]: [WS => Shard 0] Heartbeat acknowledged, latency of 280ms.
+2021-05-21 10:00:14 - info [index.js]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+2021-05-21 10:00:14 - info [index.js]: [WS => Shard 0] Heartbeat acknowledged, latency of 286ms.
+2021-05-21 10:00:55 - info [index.js]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+2021-05-21 10:00:56 - info [index.js]: [WS => Shard 0] Heartbeat acknowledged, latency of 330ms.
+2021-05-21 10:01:36 - info [index.js]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+2021-05-21 10:01:37 - info [index.js]: [WS => Shard 0] Heartbeat acknowledged, latency of 289ms.
+2021-05-21 10:02:18 - info [index.js]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+2021-05-21 10:02:18 - info [index.js]: [WS => Shard 0] Heartbeat acknowledged, latency of 321ms.
+2021-05-21 10:02:59 - info [index.js]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+2021-05-21 10:02:59 - info [index.js]: [WS => Shard 0] Heartbeat acknowledged, latency of 277ms.
+2021-05-21 10:03:40 - info [index.js]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+2021-05-21 10:03:40 - info [index.js]: [WS => Shard 0] Heartbeat acknowledged, latency of 278ms.
+2021-05-21 10:04:21 - info [index.js]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+2021-05-21 10:04:22 - info [index.js]: [WS => Shard 0] Heartbeat acknowledged, latency of 289ms.
+2021-05-21 10:05:03 - info [index.js]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+2021-05-21 10:05:03 - info [index.js]: [WS => Shard 0] Heartbeat acknowledged, latency of 280ms.
+2021-05-21 10:05:44 - info [index.js]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+2021-05-21 10:05:44 - info [index.js]: [WS => Shard 0] Heartbeat acknowledged, latency of 280ms.
+2021-05-21 10:06:25 - info [index.js]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+2021-05-21 10:06:25 - info [index.js]: [WS => Shard 0] Heartbeat acknowledged, latency of 284ms.
+2021-05-21 10:07:06 - info [index.js]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+2021-05-21 10:07:07 - info [index.js]: [WS => Shard 0] Heartbeat acknowledged, latency of 278ms.
+2021-05-21 10:07:48 - info [index.js]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+2021-05-21 10:07:48 - info [index.js]: [WS => Shard 0] Heartbeat acknowledged, latency of 284ms.
+2021-05-21 10:08:29 - info [index.js]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+2021-05-21 10:08:29 - info [index.js]: [WS => Shard 0] Heartbeat acknowledged, latency of 300ms.
+2021-05-21 10:09:10 - info [index.js]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+2021-05-21 10:09:11 - info [index.js]: [WS => Shard 0] Heartbeat acknowledged, latency of 385ms.
+2021-05-21 10:09:51 - info [index.js]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+2021-05-21 10:09:52 - info [index.js]: [WS => Shard 0] Heartbeat acknowledged, latency of 280ms.
+2021-05-21 10:10:33 - info [index.js]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+2021-05-21 10:10:33 - info [index.js]: [WS => Shard 0] Heartbeat acknowledged, latency of 337ms.
+2021-05-21 10:11:14 - info [index.js]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+2021-05-21 10:11:14 - info [index.js]: [WS => Shard 0] Heartbeat acknowledged, latency of 302ms.
+2021-05-21 10:11:55 - info [index.js]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+2021-05-21 10:11:56 - info [index.js]: [WS => Shard 0] Heartbeat acknowledged, latency of 311ms.
+2021-05-21 10:12:36 - info [index.js]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+2021-05-21 10:12:37 - info [index.js]: [WS => Shard 0] Heartbeat acknowledged, latency of 318ms.
+2021-05-21 10:13:18 - info [index.js]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+2021-05-21 10:13:18 - info [index.js]: [WS => Shard 0] Heartbeat acknowledged, latency of 281ms.
+2021-05-21 10:13:30 - info [index.js]: [WS => Shard 0] [RECONNECT] Discord asked us to reconnect
+2021-05-21 10:13:30 - info [index.js]: [WS => Shard 0] [DESTROY]
+    Close Code    : 4000
+    Reset         : false
+    Emit DESTROYED: true
+2021-05-21 10:13:30 - info [index.js]: [WS => Shard 0] Clearing the heartbeat interval.
+2021-05-21 10:13:30 - info [index.js]: [WS => Shard 0] [CLOSE]
+    Event Code: 4000
+    Clean     : true
+    Reason    : No reason received
+2021-05-21 10:13:30 - info [index.js]: [WS => Shard 0] Session ID is present, attempting an immediate reconnect...
+2021-05-21 10:13:30 - info [index.js]: [WS => Shard 0] [CONNECT]
+    Gateway    : wss://gateway.discord.gg/
+    Version    : 8
+    Encoding   : json
+    Compression: none
+2021-05-21 10:13:30 - info [index.js]: [WS => Shard 0] Setting a HELLO timeout for 20s.
+2021-05-21 10:13:31 - info [index.js]: [WS => Shard 0] [CONNECTED] wss://gateway.discord.gg/?v=8&encoding=json in 1037ms
+2021-05-21 10:13:31 - info [index.js]: [WS => Shard 0] Clearing the HELLO timeout.
+2021-05-21 10:13:31 - info [index.js]: [WS => Shard 0] Setting a heartbeat interval for 41250ms.
+2021-05-21 10:13:31 - info [index.js]: [WS => Shard 0] [RESUME] Session a0ef62a9c5882cf15965b029f8b0b8b2, sequence 164
+2021-05-21 10:13:32 - info [index.js]: [WS => Shard 0] [RESUMED] Session a0ef62a9c5882cf15965b029f8b0b8b2 | Replayed 3 events.
+2021-05-21 10:13:32 - info [index.js]: [WS => Shard 0] [ResumeHeartbeat] Sending a heartbeat.
+2021-05-21 10:13:32 - info [index.js]: [WS => Shard 0] Heartbeat acknowledged, latency of 279ms.
+2021-05-21 10:14:13 - info [index.js]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+2021-05-21 10:14:13 - info [index.js]: [WS => Shard 0] Heartbeat acknowledged, latency of 296ms.
+2021-05-21 10:14:54 - info [index.js]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+2021-05-21 10:14:54 - info [index.js]: [WS => Shard 0] Heartbeat acknowledged, latency of 276ms.

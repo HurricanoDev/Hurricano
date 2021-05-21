@@ -1,6 +1,4 @@
 const Command = require("@Command");
-const { MessageEmbed } = require("discord.js");
-
 module.exports = new Command({
   name: "joinposition",
   aliases: ["joinp"],
@@ -11,17 +9,16 @@ module.exports = new Command({
       .sort((a, b) => a.joinedTimestamp - b.joinedTimestamp)
       .array();
 
-    const position = new Promise((ful) => {
-      for (let i = 1; i < members.length + 1; i++) {
-        if (members[i - 1].id === member.id) ful(i);
-      }
-    });
-
+    let position;
+    for (let i = 1; i < members.length + 1; i++) {
+      if (members[i - 1].id === member.id) position = i;
+    }
     await message.sendSuccessReply(
       "Success!",
       `${member} is the ${client.functions.getOrdinalSuffix(
-        await position
+        position
       )} member to join the server!`
     );
+    console.log("cee");
   },
 });

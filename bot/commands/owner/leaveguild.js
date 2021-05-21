@@ -14,7 +14,10 @@ module.exports = new Command({
         "Invalid Guild ID!",
         "You haven't provided me a valid guild ID."
       );
-    await message.channel.sendSuccess("Done!", `Left guild with ID: \`${guild.id}\``);
+    await message.channel.sendSuccess(
+      "Done!",
+      `Left guild with ID: \`${guild.id}\``
+    );
     guild.leave();
   },
 });

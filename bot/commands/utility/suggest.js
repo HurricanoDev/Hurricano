@@ -10,9 +10,10 @@ module.exports = new Command({
       id: message.guild.id,
     });
     const prefix = await client.db.guild.getPrefix(message.guild.id);
-    let channel = !isNaN(guildSchema.suggestionChannel)
-      ? await client.channels.fetch(guildSchema.suggestionChannel)
-      : undefined;
+    let channel =
+      guildSchema.suggestionChannel && !isNaN(guildSchema.suggestionChannel)
+        ? await client.channels.fetch(guildSchema.suggestionChannel)
+        : undefined;
     if (!channel)
       return message.sendErrorReply(
         "An Error Occured.",
@@ -33,10 +34,14 @@ module.exports = new Command({
       suggestionSent.id,
       message.author.id,
     ];
-    guildSchema.suggestions = suggestionsObj;
-    guildSchema.suggestionNumber = guildSchema.suggestionNumber - 0 + 1;
-    await guildSchema.save();
-    await message.channel.sendSuccesss(
+    let suggestionNumber = guildSchema.suggestionNumber - 0 + 1;
+    await client.schemas.guild.findOneAndUpdate({
+      id: message.guild.id
+    }, {
+      suggestionNumber: suggestionNumber,
+      suggestions: suggestionsObj
+    })
+    await message.channel.sendSuccess(
       message,
       "Success!",
       `Successfully sent a suggestion! You can check it [here](${suggestionSent.url}).`

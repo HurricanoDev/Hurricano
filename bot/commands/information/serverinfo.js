@@ -1,8 +1,6 @@
 const { MessageEmbed } = require("discord.js");
 const moment = require("moment");
 const emojis = require("../../utilities/emojis.json");
-const { stripIndent } = require("common-tags"); // optionnal
-// by YoungDaggerD btw
 const region = {
   "us-central": ":flag_us:  **US Central**",
   "us-east": ":flag_us:  **US East**",

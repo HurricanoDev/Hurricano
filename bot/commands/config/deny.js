@@ -44,13 +44,8 @@ module.exports = new Command({
       )
       .addField("Denied By:", message.author.tag + ` (${message.author.id})`);
     await suggestionMsg.edit(embed);
-    let suggestionsObj = guildSchema.suggestions;
 
-    delete suggestionsObj[args[0]];
-    guildSchema.suggestions = suggestionsObj;
-    await guildSchema.save();
-
-    await message.channel.sendSuccesss(
+    await message.channel.sendSuccess(
       message,
       "Success!",
       `Successfully denied [this suggestion!](${suggestionMsg.url})`

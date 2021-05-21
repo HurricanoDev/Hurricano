@@ -12,12 +12,13 @@ module.exports = {
       id: oldMessage.guild.id,
     });
     if (guildSchema.messageLogs) {
-      const guildChannel = newMessage.guild.channels.cache.get(
-        guildSchema.messageLogs
-      );
+      const guildChannel = await client.channels
+        .fetch(guildSchema.messageLogs)
+        .catch(() => {});
+      if (!guildChannel) return;
       let embed = new MessageEmbed()
         .setAuthor(
-          `Message Edited By ${oldMessage.author.tag}! | ID: ${oldMessage.author.id})`,
+          `Message Edited By ${oldMessage.author.tag}! | (ID: ${oldMessage.author.id})`,
           oldMessage.author.displayAvatarURL()
         )
         .setDescription(
