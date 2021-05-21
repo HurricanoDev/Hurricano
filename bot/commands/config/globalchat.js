@@ -23,7 +23,7 @@ module.exports = new Command({
           args[1]
         );
         if (!channel)
-          return message.channel.sendErrorReply(
+          return message.channel.sendError(
             "Invalid Channel!",
             "Invalid Channel Provided! Please provide a valid channel."
           );
