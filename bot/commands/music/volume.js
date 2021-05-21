@@ -46,7 +46,7 @@ module.exports = new Command({
     const success = this.client.player.setVolume(message, parseInt(args[0]));
 
     if (success)
-      await message.channel.sendSuccesss(
+      await message.channel.sendSuccess(
         message,
         "Success.",
         `Volume successfully set to **${parseInt(args[0])}%**!`

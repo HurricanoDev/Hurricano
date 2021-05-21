@@ -39,13 +39,13 @@ module.exports = new Command({
 
     message.client.player.setFilters(message, filtersUpdated);
     if (filtersUpdated[filterToUpdate])
-      await message.channel.sendSuccesss(
+      await message.channel.sendSuccess(
         message,
         "Filter Being Added.",
         "I am adding the filter the the song. Please wait. The longer the song is, the longer it takes."
       );
     else
-      await message.channel.sendSuccesss(
+      await message.channel.sendSuccess(
         message,
         "Filter Being Removed.",
         "I am removing the filters. Please wait. The longer the song is, the longer this will take."

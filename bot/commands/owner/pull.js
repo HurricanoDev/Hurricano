@@ -111,7 +111,7 @@ module.exports = new Command({
       );
     }
     if (response.includes("yes")) {
-      await message.channel.sendSuccesss(
+      await message.channel.sendSuccess(
         message,
         "Rebooting...",
         "Rebooting the bot now."
@@ -121,7 +121,7 @@ module.exports = new Command({
       }, 1000);
     }
     if (response.includes("no")) {
-      await message.channel.sendSuccesss(
+      await message.channel.sendSuccess(
         message,
         "Reboot Cancelled.",
         "Will not reboot the bot now."

@@ -24,11 +24,16 @@ module.exports = new Command({
         );
         if (!channel)
           return message.channel.sendError(
+            message,
             "Invalid Channel!",
             "Invalid Channel Provided! Please provide a valid channel."
           );
-        Guild.globalChatChannel = channel.id;
-        await Guild.save();
+        await client.schemas.guild.update({
+          id: message.guild.id
+        }, {
+           globalChatChannel: channel.id
+        });
+        break;
       case "remove":
         let response;
         const permissionEmbed = new MessageEmbed()
@@ -57,7 +62,7 @@ module.exports = new Command({
           );
         }
         if (response.includes("yes")) {
-          await message.channel.sendSuccesss(
+          await message.channel.sendSuccess(
             message,
             "Removing...",
             "Removed the global chat channel for this guild."
@@ -68,7 +73,7 @@ module.exports = new Command({
           );
         }
         if (response.includes("no")) {
-          return message.channel.sendSuccesss(
+          return message.channel.sendSuccess(
             message,
             "Global Chat Removal Cancelled",
             "Will not remove the global chat data for this guild!"

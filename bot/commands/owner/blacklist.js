@@ -18,7 +18,7 @@ module.exports = new Command({
     let userSchema = await client.schemas.user.findOne({ id: user.id });
     if (!userSchema) await client.functions.createUserDB(user);
 
-    await message.channel.sendSuccesss(
+    await message.channel.sendSuccess(
       message,
       "Confirmation.",
       `Are you sure you would like to blacklist ${user}? Please respond with \`yes\` or \`no\`.`
@@ -39,7 +39,7 @@ module.exports = new Command({
     confirmation = confirmation.first();
     let negativeResponses = ["nope", "no", "nah"];
     if (negativeResponses.includes(confirmation.content.toLowerCase()))
-      return await message.channel.sendSuccesss(
+      return await message.channel.sendSuccess(
         "Cancelling Blacklist.",
         "Cancelling blacklist."
       );
