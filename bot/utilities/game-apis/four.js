@@ -26,7 +26,7 @@ class Connect4 {
   }
 
   gameBoardToString() {
-    let str = `${Object.keys(reactions).join('|')}\n`;
+    let str = `|${Object.keys(reactions).join('|')}|\n`;
     for (let y = 0; y < HEIGHT; y++) {
       for (let x = 0; x < WIDTH; x++) {
         str += "|" + gameBoard[y * WIDTH + x];
