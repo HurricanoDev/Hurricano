@@ -1,0 +1,24 @@
+2021-05-22 13:33:37 - error [index.js]: Missing initializer in destructuring declaration
+{
+  "stack": "/home/runner/Hurricano/bot/commands/moderation/ban.js:2
+const { Message}
+      ^^^^^^^^^^
+
+SyntaxError: Missing initializer in destructuring declaration
+    at wrapSafe (internal/modules/cjs/loader.js:979:16)
+    at Module._compile (internal/modules/cjs/loader.js:1027:27)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1092:10)
+    at Module.load (internal/modules/cjs/loader.js:928:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:769:14)
+    at Module.require (internal/modules/cjs/loader.js:952:19)
+    at require (internal/modules/cjs/helpers.js:88:18)
+    at /home/runner/Hurricano/bot/Client.js:272:25
+    at Array.forEach (<anonymous>)
+    at Client.loadCommands (/home/runner/Hurricano/bot/Client.js:266:35)
+    at init (/home/runner/Hurricano/bot/handlers/index.js:25:10)
+    at Object.<anonymous> (/home/runner/Hurricano/bot/handlers/index.js:33:1)
+    at Module._compile (internal/modules/cjs/loader.js:1063:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1092:10)
+    at Module.load (internal/modules/cjs/loader.js:928:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:769:14)"
+}
