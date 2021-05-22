@@ -26,7 +26,7 @@ class Connect4 {
   }
 
   gameBoardToString() {
-    let str = "| 1 | 2 | 3 | 4 | 5 | 6 | 7 |\n";
+    let str = `${reactions.join('|')}\n`;
     for (let y = 0; y < HEIGHT; y++) {
       for (let x = 0; x < WIDTH; x++) {
         str += "|" + gameBoard[y * WIDTH + x];
@@ -47,20 +47,20 @@ class Connect4 {
     }
 
     this.inGame = true;
+    let user = this.users[Math.floor(Math.random() * this.users.length)]
     const embed = new Discord.MessageEmbed()
       .setColor("#000b9e")
       .setTitle("Connect-4")
       .setDescription(this.gameBoardToString())
-      .addField("Turn:", this.getChipFromTurn())
+      .addField("Turn:", this.getChipFromTurn() + `\n (${user})`)
       .setTimestamp();
-
     message.channel.send(embed).then((emsg) => {
       this.gameEmbed = emsg;
       Object.keys(reactions).forEach((reaction) => {
         this.gameEmbed.react(reaction);
       });
 
-      this.waitForReaction(this.users[Math.floor(Math.random() * this.users.length)]);
+      this.waitForReaction(user);
     });
   }
 
@@ -71,7 +71,7 @@ class Connect4 {
       .setColor("#000b9e")
       .setTitle("Connect-4")
       .setDescription(this.gameBoardToString())
-      .addField("Turn:", this.getChipFromTurn())
+      .addField("Turn:", this.getChipFromTurn() + `\n (${user})`)
       .setTimestamp();
     this.gameEmbed.edit(editEmbed);
     this.waitForReaction(user);
