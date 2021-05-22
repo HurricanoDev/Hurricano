@@ -15,14 +15,18 @@ const reactions = {
 };
 
 class Connect4 {
-  constructor() {
+  constructor(message, userFirst, userSecond) {
+    
+    this.message = message;
+    this.users = [userFirst, userSecond];
     this.gameEmbed = null;
     this.inGame = false;
     this.redTurn = true;
+    this.currentTurn = null;
   }
 
   gameBoardToString() {
-    let str = "| . 1 | . 2 | 3 | . 4 | . 5 | 6 | . 7 |\n";
+    let str = "| 1 | 2 | 3 | 4 | 5 | 6 | 7 |\n";
     for (let y = 0; y < HEIGHT; y++) {
       for (let x = 0; x < WIDTH; x++) {
         str += "|" + gameBoard[y * WIDTH + x];
@@ -32,7 +36,8 @@ class Connect4 {
     return str;
   }
 
-  newGame(msg) {
+  newGame() {
+    const message = this.message;
     if (this.inGame) return;
 
     for (let y = 0; y < HEIGHT; y++) {
@@ -49,17 +54,18 @@ class Connect4 {
       .addField("Turn:", this.getChipFromTurn())
       .setTimestamp();
 
-    msg.channel.send(embed).then((emsg) => {
+    message.channel.send(embed).then((emsg) => {
       this.gameEmbed = emsg;
       Object.keys(reactions).forEach((reaction) => {
         this.gameEmbed.react(reaction);
       });
 
-      this.waitForReaction();
+      this.waitForReaction(this.users[Math.floor(Math.random() * this.users.length)]);
     });
   }
 
-  step() {
+  step(user) {
+    user = user[0];
     this.redTurn = !this.redTurn;
     const editEmbed = new Discord.MessageEmbed()
       .setColor("#000b9e")
@@ -68,8 +74,7 @@ class Connect4 {
       .addField("Turn:", this.getChipFromTurn())
       .setTimestamp();
     this.gameEmbed.edit(editEmbed);
-
-    this.waitForReaction();
+    this.waitForReaction(user);
   }
 
   gameOver(winner) {
@@ -83,16 +88,16 @@ class Connect4 {
     this.gameEmbed.reactions.removeAll();
   }
 
-  filter(reaction, user) {
+  filter(reaction, user, userTurn) {
     return (
       Object.keys(reactions).includes(reaction.emoji.name) &&
-      user.id !== this.gameEmbed.author.id
+      !user.bot && user.id == userTurn.id
     );
   }
 
-  waitForReaction() {
+  waitForReaction(userTurn) {
     this.gameEmbed
-      .awaitReactions((reaction, user) => this.filter(reaction, user), {
+      .awaitReactions((reaction, user) => this.filter(reaction, user, userTurn), {
         max: 1,
         time: 300000,
         errors: ["time"],
@@ -128,7 +133,7 @@ class Connect4 {
             } else if (this.isBoardFull()) {
               this.gameOver("tie");
             } else {
-              this.step();
+              this.step((this.users.filter(otherUser => otherUser.id !== userTurn.id)));
             }
           });
       })

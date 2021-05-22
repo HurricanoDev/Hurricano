@@ -37,9 +37,9 @@ module.exports = new Command({
       )
       .addField(
         `Suggestion from \`${suggestionUser.tag}\`:`,
-        suggestionMsg.embeds[0].description > 1024
+        suggestion[2].length > 1024
           ? "Suggestion content is larger than 1024."
-          : suggestionMsg.embeds[0].description,
+          : suggestion[2],
         true
       )
       .addField("Denied By:", message.author.tag + ` (${message.author.id})`);

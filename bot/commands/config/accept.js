@@ -35,9 +35,9 @@ module.exports = new Command({
       .setDescription("Accepted idea! Will be implemented soon!")
       .addField(
         `Suggestion from \`${suggestionUser.tag}\`:`,
-        suggestionMsg.embeds[0].description > 1024
+        suggestion[2].length > 1024
           ? "Suggestion content is larger than 1024."
-          : suggestionMsg.embeds[0].description,
+          : suggestion[2],
         true
       )
       .addField("Approved By:", message.author.tag + ` (${message.author.id})`);

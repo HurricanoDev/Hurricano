@@ -5,19 +5,12 @@ module.exports = new Command({
   aliases: ["c4", "connectfour"],
   description: "Play the connect four game!",
   clientPermissions: ["SEND_MESSAGES"],
+  args: "Please provide who you would like to play connect4 against!",
   async run(message, args) {
-    const embed = new Discord.MessageEmbed()
-      .setAuthor(
-        "Please mention a user to play against.",
-        message.author.displayAvatarURL()
-      )
-      .setColor("#ffb6c1");
-
-    const Connect4 = require("../../utilities/game-apis/four.js");
-    const connect4 = new Connect4(client);
-
-    if (!message.mentions.users.first()) return message.channel.send(embed);
-
-    connect4.newGame(message);
+    let user = (await client.functions.getMember(false, message, args[0])).user;
+    if (!user) return message.channel.sendError(message, 'Invalid User!', 'Please provide a valid user!')
+        const Connect4 = require("../../utilities/game-apis/four.js");
+        const connect4 = new Connect4(message, message.author, user);
+    connect4.newGame();
   },
 });

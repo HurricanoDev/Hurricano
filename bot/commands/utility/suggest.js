@@ -33,6 +33,7 @@ module.exports = new Command({
     suggestionsObj[guildSchema.suggestionNumber] = [
       suggestionSent.id,
       message.author.id,
+      idea
     ];
     let suggestionNumber = guildSchema.suggestionNumber - 0 + 1;
     await client.schemas.guild.findOneAndUpdate({
