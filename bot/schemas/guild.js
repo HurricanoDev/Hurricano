@@ -67,12 +67,6 @@ module.exports = model(
       allowNull: true,
       default: null,
     },
-    globalChatChannel: {
-      type: String,
-      required: false,
-      allowNull: true,
-      default: null,
-    },
     isActive: {
       type: Boolean,
       default: false,
