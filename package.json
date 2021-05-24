@@ -21,7 +21,7 @@
     "dblapi.js": "^2.4.1",
     "discord-giveaways": "^4.5.1",
     "discord-player": "^4.0.7",
-    "discord.js": "github:discordjs/discord.js#73f4114f59fc2f514d570ac8df3eac7d328cca3c",
+    "discord.js": "github:discordjs/discord.js#f8703e3e59839d7380795ecf719d5bac691860a4",
     "dotenv": "^8.2.0",
     "ejs": "^3.1.6",
     "express": "^4.17.1",
