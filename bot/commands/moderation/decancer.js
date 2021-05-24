@@ -30,5 +30,22 @@ module.exports = new Command({
       "Nickname Decancered.",
       `${target}'s name has been decancered. \n \`${origiName}\` => \`${nick}\``
     );
+
+    //ModLogs
+    const guildData = client.schemas.guild.findOne({ id: message.guild.id });
+    const modLog = await message.guild.channels.cache.get(guildData.modLogs);
+
+    if(modLog && modLog.permissionsFor(message.guild.me).has('SEND_MESSAGES') && modLog.viewable) {
+      const logEmbed = new MessageEmbed()
+        .setTitle("Member Nickname Decancered")
+        .addField("Moderator", `<@${message.author.id}>`, true)
+        .addField("Member Decancered", `${target.tag}`, true)
+        .addField("Nickname", `\`${origiName}\` => \`${nick}\``)
+        .setTimestamp()
+        .setThumbnail(target.user.displayAvatarURL())
+        .setColor("BLACK")
+
+      modLog.send(logEmbed);
+    }
   },
 });

@@ -43,5 +43,21 @@ module.exports = new Command({
       .setThumbnail(client.links.successImage);
 
     message.reply(embed);
+
+    //ModLogs
+    const guildData = client.schemas.guild.findOne({ id: message.guild.id });
+    const modLog = await message.guild.channels.cache.get(guildData.modLogs);
+
+    if(modLog && modLog.permissionsFor(message.guild.me).has('SEND_MESSAGES') && modLog.viewable) {
+      const logEmbed = new MessageEmbed()
+        .setTitle("Member Banned")
+        .addField("Moderator", `<@${message.author.id}>`, true)
+        .addField("Member Banned", `${member.tag}`, true)
+        .setTimestamp()
+        .setThumbnail(member.user.displayAvatarURL())
+        .setColor("BLACK")
+
+      modLog.send(logEmbed);
+    }
   }
 });
