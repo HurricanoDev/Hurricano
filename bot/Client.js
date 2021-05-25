@@ -68,10 +68,6 @@ class Client extends Discord.Client {
      * Levelling
      */
     this.levels = require("./utilities/Levels.js");
-    /**
-     * Cooldowns
-     */
-    this.cooldowns = new Discord.Collection();
 
     /**
      * Snipes
