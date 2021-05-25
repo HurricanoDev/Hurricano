@@ -2,6 +2,44 @@ const Discord = require("discord.js");
 const { MessageEmbed } = require("discord.js");
 const config = require("@config");
 const leven = require("../../utilities/leven.js");
+const Cooldown = require("../../schemas/cooldown");
+
+function generateKey(user_id, commandname) {
+  return `${user_id}|${commandname}`;
+}
+
+async function handleCooldown(message, command) {
+  const cd = await Cooldown.findOne({ key: generateKey(message.author.id, command.name) });
+
+  if (cd) {
+    const now = Date.now();
+
+    if (cd.expiration < now) {
+      await Cooldown.deleteOne({ key: generateKey(message.author.id, command.name) });
+    } else {
+      return message.reply({
+        embed: {
+          title: "Chillza.",
+          description: `You need to wait ${Math.floor(cd.expiration - now).toFixed(
+            1
+          )} more second(s) before reusing the \`${command.name
+            }\` command.`,
+          footer: { text: `"Patience is the key my child."` },
+        },
+      });
+    }
+  }
+
+  return false;
+}
+
+async function makeCooldown(message, command) {
+  await Cooldown.create({
+    key: generateKey(message.author.id, command.name),
+    expiration: Date.now() + (command.conf.cooldown ?? 3) * 1000,
+  })
+}
+
 
 module.exports = {
   name: "message",
@@ -85,18 +123,18 @@ module.exports = {
           best.length == 0
             ? ""
             : best.length == 1
-            ? `+ ${best[0]}`
-            : `${best
+              ? `+ ${best[0]}`
+              : `${best
                 .slice(0, 3)
                 .map((value) => `+ ${value}`)
                 .join("\n")}`;
 
         return dym
           ? message.channel.sendError(
-              message,
-              "Invalid Command!",
-              `Sorry! I don't have that command! Did you happen to mean: \n\`\`\`diff\n${dym}\`\`\``
-            )
+            message,
+            "Invalid Command!",
+            `Sorry! I don't have that command! Did you happen to mean: \n\`\`\`diff\n${dym}\`\`\``
+          )
           : null;
       }
       let checkAdmin = config.ownerIds.includes(author.id);
@@ -142,10 +180,10 @@ module.exports = {
         }
       }
       if (command.conf.args && !args.length) return message.channel.sendError(
-          message,
-          "Arguments Error.",
-          command.conf.args
-        );
+        message,
+        "Arguments Error.",
+        command.conf.args
+      );
 
 
       if (disabledModules && !disabledModules.includes("levelling")) {
@@ -173,32 +211,8 @@ module.exports = {
           );
         }
       }
-      if (!client.cooldowns.has(command.name)) {
-        client.cooldowns.set(command.name, new Discord.Collection());
-      }
-      const now = Date.now();
-      const timestamps = client.cooldowns.get(command.name);
-      const cooldownAmount = (command.conf.cooldown ?? 3) * 1000;
-
-      if (timestamps.has(author.id)) {
-        const expirationTime = timestamps.get(author.id) + cooldownAmount;
-        if (now < expirationTime) {
-          const timeLeft = (expirationTime - now) / 1000;
-          return message.reply({
-            embed: {
-              title: "Chillza.",
-              description: `You need to wait ${timeLeft.toFixed(
-                1
-              )} more second(s) before reusing the \`${
-                command.name
-              }\` command.`,
-              footer: { text: `"Patience is the key my child."` },
-            },
-          });
-        }
-      }
-      if (!config.ownerIds.includes(author.id)) timestamps.set(author.id, now);
-      setTimeout(() => timestamps.delete(author.id), cooldownAmount);
+      if (await handleCooldown(message, command)) return;
+      await makeCooldown(message, command);
       command.run(message, args);
     }
   },
