@@ -211,32 +211,6 @@ module.exports = {
           );
         }
       }
-      // if (!client.cooldowns.has(command.name)) {
-      //   client.cooldowns.set(command.name, new Discord.Collection());
-      // }
-      // const now = Date.now();
-      // const timestamps = client.cooldowns.get(command.name);
-      // const cooldownAmount = (command.conf.cooldown ?? 3) * 1000;
-
-      // if (timestamps.has(author.id)) {
-      //   const expirationTime = timestamps.get(author.id) + cooldownAmount;
-      //   if (now < expirationTime) {
-      //     const timeLeft = (expirationTime - now) / 1000;
-      //     return message.reply({
-      //       embed: {
-      //         title: "Chillza.",
-      //         description: `You need to wait ${timeLeft.toFixed(
-      //           1
-      //         )} more second(s) before reusing the \`${
-      //           command.name
-      //         }\` command.`,
-      //         footer: { text: `"Patience is the key my child."` },
-      //       },
-      //     });
-      //   }
-      // }
-      // if (!config.ownerIds.includes(author.id)) timestamps.set(author.id, now);
-      // setTimeout(() => timestamps.delete(author.id), cooldownAmount);
       if (await handleCooldown(message, command)) return;
       await makeCooldown(message, command);
       command.run(message, args);
