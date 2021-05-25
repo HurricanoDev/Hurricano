@@ -45,7 +45,7 @@ module.exports = new Command({
     message.reply(embed);
 
     //ModLogs
-    const guildData = client.schemas.guild.findOne({ id: message.guild.id });
+    const guildData = await client.schemas.guild.findOne({ id: message.guild.id });
     const modLog = await client.channels.fetch(guildData.modLogs);
 
     if(modLog && modLog.permissionsFor(message.guild.me).has('SEND_MESSAGES') && modLog.viewable) {
