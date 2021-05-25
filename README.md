@@ -19,7 +19,7 @@ How to host this bot.
 - Using git and doing `git clone https://github.com/HurricanoBot/Hurricano.git`
 - Using GitHub cli and doing `gh repo clone HurricanoBot/Hurricano`
 3. Run `npm i` in the bot directory.
-4. Configure [config.json](https://github.com/HurricanoBot/Hurricano/blob/main/config.json)
+4. Configure [config.example.json](https://github.com/HurricanoBot/Hurricano/blob/main/config.example.json) and rename it to `config.json`
 5. Run the bot by using `node index`, `node index.js` or `node .`!
 
 Please respect the [LICENSE](https://github.com/HurricanoBot/Hurricano/blob/main/LICENSE.md).
