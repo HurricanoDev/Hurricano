@@ -20,7 +20,7 @@ module.exports = new Command({
       );
     if (
       members.some(x => x.id == member.id) &&
-      message.member.roles.highest.position > member.roles.highest.position
+      message.member.roles.highest.position < member.roles.highest.position
     )
       return message.channel.sendError(
         message,
@@ -46,7 +46,7 @@ module.exports = new Command({
 
     //ModLogs
     const guildData = client.schemas.guild.findOne({ id: message.guild.id });
-    const modLog = await message.guild.channels.cache.get(guildData.modLogs);
+    const modLog = await client.channels.fetch(guildData.modLogs);
 
     if(modLog && modLog.permissionsFor(message.guild.me).has('SEND_MESSAGES') && modLog.viewable) {
       const logEmbed = new MessageEmbed()
