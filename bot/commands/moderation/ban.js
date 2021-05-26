@@ -1,6 +1,6 @@
 //TODO: Add logging
 const Command = require("@Command");
-const { MessageEmbed } = requre("discord.js");
+const { MessageEmbed } = require("discord.js");
 module.exports = new Command({
   name: "ban",
   description: "Ban someone.",
@@ -37,10 +37,13 @@ module.exports = new Command({
     const embed = new MessageEmbed()
       .setAuthor("Member Successfully Banned.", client.links.successImage)
       .setDescription(
-        `${member} was banned in ${message.guild} by ${message.author}`
+        `${member} was banned.`
       )
+      .addField("Banned By:", `${message.author.tag}`, true)
+      .addField("Reason:", reason, true)
+
       .setColor("#008000")
-      .setThumbnail(client.links.successImage);
+      .setThumbnail(member.user.displayAvatarURL());
 
     message.reply(embed);
 
@@ -51,7 +54,7 @@ module.exports = new Command({
     if(modLog && modLog.permissionsFor(message.guild.me).has('SEND_MESSAGES') && modLog.viewable) {
       const logEmbed = new MessageEmbed()
         .setTitle("Member Banned")
-        .addField("Moderator", `<@${message.author.id}>`, true)
+        .addField("Moderator", `${message.author.id}`, true)
         .addField("Member Banned", `${member.tag}`, true)
         .setTimestamp()
         .setThumbnail(member.user.displayAvatarURL())

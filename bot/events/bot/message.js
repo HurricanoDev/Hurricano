@@ -15,18 +15,13 @@ async function handleCooldown(message, command) {
     const now = Date.now();
 
     if (cd.expiration < now) {
-      await Cooldown.deleteOne({ key: generateKey(message.author.id, command.name) });
+      await Cooldown.deleteMany({ key: generateKey(message.author.id, command.name) });
     } else {
-      return message.reply({
-        embed: {
-          title: "Chillza.",
-          description: `You need to wait ${Math.floor(cd.expiration - now).toFixed(
+      return message.sendErrorReply("Chillza.", `You need to wait ${Math.floor((cd.expiration - now) / 1000 ).toFixed(
             1
           )} more second(s) before reusing the \`${command.name
             }\` command.`,
-          footer: { text: `"Patience is the key my child."` },
-        },
-      });
+            `"Patience is the key my child."` );
     }
   }
 
@@ -211,7 +206,7 @@ module.exports = {
           );
         }
       }
-      if (await handleCooldown(message, command)) return;
+      if ((await handleCooldown(message, command))) return;
       await makeCooldown(message, command);
       command.run(message, args);
     }

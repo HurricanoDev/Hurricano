@@ -35,7 +35,7 @@ module.exports = Structures.extend(
           embed.setDescription(Msg);
         }
         if (Footer) {
-          embed.setFooter(Footer);
+          embed.setFooter(Footer, this.author.displayAvatarURL());
         } else {
           embed.setFooter(this.author.username, this.author.displayAvatarURL());
         }
