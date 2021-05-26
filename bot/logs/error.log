@@ -1,30 +1,30 @@
-2021-05-26 04:53:00 - warn [index.js]: E11000 duplicate key error collection: HurricanoBeta.cooldowns index: key_1 dup key: { key: "701780722444402758|ping" }
+2021-05-26 22:14:47 - warn [index.js]: Cannot read property 'getInfo' of undefined
 {
-  "driver": true,
-  "name": "MongoError",
-  "index": 0,
-  "code": 11000,
-  "keyPattern": {
-    "key": 1
-  },
-  "keyValue": {
-    "key": "701780722444402758|ping"
-  },
-  "stack": "MongoError: E11000 duplicate key error collection: HurricanoBeta.cooldowns index: key_1 dup key: { key: \"701780722444402758|ping\" }
-    at Function.create (/home/runner/Hurricano/node_modules/mongodb/lib/core/error.js:57:12)
-    at toError (/home/runner/Hurricano/node_modules/mongodb/lib/utils.js:123:22)
-    at /home/runner/Hurricano/node_modules/mongodb/lib/operations/common_functions.js:258:39
-    at handler (/home/runner/Hurricano/node_modules/mongodb/lib/core/sdam/topology.js:944:24)
-    at /home/runner/Hurricano/node_modules/mongodb/lib/cmap/connection_pool.js:350:13
-    at handleOperationResult (/home/runner/Hurricano/node_modules/mongodb/lib/core/sdam/server.js:558:5)
-    at MessageStream.messageHandler (/home/runner/Hurricano/node_modules/mongodb/lib/cmap/connection.js:277:5)
-    at MessageStream.emit (events.js:315:20)
-    at processIncomingData (/home/runner/Hurricano/node_modules/mongodb/lib/cmap/message_stream.js:144:12)
-    at MessageStream._write (/home/runner/Hurricano/node_modules/mongodb/lib/cmap/message_stream.js:42:5)
-    at writeOrBuffer (internal/streams/writable.js:358:12)
-    at MessageStream.Writable.write (internal/streams/writable.js:303:10)
-    at TLSSocket.ondata (internal/streams/readable.js:719:22)
-    at TLSSocket.emit (events.js:315:20)
-    at addChunk (internal/streams/readable.js:309:12)
-    at readableAddChunk (internal/streams/readable.js:284:9)"
+  "stack": "TypeError: Cannot read property 'getInfo' of undefined
+    at Object.run (/home/runner/Hurricano/bot/events/bot/ready.js:31:44)
+    at processTicksAndRejections (internal/process/task_queues.js:93:5)"
+}
+2021-05-26 22:14:47 - warn [index.js]: Cannot read property 'getInfo' of undefined
+{
+  "stack": "TypeError: Cannot read property 'getInfo' of undefined
+    at Object.run (/home/runner/Hurricano/bot/events/bot/ready.js:31:44)
+    at processTicksAndRejections (internal/process/task_queues.js:93:5)"
+}
+2021-05-26 22:14:47 - warn [index.js]: Cannot read property 'getInfo' of undefined
+{
+  "stack": "TypeError: Cannot read property 'getInfo' of undefined
+    at Object.run (/home/runner/Hurricano/bot/events/bot/ready.js:31:44)
+    at processTicksAndRejections (internal/process/task_queues.js:93:5)"
+}
+2021-05-26 22:14:47 - warn [index.js]: Cannot read property 'getInfo' of undefined
+{
+  "stack": "TypeError: Cannot read property 'getInfo' of undefined
+    at Object.run (/home/runner/Hurricano/bot/events/bot/ready.js:31:44)
+    at processTicksAndRejections (internal/process/task_queues.js:93:5)"
+}
+2021-05-26 22:14:47 - warn [index.js]: Cannot read property 'getInfo' of undefined
+{
+  "stack": "TypeError: Cannot read property 'getInfo' of undefined
+    at Object.run (/home/runner/Hurricano/bot/events/bot/ready.js:31:44)
+    at processTicksAndRejections (internal/process/task_queues.js:93:5)"
 }

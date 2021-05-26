@@ -9,6 +9,7 @@ const giveawaysManager = require("./utilities/giveaway");
 const logger = require("./utilities/logger.js");
 const path = require("path");
 let configFile;
+const Database = require('./handlers/db.js');
 /**
  * Extended Client class
  * @extends Discord.Client
@@ -39,20 +40,12 @@ class Client extends Discord.Client {
      * Aliases
      */
     this.aliases = new Discord.Collection();
-    /**
-     * Utils
-     */
-    this.utils = require("./utilities/utils.js");
-
-    /*
-     * Sharding Manager
-     */
-
+    
     /**
      * Mongo Database
      * @type {Object}
      */
-    this.db = require("./handlers/db.js");
+    this.db = new Database(this, this.config.mongouri);
     /**
      * Logger
      */

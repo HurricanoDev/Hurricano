@@ -32,6 +32,4 @@ function init() {
 
 init();
 
-module.exports = client;
-
 process.on("unhandledRejection", (error) => client.logger.warn(error));

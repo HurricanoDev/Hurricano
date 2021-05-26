@@ -30,18 +30,12 @@ module.exports = {
       try {
         const data = await client.db.guild.getInfo(guild.id);
         if (!data)
-          await new client.schemas.guild({
+          data = await new client.schemas.guild({
             id: guild.id,
             name: guild.name,
             suggestions: {},
           }).save();
-        const guildSchema = await client.schemas.guild.findOne({
-          id: guild.id,
-        });
-        if (typeof guildSchema.suggestions !== "object") {
-          guildSchema.suggestions = {};
-          await guildSchema.save();
-        }
+          client.db.guilds.cache.set(guild.id, data);
       } catch (err) {
         client.logger.warn(err);
       }
