@@ -29,6 +29,7 @@ async function handleCooldown(message, command) {
 }
 
 async function makeCooldown(message, command) {
+  await Cooldown.deleteMany({ key: generateKey(message.author.id, command.name) });
   await Cooldown.create({
     key: generateKey(message.author.id, command.name),
     expiration: Date.now() + (command.conf.cooldown ?? 3) * 1000,
