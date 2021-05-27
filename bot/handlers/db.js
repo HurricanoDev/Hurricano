@@ -17,7 +17,7 @@ class HurricanoDatabase {
             id: user.id,
             name: message.author.username,
           }).save();
-        this.db.users.cache.set(userId, data);
+        this.users.cache.set(userId, data);
         return data;
       },
     };
