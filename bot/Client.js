@@ -142,10 +142,11 @@ class Client extends Discord.Client {
     };
     this.functions = {
       createUserDB: async (userObj) => {
-        await new this.schemas.user({
+        const data = await new this.schemas.user({
           name: userObj.name,
           id: userObj.id,
-        });
+        }).save();
+        return data;
       },
       getMember: async (returnAuthor, message, ...args) => {
         if (!returnAuthor && returnAuthor !== false)

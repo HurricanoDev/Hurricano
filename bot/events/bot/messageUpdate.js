@@ -8,9 +8,7 @@ module.exports = {
     if (newMessage.member && cacheCheck) {
       client.emit("message", newMessage);
     }
-    const guildSchema = await client.schemas.guild.findOne({
-      id: oldMessage.guild.id,
-    });
+    const guildSchema = client.db.guilds.cache.get(message.guild.id);
     if (guildSchema.messageLogs) {
       const guildChannel = await client.channels
         .fetch(guildSchema.messageLogs)

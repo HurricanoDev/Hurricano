@@ -13,9 +13,7 @@ module.exports = {
     });
 
     // LOGS
-    const guildSchema = await client.schemas.guild.findOne({
-      id: message.guild.id,
-    });
+    const guildSchema = client.db.guilds.cache.get(message.guild.id);
     if (guildSchema.messageLogs) {
       const guildChannel = message.guild.channels.cache.get(
         guildSchema.messageLogs

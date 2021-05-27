@@ -71,15 +71,7 @@ module.exports = {
         "\\$&"
       )})\\s*`
     );
-    let userSchema = await client.schemas.user.findOne({
-      id: message.author.id,
-    });
-    if (!userSchema) {
-      userSchema = await new client.schemas.user({
-        name: message.author.username,
-        id: message.author.id,
-      }).save();
-    }
+    let userSchema = await client.db.users.fetch(message.author.id);
 
     const embed = new MessageEmbed()
       .setAuthor(
@@ -97,9 +89,14 @@ module.exports = {
     if (prefixRegex.test(message.content.toLowerCase())) {
       if (
         message.content === `<@${client.user.id}>` ||
-        message.content === `<@!${client.user.id}>`
+        (message.content === `<@!${client.user.id}>` && !userSchema.blacklisted)
       ) {
         return message.reply(embed);
+      } else if (userSchema.blacklisted) {
+        message.sendErrorReply(
+          "You have been blacklisted!",
+          "Damn it! You have been blacklisted by a bot moderator! This means you will be unable to use any of the bot commands."
+        );
       }
       const [, match] = message.content.toLowerCase().match(prefixRegex);
       if (!message.content.toLowerCase().startsWith(match)) return;
@@ -111,8 +108,7 @@ module.exports = {
         client.commands.get(cmd) ||
         client.commands.get(client.aliases.get(cmd));
       if (userSchema.blacklisted)
-        return message.channel.sendError(
-          message,
+        return message.sendErrorReply(
           "You have been blacklisted!",
           "Damn it! You have been blacklisted by a bot moderator! This means you will be unable to use any of the bot commands."
         );
@@ -151,9 +147,7 @@ module.exports = {
       if (!message.member)
         message.member = await message.guild.members.fetch(message);
 
-      let guildSchema = await client.schemas.guild.findOne({
-        id: message.guild.id,
-      });
+      let guildSchema = client.db.guilds.cache.get(message.guild.id);
       let disabledModules = guildSchema.disabledModules;
       if (
         disabledModules &&

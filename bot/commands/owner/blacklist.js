@@ -2,8 +2,7 @@ const Command = require("@Command");
 
 module.exports = new Command({
   name: "blacklist",
-  description:
-    "Set your server's message logs. This includes: Message deletion, Ghostping logging. More coming soon!",
+  description: "Blacklist a user from the bot.",
   ownerOnly: true,
   args: "Please provide who you would like to blacklist!",
   async run(message, args) {
@@ -16,7 +15,7 @@ module.exports = new Command({
         "Invalid user provided! Please provide a valid user."
       );
     let userSchema = await client.db.users.cache.get(user.id);
-    if (!userSchema) await client.functions.createUserDB(user);
+    if (!userSchema) userSchema = await client.functions.createUserDB(user);
 
     await message.channel.sendSuccess(
       message,
@@ -29,7 +28,7 @@ module.exports = new Command({
         limit: 30000,
         errors: ["time"],
       })
-      .catch((e) => {
+      .catch(() => {
         return message.channel.sendError(
           message,
           "Time Limit Reached.",

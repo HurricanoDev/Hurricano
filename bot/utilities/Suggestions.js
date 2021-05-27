@@ -16,7 +16,7 @@ const statusMessages = {
 };
 
 const fetchSuggestionChannel = async (guildId) => {
-  let guildSchema = await client.schemas.guild.findOne({ id: guildId });
+  let guildSchema = client.db.guilds.cache.get(guildId);
   if (!guildSchema)
     throw new Error(
       "Invalid guild ID provided for getting suggestion channel."

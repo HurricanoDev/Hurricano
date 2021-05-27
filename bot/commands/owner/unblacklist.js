@@ -2,7 +2,7 @@ const Command = require("@Command");
 
 module.exports = new Command({
   name: "unblacklist",
-  description: "Unblacklist a user from the bot!",
+  description: "Unblacklist a user from the bot.",
   ownerOnly: true,
   args: "Please provide who you would like to unblacklist!",
   async run(message, args) {
@@ -14,12 +14,8 @@ module.exports = new Command({
         "Invalid User!",
         "Invalid user provided! Please provide a valid user."
       );
-    let userSchema = await client.schemas.user.findOne({ id: user.id });
-    if (!userSchema)
-      return message.sendErrorReply(
-        "Invalid User!",
-        "Invalid user provided! Please provide a valid user that has used the bot."
-      );
+    let userSchema = await client.db.users.cache.get(user.id);
+    if (!userSchema) userSchema = await client.functions.createUserDB(user);
 
     await message.channel.sendSuccess(
       message,
@@ -34,6 +30,7 @@ module.exports = new Command({
       })
       .catch(() => {
         return message.channel.sendError(
+          message,
           "Time Limit Reached.",
           "You took too long to respond. You can try again later."
         );
@@ -48,8 +45,8 @@ module.exports = new Command({
     let positiveResponses = ["yes", "yep", "sure", "yessir"];
     if (positiveResponses.includes(confirmation.content.toLowerCase())) {
       message.sendSuccessReply(
-        "Blacklisting...",
-        "Blacklisting that user now."
+        "Unblacklisting...",
+        "Unblacklisting that user now."
       );
       await client.schemas.user.findOneAndUpdate(
         {

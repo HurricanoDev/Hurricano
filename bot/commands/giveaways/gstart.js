@@ -1,5 +1,4 @@
 const ms = require("../../utilities/ms.js");
-const num = require("num-parse");
 const emojis = require("../../utilities/emojis.json");
 const Command = require("@Command");
 module.exports = new Command({
