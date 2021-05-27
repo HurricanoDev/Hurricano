@@ -10,7 +10,7 @@ module.exports = new Command({
     "Set an autorole to give to new members upon joining your server.",
   async run(message, args) {
     //Some stuff
-    const prefix = await client.db.guild.getPrefix(message.guild.id);
+    const prefix = await client.db.guilds.getPrefix(message.guild.id);
     const role =
       message.mentions.roles.first() || message.guild.roles.cache.get(args[1]);
     //No Permission

@@ -6,7 +6,7 @@ module.exports = new Command({
   description: "Locks down a channel",
   userPermissions: ["MANAGE_CHANNELS"],
   async run(message, args) {
-    const prefix = await this.client.db.guild.getPrefix(message.guild.id);
+    const prefix = await this.client.db.guilds.getPrefix(message.guild.id);
     if (!args.length) {
       message.channel.sendError(
         message,
@@ -75,7 +75,7 @@ module.exports = new Command({
         .setTitle("🔒 Channel Locked")
         .addField("Locked by", message.author, true)
         .setFooter(
-          `To unlock, use '${await message.client.db.guild.getPrefix(
+          `To unlock, use '${await message.client.db.guilds.getPrefix(
             message.guild.id
           )}lock unlock'`
         )
@@ -87,7 +87,7 @@ module.exports = new Command({
       await message.sendSuccessReply(
         "Success.",
         `Successfully locked ${channel}.`,
-        `To unlock it, use '${await message.client.db.guild.getPrefix(
+        `To unlock it, use '${await message.client.db.guilds.getPrefix(
           message.guild.id
         )}lock unlock ${channel.name}'`
       );

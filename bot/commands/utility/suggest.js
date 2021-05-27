@@ -9,7 +9,7 @@ module.exports = new Command({
     let guildSchema = await client.schemas.guild.findOne({
       id: message.guild.id,
     });
-    const prefix = await client.db.guild.getPrefix(message.guild.id);
+    const prefix = await client.db.guilds.getPrefix(message.guild.id);
     let channel =
       guildSchema.suggestionChannel && !isNaN(guildSchema.suggestionChannel)
         ? await client.channels.fetch(guildSchema.suggestionChannel)
@@ -33,15 +33,18 @@ module.exports = new Command({
     suggestionsObj[guildSchema.suggestionNumber] = [
       suggestionSent.id,
       message.author.id,
-      idea
+      idea,
     ];
     let suggestionNumber = guildSchema.suggestionNumber - 0 + 1;
-    await client.schemas.guild.findOneAndUpdate({
-      id: message.guild.id
-    }, {
-      suggestionNumber: suggestionNumber,
-      suggestions: suggestionsObj
-    })
+    await client.schemas.guild.findOneAndUpdate(
+      {
+        id: message.guild.id,
+      },
+      {
+        suggestionNumber: suggestionNumber,
+        suggestions: suggestionsObj,
+      }
+    );
     await message.channel.sendSuccess(
       message,
       "Success!",

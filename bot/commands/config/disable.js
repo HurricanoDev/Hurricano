@@ -9,7 +9,7 @@ module.exports = new Command({
   async run(message, args) {
     let avaliableModules = readdirSync(`${process.cwd()}/bot/commands`);
     avaliableModules.splice(avaliableModules.indexOf("owner"), 1);
-    const prefix = await client.db.guild.getPrefix(message.guild.id);
+    const prefix = await client.db.guilds.getPrefix(message.guild.id);
     const modulesEmbed = new MessageEmbed().setTitle("Avaliable Modules.");
     avaliableModules.forEach((d) =>
       modulesEmbed.addField(d, `\`${prefix}disable ${d}\``, true)
@@ -28,9 +28,7 @@ module.exports = new Command({
       return;
     }
     if (avaliableModules.includes(argss)) {
-      let guildSchema = await client.schemas.guild.findOne({
-        id: message.guild.id,
-      });
+      let guildSchema = client.db.guilds.cache.get(message.guild.id);
       let disabledModules = guildSchema.disabledModules;
       if (disabledModules.includes(argss)) {
         message.channel.sendError(

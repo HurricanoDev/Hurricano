@@ -10,7 +10,7 @@ module.exports = new Command({
   cooldown: 20,
   description: "Set/remove your server's custom suggestion channel.",
   async run(message, args) {
-    let prefix = await client.db.guild.getPrefix(message.guild.id);
+    let prefix = await client.db.guilds.getPrefix(message.guild.id);
     if (!args.length)
       return message.sendErrorReply(
         "Invalid Arguments.",
@@ -19,7 +19,11 @@ module.exports = new Command({
     let suggestionChannel = await fetchSuggestionChannel(message.guild.id);
     switch (args[0]) {
       case "set":
-        const channel = await client.functions.getChannel(false, message, args[1]);
+        const channel = await client.functions.getChannel(
+          false,
+          message,
+          args[1]
+        );
         if (!channel)
           return message.channel.sendError(
             message,

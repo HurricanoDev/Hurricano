@@ -7,10 +7,8 @@ module.exports = new Command({
   userPermissions: ["ADMINISTRATOR"],
   description: "View the server's configuration.",
   async run(message, args) {
-    const guildInfo = await client.schemas.guild.findOne({
-      id: message.guild.id,
-    });
-    const prefix = await client.db.guild.getPrefix(message.guild.id);
+    const guildInfo = client.db.guilds.cache.get(message.guild.id);
+    const prefix = await client.db.guilds.getPrefix(message.guild.id);
     //System Settings
     let systemChannel =
       message.guild.channels.cache.get(guildInfo.systemChannel) || "None";

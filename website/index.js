@@ -10,9 +10,8 @@ app.get("*", (req, res) => {
   res.render("404");
 });
 
+app.listen(client.config.website.port, client.config.website.ip, () => {
+  console.log("Server Up!");
+});
 
-app.listen(client.config.website.port, client.config.website.ip, () =>{
-  console.log("Server Up!")
-})
-
-// Run npm i express ejs to install 
+// Run npm i express ejs to install

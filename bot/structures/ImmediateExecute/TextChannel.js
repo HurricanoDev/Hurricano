@@ -5,7 +5,7 @@ module.exports = Structures.extend("TextChannel", (channel) => {
       super(...args);
     }
 
-    async sendError(message, Header, Msg, Footer) {
+    async sendError(message, Header, Msg, Footer, Fields) {
       const embed = new MessageEmbed()
         .setAuthor(
           Header,
@@ -24,10 +24,11 @@ module.exports = Structures.extend("TextChannel", (channel) => {
           message.author.displayAvatarURL()
         );
       }
+      if (Fields) embed.addFields(Fields);
       const msg = await this.send(embed);
       return msg;
     }
-    async sendSuccess(message, Header, Msg, Footer) {
+    async sendSuccess(message, Header, Msg, Footer, Fields) {
       const embed = new MessageEmbed()
         .setAuthor(
           Header,
@@ -45,6 +46,7 @@ module.exports = Structures.extend("TextChannel", (channel) => {
           message.author.displayAvatarURL()
         );
       }
+      if (Fields) embed.addFields(Fields);
       const msg = await this.send(embed);
       return msg;
     }

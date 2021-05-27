@@ -35,7 +35,7 @@ module.exports = new Command({
           "You don't have `ADMINISTRATOR` permission to do this!",
           { ephemeral: true }
         );
-      await client.db.guild.updatePrefix(message.guild.id, prefix);
+      await client.db.guilds.updatePrefix(interaction.guild.id, prefix);
 
       embed.setDescription(
         "The server prefix has now been changed to **`" + prefix + "`**."
@@ -46,7 +46,7 @@ module.exports = new Command({
   async run(message, args) {
     const prefix = args[0];
 
-    await message.client.db.guild.updatePrefix(message.guild.id, prefix);
+    await message.client.db.guilds.updatePrefix(message.guild.id, prefix);
 
     message.sendSuccessReply(
       "Server Settings Change.",

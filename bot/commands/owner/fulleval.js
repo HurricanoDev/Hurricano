@@ -16,7 +16,7 @@ module.exports = new Command({
       else return text;
     };
     const types = ["async", "sync"];
-    const pref = await client.db.guild.getPrefix(message.guild.id);
+    const pref = await client.db.guilds.getPrefix(message.guild.id);
     if (!types.includes(args[0]))
       return message.channel.sendError(
         message,

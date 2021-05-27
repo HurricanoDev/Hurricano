@@ -32,10 +32,14 @@ module.exports = new Command({
     );
 
     //ModLogs
-    const guildData = client.schemas.guild.findOne({ id: message.guild.id });
+    const guildData = client.db.guilds.cache.get(message.guild.id);
     const modLog = await message.guild.channels.cache.get(guildData.modLogs);
 
-    if(modLog && modLog.permissionsFor(message.guild.me).has('SEND_MESSAGES') && modLog.viewable) {
+    if (
+      modLog &&
+      modLog.permissionsFor(message.guild.me).has("SEND_MESSAGES") &&
+      modLog.viewable
+    ) {
       const logEmbed = new MessageEmbed()
         .setTitle("Member Nickname Decancered")
         .addField("Moderator", `<@${message.author.id}>`, true)
@@ -43,7 +47,7 @@ module.exports = new Command({
         .addField("Nickname", `\`${origiName}\` => \`${nick}\``)
         .setTimestamp()
         .setThumbnail(target.user.displayAvatarURL())
-        .setColor("BLACK")
+        .setColor("BLACK");
 
       modLog.send(logEmbed);
     }

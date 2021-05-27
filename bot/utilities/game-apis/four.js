@@ -16,7 +16,6 @@ const reactions = {
 
 class Connect4 {
   constructor(message, userFirst, userSecond) {
-    
     this.message = message;
     this.users = [userFirst, userSecond];
     this.gameEmbed = null;
@@ -26,7 +25,7 @@ class Connect4 {
   }
 
   gameBoardToString() {
-    let str = `|${Object.keys(reactions).join('|')}|\n`;
+    let str = `|${Object.keys(reactions).join("|")}|\n`;
     for (let y = 0; y < HEIGHT; y++) {
       for (let x = 0; x < WIDTH; x++) {
         str += "|" + gameBoard[y * WIDTH + x];
@@ -47,7 +46,7 @@ class Connect4 {
     }
 
     this.inGame = true;
-    let user = this.users[Math.floor(Math.random() * this.users.length)]
+    let user = this.users[Math.floor(Math.random() * this.users.length)];
     const embed = new Discord.MessageEmbed()
       .setColor("#000b9e")
       .setTitle("Connect-4")
@@ -91,17 +90,21 @@ class Connect4 {
   filter(reaction, user, userTurn) {
     return (
       Object.keys(reactions).includes(reaction.emoji.name) &&
-      !user.bot && user.id == userTurn.id
+      !user.bot &&
+      user.id == userTurn.id
     );
   }
 
   waitForReaction(userTurn) {
     this.gameEmbed
-      .awaitReactions((reaction, user) => this.filter(reaction, user, userTurn), {
-        max: 1,
-        time: 300000,
-        errors: ["time"],
-      })
+      .awaitReactions(
+        (reaction, user) => this.filter(reaction, user, userTurn),
+        {
+          max: 1,
+          time: 300000,
+          errors: ["time"],
+        }
+      )
       .then((collected) => {
         const reaction = collected.first();
         const column = reactions[reaction.emoji.name] - 1;
@@ -133,7 +136,9 @@ class Connect4 {
             } else if (this.isBoardFull()) {
               this.gameOver("tie");
             } else {
-              this.step((this.users.filter(otherUser => otherUser.id !== userTurn.id)));
+              this.step(
+                this.users.filter((otherUser) => otherUser.id !== userTurn.id)
+              );
             }
           });
       })

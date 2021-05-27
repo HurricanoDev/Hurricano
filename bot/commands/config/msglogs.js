@@ -7,7 +7,7 @@ module.exports = new Command({
   cooldown: 20,
   description: "Set your server's message logs.",
   async run(message, args) {
-    const prefix = await client.db.guild.getPrefix(message.guild.id);
+    const prefix = await client.db.guilds.getPrefix(message.guild.id);
     if (!args.length)
       return message.channel.sendError(
         message,
@@ -25,9 +25,7 @@ module.exports = new Command({
         "Invalid channel provided! Please provide a channel you would like to set logs to."
       );
     var guildSchema = client.schemas.guild;
-    let guildLog = await client.schemas.guild.findOne({
-      id: message.guild.id,
-    });
+    let guildLog = client.db.guilds.cache.get(message.guild.id);
     switch (args[0]) {
       case "set":
         if (guildLog.messageLogs)

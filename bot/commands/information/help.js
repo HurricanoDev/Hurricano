@@ -27,7 +27,7 @@ module.exports = new Command({
     let Fact = tips[TIP];
     const author = message.author;
     let inline = true;
-    const pref = await message.client.db.guild.getPrefix(message.guild.id);
+    const pref = await message.client.db.guilds.getPrefix(message.guild.id);
     if (args.length) {
       const cmd =
         client.commands.get(args[0]) ||

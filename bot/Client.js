@@ -9,7 +9,7 @@ const giveawaysManager = require("./utilities/giveaway");
 const logger = require("./utilities/logger.js");
 const path = require("path");
 let configFile;
-const Database = require('./handlers/db.js');
+const Database = require("./handlers/db.js");
 /**
  * Extended Client class
  * @extends Discord.Client
@@ -40,7 +40,7 @@ class Client extends Discord.Client {
      * Aliases
      */
     this.aliases = new Discord.Collection();
-    
+
     /**
      * Mongo Database
      * @type {Object}

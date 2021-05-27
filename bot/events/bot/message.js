@@ -9,19 +9,26 @@ function generateKey(user_id, commandname) {
 }
 
 async function handleCooldown(message, command) {
-  const cd = await Cooldown.findOne({ key: generateKey(message.author.id, command.name) });
+  const cd = await Cooldown.findOne({
+    key: generateKey(message.author.id, command.name),
+  });
 
   if (cd) {
     const now = Date.now();
 
     if (cd.expiration < now) {
-      await Cooldown.deleteMany({ key: generateKey(message.author.id, command.name) });
+      await Cooldown.deleteMany({
+        key: generateKey(message.author.id, command.name),
+      });
+      return "allow";
     } else {
-      return message.sendErrorReply("Chillza.", `You need to wait ${Math.floor((cd.expiration - now) / 1000 ).toFixed(
-            1
-          )} more second(s) before reusing the \`${command.name
-            }\` command.`,
-            `"Patience is the key my child."` );
+      return message.sendErrorReply(
+        "Chillza.",
+        `You need to wait ${Math.floor((cd.expiration - now) / 1000).toFixed(
+          1
+        )} more second(s) before reusing the \`${command.name}\` command.`,
+        `"Patience is the key my child."`
+      );
     }
   }
 
@@ -29,13 +36,14 @@ async function handleCooldown(message, command) {
 }
 
 async function makeCooldown(message, command) {
-  await Cooldown.deleteMany({ key: generateKey(message.author.id, command.name) });
+  await Cooldown.deleteMany({
+    key: generateKey(message.author.id, command.name),
+  });
   await Cooldown.create({
     key: generateKey(message.author.id, command.name),
     expiration: Date.now() + (command.conf.cooldown ?? 3) * 1000,
-  })
+  });
 }
-
 
 module.exports = {
   name: "message",
@@ -54,7 +62,7 @@ module.exports = {
         "I don't have enough permissions in this guild! Please ask an admin to give me the following permissions: \n `READ_MESSAGES`, `SEND_MESSAGES`, `EMBED_LINKS`"
       );
     //------------------------------------------------------------------
-    const prefix = await client.db.guild.getPrefix(message.guild.id);
+    const prefix = await client.db.guilds.getPrefix(message.guild.id);
     const emojis = client._emojis;
     const { author } = message;
     const prefixRegex = new RegExp(
@@ -119,18 +127,18 @@ module.exports = {
           best.length == 0
             ? ""
             : best.length == 1
-              ? `+ ${best[0]}`
-              : `${best
+            ? `+ ${best[0]}`
+            : `${best
                 .slice(0, 3)
                 .map((value) => `+ ${value}`)
                 .join("\n")}`;
 
         return dym
           ? message.channel.sendError(
-            message,
-            "Invalid Command!",
-            `Sorry! I don't have that command! Did you happen to mean: \n\`\`\`diff\n${dym}\`\`\``
-          )
+              message,
+              "Invalid Command!",
+              `Sorry! I don't have that command! Did you happen to mean: \n\`\`\`diff\n${dym}\`\`\``
+            )
           : null;
       }
       let checkAdmin = config.ownerIds.includes(author.id);
@@ -175,12 +183,12 @@ module.exports = {
           );
         }
       }
-      if (command.conf.args && !args.length) return message.channel.sendError(
-        message,
-        "Arguments Error.",
-        command.conf.args
-      );
-
+      if (command.conf.args && !args.length)
+        return message.channel.sendError(
+          message,
+          "Arguments Error.",
+          command.conf.args
+        );
 
       if (disabledModules && !disabledModules.includes("levelling")) {
         const userLevel = await client.levels.fetch(
@@ -207,8 +215,10 @@ module.exports = {
           );
         }
       }
-      if ((await handleCooldown(message, command))) return;
-      await makeCooldown(message, command);
+      const auth = await handleCooldown(message, command);
+      if (auth !== "allow") return;
+      if (!client.config.ownerIds.includes(message.author.id))
+        await makeCooldown(message, command);
       command.run(message, args);
     }
   },

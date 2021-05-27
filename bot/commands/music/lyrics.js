@@ -7,7 +7,7 @@ module.exports = new Command({
   description: "Get a song's lyrics!",
   async run(message, args) {
     let lyrics = null;
-    const prefix = await message.client.db.guild.getPrefix(message.guild.id);
+    const prefix = await message.client.db.guilds.getPrefix(message.guild.id);
     if (!client.player.getQueue(message))
       return message.channel.sendError(
         message,

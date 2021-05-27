@@ -18,7 +18,7 @@ module.exports = new Command({
         `Provide a \`valid\` channel/ID to set as the server's memberlog-channel.`
       );
     } else {
-      const data = await client.schemas.guild.findOne({ id: message.guild.id });
+      const data = client.db.guilds.cache.get(message.guild.id);
       const currentChannel = data.memberLog;
       if (data.memberLog) {
         await client.schemas.guild.findOneAndUpdate(

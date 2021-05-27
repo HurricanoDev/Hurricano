@@ -17,9 +17,7 @@ module.exports = new Command({
         "No Suggestions Channel!",
         "This guild does not have a suggestions channel set! Ask an administrator to set it up."
       );
-    const guildSchema = await client.schemas.guild.findOne({
-      id: message.guild.id,
-    });
+    const guildSchema = client.db.guilds.cache.get(message.guild.id);
     let suggestions = guildSchema.suggestions;
     let suggestion = suggestions[args[0]];
     if (!suggestion)

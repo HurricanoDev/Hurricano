@@ -25,17 +25,18 @@ module.exports = {
     slashies = slashies.filter((x) => x.name && typeof x.name === "string");
     await client.application?.commands.set(slashies);
     client.giveawaysManager._init();
-    //find and create data
+    const userModels = await client.schemas.user.find({});
+    userModels.forEach((x) => client.db.users.cache.set(x.id, x));
     for (const guild of client.guilds.cache.values()) {
       try {
-        const data = await client.db.guild.getInfo(guild.id);
+        const data = await client.db.guilds.fetch(guild.id);
         if (!data)
           data = await new client.schemas.guild({
             id: guild.id,
             name: guild.name,
             suggestions: {},
           }).save();
-          client.db.guilds.cache.set(guild.id, data);
+        client.db.guilds.cache.set(guild.id, data);
       } catch (err) {
         client.logger.warn(err);
       }

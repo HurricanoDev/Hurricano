@@ -16,7 +16,7 @@ module.exports = new Command({
         "Invalid channel provided."
       );
     const Schema = client.schemas.guild;
-    const guildSchema = await Schema.findOne({ id: message.guild.id });
+    const guildSchema = client.db.guilds.cache.get(message.guild.id);
     const currentChannel = guildSchema.systemChannel;
     if (guildSchema.systemChannel) {
       await Schema.findOneAndUpdate(

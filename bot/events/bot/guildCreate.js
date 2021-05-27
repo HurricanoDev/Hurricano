@@ -4,7 +4,7 @@ module.exports = {
   name: "guildCreate",
   run: async (guild, client) => {
     try {
-      const data = await client.db.guild.getInfo(guild.id);
+      const data = await client.db.guilds.fetch(guild.id);
       if (!data)
         await new client.schemas.guild({
           _id: mongoose.Types.ObjectId(),

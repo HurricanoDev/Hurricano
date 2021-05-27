@@ -20,11 +20,8 @@ module.exports = new Command({
     async run(interaction, args) {
       const user = args[0].user;
       const embed = new MessageEmbed()
-        .setAuthor(
-          member.displayName,
-          member.displayAvatarURL({ dynamic: true })
-        )
-        .setImage(member.displayAvatarURL({ dynamic: true, size: 1024 }))
+        .setAuthor(user.displayName, user.displayAvatarURL({ dynamic: true }))
+        .setImage(user.displayAvatarURL({ dynamic: true, size: 1024 }))
         .setTimestamp();
       await interaction.reply(embed);
     },

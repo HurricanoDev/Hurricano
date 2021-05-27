@@ -7,7 +7,7 @@ module.exports = Structures.extend(
       constructor(...args) {
         super(...args);
       }
-      sendErrorReply(Header, Msg, Footer) {
+      async sendErrorReply(Header, Msg, Footer, Fields) {
         const embed = new MessageEmbed()
           .setAuthor(
             Header,
@@ -18,13 +18,15 @@ module.exports = Structures.extend(
           embed.setDescription(Msg);
         }
         if (Footer) {
-          embed.setFooter(Footer);
+          embed.setFooter(Footer, this.author.displayAvatarURL());
         } else {
           embed.setFooter(this.author.username, this.author.displayAvatarURL());
         }
-        this.reply(embed);
+        if (Fields) embed.addFields(Fields);
+        const msg = this.reply(embed);
+        return msg;
       }
-      sendSuccessReply(Header, Msg, Footer) {
+      async sendSuccessReply(Header, Msg, Footer, Fields) {
         const embed = new MessageEmbed()
           .setAuthor(
             Header,
@@ -39,7 +41,14 @@ module.exports = Structures.extend(
         } else {
           embed.setFooter(this.author.username, this.author.displayAvatarURL());
         }
-        this.reply(embed);
+        if (Footer) {
+          embed.setFooter(Footer, this.author.displayAvatarURL());
+        } else {
+          embed.setFooter(this.author.username, this.author.displayAvatarURL());
+        }
+        if (Fields) embed.addFields(Fields);
+        const msg = this.reply(embed);
+        return msg;
       }
     }
 );

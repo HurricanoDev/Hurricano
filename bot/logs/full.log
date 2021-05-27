@@ -1,5 +1,5 @@
-2021-05-26 22:14:45 - client [index.js]: 
-.-----------------------2021-05-26 22:14:46 - shard [index.js]: [Shard 0] Shard Ready!
+2021-05-27 02:21:18 - client [index.js]: 
+.-----------------------2021-05-27 02:21:21 - shard [index.js]: [Shard 0] Shard Ready!
 mands                        |
 |--------------------------------------------------------|
 |     Command File     |   Command Name    | Load status |
@@ -8,7 +8,6 @@ mands                        |
 | deny.js              | deny              | Loaded!     |
 | disable.js           | disable           | Loaded!     |
 | enable.js            | enable            | Loaded!     |
-| globalchat.js        | globalchat        | Loaded!     |
 | msglogs.js           | msglogs           | Loaded!     |
 | setautorole.js       | setautorole       | Loaded!     |
 | setmemberlog.js      | setmemberlog      | Loaded!     |
@@ -64,58 +63,30 @@ mands                        |
 | unblacklist.js       | unblacklist       | Loaded!     |
 | suggest.js           | suggest           | Loaded!     |
 '--------------------------------------------------------'
-2021-05-26 22:14:45 - info [index.js]: Provided token: ODI1NTc0NDEyMTc4NDIzODU5.YF_6Fg.***************************
-2021-05-26 22:14:45 - info [index.js]: Preparing to connect to the gateway...
-2021-05-26 22:14:45 - info [index.js]: [WS => Manager] Fetched Gateway Information
+2021-05-27 02:21:18 - info [index.js]: Provided token: ODI1NTc0NDEyMTc4NDIzODU5.YF_6Fg.***************************
+2021-05-27 02:21:18 - info [index.js]: Preparing to connect to the gateway...
+2021-05-27 02:21:18 - db [index.js]: Connected to MongoDB!
+2021-05-27 02:21:18 - info [index.js]: [WS => Manager] Fetched Gateway Information
     URL: wss://gateway.discord.gg
     Recommended Shards: 1
-2021-05-26 22:14:45 - info [index.js]: [WS => Manager] Session Limit Information
+2021-05-27 02:21:18 - info [index.js]: [WS => Manager] Session Limit Information
     Total: 1000
-    Remaining: 1000
-2021-05-26 22:14:45 - info [index.js]: [WS => Manager] Spawning shards: 0
-2021-05-26 22:14:45 - info [index.js]: [WS => Shard 0] [CONNECT]
+    Remaining: 989
+2021-05-27 02:21:18 - info [index.js]: [WS => Manager] Spawning shards: 0
+2021-05-27 02:21:18 - info [index.js]: [WS => Shard 0] [CONNECT]
     Gateway    : wss://gateway.discord.gg/
     Version    : 8
     Encoding   : json
     Compression: none
-2021-05-26 22:14:45 - info [index.js]: [WS => Shard 0] Setting a HELLO timeout for 20s.
-2021-05-26 22:14:45 - info [index.js]: [WS => Shard 0] [CONNECTED] wss://gateway.discord.gg/?v=8&encoding=json in 119ms
-2021-05-26 22:14:45 - info [index.js]: [WS => Shard 0] Clearing the HELLO timeout.
-2021-05-26 22:14:45 - info [index.js]: [WS => Shard 0] Setting a heartbeat interval for 41250ms.
-2021-05-26 22:14:45 - info [index.js]: [WS => Shard 0] [IDENTIFY] Shard 0/1
-2021-05-26 22:14:46 - info [index.js]: [WS => Shard 0] [READY] Session cef3ad89245d0ce87d81bd35ffa3c018.
-2021-05-26 22:14:46 - info [index.js]: [WS => Shard 0] [ReadyHeartbeat] Sending a heartbeat.
-2021-05-26 22:14:46 - info [index.js]: [WS => Shard 0] Shard received all its guilds. Marking as fully ready.
-2021-05-26 22:14:46 - info [index.js]: [WS => Shard 0] Heartbeat acknowledged, latency of 715ms.
-2021-05-26 22:14:47 - warn [index.js]: Cannot read property 'getInfo' of undefined
-{
-  "stack": "TypeError: Cannot read property 'getInfo' of undefined
-    at Object.run (/home/runner/Hurricano/bot/events/bot/ready.js:31:44)
-    at processTicksAndRejections (internal/process/task_queues.js:93:5)"
-}
-2021-05-26 22:14:47 - warn [index.js]: Cannot read property 'getInfo' of undefined
-{
-  "stack": "TypeError: Cannot read property 'getInfo' of undefined
-    at Object.run (/home/runner/Hurricano/bot/events/bot/ready.js:31:44)
-    at processTicksAndRejections (internal/process/task_queues.js:93:5)"
-}
-2021-05-26 22:14:47 - warn [index.js]: Cannot read property 'getInfo' of undefined
-{
-  "stack": "TypeError: Cannot read property 'getInfo' of undefined
-    at Object.run (/home/runner/Hurricano/bot/events/bot/ready.js:31:44)
-    at processTicksAndRejections (internal/process/task_queues.js:93:5)"
-}
-2021-05-26 22:14:47 - warn [index.js]: Cannot read property 'getInfo' of undefined
-{
-  "stack": "TypeError: Cannot read property 'getInfo' of undefined
-    at Object.run (/home/runner/Hurricano/bot/events/bot/ready.js:31:44)
-    at processTicksAndRejections (internal/process/task_queues.js:93:5)"
-}
-2021-05-26 22:14:47 - warn [index.js]: Cannot read property 'getInfo' of undefined
-{
-  "stack": "TypeError: Cannot read property 'getInfo' of undefined
-    at Object.run (/home/runner/Hurricano/bot/events/bot/ready.js:31:44)
-    at processTicksAndRejections (internal/process/task_queues.js:93:5)"
-}
-2021-05-26 22:14:47 - client [index.js]: Hurricano Beta#2437 Successfully Logged in!
-2021-05-26 22:14:48 - db [index.js]: Connected to MongoDB!
+2021-05-27 02:21:18 - info [index.js]: [WS => Shard 0] Setting a HELLO timeout for 20s.
+2021-05-27 02:21:19 - info [index.js]: [WS => Shard 0] [CONNECTED] wss://gateway.discord.gg/?v=8&encoding=json in 584ms
+2021-05-27 02:21:19 - info [index.js]: [WS => Shard 0] Clearing the HELLO timeout.
+2021-05-27 02:21:19 - info [index.js]: [WS => Shard 0] Setting a heartbeat interval for 41250ms.
+2021-05-27 02:21:19 - info [index.js]: [WS => Shard 0] [IDENTIFY] Shard 0/1
+2021-05-27 02:21:19 - info [index.js]: [WS => Shard 0] [READY] Session 975b2ed51987c080bcfe9d1b89e47555.
+2021-05-27 02:21:19 - info [index.js]: [WS => Shard 0] [ReadyHeartbeat] Sending a heartbeat.
+2021-05-27 02:21:21 - info [index.js]: [WS => Shard 0] Shard received all its guilds. Marking as fully ready.
+2021-05-27 02:21:21 - info [index.js]: [WS => Shard 0] Heartbeat acknowledged, latency of 1700ms.
+2021-05-27 02:21:22 - client [index.js]: Hurricano Beta#2437 Successfully Logged in!
+2021-05-27 02:22:00 - info [index.js]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+2021-05-27 02:22:00 - info [index.js]: [WS => Shard 0] Heartbeat acknowledged, latency of 377ms.
