@@ -48,7 +48,7 @@ module.exports = new Command({
         "Blacklisting...",
         "Blacklisting that user now."
       );
-      await client.schemas.user.findOneAndUpdate(
+      const data = await client.schemas.user.findOneAndUpdate(
         {
           id: user.id,
         },
@@ -56,6 +56,7 @@ module.exports = new Command({
           blacklisted: true,
         }
       );
+      client.db.users.cache.set(user.id, data);
     }
   },
 });

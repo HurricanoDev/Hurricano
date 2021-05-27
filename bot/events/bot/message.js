@@ -63,7 +63,6 @@ module.exports = {
       );
     //------------------------------------------------------------------
     const prefix = await client.db.guilds.getPrefix(message.guild.id);
-    const emojis = client._emojis;
     const { author } = message;
     const prefixRegex = new RegExp(
       `^(<@!?${client.user.id}>|${prefix.replace(
