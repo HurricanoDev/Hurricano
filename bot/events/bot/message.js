@@ -12,7 +12,7 @@ async function handleCooldown(message, command) {
   const cd = await Cooldown.findOne({
     key: generateKey(message.author.id, command.name),
   });
-
+  if (!cd) return "allow";
   if (cd) {
     const now = Date.now();
 
@@ -71,7 +71,8 @@ module.exports = {
         "\\$&"
       )})\\s*`
     );
-    let userSchema = await client.db.users.fetch(message.author.id);
+    let userSchema = await client.db.users.cache.get(author.id);
+    if (!userSchema) userSchema = await client.db.users.fetch(author.id);
 
     const embed = new MessageEmbed()
       .setAuthor(
@@ -87,17 +88,14 @@ module.exports = {
       )
       .setFooter(`© Hurricano™ v1.0.0`);
     if (prefixRegex.test(message.content.toLowerCase())) {
-      if (
-        message.content === `<@${client.user.id}>` ||
-        (message.content === `<@!${client.user.id}>` && !userSchema.blacklisted)
-      ) {
-        return message.reply(embed);
-      } else if (userSchema.blacklisted) {
-        message.sendErrorReply(
+      if (userSchema.blacklisted) return message.sendErrorReply(
           "You have been blacklisted!",
           "Damn it! You have been blacklisted by a bot moderator! This means you will be unable to use any of the bot commands."
         );
-      }
+      if (
+        message.content === `<@${client.user.id}>` ||
+        (message.content === `<@!${client.user.id}>` && !userSchema.blacklisted)
+      ) return message.reply(embed);
       const [, match] = message.content.toLowerCase().match(prefixRegex);
       if (!message.content.toLowerCase().startsWith(match)) return;
       let args = message.content.slice(match.length).trim().split(/ +/g);
