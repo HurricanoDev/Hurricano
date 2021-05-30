@@ -11,7 +11,7 @@ module.exports = new Command({
     const members = await message.guild.members.fetch();
     const member = await client.functions.getMember(false, message, args[0]);
     if (!member && !members.some((x) => x.id === args[0]))
-      member = await client.users.fetch(args);
+      member = args ? await client.users.fetch(args) : undefined;
     if (!member)
       return message.channel.sendError(
         message,
