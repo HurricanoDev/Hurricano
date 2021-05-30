@@ -90,7 +90,7 @@ module.exports = new Command({
         return message.channel.send(embed);
     } catch (err) {
       const embed = await sendEmbed(err);
-      return embed;
+      return message.channel.send(embed);
     }
   },
 });
