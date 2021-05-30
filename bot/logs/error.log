@@ -1,1 +1,14 @@
-2021-05-30 10:38:00 - error [index.js]: {"size":0,"timeout":0}
+2021-05-30 14:17:12 - warn [index.js]: Operation `giveaways.find()` buffering timed out after 10000ms
+{
+  "stack": "MongooseError: Operation `giveaways.find()` buffering timed out after 10000ms
+    at Timeout.<anonymous> (/home/dragonizedpizza/Desktop/Hurricano/node_modules/mongoose/lib/drivers/node-mongodb-native/collection.js:185:20)
+    at listOnTimeout (internal/timers.js:555:17)
+    at processTimers (internal/timers.js:498:7)"
+}
+2021-05-30 14:17:12 - warn [index.js]: Operation `users.find()` buffering timed out after 10000ms
+{
+  "stack": "MongooseError: Operation `users.find()` buffering timed out after 10000ms
+    at Timeout.<anonymous> (/home/dragonizedpizza/Desktop/Hurricano/node_modules/mongoose/lib/drivers/node-mongodb-native/collection.js:185:20)
+    at listOnTimeout (internal/timers.js:555:17)
+    at processTimers (internal/timers.js:498:7)"
+}
