@@ -70,7 +70,7 @@ module.exports = new Command({
           },
         ]
       );
-    let winners = args[1].toLowerCase().endsWith('w') ? +(args[1].split('w')[0]) : +args[1];
+    let winners = args[1] && args[1].toLowerCase().endsWith('w') ? +(args[1].split('w')[0]) : +args[1];
     if (!winners)
       return message.sendErrorReply(
         "An Error Occured.",
@@ -108,7 +108,7 @@ module.exports = new Command({
       );
     let role = null;
     if (!args[2])
-      return message.channel.sendErrorReply(
+      return message.sendErrorReply(
         "Invalid Arguments Provided.",
         "Please provide a required role for this giveaway, or if you want none just type none."
       );
@@ -151,7 +151,7 @@ module.exports = new Command({
       prize: prize,
       hostedBy: message.author,
       extraData: {
-        role: role == null ? "null" : role,
+        role: role == null ? "null" : role.id,
       },
       messages: {
         giveaway: `${emojis.categories.giveaways} **Giveaway** ${emojis.categories.giveaways}`,
@@ -162,7 +162,7 @@ module.exports = new Command({
         embedFooter: `${client.user.tag}`,
         noWinner: "Nobody won because of the invalid participations!",
         hostedBy: `Hosted by: {user} \n ${
-          role == null ? "Required Role: " + role.toString() : undefined
+          role == null ? undefined : "Required Role: " + role.toString()
         }`,
         winners: "winner(s)",
         endedAt: "Ended at",

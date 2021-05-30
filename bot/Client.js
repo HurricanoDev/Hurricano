@@ -27,6 +27,7 @@ class Client extends Discord.Client {
      * Add Credentials
      */
     this.config = config;
+    this.map = {};
 
     this.globalPrefix = "hr!";
     this.token = config.token;

@@ -31,3 +31,8 @@ manager.on("shardCreate", (shard) => {
   });
 });
 manager.spawn();
+
+process.on("unhandledRejection", (error) => {
+  if (typeof error === 'object') logger.error(JSON.stringify(error))
+  else logger.error(error)
+});

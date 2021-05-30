@@ -115,7 +115,6 @@ module.exports.Menu = class extends EventEmitter {
    * Send the Menu and begin listening for reactions.
    */
   start() {
-    // TODO: Sort out documenting this as a TSDoc event.
     this.emit("pageChange", this.currentPage);
     this.channel
       .send(this.currentPage.content)
@@ -138,7 +137,7 @@ module.exports.Menu = class extends EventEmitter {
             } (${
               this.channel.guild.name
             }), needed for sending the menu message.`
-          );
+          ).catch(() => {});
         }
       });
   }
@@ -237,12 +236,10 @@ module.exports.Menu = class extends EventEmitter {
       // Whether the end was triggered by pressing a reaction or the menu just ended.
       if (reactions) {
         return !sameReactions
-          ? this.clearReactions()
+          ? undefined
           : reactions
               .array()[0]
               .users.remove(this.menu.client.users.cache.get(this.userID));
-      } else {
-        return this.clearReactions();
       }
     });
 

@@ -15,7 +15,7 @@ class HurricanoDatabase {
         if (!data)
           data = await new client.schemas.user({
             id: user.id,
-            name: message.author.username,
+            name: user.username,
           }).save();
         this.users.cache.set(userId, data);
         return data;
