@@ -25,7 +25,7 @@ module.exports = new Command({
         `Please provide if you would like to eval in \`sync, or async\`. \n Examples: \`${pref}eval sync <code>\`, \n \`${pref}eval async <code>\`.`
       );
     try {
-      const code = args.join(" ").replace(args[0], "");
+      const code = args.splice(1).join(" ");
       if (!code)
         return message.channel.sendError(
           message,
@@ -96,7 +96,7 @@ module.exports = new Command({
         await message.reply({ embed: embed2 });
       }
     } catch (err) {
-      const code = args.join(" ").replace(args[0], "");
+      const code = args.splice(1).join(" ");
       if (!code)
         return message.channel.sendError(
           message,

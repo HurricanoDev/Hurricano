@@ -34,7 +34,7 @@ module.exports = new Command({
       idea,
     ];
     let suggestionNumber = guildSchema.suggestionNumber - 0 + 1;
-    await client.schemas.guild.findOneAndUpdate(
+    const data = await client.schemas.guild.findOneAndUpdate(
       {
         id: message.guild.id,
       },
@@ -43,6 +43,7 @@ module.exports = new Command({
         suggestions: suggestionsObj,
       }
     );
+    client.db.guilds.cache.set(message.guild.id, data);
     await message.channel.sendSuccess(
       message,
       "Success!",

@@ -19,7 +19,7 @@ module.exports = new Command({
     const guildSchema = client.db.guilds.cache.get(message.guild.id);
     const currentChannel = guildSchema.systemChannel;
     if (guildSchema.systemChannel) {
-      await Schema.findOneAndUpdate(
+      const data = await Schema.findOneAndUpdate(
         {
           id: message.guild.id,
         },
@@ -30,7 +30,7 @@ module.exports = new Command({
           upsert: true,
         }
       );
-
+      client.db.guilds.cache.set(message.guild.id, data)
       await message.channel.sendSuccessReply(
         message,
         "Success!",

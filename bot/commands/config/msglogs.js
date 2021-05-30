@@ -33,7 +33,7 @@ module.exports = new Command({
             "Logs already set!",
             `The channel you provided already has logs set! If you would like to remove logs from that channel, send: \n \`${prefix}msglogs remove\``
           );
-        await guildSchema.findOneAndUpdate(
+        const data = await guildSchema.findOneAndUpdate(
           {
             id: message.guild.id,
           },
@@ -44,6 +44,7 @@ module.exports = new Command({
             upsert: true,
           }
         );
+        client.db.guilds.cache.set(message.guild.id, data);
         message.sendSuccessReply(
           "Success!",
           `I have successfully set the message logs to ${channel}!`
@@ -55,7 +56,7 @@ module.exports = new Command({
             "Already Disabled!",
             `The logs are already disabled. You can enable them via: \n \`${prefix}msglogs set {channel name}\``
           );
-        await guildSchema.findOneAndUpdate(
+        const data = await guildSchema.findOneAndUpdate(
           {
             id: message.guild.id,
           },
@@ -66,6 +67,7 @@ module.exports = new Command({
             upsert: true,
           }
         );
+        client.db.guilds.cache.set(message.guild.id, data);
         message.sendSuccessReply(
           "Success!",
           "I have successfully disabled message logs."

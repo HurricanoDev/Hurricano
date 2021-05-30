@@ -18,24 +18,26 @@ module.exports = new Command({
         `Provide a \`valid\` channel/ID to set as the server's memberlog-channel.`
       );
     } else {
-      const data = client.db.guilds.cache.get(message.guild.id);
+      let data = client.db.guilds.cache.get(message.guild.id);
       const currentChannel = data.memberLog;
       if (data.memberLog) {
-        await client.schemas.guild.findOneAndUpdate(
+        data = await client.schemas.guild.findOneAndUpdate(
           { id: message.guild.id },
           { memberLog: channel.id },
           { upsert: true }
         );
+        client.db.guilds.cache.set(message.guild.id);
         return message.sendSuccessReply(
           "Memberlog Updated!",
           `The guild's memberlog channel was updated from \`None\` ➔ <#${channel.id}>`
         );
       } else if (data.memberLog) {
-        await client.schemas.guild.findOneAndUpdate(
+        data = await client.schemas.guild.findOneAndUpdate(
           { id: message.guild.id },
           { memberLog: channel.id },
           { upsert: true }
         );
+        client.db.guilds.cache.set(message.guild.id, data)
         return message.sendSuccessReply(
           "Memberlog Updated!",
           `The guild's memberlog channel was updated from <#${currentChannel}> ➔ <#${channel.id}>`
