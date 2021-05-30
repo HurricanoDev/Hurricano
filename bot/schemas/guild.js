@@ -71,5 +71,11 @@ module.exports = model(
       type: Boolean,
       default: false,
     },
+    muteRole: {
+      type: String,
+      required: false,
+      allowNull: true,
+      default: null,
+    },
   })
 );
