@@ -20,7 +20,7 @@ module.exports = new Command({
       const toEval = args.join(" ");
       let embed = new MessageEmbed()
       .setTitle("Eval Output.")
-      .setAuthor(`Eval by ${message.author}.`, message.author.displayAvatarURL())
+      .setAuthor(`Eval by ${message.author.username}.`, message.author.displayAvatarURL())
       .addField(
         "Input",
         `\`\`\`js\n${
@@ -54,7 +54,7 @@ module.exports = new Command({
       }
     };
     const types = ["async", "sync"];
-    const pref = client.db.guilds.cache.get(message.guild.id);
+    const pref = (client.db.guilds.cache.get(message.guild.id)).pref;
     if (!types.includes(args[0]))
       return message.channel.sendError(
         message,
