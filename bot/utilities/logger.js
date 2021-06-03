@@ -13,6 +13,7 @@ const levels = {
     client: 8,
     info: 9,
     debug: 10,
+    message: 11
   },
   colors: {
     emerg: "red",
@@ -26,12 +27,13 @@ const levels = {
     client: "blue",
     info: "green",
     debug: "blue",
+    message: "green"
   },
 };
 // Custom log formatting
 const logFormat = format.printf((info) => {
   const { timestamp, level, label, message, ...rest } = info;
-  let log = `${timestamp} - ${level} [${label}]: ${message}`;
+  let log = `[${timestamp}] - [${level}]: ${message}`;
 
   // Check if rest is an object
   if (!(Object.keys(rest).length === 0 && rest.constructor === Object)) {

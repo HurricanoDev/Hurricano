@@ -87,14 +87,16 @@ module.exports = {
       )
       .setFooter(`© Hurricano™ v1.0.0`);
     if (prefixRegex.test(message.content.toLowerCase())) {
-      if (userSchema.blacklisted) return message.sendErrorReply(
+      if (userSchema.blacklisted)
+        return message.sendErrorReply(
           "You have been blacklisted!",
           "Damn it! You have been blacklisted by a bot moderator! This means you will be unable to use any of the bot commands."
         );
       if (
         message.content === `<@${client.user.id}>` ||
         (message.content === `<@!${client.user.id}>` && !userSchema.blacklisted)
-      ) return message.reply(embed);
+      )
+        return message.reply(embed);
       const [, match] = message.content.toLowerCase().match(prefixRegex);
       if (!message.content.toLowerCase().startsWith(match)) return;
       let args = message.content.slice(match.length).trim().split(/ +/g);
@@ -134,6 +136,7 @@ module.exports = {
             )
           : null;
       }
+      client.logger.message(`${message.author.tag} used the "${command.name}" command in guild ${message.guild} with args: "${args.join(" ")}"`)
       let checkAdmin = config.ownerIds.includes(author.id);
       if (command.conf.ownerOnly === true && !checkAdmin)
         return message.channel.sendError(

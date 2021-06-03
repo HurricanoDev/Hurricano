@@ -24,7 +24,7 @@ class Levels {
 
     await newUser
       .save()
-      .catch((e) => console.log(`Failed to create user: ${e}`));
+      .catch((e) => { throw new Error(`Failed to create user: ${e}`) });
 
     return newUser;
   }
@@ -43,7 +43,7 @@ class Levels {
 
     await levels
       .findOneAndDelete({ userID: userId, guildID: guildId })
-      .catch((e) => console.log(`Failed to delete user: ${e}`));
+      .catch((e) => { throw new Error(`Failed to delete user: ${e}`) });
 
     return user;
   }
@@ -72,7 +72,7 @@ class Levels {
 
       await newUser
         .save()
-        .catch((e) => console.log(`Failed to save new user.`));
+        .catch((e) => { throw new Error(`Failed to save new user.`) });
 
       return Math.floor(0.1 * Math.sqrt(xp)) > 0;
     }
@@ -81,7 +81,7 @@ class Levels {
     user.level = Math.floor(0.1 * Math.sqrt(user.xp));
     user.lastUpdated = new Date();
 
-    await user.save().catch((e) => console.log(`Failed to append xp: ${e}`));
+    await user.save().catch((e) => { throw new Error(`Failed to append xp: ${e}`) });
 
     return Math.floor(0.1 * Math.sqrt((user.xp -= xp))) < user.level;
   }
@@ -104,7 +104,7 @@ class Levels {
     user.xp = user.level * user.level * 100;
     user.lastUpdated = new Date();
 
-    user.save().catch((e) => console.log(`Failed to append level: ${e}`));
+    user.save().catch((e) => { throw new Error(`Failed to append level: ${e}`) });
 
     return user;
   }
@@ -128,7 +128,7 @@ class Levels {
     user.level = Math.floor(0.1 * Math.sqrt(user.xp));
     user.lastUpdated = new Date();
 
-    user.save().catch((e) => console.log(`Failed to set xp: ${e}`));
+    user.save().catch((e) => { throw new Error(`Failed to set xp: ${e}`) });
 
     return user;
   }
@@ -151,7 +151,7 @@ class Levels {
     user.xp = level * level * 100;
     user.lastUpdated = new Date();
 
-    user.save().catch((e) => console.log(`Failed to set level: ${e}`));
+    user.save().catch((e) => { throw new Error(`Failed to set level: ${e}`) });
 
     return user;
   }
@@ -208,7 +208,7 @@ class Levels {
     user.level = Math.floor(0.1 * Math.sqrt(user.xp));
     user.lastUpdated = new Date();
 
-    user.save().catch((e) => console.log(`Failed to subtract xp: ${e}`));
+    user.save().catch((e) => { throw new Error(`Failed to subtract xp: ${e}`) });
 
     return user;
   }
@@ -231,7 +231,7 @@ class Levels {
     user.xp = user.level * user.level * 100;
     user.lastUpdated = new Date();
 
-    user.save().catch((e) => console.log(`Failed to subtract levels: ${e}`));
+    user.save().catch((e) => { throw new Error(`Failed to subtract levels: ${e}`) });
 
     return user;
   }

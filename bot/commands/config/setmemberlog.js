@@ -37,7 +37,7 @@ module.exports = new Command({
           { memberLog: channel.id },
           { upsert: true }
         );
-        client.db.guilds.cache.set(message.guild.id, data)
+        client.db.guilds.cache.set(message.guild.id, data);
         return message.sendSuccessReply(
           "Memberlog Updated!",
           `The guild's memberlog channel was updated from <#${currentChannel}> ➔ <#${channel.id}>`

@@ -9,15 +9,8 @@ module.exports = new Command({
   ownerOnly: true,
   args: "Please provide what you would like to eval!",
   async run(message, args) {
-    const clean = (text) => {
-      if (typeof text === "string")
-        return text
-          .replace(/`/g, "`" + String.fromCharCode(8203))
-          .replace(/@/g, "@" + String.fromCharCode(8203));
-      else return text;
-    };
-    async function sendEmbed(content) {
-      const toEval = args.join(" ");
+    async function sendEmbed(content, input) {
+      const toEval = input;
       let embed = new MessageEmbed()
       .setTitle("Eval Output.")
       .setAuthor(`Eval by ${message.author.username}.`, message.author.displayAvatarURL())
@@ -35,7 +28,7 @@ module.exports = new Command({
         .create(
           [
             {
-              content: clean(evaled),
+              content: content,
               language: "javascript",
             },
           ],
@@ -44,12 +37,16 @@ module.exports = new Command({
             description: `Output of the eval command used by ${message.author.tag}.`,
           }
         ).catch(e => { return e; });
+        const msg = await message.author.send(new MessageEmbed({
+          title: "Eval Output.",
+          description: `The output for the eval command was larger than 2032 characters. To check it, click [here](${src.url}) or use the link: ${src.url}.`
+        }))
         embed.setDescription(
           `**Output** \n Output is too large! Check your DMs, or click [here](${msg.url}).`
         );
         return embed;
       } else {
-        embed.setDescription(`**Output**\n \`\`\`js\n${clean(content)}\n\`\`\``);
+        embed.setDescription(`**Output**\n \`\`\`js\n${content}\n\`\`\``);
         return embed;
       }
     };
@@ -61,7 +58,9 @@ module.exports = new Command({
         "Invalid Arguments Provided!",
         `Please provide if you would like to eval in \`sync, or async\`. \n Examples: \`${pref}eval sync <code>\`, \n \`${pref}eval async <code>\`.`
       );
-      const code = args.splice(1).join(" ");
+      let code = args.map(x => x);
+      code.shift();
+      code = code.join(" ");
     try {
       if (!code)
         return message.channel.sendError(
@@ -77,19 +76,16 @@ module.exports = new Command({
       })()`));
       if (typeof evaled !== "string")
         evaled = require("util").inspect(evaled, { depth: 4 });
-      if (evaled.includes(config.token) || evaled.includes(config.mongouri)) {
-        message.channel.sendError(
+      if (evaled.includes(config.token) || evaled.includes(config.mongouri)) return message.channel.sendError(
           message,
           "Eval Error.",
           "This eval has the bot credentials! Please try without using the bot's credentials."
         );
-        return;
-      };
 
-        const embed = await sendEmbed(evaled);
+        const embed = await sendEmbed(evaled, code);
         return message.channel.send(embed);
     } catch (err) {
-      const embed = await sendEmbed(err);
+      const embed = await sendEmbed(err, code);
       return message.channel.send(embed);
     }
   },

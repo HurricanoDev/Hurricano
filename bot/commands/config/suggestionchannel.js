@@ -36,7 +36,7 @@ module.exports = new Command({
             "Suggestions Channel Already Set!",
             `A suggestions channel has already been set! You can use \`${prefix}suggestionchannel remove\` to remove it.`
           );
-        await client.schemas.guild.findOneAndUpdate(
+        let data = await client.schemas.guild.findOneAndUpdate(
           {
             id: message.guild.id,
           },
@@ -44,6 +44,7 @@ module.exports = new Command({
             suggestionChannel: channel.id,
           }
         );
+        client.db.guilds.cache.set(message.guild.id, data);
         message.sendSuccessReply(
           "Success!",
           "Successfully set that channel as the suggestions channel!"
@@ -56,7 +57,7 @@ module.exports = new Command({
             "No Suggestions Channel Found!",
             `No suggestion channel was found! If you want to set one, you can use: \`${prefix}suggestionchannel set {channel}\`.`
           );
-        await client.schemas.guild.findOneAndUpdate(
+        data = await client.schemas.guild.findOneAndUpdate(
           {
             id: message.guild.id,
           },
@@ -64,6 +65,7 @@ module.exports = new Command({
             suggestionChannel: null,
           }
         );
+        client.db.guilds.cache.set(message.guild.id, data);
         await message.channel.sendSuccess(
           message,
           "Success!",

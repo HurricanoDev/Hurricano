@@ -76,9 +76,7 @@ module.exports.Menu = class extends EventEmitter {
           }. This perm is needed for basic menu operation. You'll probably experience problems using menus in this channel.`
         );
     } else {
-      console.log(
-        `Sending a reaction menu in DMs won't work. DMs don't allow removing other people's reactions, making the menu fundamentally broken. The menu will still send, but will almost certainly not work.`
-      );
+      throw new Error("ReactionMenu is being sent as a DM.")
     }
 
     /**
@@ -125,11 +123,7 @@ module.exports.Menu = class extends EventEmitter {
       })
       .catch((error) => {
         if (this.channel.type === "dm") {
-          console.log(
-            `(whilst trying to send menu message in DMs) | The person you're trying to DM (${
-              this.channel.client.users.cache.get(this.userID).tag
-            }) probably has DMs turned off.`
-          );
+          this.channel.sendError(message, "Error!", "Failed to send the menu in your DMs! Please ensure they are open.").catch(e => {})
         } else {
           this.author.send(
             `${error.toString()} (whilst trying to send menu message) | You're probably missing 'SEND_MESSAGES' or 'EMBED_LINKS' in #${
@@ -167,8 +161,8 @@ module.exports.Menu = class extends EventEmitter {
     if (this.menu) {
       return this.menu.reactions.removeAll().catch((error) => {
         if (this.channel.type === "dm") {
-          console.log(
-            `${error.toString()} (whilst trying to remove message reactions) | Told you so.`
+          throw new Error(
+            `Error due to sending ReactionMenu in DMs: ${error.toString()}.`
           );
         } else {
           this.channel.send(
@@ -204,7 +198,7 @@ module.exports.Menu = class extends EventEmitter {
     for (const reaction in this.currentPage.reactions) {
       this.menu.react(reaction).catch((error) => {
         if (error.toString().indexOf("Unknown Emoji") >= 0) {
-          console.log(
+          throw new Error(
             `${error.toString()} (whilst trying to add reactions to message) | The emoji you were trying to add to page "${
               this.currentPage.name
             }" (${reaction}) probably doesn't exist. You probably entered the ID wrong when adding a custom emoji.`
@@ -234,11 +228,8 @@ module.exports.Menu = class extends EventEmitter {
     let sameReactions;
     this.reactionCollector.on("end", (reactions) => {
       // Whether the end was triggered by pressing a reaction or the menu just ended.
-      if (reactions) {
-        return !sameReactions
-          ? undefined
-          : reactions
-              .array()[0]
+      if (reactions.first()) {
+        reactions.first()
               .users.remove(this.menu.client.users.cache.get(this.userID));
       }
     });
@@ -264,7 +255,6 @@ module.exports.Menu = class extends EventEmitter {
       ) {
         return reaction.users.remove(user);
       }
-
       if (reactionName) {
         if (typeof this.currentPage.reactions[reactionName] === "function") {
           return this.currentPage.reactions[reactionName]();
@@ -276,6 +266,7 @@ module.exports.Menu = class extends EventEmitter {
               JSON.stringify(this.menu.reactions.cache.keyArray()) ===
               JSON.stringify(Object.keys(this.pages[0].reactions));
             this.setPage(0);
+            
             break;
           case "last":
             sameReactions =

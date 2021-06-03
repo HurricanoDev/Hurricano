@@ -6,17 +6,19 @@ module.exports = {
     try {
       const data = await client.db.guilds.fetch(guild.id);
       if (!data)
-        await new client.schemas.guild({
+        data = await new client.schemas.guild({
           _id: mongoose.Types.ObjectId(),
           name: guild.name,
           id: guild.id,
         }).save();
+        client.db.guilds.cache.set(guild.id, data);
     } catch (err) {
       client.logger.warn(err);
     }
-    const progressChannel = client.channels.cache.get("839034066795364353");
-    if (!progressChannel) console.log("No progress channel found!");
+    const progressChannel = client.channels.cache.get(client);
+    if (!progressChannel) throw new Error("No server join channel found!");
     const guildOwner = client.users.cache.get(guild.ownerID);
+    client.logger.info(`Hurricano has joined ${guild}, with member count: ${guild.memberCount}, and owner ${guildOwner.tag}.`)
     const guildEmbed = new MessageEmbed()
       .setTitle("New Guild!")
       .setImage(guild.iconURL)

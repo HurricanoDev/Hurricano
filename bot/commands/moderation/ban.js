@@ -27,7 +27,12 @@ module.exports = new Command({
         "An Error Occured.",
         "You cannot ban this user as their roles are higher than yours!"
       );
-      if (!member.bannable) return message.channel.sendError(message, 'An Error Occured.', 'I cannot ban this user as their roles ar higher than mine!')
+    if (!member.bannable)
+      return message.channel.sendError(
+        message,
+        "An Error Occured.",
+        "I cannot ban this user as their roles ar higher than mine!"
+      );
     const reason = args.splice(1).join(" ");
     if (!reason)
       member.ban({

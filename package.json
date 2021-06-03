@@ -17,6 +17,7 @@
   "license": "ISC",
   "dependencies": {
     "@discordjs/opus": "^0.4.0",
+    "@sapphire/async-queue": "^1.1.2",
     "ascii-table": "0.0.9",
     "canvacord": "^5.0.8",
     "dblapi.js": "^2.4.1",
@@ -29,7 +30,9 @@
     "ffmpeg-static": "^4.3.0",
     "lyrics-finder": "^21.7.0",
     "module-alias": "^2.2.2",
+    "moment": "^2.29.1",
     "mongoose": "^5.11.13",
+    "prism-media": "^1.2.9",
     "sourcebin": "^4.1.2",
     "weird-to-normal-chars": "^1.3.0",
     "winston": "^3.3.3",

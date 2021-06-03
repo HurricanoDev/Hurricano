@@ -33,7 +33,7 @@ module.exports = new Command({
             "Logs already set!",
             `The channel you provided already has logs set! If you would like to remove logs from that channel, send: \n \`${prefix}msglogs remove\``
           );
-        const data = await guildSchema.findOneAndUpdate(
+        let data = await guildSchema.findOneAndUpdate(
           {
             id: message.guild.id,
           },
@@ -56,7 +56,7 @@ module.exports = new Command({
             "Already Disabled!",
             `The logs are already disabled. You can enable them via: \n \`${prefix}msglogs set {channel name}\``
           );
-        const data = await guildSchema.findOneAndUpdate(
+        data = await guildSchema.findOneAndUpdate(
           {
             id: message.guild.id,
           },

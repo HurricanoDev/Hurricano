@@ -77,6 +77,9 @@ class Client extends Discord.Client {
     this.feedbackChannel = this.channels.cache.get(
       this.config.botChannels.feedback
     );
+    this.progressChannel = this.channels.cache.get(
+      this.config.botChannels.serverJoinChannel
+    )
 
     /**
      * Giveaways Manager
