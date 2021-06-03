@@ -29,7 +29,7 @@ module.exports = {
     userModels.forEach((x) => client.db.users.cache.set(x.id, x));
     for (const guild of client.guilds.cache.values()) {
       try {
-        const data = await client.db.guilds.fetch(guild.id);
+        let data = await client.db.guilds.fetch(guild.id);
         if (!data)
           data = await new client.schemas.guild({
             id: guild.id,
