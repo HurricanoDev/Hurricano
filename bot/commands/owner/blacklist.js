@@ -99,11 +99,12 @@ module.exports = new Command({
         "You provided an invalid guild to blacklist. Please try this command again with a valid guild!"
       );
     if (toBlUser) {
-      message.channel.sendSuccess(message, 
+      message.channel.sendSuccess(
+        message,
         "Confirmation.",
         `Are you sure you want to blacklist ${user.tag}?`,
         "Type yes if you want to, and no if you want to cancel.",
-        null, 
+        null,
         [
           {
             name: "User Data:",
@@ -114,49 +115,85 @@ module.exports = new Command({
           },
         ]
       );
-      let confir = await message.channel.awaitMessages(x => x.author.id === message.author.id, {
-        max: 1,
-        time: 30000,
-        errors: ['time'],
-      }).catch(() => {
-        return message.channel.sendError(message, "Time Limit Reached.", "You took too long for this command. Please try again.");
-      })
+      let confir = await message.channel
+        .awaitMessages((x) => x.author.id === message.author.id, {
+          max: 1,
+          time: 30000,
+          errors: ["time"],
+        })
+        .catch(() => {
+          return message.channel.sendError(
+            message,
+            "Time Limit Reached.",
+            "You took too long for this command. Please try again."
+          );
+        });
       confir = confir.first().content.toLowerCase();
-      if (confir === 'yes') {
+      if (confir === "yes") {
         let data = client.db.users.cache.get(user.id);
         data = await client.functions.createUserDB(user);
         data.blacklisted = true;
         data = await data.save();
         client.db.users.cache.set(user.id, data);
-        return message.channel.sendSuccess(message, "Blacklisted!", `Successfully blacklisted ${user}!`)
-      } else return message.channel.sendSuccess(message, "Cancelling Blacklist.", `I am not blacklisting ${user}.`)
+        return message.channel.sendSuccess(
+          message,
+          "Blacklisted!",
+          `Successfully blacklisted ${user}!`
+        );
+      } else
+        return message.channel.sendSuccess(
+          message,
+          "Cancelling Blacklist.",
+          `I am not blacklisting ${user}.`
+        );
     } else {
       const guildOwner = await client.users.fetch(guild.ownerID);
-      message.channel.sendSuccess(message, "Confirmation.", `Are you sure you would like to blacklist ${guild}?`, null, [
-        {
-          name: "Guild Data:",
-          value: `Name: ${guild},
+      message.channel.sendSuccess(
+        message,
+        "Confirmation.",
+        `Are you sure you would like to blacklist ${guild}?`,
+        null,
+        [
+          {
+            name: "Guild Data:",
+            value: `Name: ${guild},
           Member Count: ${guild.memberCount},
           ID: ${guild.id},
           Owner: ${guildOwner.tag},
-          Owner Mention: ${guildOwner},`
-        }
-      ])
-      let confir = await message.channel.awaitMessages(x => x.author.id === message.author.id, {
-        max: 1,
-        time: 30000,
-        errors: ['time'],
-      }).catch(() => {
-        return message.channel.sendError(message, "Time Limit Reached.", "You took too long for this command. Please try again.");
-      })
+          Owner Mention: ${guildOwner},`,
+          },
+        ]
+      );
+      let confir = await message.channel
+        .awaitMessages((x) => x.author.id === message.author.id, {
+          max: 1,
+          time: 30000,
+          errors: ["time"],
+        })
+        .catch(() => {
+          return message.channel.sendError(
+            message,
+            "Time Limit Reached.",
+            "You took too long for this command. Please try again."
+          );
+        });
       confir = confir.first().content.toLowerCase();
-      if (confir === 'yes') {
+      if (confir === "yes") {
         data = client.db.guilds.cache.get(message.guild.id);
         data.blacklisted = true;
         const data = await data.save();
         client.db.guilds.cache.set(message.guild.id, data);
-        return message.channel.sendSuccess(message, "Success!", `Successfully blacklisted ${guild}!`);
-      } else return message.channel.sendSuccess(message, "Cancelling Blacklist.", `I am not blacklisting ${guild}.`)
+        return message.channel.sendSuccess(
+          message,
+          "Success!",
+          `Successfully blacklisted ${guild}!`
+        );
+      } else
+        return message.channel.sendSuccess(
+          message,
+          "Cancelling Blacklist.",
+          `I am not blacklisting ${guild}.`
+        );
     }
   },
 });

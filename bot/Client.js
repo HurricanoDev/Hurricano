@@ -79,7 +79,7 @@ class Client extends Discord.Client {
     );
     this.progressChannel = this.channels.cache.get(
       this.config.botChannels.serverJoinChannel
-    )
+    );
 
     /**
      * Giveaways Manager

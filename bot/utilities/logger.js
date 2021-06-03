@@ -13,7 +13,7 @@ const levels = {
     client: 8,
     info: 9,
     debug: 10,
-    message: 11
+    message: 11,
   },
   colors: {
     emerg: "red",
@@ -27,7 +27,7 @@ const levels = {
     client: "blue",
     info: "green",
     debug: "blue",
-    message: "green"
+    message: "green",
   },
 };
 // Custom log formatting

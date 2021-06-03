@@ -10,14 +10,22 @@ module.exports = new Command({
   cooldown: 30,
   description: "Set/remove/create your server's mute role!",
   async run(message, args) {
-    const guildPrefix = await client.db.guilds.cache.get(message.guild.id).prefix;
+    const guildPrefix = await client.db.guilds.cache.get(message.guild.id)
+      .prefix;
 
     const defEmbed = new MessageEmbed()
       .setAuthor("Muterole Help", client.user.displayAvatarURL())
-      .setDescription(`**Syntax:** \`${guildPrefix}muterole\`\n**Aliases:** \`setmuterole\``)
+      .setDescription(
+        `**Syntax:** \`${guildPrefix}muterole\`\n**Aliases:** \`setmuterole\``
+      )
       .addField("Permissions", "`ADMINISTRATOR`")
-      .addField("Subcommands:", "`set` Set a muterole.\n`remove` Remove the current muterole\n`create` Make me create a muterole!")
-      .setFooter(`Type ${guildPrefix}help <command> for more info on a command.`)
+      .addField(
+        "Subcommands:",
+        "`set` Set a muterole.\n`remove` Remove the current muterole\n`create` Make me create a muterole!"
+      )
+      .setFooter(
+        `Type ${guildPrefix}help <command> for more info on a command.`
+      )
       .setColor("#606365");
 
     if (!args.length) return message.channel.send(defEmbed);

@@ -76,7 +76,7 @@ module.exports.Menu = class extends EventEmitter {
           }. This perm is needed for basic menu operation. You'll probably experience problems using menus in this channel.`
         );
     } else {
-      throw new Error("ReactionMenu is being sent as a DM.")
+      throw new Error("ReactionMenu is being sent as a DM.");
     }
 
     /**
@@ -123,15 +123,23 @@ module.exports.Menu = class extends EventEmitter {
       })
       .catch((error) => {
         if (this.channel.type === "dm") {
-          this.channel.sendError(message, "Error!", "Failed to send the menu in your DMs! Please ensure they are open.").catch(e => {})
+          this.channel
+            .sendError(
+              message,
+              "Error!",
+              "Failed to send the menu in your DMs! Please ensure they are open."
+            )
+            .catch((e) => {});
         } else {
-          this.author.send(
-            `${error.toString()} (whilst trying to send menu message) | You're probably missing 'SEND_MESSAGES' or 'EMBED_LINKS' in #${
-              this.channel.name
-            } (${
-              this.channel.guild.name
-            }), needed for sending the menu message.`
-          ).catch(() => {});
+          this.author
+            .send(
+              `${error.toString()} (whilst trying to send menu message) | You're probably missing 'SEND_MESSAGES' or 'EMBED_LINKS' in #${
+                this.channel.name
+              } (${
+                this.channel.guild.name
+              }), needed for sending the menu message.`
+            )
+            .catch(() => {});
         }
       });
   }
@@ -229,8 +237,9 @@ module.exports.Menu = class extends EventEmitter {
     this.reactionCollector.on("end", (reactions) => {
       // Whether the end was triggered by pressing a reaction or the menu just ended.
       if (reactions.first()) {
-        reactions.first()
-              .users.remove(this.menu.client.users.cache.get(this.userID));
+        reactions
+          .first()
+          .users.remove(this.menu.client.users.cache.get(this.userID));
       }
     });
 
@@ -266,7 +275,7 @@ module.exports.Menu = class extends EventEmitter {
               JSON.stringify(this.menu.reactions.cache.keyArray()) ===
               JSON.stringify(Object.keys(this.pages[0].reactions));
             this.setPage(0);
-            
+
             break;
           case "last":
             sameReactions =

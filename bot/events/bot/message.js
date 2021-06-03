@@ -136,7 +136,11 @@ module.exports = {
             )
           : null;
       }
-      client.logger.message(`${message.author.tag} used the "${command.name}" command in guild ${message.guild} with args: "${args.join(" ")}"`)
+      client.logger.message(
+        `${message.author.tag} used the "${command.name}" command in guild ${
+          message.guild
+        } with args: "${args.join(" ")}"`
+      );
       let checkAdmin = config.ownerIds.includes(author.id);
       if (command.conf.ownerOnly === true && !checkAdmin)
         return message.channel.sendError(
