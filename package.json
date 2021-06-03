@@ -39,8 +39,8 @@
     "ytdl-core": "^4.8.2"
   },
   "engines": {
-    "node": "14.x",
-    "npm": "7.x"
+    "node": ">=14.0.0",
+    "npm": ">=7.0.0"
   },
   "_moduleAliases": {
     "@config": "./bot/utilities/config.js",
