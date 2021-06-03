@@ -165,7 +165,7 @@ module.exports = new Command({
         embedFooter: `${client.user.tag}`,
         noWinner: "Nobody won because of the invalid participations!",
         hostedBy: `Hosted by: {user} \n ${
-          role == null ? undefined : "Required Role: " + role.toString()
+          role == null ? "" : "Required Role: " + role.toString()
         }`,
         winners: "winner(s)",
         endedAt: "Ended at",
