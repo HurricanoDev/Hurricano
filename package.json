@@ -40,7 +40,7 @@
   },
   "engines": {
     "node": ">=14.0.0",
-    "npm": "6.x"
+    "npm": "7.x"
   },
   "_moduleAliases": {
     "@config": "./bot/utilities/config.js",
