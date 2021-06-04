@@ -20,7 +20,7 @@ module.exports = new Command({
         "Smh, you need the `MANAGE_MESSAGES` permission or the role `Giveaway Manager` to host a giveaway."
       );
     }
-    const prefix = await message.client.db.guilds.getPrefix(message.guild.id);
+    const prefix = (client.db.guilds.cache.get(message.guild.id)).prefix;
     if (
       client.giveawaysManager.giveaways.filter(
         (g) => g.guildID === message.guild.id && !g.ended
@@ -37,7 +37,7 @@ module.exports = new Command({
     if (!time)
       return message.sendErrorReply(
         "An Error Occured.",
-        `You need to mention the giveaway time as well! \n Ex: \`${prefix}gstart 1d 1w Discord Nitro\``,
+        `You need to mention the giveaway time as well! \n Ex: \`${prefix}gstart 1d 1w Discord none Nitro\``,
         "How do you think I'll host a giveaway without the time given smh?",
         [
           {
@@ -55,7 +55,7 @@ module.exports = new Command({
     if (ms(time) > ms("20d"))
       return message.sendErrorReply(
         "An Error Occured.",
-        `The giveaway duration has to be lesser than 20 days. \n Ex: \`${prefix}gstart 1d 1w Discord Nitro\``,
+        `The giveaway duration has to be lesser than 20 days. \n Ex: \`${prefix}gstart 1d 1w none Discord Nitro\``,
         "Long giveaway you have there ;-;",
         [
           {
@@ -77,7 +77,7 @@ module.exports = new Command({
     if (!winners)
       return message.sendErrorReply(
         "An Error Occured.",
-        `Please provide a valid winner count! \n Ex: \`${prefix}gstart 1d 1w Discord Nitro\``,
+        `Please provide a valid winner count! \n Ex: \`${prefix}gstart 1d 1w none Discord Nitro\``,
         "Imagine a giveaway without any winners-",
         [
           {
@@ -95,7 +95,7 @@ module.exports = new Command({
     if (winners > 100)
       return message.sendErrorReply(
         "An Error Occured.",
-        `The giveaway winners should be lesser than 15. \n Ex: \`${prefix}gstart 1d 8w Discord Nitro\``,
+        `The giveaway winners should be lesser than 15. \n Ex: \`${prefix}gstart 1d 8w none Discord Nitro\``,
         "Big giveaway you have there ;-;",
         [
           {
@@ -113,7 +113,10 @@ module.exports = new Command({
     if (!args[2])
       return message.sendErrorReply(
         "Invalid Arguments Provided.",
-        "Please provide a required role for this giveaway, or if you want none just type none."
+        `Please provide a required role for this giveaway, or if you want none just type none.`, [{
+          name: "Examples:",
+          value: `\`${prefix}gstart 20m 1w none prize!\``
+        }]
       );
     role =
       message.guild.roles.cache.get(args[2]) ||

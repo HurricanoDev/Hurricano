@@ -7,7 +7,6 @@ module.exports = {
       .get(interaction.commandName);
     if (!command) return;
     const args = interaction.options;
-    console.log(args);
     command.slash.run(interaction, args);
   },
 };
