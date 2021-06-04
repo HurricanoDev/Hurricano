@@ -13,7 +13,7 @@ module.exports = new Command({
       await Promise.all(gws.map(async (x) => {
         embed.addField(x.prize, `Started At: ${moment(x.startAt)},
         Ends At: ${moment(x.endAt)},
-        URL: [here](https://discord.com/channels/${x.channelID}/${x.messageID}),
+        URL: [here](${x.messageURL}),
         Winner Count: ${x.winnerCount},
         Channel: <#${x.channelID}>,
         Hosted By: <@${x.hostedBy.split('@')[1].split('>')[0]}>,
