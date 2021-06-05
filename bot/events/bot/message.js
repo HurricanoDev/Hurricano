@@ -1,6 +1,7 @@
 const Discord = require("discord.js");
 const { MessageEmbed } = require("discord.js");
 const config = require("@config");
+const moment = require("moment");
 const leven = require("../../utilities/leven.js");
 const Cooldown = require("../../schemas/cooldown");
 
@@ -72,6 +73,31 @@ module.exports = {
     );
     let userSchema = await client.db.users.cache.get(author.id);
     if (!userSchema) userSchema = await client.db.users.fetch(author.id);
+
+    const mentionedMember = message.mentions.members.first();
+
+    if (mentionedMember) {
+      const data = client.afk.get(mentionedMember.id);
+
+      if (data) {
+        const [timestamp, reason] = data;
+        const timeAgo = moment(timestamp).fromNow();
+
+        message.reply(
+          new MessageEmbed({
+            title: "AFK!",
+            description: `${mentionedMember} is currently AFK! **(${timeAgo})**\nReason: ${reason}`,
+            color: "RANDOM",
+          })
+        );
+      }
+    }
+
+    const getData = client.afk.get(message.author.id);
+    if(getData) {
+      afk.delete(message.author.id);
+      message.reply("**Welcome Back!** Your AFK has now been removed!");
+    }
 
     const embed = new MessageEmbed()
       .setAuthor(
