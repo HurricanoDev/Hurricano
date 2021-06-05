@@ -38,6 +38,11 @@ class Client extends Discord.Client {
     this.commands = new Discord.Collection();
 
     /**
+     * AFK
+     */
+    this.afk = new Discord.Collection();
+
+    /**
      * Aliases
      */
     this.aliases = new Discord.Collection();
