@@ -95,7 +95,7 @@ module.exports = {
 
     const getData = client.afk.get(message.author.id);
     if(getData) {
-      afk.delete(message.author.id);
+      client.afk.delete(message.author.id);
       message.reply("**Welcome Back!** Your AFK has now been removed!");
     }
 
