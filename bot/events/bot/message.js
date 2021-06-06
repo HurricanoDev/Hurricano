@@ -55,11 +55,6 @@ module.exports = {
   name: "message",
   run: async (message, client) => {
     const usersMap = client.usersMap;
-    const guildData = await client.schemas.guild.findOne({
-      id: message.guild.id,
-    });
-    const muteRole = guildData.muteRole;
-
     if (message.author.bot || message.channel.type == "dm") return;
     if (
       !message.guild.me.permissions.has([
@@ -74,10 +69,12 @@ module.exports = {
         "I don't have enough permissions in this guild! Please ask an admin to give me the following permissions: \n `READ_MESSAGES`, `SEND_MESSAGES`, `EMBED_LINKS`"
       );
     //------------------------------------------------------------------
-    const prefix = await client.db.guilds.getPrefix(message.guild.id);
+    let guildSchema = client.db.guilds.cache.get(message.guild.id);
+    const muteRole = guildSchema.muteRole;
+    const prefix = guildSchema.prefixes.find(x => message.content.startsWith(x));
     const { author } = message;
     const prefixRegex = new RegExp(
-      `^(<@!?${client.user.id}>|${prefix.replace(
+      `^(<@!?${client.user.id}>|${prefix?.replace(
         /[.*+?^${}()|[\]\\]/g,
         "\\$&"
       )})\\s*`
@@ -111,10 +108,9 @@ module.exports = {
     }
 
     //Anti-Spam
-    const getMuteRole = await message.guild.roles.cache.get(muteRole);
-    const antiSpamData = await client.db.guilds.cache.get(message.guild.id);
+    const getMuteRole = message.guild.roles.cache.get(muteRole);
 
-    if (muteRole && getMuteRole && antiSpamData.antiSpam) {
+    if (muteRole && getMuteRole && guildSchema.antiSpam) {
       if (usersMap.has(message.author.name)) {
         const userData = usersMap.get(message.author.id);
         const { lastMessage, timer } = userData;
@@ -183,7 +179,7 @@ module.exports = {
         "https://raw.githubusercontent.com/HurricanoBot/HurricanoImages/master/SetAuthorEmojis/Wave.png"
       )
       .setDescription(
-        `Hello! I'm **Hurricano™**. My prefix is \`${prefix}\`. I have a variety of commands you can use which you can view by doing \`${prefix}help\`! If you want to view information about me please do \`${prefix}botinfo\`. That's it for now, bye and have a great time!`
+        `Hello! I'm **Hurricano™**. My prefixes are ${guildSchema.prefixes.join("\`, \`")}. I have a variety of commands you can use which you can view by doing \`{prefix/mention}help\`! If you want to view information about me please do \`{prefix/mention}botinfo\`. That's it for now, bye and have a great time!`
       )
       .setColor("#034ea2")
       .setImage(
@@ -240,6 +236,7 @@ module.exports = {
             )
           : null;
       }
+      message._usedPrefix = message.content.startsWith('<') ? `{prefix/mention}` : prefix;
       client.logger.message(
         `${message.author.tag} used the "${command.name}" command in guild ${
           message.guild
@@ -255,7 +252,6 @@ module.exports = {
       if (!message.member)
         message.member = await message.guild.members.fetch(message);
 
-      let guildSchema = client.db.guilds.cache.get(message.guild.id);
       let disabledModules = guildSchema.disabledModules;
       if (
         disabledModules &&

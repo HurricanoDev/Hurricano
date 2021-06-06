@@ -20,7 +20,7 @@ module.exports = new Command({
         "Smh, you need the `MANAGE_MESSAGES` permission or the role `Giveaway Manager` to host a giveaway."
       );
     }
-    const prefix = (client.db.guilds.cache.get(message.guild.id)).prefix;
+    const prefix = message._usedPrefix;
     if (
       client.giveawaysManager.giveaways.filter(
         (g) => g.guildID === message.guild.id && !g.ended

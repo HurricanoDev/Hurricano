@@ -36,9 +36,7 @@ module.exports = new Command({
     if (amount < 0) embed.setDescription(`You lost **$${amount}**`);
     if (amount > 0) embed.setDescription(`You won **$${amount}**`);
 
-    const userInfo = await client.schemas.user.findOne({
-      id: message.author.id,
-    });
+    const userInfo = client.db.users.cache.get(message.author.id);
 
     if (amount > 0) userInfo.wallet = userInfo.wallet + amount;
     if (amount < 0) userInfo.wallet = userInfo.wallet - amount;

@@ -6,7 +6,7 @@ module.exports = {
       .filter((cmd) => cmd.slash)
       .get(interaction.commandName);
     if (!command) return;
-    const args = interaction.options;
+    const args = interaction.options.first(interaction.options.size);
     command.slash.run(interaction, args);
   },
 };

@@ -8,7 +8,7 @@ module.exports = new Command({
   async run(message, args) {
     let avaliableModules = readdirSync(`${process.cwd()}/bot/commands`);
     avaliableModules.splice(avaliableModules.indexOf("owner"), 1);
-    const prefix = await client.db.guilds.getPrefix(message.guild.id);
+    const prefix = message._usedPrefix;
     const modulesEmbed = new MessageEmbed().setTitle("Avaliable Modules.");
     avaliableModules.forEach((d) =>
       modulesEmbed.addField(d, `\`${prefix}enable ${d}\``, true)

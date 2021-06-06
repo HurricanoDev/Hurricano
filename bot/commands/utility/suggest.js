@@ -7,7 +7,7 @@ module.exports = new Command({
   args: "Please provide what you would like to suggest!",
   async run(message, args) {
     let guildSchema = client.db.guilds.cache.get(message.guild.id);
-    const prefix = await client.db.guilds.getPrefix(message.guild.id);
+    const prefix = message._usedPrefix;
     let channel =
       guildSchema.suggestionChannel && !isNaN(guildSchema.suggestionChannel)
         ? await client.channels.fetch(guildSchema.suggestionChannel)

@@ -11,9 +11,9 @@ module.exports = model(
       type: String,
       required: false,
     },
-    prefix: {
-      type: String,
-      default: "hr!",
+    prefixes: {
+      type: Array,
+      default: ["hr!"],
     },
     disabledModules: {
       type: Array,

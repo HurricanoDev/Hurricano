@@ -10,8 +10,7 @@ module.exports = new Command({
   cooldown: 30,
   description: "Set/remove/create your server's mute role!",
   async run(message, args) {
-    const guildPrefix = await client.db.guilds.cache.get(message.guild.id)
-      .prefix;
+    const guildPrefix = message._usedPrefix;
 
     const defEmbed = new MessageEmbed()
       .setAuthor("Muterole Help", client.user.displayAvatarURL())

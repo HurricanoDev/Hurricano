@@ -7,7 +7,7 @@ module.exports = new Command({
   cooldown: 20,
   description: "Set your server's message logs.",
   async run(message, args) {
-    const prefix = await client.db.guilds.getPrefix(message.guild.id);
+    const prefix = message._usedPrefix;
     if (!args.length)
       return message.channel.sendError(
         message,

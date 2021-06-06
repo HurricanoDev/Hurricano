@@ -10,7 +10,7 @@ module.exports = new Command({
   cooldown: 20,
   description: "Set/remove your server's custom suggestion channel.",
   async run(message, args) {
-    let prefix = await client.db.guilds.getPrefix(message.guild.id);
+    let prefix = message._usedPrefix;
     if (!args.length)
       return message.sendErrorReply(
         "Invalid Arguments.",

@@ -8,7 +8,7 @@ module.exports = new Command({
   description: "Check how many coins you have.",
   async run(message, args) {
     const target = message.mentions.members.first() || message.guild.members.cache.get(args[0]) || message.author;
-    const userData = client.users.cache.get(target.user.id);
+    const userData = client.db.users.cache.get(target.user.id);
 
     const balEmbed = new MessageEmbed()
       .setTitle(`${target.user.username}'s balance`)

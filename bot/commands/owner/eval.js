@@ -59,7 +59,7 @@ module.exports = new Command({
       }
     }
     const types = ["async", "sync"];
-    const pref = client.db.guilds.cache.get(message.guild.id).prefix;
+    const pref = message._usedPrefix;
     if (!types.includes(args[0]))
       return message.channel.sendError(
         message,

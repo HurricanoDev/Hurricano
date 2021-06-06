@@ -8,7 +8,7 @@ module.exports = new Command({
   description: "View the server's configuration.",
   async run(message, args) {
     const guildInfo = client.db.guilds.cache.get(message.guild.id);
-    const prefix = await client.db.guilds.getPrefix(message.guild.id);
+    const prefix = message._usedPrefix;
     //System Settings
     let systemChannel =
       message.guild.channels.cache.get(guildInfo.systemChannel) || "None";

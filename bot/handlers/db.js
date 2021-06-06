@@ -30,11 +30,6 @@ class HurricanoDatabase {
         this.guilds.cache.set(guildId, data);
         return data;
       },
-      getPrefix: async (guildID) => {
-        const data = await this.client.schemas.guild.findOne({ id: guildID });
-        if (!data) throw new Error("Guild data not found.");
-        return data.prefix;
-      },
       updateCache: async (guildID) => {
         const data = await this.client.schemas.guilds.findOne({ id: guildID });
         this.guilds.cache.set(guildID, data);
