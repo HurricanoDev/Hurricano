@@ -144,7 +144,7 @@ module.exports = {
 
             message.member.roles.add(muteRole);
             message.channel.send(spamEmbed);
-            setTimeout(() => {
+            setTimeout(async () => {
               message.member.roles.remove(muteRole);
               const unmuteEmbed = new MessageEmbed()
                 .setAuthor("Unmuted!", message.member.displayAvatarURL())
@@ -156,8 +156,8 @@ module.exports = {
                   "https://lh3.googleusercontent.com/proxy/sz_ww5-B0qhs7RPhI7ilQ6Wq06IFvw7aGCl30oqn4KduUYdMz3ElboKF911VVWO0QYwodKSH3p5eEKECTvOQFcsPQeMQ4m0"
                 );
               const sendUnmute = await message.channel.send(unmuteEmbed);
-              setTimeout(() => {
-                sendUnmute.delete();
+              setTimeout(async () => {
+                await sendUnmute.delete();
               }, 10000);
             }, TIME);
           } else {
