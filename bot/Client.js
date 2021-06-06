@@ -43,6 +43,11 @@ class Client extends Discord.Client {
     this.afk = new Discord.Collection();
 
     /**
+     * Anti-Spam
+     */
+    this.usersMap = new Map();
+
+    /**
      * Aliases
      */
     this.aliases = new Discord.Collection();

@@ -77,5 +77,10 @@ module.exports = model(
       allowNull: true,
       default: null,
     },
+    antiSpam: {
+      type: String,
+      required: false,
+      default: "off"
+    },
   })
 );
