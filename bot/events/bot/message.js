@@ -5,6 +5,11 @@ const moment = require("moment");
 const leven = require("../../utilities/leven.js");
 const Cooldown = require("../../schemas/cooldown");
 
+//Spam Variables
+const LIMIT = 10;
+const TIME = 10000;
+const DIFF = 2000;
+
 function generateKey(user_id, commandname) {
   return `${user_id}|${commandname}`;
 }
@@ -49,6 +54,12 @@ async function makeCooldown(message, command) {
 module.exports = {
   name: "message",
   run: async (message, client) => {
+    const usersMap = client.usersMap;
+    const guildData = await client.schemas.guild.findOne({
+      id: message.guild.id,
+    });
+    const muteRole = guildData.muteRole;
+
     if (message.author.bot || message.channel.type == "dm") return;
     if (
       !message.guild.me.permissions.has([
@@ -94,9 +105,76 @@ module.exports = {
     }
 
     const getData = client.afk.get(message.author.id);
-    if(getData) {
+    if (getData) {
       client.afk.delete(message.author.id);
       message.reply("**Welcome Back!** Your AFK has now been removed!");
+    }
+
+    //Anti-Spam
+    const getMuteRole = await message.guild.roles.cache.get(muteRole);
+    const antiSpamData = await client.db.guilds.cache.get(message.guild.id);
+
+    if (muteRole && getMuteRole && antiSpamData.antiSpam) {
+      if (usersMap.has(message.author.name)) {
+        const userData = usersMap.get(message.author.id);
+        const { lastMessage, timer } = userData;
+        const difference =
+          message.createdTimestamp - lastMessage.createdTimestamp;
+        let msgCount = userData.msgCount;
+        if (difference > DIFF) {
+          clearTimeout(timer);
+          userData.msgCount = 0;
+          userData.lastMessage = message;
+          userData.timer = setTimeout(() => {
+            usersMap.delete(message.author.id);
+          }, TIME);
+          usersMap.set(message.author.id, userData);
+        } else {
+          ++msgCount;
+          if (parseInt(msgCount) === LIMIT) {
+            const spamEmbed = new MessageEmbed()
+              .setAuthor("Slow Down!", message.member.displayAvatarURL())
+              .setColor("RED")
+              .setDescription(
+                "**Chillza!** Hey, would you mind slowing down? You've sent 5 messages in 5 seconds."
+              )
+              .setThumbnail(
+                "https://assets.onlinelabels.com/images/clip-art/Leomarc/Leomarc_stop_sign.png"
+              );
+
+            message.member.roles.add(muteRole);
+            message.channel.send(spamEmbed);
+            setTimeout(() => {
+              message.member.roles.remove(muteRole);
+              const unmuteEmbed = new MessageEmbed()
+                .setAuthor("Unmuted!", message.member.displayAvatarURL())
+                .setColor("GREEN")
+                .setDescription(
+                  "You have been unmuted now, better not spam next time!"
+                )
+                .setThumbnail(
+                  "https://lh3.googleusercontent.com/proxy/sz_ww5-B0qhs7RPhI7ilQ6Wq06IFvw7aGCl30oqn4KduUYdMz3ElboKF911VVWO0QYwodKSH3p5eEKECTvOQFcsPQeMQ4m0"
+                );
+              const sendUnmute = await message.channel.send(unmuteEmbed);
+              setTimeout(() => {
+                sendUnmute.delete();
+              }, 10000);
+            }, TIME);
+          } else {
+            userData.msgCount = msgCount;
+            usersMap.set(message.author.id, userData);
+          }
+        }
+      } else {
+        let fn = setTimeout(() => {
+          usersMap.delete(message.author.id);
+        }, TIME);
+        usersMap.set(message.author.id, {
+          msgCount: 1,
+          lastMessage: message,
+          timer: fn,
+        });
+      }
     }
 
     const embed = new MessageEmbed()
