@@ -58,7 +58,7 @@ module.exports = new Command({
             "The `anti-spam` module is already disabled in this guild!"
           );
         }
-        const updateData = await client.schemas.guild.findOneAndUpdate(
+        const updateData2 = await client.schemas.guild.findOneAndUpdate(
           {
             id: message.guild.id,
           },
