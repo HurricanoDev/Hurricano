@@ -23,6 +23,10 @@ module.exports = model(
       type: String,
       default: 0,
     },
+    job: {
+      type: String,
+      default: "none",
+    },
     bank: {
       type: String,
       default: 0,
