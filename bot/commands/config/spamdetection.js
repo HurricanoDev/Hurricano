@@ -69,7 +69,7 @@ module.exports = new Command({
             upsert: true,
           }
         );
-        client.db.guilds.cache.set(message.guild.id, updateData);
+        client.db.guilds.cache.set(message.guild.id, updateData2);
         message.sendSuccessReply(
           "Done!",
           "The `anti-spam` module was `disabled` in this guild."
