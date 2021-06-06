@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+const config = require("@config");
 const { MessageEmbed } = require("discord.js");
 module.exports = {
   name: "guildCreate",
@@ -15,7 +16,7 @@ module.exports = {
     } catch (err) {
       client.logger.warn(err);
     }
-    const progressChannel = client.channels.cache.get(client);
+    const progressChannel = client.channels.cache.get(config.botChannels.serverJoinChannel);
     if (!progressChannel) throw new Error("No server join channel found!");
     const guildOwner = client.users.cache.get(guild.ownerID);
     client.logger.info(
