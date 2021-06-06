@@ -7,11 +7,11 @@ module.exports = new Command({
   slash: false,
   description: "Check how many coins you have.",
   async run(message, args) {
-    const target = message.mentions.members.first() || message.guild.members.cache.get(args[0]);
-    const userData = client.users.cache.get(target.id);
+    const target = message.mentions.members.first() || message.guild.members.cache.get(args[0]) || message.author;
+    const userData = client.users.cache.get(target.user.id);
 
     const balEmbed = new MessageEmbed()
-      .setTitle(`${target.username}'s balance`)
+      .setTitle(`${target.user.username}'s balance`)
       .setDescription(`**Wallet:** $${userData.wallet}\n**Bank:** $${userData.bank}`)
       .setTimestamp()
       .setFooter("🤠")
