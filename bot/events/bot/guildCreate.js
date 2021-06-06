@@ -16,7 +16,9 @@ module.exports = {
     } catch (err) {
       client.logger.warn(err);
     }
-    const progressChannel = client.channels.cache.get(config.botChannels.serverJoinChannel);
+    const progressChannel = client.channels.cache.get(
+      config.botChannels.serverJoinChannel
+    );
     if (!progressChannel) throw new Error("No server join channel found!");
     const guildOwner = client.users.cache.get(guild.ownerID);
     client.logger.info(

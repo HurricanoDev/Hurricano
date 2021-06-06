@@ -6,18 +6,20 @@ module.exports = {
   once: true,
   run: async (client) => {
     const slashs = client.commands.filter((cmd) => cmd.slash.isSlash);
-    slashies = slashs.map(x => {
+    slashies = slashs.map((x) => {
       const entObj = {
         name: x.slash.name.toLowerCase(),
         description: x.description,
-        options: x.slash.options?.length ? x.slash.options.map(opt => {
-          let returnOpt = opt;
-          returnOpt.name = returnOpt.name.toLowerCase();
-          return returnOpt;
-        }) : undefined,
+        options: x.slash.options?.length
+          ? x.slash.options.map((opt) => {
+              let returnOpt = opt;
+              returnOpt.name = returnOpt.name.toLowerCase();
+              return returnOpt;
+            })
+          : undefined,
       };
       return entObj;
-    })
+    });
     await client.application?.commands.set(slashies);
     client.giveawaysManager._init();
     const userModels = await client.schemas.user.find({});

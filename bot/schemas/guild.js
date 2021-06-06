@@ -80,7 +80,7 @@ module.exports = model(
     antiSpam: {
       type: String,
       required: false,
-      default: "off"
+      default: "off",
     },
   })
 );

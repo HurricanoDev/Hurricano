@@ -24,7 +24,6 @@ const verif = {
   VERY_HIGH: "**Highest**",
 };
 const Command = require("@Command");
-const { run } = require("../../events/bot/message");
 
 module.exports = new Command({
   name: "serverinfo",

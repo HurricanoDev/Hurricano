@@ -28,14 +28,17 @@ module.exports = new Command({
           },
           {
             name: "Remove a prefix.",
-            value: "remove"
-          }
-        ]
+            value: "remove",
+          },
+          {
+            name: "List all the current prefixes.",
+            value: "list",
+          },
+        ],
       },
       {
         name: "prefix",
         description: "What prefix you would like to add/remove.",
-        required: true,
         type: 3,
       },
     ],
@@ -45,61 +48,152 @@ module.exports = new Command({
       if (
         !interaction.channel
           .permissionsFor(interaction.user.id)
-          .has("ADMINISTRATOR")
+          .has("ADMINISTRATOR") &&
+        args[1].value !== "list"
       )
         return await interaction.reply(
           "You don't have `ADMINISTRATOR` permission to do this!",
           { ephemeral: true }
         );
       const toAdd = args[0].value;
-      switch(toAdd) {
-      case 'add': 
-      if (guildSchema.prefixes.length > 10) return await interaction.reply("The max amount of prefixes you can set is 10!", { ephemeral: true });
-        guildSchema.prefixes.push(args[1].value);
-        let data = await guildSchema.save();
-        client.db.guilds.cache.set(interaction.guild.id, data);
-        embed.setDescription(
-        `Successfully added the prefix \`${args[1].value}\`!`
-      );
-      await interaction.reply(embed);
-      break;
-      case "remove":
-        if (!guildSchema.prefixes.includes(args[1].toLowerCase())) return interaction.reply("Please provide a valid prefix to remove!", { ephemeral: true });
-        let array = guildSchema.prefixes;
-        array = array.filter(x => x !== args[1].toLowerCase());
-        guildSchema.prefixes = array;
-        data = await guildSchema.save(); 
-        client.db.guilds.cache.set(interaction.guild.id, data);
-        embed.setDescription(`Successfully removed the prefix \`${args[1]}\`!`);
-        interaction.reply(embed);
-      break;
-    }
-  },
+      switch (toAdd) {
+        case "add":
+          if (guildSchema.prefixes.length > 10)
+            return await interaction.reply(
+              "The max amount of prefixes you can set is 10!",
+              { ephemeral: true }
+            );
+          if (!args[1].value)
+            return await interaction.reply(
+              "Please try this command again, with the prefix you would like to add.",
+              { ephemeral: true }
+            );
+          if (!args[1].value.length > 10)
+            return await interaction.reply(
+              "Please try to make your prefix lesser than 10 characters!",
+              { ephemeral: true }
+            );
+          if (!args[1].value === `<@!${client.user.id}>`)
+            return await interaction.reply("I already have a mention prefix!", {
+              ephemeral: true,
+            });
+          guildSchema.prefixes.push(args[1].value);
+          var data = await guildSchema.save();
+          client.db.guilds.cache.set(interaction.guild.id, data);
+          embed.setDescription(
+            `Successfully added the prefix \`${args[1].value}\`!`
+          );
+          return await interaction.reply(embed);
+          break;
+        case "list":
+          const embed = new MessageEmbed().setTitle("Current Prefixes:")
+            .setDescription(`The current prefixes are:
+        \`\`\`${guildSchema.prefixes.join("\n")}\`\`\``);
+          return await interaction.reply(embed);
+        case "remove":
+          if (!args[1].value)
+            return await interaction.reply(
+              "Please try this command again, with the prefix you would like to remove.",
+              { ephemeral: true }
+            );
+          if (!guildSchema.prefixes.includes(args[1].value.toLowerCase()))
+            return interaction.reply(
+              "Please provide a prefix that the bot currently uses!",
+              { ephemeral: true }
+            );
+
+          let array = guildSchema.prefixes;
+          array = array.filter((x) => x !== args[1].value.toLowerCase());
+          guildSchema.prefixes = array;
+          var data = await guildSchema.save();
+          client.db.guilds.cache.set(interaction.guild.id, data);
+          embed.setDescription(
+            `Successfully removed the prefix \`${args[1].value}\`!`
+          );
+          interaction.reply(embed);
+          break;
+      }
+    },
   },
   async run(message, args) {
-    const types = ['add', 'remove'];
-    if (!types.includes(args[0].toLowerCase())) return message.sendErrorReply("Invalid Arguments.", `Please provide whether you would like to add a prefix, or remove it!`, null, [{
-      name: "Examples:",
-      value: `\`${message._usedPrefix}prefix add !\`,
-      \`${message._usedPrefix}prefix remove ?\``
-    }])
+    const types = ["add", "remove", "list"];
+    if (!types.includes(args[0].toLowerCase()))
+      return message.sendErrorReply(
+        "Invalid Arguments.",
+        `Please provide whether you would like to add a prefix, list them, or remove one of them!`,
+        null,
+        [
+          {
+            name: "Examples:",
+            value: `\`${message._usedPrefix}prefix add !\`,
+      \`${message._usedPrefix}prefix remove ?\``,
+          },
+        ]
+      );
     let guildSchema = client.db.guilds.cache.get(message.guild.id);
     switch (args[0].toLowerCase()) {
-      case "add": 
-      if (!args[1]) return message.channel.sendError(message, "Invalid Arguments.", "Please provide what prefix you would like to add.")
-      guildSchema.prefixes.push(args[1]);
-      let data = await guildSchema.save();
-      client.db.guilds.cache.set(message.guild.id, data);
-      return message.channel.sendSuccess(message, "Success!", `Successfully added the prefix \`${args[1]}\`!`)
+      case "add":
+        var prefix = args.map((x) => x);
+        prefix.shift();
+        prefix.join(" ");
+        if (!args[1])
+          return message.channel.sendError(
+            message,
+            "Invalid Arguments.",
+            "Please provide what prefix you would like to add."
+          );
+        if (!args[1].length > 10)
+          return message.channel.sendError(
+            message,
+            "Length Error.",
+            "Please try to make your prefix less than 10 characters!"
+          );
+        if (!args[1] === `<@!${client.user.id}>`)
+          return message.channel.sendError(
+            message,
+            "Error",
+            "I already have a mention prefix!"
+          );
+        guildSchema.prefixes.push(args[1]);
+        var data = await guildSchema.save();
+        client.db.guilds.cache.set(message.guild.id, data);
+        return message.channel.sendSuccess(
+          message,
+          "Success!",
+          `Successfully added the prefix \`${args[1]}\`!`
+        );
+      case "list":
+        const embed = new MessageEmbed().setTitle("Current Prefixes:")
+          .setDescription(`The current prefixes are:
+        \`\`\`${guildSchema.prefixes.join("\n")}\`\`\``);
+        return message.reply(embed);
       case "remove":
-        if (!args[1]) return message.channel.sendError(message, "Invalid Arguments.", "Please provide what prefix you would like to remove!");
-        if (!guildSchema.prefixes.includes(args[1].toLowerCase())) return message.channel.sendError(message, "Invalid Arguments.", "Please provide a valid prefix to remove!");
+        if (!args[1])
+          return message.channel.sendError(
+            message,
+            "Invalid Arguments.",
+            "Please provide what prefix you would like to remove!"
+          );
+        var prefix = args.map((x) => x);
+        prefix.shift();
+        prefix = prefix.join(" ");
+        prefix = prefix.toLowerCase();
+        if (!guildSchema.prefixes.includes(prefix))
+          return message.channel.sendError(
+            message,
+            "Invalid Arguments.",
+            "Please provide a prefix that the bot currently uses!"
+          );
         let array = guildSchema.prefixes;
-        array = array.filter(x => x !== args[1].toLowerCase());
+        array = array.filter((x) => x !== prefix);
         guildSchema.prefixes = array;
-        let Uhdata = await guildSchema.save();
-        client.db.guilds.cache.set(message.guild.id, Uhdata);
-        return message.channel.sendSuccess(message, "Success!", `Successfully removed the prefix \`${args[1]}\`!`);
-      }
+        var data = await guildSchema.save();
+        client.db.guilds.cache.set(message.guild.id, data);
+        return message.channel.sendSuccess(
+          message,
+          "Success!",
+          `Successfully removed the prefix \`${prefix}\`!`
+        );
+    }
   },
 });

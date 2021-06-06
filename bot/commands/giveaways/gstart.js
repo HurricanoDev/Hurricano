@@ -113,10 +113,13 @@ module.exports = new Command({
     if (!args[2])
       return message.sendErrorReply(
         "Invalid Arguments Provided.",
-        `Please provide a required role for this giveaway, or if you want none just type none.`, [{
-          name: "Examples:",
-          value: `\`${prefix}gstart 20m 1w none prize!\``
-        }]
+        `Please provide a required role for this giveaway, or if you want none just type none.`,
+        [
+          {
+            name: "Examples:",
+            value: `\`${prefix}gstart 20m 1w none prize!\``,
+          },
+        ]
       );
     role =
       message.guild.roles.cache.get(args[2]) ||

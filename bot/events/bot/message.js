@@ -71,7 +71,9 @@ module.exports = {
     //------------------------------------------------------------------
     let guildSchema = client.db.guilds.cache.get(message.guild.id);
     const muteRole = guildSchema.muteRole;
-    const prefix = guildSchema.prefixes.find(x => message.content.startsWith(x));
+    const prefix = guildSchema.prefixes.find((x) =>
+      message.content.startsWith(x)
+    );
     const { author } = message;
     const prefixRegex = new RegExp(
       `^(<@!?${client.user.id}>|${prefix?.replace(
@@ -110,7 +112,14 @@ module.exports = {
     //Anti-Spam
     const getMuteRole = message.guild.roles.cache.get(muteRole);
 
-    if (muteRole && getMuteRole && guildSchema.antiSpam) {
+    if (
+      muteRole &&
+      getMuteRole &&
+      guildSchema.antiSpam &&
+      message.channel.permissionsFor(client.user.id).has(["MANAGE_ROLES"]) &&
+      message.member.roles.highest < message.guild.me.roles.highest &&
+      !message.channel.permissionsFor(message.author.id).has["ADMINISTRATOR"]
+    ) {
       if (usersMap.has(message.author.name)) {
         const userData = usersMap.get(message.author.id);
         const { lastMessage, timer } = userData;
@@ -172,14 +181,33 @@ module.exports = {
         });
       }
     }
-
+    const prefixes = guildSchema.prefixes.map((x) => {
+      return `\`${x}\``;
+    });
+    const whichToUse =
+      prefixes?.length == 1 ? prefixes.toString() : "{prefix/mention}";
     const embed = new MessageEmbed()
       .setAuthor(
-        "Hello!",
+        "Hello, I'm Hurricano™!",
         "https://raw.githubusercontent.com/HurricanoBot/HurricanoImages/master/SetAuthorEmojis/Wave.png"
       )
-      .setDescription(
-        `Hello! I'm **Hurricano™**. My prefixes are ${guildSchema.prefixes.join("\`, \`")}. I have a variety of commands you can use which you can view by doing \`{prefix/mention}help\`! If you want to view information about me please do \`{prefix/mention}botinfo\`. That's it for now, bye and have a great time!`
+      .addField(
+        "Forgot my prefix?",
+        `No worries! My ${
+          guildSchema.prefixes?.length > 1 ? "prefixes are" : "prefix is"
+        } ${prefixes.join(", ")}.`
+      )
+      .addField(
+        "Need help?",
+        `Oh! Well, incase you want to see my commands, you can just use \`${whichToUse}help\`, and incase you need a more detailed description, you can use \`${whichToUse}help {command name}\``
+      )
+      .addField(
+        "Want to view my info?",
+        `Cool! You can do so by using \`${whichToUse}botinfo\`. By the way, we also support slash commands!`
+      )
+      .addField(
+        "Still need help?",
+        "Feel free to join the Hurricano™ support server, by clicking [here](https://discord.gg/RDEBGXp7sG)!"
       )
       .setColor("#034ea2")
       .setImage(
@@ -236,7 +264,9 @@ module.exports = {
             )
           : null;
       }
-      message._usedPrefix = message.content.startsWith('<') ? `{prefix/mention}` : prefix;
+      message._usedPrefix = message.content.startsWith("<")
+        ? `{prefix/mention}`
+        : prefix;
       client.logger.message(
         `${message.author.tag} used the "${command.name}" command in guild ${
           message.guild
