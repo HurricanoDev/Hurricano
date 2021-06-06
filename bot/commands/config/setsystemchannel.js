@@ -7,8 +7,7 @@ module.exports = new Command({
   args: "Provide a system channel to set as your server system channel.",
   userPermissions: ["ADMINISTRATOR"],
   async run(message, args) {
-    const channel = message.mentions.channels.first();
-    const ch = await client.channels.cache.get(channel.id);
+    const ch = await client.functions.getChannel(true, message, args[0]);
     if (!ch)
       return message.channel.sendErrorReply(
         message,
@@ -19,7 +18,7 @@ module.exports = new Command({
     const guildSchema = client.db.guilds.cache.get(message.guild.id);
     const currentChannel = guildSchema.systemChannel;
     if (guildSchema.systemChannel) {
-      const data = await Schema.findOneAndUpdate(
+      var data = await Schema.findOneAndUpdate(
         {
           id: message.guild.id,
         },
@@ -37,7 +36,7 @@ module.exports = new Command({
         `Updated the system channel from ${currentChannel} => <#${ch.id}>!`
       );
     } else {
-      await Schema.findOneAndUpdate(
+      var data = await Schema.findOneAndUpdate(
         {
           id: message.guild.id,
         },
@@ -48,6 +47,7 @@ module.exports = new Command({
           upsert: true,
         }
       );
+      client.db.guilds.cache.set(data);
       await message.channel.sendSuccessReply(
         message,
         "Success!",
