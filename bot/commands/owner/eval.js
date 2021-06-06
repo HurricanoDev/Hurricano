@@ -1,5 +1,5 @@
 const Discord = require("discord.js");
-const sourcebin = require("sourcebin");
+const create = require("../../utilities/SourcebinPost.js");
 const config = require("@config");
 const Command = require("@Command");
 const { MessageEmbed } = require("discord.js");
@@ -27,18 +27,14 @@ module.exports = new Command({
           true
         );
       if (content.length > 2032) {
-        const src = await sourcebin
-          .create(
+        const src = await create(
             [
               {
                 content: content,
-                language: "javascript",
+                name: `Code by ${message.author.tag}`,
+                languageId: "javascript",
               },
-            ],
-            {
-              name: `Code by ${message.author.tag}`,
-              description: `Output of the eval command used by ${message.author.tag}.`,
-            }
+            ]
           )
           .catch((e) => {
             return e;
