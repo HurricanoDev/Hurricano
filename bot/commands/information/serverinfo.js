@@ -72,7 +72,7 @@ module.exports = new Command({
         .setTitle(`Info about ${guild}`)
         .setThumbnail(guild.iconURL({ dynamic: true }))
         .setColor(guild.me.displayHexColor)
-        .addField(`${emojis.categories.owner} Owner:`, guild.owner, true)
+        .addField(`${emojis.categories.owner} Owner:`, (await client.users.fetch(guild.ownerID)).toString(), true)
         .addField(
           `${emojis.signs.key} Verification:`,
           verif[guild.verificationLevel],
@@ -142,7 +142,7 @@ module.exports = new Command({
       .setTitle(`Info about ${message.guild}`)
       .setThumbnail(message.guild.iconURL({ dynamic: true }))
       .setColor(message.guild.me.displayHexColor)
-      .addField(`${emojis.categories.owner} Owner:`, message.guild.owner, true)
+      .addField(`${emojis.categories.owner} Owner:`, (await client.users.fetch(message.guild.ownerID)).toString(), true)
       .addField(
         `${emojis.signs.key} Verification:`,
         verif[message.guild.verificationLevel],
