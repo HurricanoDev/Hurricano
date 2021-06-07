@@ -7,8 +7,8 @@ module.exports = new Command({
   slash: false,
   description: "Check how many coins you have.",
   async run(message, args) {
-    const target = client.functions.getMember(true, message, args[0]);
-    const userData = client.db.users.cache.get(target.id);
+    const target = client.functions.getMember(true, message, args[0]) || message.author;
+    const userData = client.db.users.cache.get(target.user.id);
     
     const wallet = userData.wallet;
     const bank = userData.bank;
