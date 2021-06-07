@@ -1,6 +1,9 @@
 const { Structures, MessageEmbed } = require("discord.js");
 const { User, GuildMember, APIMessage } = require('discord.js');
 const lodash = require('lodash');
+function RegexEscape(input) {
+  return input.replace(/[\-\[\]\/\{\}\(\)\*\+\?\.\\\^\$\|]/g, "\\$&");
+}
 function replaceStringsInObject(obj, findStr, replaceStr) {  
   let value;
     if (obj instanceof MessageEmbed) {
@@ -10,7 +13,6 @@ function replaceStringsInObject(obj, findStr, replaceStr) {
   } else if (obj.reply) { let tempVal = obj;
     tempVal.content = tempVal.content.replace(findStr[0], replaceStr[0]).replace(findStr[1], replaceStr[1]);
   value = tempVal; };
-  console.log(value)
     return value;
 }
 module.exports = Structures.extend("TextChannel", (channel) => {
@@ -20,7 +22,7 @@ module.exports = Structures.extend("TextChannel", (channel) => {
     }
     async send(rawContent, rawOptions) {
       const tokenReplaceRegex = new RegExp(this.client.config.token, 'g');
-      const mongoUriReplaceRegex = new RegExp(this.client.config.mongouri, 'g')
+      const mongoUriReplaceRegex = new RegExp(RegexEscape(this.client.config.mongouri), 'g');
       let content;
       let options = rawOptions;
       delete options?.rawMessageContent;
