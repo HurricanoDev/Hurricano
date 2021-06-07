@@ -111,7 +111,7 @@ module.exports = new Command({
         ["image"]: "📷",
         ["levelling"]: "🆙",
         ["utility"]: "842193834922344476",
-        ["economy"]: "https://raw.githubusercontent.com/HurricanoBot/HurricanoImages/master/SetAuthorEmojis/Economy.png", //I will change this to an actual emoji later.
+        ["economy"]: "851348425860710410", //I will change this to an actual emoji later.
       };
       function getEmoji(emoji) {
         let emote;
