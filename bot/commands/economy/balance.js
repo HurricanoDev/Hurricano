@@ -9,11 +9,14 @@ module.exports = new Command({
   async run(message, args) {
     const target = client.functions.getMember(true, message, args[0]);
     const userData = client.db.users.cache.get(target.user.id);
+    
+    const wallet = userData.wallet;
+    const bank = userData.bank;
 
     const balEmbed = new MessageEmbed()
       .setTitle(`${target.user.username}'s balance`)
       .setDescription(
-        `**Wallet:** $${userData.wallet}\n**Bank:** $${userData.bank}`
+        `**Wallet:** $${parseInt(wallet)}\n**Bank:** $${parseInt(bank)}`
       )
       .setTimestamp()
       .setFooter("🤠");
