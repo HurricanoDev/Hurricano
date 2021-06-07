@@ -3,6 +3,7 @@ const { MessageEmbed } = require("discord.js");
 
 module.exports = new Command({
   name: "slots",
+  aliases: ["slotmachine"],
   cooldown: 30,
   slash: false,
   description: "Play the slot machine!",
