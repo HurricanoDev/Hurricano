@@ -14,6 +14,7 @@ let tips = [
   "Cotton candy was invented by a dentist.",
   "Sharks can live for five centuries.",
   "The world wastes about 1 billion metric tons of food each year. Help reduce that number and stop wasting food :D",
+  "Wait! If you wait, good things will come to you!",
 ];
 
 const Command = require("@Command");
@@ -110,6 +111,7 @@ module.exports = new Command({
         ["image"]: "📷",
         ["levelling"]: "🆙",
         ["utility"]: "842193834922344476",
+        ["economy"]: "https://raw.githubusercontent.com/HurricanoBot/HurricanoImages/master/SetAuthorEmojis/Economy.png", //I will change this to an actual emoji later.
       };
       function getEmoji(emoji) {
         let emote;
@@ -166,6 +168,11 @@ module.exports = new Command({
         .addField(
           `> ${getEmoji(emojimap.utility)}  Utility`,
           "Want some handy tools? Well, here you go!",
+          inline
+        )
+        .addField(
+          `> ${getEmoji(emojimap.economy)}  Economy`,
+          "Wanna earn some of my money? Try out my economy system!",
           inline
         );
 
@@ -272,6 +279,14 @@ module.exports = new Command({
         "https://raw.githubusercontent.com/HurricanoBot/HurricanoImages/master/categories/Utility.jpg"
       );
       // ------------------------------------------------------------------------------------
+      const economy = generateHelpEmbed(
+        "Economy",
+        "https://raw.githubusercontent.com/HurricanoBot/HurricanoImages/master/SetAuthorEmojis/Economy.png",
+        "Economy commands! **React** with other emojis to see what else there is!",
+        cmdmap.economy,
+        "https://raw.githubusercontent.com/HurricanoBot/HurricanoImages/master/categories/Economy.jpg"
+      );
+      // ------------------------------------------------------------------------------------
 
       let helpMenu = new Menu(
         message.channel,
@@ -290,6 +305,7 @@ module.exports = new Command({
               [emojimap.levelling]: "levelling",
               [emojimap.music]: "music",
               [emojimap.utility]: "utility",
+              [emojimap.economy]: "economy",
               [emojimap.owner]: client.config.ownerIds.includes(
                 message.author.id
               )
@@ -310,6 +326,7 @@ module.exports = new Command({
               [emojimap.levelling]: "levelling",
               [emojimap.music]: "music",
               [emojimap.utility]: "utility",
+              [emojimap.economy]: "economy",
               [emojimap.owner]: client.config.ownerIds.includes(
                 message.author.id
               )
@@ -329,6 +346,7 @@ module.exports = new Command({
               [emojimap.levelling]: "levelling",
               [emojimap.music]: "music",
               [emojimap.utility]: "utility",
+              [emojimap.economy]: "economy",
               [emojimap.owner]: client.config.ownerIds.includes(
                 message.author.id
               )
@@ -348,6 +366,7 @@ module.exports = new Command({
               [emojimap.levelling]: "levelling",
               [emojimap.music]: "music",
               [emojimap.utility]: "utility",
+              [emojimap.economy]: "economy",
               [emojimap.owner]: client.config.ownerIds.includes(
                 message.author.id
               )
@@ -367,6 +386,7 @@ module.exports = new Command({
               [emojimap.levelling]: "levelling",
               [emojimap.music]: "music",
               [emojimap.utility]: "utility",
+              [emojimap.economy]: "economy",
               [emojimap.owner]: client.config.ownerIds.includes(
                 message.author.id
               )
@@ -386,6 +406,7 @@ module.exports = new Command({
               [emojimap.levelling]: "levelling",
               [emojimap.music]: "music",
               [emojimap.utility]: "utility",
+              [emojimap.economy]: "economy",
               [emojimap.owner]: client.config.ownerIds.includes(
                 message.author.id
               )
@@ -405,6 +426,7 @@ module.exports = new Command({
               [emojimap.levelling]: "levelling",
               [emojimap.music]: "music",
               [emojimap.utility]: "utility",
+              [emojimap.economy]: "economy",
               [emojimap.owner]: client.config.ownerIds.includes(
                 message.author.id
               )
@@ -424,6 +446,7 @@ module.exports = new Command({
               [emojimap.moderation]: "moderation",
               [emojimap.music]: "music",
               [emojimap.utility]: "utility",
+              [emojimap.economy]: "economy",
               [emojimap.owner]: client.config.ownerIds.includes(
                 message.author.id
               )
@@ -443,6 +466,7 @@ module.exports = new Command({
               [emojimap.moderation]: "moderation",
               [emojimap.levelling]: "levelling",
               [emojimap.utility]: "utility",
+              [emojimap.economy]: "economy",
               [emojimap.owner]: client.config.ownerIds.includes(
                 message.author.id
               )
@@ -462,6 +486,27 @@ module.exports = new Command({
               [emojimap.image]: "image",
               [emojimap.moderation]: "moderation",
               [emojimap.levelling]: "levelling",
+              [emojimap.economy]: "economy",
+              [emojimap.owner]: client.config.ownerIds.includes(
+                message.author.id
+              )
+                ? "owner"
+                : null,
+            },
+          },
+          {
+            name: "economy",
+            content: economy,
+            reactions: {
+              [emojimap.config]: "config",
+              [emojimap.information]: "information",
+              [emojimap.fun]: "fun",
+              [emojimap.giveaways]: "giveaways",
+              [emojimap.music]: "music",
+              [emojimap.image]: "image",
+              [emojimap.moderation]: "moderation",
+              [emojimap.levelling]: "levelling",
+              [emojimap.economy]: "economy",
               [emojimap.owner]: client.config.ownerIds.includes(
                 message.author.id
               )
@@ -482,6 +527,7 @@ module.exports = new Command({
               [emojimap.moderation]: "moderation",
               [emojimap.utility]: "utility",
               [emojimap.levelling]: "levelling",
+              [emojimap.economy]: "economy",
             },
           },
         ],
