@@ -7,7 +7,7 @@ module.exports = new Command({
   userPermissions: ["ADMINISTRATOR"],
   description: "Turn anti-spam on/off in your server.",
   async run(message, args) {
-    const guildPrefix = message._usedPrefix
+    const guildPrefix = message._usedPrefix;
     const guildData = await client.db.guilds.cache.get(message.guild.id);
     const optionsEmbed = new MessageEmbed()
       .setAuthor("Anti-Spam Help", client.user.displayAvatarURL())

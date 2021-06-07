@@ -10,7 +10,7 @@ module.exports = new Command({
     let useAwaitMessages = null;
     let toBlUser = true;
     const types = ["guild", "user", "server"];
-    const prefix = client.db.guilds.cache.get(message.guild.id).prefix;
+    const prefix = message._usedPrefix;
     if (!args.length) {
       message.sendSuccessReply(
         "Cool!",
