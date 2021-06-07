@@ -11,7 +11,7 @@ module.exports = Structures.extend("TextChannel", (channel) => {
           Header,
           "https://raw.githubusercontent.com/HurricanoBot/HurricanoImages/master/SetAuthorEmojis/Error.png"
         )
-        .setColor("#ff6962");
+        .setColor("RED");
 
       if (Msg) {
         embed.setDescription(Msg);
@@ -34,7 +34,7 @@ module.exports = Structures.extend("TextChannel", (channel) => {
           Header,
           "https://raw.githubusercontent.com/HurricanoBot/HurricanoImages/master/SetAuthorEmojis/Success.png"
         )
-        .setColor("#32ba7c");
+        .setColor("GREEN");
       if (Msg) {
         embed.setDescription(Msg);
       }
