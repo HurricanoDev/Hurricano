@@ -3,7 +3,7 @@ const { MessageEmbed } = require("discord.js");
 
 module.exports = new Command({
   name: "balance",
-  aliases: ["bal"],
+  aliases: ["bal", "coins", "money"],
   slash: false,
   description: "Check how many coins you have.",
   async run(message, args) {
