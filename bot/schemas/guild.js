@@ -82,5 +82,11 @@ module.exports = model(
       required: false,
       default: "off",
     },
+    serverLog: {
+      type: String,
+      required: false,
+      allowNull: true,
+      default: null,
+    },
   })
 );
