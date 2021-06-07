@@ -42,7 +42,7 @@ module.exports = {
       default:
         message.channel.sendError(
           message,
-          "Something Went Wrong."`Something went wrong. Error: \`\`\`${error}\`\`\``
+          "Something Went Wrong.", `Something went wrong. Error: \`\`\`${error}\`\`\``
         );
     }
   },
