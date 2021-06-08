@@ -35,5 +35,10 @@ module.exports = model(
       type: Object,
       default: {},
     },
+    birthday: {
+      type: String,
+      allowNull: true,
+      default: null,
+    },
   })
 );
