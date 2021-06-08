@@ -228,10 +228,9 @@ module.exports = {
       const [, match] = message.content.toLowerCase().match(prefixRegex);
       if (!message.content.toLowerCase().startsWith(match)) return;
       let args = message.content.slice(match.length).trim().split(/ +/g);
-      const cmd = args.shift().toLowerCase();
-      const tag = guildSchema.tags.find(x => {
-        return x.name === cmd
-      })
+      const cmd = args.map(x => x).shift().toLowerCase();
+      const tagName = args.map(x => x).shift();
+      const tag = guildSchema.tags.find(x => x.name === cmd);
       if (tag) return message.reply(tag.content);
       if (cmd.length == 0) return;
       const command =
