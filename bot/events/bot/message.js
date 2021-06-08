@@ -229,7 +229,7 @@ module.exports = {
       if (!message.content.toLowerCase().startsWith(match)) return;
       let args = message.content.slice(match.length).trim().split(/ +/g);
       const cmd = args.shift().toLowerCase();
-
+      if (guildSchema.tags?.includes(cmd)) return message.reply((guildSchema.tags.find(x => x === cmd)).content)
       if (cmd.length == 0) return;
       const command =
         client.commands.get(cmd) ||
