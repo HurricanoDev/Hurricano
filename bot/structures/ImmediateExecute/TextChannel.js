@@ -7,7 +7,6 @@ function RegexEscape(input) {
 function replaceStringsInObject(obj, findStr, replaceStr) {  
   let value = obj;
     if (obj instanceof MessageEmbed || obj.embed instanceof MessageEmbed) {
-      console.log(obj);
       const toClean = obj instanceof MessageEmbed ? obj : obj.embed;
       let embedClean = JSON.stringify(toClean).replace(findStr[0], replaceStr[0]).replace(findStr[1], replaceStr[1]);
     embedClean = JSON.parse(embedClean);
