@@ -41,7 +41,7 @@ module.exports = new Command({
           message.guild.channels.cache.get(args[1]);
 
         if (
-          !serverLog &&
+          !guildData.serverLog &&
           !serverLog.viewable &&
           !serverLog.permissionsFor(message.guild.me).has("SEND_MESSAGES")
         )
