@@ -34,7 +34,7 @@ module.exports = new Command({
           //  name = tempName;
         //}
         message.channel.sendSuccess(message, "Cool!", "Cool! Now, please provide the tag's description.")
-        let conf = await message.channel.awaitMessages(x => x.author.id == message.author.id, {
+        conf = await message.channel.awaitMessages(x => x.author.id == message.author.id, {
             max: 1,
             time: 30000,
             errors: ['time']
