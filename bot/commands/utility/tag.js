@@ -9,7 +9,7 @@ module.exports = new Command({
     examples: ["create How do I verify?"],
     async run (message, args) {
         const guildSchema = client.db.guilds.cache.get(message.guild.id);
-        switch(args[1]) {
+        switch(args[0]) {
         case "create":
             let name;
         let description;
@@ -67,7 +67,6 @@ module.exports = new Command({
         break;
         case "delete":
             let arg = args.map(x => x);
-            arg.shift();
             arg.shift();
             if (!arg) return message.channel.sendError(message, "Error.", "Please provide a valid tag name!"); 
         const tgNameIs = guildSchema.tags.find(x => x === arg);
