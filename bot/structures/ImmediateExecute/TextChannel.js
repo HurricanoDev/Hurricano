@@ -5,13 +5,16 @@ function RegexEscape(input) {
   return input.replace(/[\-\[\]\/\{\}\(\)\*\+\?\.\\\^\$\|]/g, "\\$&");
 }
 function replaceStringsInObject(obj, findStr, replaceStr) {  
-  let value;
-    if (obj instanceof MessageEmbed) {
-      value = JSON.stringify(obj).replace(findStr[0], replaceStr[0]).replace(findStr[1], replaceStr[1]);
-    value = JSON.parse(value);
-    value = new MessageEmbed(value);
+  let value = obj;
+    if (obj instanceof MessageEmbed || obj.embed instanceof MessageEmbed) {
+      console.log(obj);
+      const toClean = obj instanceof MessageEmbed ? obj : obj.embed;
+      let embedClean = JSON.stringify(toClean).replace(findStr[0], replaceStr[0]).replace(findStr[1], replaceStr[1]);
+    embedClean = JSON.parse(embedClean);
+    obj instanceof MessageEmbed ? value = new MessageEmbed(embedClean) : value.embed = new MessageEmbed(embedClean)
   } 
-  if (obj.reply) { let tempVal = obj;
+  if (value.reply) { 
+    let tempVal = value;
     obj.content ? tempVal.content = tempVal.content.replace(findStr[0], replaceStr[0]).replace(findStr[1], replaceStr[1]) :  null
   value = tempVal; };
     return value;

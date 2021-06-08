@@ -56,20 +56,10 @@ module.exports = new Command({
     const convertedMonth = months[month];
 
     const birthdayString = `${convertedDay} of ${convertedMonth}`;
-
-    const updateSchema = await client.schemas.user.findOneAndUpdate(
-      {
-        id: message.author.id,
-      },
-      {
-        birthday: birthdayString,
-      },
-      {
-        upsert: true,
-      }
-    );
-    client.db.users.cache.set(message.author.id, updateSchema
-    );
+    const userSchema = client.db.guilds.cache.get(message.guild.id);
+    userSchema.birthday = birthdayString;
+    const updateSchema = await userSchema.save();
+    client.db.users.cache.set(message.author.id, updateSchema);
     message.channel.sendSuccess(
       message,
       "Done!",

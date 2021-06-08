@@ -7,12 +7,9 @@ module.exports = new Command({
   cooldown: 30,
   description: "Check someone's birthday",
   async run(message, args) {
-    const user =
-      message.mentions.users.first() ||
-      message.guild.members.cache.get(args[0]) ||
-      message.author;
+    const user = (await client.functions.getMember(true, message, args[0])).user;
 
-    const userData = client.schemas.user.findOne({ id: user.id });
+    const userData = client.db.users.cache.get(user.id);
     if (!userData.birthday)
       return message.sendErrorReply(
         "Error",
