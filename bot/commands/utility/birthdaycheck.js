@@ -2,8 +2,8 @@ const Command = require("@Command");
 const { MessageEmbed } = require("discord.js");
 
 module.exports = new Command({
-  name: "birthdaycheck",
-  aliases: ["checkbirthday", "checkbday"],
+  name: "birthdate",
+  aliases: ["checkbirthday", "checkbday", "birthdaycheck"],
   cooldown: 30,
   description: "Check someone's birthday",
   async run(message, args) {
