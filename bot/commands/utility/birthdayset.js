@@ -68,6 +68,8 @@ module.exports = new Command({
         upsert: true,
       }
     );
+    client.db.users.cache.set(message.author.id, update
+    );
     message.channel.sendSuccess(
       message,
       "Done!",
