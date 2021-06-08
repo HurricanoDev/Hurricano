@@ -12,7 +12,7 @@ module.exports = new Command({
       message.guild.members.cache.get(args[0]) ||
       message.author;
 
-    const userData = client.schemas.user.findOne({ id: user.id });
+    const userData = client.db.users.cache.get(user.id);
     if (!userData.birthday)
       return message.sendErrorReply(
         "Error",
