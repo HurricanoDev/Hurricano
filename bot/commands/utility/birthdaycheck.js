@@ -14,7 +14,7 @@ module.exports = new Command({
 
     const userData = client.schemas.user.findOne({ id: user.id });
     if (!userData.birthday)
-      return message.sendError(
+      return message.sendErrorReply(
         "Error",
         "Sorry! That person hasn't set their birthday yet."
       );

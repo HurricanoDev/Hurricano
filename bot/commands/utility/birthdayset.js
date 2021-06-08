@@ -27,13 +27,13 @@ module.exports = new Command({
     let [day, month] = split;
 
     if (!day || !month)
-      return message.sendError(
+      return message.sendErrorReply(
         "Invalid Syntax",
         `Correct Usage: \`${message._usedPrefix}birthdayset <day/month>\``
       );
 
-    if (isNan(day) || isNan(month))
-      return message.sendError(
+    if (isNaN(day) || isNaN(month))
+      return message.sendErrorReply(
         "Error",
         `The date you provided wasn't a number, try figuring out what a number is first :/`
       );
@@ -42,12 +42,12 @@ module.exports = new Command({
     month = parseInt(month);
 
     if (day > 31 || day <= 0)
-      return message.sendError(
+      return message.sendErrorReply(
         "Error!",
         "Wrong day format provided, number should be less than 31 days."
       );
     if (month > 12 || month <= 0)
-      return message.sendError(
+      return message.sendErrorReply(
         "Error!",
         "Wrong month format provided, there is only 12 months in a year!"
       );
