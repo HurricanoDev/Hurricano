@@ -10,8 +10,9 @@ function replaceStringsInObject(obj, findStr, replaceStr) {
       value = JSON.stringify(obj).replace(findStr[0], replaceStr[0]).replace(findStr[1], replaceStr[1]);
     value = JSON.parse(value);
     value = new MessageEmbed(value);
-  } else if (obj.reply) { let tempVal = obj;
-    tempVal.content = tempVal.content.replace(findStr[0], replaceStr[0]).replace(findStr[1], replaceStr[1]);
+  } 
+  if (obj.reply) { let tempVal = obj;
+    obj.content ? tempVal.content = tempVal.content.replace(findStr[0], replaceStr[0]).replace(findStr[1], replaceStr[1]) :  null
   value = tempVal; };
     return value;
 }

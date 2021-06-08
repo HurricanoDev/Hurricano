@@ -1,6 +1,25 @@
-[2021-06-07 19:26:33] - [client]: 
-.-----------------------[2021-06-07 19:26:37] - [shard]: [Shard 0] Shard Ready!
-    Commands                        |
+[2021-06-08 07:02:19] - [error]: Command: create: usage is [2021-06-08 07:02:22] - [shard]: [Shard 0] Shard Ready!
+usage is not a string.
+    at Function.validateOpts (/home/dragonizedpizza/Desktop/Hurricano/bot/utilities/Command.js:94:13)
+    at new Command (/home/dragonizedpizza/Desktop/Hurricano/bot/utilities/Command.js:8:22)
+    at Object.<anonymous> (/home/dragonizedpizza/Desktop/Hurricano/bot/commands/tags/create.js:3:18)
+    at Module._compile (internal/modules/cjs/loader.js:1068:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1097:10)
+    at Module.load (internal/modules/cjs/loader.js:933:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:774:14)
+    at Module.require (internal/modules/cjs/loader.js:957:19)
+    at require (internal/modules/cjs/helpers.js:88:18)
+    at /home/dragonizedpizza/Desktop/Hurricano/bot/Client.js:276:25
+    at Array.forEach (<anonymous>)
+    at Client.loadCommands (/home/dragonizedpizza/Desktop/Hurricano/bot/Client.js:270:35)
+    at init (/home/dragonizedpizza/Desktop/Hurricano/bot/handlers/index.js:25:10)
+    at Object.<anonymous> (/home/dragonizedpizza/Desktop/Hurricano/bot/handlers/index.js:33:1)
+    at Module._compile (internal/modules/cjs/loader.js:1068:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1097:10)"
+}
+[2021-06-08 07:02:19] - [client]: 
+.--------------------------------------------------------.
+|                        Commands                        |
 |--------------------------------------------------------|
 |     Command File     |   Command Name    | Load status |
 |----------------------|-------------------|-------------|
@@ -11,6 +30,7 @@
 | msglogs.js           | msglogs           | Loaded!     |
 | muterole.js          | muterole          | Loaded!     |
 | prefix.js            | prefix            | Loaded!     |
+| serverlog.js         | serverlog         | Loaded!     |
 | setautorole.js       | setautorole       | Loaded!     |
 | setmemberlog.js      | setmemberlog      | Loaded!     |
 | setsystemchannel.js  | setsystemchannel  | Loaded!     |
@@ -68,33 +88,57 @@
 | afk.js               | afk               | Loaded!     |
 | suggest.js           | suggest           | Loaded!     |
 '--------------------------------------------------------'
-[2021-06-07 19:26:33] - [info]: Provided token: ODI1NTc0NDEyMTc4NDIzODU5.YF_6Fg.***************************
-[2021-06-07 19:26:33] - [info]: Preparing to connect to the gateway...
-[2021-06-07 19:26:33] - [info]: Server Up!
-[2021-06-07 19:26:34] - [info]: [WS => Manager] Fetched Gateway Information
+[2021-06-08 07:02:19] - [info]: Provided token: ODI1NTc0NDEyMTc4NDIzODU5.YF_6Fg.***************************
+[2021-06-08 07:02:19] - [info]: Preparing to connect to the gateway...
+[2021-06-08 07:02:19] - [info]: Server Up!
+[2021-06-08 07:02:19] - [info]: [WS => Manager] Fetched Gateway Information
     URL: wss://gateway.discord.gg
     Recommended Shards: 1
-[2021-06-07 19:26:34] - [info]: [WS => Manager] Session Limit Information
+[2021-06-08 07:02:19] - [info]: [WS => Manager] Session Limit Information
     Total: 1000
-    Remaining: 992
-[2021-06-07 19:26:34] - [info]: [WS => Manager] Spawning shards: 0
-[2021-06-07 19:26:34] - [info]: [WS => Shard 0] [CONNECT]
+    Remaining: 989
+[2021-06-08 07:02:19] - [info]: [WS => Manager] Spawning shards: 0
+[2021-06-08 07:02:19] - [info]: [WS => Shard 0] [CONNECT]
     Gateway    : wss://gateway.discord.gg/
     Version    : 8
     Encoding   : json
     Compression: none
-[2021-06-07 19:26:34] - [info]: [WS => Shard 0] Setting a HELLO timeout for 20s.
-[2021-06-07 19:26:35] - [info]: [WS => Shard 0] [CONNECTED] wss://gateway.discord.gg/?v=8&encoding=json in 580ms
-[2021-06-07 19:26:35] - [info]: [WS => Shard 0] Clearing the HELLO timeout.
-[2021-06-07 19:26:35] - [info]: [WS => Shard 0] Setting a heartbeat interval for 41250ms.
-[2021-06-07 19:26:35] - [info]: [WS => Shard 0] [IDENTIFY] Shard 0/1 with intents: 1923
-[2021-06-07 19:26:35] - [info]: [WS => Shard 0] [READY] Session 31fbd2694464bbb91f2f8bab187bb094.
-[2021-06-07 19:26:35] - [info]: [WS => Shard 0] [ReadyHeartbeat] Sending a heartbeat.
-[2021-06-07 19:26:35] - [db]: Connected to MongoDB!
-[2021-06-07 19:26:37] - [info]: [WS => Shard 0] Shard received all its guilds. Marking as fully ready.
-[2021-06-07 19:26:37] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 1399ms.
-[2021-06-07 19:26:39] - [client]: Hurricano Beta#2437 Successfully Logged in!
-[2021-06-07 19:27:16] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
-[2021-06-07 19:27:16] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 442ms.
-[2021-06-07 19:27:57] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
-[2021-06-07 19:27:58] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 422ms.
+[2021-06-08 07:02:19] - [info]: [WS => Shard 0] Setting a HELLO timeout for 20s.
+[2021-06-08 07:02:20] - [info]: [WS => Shard 0] [CONNECTED] wss://gateway.discord.gg/?v=8&encoding=json in 644ms
+[2021-06-08 07:02:20] - [info]: [WS => Shard 0] Clearing the HELLO timeout.
+[2021-06-08 07:02:20] - [info]: [WS => Shard 0] Setting a heartbeat interval for 41250ms.
+[2021-06-08 07:02:20] - [info]: [WS => Shard 0] [IDENTIFY] Shard 0/1 with intents: 1923
+[2021-06-08 07:02:20] - [info]: [WS => Shard 0] [READY] Session 36f99c8f14f8f70dddbb567630a88887.
+[2021-06-08 07:02:20] - [info]: [WS => Shard 0] [ReadyHeartbeat] Sending a heartbeat.
+[2021-06-08 07:02:21] - [db]: Connected to MongoDB!
+[2021-06-08 07:02:22] - [info]: [WS => Shard 0] Shard received all its guilds. Marking as fully ready.
+[2021-06-08 07:02:22] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 1691ms.
+[2021-06-08 07:02:25] - [client]: Hurricano Beta#2437 Successfully Logged in!
+[2021-06-08 07:03:01] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2021-06-08 07:03:01] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 362ms.
+[2021-06-08 07:03:42] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2021-06-08 07:03:43] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 364ms.
+[2021-06-08 07:04:24] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2021-06-08 07:04:24] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 361ms.
+[2021-06-08 07:05:05] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2021-06-08 07:05:05] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 363ms.
+[2021-06-08 07:05:46] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2021-06-08 07:05:46] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 370ms.
+[2021-06-08 07:06:27] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2021-06-08 07:06:28] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 361ms.
+[2021-06-08 07:07:09] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2021-06-08 07:07:09] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 365ms.
+[2021-06-08 07:07:50] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2021-06-08 07:07:51] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 394ms.
+[2021-06-08 07:08:32] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2021-06-08 07:08:32] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 390ms.
+[2021-06-08 07:09:13] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2021-06-08 07:09:13] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 371ms.
+[2021-06-08 07:09:54] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2021-06-08 07:09:55] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 464ms.
+[2021-06-08 07:10:35] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2021-06-08 07:10:36] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 363ms.
+[2021-06-08 07:11:17] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2021-06-08 07:11:17] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 417ms.
+[2021-06-08 07:11:58] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2021-06-08 07:11:58] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 377ms.

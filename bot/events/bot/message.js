@@ -118,7 +118,7 @@ module.exports = {
       guildSchema.antiSpam &&
       message.channel.permissionsFor(client.user.id).has(["MANAGE_ROLES"]) &&
       message.member.roles.highest < message.guild.me.roles.highest &&
-      !message.channel.permissionsFor(message.author.id).has["ADMINISTRATOR"]
+      !message.channel.permissionsFor(message.author.id).has(["ADMINISTRATOR"])
     ) {
       if (usersMap.has(message.author.name)) {
         const userData = usersMap.get(message.author.id);

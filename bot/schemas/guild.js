@@ -19,6 +19,10 @@ module.exports = model(
       type: Array,
       default: ["levelling"],
     },
+    tags: {
+      type: Array,
+      default: null,
+    },
     blacklisted: {
       type: Boolean,
       default: false,
