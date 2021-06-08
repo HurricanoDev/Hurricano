@@ -68,7 +68,7 @@ module.exports = new Command({
         upsert: true,
       }
     );
-    client.db.users.cache.set(message.author.id, update
+    client.db.users.cache.set(message.author.id, updateSchema
     );
     message.channel.sendSuccess(
       message,
