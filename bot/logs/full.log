@@ -1,7 +1,100 @@
-[2021-06-08 10:58:19] - [error]: An invalid token was provided.
-{
-  "stack": "Error [TOKEN_INVALID]: An invalid token was provided.
-    at /home/dragonizedpizza/Desktop/Hurricano/node_modules/discord.js/src/util/Util.js:247:39
-    at processTicksAndRejections (internal/process/task_queues.js:95:5)
-    at async ShardingManager.spawn (/home/dragonizedpizza/Desktop/Hurricano/node_modules/discord.js/src/sharding/ShardingManager.js:178:16)"
-}
+[2021-06-08 14:34:13] - [client]: 
+.-----------------------[2021-06-08 14:34:18] - [shard]: [Shard 0] Shard Ready!
+    Commands                        |
+|--------------------------------------------------------|
+|     Command File     |   Command Name    | Load status |
+|----------------------|-------------------|-------------|
+| accept.js            | accept            | Loaded!     |
+| deny.js              | deny              | Loaded!     |
+| disable.js           | disable           | Loaded!     |
+| enable.js            | enable            | Loaded!     |
+| msglogs.js           | msglogs           | Loaded!     |
+| muterole.js          | muterole          | Loaded!     |
+| prefix.js            | prefix            | Loaded!     |
+| serverlog.js         | serverlog         | Loaded!     |
+| setautorole.js       | setautorole       | Loaded!     |
+| setmemberlog.js      | setmemberlog      | Loaded!     |
+| setsystemchannel.js  | setsystemchannel  | Loaded!     |
+| settings.js          | settings          | Loaded!     |
+| spamdetection.js     | spamdetection     | Loaded!     |
+| suggestionchannel.js | suggestionchannel | Loaded!     |
+| balance.js           | balance           | Loaded!     |
+| slots.js             | slots             | Loaded!     |
+| connect4.js          | connect4          | Loaded!     |
+| meme.js              | meme              | Loaded!     |
+| rps.js               | rps               | Loaded!     |
+| snipe.js             | snipe             | Loaded!     |
+| gend.js              | gend              | Loaded!     |
+| glist.js             | glist             | Loaded!     |
+| gstart.js            | gstart            | Loaded!     |
+| beautify.js          | beautify          | Loaded!     |
+| burn.js              | burn              | Loaded!     |
+| facepalm.js          | facepalm          | Loaded!     |
+| pixelate.js          | pixelate          | Loaded!     |
+| rainbow.js           | rainbow           | Loaded!     |
+| rip.js               | rip               | Loaded!     |
+| trigger.js           | trigger           | Loaded!     |
+| wanted.js            | wanted            | Loaded!     |
+| avatar.js            | avatar            | Loaded!     |
+| botinfo.js           | botinfo           | Loaded!     |
+| docs.js              | docs              | Loaded!     |
+| help.js              | help              | Loaded!     |
+| invite.js            | invite            | Loaded!     |
+| joinposition.js      | joinposition      | Loaded!     |
+| ping.js              | ping              | Loaded!     |
+| serverinfo.js        | serverinfo        | Loaded!     |
+| test.js              | test              | Loaded!     |
+| rank.js              | rank              | Loaded!     |
+| ban.js               | ban               | Loaded!     |
+| decancer.js          | decancer          | Loaded!     |
+| lock.js              | lock              | Loaded!     |
+| unlock.js            | unlock            | Loaded!     |
+| filters.js           | filters           | Loaded!     |
+| lyrics.js            | lyrics            | Loaded!     |
+| play.js              | play              | Loaded!     |
+| search.js            | search            | Loaded!     |
+| skip.js              | skip              | Loaded!     |
+| stop.js              | stop              | Loaded!     |
+| volume.js            | volume            | Loaded!     |
+| blacklist.js         | blacklist         | Loaded!     |
+| eval.js              | eval              | Loaded!     |
+| exec.js              | exec              | Loaded!     |
+| fulleval.js          | fulleval          | Loaded!     |
+| leaveguild.js        | leaveguild        | Loaded!     |
+| pull.js              | pull              | Loaded!     |
+| reboot.js            | reboot            | Loaded!     |
+| reload.js            | reload            | Loaded!     |
+| shutdown.js          | shutdown          | Loaded!     |
+| unblacklist.js       | unblacklist       | Loaded!     |
+| afk.js               | afk               | Loaded!     |
+| birthdaycheck.js     | birthdate         | Loaded!     |
+| birthdayset.js       | birthdayset       | Loaded!     |
+| suggest.js           | suggest           | Loaded!     |
+| tag.js               | tag               | Loaded!     |
+'--------------------------------------------------------'
+[2021-06-08 14:34:13] - [info]: Provided token: ODI1NTc0NDEyMTc4NDIzODU5.YF_6Fg.***************************
+[2021-06-08 14:34:13] - [info]: Preparing to connect to the gateway...
+[2021-06-08 14:34:13] - [info]: Server Up!
+[2021-06-08 14:34:14] - [info]: [WS => Manager] Fetched Gateway Information
+    URL: wss://gateway.discord.gg
+    Recommended Shards: 1
+[2021-06-08 14:34:14] - [info]: [WS => Manager] Session Limit Information
+    Total: 1000
+    Remaining: 972
+[2021-06-08 14:34:14] - [info]: [WS => Manager] Spawning shards: 0
+[2021-06-08 14:34:14] - [info]: [WS => Shard 0] [CONNECT]
+    Gateway    : wss://gateway.discord.gg/
+    Version    : 8
+    Encoding   : json
+    Compression: none
+[2021-06-08 14:34:14] - [info]: [WS => Shard 0] Setting a HELLO timeout for 20s.
+[2021-06-08 14:34:15] - [info]: [WS => Shard 0] [CONNECTED] wss://gateway.discord.gg/?v=8&encoding=json in 849ms
+[2021-06-08 14:34:15] - [info]: [WS => Shard 0] Clearing the HELLO timeout.
+[2021-06-08 14:34:15] - [info]: [WS => Shard 0] Setting a heartbeat interval for 41250ms.
+[2021-06-08 14:34:15] - [info]: [WS => Shard 0] [IDENTIFY] Shard 0/1 with intents: 1923
+[2021-06-08 14:34:16] - [info]: [WS => Shard 0] [READY] Session 8371526786e0e49042ef84609e565c9d.
+[2021-06-08 14:34:16] - [info]: [WS => Shard 0] [ReadyHeartbeat] Sending a heartbeat.
+[2021-06-08 14:34:17] - [db]: Connected to MongoDB!
+[2021-06-08 14:34:18] - [info]: [WS => Shard 0] Shard received all its guilds. Marking as fully ready.
+[2021-06-08 14:34:18] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 1944ms.
+[2021-06-08 14:34:21] - [client]: Hurricano Beta#2437 Successfully Logged in!

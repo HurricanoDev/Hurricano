@@ -13,7 +13,7 @@ module.exports = new Command({
         case "create":
             let name;
         let description;
-        if (![2]) {
+        //if (!args[2]) {
             message.channel.sendSuccess(message, "Tags!", "Cool, you would like to create a tag! Please send the name here.");
             let conf = await message.channel.awaitMessages(x => x.author.id === message.author.id, {
                 max: 1,
@@ -27,12 +27,12 @@ module.exports = new Command({
             if (tagExistsAlready) return message.channel.sendSuccess(message, "Error.", "This tag already exists.");
             if (client.commands.get(conf)) return message.channel.sendError(message, "An Error Occured.", "This tag's name is already a command!");
             name = conf;
-        } else {
-            const tempName = args.join(" ");
-            if (tempName.length < 4) return message.channel.sendError(message, "An Error Occured.", "The tag should be atleast 4 characters!")
-            if (tempName.length > 40) return message.channel.sendError(message, "An Error Occured.", "The tag's length must be lesser than 40 characters!");
-            name = tempName;
-        }
+        //} else {
+           // const tempName = args.join(" ");
+          //  if (tempName.length < 4) return message.channel.sendError(message, "An Error Occured.", "The tag should be atleast 4 characters!")
+           // if (tempName.length > 40) return message.channel.sendError(message, "An Error Occured.", "The tag's length must be lesser than 40 characters!");
+          //  name = tempName;
+        //}
         message.channel.sendSuccess(message, "Cool!", "Cool! Now, please provide the tag's description.")
         let conf = await message.channel.awaitMessages(x => x.author.id == message.author.id, {
             max: 1,
