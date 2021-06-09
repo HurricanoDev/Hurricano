@@ -92,5 +92,11 @@ module.exports = model(
       allowNull: true,
       default: null,
     },
+    starBoard: {
+      type: String,
+      required: false,
+      allowNull: true,
+      default: null,
+    },
   })
 );

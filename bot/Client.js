@@ -220,6 +220,17 @@ class Client extends Discord.Client {
         }
         return i + "th";
       },
+      createOptionsEmbed: (name, syntax, aliases, permissions, options, prefix) => {
+        const optionsEmbed = new Discord.MessageEmbed()
+          .setTitle(`${name} Help`)
+          .setColor("#606365")
+          .setDescription(`**Syntax:** \`${prefix}${syntax}\`\n**Aliases:** \`${aliases}\``)
+          .addField("Permissions", `\`${permissions}\``)
+          .addField("Subcommands:", `${options}`)
+          .setFooter(`Type ${prefix}help <command> for more info on a command.`);
+
+        return optionsEmbed;
+      },
     };
   }
   // ---------------------------------------------------   Functions    -------------------------------------------------------------

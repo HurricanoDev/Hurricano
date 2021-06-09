@@ -15,6 +15,7 @@ intents.add(
 const client = new Client(config, {
   intents: intents,
   allowedMentions: { parse: ["users"], repliedUser: false },
+  partials: ['MESSAGE', 'REACTION'],
 });
 global.client = client;
 // website initialization
