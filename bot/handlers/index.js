@@ -25,7 +25,6 @@ if (client.config.website.enabled) {
 function init() {
   client.loadCommands();
   client.loadEvents();
-  client.loadStructures();
   client.loadTopgg();
   client.db.init();
   client.connect();

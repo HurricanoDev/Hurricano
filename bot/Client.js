@@ -8,7 +8,13 @@ const { Player } = require("discord-player");
 const giveawaysManager = require("./utilities/giveaway");
 const logger = require("./utilities/logger.js");
 const path = require("path");
-let configFile;
+const structures = fs
+.readdirSync("./bot/structures/ImmediateExecute")
+.filter((file) => file.endsWith(".js"));
+
+for (const file of structures) {
+require("./structures/ImmediateExecute/" + file);
+}
 const Database = require("./handlers/db.js");
 /**
  * Extended Client class
@@ -267,16 +273,6 @@ class Client extends Discord.Client {
       );
     }
   }
-  loadStructures() {
-    const structures = fs
-      .readdirSync("./bot/structures/ImmediateExecute")
-      .filter((file) => file.endsWith(".js"));
-
-    for (const file of structures) {
-      require("./structures/ImmediateExecute/" + file);
-    }
-  }
-
   loadCommands() {
     readdirSync("./bot/commands").forEach((dir) => {
       const commands = readdirSync(`./bot/commands/${dir}/`).filter((file) =>
