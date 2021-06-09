@@ -10,7 +10,7 @@ module.exports = {
       if (
         guildData.starBoard &&
         starBoardChannel &&
-        starBoardChannel.permissionsFor(reaction.guild.me).has("SEND_MESSAGES")
+        starBoardChannel.permissionsFor(reaction.message.guild.me).has("SEND_MESSAGES")
       ) {
         const msgs = await starBoardChannel.messages.fetch({ limit: 100 });
         const sentMessage = msgs.find((msg) =>
