@@ -52,7 +52,7 @@ module.exports = new Command({
             "There is no existing starboard channel to remove!"
           );
 
-        const removeSBChannel = await client.schemas.guild.findOneA(
+        const removeSBChannel = await client.schemas.guild.findOneAndUpdate(
           {
             id: message.guild.id,
           },
