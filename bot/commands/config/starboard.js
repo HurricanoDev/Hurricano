@@ -25,7 +25,7 @@ module.exports = new Command({
           message.guild.channels.cache.get(args[1]);
 
         if (!SBChannel)
-          return message.sendError(
+          return message.sendErrorReply(
             "Error",
             "You need to give me a valid channel!"
           );
@@ -48,7 +48,7 @@ module.exports = new Command({
         break;
       case "remove":
         if (!guildData.starBoard)
-          return message.sendError(
+          return message.sendErrorReply(
             "Error!",
             "There is no existing starboard channel to remove!"
           );
