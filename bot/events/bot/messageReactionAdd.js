@@ -10,7 +10,9 @@ module.exports = {
       if (
         guildData.starBoard &&
         starBoardChannel &&
-        starBoardChannel.permissionsFor(reaction.message.guild.me).has("SEND_MESSAGES")
+        starBoardChannel
+          .permissionsFor(reaction.message.guild.me)
+          .has("SEND_MESSAGES")
       ) {
         const msgs = await starBoardChannel.messages.fetch({ limit: 100 });
         const sentMessage = msgs.find((msg) =>
@@ -20,8 +22,9 @@ module.exports = {
               : false
             : false
         );
-        if (sentMessage) sentMessage.edit(`${reaction.count} - ⭐`);
-        else {
+        if (sentMessage) {
+          sentMessage.edit(`${reaction.count} - ⭐`);
+        } else {
           const embed = new MessageEmbed()
             .setAuthor(
               reaction.message.author.tag,
