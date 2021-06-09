@@ -3,10 +3,10 @@ const { MessageEmbed } = require("discord.js");
 module.exports = {
   name: "messageReactionAdd",
   run: async (reaction, user) => {
-    const handleStarBoard = async () => {
-      const guildData = client.db.guilds.cache.get(reaction.guild.id);
-      const starBoardChannel = client.channels.cache.get(guildData.starBoard);
+    const guildData = client.db.guilds.cache.get(reaction.guild.id);
+    const starBoardChannel = client.channels.cache.get(guildData.starBoard);
 
+    const handleStarBoard = async () => {
       if (
         guildData.starBoard &&
         starBoardChannel &&
