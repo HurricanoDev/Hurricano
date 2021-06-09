@@ -3,7 +3,7 @@ const { MessageEmbed } = require("discord.js");
 module.exports = {
   name: "messageReactionAdd",
   run: async (reaction, user) => {
-    const guildData = client.db.guilds.cache.get(reaction.guild.id);
+    const guildData = client.db.guilds.cache.get(reaction.message.guild.id);
     const starBoardChannel = client.channels.cache.get(guildData.starBoard);
 
     const handleStarBoard = async () => {
