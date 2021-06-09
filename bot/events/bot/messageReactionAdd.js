@@ -10,18 +10,21 @@ module.exports = {
       if (
         guildData.starBoard &&
         starBoardChannel &&
-        starBoardChannel.permissionsFor(reaction.message.guild.me).has("SEND_MESSAGES")
+        starBoardChannel
+          .permissionsFor(reaction.message.guild.me)
+          .has("SEND_MESSAGES")
       ) {
-        const msgs = await starBoardChannel.messages.fetch({ limit: 100 });
+        const msgs = await starBoardChannel.messages.fetch({ limit: 10 });
         const sentMessage = msgs.find((msg) =>
           msg.embeds.length === 1
-            ? msg.embeds[0].footer.text.startsWith(reaction.message.id)
+            ? msg.embeds[0].footer?.text.startsWith(reaction.message.id)
               ? true
               : false
             : false
         );
-        if (sentMessage) sentMessage.edit(`${reaction.count} - ⭐`);
-        else {
+        if (sentMessage) {
+          sentMessage.edit(`${reaction.count} - ⭐`);
+        } else {
           const embed = new MessageEmbed()
             .setAuthor(
               reaction.message.author.tag,
