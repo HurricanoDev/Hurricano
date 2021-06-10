@@ -41,7 +41,7 @@ module.exports = new Command({
     if (amount > 0) embed.setDescription(`You won **$${amount}**`);
 
     if (amount > 0) userInfo.wallet = userInfo.wallet + amount;
-    if (amount < 0) userInfo.wallet = userInfo.wallet - amount;
+    if (amount < 0) userInfo.wallet = userInfo.wallet + amount;
 
     await userInfo.save();
 
