@@ -9,7 +9,7 @@ module.exports = new Command({
   description: "Play the slot machine!",
   async run(message, args) {
     const userInfo = client.db.users.cache.get(message.author.id);
-    if(userInfo.wallet === "0") return message.channel.sendError(message, "Ha!", "Why are you trying to play the slot machine with no money? You'll have minus dollars after that!");
+    if(userInfo.wallet === 0) return message.channel.sendError(message, "Ha!", "Why are you trying to play the slot machine with no money? You'll have minus dollars after that!");
 
     let topEmojis = [":grapes: :grapes: :grapes:", ":apple: :apple: :apple:"];
     let top = topEmojis[Math.floor(Math.random() * topEmojis.length)];
