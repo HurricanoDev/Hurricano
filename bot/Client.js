@@ -181,7 +181,7 @@ class Client extends Discord.Client {
         else user = await message.guild.members.fetch(args).catch(() => {});
         if (user && user.size) user = null;
 
-        if (returnAuthor && !user) return message.author;
+        if (returnAuthor && !user) return message.member;
         if (user) return user;
         if (!user) return null;
       },
