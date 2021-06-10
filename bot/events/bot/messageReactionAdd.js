@@ -24,7 +24,7 @@ module.exports = {
       return;
     const starBoardMsgId = guildData.starBoard.messages.find(x => x === reaction.message.id);
       if (reaction.message.author.bot) return;
-    const sentMessage = await message.channel.messages.fetch(
+    const sentMessage = await reaction.message.channel.messages.fetch(
       starBoardMsgId
     ).catch(() => {});
     if (!sentMessage && starBoardMsgId) {
@@ -32,7 +32,7 @@ module.exports = {
       arrayToDelete = arrayToDelete.filter(x => x !== starBoardMsgId);
       guildData.starBoard.messages = arrayToDelete;
       const DeletedGuildDataSave = await guidData.save();
-      client.db.guilds.cache.set(message.guild.id, DeletedGuildDataSave);
+      client.db.guilds.cache.set(reaction.message.guild.id, DeletedGuildDataSave);
       guildData = DeletedGuildDataSave;
     }
     if (
