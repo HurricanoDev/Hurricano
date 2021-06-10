@@ -22,7 +22,7 @@ module.exports = {
         .has(["SEND_MESSAGES", "READ_MESSAGE_HISTORY"])
     )
       return;
-    const starBoardMsgId = guildData.messages.find(x => x === reaction.message.id);
+    const starBoardMsgId = guildData.starBoard.messages.find(x => x === reaction.message.id);
       if (reaction.message.author.bot) return;
     const sentMessage = await message.channel.messages.fetch(
       starBoardMsgId
