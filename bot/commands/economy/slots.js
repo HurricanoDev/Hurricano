@@ -8,6 +8,9 @@ module.exports = new Command({
   slash: false,
   description: "Play the slot machine!",
   async run(message, args) {
+    const userInfo = client.db.users.cache.get(message.author.id);
+    if(userInfo.wallet === "0") return message.channel.sendError(message, "Ha!", "Why are you trying to play the slot machine with no money? You'll have minus dollars after that!");
+
     let topEmojis = [":grapes: :grapes: :grapes:", ":apple: :apple: :apple:"];
     let top = topEmojis[Math.floor(Math.random() * topEmojis.length)];
     let midEmojis = [":grapes: :grapes: :apple:", ":apple: :apple: :grapes:"];
@@ -36,8 +39,6 @@ module.exports = new Command({
 
     if (amount < 0) embed.setDescription(`You lost **$${amount}**`);
     if (amount > 0) embed.setDescription(`You won **$${amount}**`);
-
-    const userInfo = client.db.users.cache.get(message.author.id);
 
     if (amount > 0) userInfo.wallet = userInfo.wallet + amount;
     if (amount < 0) userInfo.wallet = userInfo.wallet - amount;

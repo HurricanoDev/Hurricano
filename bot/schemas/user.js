@@ -21,7 +21,7 @@ module.exports = model(
     },
     wallet: {
       type: String,
-      default: 0,
+      default: "0",
     },
     job: {
       type: String,
@@ -29,7 +29,7 @@ module.exports = model(
     },
     bank: {
       type: String,
-      default: 0,
+      default: "0",
     },
     cooldowns: {
       type: Object,
