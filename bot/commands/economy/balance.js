@@ -7,7 +7,7 @@ module.exports = new Command({
   slash: false,
   description: "Check how many coins you have.",
   async run(message, args) {
-    const target = message.mentions.members.first() || message.guild.members.cache.get(args[0]) || message.author;
+    const target = await client.functions.getMember(true, message, args[0]);
     const userData = client.db.users.cache.get(target.id);
 
     const wallet = userData.wallet;
