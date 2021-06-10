@@ -20,16 +20,16 @@ module.exports = model(
       default: [],
     },
     wallet: {
-      type: String,
-      default: "0",
+      type: Number,
+      default: 0,
     },
     job: {
       type: String,
       default: "none",
     },
     bank: {
-      type: String,
-      default: "0",
+      type: Number,
+      default: 0,
     },
     cooldowns: {
       type: Object,
