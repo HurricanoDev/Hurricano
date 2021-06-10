@@ -16,7 +16,7 @@ module.exports = new Command({
     const balEmbed = new MessageEmbed()
       .setTitle(`${target.user.username}'s balance`)
       .setDescription(
-        `**Wallet:** 💲${wallet}\n**Bank:** 💲${bank}`
+        `**Wallet:** 🪙 ${wallet}\n**Bank:** 🪙 ${bank}`
       )
       .setTimestamp()
       .setFooter("🤠");

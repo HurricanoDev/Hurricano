@@ -37,11 +37,11 @@ module.exports = new Command({
       .setColor(color)
       .addField("You spun:", emojis);
 
-    if (amount < 0) embed.setDescription(`You lost **$${amount}**`);
-    if (amount > 0) embed.setDescription(`You won **$${amount}**`);
+    if (amount < 0) embed.setDescription(`You lost **🪙 ${amount}**`);
+    if (amount > 0) embed.setDescription(`You won **🪙 ${amount}**`);
 
     if (amount > 0) userInfo.wallet = userInfo.wallet + amount;
-    if (amount < 0) userInfo.wallet = userInfo.wallet - amount;
+    if (amount < 0) userInfo.wallet = userInfo.wallet + amount;
 
     await userInfo.save();
 
