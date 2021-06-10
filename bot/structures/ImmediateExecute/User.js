@@ -1,5 +1,5 @@
 const { Structures, MessageEmbed } = require("discord.js");
-console.log('ee');
+console.log("ee");
 module.exports = Structures.extend("User", (User) => {
   class HurricanoUser extends User {
     constructor(...args) {
@@ -11,8 +11,8 @@ module.exports = Structures.extend("User", (User) => {
           return data;
         },
         cache: () => {
-          return (client.db.users.cache.get(this.id));
-        }
+          return client.db.users.cache.get(this.id);
+        },
       };
     }
 
@@ -35,7 +35,7 @@ module.exports = Structures.extend("User", (User) => {
           message.author.displayAvatarURL()
         );
       }
-      this.createDM().then(x => x.send(embed));
+      this.createDM().then((x) => x.send(embed));
     }
     sendSuccess(message, Header, Msg, Footer) {
       const embed = new MessageEmbed().setAuthor(
@@ -53,7 +53,7 @@ module.exports = Structures.extend("User", (User) => {
           message.author.displayAvatarURL()
         );
       }
-      this.createDM().then(x => x.send(embed));
+      this.createDM().then((x) => x.send(embed));
     }
   }
   return HurricanoUser;

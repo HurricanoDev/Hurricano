@@ -1,22 +1,30 @@
 const { Structures, MessageEmbed } = require("discord.js");
-const { User, GuildMember, APIMessage } = require('discord.js');
-const lodash = require('lodash');
+const { User, GuildMember, APIMessage } = require("discord.js");
 function RegexEscape(input) {
   return input.replace(/[\-\[\]\/\{\}\(\)\*\+\?\.\\\^\$\|]/g, "\\$&");
 }
-function replaceStringsInObject(obj, findStr, replaceStr) {  
+function replaceStringsInObject(obj, findStr, replaceStr) {
   let value = obj;
-    if (obj instanceof MessageEmbed || obj.embed instanceof MessageEmbed) {
-      const toClean = obj instanceof MessageEmbed ? obj : obj.embed;
-      let embedClean = JSON.stringify(toClean).replace(findStr[0], replaceStr[0]).replace(findStr[1], replaceStr[1]);
+  if (obj instanceof MessageEmbed || obj.embed instanceof MessageEmbed) {
+    const toClean = obj instanceof MessageEmbed ? obj : obj.embed;
+    let embedClean = JSON.stringify(toClean)
+      .replace(findStr[0], replaceStr[0])
+      .replace(findStr[1], replaceStr[1]);
     embedClean = JSON.parse(embedClean);
-    obj instanceof MessageEmbed ? value = new MessageEmbed(embedClean) : value.embed = new MessageEmbed(embedClean)
-  } 
-  if (value.reply) { 
+    obj instanceof MessageEmbed
+      ? (value = new MessageEmbed(embedClean))
+      : (value.embed = new MessageEmbed(embedClean));
+  }
+  if (value.reply) {
     let tempVal = value;
-    obj.content ? tempVal.content = tempVal.content.replace(findStr[0], replaceStr[0]).replace(findStr[1], replaceStr[1]) :  null
-  value = tempVal; };
-    return value;
+    obj.content
+      ? (tempVal.content = tempVal.content
+          .replace(findStr[0], replaceStr[0])
+          .replace(findStr[1], replaceStr[1]))
+      : null;
+    value = tempVal;
+  }
+  return value;
 }
 module.exports = Structures.extend("TextChannel", (channel) => {
   class HurricanoChannel extends channel {
@@ -24,23 +32,34 @@ module.exports = Structures.extend("TextChannel", (channel) => {
       super(...args);
     }
     async send(rawContent, rawOptions) {
-      const tokenReplaceRegex = new RegExp(this.client.config.token, 'g');
-      const mongoUriReplaceRegex = new RegExp(RegexEscape(this.client.config.mongouri), 'g');
+      const tokenReplaceRegex = new RegExp(this.client.config.token, "g");
+      const mongoUriReplaceRegex = new RegExp(
+        RegexEscape(this.client.config.mongouri),
+        "g"
+      );
       let content;
       let options = rawOptions;
       delete options?.rawMessageContent;
       if (rawOptions?.rawMessageContent) content = rawContent;
       else {
-        if (typeof rawContent == 'object') content = replaceStringsInObject(rawContent, [tokenReplaceRegex, mongoUriReplaceRegex], ["`DISCORD BOT TOKEN`", "`MONGODB URI`"]);
-        else content = rawContent.replace(tokenReplaceRegex, "`DISCORD BOT TOKEN`").replace(mongoUriReplaceRegex, "`MONGODB URI`");
+        if (typeof rawContent == "object")
+          content = replaceStringsInObject(
+            rawContent,
+            [tokenReplaceRegex, mongoUriReplaceRegex],
+            ["`DISCORD BOT TOKEN`", "`MONGODB URI`"]
+          );
+        else
+          content = rawContent
+            .replace(tokenReplaceRegex, "`DISCORD BOT TOKEN`")
+            .replace(mongoUriReplaceRegex, "`MONGODB URI`");
       }
 
       if (this instanceof User || this instanceof GuildMember) {
-        return this.createDM().then(dm => dm.send(content, options));
+        return this.createDM().then((dm) => dm.send(content, options));
       }
-  
+
       let apiMessage;
-  
+
       if (content instanceof APIMessage) {
         apiMessage = content.resolveData();
       } else {
@@ -49,11 +68,11 @@ module.exports = Structures.extend("TextChannel", (channel) => {
           return Promise.all(apiMessage.split().map(this.send.bind(this)));
         }
       }
-  
+
       const { data, files } = await apiMessage.resolveFiles();
       return this.client.api.channels[this.id].messages
         .post({ data, files })
-        .then(d => this.client.actions.MessageCreate.handle(d).message);
+        .then((d) => this.client.actions.MessageCreate.handle(d).message);
     }
 
     async sendError(message, Header, Msg, Footer, Fields) {

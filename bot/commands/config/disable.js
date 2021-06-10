@@ -41,7 +41,6 @@ module.exports = new Command({
       disabledModules.push(argss);
       guildSchema.disabledModules = disabledModules;
       const data = await guildSchema.save();
-      client.db.guilds.cache.set(message.guild.id, data);
       await message.channel.sendSuccess(
         message,
         "Module Enabled.",

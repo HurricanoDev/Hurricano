@@ -69,7 +69,7 @@ module.exports = {
         "I don't have enough permissions in this guild! Please ask an admin to give me the following permissions: \n `READ_MESSAGES`, `SEND_MESSAGES`, `EMBED_LINKS`"
       );
     //------------------------------------------------------------------
-    let guildSchema = client.db.guilds.cache.get(message.guild.id);
+    let guildSchema = await message.guild.db.fetch();
     const muteRole = guildSchema.muteRole;
     const prefix = guildSchema.prefixes.find((x) =>
       message.content.startsWith(x)
@@ -228,9 +228,9 @@ module.exports = {
       const [, match] = message.content.toLowerCase().match(prefixRegex);
       if (!message.content.toLowerCase().startsWith(match)) return;
       let args = message.content.slice(match.length).trim().split(/ +/g);
-      const tagName = args.map(x => x).shift();
+      const tagName = args.map((x) => x).shift();
       const cmd = args.shift().toLowerCase();
-      const tag = guildSchema.tags.find(x => x.name === cmd);
+      const tag = guildSchema.tags.find((x) => x.name === cmd);
       if (tag) return message.reply(tag.content);
       if (cmd.length == 0) return;
       const command =
@@ -349,7 +349,7 @@ module.exports = {
       if (auth !== "allow") return;
       if (!client.config.ownerIds.includes(message.author.id))
         await makeCooldown(message, command);
-      command.run(message, args);
+      await command.run(message, args);
     }
   },
 };

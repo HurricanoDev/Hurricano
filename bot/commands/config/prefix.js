@@ -79,7 +79,6 @@ module.exports = new Command({
             });
           guildSchema.prefixes.push(args[1].value);
           var data = await guildSchema.save();
-          client.db.guilds.cache.set(interaction.guild.id, data);
           embed.setDescription(
             `Successfully added the prefix \`${args[1].value}\`!`
           );
@@ -106,7 +105,6 @@ module.exports = new Command({
           array = array.filter((x) => x !== args[1].value.toLowerCase());
           guildSchema.prefixes = array;
           var data = await guildSchema.save();
-          client.db.guilds.cache.set(interaction.guild.id, data);
           embed.setDescription(
             `Successfully removed the prefix \`${args[1].value}\`!`
           );
@@ -156,7 +154,6 @@ module.exports = new Command({
           );
         guildSchema.prefixes.push(args[1]);
         var data = await guildSchema.save();
-        client.db.guilds.cache.set(message.guild.id, data);
         return message.channel.sendSuccess(
           message,
           "Success!",
@@ -188,7 +185,6 @@ module.exports = new Command({
         array = array.filter((x) => x !== prefix);
         guildSchema.prefixes = array;
         var data = await guildSchema.save();
-        client.db.guilds.cache.set(message.guild.id, data);
         return message.channel.sendSuccess(
           message,
           "Success!",

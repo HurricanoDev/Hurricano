@@ -43,8 +43,7 @@ module.exports = new Command({
           {
             upsert: true,
           }
-        );
-        client.db.guilds.cache.set(message.guild.id, data);
+        );s
         message.sendSuccessReply(
           "Success!",
           `I have successfully set the message logs to ${channel}!`
@@ -67,7 +66,6 @@ module.exports = new Command({
             upsert: true,
           }
         );
-        client.db.guilds.cache.set(message.guild.id, data);
         message.sendSuccessReply(
           "Success!",
           "I have successfully disabled message logs."

@@ -15,8 +15,18 @@ module.exports = new Command({
       );
     if (target.id === message.author.id)
       return message.sendErrorReply("Error!", "You can't decancer yourself!");
-      if (target.roles.highest > message.member.roles.highest) return message.channel.sendError(message, "Error.", "You can't decancer someone higher than you!");
-      if (message.guild.me.roles.highest < target.roles.highest) return message.channel.sendError(message, "Error.", "I cannot decancer this user.");
+    if (target.roles.highest > message.member.roles.highest)
+      return message.channel.sendError(
+        message,
+        "Error.",
+        "You can't decancer someone higher than you!"
+      );
+    if (message.guild.me.roles.highest < target.roles.highest)
+      return message.channel.sendError(
+        message,
+        "Error.",
+        "I cannot decancer this user."
+      );
     const origiName = target.displayName;
     const nick = decancer(target.displayName);
     if (nick === origiName)

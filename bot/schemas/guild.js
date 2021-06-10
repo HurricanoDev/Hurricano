@@ -93,10 +93,20 @@ module.exports = model(
       default: null,
     },
     starBoard: {
-      type: String,
-      required: false,
-      allowNull: true,
-      default: null,
+      minimumReactions: {
+        type: Number,
+        default: 1,
+      },
+      messages: {
+        type: Array,
+        default: [],
+      },
+      channel: {
+        type: String,
+        required: false,
+        allowNull: true,
+        default: null,
+      },
     },
   })
 );

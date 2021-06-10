@@ -29,7 +29,6 @@ module.exports = new Command({
           upsert: true,
         }
       );
-      client.db.guilds.cache.set(message.guild.id, data);
       await message.channel.sendSuccessReply(
         message,
         "Success!",
@@ -47,7 +46,6 @@ module.exports = new Command({
           upsert: true,
         }
       );
-      client.db.guilds.cache.set(data);
       await message.channel.sendSuccessReply(
         message,
         "Success!",

@@ -9,11 +9,11 @@ const giveawaysManager = require("./utilities/giveaway");
 const logger = require("./utilities/logger.js");
 const path = require("path");
 const structures = fs
-.readdirSync("./bot/structures/ImmediateExecute")
-.filter((file) => file.endsWith(".js"));
+  .readdirSync("./bot/structures/ImmediateExecute")
+  .filter((file) => file.endsWith(".js"));
 
 for (const file of structures) {
-require("./structures/ImmediateExecute/" + file);
+  require("./structures/ImmediateExecute/" + file);
 }
 const Database = require("./handlers/db.js");
 /**
@@ -120,11 +120,6 @@ class Client extends Discord.Client {
      */
     this._emojis = require("./utilities/emojis.json");
 
-    /*
-     * Cache
-     */
-    this.cache = {};
-
     /**
      * Music
      */
@@ -226,14 +221,25 @@ class Client extends Discord.Client {
         }
         return i + "th";
       },
-      createOptionsEmbed: (name, syntax, aliases, permissions, options, prefix) => {
+      createOptionsEmbed: (
+        name,
+        syntax,
+        aliases,
+        permissions,
+        options,
+        prefix
+      ) => {
         const optionsEmbed = new Discord.MessageEmbed()
           .setTitle(`${name} Help`)
           .setColor("#606365")
-          .setDescription(`**Syntax:** \`${prefix}${syntax}\`\n**Aliases:** \`${aliases}\``)
+          .setDescription(
+            `**Syntax:** \`${prefix}${syntax}\`\n**Aliases:** \`${aliases}\``
+          )
           .addField("Permissions", `\`${permissions}\``)
           .addField("Subcommands:", `${options}`)
-          .setFooter(`Type ${prefix}help <command> for more info on a command.`);
+          .setFooter(
+            `Type ${prefix}help <command> for more info on a command.`
+          );
 
         return optionsEmbed;
       },

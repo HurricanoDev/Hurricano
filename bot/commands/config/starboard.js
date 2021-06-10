@@ -37,7 +37,6 @@ module.exports = new Command({
             starBoard: SBChannel.id,
           }
         );
-        client.db.guilds.cache.set(message.guild.id, updateSBChannel);
 
         message.channel.sendSuccess(
           message,
@@ -51,8 +50,7 @@ module.exports = new Command({
             "Error!",
             "There is no existing starboard channel to remove!"
           );
-
-        const removeSBChannel = await client.schemas.guild.findOneAndUpdate(
+          await client.schemas.guild.findOneAndUpdate(
           {
             id: message.guild.id,
           },
@@ -60,8 +58,7 @@ module.exports = new Command({
             starBoard: null,
           }
         );
-        client.db.guilds.cache.set(message.guild.id, removeSBChannel);
-
+        await message.guild.db.fetch();
         message.channel.sendSuccess(
           "Done!",
           `The starboard channel was successfully removed!`

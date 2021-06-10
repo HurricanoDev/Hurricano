@@ -52,7 +52,6 @@ module.exports = new Command({
             upsert: true,
           }
         );
-        client.db.guilds.cache.set(message.guild.id, data);
         message.sendSuccessReply(
           "Success!",
           `The mute role was set => ${role}`
@@ -92,7 +91,6 @@ module.exports = new Command({
           { muteRole: muteRole.id },
           { upsert: true }
         );
-        client.db.guilds.cache.set(message.guild.id, createData);
 
         break;
 
@@ -114,8 +112,6 @@ module.exports = new Command({
           { muteRole: null },
           { upsert: true }
         );
-
-        client.db.guilds.cache.set(message.guild.id, noMuteRole);
 
         message.channel.sendSuccess(
           message,

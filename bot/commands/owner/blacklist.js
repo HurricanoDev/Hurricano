@@ -134,7 +134,6 @@ module.exports = new Command({
         data = await client.functions.createUserDB(user);
         data.blacklisted = true;
         data = await data.save();
-        client.db.users.cache.set(user.id, data);
         return message.channel.sendSuccess(
           message,
           "Blacklisted!",
@@ -182,7 +181,6 @@ module.exports = new Command({
         data = client.db.guilds.cache.get(message.guild.id);
         data.blacklisted = true;
         const data = await data.save();
-        client.db.guilds.cache.set(message.guild.id, data);
         return message.channel.sendSuccess(
           message,
           "Success!",

@@ -43,9 +43,7 @@ module.exports = new Command({
     if (amount > 0) userInfo.wallet = userInfo.wallet + amount;
     if (amount < 0) userInfo.wallet = userInfo.wallet - amount;
 
-    const saveData = await userInfo.save();
-
-    client.users.cache.set(message.author.id, saveData);
+    await userInfo.save();
 
     message.channel.send(embed);
   },

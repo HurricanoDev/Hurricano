@@ -61,7 +61,6 @@ module.exports = new Command({
             upsert: true,
           }
         );
-        client.db.guilds.cache.set(message.guild.id, setServerLog);
         message.channel.sendSuccess(
           message,
           "Done!",
@@ -86,7 +85,6 @@ module.exports = new Command({
             upsert: true,
           }
         );
-        client.db.guilds.cache.set(message.guild.id, removeLogChannel);
 
         message.channel.sendSuccess(
           message,
