@@ -19,25 +19,15 @@ module.exports = new Command({
 
     switch (args[0].toLowerCase()) {
       case "set":
-        const SBChannel =
-          message.mentions.channels.first() ||
-          message.guild.channels.cache.get(args[1]);
+        const SBChannel = await client.functions.getChannel(false, message, args);
 
         if (!SBChannel)
           return message.sendErrorReply(
             "Error",
             "You need to give me a valid channel!"
           );
-
-        const updateSBChannel = await client.schemas.guild.findOneAndUpdate(
-          {
-            id: message.guild.id,
-          },
-          {
-            starBoard: SBChannel.id,
-          }
-        );
-
+          guildData.starBoard.channel = SBChannel.id;
+          await guildData.save();
         message.channel.sendSuccess(
           message,
           "Done!",
@@ -50,14 +40,8 @@ module.exports = new Command({
             "Error!",
             "There is no existing starboard channel to remove!"
           );
-          await client.schemas.guild.findOneAndUpdate(
-          {
-            id: message.guild.id,
-          },
-          {
-            starBoard: null,
-          }
-        );
+          guildData.starBoard.channel = null;
+          await guildData.save();
         await message.guild.db.fetch();
         message.channel.sendSuccess(
           "Done!",
