@@ -15,8 +15,9 @@ module.exports = new Command({
       );
 
     let depAmount = args[0];
+    if(!depAmount) return message.sendErrorReply("Error!", "Please give me an amount to deposit.")
     if (depAmount === "max") {
-      userData.bank = userData.bank + userData.wallet;
+      userData.bank = userData.bank += userData.wallet;
       userData.wallet = 0;
       message.reply(
         `🪙 **${userData.wallet}** deposited, now you have **${
@@ -37,7 +38,7 @@ module.exports = new Command({
         `You don't have that much money to deposit. You only have **${userData.wallet}** coins in your wallet.`
       );
 
-    userData.bank = userData.bank + depAmount;
+    userData.bank = userData.bank += depAmount;
     userData.wallet = userData.wallet - depAmount;
 
     await userData.save();
