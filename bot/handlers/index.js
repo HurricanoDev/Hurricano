@@ -3,7 +3,6 @@ const config = require('@config');
 const Statcord = require("statcord.js");
 require("module-alias/register");
 const Client = require("@root/bot/Client.js");
-const config = require("@config");
 const intents = new Intents();
 intents.add(
   "GUILD_PRESENCES",
