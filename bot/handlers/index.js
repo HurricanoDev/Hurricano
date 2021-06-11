@@ -1,4 +1,6 @@
 const { Intents } = require("discord.js");
+const config = require('@config');
+const Statcord = require("statcord.js");
 require("module-alias/register");
 const Client = require("@root/bot/Client.js");
 const config = require("@config");
@@ -17,6 +19,23 @@ const client = new Client(config, {
   allowedMentions: { parse: ["users"], repliedUser: false },
   partials: ["MESSAGE", "REACTION"],
 });
+const statcord = new Statcord.Client({
+    client,
+    key: config.statcord,
+    postCpuStatistics: false,
+    postMemStatistics: false,
+    postNetworkStatistics: false,
+});
+
+statcord.on("autopost-start", () => {
+    client.logger.info("[STATCORD] Started autopost.");
+});
+
+statcord.on("post", status => {
+    if (!status) client.logger.info("[STATCORD] Successful post");
+    else console.error(status);
+});
+
 global.client = client;
 // website initialization
 if (client.config.website.enabled) {
