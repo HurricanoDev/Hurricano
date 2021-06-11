@@ -38,7 +38,8 @@ module.exports = new Command({
         `You don't have that much money to deposit. You only have **${userData.wallet}** coins in your wallet.`
       );
 
-    userData.bank = userData.bank += depAmount;
+    let bankAmount = userData.bank;
+    userData.bank = depAmount += bankAmount;
     userData.wallet = userData.wallet - depAmount;
 
     await userData.save();
