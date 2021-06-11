@@ -222,20 +222,8 @@ class Client extends Discord.Client {
         return i + "th";
       },
       randomInArray: (array) => {
-        var currentIndex = array.length,
-          randomIndex;
-
-        while (0 !== currentIndex) {
-          randomIndex = Math.floor(Math.random() * currentIndex);
-          currentIndex--;
-
-          [array[currentIndex], array[randomIndex]] = [
-            array[randomIndex],
-            array[currentIndex],
-          ];
-        }
-
-        return array;
+        const shuffledArray = array.sort((a, b) => 0.5 - Math.random());
+        return shuffledArray;
       },
       createOptionsEmbed: (
         name,
