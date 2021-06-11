@@ -63,7 +63,6 @@ class Client extends Discord.Client {
      * @type {Object}
      */
     this.db = new Database(this, this.config.mongouri);
-
     /**
      * Logger
      */

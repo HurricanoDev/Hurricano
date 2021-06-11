@@ -9,7 +9,6 @@ try {
     website: config.website,
     topgg: config.topgg,
     botChannels: config.botChannels,
-    statcord: config.statcord,
   };
   module.exports = config;
 } catch (err) {
@@ -20,7 +19,6 @@ try {
     website: JSON.parse(process.env.website),
     topgg: JSON.parse(process.env.topgg),
     botChannels: JSON.parse(process.env.botChannels),
-    statcord: process.env.statcord,
   };
   module.exports = config;
 }

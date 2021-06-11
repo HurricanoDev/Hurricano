@@ -1,6 +1,5 @@
 const mongoose = require("mongoose");
 const config = require("@config");
-const statcord = require('../../handlers/index.js');
 const message = require("./message");
 module.exports = {
   name: "ready",
@@ -45,6 +44,5 @@ module.exports = {
       url: "https://twitch.tv/Pewdiepie",
     });
     client.logger.client(`${client.user.tag} Successfully Logged in!`);
-    statcord.autopost();
   },
 };

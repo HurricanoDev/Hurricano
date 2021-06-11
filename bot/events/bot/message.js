@@ -1,6 +1,5 @@
 const Discord = require("discord.js");
 const { MessageEmbed } = require("discord.js");
-const statcord = require('../../handlers/index.js');
 const config = require("@config");
 const moment = require("moment");
 const leven = require("../../utilities/leven.js");
@@ -235,7 +234,6 @@ module.exports = {
       let args = message.content.slice(match.length).trim().split(/ +/g);
       const tagName = args.map((x) => x).shift();
       const cmd = args.shift().toLowerCase();
-      statcord.postCommand(cmd, message.author.id);
       const tag = guildSchema.tags.find((x) => x.name === cmd);
       if (tag) return message.reply(tag.content);
       if (cmd.length == 0) return;
