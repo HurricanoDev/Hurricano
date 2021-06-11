@@ -75,8 +75,7 @@ module.exports = new Command({
         user =
           conf.mentions.users.first() ??
           (await client.users.fetch(conf.content).catch(() => {}));
-      else
-        guild = client.guilds.cache.get(conf.content);
+      else guild = client.guilds.cache.get(conf.content);
     } else {
       if (toBlUser)
         user =
@@ -144,7 +143,9 @@ module.exports = new Command({
           `I am not blacklisting ${user}.`
         );
     } else {
-      const guildOwner = await client.users.fetch(guild.ownerID).catch(() => {});
+      const guildOwner = await client.users
+        .fetch(guild.ownerID)
+        .catch(() => {});
       message.channel.sendSuccess(
         message,
         "Confirmation.",
@@ -176,11 +177,14 @@ module.exports = new Command({
         });
       confir = confir.first().content.toLowerCase();
       if (confir === "yes") {
-        await client.schemas.guild.findOneAndUpdate({ 
-          id: guild.id,
-        }, {
-          blacklisted: true
-        })
+        await client.schemas.guild.findOneAndUpdate(
+          {
+            id: guild.id,
+          },
+          {
+            blacklisted: true,
+          }
+        );
         return message.channel.sendSuccess(
           message,
           "Success!",

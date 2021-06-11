@@ -36,7 +36,6 @@ const create = (bins, options = {}) => {
       },
     })
       .then((res) => {
-        console.log(res);
         if (res.ok) {
           return res;
         } else {

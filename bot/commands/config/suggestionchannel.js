@@ -44,7 +44,6 @@ module.exports = new Command({
             suggestionChannel: channel.id,
           }
         );
-        console.log(data);
         message.sendSuccessReply(
           "Success!",
           "Successfully set that channel as the suggestions channel!"

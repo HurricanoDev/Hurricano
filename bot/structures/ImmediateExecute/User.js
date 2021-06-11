@@ -1,10 +1,9 @@
 const { Structures, MessageEmbed } = require("discord.js");
-console.log("ee");
 module.exports = Structures.extend("User", (User) => {
   class HurricanoUser extends User {
     constructor(...args) {
       super(...args);
-      this.db = {
+      this.bot ? null : this.db = {
         fetch: async () => {
           const data = await client.schemas.user.findOne({ id: this.id });
           client.db.users.cache.set(this.id, data);

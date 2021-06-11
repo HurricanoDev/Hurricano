@@ -15,7 +15,11 @@ module.exports = new Command({
       );
 
     let depAmount = args[0];
-    if(!depAmount) return message.sendErrorReply("Error!", "Please give me an amount to deposit.")
+    if (!depAmount)
+      return message.sendErrorReply(
+        "Error!",
+        "Please give me an amount to deposit."
+      );
     if (depAmount === "max") {
       userData.bank = userData.bank += userData.wallet;
       userData.wallet = 0;
