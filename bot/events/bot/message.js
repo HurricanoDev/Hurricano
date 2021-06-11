@@ -220,6 +220,10 @@ module.exports = {
           "You have been blacklisted!",
           "Damn it! You have been blacklisted by a bot moderator! This means you will be unable to use any of the bot commands."
         );
+        if (guildSchema.blacklisted)        return message.sendErrorReply(
+          "Blacklisted!",
+          "This guild has been blacklisted. It cannot use any commands."
+        );
       if (
         message.content === `<@${client.user.id}>` ||
         (message.content === `<@!${client.user.id}>` && !userSchema.blacklisted)
