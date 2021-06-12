@@ -46,7 +46,7 @@ module.exports = {
     if (!sentMessage && reaction.count < guildData.starBoard.minimumReactions)
       return;
     if (sentMessage) {
-      return sentMessage.edit(`${reaction.count} - ⭐`);
+      return sentMessage.edit({ content: `${reaction.count} - ⭐`, embed: sentMessage.embeds[0] });
     } else {
       const embed = new MessageEmbed()
         .setAuthor(
