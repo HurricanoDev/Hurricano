@@ -3,6 +3,7 @@
   "mongouri": "Mongodb uri",
   "prefix": "Your prefix",
   "ownerIds": ["Owner's USER IDs", "Like this", "can be as many"],
+  "statcordKey": "optional, leave empty if you don't want statcord",
   "website": {
     "enabled": false,
     "ip": "Website IP",

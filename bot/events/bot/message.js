@@ -4,7 +4,7 @@ const config = require("@config");
 const moment = require("moment");
 const leven = require("../../utilities/leven.js");
 const Cooldown = require("../../schemas/cooldown");
-
+const stc = require("statcord.js");
 //Spam Variables
 const LIMIT = 10;
 const TIME = 10000;
@@ -233,7 +233,6 @@ module.exports = {
       const [, match] = message.content.toLowerCase().match(prefixRegex);
       if (!message.content.toLowerCase().startsWith(match)) return;
       let args = message.content.slice(match.length).trim().split(/ +/g);
-      const tagName = args.map((x) => x).shift();
       const cmd = args.shift().toLowerCase();
       const tag = guildSchema.tags.find((x) => x.name === cmd);
       if (tag) return message.reply(tag.content);
@@ -274,6 +273,7 @@ module.exports = {
       message._usedPrefix = message.content.startsWith("<")
         ? `{prefix/mention}`
         : prefix;
+        stc.ShardingClient.postCommand(command.name, message.author.id, client);
       client.logger.message(
         `${message.author.tag} used the "${command.name}" command in guild ${
           message.guild
