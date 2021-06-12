@@ -21,11 +21,11 @@ module.exports = new Command({
         "Please give me an amount to deposit."
       );
     if (depAmount === "max") {
-      userData.bank = userData.bank += userData.wallet;
+      userData.bank = +userData.bank + +userData.wallet;
       userData.wallet = 0;
       message.reply(
         `🪙 **${userData.wallet}** deposited, now you have **${
-          userData.bank + userData.wallet
+          userData.bank
         }** in your bank.`
       );
       await userData.save();
@@ -43,12 +43,12 @@ module.exports = new Command({
       );
 
     let bankAmount = userData.bank;
-    userData.bank = depAmount += bankAmount;
+    userData.bank = +depAmount + +bankAmount;
     userData.wallet = userData.wallet - depAmount;
 
     await userData.save();
     message.reply(
-      `🪙 **${depAmount}** deposited, now you have **${userData.bank}** in your bank.`
+      `**${depAmount}** deposited, now you have **${userData.bank}** in your bank.`
     );
   },
 });

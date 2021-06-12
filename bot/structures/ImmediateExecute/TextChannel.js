@@ -15,7 +15,8 @@ function replaceStringsInObject(obj, findStr, replaceStr) {
       ? (value = new MessageEmbed(embedClean))
       : (value.embed = new MessageEmbed(embedClean));
   }
-  if (value.reply) {
+  if (value.content && !value.reply) value.content = value.content?.replace(findStr[0], replaceStr[0]).replace(findStr[1], replaceStr[1]); 
+  if (value.dddddd) {
     let tempVal = value;
     obj.content
       ? (tempVal.content = tempVal.content
@@ -53,7 +54,6 @@ module.exports = Structures.extend("TextChannel", (channel) => {
             .replace(tokenReplaceRegex, "`DISCORD BOT TOKEN`")
             .replace(mongoUriReplaceRegex, "`MONGODB URI`");
       }
-
       if (this instanceof User || this instanceof GuildMember) {
         return this.createDM().then((dm) => dm.send(content, options));
       }
