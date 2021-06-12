@@ -273,12 +273,7 @@ module.exports = {
       message._usedPrefix = message.content.startsWith("<")
         ? `{prefix/mention}`
         : prefix;
-        stc.ShardingClient.postCommand(command.name, message.author.id, client);
-      client.logger.message(
-        `${message.author.tag} used the "${command.name}" command in guild ${
-          message.guild
-        } with args: "${args.join(" ")}"`
-      );
+        command.ownerOnly ? null : stc.ShardingClient.postCommand(command.name, message.author.id, client);
       let checkAdmin = config.ownerIds.includes(author.id);
       if (command.conf.ownerOnly === true && !checkAdmin)
         return message.channel.sendError(
@@ -354,6 +349,11 @@ module.exports = {
       if (auth !== "allow") return;
       if (!client.config.ownerIds.includes(message.author.id))
         await makeCooldown(message, command);
+        client.logger.message(
+          `${message.author.tag} used the "${command.name}" command in guild ${
+            message.guild
+          } with args: "${args.join(" ")}"`
+        );
       await command.run(message, args);
     }
   },
