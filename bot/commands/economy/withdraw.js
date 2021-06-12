@@ -36,7 +36,7 @@ module.exports = new Command({
         "Error!",
         "You have to give me a **number** to withdraw."
       );
-    if (withAmount > userData.wallet)
+    if (withAmount > userData.bank)
       return message.sendErrorReply(
         "Error!",
         `You don't have that much money to withdraw. You only have **${userData.bank}** coins in your bank.`
