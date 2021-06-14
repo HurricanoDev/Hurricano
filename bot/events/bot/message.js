@@ -73,7 +73,7 @@ module.exports = class MessageEvent extends BaseEvent {
         message,
         "Invalid Permissions!",
         "I don't have enough permissions in this guild! Please ask an admin to give me the following permissions: \n `READ_MESSAGES`, `SEND_MESSAGES`, `EMBED_LINKS`"
-      ).catch(() => {});
+      )?.catch(() => {});
     //------------------------------------------------------------------
     let guildSchema = await message.guild.db.fetch();
     const muteRole = guildSchema.muteRole;
