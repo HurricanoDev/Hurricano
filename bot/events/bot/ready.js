@@ -1,12 +1,18 @@
 const mongoose = require("mongoose");
 const config = require("@config");
-const message = require("./message");
-module.exports = {
-  name: "ready",
-  once: true,
-  run: async (client) => {
+const BaseEvent = require("../../structures/BaseEvent.js");
+module.exports = class readyEvent extends BaseEvent {
+  constructor(client) {
+    super("ready", {
+      description: "Ready event. Meant for status changes, slash commands, guilds setup, db caching, etc.",
+      client: client,
+      once: true,
+    })
+  }
+  async run(client) {
     const slashs = client.commands.filter((cmd) => cmd.slash.isSlash);
-    slashies = slashs.map((x) => {
+
+    let slashies = slashs.map((x) => {
       const entObj = {
         name: x.slash.name.toLowerCase(),
         description: x.description,
@@ -44,5 +50,5 @@ module.exports = {
       url: "https://twitch.tv/Pewdiepie",
     });
     client.logger.client(`${client.user.tag} Successfully Logged in!`);
-  },
+  }
 };

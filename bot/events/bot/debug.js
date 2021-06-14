@@ -1,6 +1,13 @@
-module.exports = {
-  name: "debug",
-  run: async (debug, client) => {
-    if (!debug.toLowerCase().includes("voice")) client.logger.info(debug);
-  },
-};
+const BaseEvent = require("../../structures/BaseEvent.js");
+
+module.exports = class DebugEvent extends BaseEvent {
+  constructor(client) {
+    super("debug", {
+      description: "The debug event, to log extra info.",
+      client: client,
+    })
+  }
+  run(info) {
+    if (!info.toLowerCase().includes("voice")) return client.logger.info(info);
+  }
+}

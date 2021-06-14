@@ -1,8 +1,26 @@
 const { MessageEmbed } = require("discord.js");
-
-module.exports = {
-  name: "messageUpdate",
-  run: async (oldMessage, newMessage, client) => {
+const BaseEvent = require("../../structures/BaseEvent.js");
+module.exports = class messageUpdate extends BaseEvent {
+  constructor(client) {
+    super("messageUpdate", {
+      description: "messageUpdate event, meant for snipe command and message logs.",
+      client: client
+    })
+  }
+  async run (oldMessage, newMessage, client) {
+    let snipeArray = client.snipes.edited.get(newMessage.channel.id) ?? [];
+    const snipeObject = {
+      content: oldMessage.content,
+      author: oldMessage.author,
+      member: oldMessage.member,
+      images: oldMessage.attachments.first() && oldMessage.attachments != newMessage.attachments ? oldMessage.attachments.map(x => x.proxyURL) : null
+    };
+    snipeArray.push(snipeObject);
+    client.snipes.edited.set(newMessage.channel.id, snipeArray);
+    snipeObject.action = "edit";
+    let recentSnipeArray = client.snipes.recent.get(newMessage.channel.id) ?? [];
+    recentSnipeArray.push(snipeObject);
+    client.snipes.recent.set(newMessage.channel.id, recentSnipeArray);
     if (newMessage.webhookID) return;
     let cacheCheck = oldMessage.channel.messages.cache.get(oldMessage.id);
     if (newMessage.member && cacheCheck) {
@@ -26,7 +44,7 @@ module.exports = {
               : "**Content:**\n" + newMessage.toString()
           }`
         )
-        .addField("Channel:", `<#${newMessage.channel.id}>`)
+        .addField("Channel:", `${newMessage.channel}`)
         .setFooter(
           `Deleted by ${newMessage.author.tag} | ${newMessage.author.id}`
         )
@@ -40,5 +58,5 @@ module.exports = {
 
       guildChannel.send(embed);
     }
-  },
+  }
 };

@@ -9,7 +9,7 @@ const stc = require("statcord.js");
 const LIMIT = 10;
 const TIME = 10000;
 const DIFF = 2000;
-
+const BaseEvent = require("../../structures/BaseEvent.js");
 function generateKey(user_id, commandname) {
   return `${user_id}|${commandname}`;
 }
@@ -51,15 +51,20 @@ async function makeCooldown(message, command) {
   });
 }
 
-module.exports = {
-  name: "message",
-  run: async (message, client) => {
+module.exports = class MessageEvent extends BaseEvent {
+  constructor(client) {
+  super("message", {
+    description: "Message event, used for handling commands.",
+    client: client
+  })
+  }
+  async run (message, client) {
     const usersMap = client.usersMap;
     if (message.author.bot || message.channel.type == "dm") return;
     if (
       !message.guild.me.permissions.has([
         "SEND_MESSAGES",
-        "READ_MESSAGES",
+        "READ_MESSAGE_HISTORY",
         "EMBED_LINKS",
       ])
     )
@@ -356,5 +361,5 @@ module.exports = {
         );
       await command.run(message, args);
     }
-  },
+  }
 };

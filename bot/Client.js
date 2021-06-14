@@ -82,7 +82,11 @@ class Client extends Discord.Client {
     /**
      * Snipes
      */
-    this.snipes = new Discord.Collection();
+    this.snipes = {
+      edited: new Discord.Collection(),
+      deleted: new Discord.Collection(),
+      recent: new Discord.Collection()
+    };
 
     /**
      * Channels
@@ -256,7 +260,8 @@ class Client extends Discord.Client {
       .readdirSync("./bot/events/bot")
       .filter((file) => file.endsWith(".js"));
     for (const file of botevents) {
-      const event = require(`./events/bot/${file}`);
+      let event = require(`./events/bot/${file}`);
+      event = new event(client);
       if (event.once) {
         super.once(event.name, (...args) => event.run(...args, this));
       } else {

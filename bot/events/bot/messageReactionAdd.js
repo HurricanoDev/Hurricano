@@ -1,8 +1,14 @@
 const { MessageEmbed } = require("discord.js");
+const BaseEvent = require("../../structures/BaseEvent.js");
 
-module.exports = {
-  name: "messageReactionAdd",
-  run: async (reaction, user) => {
+module.exports = class messageReactionAdd extends BaseEvent {
+  constructor(client) {
+    super("messageReactionAdd", {
+      description: "messageReactionAdd event, meant for starboard.",
+      client: client
+    })
+  }
+  async run (reaction, user) {
     if (reaction.emoji.name !== "⭐") return;
     if (user.bot) return;
     var guildData = await reaction.message.guild.db.fetch();
@@ -64,5 +70,5 @@ module.exports = {
       guildData.starBoard = arrayToSave;
       await guildData.save();
     }
-  },
+  }
 };

@@ -1,16 +1,27 @@
 const { MessageEmbed } = require("discord.js");
-module.exports = {
-  name: "messageDelete",
-  run: async (message, client) => {
+const BaseEvent = require("../../structures/BaseEvent.js");
+module.exports = class messageDeleteEvent extends BaseEvent {
+  constructor(client) {
+    super("messageDelete", {
+      description: "messageDelete event, meant for logs and snipe command.",
+      client: client,
+    })
+  }
+  async run (message, client) {
     if (message.author.bot) return;
-    client.snipes.set(message.channel.id, {
+    let snipeArray = client.snipes.deleted.get(message.channel.id) ?? [];
+    const snipeObject = {
       content: message.content,
-      author: message.author.tag,
+      author: message.author,
       member: message.member,
-      image: message.attachments.first()
-        ? message.attachments.first().proxyURL
-        : null,
-    });
+      image: message.attachments?.length ? message.attachments.map(x => x.proxyURL) : null
+    };
+    snipeArray.push(snipeObject);
+    client.snipes.deleted.set(message.channel.id, snipeArray);
+    snipeObject.action = "delete";
+    let recentArray = client.snipes.recent.get(message.channel.id) ?? [];
+    recentArray.push(snipeObject);
+    client.snipes.recent.set(message.channel.id, recentArray);
 
     // LOGS
     const guildSchema = client.db.guilds.cache.get(message.guild.id);
@@ -57,5 +68,5 @@ module.exports = {
       .setColor("#FFFFFF");
 
     guildChannel.send(embed);
-  },
+  }
 };
