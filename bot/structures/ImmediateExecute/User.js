@@ -36,7 +36,9 @@ module.exports = Structures.extend("User", (User) => {
         );
       }
       if (Fields) embed.addFields(Fields);
-      const msg = await this.createDM().then(x => x.send({ embeds: [embed] }));
+      const msg = await this.createDM().then((x) =>
+        x.send({ embeds: [embed] })
+      );
       return msg;
     }
     async sendSuccess(message, Header, Msg, Footer, Fields) {
@@ -58,7 +60,9 @@ module.exports = Structures.extend("User", (User) => {
         );
       }
       if (Fields) embed.addFields(Fields);
-      const msg = await this.createDM().then(x => x.send({ embeds: [embed] }));
+      const msg = await this.createDM().then((x) =>
+        x.send({ embeds: [embed] })
+      );
       return msg;
     }
   }

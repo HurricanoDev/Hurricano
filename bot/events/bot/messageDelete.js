@@ -52,7 +52,7 @@ module.exports = class messageDeleteEvent extends BaseEvent {
           })()
         : embed.addField("Images:", "False.");
 
-      guildChannel.send({ embeds: [embed] })
+      guildChannel.send({ embeds: [embed] });
     }
 
     const { content, channel, author, guild, mentions } = message;
@@ -68,6 +68,6 @@ module.exports = class messageDeleteEvent extends BaseEvent {
       .addField("Message Author", author)
       .setColor("#FFFFFF");
 
-    guildChannel.send({ embeds: [embed] })
+    guildChannel.send({ embeds: [embed] });
   }
 };

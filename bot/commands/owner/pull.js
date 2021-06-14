@@ -27,7 +27,7 @@ module.exports = new Command({
             .setTimestamp()
             .setFooter(`Requested by: ${message.author.tag}`);
           message.channel.stopTyping(true);
-          return message.channe.send({ embeds: [emErr] })
+          return message.channe.send({ embeds: [emErr] });
         }
         const emSuccess = new MessageEmbed()
           .setAuthor(

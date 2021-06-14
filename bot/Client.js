@@ -303,8 +303,13 @@ class Client extends Discord.Client {
         for (let file of commands) {
           const props = require(`./commands/${dir}/${file}`);
           if (props.name) {
-            table.addRow(file, props.name, dir, props.aliases ? props.aliases.join(", ") : "None.",
-            "Loaded!");
+            table.addRow(
+              file,
+              props.name,
+              dir,
+              props.aliases ? props.aliases.join(", ") : "None.",
+              "Loaded!"
+            );
           } else {
             table.addRow(
               file,

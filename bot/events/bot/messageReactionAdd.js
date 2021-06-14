@@ -65,7 +65,10 @@ module.exports = class messageReactionAdd extends BaseEvent {
         .setColor("YELLOW")
         .setFooter(reaction.message.id)
         .setTimestamp();
-      const msg = await starBoardChannel.send({ content: `${reaction.count} - ⭐`, embeds: [embed] });
+      const msg = await starBoardChannel.send({
+        content: `${reaction.count} - ⭐`,
+        embeds: [embed],
+      });
       let arrayToSave = guildData.starBoard;
       arrayToSave.messages.push([reaction.message.id, msg.id]);
       guildData.starBoard = arrayToSave;

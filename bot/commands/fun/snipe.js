@@ -40,7 +40,8 @@ module.exports = new Command({
         );
       const messageSnipe = array[0];
       const embed = snipeEmbed(messageSnipe, 1, array.length);
-      message.channel.send({ embeds: [embed] });    }
+      message.channel.send({ embeds: [embed] });
+    }
     const number = +args[0];
     if (number) {
       const array = client.snipes.recent.get(message.channel.id).reverse();

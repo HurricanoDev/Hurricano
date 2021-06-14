@@ -22,7 +22,6 @@ module.exports = new Command({
             .setFooter(`Requested by: ${message.author.tag}`);
           message.channel.stopTyping(true);
           return message.channel.send({ embeds: [emErr] });
-          ;
         }
         const emSuccess = new Discord.MessageEmbed()
           .setAuthor(`Command Executed!`)
@@ -43,7 +42,7 @@ module.exports = new Command({
             .setTimestamp()
             .setColor(123456)
             .setFooter(`Requested by: ${message.author.tag}`);
-          message.channel.send({ embeds: [emSuccess] })
+          message.channel.send({ embeds: [emSuccess] });
           return message.channel.stopTyping(true);
         });
       });
@@ -55,7 +54,7 @@ module.exports = new Command({
         .setTimestamp()
         .setColor("#FF0000")
         .setFooter(`Requested by: ${message.author.tag}`);
-      message.channel.send({ embeds: [embed] })
+      message.channel.send({ embeds: [embed] });
       return message.channel.stopTyping(true);
     }
   },

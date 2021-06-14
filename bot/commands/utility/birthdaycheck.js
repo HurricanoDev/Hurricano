@@ -24,6 +24,6 @@ module.exports = new Command({
         `${user.username}'s birthdate is **${userData.birthday}**`
       );
 
-    message.channel.send({ embeds: [birthdayEmbed] })
+    message.channel.send({ embeds: [birthdayEmbed] });
   },
 });

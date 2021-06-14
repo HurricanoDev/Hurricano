@@ -193,6 +193,6 @@ module.exports = new Command({
         `**Youngest Account:** \`${newmem.user.tag}\` (${newmem.user.createdAt})\n \n**Oldest Account:** \`${oldmem.user.tag}\` (${oldmem.user.createdAt})`
       );
 
-      message.channel.send({ embeds: [em] });
+    message.channel.send({ embeds: [em] });
   },
 });

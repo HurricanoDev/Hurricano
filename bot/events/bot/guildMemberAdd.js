@@ -37,7 +37,7 @@ module.exports = class guildMemberAddEvent extends BaseEvent {
         )
         .setTimestamp()
         .setColor("#6082b6");
-      memberLog.send({ embeds: [embed] })
+      memberLog.send({ embeds: [embed] });
     }
     const autoRoleId = client.db.guilds.cache.get(member.guild.id);
     const autoRole = member.guild.roles.cache.get(autoRoleId.autoRole);
@@ -55,7 +55,7 @@ module.exports = class guildMemberAddEvent extends BaseEvent {
           .setDescription(
             `I was unable to assign the autorole to new members.\n\nError: \`${e}\``
           );
-        if (systemChannel) await systemChannel.send({ embeds: [systemError] })
+        if (systemChannel) await systemChannel.send({ embeds: [systemError] });
       }
     }
   }

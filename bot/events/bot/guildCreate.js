@@ -38,6 +38,6 @@ module.exports = class guildCreateEvent extends BaseEvent {
       .addField("Owner:", `${guildOwner.tag}`)
       .addField("Server Count", `${client.guilds.cache.size} servers.`)
       .setColor("#6082b6");
-    progressChannel.send({ embeds: [guildEmbed] })
+    progressChannel.send({ embeds: [guildEmbed] });
   }
 };

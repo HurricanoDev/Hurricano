@@ -27,7 +27,9 @@ module.exports = new Command({
       return message.channel.sendError(
         message,
         "Invalid Filter",
-        `This filter doesn't exist. Filters you can use are: \n ${client.filters.map(x => `\`${x}\``).join(", ")}`
+        `This filter doesn't exist. Filters you can use are: \n ${client.filters
+          .map((x) => `\`${x}\``)
+          .join(", ")}`
       );
 
     const filtersUpdated = {};

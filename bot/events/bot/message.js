@@ -158,7 +158,7 @@ module.exports = class MessageEvent extends BaseEvent {
               );
 
             message.member.roles.add(muteRole);
-            message.channel.send({ embeds: [spamEmbed] })
+            message.channel.send({ embeds: [spamEmbed] });
             setTimeout(async () => {
               message.member.roles.remove(muteRole);
               const unmuteEmbed = new MessageEmbed()
@@ -170,7 +170,9 @@ module.exports = class MessageEvent extends BaseEvent {
                 .setThumbnail(
                   "https://lh3.googleusercontent.com/proxy/sz_ww5-B0qhs7RPhI7ilQ6Wq06IFvw7aGCl30oqn4KduUYdMz3ElboKF911VVWO0QYwodKSH3p5eEKECTvOQFcsPQeMQ4m0"
                 );
-              const sendUnmute = await message.channel.send({ embeds: [unmuteEmbed] })
+              const sendUnmute = await message.channel.send({
+                embeds: [unmuteEmbed],
+              });
               setTimeout(async () => {
                 await sendUnmute.delete();
               }, 10000);
@@ -196,7 +198,9 @@ module.exports = class MessageEvent extends BaseEvent {
     });
     prefixes = prefixes?.length ? prefixes.join(", ") : "{mention}";
     const whichToUse =
-      prefixes?.length == 1 ? guildSchema.prefixes.toString() : "{prefix/mention}";
+      prefixes?.length == 1
+        ? guildSchema.prefixes.toString()
+        : "{prefix/mention}";
     const embed = new MessageEmbed()
       .setAuthor(
         "Hello, I'm Hurricano™!",

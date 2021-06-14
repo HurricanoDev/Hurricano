@@ -45,8 +45,8 @@ module.exports = new Command({
           });
         const msg = await message.author.send(
           "Eval Output.",
-          `The output for the eval command was larger than 2032 characters. To check it, click [here](${src.url}) or use the link: ${src.url}.`,
-        )
+          `The output for the eval command was larger than 2032 characters. To check it, click [here](${src.url}) or use the link: ${src.url}.`
+        );
         embed.setDescription(
           `**Output** \n Output is too large! Check your DMs, or click [here](${msg.url}).`
         );
@@ -98,12 +98,16 @@ module.exports = new Command({
         embeds: [embed],
         components: [[row]],
       });
-      let conf = await msg.awaitMessageComponentInteraction(
-        (x) =>
-          client.config.ownerIds.includes(x.user.id) &&
-          x.customID == "toDelete",
-        45000
-      ).catch(() => { msg.edit({ components: [] }) });
+      let conf = await msg
+        .awaitMessageComponentInteraction(
+          (x) =>
+            client.config.ownerIds.includes(x.user.id) &&
+            x.customID == "toDelete",
+          45000
+        )
+        .catch(() => {
+          msg.edit({ components: [] });
+        });
       if (conf?.customID) {
         msg.delete();
       }

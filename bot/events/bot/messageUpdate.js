@@ -62,7 +62,7 @@ module.exports = class messageUpdate extends BaseEvent {
           })()
         : embed.addField("Images:", "No new images attached/edited.");
 
-      guildChannel.send({ embeds: [embed] })
+      guildChannel.send({ embeds: [embed] });
     }
   }
 };

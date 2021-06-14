@@ -28,7 +28,7 @@ module.exports = class guildBanAddEvent extends BaseEvent {
       serverLogChannel.viewable &&
       serverLogChannel.permissionsFor(guild.me).has("SEND_MESSAGES")
     ) {
-      serverLogChannel.send({ embeds: [embed] })
+      serverLogChannel.send({ embeds: [embed] });
     }
   }
 };

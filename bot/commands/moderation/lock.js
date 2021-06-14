@@ -100,7 +100,9 @@ module.exports = new Command({
           await channel.createOverwrite(message.guild.id, {
             SEND_MESSAGES: null,
           });
-          await channel.send({ embeds: [lockdownembed] }).catch((x) => client.logger.warn(x));
+          await channel
+            .send({ embeds: [lockdownembed] })
+            .catch((x) => client.logger.warn(x));
           delete lockit[channel.id];
         }, time);
       }

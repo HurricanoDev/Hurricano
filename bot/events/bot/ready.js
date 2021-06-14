@@ -31,7 +31,7 @@ module.exports = class readyEvent extends BaseEvent {
     client.giveawaysManager._init();
     const userModels = await client.schemas.user.find({});
     userModels.forEach((x) => client.db.users.cache.set(x.id, x));
-    for await(const guild of client.guilds.cache.values()) {
+    for await (const guild of client.guilds.cache.values()) {
       try {
         let data = await client.db.guilds.fetch(guild.id);
         if (!data)

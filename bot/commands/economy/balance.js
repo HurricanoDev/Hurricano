@@ -18,6 +18,6 @@ module.exports = new Command({
       .setTimestamp()
       .setFooter("🤠");
 
-      message.channel.send({ embeds: [balEmbed] });
+    message.channel.send({ embeds: [balEmbed] });
   },
 });
