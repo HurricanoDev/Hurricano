@@ -62,17 +62,18 @@ module.exports = class MessageEvent extends BaseEvent {
     const usersMap = client.usersMap;
     if (message.author.bot || message.channel.type == "dm") return;
     if (
-      !message.guild.me.permissions.has([
+      !message.channel.permissionsFor(client.user.id).has([
         "SEND_MESSAGES",
         "READ_MESSAGE_HISTORY",
         "EMBED_LINKS",
+        "ADD_REACTIONS"
       ])
     )
       return message.author.sendError(
         message,
         "Invalid Permissions!",
         "I don't have enough permissions in this guild! Please ask an admin to give me the following permissions: \n `READ_MESSAGES`, `SEND_MESSAGES`, `EMBED_LINKS`"
-      );
+      ).catch(() => {});
     //------------------------------------------------------------------
     let guildSchema = await message.guild.db.fetch();
     const muteRole = guildSchema.muteRole;
