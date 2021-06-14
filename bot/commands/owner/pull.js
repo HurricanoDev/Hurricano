@@ -27,7 +27,7 @@ module.exports = new Command({
             .setTimestamp()
             .setFooter(`Requested by: ${message.author.tag}`);
           message.channel.stopTyping(true);
-          return message.channel.send(emErr);
+          return message.channe.send({ embeds: [emErr] })
         }
         const emSuccess = new MessageEmbed()
           .setAuthor(
@@ -45,7 +45,7 @@ module.exports = new Command({
           .setColor(123456)
           .setFooter(`Requested by: ${message.author.tag}`);
         message.channel.stopTyping(true);
-        return message.channel.send(emSuccess).catch((err) => {
+        return message.channel.send({ embeds: [emSuccess] }).catch((err) => {
           const emSuccess = new MessageEmbed()
             .setAuthor(
               `GitHub Pull Successful!`,
@@ -61,7 +61,7 @@ module.exports = new Command({
             .setTimestamp()
             .setColor(123456)
             .setFooter(`Requested by: ${message.author.tag}`);
-          message.channel.send(emSuccess);
+          message.channel.send({ embeds: [emSuccess] });
           return message.channel.stopTyping(true);
         });
       });
@@ -81,7 +81,7 @@ module.exports = new Command({
         .setTimestamp()
         .setColor(123456)
         .setFooter(`Requested by: ${message.author.tag}`);
-      message.channel.send(embed);
+      message.channel.send({ embeds: [embed] });
       return message.channel.stopTyping(true);
     }
     let response;
@@ -91,7 +91,7 @@ module.exports = new Command({
         "If you would like to reboot the bot now, please respond with `yes`, and if not, please respond with `no`. You have 20 seconds."
       )
       .setFooter(`For ${message.author.tag}`);
-    message.channel.send(permissionEmbed);
+    message.channel.send({ embeds: [permissionsEmbed] });
     await message.channel
       .awaitMessages((m) => m.author.id === message.author.id, {
         max: 1,

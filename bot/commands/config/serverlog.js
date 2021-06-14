@@ -23,7 +23,7 @@ module.exports = new Command({
       )
       .setFooter(`Use ${prefix}help <command> for more info on a command.`);
 
-    if (!args.length) return message.channel.send(defaultEmbed);
+    if (!args.length) return message.channel.send({ embeds: [defaultEmbed] });
 
     switch (args[0].toLowerCase()) {
       case "set":

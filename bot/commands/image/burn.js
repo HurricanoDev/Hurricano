@@ -27,7 +27,7 @@ module.exports = new Command({
         .setDescription(`Get burnt, ${person}.`)
         .attachFiles([new MessageAttachment(img, "img.png")])
         .setImage("attachment://img.png");
-      await interaction.reply(embed);
+      await interaction.reply({ embeds: [embed] });
     },
   },
   description: "Burn someone's avatar :(",
@@ -45,6 +45,6 @@ module.exports = new Command({
       .setDescription(`Get burnt, ${person}.`)
       .attachFiles([new MessageAttachment(img, "img.png")])
       .setImage("attachment://img.png");
-    message.reply(embed);
+    message.reply({ embeds: [embed] });
   },
 });

@@ -24,7 +24,7 @@ module.exports = new Command({
         `Type ${guildPrefix}help <command> for more info on a command.`
       );
 
-    if (!args.length) return message.channel.send(optionsEmbed);
+    if (!args.length) return message.channel.send({ embeds: [optionsEmbed] });
 
     switch (args[0].toLowerCase()) {
       case "on":

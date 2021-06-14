@@ -31,7 +31,7 @@ module.exports = new Command({
       .setColor("#6082b6")
       .setFooter(`© Hurricano ${client.version}`);
 
-    if (!args.length) return message.channel.send(mainEmbed);
+    if (!args.length) return message.channel.send({ embeds: [mainEmbed] });
 
     switch (args[0].toLowerCase()) {
       case "system":
@@ -45,7 +45,7 @@ module.exports = new Command({
           .addField("Global Chat Channel", `${globalChatChannel}`)
           .setTimestamp()
           .setFooter(`Hurricano v1.0.0`);
-        await message.channel.send(systemEmbed);
+        await message.channel.send({ embeds: [systemEmbed] });
         break;
       case "logging":
         const loggingEmbed = new MessageEmbed()
@@ -55,7 +55,7 @@ module.exports = new Command({
           .addField("Messagelog Channel", `${messageLogChannel}`)
           .setTimestamp()
           .setFooter(`Hurricano v1.0.0`);
-        await message.channel.send(loggingEmbed);
+        await message.channel.send({ embeds: [loggingEmbed] });
         break;
     }
   },

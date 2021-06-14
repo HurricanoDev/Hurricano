@@ -2,7 +2,13 @@ const Discord = require("discord.js");
 const { readdirSync } = require("fs");
 const ascii = require("ascii-table");
 let table = new ascii("Commands");
-table.setHeading("Command File", "Command Name", "Load status");
+table.setHeading(
+  "Command File",
+  "Command Name",
+  "Command Category",
+  "Aliases",
+  "Load status"
+);
 const fs = require("fs");
 const { Player } = require("discord-player");
 const giveawaysManager = require("./utilities/giveaway");
@@ -85,7 +91,7 @@ class Client extends Discord.Client {
     this.snipes = {
       edited: new Discord.Collection(),
       deleted: new Discord.Collection(),
-      recent: new Discord.Collection()
+      recent: new Discord.Collection(),
     };
 
     /**
@@ -297,11 +303,14 @@ class Client extends Discord.Client {
         for (let file of commands) {
           const props = require(`./commands/${dir}/${file}`);
           if (props.name) {
-            table.addRow(file, props.name, "Loaded!");
+            table.addRow(file, props.name, dir, props.aliases ? props.aliases.join(", ") : "None.",
+            "Loaded!");
           } else {
             table.addRow(
               file,
               props.name,
+              dir,
+              props.aliases ? props.aliases.join(", ") : "None.",
               "Not Loaded -> Missing a help.name, or help.name is not a string."
             );
             continue;

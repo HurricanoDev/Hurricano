@@ -41,7 +41,7 @@ module.exports = new Command({
         true
       )
       .addField("Denied By:", message.author.tag + ` (${message.author.id})`);
-    await suggestionMsg.edit(embed);
+    await suggestionMsg.edit({ embeds: [embed] });
 
     await message.channel.sendSuccess(
       message,

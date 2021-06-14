@@ -45,11 +45,12 @@ module.exports.Menu = class extends EventEmitter {
    * Blacklisted page names are: `first, last, previous, next, stop, delete`.
    * These names perform special functions and should only be used as reaction destinations.
    */
-  constructor(channel, userID, pages, ms = 180000) {
+  constructor(channel, author, pages, ms = 180000) {
     super();
     this.channel = channel;
-    this.userID = userID;
+    this.userID = author;
     this.ms = ms;
+    this.author = author;
 
     const missingPerms = [];
     // this usually means it's a dm channel that hasn't been created
@@ -192,7 +193,7 @@ module.exports.Menu = class extends EventEmitter {
 
     this.pageIndex = page;
     this.currentPage = this.pages[this.pageIndex];
-    this.menu.edit(this.currentPage.content);
+    this.menu.edit({ embeds: [this.currentPage.content] });
 
     this.reactionCollector.stop();
     this.addReactions();

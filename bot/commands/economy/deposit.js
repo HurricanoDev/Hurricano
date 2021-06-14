@@ -24,9 +24,7 @@ module.exports = new Command({
       userData.bank = +userData.bank + +userData.wallet;
       userData.wallet = 0;
       message.reply(
-        `🪙 **${userData.wallet}** deposited, now you have **${
-          userData.bank
-        }** in your bank.`
+        `🪙 **${userData.wallet}** deposited, now you have **${userData.bank}** in your bank.`
       );
       await userData.save();
     }

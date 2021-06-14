@@ -2,7 +2,7 @@ const Discord = require("discord.js");
 const sourcebin = require("sourcebin");
 const config = require("@config");
 const Command = require("@Command");
-const { MessageEmbed } = require("discord.js");
+const { MessageEmbed, MessageActionRow, MessageButton } = require("discord.js");
 module.exports = new Command({
   name: "eval",
   description: "Evaluates arbituary JavaScript.",
@@ -44,11 +44,9 @@ module.exports = new Command({
             return e;
           });
         const msg = await message.author.send(
-          new MessageEmbed({
-            title: "Eval Output.",
-            description: `The output for the eval command was larger than 2032 characters. To check it, click [here](${src.url}) or use the link: ${src.url}.`,
-          })
-        );
+          "Eval Output.",
+          `The output for the eval command was larger than 2032 characters. To check it, click [here](${src.url}) or use the link: ${src.url}.`,
+        )
         embed.setDescription(
           `**Output** \n Output is too large! Check your DMs, or click [here](${msg.url}).`
         );
@@ -92,10 +90,26 @@ module.exports = new Command({
         );
 
       const embed = await sendEmbed(evaled, code);
-      return message.channel.send(embed);
+      const row = new MessageButton()
+        .setCustomID("toDelete")
+        .setLabel("Delete?")
+        .setStyle("DANGER");
+      const msg = await message.channel.send({
+        embeds: [embed],
+        components: [[row]],
+      });
+      let conf = await msg.awaitMessageComponentInteraction(
+        (x) =>
+          client.config.ownerIds.includes(x.user.id) &&
+          x.customID == "toDelete",
+        45000
+      ).catch(() => { msg.edit({ components: [] }) });
+      if (conf?.customID) {
+        msg.delete();
+      }
     } catch (err) {
       const embed = await sendEmbed(err, code);
-      return message.channel.send(embed);
+      return message.channel.send({ embeds: [embed] });
     }
   },
 });

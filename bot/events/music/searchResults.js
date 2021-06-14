@@ -3,8 +3,8 @@ const { MessageEmbed } = require("discord.js");
 module.exports = {
   name: "searchResults",
   run: async (message, query, tracks) => {
-    message.channel.send(
-      new MessageEmbed()
+    message.channel.send({
+      embeds: [new MessageEmbed()
         .setAuthor(
           `Search Results for ${query}.`,
           "https://raw.githubusercontent.com/HurricanoBot/HurricanoImages/master/SetAuthorEmojis/Success.png"
@@ -15,7 +15,7 @@ module.exports = {
         .setTimestamp()
         .setFooter(
           "Type the number you want to play, or type cancel to cancel."
-        )
-    );
+    )]
+        });
   },
 };

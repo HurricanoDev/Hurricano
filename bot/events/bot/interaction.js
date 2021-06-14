@@ -5,9 +5,9 @@ module.exports = class InteractionEvent extends BaseEvent {
     super("interaction", {
       description: "Interaction event, meant for slash commands as of now.",
       client: client,
-    })
+    });
   }
-  async run (interaction, client) {
+  async run(interaction, client) {
     if (!interaction.isCommand()) return;
     const command = client.commands
       .filter((cmd) => cmd.slash)

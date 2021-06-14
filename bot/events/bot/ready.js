@@ -4,10 +4,11 @@ const BaseEvent = require("../../structures/BaseEvent.js");
 module.exports = class readyEvent extends BaseEvent {
   constructor(client) {
     super("ready", {
-      description: "Ready event. Meant for status changes, slash commands, guilds setup, db caching, etc.",
+      description:
+        "Ready event. Meant for status changes, slash commands, guilds setup, db caching, etc.",
       client: client,
       once: true,
-    })
+    });
   }
   async run(client) {
     const slashs = client.commands.filter((cmd) => cmd.slash.isSlash);
@@ -30,7 +31,7 @@ module.exports = class readyEvent extends BaseEvent {
     client.giveawaysManager._init();
     const userModels = await client.schemas.user.find({});
     userModels.forEach((x) => client.db.users.cache.set(x.id, x));
-    for (const guild of client.guilds.cache.values()) {
+    for await(const guild of client.guilds.cache.values()) {
       try {
         let data = await client.db.guilds.fetch(guild.id);
         if (!data)

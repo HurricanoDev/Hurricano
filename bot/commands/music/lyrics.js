@@ -77,7 +77,7 @@ module.exports = new Command({
           2045
         )}...`;
       return message.channel
-        .send(lyricsEmbed)
+      .send({ embeds: [lyricsEmbed] })
         .catch((x) => client.logger.warn(x));
     } else if ((track = args)) {
       const lyricsEmbed = new MessageEmbed()
@@ -96,7 +96,7 @@ module.exports = new Command({
           2045
         )}...`;
       return message.channel
-        .send(lyricsEmbed)
+      .send({ embeds: [lyricsEmbed] })
         .catch((x) => client.logger.warn(x));
     }
   },

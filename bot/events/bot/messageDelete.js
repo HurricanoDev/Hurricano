@@ -5,16 +5,18 @@ module.exports = class messageDeleteEvent extends BaseEvent {
     super("messageDelete", {
       description: "messageDelete event, meant for logs and snipe command.",
       client: client,
-    })
+    });
   }
-  async run (message, client) {
+  async run(message, client) {
     if (message.author.bot) return;
     let snipeArray = client.snipes.deleted.get(message.channel.id) ?? [];
     const snipeObject = {
       content: message.content,
       author: message.author,
       member: message.member,
-      image: message.attachments?.length ? message.attachments.map(x => x.proxyURL) : null
+      image: message.attachments?.length
+        ? message.attachments.map((x) => x.proxyURL)
+        : null,
     };
     snipeArray.push(snipeObject);
     client.snipes.deleted.set(message.channel.id, snipeArray);
@@ -46,12 +48,11 @@ module.exports = class messageDeleteEvent extends BaseEvent {
         .setColor("#6082b6");
       message.attachments.first()
         ? (() => {
-            embed.setImage(message.attachments.first().proxyURL);
-            embed.addField("Images:", "True. Attaching the first image.");
+            embed.addField("Images:", snipeObject.images.join(", \n"));
           })()
         : embed.addField("Images:", "False.");
 
-      guildChannel.send(embed);
+      guildChannel.send({ embeds: [embed] })
     }
 
     const { content, channel, author, guild, mentions } = message;
@@ -67,6 +68,6 @@ module.exports = class messageDeleteEvent extends BaseEvent {
       .addField("Message Author", author)
       .setColor("#FFFFFF");
 
-    guildChannel.send(embed);
+    guildChannel.send({ embeds: [embed] })
   }
 };

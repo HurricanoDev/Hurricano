@@ -70,7 +70,7 @@ module.exports = new Command({
       else emb.addField("Slash", "No.", true);
       if (cmd.double) emb.addField("Both Slash And Normal?", "Yes.", true);
       else emb.addField("Both Slash And Normal?", "No.", true);
-      message.channel.send(emb);
+      message.channel.send({ embeds: [emb] });
     } else {
       let cmdmap = {};
       client.commands.forEach((command) => {
@@ -290,7 +290,7 @@ module.exports = new Command({
 
       let helpMenu = new Menu(
         message.channel,
-        message.author.id,
+        message.author,
         [
           {
             name: "main",

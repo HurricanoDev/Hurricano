@@ -18,6 +18,6 @@ module.exports = {
         track.requestedBy.displayAvatarURL
       )
       .setThumbnail(track.thumbnail);
-    return message.channel.send(embed);
+    return message.channel.send({ embeds: [embed] });
   },
 };

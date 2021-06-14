@@ -3,20 +3,24 @@ const { User, GuildMember, APIMessage } = require("discord.js");
 function RegexEscape(input) {
   return input.replace(/[\-\[\]\/\{\}\(\)\*\+\?\.\\\^\$\|]/g, "\\$&");
 }
-function replaceStringsInObject(obj, findStr, replaceStr) {
-  let value = obj;
-  if (obj instanceof MessageEmbed || obj.embed instanceof MessageEmbed) {
+function replaceStringsInObject(objRaw, findStr, replaceStr) {
+  let value = objRaw;
+  if (objRaw.embeds) {
+    value.embeds = objRaw.embeds.map(obj => {
+  if (obj instanceof MessageEmbed) {
     const toClean = obj instanceof MessageEmbed ? obj : obj.embed;
     let embedClean = JSON.stringify(toClean)
       .replace(findStr[0], replaceStr[0])
       .replace(findStr[1], replaceStr[1]);
     embedClean = JSON.parse(embedClean);
-    obj instanceof MessageEmbed
-      ? (value = new MessageEmbed(embedClean))
-      : (value.embed = new MessageEmbed(embedClean));
-  }
-  if (value.content && !value.reply) value.content = value.content?.replace(findStr[0], replaceStr[0]).replace(findStr[1], replaceStr[1]); 
-  if (value.dddddd) {
+    return new MessageEmbed(obj);
+  }})
+};
+  if (value.content && !value.reply)
+    value.content = value.content
+      ?.replace(findStr[0], replaceStr[0])
+      .replace(findStr[1], replaceStr[1]);
+  if (value.reply) {
     let tempVal = value;
     obj.content
       ? (tempVal.content = tempVal.content
@@ -32,47 +36,30 @@ module.exports = Structures.extend("TextChannel", (channel) => {
     constructor(...args) {
       super(...args);
     }
-    async send(rawContent, rawOptions) {
-      const tokenReplaceRegex = new RegExp(this.client.config.token, "g");
-      const mongoUriReplaceRegex = new RegExp(
-        RegexEscape(this.client.config.mongouri),
-        "g"
-      );
-      let content;
-      let options = rawOptions;
-      delete options?.rawMessageContent;
-      if (rawOptions?.rawMessageContent) content = rawContent;
-      else {
-        if (typeof rawContent == "object")
-          content = replaceStringsInObject(
-            rawContent,
-            [tokenReplaceRegex, mongoUriReplaceRegex],
-            ["`DISCORD BOT TOKEN`", "`MONGODB URI`"]
-          );
-        else
-          content = rawContent
-            .replace(tokenReplaceRegex, "`DISCORD BOT TOKEN`")
-            .replace(mongoUriReplaceRegex, "`MONGODB URI`");
-      }
+    async send(optionsRaw) {
+      const tokenRegex = new RegExp(RegexEscape(client.config.token), "g");
+      const mongoUri = new RegExp(RegexEscape(client.config.mongouri), "g")
+      let options = typeof optionsRaw === "string" ? optionsRaw.replace(tokenRegex, "Bot Token.").replace(mongoUri, "MongoDB Uri.") : replaceStringsInObject(optionsRaw, [tokenRegex, mongoUri], ["Bot Token.", "MongoDB Uri."])
       if (this instanceof User || this instanceof GuildMember) {
-        return this.createDM().then((dm) => dm.send(content, options));
+        return this.createDM().then(dm => dm.send(options));
       }
-
+  
       let apiMessage;
-
-      if (content instanceof APIMessage) {
-        apiMessage = content.resolveData();
+  
+      if (options instanceof APIMessage) {
+        apiMessage = options.resolveData();
       } else {
-        apiMessage = APIMessage.create(this, content, options).resolveData();
-        if (Array.isArray(apiMessage.data.content)) {
-          return Promise.all(apiMessage.split().map(this.send.bind(this)));
-        }
+        apiMessage = APIMessage.create(this, options).resolveData();
       }
-
+  
+      if (Array.isArray(apiMessage.data.content)) {
+        return Promise.all(apiMessage.split().map(this.send.bind(this)));
+      }
+  
       const { data, files } = await apiMessage.resolveFiles();
       return this.client.api.channels[this.id].messages
         .post({ data, files })
-        .then((d) => this.client.actions.MessageCreate.handle(d).message);
+        .then(d => this.client.actions.MessageCreate.handle(d).message);
     }
 
     async sendError(message, Header, Msg, Footer, Fields) {
@@ -95,7 +82,7 @@ module.exports = Structures.extend("TextChannel", (channel) => {
         );
       }
       if (Fields) embed.addFields(Fields);
-      const msg = await this.send(embed);
+      const msg = await this.send({ embeds: [embed] });
       return msg;
     }
     async sendSuccess(message, Header, Msg, Footer, Fields) {
@@ -117,7 +104,7 @@ module.exports = Structures.extend("TextChannel", (channel) => {
         );
       }
       if (Fields) embed.addFields(Fields);
-      const msg = await this.send(embed);
+      const msg = await this.send({ embeds: [embed] });
       return msg;
     }
   }

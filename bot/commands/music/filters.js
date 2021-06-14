@@ -27,7 +27,7 @@ module.exports = new Command({
       return message.channel.sendError(
         message,
         "Invalid Filter",
-        "This filter doesn't exist. Filters you can use are: \n 8D \n gate \n haas \n phaser \n treble \n tremolo \n vibrato \n reverse \n karaoke \n flanger \n mcompand \n pulsator \n subboost \n bassboost \n vaporwave \n nightcore \n normalizer \n surrounding"
+        `This filter doesn't exist. Filters you can use are: \n ${client.filters.map(x => `\`${x}\``).join(", ")}`
       );
 
     const filtersUpdated = {};

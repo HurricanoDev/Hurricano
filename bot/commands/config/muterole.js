@@ -27,7 +27,7 @@ module.exports = new Command({
       )
       .setColor("#606365");
 
-    if (!args.length) return message.channel.send(defEmbed);
+    if (!args.length) return message.channel.send({ embeds: [defEmbed] });
 
     switch (args[0].toLowerCase()) {
       case "set":

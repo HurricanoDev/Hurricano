@@ -33,6 +33,6 @@ module.exports = new Command({
       .setAuthor(member.username, member.displayAvatarURL({ dynamic: true }))
       .setImage(member.displayAvatarURL({ dynamic: true, size: 1024 }))
       .setTimestamp();
-    await message.channel.send(embed);
+    await message.channel.send({ embeds: [embed] });
   },
 });

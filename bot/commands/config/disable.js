@@ -15,7 +15,7 @@ module.exports = new Command({
       modulesEmbed.addField(d, `\`${prefix}disable ${d}\``, true)
     );
     modulesEmbed.setFooter("Copyright Hurricano™");
-    if (!args.length) return message.channel.send(modulesEmbed);
+    if (!args.length) return message.channel.send({ embeds: [modulesEmbed] });
     const argss = args.shift().toLowerCase();
     if (!avaliableModules.includes(argss)) {
       const invalidEmbed = new MessageEmbed()
@@ -24,7 +24,7 @@ module.exports = new Command({
       avaliableModules.forEach((d) =>
         invalidEmbed.addField(d, `\`${prefix}disable ${d}\``)
       );
-      message.channel.send(invalidEmbed);
+      message.channel.send({ embeds: [invalidEmbed] });
       return;
     }
     if (avaliableModules.includes(argss)) {

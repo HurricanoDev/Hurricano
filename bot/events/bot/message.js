@@ -53,27 +53,31 @@ async function makeCooldown(message, command) {
 
 module.exports = class MessageEvent extends BaseEvent {
   constructor(client) {
-  super("message", {
-    description: "Message event, used for handling commands.",
-    client: client
-  })
+    super("message", {
+      description: "Message event, used for handling commands.",
+      client: client,
+    });
   }
-  async run (message, client) {
+  async run(message, client) {
     const usersMap = client.usersMap;
     if (message.author.bot || message.channel.type == "dm") return;
     if (
-      !message.channel.permissionsFor(client.user.id).has([
-        "SEND_MESSAGES",
-        "READ_MESSAGE_HISTORY",
-        "EMBED_LINKS",
-        "ADD_REACTIONS"
-      ])
+      !message.channel
+        .permissionsFor(client.user.id)
+        .has([
+          "SEND_MESSAGES",
+          "READ_MESSAGE_HISTORY",
+          "EMBED_LINKS",
+          "ADD_REACTIONS",
+        ])
     )
-      return message.author.sendError(
-        message,
-        "Invalid Permissions!",
-        "I don't have enough permissions in this guild! Please ask an admin to give me the following permissions: \n `READ_MESSAGES`, `SEND_MESSAGES`, `EMBED_LINKS`"
-      )?.catch(() => {});
+      return message.author
+        .sendError(
+          message,
+          "Invalid Permissions!",
+          "I don't have enough permissions in this guild! Please ask an admin to give me the following permissions: \n `READ_MESSAGES`, `SEND_MESSAGES`, `EMBED_LINKS`"
+        )
+        ?.catch(() => {});
     //------------------------------------------------------------------
     let guildSchema = await message.guild.db.fetch();
     const muteRole = guildSchema.muteRole;
@@ -154,7 +158,7 @@ module.exports = class MessageEvent extends BaseEvent {
               );
 
             message.member.roles.add(muteRole);
-            message.channel.send(spamEmbed);
+            message.channel.send({ embeds: [spamEmbed] })
             setTimeout(async () => {
               message.member.roles.remove(muteRole);
               const unmuteEmbed = new MessageEmbed()
@@ -166,7 +170,7 @@ module.exports = class MessageEvent extends BaseEvent {
                 .setThumbnail(
                   "https://lh3.googleusercontent.com/proxy/sz_ww5-B0qhs7RPhI7ilQ6Wq06IFvw7aGCl30oqn4KduUYdMz3ElboKF911VVWO0QYwodKSH3p5eEKECTvOQFcsPQeMQ4m0"
                 );
-              const sendUnmute = await message.channel.send(unmuteEmbed);
+              const sendUnmute = await message.channel.send({ embeds: [unmuteEmbed] })
               setTimeout(async () => {
                 await sendUnmute.delete();
               }, 10000);
@@ -187,11 +191,12 @@ module.exports = class MessageEvent extends BaseEvent {
         });
       }
     }
-    const prefixes = guildSchema.prefixes.map((x) => {
+    let prefixes = guildSchema.prefixes.map((x) => {
       return `\`${x}\``;
     });
+    prefixes = prefixes?.length ? prefixes.join(", ") : "{mention}";
     const whichToUse =
-      prefixes?.length == 1 ? prefixes.toString() : "{prefix/mention}";
+      prefixes?.length == 1 ? guildSchema.prefixes.toString() : "{prefix/mention}";
     const embed = new MessageEmbed()
       .setAuthor(
         "Hello, I'm Hurricano™!",
@@ -201,7 +206,7 @@ module.exports = class MessageEvent extends BaseEvent {
         "Forgot my prefix?",
         `No worries! My ${
           guildSchema.prefixes?.length > 1 ? "prefixes are" : "prefix is"
-        } ${prefixes.join(", ")}.`
+        } ${prefixes}.`
       )
       .addField(
         "Need help?",
@@ -217,7 +222,7 @@ module.exports = class MessageEvent extends BaseEvent {
       )
       .setColor("#034ea2")
       .setImage(
-        "https://raw.githubusercontent.com/HurricanoBot/HurricanoImages/master/other/Wave.jpg"
+        "https://raw.githubusercontent.com/HurricanoBot/HurricanoImages/master/other/Wave.png"
       )
       .setFooter(`© Hurricano™ v1.0.0`);
     if (prefixRegex.test(message.content.toLowerCase())) {
@@ -235,7 +240,7 @@ module.exports = class MessageEvent extends BaseEvent {
         message.content === `<@${client.user.id}>` ||
         (message.content === `<@!${client.user.id}>` && !userSchema.blacklisted)
       )
-        return message.reply(embed);
+        return message.channel.send({ embeds: [embed] });
       const [, match] = message.content.toLowerCase().match(prefixRegex);
       if (!message.content.toLowerCase().startsWith(match)) return;
       let args = message.content.slice(match.length).trim().split(/ +/g);
@@ -279,7 +284,7 @@ module.exports = class MessageEvent extends BaseEvent {
       message._usedPrefix = message.content.startsWith("<")
         ? `{prefix/mention}`
         : prefix;
-        command.ownerOnly ? null : stc.ShardingClient.postCommand(command.name, message.author.id, client);
+      // command.ownerOnly ? null : stc.ShardingClient.postCommand(command.name, message.author.id, client);
       let checkAdmin = config.ownerIds.includes(author.id);
       if (command.conf.ownerOnly === true && !checkAdmin)
         return message.channel.sendError(
@@ -355,11 +360,11 @@ module.exports = class MessageEvent extends BaseEvent {
       if (auth !== "allow") return;
       if (!client.config.ownerIds.includes(message.author.id))
         await makeCooldown(message, command);
-        client.logger.message(
-          `${message.author.tag} used the "${command.name}" command in guild ${
-            message.guild
-          } with args: "${args.join(" ")}"`
-        );
+      client.logger.message(
+        `${message.author.tag} used the "${command.name}" command in guild ${
+          message.guild
+        } with args: "${args.join(" ")}"`
+      );
       await command.run(message, args);
     }
   }

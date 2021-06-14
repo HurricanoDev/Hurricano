@@ -60,7 +60,7 @@ module.exports = new Command({
         .setTitle("🔒 Lockdown")
         .setDescription("🔓 Lockdown lifted.")
         .setColor("36393e");
-      await channel.send(liftedembed);
+      await channel.send({ embeds: [liftedembed] });
       await clearTimeout(lockit[channel.id]);
       await delete lockit[channel.id];
       message.sendSuccessReply(
@@ -83,7 +83,7 @@ module.exports = new Command({
       if (time != "none") {
         lockdownembed.addField("Locked for", ms(time, { long: true }), true);
       }
-      await channel.send(lockdownembed);
+      await channel.send({ embeds: [lockdownembed] });
       await message.sendSuccessReply(
         "Success.",
         `Successfully locked ${channel}.`,
@@ -100,7 +100,7 @@ module.exports = new Command({
           await channel.createOverwrite(message.guild.id, {
             SEND_MESSAGES: null,
           });
-          await channel.send(liftedembed).catch((x) => client.logger.warn(x));
+          await channel.send({ embeds: [lockdownembed] }).catch((x) => client.logger.warn(x));
           delete lockit[channel.id];
         }, time);
       }

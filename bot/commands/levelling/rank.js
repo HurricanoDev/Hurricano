@@ -18,10 +18,11 @@ module.exports = new Command({
     if (!user) return message.channel.send("The provided user has no xp.");
     const { MessageEmbed } = require("discord.js");
     message.channel.send(
-      new MessageEmbed()
+      {
+      embeds: [new MessageEmbed()
         .setTitle(`Rank for ${target.tag}`)
         .setDescription(`${target} us currently on ${user.level}.`)
         .setThumbnail(target.displayAvatarURL())
-    );
+      ]});
   },
 });

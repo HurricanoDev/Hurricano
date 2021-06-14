@@ -61,7 +61,7 @@ module.exports = new Command({
         .setThumbnail(target.user.displayAvatarURL())
         .setColor("BLACK");
 
-      modLog.send(logEmbed);
+        modLog.send({ embeds: [logEmbed] });
     }
   },
 });

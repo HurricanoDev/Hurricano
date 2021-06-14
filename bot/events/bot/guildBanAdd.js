@@ -4,12 +4,12 @@ const { MessageEmbed } = require("discord.js");
 const BaseEvent = require("../../structures/BaseEvent.js");
 module.exports = class guildBanAddEvent extends BaseEvent {
   constructor(client) {
-    super("guildBanAdd", { 
+    super("guildBanAdd", {
       description: "guildBanAdd event. Meant for server logs.",
       client: client,
-    })
+    });
   }
-  async run (guild, user, client) {
+  async run(guild, user, client) {
     const guildData = client.db.guilds.cache.get(guild.id);
     const serverLogChannel = await client.channels.cache.get(
       guildData.serverLog
@@ -28,7 +28,7 @@ module.exports = class guildBanAddEvent extends BaseEvent {
       serverLogChannel.viewable &&
       serverLogChannel.permissionsFor(guild.me).has("SEND_MESSAGES")
     ) {
-      serverLogChannel.send(embed);
+      serverLogChannel.send({ embeds: [embed] })
     }
   }
 };

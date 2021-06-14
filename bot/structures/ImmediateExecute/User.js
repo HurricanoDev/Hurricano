@@ -3,25 +3,26 @@ module.exports = Structures.extend("User", (User) => {
   class HurricanoUser extends User {
     constructor(...args) {
       super(...args);
-      this.bot ? null : this.db = {
-        fetch: async () => {
-          const data = await client.schemas.user.findOne({ id: this.id });
-          client.db.users.cache.set(this.id, data);
-          return data;
-        },
-        cache: () => {
-          return client.db.users.cache.get(this.id);
-        },
-      };
+      this.bot
+        ? null
+        : (this.db = {
+            fetch: async () => {
+              const data = await client.schemas.user.findOne({ id: this.id });
+              client.db.users.cache.set(this.id, data);
+              return data;
+            },
+            cache: () => {
+              return client.db.users.cache.get(this.id);
+            },
+          });
     }
-
-    sendError(message, Header, Msg, Footer) {
+    async sendError(message, Header, Msg, Footer, Fields) {
       const embed = new MessageEmbed()
         .setAuthor(
           Header,
           "https://raw.githubusercontent.com/HurricanoBot/HurricanoImages/master/SetAuthorEmojis/Error.png"
         )
-        .setColor("#FF0000");
+        .setColor("RED");
 
       if (Msg) {
         embed.setDescription(Msg);
@@ -34,13 +35,17 @@ module.exports = Structures.extend("User", (User) => {
           message.author.displayAvatarURL()
         );
       }
-      this.createDM().then((x) => x.send(embed));
+      if (Fields) embed.addFields(Fields);
+      const msg = await this.createDM().then(x => x.send({ embeds: [embed] }));
+      return msg;
     }
-    sendSuccess(message, Header, Msg, Footer) {
-      const embed = new MessageEmbed().setAuthor(
-        Header,
-        "https://raw.githubusercontent.com/HurricanoBot/HurricanoImages/master/SetAuthorEmojis/Success.png"
-      );
+    async sendSuccess(message, Header, Msg, Footer, Fields) {
+      const embed = new MessageEmbed()
+        .setAuthor(
+          Header,
+          "https://raw.githubusercontent.com/HurricanoBot/HurricanoImages/master/SetAuthorEmojis/Success.png"
+        )
+        .setColor("GREEN");
       if (Msg) {
         embed.setDescription(Msg);
       }
@@ -52,7 +57,9 @@ module.exports = Structures.extend("User", (User) => {
           message.author.displayAvatarURL()
         );
       }
-      this.createDM().then((x) => x.send(embed));
+      if (Fields) embed.addFields(Fields);
+      const msg = await this.createDM().then(x => x.send({ embeds: [embed] }));
+      return msg;
     }
   }
   return HurricanoUser;

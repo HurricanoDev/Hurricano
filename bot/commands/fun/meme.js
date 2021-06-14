@@ -22,7 +22,7 @@ module.exports = new Command({
         .setFooter(`${message.member.displayName} | 👍 ${res.ups}`)
         .setTimestamp()
         .setColor("#0099ff");
-      message.reply(embed);
+      message.reply({ embeds: [embed] });
     } catch (err) {
       message.channel.send(
         `Oops! Something went wrong. Error: \n ${err.message}`

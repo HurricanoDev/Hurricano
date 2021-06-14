@@ -23,7 +23,7 @@ module.exports = Structures.extend(
           embed.setFooter(this.author.username, this.author.displayAvatarURL());
         }
         if (Fields) embed.addFields(Fields);
-        const msg = this.reply(embed);
+        const msg = await this.reply({ embeds: [embed] });
         return msg;
       }
       async sendSuccessReply(Header, Msg, Footer, Fields) {
@@ -47,7 +47,7 @@ module.exports = Structures.extend(
           embed.setFooter(this.author.username, this.author.displayAvatarURL());
         }
         if (Fields) embed.addFields(Fields);
-        const msg = this.reply(embed);
+        const msg = await this.reply({ embeds: [embed] });
         return msg;
       }
     }

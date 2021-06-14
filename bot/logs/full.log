@@ -1,117 +1,114 @@
-[2021-06-14 07:41:07] - [client]: 
-.-----------------------[2021-06-14 07:41:25] - [shard]: [Shard 0] Shard Ready!
-[2021-06-14 07:41:25] - [info]: [Statcord] Autopost started!
-[2021-06-14 07:41:31] - [info]: [Statcord] Autopost successful!
-[2021-06-14 07:42:36] - [info]: [Statcord] Autopost successful!
-[2021-06-14 07:43:31] - [info]: [Statcord] Autopost successful!
-[2021-06-14 07:44:31] - [info]: [Statcord] Autopost successful!
-[2021-06-14 07:45:31] - [info]: [Statcord] Autopost successful!
-ded!     |
-| enable.js            | enable            | Loaded!     |
-| msglogs.js           | msglogs           | Loaded!     |
-| muterole.js          | muterole          | Loaded!     |
-| prefix.js            | prefix            | Loaded!     |
-| serverlog.js         | serverlog         | Loaded!     |
-| setautorole.js       | setautorole       | Loaded!     |
-| setmemberlog.js      | setmemberlog      | Loaded!     |
-| setsystemchannel.js  | setsystemchannel  | Loaded!     |
-| settings.js          | settings          | Loaded!     |
-| spamdetection.js     | spamdetection     | Loaded!     |
-| starboard.js         | starboard         | Loaded!     |
-| suggestionchannel.js | suggestionchannel | Loaded!     |
-| balance.js           | balance           | Loaded!     |
-| deposit.js           | deposit           | Loaded!     |
-| slots.js             | slots             | Loaded!     |
-| withdraw.js          | withdraw          | Loaded!     |
-| connect4.js          | connect4          | Loaded!     |
-| meme.js              | meme              | Loaded!     |
-| rps.js               | rps               | Loaded!     |
-| snipe.js             | snipe             | Loaded!     |
-| gend.js              | gend              | Loaded!     |
-| glist.js             | glist             | Loaded!     |
-| gstart.js            | gstart            | Loaded!     |
-| beautify.js          | beautify          | Loaded!     |
-| burn.js              | burn              | Loaded!     |
-| facepalm.js          | facepalm          | Loaded!     |
-| pixelate.js          | pixelate          | Loaded!     |
-| rainbow.js           | rainbow           | Loaded!     |
-| rip.js               | rip               | Loaded!     |
-| trigger.js           | trigger           | Loaded!     |
-| wanted.js            | wanted            | Loaded!     |
-| avatar.js            | avatar            | Loaded!     |
-| botinfo.js           | botinfo           | Loaded!     |
-| docs.js              | docs              | Loaded!     |
-| help.js              | help              | Loaded!     |
-| invite.js            | invite            | Loaded!     |
-| joinposition.js      | joinposition      | Loaded!     |
-| ping.js              | ping              | Loaded!     |
-| serverinfo.js        | serverinfo        | Loaded!     |
-| test.js              | test              | Loaded!     |
-| rank.js              | rank              | Loaded!     |
-| ban.js               | ban               | Loaded!     |
-| decancer.js          | decancer          | Loaded!     |
-| lock.js              | lock              | Loaded!     |
-| unlock.js            | unlock            | Loaded!     |
-| filters.js           | filters           | Loaded!     |
-| lyrics.js            | lyrics            | Loaded!     |
-| play.js              | play              | Loaded!     |
-| search.js            | search            | Loaded!     |
-| skip.js              | skip              | Loaded!     |
-| stop.js              | stop              | Loaded!     |
-| volume.js            | volume            | Loaded!     |
-| blacklist.js         | blacklist         | Loaded!     |
-| eval.js              | eval              | Loaded!     |
-| exec.js              | exec              | Loaded!     |
-| fulleval.js          | fulleval          | Loaded!     |
-| leaveguild.js        | leaveguild        | Loaded!     |
-| pull.js              | pull              | Loaded!     |
-| reboot.js            | reboot            | Loaded!     |
-| reload.js            | reload            | Loaded!     |
-| shutdown.js          | shutdown          | Loaded!     |
-| unblacklist.js       | unblacklist       | Loaded!     |
-| afk.js               | afk               | Loaded!     |
-| birthdaycheck.js     | birthdate         | Loaded!     |
-| birthdayset.js       | birthdayset       | Loaded!     |
-| suggest.js           | suggest           | Loaded!     |
-| tag.js               | tag               | Loaded!     |
-'--------------------------------------------------------'
-[2021-06-14 07:41:07] - [info]: Provided token: ODI1NTc0NDEyMTc4NDIzODU5.YF_6Fg.***************************
-[2021-06-14 07:41:07] - [info]: Preparing to connect to the gateway...
-[2021-06-14 07:41:07] - [info]: Server Up!
-[2021-06-14 07:41:17] - [info]: [WS => Manager] Fetched Gateway Information
+[2021-06-14 22:08:47] - [client]: 
+.-----------------------[2021-06-14 22:08:50] - [shard]: [Shard 0] Shard Ready!
+--------------------------------------------.
+|                                                         Commands                                                          |
+|---------------------------------------------------------------------------------------------------------------------------|
+|     Command File     |   Command Name    | Command Category |                    Aliases                    | Load status |
+|----------------------|-------------------|------------------|-----------------------------------------------|-------------|
+| accept.js            | accept            | config           | None.                                         | Loaded!     |
+| deny.js              | deny              | config           | None.                                         | Loaded!     |
+| disable.js           | disable           | config           | None.                                         | Loaded!     |
+| enable.js            | enable            | config           | None.                                         | Loaded!     |
+| msglogs.js           | msglogs           | config           | messagelogs, messagelog                       | Loaded!     |
+| muterole.js          | muterole          | config           | setmuterole                                   | Loaded!     |
+| prefix.js            | prefix            | config           | sp, setp                                      | Loaded!     |
+| serverlog.js         | serverlog         | config           | serverlogs, setserverlog, setserverlogchannel | Loaded!     |
+| setautorole.js       | setautorole       | config           | autorole                                      | Loaded!     |
+| setmemberlog.js      | setmemberlog      | config           | setmemberlogchannel, smemberlog               | Loaded!     |
+| setsystemchannel.js  | setsystemchannel  | config           | setsystemch                                   | Loaded!     |
+| settings.js          | settings          | config           | None.                                         | Loaded!     |
+| spamdetection.js     | spamdetection     | config           | spamd, antispam                               | Loaded!     |
+| starboard.js         | starboard         | config           | None.                                         | Loaded!     |
+| suggestionchannel.js | suggestionchannel | config           | suggestionschannel                            | Loaded!     |
+| balance.js           | balance           | economy          | bal, coins, money                             | Loaded!     |
+| deposit.js           | deposit           | economy          | dep                                           | Loaded!     |
+| slots.js             | slots             | economy          | slotmachine                                   | Loaded!     |
+| withdraw.js          | withdraw          | economy          | with                                          | Loaded!     |
+| connect4.js          | connect4          | fun              | c4, connectfour                               | Loaded!     |
+| meme.js              | meme              | fun              | None.                                         | Loaded!     |
+| rps.js               | rps               | fun              | rockpaperscissors                             | Loaded!     |
+| snipe.js             | snipe             | fun              | None.                                         | Loaded!     |
+| gend.js              | gend              | giveaways        | , giveawayend, g-end, g-end, gfinish          | Loaded!     |
+| glist.js             | glist             | giveaways        | None.                                         | Loaded!     |
+| gstart.js            | gstart            | giveaways        | gs, giveawaystart, g-start, giveaway, gcreate | Loaded!     |
+| beautify.js          | beautify          | image            | None.                                         | Loaded!     |
+| burn.js              | burn              | image            | None.                                         | Loaded!     |
+| facepalm.js          | facepalm          | image            | None.                                         | Loaded!     |
+| pixelate.js          | pixelate          | image            | None.                                         | Loaded!     |
+| rainbow.js           | rainbow           | image            | None.                                         | Loaded!     |
+| rip.js               | rip               | image            | None.                                         | Loaded!     |
+| trigger.js           | trigger           | image            | None.                                         | Loaded!     |
+| wanted.js            | wanted            | image            | None.                                         | Loaded!     |
+| avatar.js            | avatar            | information      | profilepic, pic, ava, pfp                     | Loaded!     |
+| botinfo.js           | botinfo           | information      | info, bi                                      | Loaded!     |
+| docs.js              | docs              | information      | None.                                         | Loaded!     |
+| help.js              | help              | information      | cmd, commands, h                              | Loaded!     |
+| invite.js            | invite            | information      | inv                                           | Loaded!     |
+| joinposition.js      | joinposition      | information      | joinp                                         | Loaded!     |
+| ping.js              | ping              | information      | latency, pong                                 | Loaded!     |
+| serverinfo.js        | serverinfo        | information      | serveri, si, guildinfo, gi                    | Loaded!     |
+| test.js              | test              | information      | None.                                         | Loaded!     |
+| rank.js              | rank              | levelling        | None.                                         | Loaded!     |
+| ban.js               | ban               | moderation       | None.                                         | Loaded!     |
+| decancer.js          | decancer          | moderation       | None.                                         | Loaded!     |
+| lock.js              | lock              | moderation       | None.                                         | Loaded!     |
+| unlock.js            | unlock            | moderation       | None.                                         | Loaded!     |
+| filters.js           | filters           | music            | filter                                        | Loaded!     |
+| lyrics.js            | lyrics            | music            | ly                                            | Loaded!     |
+| play.js              | play              | music            | p                                             | Loaded!     |
+| search.js            | search            | music            | None.                                         | Loaded!     |
+| skip.js              | skip              | music            | sk                                            | Loaded!     |
+| stop.js              | stop              | music            | dc                                            | Loaded!     |
+| volume.js            | volume            | music            | None.                                         | Loaded!     |
+| blacklist.js         | blacklist         | owner            | None.                                         | Loaded!     |
+| eval.js              | eval              | owner            | None.                                         | Loaded!     |
+| exec.js              | exec              | owner            | None.                                         | Loaded!     |
+| fulleval.js          | fulleval          | owner            | None.                                         | Loaded!     |
+| leaveguild.js        | leaveguild        | owner            | None.                                         | Loaded!     |
+| pull.js              | pull              | owner            | None.                                         | Loaded!     |
+| reboot.js            | reboot            | owner            | None.                                         | Loaded!     |
+| reload.js            | reload            | owner            | None.                                         | Loaded!     |
+| shutdown.js          | shutdown          | owner            | None.                                         | Loaded!     |
+| unblacklist.js       | unblacklist       | owner            | None.                                         | Loaded!     |
+| afk.js               | afk               | utility          | None.                                         | Loaded!     |
+| birthdaycheck.js     | birthdate         | utility          | checkbirthday, checkbday, birthdaycheck       | Loaded!     |
+| birthdayset.js       | birthdayset       | utility          | setbirthday, setbday                          | Loaded!     |
+| suggest.js           | suggest           | utility          | None.                                         | Loaded!     |
+| tag.js               | tag               | utility          | None.                                         | Loaded!     |
+'---------------------------------------------------------------------------------------------------------------------------'
+[2021-06-14 22:08:47] - [info]: Provided token: ODI1NTc0NDEyMTc4NDIzODU5.YF_6Fg.***************************
+[2021-06-14 22:08:47] - [info]: Preparing to connect to the gateway...
+[2021-06-14 22:08:47] - [info]: Server Up!
+[2021-06-14 22:08:48] - [info]: [WS => Manager] Fetched Gateway Information
     URL: wss://gateway.discord.gg
     Recommended Shards: 1
-[2021-06-14 07:41:17] - [info]: [WS => Manager] Session Limit Information
+[2021-06-14 22:08:48] - [info]: [WS => Manager] Session Limit Information
     Total: 1000
-    Remaining: 989
-[2021-06-14 07:41:17] - [info]: [WS => Manager] Spawning shards: 0
-[2021-06-14 07:41:17] - [info]: [WS => Shard 0] [CONNECT]
+    Remaining: 955
+[2021-06-14 22:08:48] - [info]: [WS => Manager] Spawning shards: 0
+[2021-06-14 22:08:48] - [info]: [WS => Shard 0] [CONNECT]
     Gateway    : wss://gateway.discord.gg/
     Version    : 8
     Encoding   : json
     Compression: none
-[2021-06-14 07:41:17] - [info]: [WS => Shard 0] Setting a HELLO timeout for 20s.
-[2021-06-14 07:41:22] - [db]: Connected to MongoDB!
-[2021-06-14 07:41:23] - [info]: [WS => Shard 0] [CONNECTED] wss://gateway.discord.gg/?v=8&encoding=json in 6388ms
-[2021-06-14 07:41:23] - [info]: [WS => Shard 0] Clearing the HELLO timeout.
-[2021-06-14 07:41:23] - [info]: [WS => Shard 0] Setting a heartbeat interval for 41250ms.
-[2021-06-14 07:41:23] - [info]: [WS => Shard 0] [IDENTIFY] Shard 0/1
-[2021-06-14 07:41:23] - [info]: [WS => Shard 0] [READY] Session ac8ee58c1087e4b4c7ef5bea3d153d85.
-[2021-06-14 07:41:23] - [info]: [WS => Shard 0] [ReadyHeartbeat] Sending a heartbeat.
-[2021-06-14 07:41:25] - [info]: [WS => Shard 0] Shard received all its guilds. Marking as fully ready.
-[2021-06-14 07:41:25] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 1464ms.
-[2021-06-14 07:41:27] - [client]: Hurricano Beta#2437 Successfully Logged in!
-[2021-06-14 07:42:04] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
-[2021-06-14 07:42:05] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 361ms.
-[2021-06-14 07:42:45] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
-[2021-06-14 07:42:46] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 393ms.
-[2021-06-14 07:43:27] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
-[2021-06-14 07:43:27] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 365ms.
-[2021-06-14 07:44:08] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
-[2021-06-14 07:44:08] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 367ms.
-[2021-06-14 07:44:49] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
-[2021-06-14 07:44:50] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 366ms.
-[2021-06-14 07:45:30] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
-[2021-06-14 07:45:31] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 360ms.
-[2021-06-14 07:46:12] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
-[2021-06-14 07:46:12] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 368ms.
+[2021-06-14 22:08:48] - [info]: [WS => Shard 0] Setting a HELLO timeout for 20s.
+[2021-06-14 22:08:48] - [info]: [WS => Shard 0] [CONNECTED] wss://gateway.discord.gg/?v=8&encoding=json in 586ms
+[2021-06-14 22:08:48] - [info]: [WS => Shard 0] Clearing the HELLO timeout.
+[2021-06-14 22:08:48] - [info]: [WS => Shard 0] Setting a heartbeat interval for 41250ms.
+[2021-06-14 22:08:48] - [info]: [WS => Shard 0] [IDENTIFY] Shard 0/1 with intents: 1923
+[2021-06-14 22:08:49] - [info]: [WS => Shard 0] [READY] Session 8c72232d6de4502d1ad20506f291cb6a.
+[2021-06-14 22:08:49] - [info]: [WS => Shard 0] [ReadyHeartbeat] Sending a heartbeat.
+[2021-06-14 22:08:49] - [db]: Connected to MongoDB!
+[2021-06-14 22:08:50] - [info]: [WS => Shard 0] Shard received all its guilds. Marking as fully ready.
+[2021-06-14 22:08:50] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 1458ms.
+[2021-06-14 22:08:52] - [client]: Hurricano Beta#2437 Successfully Logged in!
+[2021-06-14 22:09:29] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2021-06-14 22:09:30] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 374ms.
+[2021-06-14 22:10:11] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2021-06-14 22:10:11] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 378ms.
+[2021-06-14 22:10:52] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2021-06-14 22:10:52] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 571ms.
+[2021-06-14 22:11:33] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2021-06-14 22:11:34] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 376ms.
+[2021-06-14 22:12:14] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2021-06-14 22:12:15] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 466ms.

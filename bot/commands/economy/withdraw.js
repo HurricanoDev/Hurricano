@@ -24,9 +24,7 @@ module.exports = new Command({
       userData.wallet = +userData.bank + +userData.wallet;
       userData.bank = 0;
       message.reply(
-        `🪙 **${userData.bank}** withdrawn, now you have **${
-          userData.wallet
-        }** in your wallet.`
+        `🪙 **${userData.bank}** withdrawn, now you have **${userData.wallet}** in your wallet.`
       );
       await userData.save();
     }

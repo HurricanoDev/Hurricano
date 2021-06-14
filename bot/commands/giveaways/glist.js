@@ -33,7 +33,7 @@ module.exports = new Command({
           );
         })
       );
-      message.channel.send(embed);
+      message.channel.send({ embeds: [embed] });
     } else if (!gws.length) {
       return message.channel.sendError(
         message,

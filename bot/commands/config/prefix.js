@@ -82,13 +82,13 @@ module.exports = new Command({
           embed.setDescription(
             `Successfully added the prefix \`${args[1].value}\`!`
           );
-          return await interaction.reply(embed);
+          return await interaction.reply({ embeds: [embed] });
           break;
         case "list":
           const embed = new MessageEmbed().setTitle("Current Prefixes:")
             .setDescription(`The current prefixes are:
         \`\`\`${guildSchema.prefixes.join("\n")}\`\`\``);
-          return await interaction.reply(embed);
+          return await interaction.reply({ embeds: [embed] });
         case "remove":
           if (!args[1].value)
             return await interaction.reply(
@@ -108,7 +108,7 @@ module.exports = new Command({
           embed.setDescription(
             `Successfully removed the prefix \`${args[1].value}\`!`
           );
-          interaction.reply(embed);
+          interaction.reply({ embeds: [embed] });
           break;
       }
     },
@@ -163,7 +163,7 @@ module.exports = new Command({
         const embed = new MessageEmbed().setTitle("Current Prefixes:")
           .setDescription(`The current prefixes are:
         \`\`\`${guildSchema.prefixes.join("\n")}\`\`\``);
-        return message.reply(embed);
+        return message.reply({ embeds: [embed] });
       case "remove":
         if (!args[1])
           return message.channel.sendError(

@@ -27,7 +27,7 @@ module.exports = new Command({
       .setTitle(`Suggestion ID: \`${guildSchema.suggestionNumber}\``)
       .setDescription(idea)
       .setTimestamp();
-    const suggestionSent = await channel.send(embed);
+    const suggestionSent = await channel.send({ embeds: [embed] })
     suggestionsObj[guildSchema.suggestionNumber] = [
       suggestionSent.id,
       message.author.id,

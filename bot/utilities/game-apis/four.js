@@ -53,7 +53,7 @@ class Connect4 {
       .setDescription(this.gameBoardToString())
       .addField("Turn:", this.getChipFromTurn() + `\n (${user})`)
       .setTimestamp();
-    message.channel.send(embed).then((emsg) => {
+    message.channel.send({ embeds: [embed] }).then((emsg) => {
       this.gameEmbed = emsg;
       Object.keys(reactions).forEach((reaction) => {
         this.gameEmbed.react(reaction);
@@ -72,7 +72,7 @@ class Connect4 {
       .setDescription(this.gameBoardToString())
       .addField("Turn:", this.getChipFromTurn() + `\n (${user})`)
       .setTimestamp();
-    this.gameEmbed.edit(editEmbed);
+    this.gameEmbed.edit({ embeds: [editEmbed] });
     this.waitForReaction(user);
   }
 
@@ -83,7 +83,7 @@ class Connect4 {
       .setTitle("Connect-4")
       .setDescription("GAME OVER! " + this.getWinnerText(winner))
       .setTimestamp();
-    this.gameEmbed.edit(editEmbed);
+    this.gameEmbed.edit({ embeds: [editEmbed] });
     this.gameEmbed.reactions.removeAll();
   }
 

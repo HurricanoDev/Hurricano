@@ -4,12 +4,13 @@ const { MessageEmbed } = require("discord.js");
 const BaseEvent = require("../../structures/BaseEvent.js");
 module.exports = class guildCreateEvent extends BaseEvent {
   constructor(client) {
-    super("guildCreate", { 
-      description: "guildCreate event, meant for saving guilds to db, and server log.",
-      client: client
-    })
+    super("guildCreate", {
+      description:
+        "guildCreate event, meant for saving guilds to db, and server log.",
+      client: client,
+    });
   }
-  async run (guild, client) {
+  async run(guild, client) {
     try {
       let data = await client.db.guilds.fetch(guild.id);
       if (!data)
@@ -37,6 +38,6 @@ module.exports = class guildCreateEvent extends BaseEvent {
       .addField("Owner:", `${guildOwner.tag}`)
       .addField("Server Count", `${client.guilds.cache.size} servers.`)
       .setColor("#6082b6");
-    progressChannel.send(guildEmbed);
+    progressChannel.send({ embeds: [guildEmbed] })
   }
 };

@@ -15,7 +15,7 @@ module.exports = new Command({
       `${message._usedPrefix}`
     );
 
-    if (!args.length) return message.channel.send(optionsEmbed);
+    if (!args.length) return message.channel.send({ embeds: [optionsEmbed] });
 
     switch (args[0].toLowerCase()) {
       case "set":

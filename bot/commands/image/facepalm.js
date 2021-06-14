@@ -19,6 +19,6 @@ module.exports = new Command({
     });
     let image = await canvacord.Canvas.facepalm(avatar);
     let attachment = new Discord.MessageAttachment(image, "facepalm.png");
-    return message.reply(attachment);
+    return message.reply({ attachments: [attachment] });
   },
 });

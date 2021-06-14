@@ -5,10 +5,10 @@ module.exports = class messageReactionAdd extends BaseEvent {
   constructor(client) {
     super("messageReactionAdd", {
       description: "messageReactionAdd event, meant for starboard.",
-      client: client
-    })
+      client: client,
+    });
   }
-  async run (reaction, user) {
+  async run(reaction, user) {
     if (reaction.emoji.name !== "⭐") return;
     if (user.bot) return;
     var guildData = await reaction.message.guild.db.fetch();
@@ -32,9 +32,7 @@ module.exports = class messageReactionAdd extends BaseEvent {
       (x) => x[0] == reaction.message.id
     );
     const sentMessage = starBoardMsgId
-      ? await starBoardChannel.messages
-          .fetch(starBoardMsgId[1])
-          .catch(() => {})
+      ? await starBoardChannel.messages.fetch(starBoardMsgId[1]).catch(() => {})
       : null;
     if (!sentMessage && starBoardMsgId) {
       let arrayToDelete = guildData.starBoard.messages.filter(
@@ -52,7 +50,10 @@ module.exports = class messageReactionAdd extends BaseEvent {
     if (!sentMessage && reaction.count < guildData.starBoard.minimumReactions)
       return;
     if (sentMessage) {
-      return sentMessage.edit({ content: `${reaction.count} - ⭐`, embed: sentMessage.embeds[0] });
+      return sentMessage.edit({
+        content: `${reaction.count} - ⭐`,
+        embed: sentMessage.embeds[0],
+      });
     } else {
       const embed = new MessageEmbed()
         .setAuthor(
@@ -64,7 +65,7 @@ module.exports = class messageReactionAdd extends BaseEvent {
         .setColor("YELLOW")
         .setFooter(reaction.message.id)
         .setTimestamp();
-      const msg = await starBoardChannel.send(`${reaction.count} - ⭐`, embed);
+      const msg = await starBoardChannel.send({ content: `${reaction.count} - ⭐`, embeds: [embed] });
       let arrayToSave = guildData.starBoard;
       arrayToSave.messages.push([reaction.message.id, msg.id]);
       guildData.starBoard = arrayToSave;

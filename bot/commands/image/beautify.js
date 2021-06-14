@@ -20,6 +20,6 @@ module.exports = new Command({
       .setDescription(`How amazing this art is.`)
       .attachFiles([new Discord.MessageAttachment(img, "img.png")])
       .setImage("attachment://img.png");
-    message.reply(embed);
+    message.reply({ embeds: [embed] });
   },
 });

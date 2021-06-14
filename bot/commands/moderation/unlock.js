@@ -24,6 +24,6 @@ module.exports = new Command({
       .setTitle("🔒 Lockdown")
       .setDescription("🔓 Lockdown lifted.")
       .setColor("36393e");
-    await channel.send(liftedembed);
+    await channel.send({ embeds: [liftedembed] });
   },
 });

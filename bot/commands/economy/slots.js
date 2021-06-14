@@ -50,6 +50,6 @@ module.exports = new Command({
 
     await userInfo.save();
 
-    message.channel.send(embed);
+    message.channel.send({ embeds: [embed] });
   },
 });

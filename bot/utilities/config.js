@@ -9,7 +9,7 @@ try {
     website: config.website,
     topgg: config.topgg,
     botChannels: config.botChannels,
-    statcordKey: config.statcordKey
+    statcordKey: config.statcordKey,
   };
   module.exports = config;
 } catch (err) {
@@ -20,7 +20,7 @@ try {
     website: JSON.parse(process.env.website),
     topgg: JSON.parse(process.env.topgg),
     botChannels: JSON.parse(process.env.botChannels),
-    statcordKey: process.env.statcordKey
+    statcordKey: process.env.statcordKey,
   };
   module.exports = config;
 }

@@ -29,6 +29,6 @@ module.exports = new Command({
       )
       .setTimestamp()
       .setColor(message.guild.me.displayHexColor);
-    message.reply(embed);
+    message.reply({ embeds: [embed] });
   },
 });

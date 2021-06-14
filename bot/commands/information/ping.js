@@ -17,7 +17,7 @@ module.exports = new Command({
         "https://raw.githubusercontent.com/HurricanoBot/HurricanoImages/master/SetAuthorEmojis/Ping.png"
       )
       .setDescription("Pinging...");
-    const ping = await message.channel.send(embed);
+    const ping = await message.channel.send({ embeds: [embed] });
     embed
       .setDescription("")
       .setAuthor(
@@ -34,6 +34,6 @@ module.exports = new Command({
       .setImage(
         "https://raw.githubusercontent.com/HurricanoBot/HurricanoImages/master/other/Ping.png"
       );
-    ping.edit(embed);
+    ping.edit({ embeds: [embed] });
   },
 });
