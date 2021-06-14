@@ -44,7 +44,6 @@ module.exports = new Command({
             upsert: true,
           }
         );
-        s;
         message.sendSuccessReply(
           "Success!",
           `I have successfully set the message logs to ${channel}!`
