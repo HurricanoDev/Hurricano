@@ -1,6 +1,6 @@
-const Discord = require("discord.js");
+const Discord = require("discord.js"),
+  { MessageAttachment } = require("discord.js");
 const Command = require("@Command");
-const client = require("../../handlers");
 module.exports = new Command({
   name: "beautify",
   cooldown: 5,
@@ -16,10 +16,12 @@ module.exports = new Command({
     });
     const img = await canvacord.Canvas.beautiful(avatar);
     const embed = new Discord.MessageEmbed()
-      .setTitle("What an art work.")
+      .setAuthor("What an art work.", message.author.displayAvatarURL())
       .setDescription(`How amazing this art is.`)
-      .attachFiles([new Discord.MessageAttachment(img, "img.png")])
       .setImage("attachment://img.png");
-    message.reply({ embeds: [embed] });
+    message.reply({
+      embeds: [embed],
+      files: [new MessageAttachment(img, "img.png")],
+    });
   },
 });

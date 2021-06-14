@@ -1,4 +1,5 @@
-const Discord = require("discord.js");
+const Discord = require("discord.js"),
+  { MessageAttachment } = require("discord.js");
 const Command = require("@Command");
 
 module.exports = new Command({
@@ -16,10 +17,13 @@ module.exports = new Command({
     });
     const img = await canvacord.Canvas.rip(avatar);
     const embed = new Discord.MessageEmbed()
-      .setTitle("Rip!")
+      .setAuthor("R.I.P.", message.author.displayAvatarURL())
       .setDescription(`Rip ${person.toString()}!`)
       .attachFiles([new Discord.MessageAttachment(img, "img.png")])
       .setImage("attachment://img.png");
-    message.reply(embed);
+    message.reply({
+      embeds: [embed],
+      files: [new MessageAttachment(img, "img.png")],
+    });
   },
 });

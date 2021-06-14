@@ -25,9 +25,11 @@ module.exports = new Command({
       const embed = new MessageEmbed()
         .setTitle("B u r n .")
         .setDescription(`Get burnt, ${person}.`)
-        .attachFiles([new MessageAttachment(img, "img.png")])
         .setImage("attachment://img.png");
-      await interaction.reply({ embeds: [embed] });
+      await interaction.reply({
+        embeds: [embed],
+        files: [new MessageAttachment(img, "img.png")],
+      });
     },
   },
   description: "Burn someone's avatar :(",
@@ -41,10 +43,12 @@ module.exports = new Command({
     });
     const img = await canvacord.Canvas.burn(avatar, 4);
     const embed = new Discord.MessageEmbed()
-      .setTitle("B u r n .")
+      .setAuthor("B u r n .", message.author.displayAvatarURL())
       .setDescription(`Get burnt, ${person}.`)
-      .attachFiles([new MessageAttachment(img, "img.png")])
       .setImage("attachment://img.png");
-    message.reply({ embeds: [embed] });
+    message.reply({
+      embeds: [embed],
+      files: [new MessageAttachment(img, "img.png")],
+    });
   },
 });

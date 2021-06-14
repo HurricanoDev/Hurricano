@@ -1,4 +1,5 @@
-const Discord = require("discord.js");
+const Discord = require("discord.js"),
+  { MessageAttachment } = require("discord.js");
 const Command = require("@Command");
 module.exports = new Command({
   name: "facepalm",
@@ -18,7 +19,9 @@ module.exports = new Command({
       format: "png",
     });
     let image = await canvacord.Canvas.facepalm(avatar);
-    let attachment = new Discord.MessageAttachment(image, "facepalm.png");
-    return message.reply({ attachments: [attachment] });
+    return message.reply({
+      embeds: [new Discord.MessageEmbed()],
+      files: [new MessageAttachment(img, "img.png")],
+    });
   },
 });
