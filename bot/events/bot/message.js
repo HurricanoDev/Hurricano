@@ -96,7 +96,7 @@ module.exports = class MessageEvent extends BaseEvent {
 
     const mentionedMember = message.mentions.members.first();
 
-    if (mentionedMember) {
+    if (mentionedMember && message.author.id !== mentionedMember?.id) {
       const data = client.afk.get(mentionedMember.id);
 
       if (data) {
