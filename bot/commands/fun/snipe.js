@@ -31,7 +31,7 @@ module.exports = new Command({
       return embed;
     }
     if (!args.length) {
-      const array = client.snipes.recent.get(message.channel.id).reverse();
+      const array = client.snipes.recent.get(message.channel.id)?.reverse();
       if (!array)
         return message.channel.sendError(
           message,

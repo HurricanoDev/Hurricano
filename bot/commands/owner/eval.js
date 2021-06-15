@@ -109,6 +109,7 @@ module.exports = new Command({
           msg.edit({ components: [] });
         });
       if (conf?.customID) {
+        conf.reply({ content: "Successfully deleted!", ephemeral: true })
         msg.delete();
       }
     } catch (err) {
@@ -132,6 +133,7 @@ module.exports = new Command({
         msg.edit({ components: [] });
       });
     if (conf?.customID) {
+      conf.reply({ content: "Successfully deleted!", ephemeral: true })
       msg.delete();
     };
     }
