@@ -38,7 +38,7 @@ module.exports = new Command({
       let conf = await sendMsg
         .awaitMessageComponentInteraction(
           (x) =>
-            x.customID == "muteHelpDelete",
+            x.user.id === message.author.id & x.customID == "muteHelpDelete",
           45000
         )
         .catch(() => {
