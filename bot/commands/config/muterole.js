@@ -1,5 +1,5 @@
 const Command = require("@Command");
-const { MessageEmbed } = require("discord.js");
+const { MessageEmbed, MessageButton } = require("discord.js");
 
 module.exports = new Command({
   name: "muterole",
@@ -27,7 +27,28 @@ module.exports = new Command({
       )
       .setColor("#606365");
 
-    if (!args.length) return message.channel.send({ embeds: [defEmbed] });
+    const muteRow = new MessageButton()
+      .setCustomID("muteHelpDelete")
+      .setLabel("Delete?")
+      .setEmoji("<:trashcan:854306995280150558>")
+      .setStyle("PRIMARY");
+
+    if (!args.length) {
+      const sendMsg = await message.channel.send({ embeds: [defEmbed], components: [[muteRow]] });
+      let conf = await sendMsg
+        .awaitMessageComponentInteraction(
+          (x) =>
+            x.customID == "muteHelpDelete",
+          45000
+        )
+        .catch(() => {
+          sendMsg.edit({ components: [] });
+        });
+      if (conf?.customID) {
+        conf.reply({ content: "Successfully deleted!", ephemeral: true })
+        msg.delete();
+      }
+    }
 
     switch (args[0].toLowerCase()) {
       case "set":
