@@ -116,7 +116,7 @@ module.exports.Menu = class extends EventEmitter {
   start() {
     this.emit("pageChange", this.currentPage);
     this.channel
-      .send(this.currentPage.content)
+      .send({ embeds: [this.currentPage.content] })
       .then((menu) => {
         this.menu = menu;
         this.addReactions();
