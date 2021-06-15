@@ -46,8 +46,9 @@ module.exports = new Command({
         });
       if (conf?.customID) {
         conf.reply({ content: "Successfully deleted!", ephemeral: true })
-        msg.delete();
+        sendMsg.delete();
       }
+      return;
     }
 
     switch (args[0].toLowerCase()) {
