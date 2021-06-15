@@ -113,7 +113,27 @@ module.exports = new Command({
       }
     } catch (err) {
       const embed = await sendEmbed(err, code);
-      return message.channel.send({ embeds: [embed] });
+      const row = new MessageButton()
+      .setCustomID("toDelete")
+      .setLabel("Delete?")
+      .setStyle("DANGER");
+    const msg = await message.channel.send({
+      embeds: [embed],
+      components: [[row]],
+    });
+    let conf = await msg
+      .awaitMessageComponentInteraction(
+        (x) =>
+          client.config.ownerIds.includes(x.user.id) &&
+          x.customID == "toDelete",
+        45000
+      )
+      .catch(() => {
+        msg.edit({ components: [] });
+      });
+    if (conf?.customID) {
+      msg.delete();
+    };
     }
   },
 });
