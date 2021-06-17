@@ -108,5 +108,11 @@ module.exports = model(
         default: null,
       },
     },
+    blacklistedWords: {
+      type: Array,
+      required: false,
+      allowNull: true,
+      default: null,
+    },
   })
 );
