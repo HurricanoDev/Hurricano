@@ -40,7 +40,7 @@ module.exports = class messageUpdate extends BaseEvent {
       if (!guildChannel) return;
       let embed = new MessageEmbed()
         .setAuthor(
-          `Message Edited By ${oldMessage.author.tag}! | (ID: ${oldMessage.author.id})`,
+          `Message Edited By ${oldMessage.author?.tag}! | (ID: ${oldMessage.author?.id})`,
           oldMessage.author.displayAvatarURL()
         )
         .setDescription(
@@ -52,7 +52,7 @@ module.exports = class messageUpdate extends BaseEvent {
         )
         .addField("Channel:", `${newMessage.channel}`)
         .setFooter(
-          `Deleted by ${newMessage.author.tag} | ${newMessage.author.id}`
+          `Deleted by ${newMessage.author?.tag} | ${newMessage.author?.id}`
         )
         .setColor("#6082b6");
       oldMessage.attachments.first() &&

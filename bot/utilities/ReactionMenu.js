@@ -48,7 +48,7 @@ module.exports.Menu = class extends EventEmitter {
   constructor(channel, author, pages, ms = 180000) {
     super();
     this.channel = channel;
-    this.userID = author;
+    this.userID = author.id;
     this.ms = ms;
     this.author = author;
 
@@ -260,7 +260,7 @@ module.exports.Menu = class extends EventEmitter {
 
       // If a 3rd party tries to add reactions or the reaction isn't registered, delete it.
       if (
-        user.id !== this.userID ||
+        user.id !== this.author.id ||
         !Object.keys(this.currentPage.reactions).includes(reactionName)
       ) {
         return reaction.users.remove(user);
