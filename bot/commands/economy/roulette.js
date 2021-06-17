@@ -56,7 +56,7 @@ module.exports = new Command({
         .setDescription(
           `:red_square: You won ${money} coins\n\nMultiplier: \`15x\``
         );
-      message.channel.send(moneyEmbed1);
+      message.channel.send({ embeds: [moneyEmbed1] });
     } else if (isOdd(random) && colour == 1) {
       // Red
       money = parseInt(money * 1.5);
@@ -68,7 +68,7 @@ module.exports = new Command({
         .setDescription(
           `:red_square: You won ${money} coins\n\nMultiplier: \`1.5x\``
         );
-      message.channel.send(moneyEmbed2);
+     message.channel.send({ embeds: [moneyEmbed2] });
     } else if (!isOdd(random) && colour == 0) {
       // Black
       money = parseInt(money * 2);
@@ -80,7 +80,7 @@ module.exports = new Command({
         .setDescription(
           `:black_large_square: You won ${money} coins\n\nMultiplier: \`2x\``
         );
-      message.channel.send(moneyEmbed3);
+      message.channel.send({ embeds: [moneyEmbed3] });
     } else {
       // Wrong
       let parsedMoney = parseInt(money);
@@ -90,7 +90,7 @@ module.exports = new Command({
         .setAuthor("You lost!", client.user.displayAvatarURL())
         .setColor("RED")
         .setDescription(`You lost ${money} coins\n\nMultiplier: \`0x\``);
-      message.channel.send(loseEmbed);
+      message.channel.send({ embeds: [loseEmbed] });
     }
   },
 });
