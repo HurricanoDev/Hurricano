@@ -1,10 +1,9 @@
-const Discord = require("discord.js");
 const { MessageEmbed } = require("discord.js");
 const config = require("@config");
 const moment = require("moment");
 const leven = require("../../utilities/leven.js");
 const Cooldown = require("../../schemas/cooldown");
-const stc = require("statcord.js");
+// const stc = require("statcord.js");
 //Spam Variables
 const LIMIT = 10;
 const TIME = 10000;
@@ -60,7 +59,7 @@ module.exports = class MessageEvent extends BaseEvent {
   }
   async run(message, client) {
     const usersMap = client.usersMap;
-    if (message.author.bot || message.channel.type == "dm") return;
+    if (message.author.bot || message.channel.type === "dm") return;
     if (
       !message.channel
         .permissionsFor(client.user.id)
@@ -245,6 +244,7 @@ module.exports = class MessageEvent extends BaseEvent {
         (message.content === `<@!${client.user.id}>` && !userSchema.blacklisted)
       )
         return message.channel.send({ embeds: [embed] });
+
       const [, match] = message.content.toLowerCase().match(prefixRegex);
       if (!message.content.toLowerCase().startsWith(match)) return;
       let args = message.content.slice(match.length).trim().split(/ +/g);
@@ -255,6 +255,7 @@ module.exports = class MessageEvent extends BaseEvent {
       const command =
         client.commands.get(cmd) ||
         client.commands.get(client.aliases.get(cmd));
+
       if (userSchema.blacklisted)
         return message.sendErrorReply(
           "You have been blacklisted!",
@@ -288,6 +289,52 @@ module.exports = class MessageEvent extends BaseEvent {
       message._usedPrefix = message.content.startsWith("<")
         ? `{prefix/mention}`
         : prefix;
+      if (command.subCommands && args.length) {
+        const { subCommands } = command;
+        function getKey(value) {
+          for (const [key, val] of subCommands.commands.entries()) {
+            if (Object.is(value, val)) return key;
+          }
+        }
+        const subCommand =
+          subCommands.commands.get(args[0]) ||
+          subCommands.commands.find((x) => {
+            const keyfunc = getKey(x);
+            if (Array.isArray(keyfunc) && keyfunc.includes(args[0])) return x;
+          });
+        if (subCommand) {
+          /**
+           * Subcommand Arguments.
+           * @type Array
+           */
+
+          let subArgs = args.map((x) => x);
+          subArgs.shift();
+          if (subCommands.baseAuthorization) {
+            const auth = subCommands.baseAuthorization
+              ? await subCommands.baseAuthorization(
+                  message,
+                  args,
+                  subArgs,
+                  args[0]
+                )
+              : null;
+            if (auth && auth !== "allow") return;
+          }
+
+          /**
+           * Example:
+           * subCommands: [
+           * ["foo", (message) => {
+           * return message.reply("bar!");
+           * }]
+           * ]
+           */
+
+          await subCommand(message, subArgs, args);
+        }
+      }
+
       // command.ownerOnly ? null : stc.ShardingClient.postCommand(command.name, message.author.id, client);
       let checkAdmin = config.ownerIds.includes(author.id);
       if (command.conf.ownerOnly === true && !checkAdmin)
@@ -354,7 +401,7 @@ module.exports = class MessageEvent extends BaseEvent {
             message.author.id,
             message.guild.id
           );
-          message.sendSuccessReply(
+          await message.sendSuccessReply(
             `Level Up!`,
             `${message.author}, congratulations! You have leveled up to **${user.level}**! :tada:`
           );
@@ -369,6 +416,7 @@ module.exports = class MessageEvent extends BaseEvent {
           message.guild
         } with args: "${args.join(" ")}"`
       );
+
       await command.run(message, args);
     }
   }

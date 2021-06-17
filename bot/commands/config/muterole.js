@@ -34,18 +34,22 @@ module.exports = new Command({
       .setStyle("PRIMARY");
 
     if (!args.length) {
-      const sendMsg = await message.channel.send({ embeds: [defEmbed], components: [[muteRow]] });
+      const sendMsg = await message.channel.send({
+        embeds: [defEmbed],
+        components: [[muteRow]],
+      });
       let conf = await sendMsg
         .awaitMessageComponentInteraction(
           (x) =>
-            x.user.id === message.author.id & x.customID == "muteHelpDelete",
+            (x.user.id === message.author.id) &
+            (x.customID == "muteHelpDelete"),
           45000
         )
         .catch(() => {
           sendMsg.edit({ components: [] });
         });
       if (conf?.customID) {
-        conf.reply({ content: "Successfully deleted!", ephemeral: true })
+        conf.reply({ content: "Successfully deleted!", ephemeral: true });
         sendMsg.delete();
       }
       return;

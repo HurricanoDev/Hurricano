@@ -15,10 +15,16 @@ module.exports = class Command {
     this.cooldown = opts.cooldown || null;
     this.userPermissions = opts.userPermissions || null;
     this.clientPermissions = opts.clientPermissions || null;
+    this.subCommands = opts.subCommands
+      ? {
+          commands: new _Collection(opts.subCommands.commands),
+          baseAuthorization: opts.subCommands.baseAuthorization ?? null,
+        }
+      : null;
     this.run =
       opts.run ??
       function run() {
-        if (!this.slash)
+        if (!this.slash && !this.subCommands)
           throw new Error(`Command ${name} doesn't have a run method.`);
       };
     this.slash = {
@@ -46,6 +52,7 @@ module.exports = class Command {
       args,
       slash,
       run,
+      subCommands,
     } = this;
     this.conf = {
       cooldown,
@@ -56,6 +63,7 @@ module.exports = class Command {
       args,
       slash,
       run,
+      subCommands,
     };
     this.help = {
       name,
@@ -104,6 +112,19 @@ module.exports = class Command {
           );
       }
     }
+
+    if (opts.subCommands) {
+      if (typeof opts.subCommands !== "object")
+        throw new Error(`Command: ${name}: Subcommands list aren't an array.`);
+
+      for (const sub of opts.subCommands.commands) {
+        if (!Array.isArray(sub))
+          throw new Error(
+            `Command: ${name}: One of the subcommands aren't an array.`
+          );
+      }
+    }
+
     if (opts.userPermissions) {
       if (!Array.isArray(opts.userPermissions))
         throw new TypeError(

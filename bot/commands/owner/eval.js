@@ -109,33 +109,33 @@ module.exports = new Command({
           msg.edit({ components: [] });
         });
       if (conf?.customID) {
-        conf.reply({ content: "Successfully deleted!", ephemeral: true })
+        conf.reply({ content: "Successfully deleted!", ephemeral: true });
         msg.delete();
       }
     } catch (err) {
       const embed = await sendEmbed(err, code);
       const row = new MessageButton()
-      .setCustomID("toDelete")
-      .setLabel("Delete?")
-      .setStyle("DANGER");
-    const msg = await message.channel.send({
-      embeds: [embed],
-      components: [[row]],
-    });
-    let conf = await msg
-      .awaitMessageComponentInteraction(
-        (x) =>
-          client.config.ownerIds.includes(x.user.id) &&
-          x.customID == "toDelete",
-        45000
-      )
-      .catch(() => {
-        msg.edit({ components: [] });
+        .setCustomID("toDelete")
+        .setLabel("Delete?")
+        .setStyle("DANGER");
+      const msg = await message.channel.send({
+        embeds: [embed],
+        components: [[row]],
       });
-    if (conf?.customID) {
-      conf.reply({ content: "Successfully deleted!", ephemeral: true })
-      msg.delete();
-    };
+      let conf = await msg
+        .awaitMessageComponentInteraction(
+          (x) =>
+            client.config.ownerIds.includes(x.user.id) &&
+            x.customID == "toDelete",
+          45000
+        )
+        .catch(() => {
+          msg.edit({ components: [] });
+        });
+      if (conf?.customID) {
+        conf.reply({ content: "Successfully deleted!", ephemeral: true });
+        msg.delete();
+      }
     }
   },
 });

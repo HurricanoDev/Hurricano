@@ -14,14 +14,8 @@ const { Player } = require("discord-player");
 const giveawaysManager = require("./utilities/giveaway");
 const logger = require("./utilities/logger.js");
 const path = require("path");
-const structures = fs
-  .readdirSync("./bot/structures/ImmediateExecute")
-  .filter((file) => file.endsWith(".js"));
-
-for (const file of structures) {
-  require("./structures/ImmediateExecute/" + file);
-}
 const Database = require("./handlers/db.js");
+
 /**
  * Extended Client class
  * @extends Discord.Client
@@ -36,11 +30,18 @@ class Client extends Discord.Client {
     super(options);
 
     /**
-     * Add Credentials
+     * Config credentials.
+     * @type {Object}
+     *
      */
+
     this.config = config;
     this.map = {};
 
+    /**
+     * Default prefix.
+     * @type {String}
+     */
     this.globalPrefix = "hr!";
     this.token = config.token;
 
@@ -51,6 +52,7 @@ class Client extends Discord.Client {
 
     /**
      * AFK
+     * @param AFKMap
      */
     this.afk = new Discord.Collection();
 
@@ -61,6 +63,7 @@ class Client extends Discord.Client {
 
     /**
      * Aliases
+     * @type []
      */
     this.aliases = new Discord.Collection();
 
@@ -71,10 +74,12 @@ class Client extends Discord.Client {
     this.db = new Database(this, this.config.mongouri);
     /**
      * Logger
+     * @type {Object}
      */
     this.logger = require("./utilities/logger.js");
     /**
      * Import Schemas
+     * @type {Object}
      */
     this.schemas = {
       guild: require("./schemas/guild.js"),
@@ -87,6 +92,7 @@ class Client extends Discord.Client {
 
     /**
      * Snipes
+     * @type {Object}
      */
     this.snipes = {
       edited: new Discord.Collection(),
@@ -235,21 +241,20 @@ class Client extends Discord.Client {
         const shuffledArray = array.sort((a, b) => 0.5 - Math.random());
         return shuffledArray;
       },
-      createOptionsEmbed: (
-        name,
-        syntax,
-        aliases,
-        permissions,
-        options,
-        prefix
-      ) => {
+      createOptionsEmbed: (command, message) => {
         const optionsEmbed = new Discord.MessageEmbed()
-          .setTitle(`${name} Help`)
+          .setAuthor(`${command.name} Help`, client.user.displayAvatarURL())
           .setColor("#606365")
-          .setDescription(
-            `**Syntax:** \`${prefix}${syntax}\`\n**Aliases:** \`${aliases}\``
+          .addField(
+            "Usage:",
+            `${`\`${command.usage}\`` ?? "No usage provided."}`
           )
-          .addField("Permissions", `\`${permissions}\``)
+          .addField(
+            "Permissions",
+            command.userPermissions?.length
+              ? command.userPermissions.map((x) => `\`${x}\``).join(", ")
+              : "No user permissions required."
+          )
           .addField("Subcommands:", `${options}`)
           .setFooter(
             `Type ${prefix}help <command> for more info on a command.`
@@ -354,4 +359,16 @@ class Client extends Discord.Client {
     }
   }
 }
-module.exports = Client;
+function loadStructures() {
+  const structures = fs
+    .readdirSync("./bot/structures/ImmediateExecute")
+    .filter((file) => file.endsWith(".js"));
+
+  for (const file of structures) {
+    require("./structures/ImmediateExecute/" + file);
+  }
+}
+module.exports = {
+  loadStructures,
+  Client,
+};

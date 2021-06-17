@@ -1,6 +1,8 @@
-const { Intents } = require("discord.js");
+const { Intents, Collection } = require("discord.js");
 require("module-alias/register");
-const Client = require("@root/bot/Client.js");
+global._Collection = Collection;
+const { Client, loadStructures } = require("@root/bot/Client.js");
+loadStructures();
 const config = require("@config");
 const intents = new Intents();
 intents.add(

@@ -7,7 +7,7 @@ module.exports = class messageDeleteEvent extends BaseEvent {
       client: client,
     });
   }
-  async run (message, client) {
+  async run(message, client) {
     if (message?.author?.bot) return;
     let snipeArray = client.snipes.deleted.get(message.channel.id) ?? [];
     const snipeObject = {

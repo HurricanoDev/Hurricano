@@ -1,5 +1,5 @@
 const Command = require("@Command");
-const Discord = require('discord.js');
+const Discord = require("discord.js");
 
 module.exports = new Command({
   name: "roulette",
@@ -68,7 +68,7 @@ module.exports = new Command({
         .setDescription(
           `:red_square: You won ${money} coins\n\nMultiplier: \`1.5x\``
         );
-     message.channel.send({ embeds: [moneyEmbed2] });
+      message.channel.send({ embeds: [moneyEmbed2] });
     } else if (!isOdd(random) && colour == 0) {
       // Black
       money = parseInt(money * 2);
