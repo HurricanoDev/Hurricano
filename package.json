@@ -13,7 +13,7 @@
     "bot",
     "Discord bot"
   ],
-  "author": "Dragonizedpizza, Militia21 and Anogh297",
+  "author": "Dragonizedpizza, Militia21",
   "license": "ISC",
   "dependencies": {
     "@discordjs/opus": "^0.5.0",
