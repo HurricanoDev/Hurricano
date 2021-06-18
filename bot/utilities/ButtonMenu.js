@@ -56,7 +56,8 @@ module.exports = class ButtonMenu {
           ephemeral: true,
         });
       message = await message.edit({ embeds: [embed] });
-      button.reply({ content: "Updated!", ephemeral: true });
+      button.deferUpdate();
     });
+    collector.on("end", () => message.edit({ components: [] }))
   }
 };
