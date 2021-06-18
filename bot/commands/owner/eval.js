@@ -29,20 +29,20 @@ module.exports = new Command({
         .addField("Type of Output:", `\`\`\`xl\n${typeofOut}\`\`\``);
       if (content.length > 2032) {
         const src = await sourcebin(
-            [
-              {
-                name: `Code by ${message.author.tag}`,
-                content: content,
-                languageId: "js",
-              }],
+          [
             {
-              title: `Code by ${message.author.tag}`,
-              description: `Output of the eval command used by ${message.author.tag}.`,
-            }
-            )
-          .catch((e) => {
-            return e;
-          });
+              name: `Code by ${message.author.tag}`,
+              content: content,
+              languageId: "js",
+            },
+          ],
+          {
+            title: `Code by ${message.author.tag}`,
+            description: `Output of the eval command used by ${message.author.tag}.`,
+          }
+        ).catch((e) => {
+          return e;
+        });
         const msg = await message.author.sendSuccess(
           message,
           "Eval Output.",
@@ -105,7 +105,7 @@ module.exports = new Command({
           (x) =>
             client.config.ownerIds.includes(x.user.id) &&
             x.customID == "toDelete",
-          45000
+          { time: 45000 }
         )
         .catch(() => {
           msg.edit({ components: [] });
@@ -130,7 +130,7 @@ module.exports = new Command({
           (x) =>
             client.config.ownerIds.includes(x.user.id) &&
             x.customID == "toDelete",
-          45000
+          { time: 45000 }
         )
         .catch(() => {
           msg.edit({ components: [] });

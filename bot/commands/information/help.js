@@ -1,5 +1,5 @@
 const { MessageEmbed } = require("discord.js");
-const { Menu } = require("../../utilities/ReactionMenu.js");
+const Menu = require("../../utilities/ButtonMenu.js");
 const emojis = require("../../utilities/emojis.json");
 let tips = [
   "The first person convicted of speeding was going eight mph.",
@@ -288,251 +288,21 @@ module.exports = new Command({
       );
       // ------------------------------------------------------------------------------------
 
-      let helpMenu = new Menu(
-        message.channel,
-        message.author,
-        [
-          {
-            name: "main",
-            content: main,
-            reactions: {
-              [emojimap.config]: "config",
-              [emojimap.information]: "information",
-              [emojimap.fun]: "fun",
-              [emojimap.giveaways]: "giveaways",
-              [emojimap.image]: "image",
-              [emojimap.moderation]: "moderation",
-              [emojimap.levelling]: "levelling",
-              [emojimap.music]: "music",
-              [emojimap.utility]: "utility",
-              [emojimap.economy]: "economy",
-              [emojimap.owner]: client.config.ownerIds.includes(
-                message.author.id
-              )
-                ? "owner"
-                : null,
-            },
-          },
-          {
-            name: "config",
-            content: config,
-            reactions: {
-              [emojimap.config]: "config",
-              [emojimap.information]: "information",
-              [emojimap.fun]: "fun",
-              [emojimap.giveaways]: "giveaways",
-              [emojimap.image]: "image",
-              [emojimap.moderation]: "moderation",
-              [emojimap.levelling]: "levelling",
-              [emojimap.music]: "music",
-              [emojimap.utility]: "utility",
-              [emojimap.economy]: "economy",
-              [emojimap.owner]: client.config.ownerIds.includes(
-                message.author.id
-              )
-                ? "owner"
-                : null,
-            },
-          },
-          {
-            name: "information",
-            content: information,
-            reactions: {
-              [emojimap.config]: "config",
-              [emojimap.fun]: "fun",
-              [emojimap.giveaways]: "giveaways",
-              [emojimap.image]: "image",
-              [emojimap.moderation]: "moderation",
-              [emojimap.levelling]: "levelling",
-              [emojimap.music]: "music",
-              [emojimap.utility]: "utility",
-              [emojimap.economy]: "economy",
-              [emojimap.owner]: client.config.ownerIds.includes(
-                message.author.id
-              )
-                ? "owner"
-                : null,
-            },
-          },
-          {
-            name: "fun",
-            content: fun,
-            reactions: {
-              [emojimap.config]: "config",
-              [emojimap.information]: "information",
-              [emojimap.giveaways]: "giveaways",
-              [emojimap.image]: "image",
-              [emojimap.moderation]: "moderation",
-              [emojimap.levelling]: "levelling",
-              [emojimap.music]: "music",
-              [emojimap.utility]: "utility",
-              [emojimap.economy]: "economy",
-              [emojimap.owner]: client.config.ownerIds.includes(
-                message.author.id
-              )
-                ? "owner"
-                : null,
-            },
-          },
-          {
-            name: "giveaways",
-            content: giveaways,
-            reactions: {
-              [emojimap.config]: "config",
-              [emojimap.information]: "information",
-              [emojimap.fun]: "fun",
-              [emojimap.image]: "image",
-              [emojimap.moderation]: "moderation",
-              [emojimap.levelling]: "levelling",
-              [emojimap.music]: "music",
-              [emojimap.utility]: "utility",
-              [emojimap.economy]: "economy",
-              [emojimap.owner]: client.config.ownerIds.includes(
-                message.author.id
-              )
-                ? "owner"
-                : null,
-            },
-          },
-          {
-            name: "image",
-            content: image,
-            reactions: {
-              [emojimap.config]: "config",
-              [emojimap.information]: "information",
-              [emojimap.fun]: "fun",
-              [emojimap.giveaways]: "giveaways",
-              [emojimap.moderation]: "moderation",
-              [emojimap.levelling]: "levelling",
-              [emojimap.music]: "music",
-              [emojimap.utility]: "utility",
-              [emojimap.economy]: "economy",
-              [emojimap.owner]: client.config.ownerIds.includes(
-                message.author.id
-              )
-                ? "owner"
-                : null,
-            },
-          },
-          {
-            name: "moderation",
-            content: moderation,
-            reactions: {
-              [emojimap.config]: "config",
-              [emojimap.information]: "information",
-              [emojimap.fun]: "fun",
-              [emojimap.giveaways]: "giveaways",
-              [emojimap.image]: "image",
-              [emojimap.levelling]: "levelling",
-              [emojimap.music]: "music",
-              [emojimap.utility]: "utility",
-              [emojimap.economy]: "economy",
-              [emojimap.owner]: client.config.ownerIds.includes(
-                message.author.id
-              )
-                ? "owner"
-                : null,
-            },
-          },
-          {
-            name: "levelling",
-            content: levelling,
-            reactions: {
-              [emojimap.config]: "config",
-              [emojimap.information]: "information",
-              [emojimap.fun]: "fun",
-              [emojimap.giveaways]: "giveaways",
-              [emojimap.image]: "image",
-              [emojimap.moderation]: "moderation",
-              [emojimap.music]: "music",
-              [emojimap.utility]: "utility",
-              [emojimap.economy]: "economy",
-              [emojimap.owner]: client.config.ownerIds.includes(
-                message.author.id
-              )
-                ? "owner"
-                : null,
-            },
-          },
-          {
-            name: "music",
-            content: music,
-            reactions: {
-              [emojimap.config]: "config",
-              [emojimap.information]: "information",
-              [emojimap.fun]: "fun",
-              [emojimap.giveaways]: "giveaways",
-              [emojimap.image]: "image",
-              [emojimap.moderation]: "moderation",
-              [emojimap.levelling]: "levelling",
-              [emojimap.utility]: "utility",
-              [emojimap.economy]: "economy",
-              [emojimap.owner]: client.config.ownerIds.includes(
-                message.author.id
-              )
-                ? "owner"
-                : null,
-            },
-          },
-          {
-            name: "utility",
-            content: utility,
-            reactions: {
-              [emojimap.config]: "config",
-              [emojimap.information]: "information",
-              [emojimap.fun]: "fun",
-              [emojimap.giveaways]: "giveaways",
-              [emojimap.music]: "music",
-              [emojimap.image]: "image",
-              [emojimap.moderation]: "moderation",
-              [emojimap.levelling]: "levelling",
-              [emojimap.economy]: "economy",
-              [emojimap.owner]: client.config.ownerIds.includes(
-                message.author.id
-              )
-                ? "owner"
-                : null,
-            },
-          },
-          {
-            name: "economy",
-            content: economy,
-            reactions: {
-              [emojimap.config]: "config",
-              [emojimap.information]: "information",
-              [emojimap.fun]: "fun",
-              [emojimap.giveaways]: "giveaways",
-              [emojimap.music]: "music",
-              [emojimap.image]: "image",
-              [emojimap.moderation]: "moderation",
-              [emojimap.levelling]: "levelling",
-              [emojimap.economy]: "economy",
-              [emojimap.owner]: client.config.ownerIds.includes(
-                message.author.id
-              )
-                ? "owner"
-                : null,
-            },
-          },
-          {
-            name: "owner",
-            content: owner,
-            reactions: {
-              [emojimap.config]: "config",
-              [emojimap.information]: "information",
-              [emojimap.fun]: "fun",
-              [emojimap.giveaways]: "giveaways",
-              [emojimap.music]: "music",
-              [emojimap.image]: "image",
-              [emojimap.moderation]: "moderation",
-              [emojimap.utility]: "utility",
-              [emojimap.levelling]: "levelling",
-              [emojimap.economy]: "economy",
-            },
-          },
-        ],
-        30000
-      );
+      let helpMenu = new Menu(message, main, {
+        [emojimap.config]: config,
+        [emojimap.information]: information,
+        [emojimap.fun]: fun,
+        [emojimap.giveaways]: giveaways,
+        [emojimap.image]: image,
+        [emojimap.moderation]: moderation,
+        [emojimap.levelling]: levelling,
+        [emojimap.music]: music,
+        [emojimap.utility]: utility,
+        [emojimap.economy]: economy,
+        [emojimap.owner]: client.config.ownerIds.includes(message.author.id)
+          ? owner
+          : null,
+      });
       helpMenu.start();
     }
   },

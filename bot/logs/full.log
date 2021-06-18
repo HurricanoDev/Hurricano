@@ -1,38 +1,6 @@
-[2021-06-18 04:45:53] - [error]: Cannot find module 'source[2021-06-18 04:45:57] - [shard]: [Shard 0] Shard Ready!
-icano/bot/commands/owner/fulleval.js
-- /home/dragonizedpizza/Desktop/Hurricano/bot/Client.js
-- /home/dragonizedpizza/Desktop/Hurricano/bot/handlers/index.js
-{
-  "code": "MODULE_NOT_FOUND",
-  "requireStack": [
-    "/home/dragonizedpizza/Desktop/Hurricano/bot/commands/owner/fulleval.js",
-    "/home/dragonizedpizza/Desktop/Hurricano/bot/Client.js",
-    "/home/dragonizedpizza/Desktop/Hurricano/bot/handlers/index.js"
-  ],
-  "stack": "Error: Cannot find module 'sourcebin'
-Require stack:
-- /home/dragonizedpizza/Desktop/Hurricano/bot/commands/owner/fulleval.js
-- /home/dragonizedpizza/Desktop/Hurricano/bot/Client.js
-- /home/dragonizedpizza/Desktop/Hurricano/bot/handlers/index.js
-    at Function.Module._resolveFilename (internal/modules/cjs/loader.js:902:15)
-    at Function.Module._resolveFilename (/home/dragonizedpizza/Desktop/Hurricano/node_modules/module-alias/index.js:49:29)
-    at Function.Module._load (internal/modules/cjs/loader.js:746:27)
-    at Module.require (internal/modules/cjs/loader.js:974:19)
-    at require (internal/modules/cjs/helpers.js:92:18)
-    at Object.<anonymous> (/home/dragonizedpizza/Desktop/Hurricano/bot/commands/owner/fulleval.js:2:19)
-    at Module._compile (internal/modules/cjs/loader.js:1085:14)
-    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1114:10)
-    at Module.load (internal/modules/cjs/loader.js:950:32)
-    at Function.Module._load (internal/modules/cjs/loader.js:790:14)
-    at Module.require (internal/modules/cjs/loader.js:974:19)
-    at require (internal/modules/cjs/helpers.js:92:18)
-    at /home/dragonizedpizza/Desktop/Hurricano/bot/Client.js:309:25
-    at Array.forEach (<anonymous>)
-    at Client.loadCommands (/home/dragonizedpizza/Desktop/Hurricano/bot/Client.js:303:35)
-    at init (/home/dragonizedpizza/Desktop/Hurricano/bot/handlers/index.js:28:10)"
-}
-[2021-06-18 04:45:53] - [client]: 
-.---------------------------------------------------------------------------------------------------------------------------.
+[2021-06-18 13:13:33] - [client]: 
+.-----------------------[2021-06-18 13:13:36] - [shard]: [Shard 0] Shard Ready!
+--------------------------------------------.
 |                                                         Commands                                                          |
 |---------------------------------------------------------------------------------------------------------------------------|
 |     Command File     |   Command Name    | Command Category |                    Aliases                    | Load status |
@@ -97,36 +65,43 @@ Require stack:
 | blacklist.js         | blacklist         | owner            | None.                                         | Loaded!     |
 | eval.js              | eval              | owner            | None.                                         | Loaded!     |
 | exec.js              | exec              | owner            | None.                                         | Loaded!     |
+| fulleval.js          | fulleval          | owner            | None.                                         | Loaded!     |
+| leaveguild.js        | leaveguild        | owner            | None.                                         | Loaded!     |
+| pull.js              | pull              | owner            | None.                                         | Loaded!     |
+| reboot.js            | reboot            | owner            | None.                                         | Loaded!     |
+| reload.js            | reload            | owner            | None.                                         | Loaded!     |
+| shutdown.js          | shutdown          | owner            | None.                                         | Loaded!     |
+| unblacklist.js       | unblacklist       | owner            | None.                                         | Loaded!     |
 | afk.js               | afk               | utility          | None.                                         | Loaded!     |
 | birthdaycheck.js     | birthdate         | utility          | checkbirthday, checkbday, birthdaycheck       | Loaded!     |
 | birthdayset.js       | birthdayset       | utility          | setbirthday, setbday                          | Loaded!     |
 | suggest.js           | suggest           | utility          | None.                                         | Loaded!     |
 | tag.js               | tag               | utility          | None.                                         | Loaded!     |
 '---------------------------------------------------------------------------------------------------------------------------'
-[2021-06-18 04:45:53] - [info]: Provided token: ODI1NTc0NDEyMTc4NDIzODU5.YF_6Fg.***************************
-[2021-06-18 04:45:53] - [info]: Preparing to connect to the gateway...
-[2021-06-18 04:45:55] - [info]: [WS => Manager] Fetched Gateway Information
+[2021-06-18 13:13:34] - [info]: Provided token: ODI1NTc0NDEyMTc4NDIzODU5.YF_6Fg.***************************
+[2021-06-18 13:13:34] - [info]: Preparing to connect to the gateway...
+[2021-06-18 13:13:34] - [info]: [WS => Manager] Fetched Gateway Information
     URL: wss://gateway.discord.gg
     Recommended Shards: 1
-[2021-06-18 04:45:55] - [info]: [WS => Manager] Session Limit Information
+[2021-06-18 13:13:34] - [info]: [WS => Manager] Session Limit Information
     Total: 1000
-    Remaining: 954
-[2021-06-18 04:45:55] - [info]: [WS => Manager] Spawning shards: 0
-[2021-06-18 04:45:55] - [info]: [WS => Shard 0] [CONNECT]
+    Remaining: 986
+[2021-06-18 13:13:34] - [info]: [WS => Manager] Spawning shards: 0
+[2021-06-18 13:13:34] - [info]: [WS => Shard 0] [CONNECT]
     Gateway    : wss://gateway.discord.gg/
     Version    : 8
     Encoding   : json
     Compression: none
-[2021-06-18 04:45:55] - [info]: [WS => Shard 0] Setting a HELLO timeout for 20s.
-[2021-06-18 04:45:55] - [info]: [WS => Shard 0] [CONNECTED] wss://gateway.discord.gg/?v=8&encoding=json in 615ms
-[2021-06-18 04:45:55] - [info]: [WS => Shard 0] Clearing the HELLO timeout.
-[2021-06-18 04:45:55] - [info]: [WS => Shard 0] Setting a heartbeat interval for 41250ms.
-[2021-06-18 04:45:55] - [info]: [WS => Shard 0] [IDENTIFY] Shard 0/1 with intents: 1923
-[2021-06-18 04:45:56] - [info]: [WS => Shard 0] [READY] Session c22ac0acf40292e546a5cd5ea5318cec.
-[2021-06-18 04:45:56] - [info]: [WS => Shard 0] [ReadyHeartbeat] Sending a heartbeat.
-[2021-06-18 04:45:56] - [db]: Connected to MongoDB!
-[2021-06-18 04:45:57] - [info]: [WS => Shard 0] Shard received all its guilds. Marking as fully ready.
-[2021-06-18 04:45:57] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 1164ms.
-[2021-06-18 04:45:59] - [client]: Hurricano Beta#2437 Successfully Logged in!
-[2021-06-18 04:46:36] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
-[2021-06-18 04:46:37] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 384ms.
+[2021-06-18 13:13:34] - [info]: [WS => Shard 0] Setting a HELLO timeout for 20s.
+[2021-06-18 13:13:35] - [info]: [WS => Shard 0] [CONNECTED] wss://gateway.discord.gg/?v=8&encoding=json in 561ms
+[2021-06-18 13:13:35] - [info]: [WS => Shard 0] Clearing the HELLO timeout.
+[2021-06-18 13:13:35] - [info]: [WS => Shard 0] Setting a heartbeat interval for 41250ms.
+[2021-06-18 13:13:35] - [info]: [WS => Shard 0] [IDENTIFY] Shard 0/1 with intents: 1923
+[2021-06-18 13:13:35] - [info]: [WS => Shard 0] [READY] Session 691187e5e3f99106481c6d1248fe2198.
+[2021-06-18 13:13:35] - [info]: [WS => Shard 0] [ReadyHeartbeat] Sending a heartbeat.
+[2021-06-18 13:13:35] - [db]: Connected to MongoDB!
+[2021-06-18 13:13:36] - [info]: [WS => Shard 0] Shard received all its guilds. Marking as fully ready.
+[2021-06-18 13:13:36] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 1224ms.
+[2021-06-18 13:13:38] - [client]: Hurricano Beta#2437 Successfully Logged in!
+[2021-06-18 13:14:16] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2021-06-18 13:14:16] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 363ms.

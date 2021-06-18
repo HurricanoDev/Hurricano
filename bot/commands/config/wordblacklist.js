@@ -17,7 +17,7 @@ module.exports = new Command({
       [
         "add",
         async (message, args) => {
-          const word = args[1]?.toLowerCase();
+          const word = args[0]?.toLowerCase();
           if (!word)
             return message.channel.sendError(
               message,
@@ -51,7 +51,7 @@ module.exports = new Command({
       [
         ["remove", "delete"],
         async (message, args) => {
-          const word = args[1]?.toLowerCase();
+          const word = args[0]?.toLowerCase();
           if (!word)
             return message.channel.sendError(
               message,

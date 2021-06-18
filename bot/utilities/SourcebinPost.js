@@ -13,7 +13,10 @@ const create = async (bins, options = {}) => {
     if (!bin.content || typeof bin.content !== "string")
       throw new TypeError("Invalid bin content provided.");
 
-    let parsedBin = { content: bin.content, languageId: bin.languageId == "js" ? 183 : 372 };
+    let parsedBin = {
+      content: bin.content,
+      languageId: bin.languageId == "js" ? 183 : 372,
+    };
     if (bin.name) parsedBin.name = bin.name;
 
     parsedBins.push(parsedBin);
