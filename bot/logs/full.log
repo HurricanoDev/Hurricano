@@ -1,5 +1,5 @@
-[2021-06-18 13:13:33] - [client]: 
-.-----------------------[2021-06-18 13:13:36] - [shard]: [Shard 0] Shard Ready!
+[2021-06-18 13:59:18] - [client]: 
+.-----------------------[2021-06-18 13:59:21] - [shard]: [Shard 0] Shard Ready!
 --------------------------------------------.
 |                                                         Commands                                                          |
 |---------------------------------------------------------------------------------------------------------------------------|
@@ -78,30 +78,37 @@
 | suggest.js           | suggest           | utility          | None.                                         | Loaded!     |
 | tag.js               | tag               | utility          | None.                                         | Loaded!     |
 '---------------------------------------------------------------------------------------------------------------------------'
-[2021-06-18 13:13:34] - [info]: Provided token: ODI1NTc0NDEyMTc4NDIzODU5.YF_6Fg.***************************
-[2021-06-18 13:13:34] - [info]: Preparing to connect to the gateway...
-[2021-06-18 13:13:34] - [info]: [WS => Manager] Fetched Gateway Information
+[2021-06-18 13:59:18] - [info]: Provided token: ODI1NTc0NDEyMTc4NDIzODU5.YF_6Fg.***************************
+[2021-06-18 13:59:19] - [info]: Preparing to connect to the gateway...
+[2021-06-18 13:59:19] - [info]: [WS => Manager] Fetched Gateway Information
     URL: wss://gateway.discord.gg
     Recommended Shards: 1
-[2021-06-18 13:13:34] - [info]: [WS => Manager] Session Limit Information
+[2021-06-18 13:59:19] - [info]: [WS => Manager] Session Limit Information
     Total: 1000
-    Remaining: 986
-[2021-06-18 13:13:34] - [info]: [WS => Manager] Spawning shards: 0
-[2021-06-18 13:13:34] - [info]: [WS => Shard 0] [CONNECT]
+    Remaining: 978
+[2021-06-18 13:59:19] - [info]: [WS => Manager] Spawning shards: 0
+[2021-06-18 13:59:19] - [info]: [WS => Shard 0] [CONNECT]
     Gateway    : wss://gateway.discord.gg/
     Version    : 8
     Encoding   : json
     Compression: none
-[2021-06-18 13:13:34] - [info]: [WS => Shard 0] Setting a HELLO timeout for 20s.
-[2021-06-18 13:13:35] - [info]: [WS => Shard 0] [CONNECTED] wss://gateway.discord.gg/?v=8&encoding=json in 561ms
-[2021-06-18 13:13:35] - [info]: [WS => Shard 0] Clearing the HELLO timeout.
-[2021-06-18 13:13:35] - [info]: [WS => Shard 0] Setting a heartbeat interval for 41250ms.
-[2021-06-18 13:13:35] - [info]: [WS => Shard 0] [IDENTIFY] Shard 0/1 with intents: 1923
-[2021-06-18 13:13:35] - [info]: [WS => Shard 0] [READY] Session 691187e5e3f99106481c6d1248fe2198.
-[2021-06-18 13:13:35] - [info]: [WS => Shard 0] [ReadyHeartbeat] Sending a heartbeat.
-[2021-06-18 13:13:35] - [db]: Connected to MongoDB!
-[2021-06-18 13:13:36] - [info]: [WS => Shard 0] Shard received all its guilds. Marking as fully ready.
-[2021-06-18 13:13:36] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 1224ms.
-[2021-06-18 13:13:38] - [client]: Hurricano Beta#2437 Successfully Logged in!
-[2021-06-18 13:14:16] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
-[2021-06-18 13:14:16] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 363ms.
+[2021-06-18 13:59:19] - [info]: [WS => Shard 0] Setting a HELLO timeout for 20s.
+[2021-06-18 13:59:19] - [info]: [WS => Shard 0] [CONNECTED] wss://gateway.discord.gg/?v=8&encoding=json in 570ms
+[2021-06-18 13:59:19] - [info]: [WS => Shard 0] Clearing the HELLO timeout.
+[2021-06-18 13:59:19] - [info]: [WS => Shard 0] Setting a heartbeat interval for 41250ms.
+[2021-06-18 13:59:20] - [info]: [WS => Shard 0] [IDENTIFY] Shard 0/1 with intents: 1923
+[2021-06-18 13:59:20] - [info]: [WS => Shard 0] [READY] Session f77b2bc6ab24e0459459b7d70b4ad2cb.
+[2021-06-18 13:59:20] - [info]: [WS => Shard 0] [ReadyHeartbeat] Sending a heartbeat.
+[2021-06-18 13:59:20] - [db]: Connected to MongoDB!
+[2021-06-18 13:59:21] - [info]: [WS => Shard 0] Shard received all its guilds. Marking as fully ready.
+[2021-06-18 13:59:21] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 946ms.
+[2021-06-18 13:59:23] - [client]: Hurricano Beta#2437 Successfully Logged in!
+[2021-06-18 13:59:47] - [warn]: This interaction has already been deferred or replied to.
+{
+  "stack": "Error [INTERACTION_ALREADY_REPLIED]: This interaction has already been deferred or replied to.
+    at ButtonInteraction.deferUpdate (/home/dragonizedpizza/Desktop/Hurricano/node_modules/discord.js/src/structures/interfaces/InteractionResponses.js:152:46)
+    at MessageComponentInteractionCollector.<anonymous> (/home/dragonizedpizza/Desktop/Hurricano/bot/utilities/ButtonMenu.js:61:14)
+    at processTicksAndRejections (internal/process/task_queues.js:95:5)"
+}
+[2021-06-18 14:00:01] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2021-06-18 14:00:01] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 409ms.

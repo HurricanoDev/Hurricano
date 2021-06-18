@@ -1,0 +1,7 @@
+[2021-06-18 13:59:47] - [warn]: This interaction has already been deferred or replied to.
+{
+  "stack": "Error [INTERACTION_ALREADY_REPLIED]: This interaction has already been deferred or replied to.
+    at ButtonInteraction.deferUpdate (/home/dragonizedpizza/Desktop/Hurricano/node_modules/discord.js/src/structures/interfaces/InteractionResponses.js:152:46)
+    at MessageComponentInteractionCollector.<anonymous> (/home/dragonizedpizza/Desktop/Hurricano/bot/utilities/ButtonMenu.js:61:14)
+    at processTicksAndRejections (internal/process/task_queues.js:95:5)"
+}

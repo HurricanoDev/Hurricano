@@ -43,21 +43,22 @@ module.exports = class ButtonMenu {
       (x) => x.user.id !== client.user.id,
       { time: 45000 }
     );
-    collector.on("collect", async (button) => {
+    await collector.on("collect", async (button) => {
       if (button.user.id !== this.message.author.id)
         return button.reply({
           content: "You cannot use this menu.",
           ephemeral: true,
         });
       const embed = this.options[button.customID];
-      if (message.embeds[0] == embed)
+      if (message.embeds[0].description == embed.description)
         return button.reply({
           content: "Please choose a different button!",
           ephemeral: true,
         });
+
       message = await message.edit({ embeds: [embed] });
       button.deferUpdate();
     });
-    collector.on("end", () => message.edit({ components: [] }))
+    collector.on("end", () => message.edit({ components: [] }));
   }
 };
