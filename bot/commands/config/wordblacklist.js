@@ -1,46 +1,127 @@
 const Command = require("@Command");
 const { MessageEmbed } = require("discord.js");
+const { blacklistedWords } = require("../../collections/blwords.js");
 
 module.exports = new Command({
   name: "wordblacklist",
   description: "Blacklist/Display/Remove word(s) in your server.",
   aliases: ["wbl"],
   userPermissions: ["ADMINISTRATOR"],
-  async run(message, args) {
-    const optionsEmbed = await client.functions.createOptionsEmbed(
-      "Blacklist",
-      "wordblacklist",
-      "wbl",
-      "ADMINISTRATOR",
-      "`display` Display all the blacklisted words.\n`add` Blacklist a word\n`remove` Remove a blacklisted word",
-      message._usedPrefix
-    );
+  examples: [
+    "wordblacklist display",
+    "wordblacklist add",
+    "wordblacklist remove",
+  ],
+  subCommands: {
+    commands: [
+      [
+        "add",
+        async () => {
+          const word = args[1]?.toLowerCase();
+          if (!word)
+            return message.channel.sendError(
+              message,
+              "Error!",
+              "Please specify a word to blacklist"
+            );
 
-    const wordBLRow = new MessageButton()
-      .setCustomID("wblHelpDelete")
-      .setLabel("Delete?")
-      .setEmoji("<:trashcan:854306995280150558>")
-      .setStyle("PRIMARY");
+          client.schemas.guild.findOne(
+            { id: message.guild.id },
+            async (err, data) => {
+              if (data) {
+                if (data.blacklistedWords.includes(word)) {
+                  return message.sendErrorReply(
+                    "Error!",
+                    "That word is already blacklisted!"
+                  );
+                }
+                data.blacklistedWords.push(word);
+                data.save();
+                blacklistedWords.get(message.guild.id).push(word);
+              }
+              message.channel.sendSuccess(
+                message,
+                "Done!",
+                `The word: \`${word}\` was blacklisted!`
+              );
+            }
+          );
+        },
+      ],
+      [
+        ["remove", "delete"],
+        async () => {
+          const word = args[1]?.toLowerCase();
+          if (!word)
+            return message.channel.sendError(
+              message,
+              "Error!",
+              "Please specify a word to blacklist"
+            );
 
-    if (!args.length) {
-      const sendMsg = await message.channel.send({
-        embeds: [optionsEmbed],
-        components: [[wordBLRow]],
-      });
-      let conf = await sendMsg
-        .awaitMessageComponentInteraction(
-          (x) =>
-            (x.user.id === message.author.id) & (x.customID == "wblHelpDelete"),
-          45000
-        )
-        .catch(() => {
-          sendMsg.edit({ components: [] });
-        });
-      if (conf?.customID) {
-        conf.reply({ content: "Successfully deleted!", ephemeral: true });
-        sendMsg.delete();
-      }
-      return;
-    }
+          client.schemas.guild.findOne(
+            { id: message.guild.id },
+            async (err, data) => {
+              if (!data)
+                return message.channel.sendError(
+                  message,
+                  "Error!",
+                  "There is no data saved in the database!"
+                );
+
+              if (!data.blacklistedWords.includes(word))
+                return message.channel.sendError(
+                  message,
+                  "Error!",
+                  "That word does not exist in the database."
+                );
+
+              const filtered = data.blacklistedWords.filter(
+                (target) => target !== word
+              );
+
+              await client.schemas.guild.findOneAndUpdate(
+                { id: message.guild.id },
+                {
+                  blacklistedWords: words,
+                }
+              );
+
+              blacklistedWords
+                .get(message.guild.id)
+                .filter((target) => target !== word);
+            }
+          );
+          message.channel.sendSuccess(
+            message,
+            "Done!",
+            "That word has been removed"
+          );
+        },
+      ],
+      [
+        "display",
+        async () => {
+          client.schemas.guild.findOne(
+            { id: message.guild.id },
+            async (err, data) => {
+              if (!data)
+                return message.channel.sendError(
+                  message,
+                  "Error!",
+                  "There is no data to display!"
+                );
+
+              const displayEmbed = new MessageEmbed()
+                .setTitle("Blacklisted Words")
+                .setColor("#606365")
+                .setDescription(data.blacklistedWords.join(", "));
+              message.channel.send({ embeds: [displayEmbed] });
+            }
+          );
+        },
+      ],
+    ],
   },
+  args: "Incomplete arguments Provided. \n Possible subcommands: `add, remove, display`",
 });

@@ -1,5 +1,6 @@
 const mongoose = require("mongoose");
 const config = require("@config");
+const { blacklistedWords } = require("../../collections/blwords.js");
 const BaseEvent = require("../../structures/BaseEvent.js");
 module.exports = class readyEvent extends BaseEvent {
   constructor(client) {
@@ -11,6 +12,11 @@ module.exports = class readyEvent extends BaseEvent {
     });
   }
   async run(client) {
+    client.schemas.guild.find().then((data) => {
+      data.forEach((val) => {
+        blacklistedWords.set(val.id, val.blacklistedWords);
+      });
+    });
     const slashs = client.commands.filter((cmd) => cmd.slash.isSlash);
 
     let slashies = slashs.map((x) => {

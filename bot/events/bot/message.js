@@ -1,6 +1,7 @@
 const { MessageEmbed } = require("discord.js");
 const config = require("@config");
 const moment = require("moment");
+const { blacklistedWords } = require('../../collections/blwords.js');
 const leven = require("../../utilities/leven.js");
 const Cooldown = require("../../schemas/cooldown");
 // const stc = require("statcord.js");
@@ -117,6 +118,16 @@ module.exports = class MessageEvent extends BaseEvent {
       client.afk.delete(message.author.id);
       message.reply("**Welcome Back!** Your AFK has now been removed!");
     }
+
+    //Word Blacklist System
+    const splitMessages = message.content.split(' ');
+    let deleting = false;
+    await Promise.all(
+      splitMessages.map((content) => {
+        if(blacklistedWords.get(message.guild.id)?.includes(content.toLowerCase())) deleting = true;
+      })
+    )
+    if(deleting) return message.delete();
 
     //Anti-Spam
     const getMuteRole = message.guild.roles.cache.get(muteRole);
