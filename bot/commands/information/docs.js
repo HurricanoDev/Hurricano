@@ -30,7 +30,7 @@ module.exports = new Command({
             "Nothing were found for your query in the discord.js docs."
           );
 
-        msg = await message.reply({ embed });
+        msg = await message.reply({ embeds: [embed] });
 
         msg.react("🗑️");
         let confirmation = await msg
