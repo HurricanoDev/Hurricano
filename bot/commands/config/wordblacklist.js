@@ -16,7 +16,7 @@ module.exports = new Command({
     commands: [
       [
         "add",
-        async () => {
+        async (message, args) => {
           const word = args[1]?.toLowerCase();
           if (!word)
             return message.channel.sendError(
@@ -50,7 +50,7 @@ module.exports = new Command({
       ],
       [
         ["remove", "delete"],
-        async () => {
+        async (message, args) => {
           const word = args[1]?.toLowerCase();
           if (!word)
             return message.channel.sendError(
@@ -101,7 +101,7 @@ module.exports = new Command({
       ],
       [
         "display",
-        async () => {
+        async (message, args) => {
           client.schemas.guild.findOne(
             { id: message.guild.id },
             async (err, data) => {
