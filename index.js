@@ -15,6 +15,8 @@ const manager = new ShardingManager("./bot/handlers/index.js", {
 //   postNetworkStatistics: true,
 //   autopost: true
 // }) : null;
+const Meme = require("memer-api");
+client.memer = new Meme(config.meme)
 manager.on("shardCreate", (shard) => {
   logger.shard(`[Shard ${shard.id}] Shard Launched!`);
   shard.on("ready", () => {
