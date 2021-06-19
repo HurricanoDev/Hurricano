@@ -20,7 +20,7 @@ const Database = require("./handlers/db.js");
  * Extended Client class
  * @extends Discord.Client
  */
-class Client extends Discord.Client {
+class HurricanoClient extends Discord.Client {
   /**
    * Create a new client
    * @param {Object} config
@@ -420,5 +420,5 @@ function loadStructures() {
 }
 module.exports = {
   loadStructures,
-  Client,
+  HurricanoClient,
 };
