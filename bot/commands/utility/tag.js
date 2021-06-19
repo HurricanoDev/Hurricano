@@ -10,7 +10,7 @@ module.exports = new Command({
     commands: [
       [
         ["create", "new", "start"],
-        async () => {
+        async (message) => {
           let name, description;
           message.channel.sendSuccess(
             message,
@@ -145,10 +145,9 @@ module.exports = new Command({
       ],
       [
         "delete",
-        async () => {
+        async (message, args) => {
           const guildSchema = client.db.guilds.cache.get(message.guild.id);
-          let arg = args.map((x) => x);
-          arg.shift();
+          arg = args[0];
           if (!arg)
             return message.channel.sendError(
               message,
