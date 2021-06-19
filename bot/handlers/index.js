@@ -26,17 +26,14 @@ global.client = client;
 if (client.config.website.enabled) {
   require("@root/website/index.js");
 }
-function init() {
+async function init() {
   client.loadCommands();
   client.loadEvents();
+  await client.loadTopgg();
   client.db.init();
   client.connect();
 }
 
 init();
-
-(async () => {
-  await client.loadTopgg();
-})
 
 process.on("unhandledRejection", (error) => client.logger.warn(error));
