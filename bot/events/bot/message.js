@@ -132,7 +132,7 @@ module.exports = class MessageEvent extends BaseEvent {
           deleting = true;
       })
     );
-    if (deleting) return message.delete();
+    if (deleting) message.delete();
 
     //Anti-Spam
     const getMuteRole = message.guild.roles.cache.get(muteRole);
