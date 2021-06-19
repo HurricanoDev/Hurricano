@@ -365,11 +365,11 @@ class Client extends Discord.Client {
     if (this.config.topgg.webhook.enabled) {
       const app = (require("express"))();
       const voteWebhook = new DBL.Webhook(this.config.topgg.token);
-      voteWebhook.on("ready", (hook) => {
-        this.logger.info(
-          `Vote webhook ready at http://${hook.hostname}:${hook.port}${hook.path}!`
-        );
-      });
+      // voteWebhook.on("ready", (hook) => {
+      //   this.logger.info(
+      //     `Vote webhook ready at http://${hook.hostname}:${hook.port}${hook.path}!`
+      //   );
+      // });
       const channel = await this.channels.resolve(
         this.config.topgg.webhook.channelID
       );
