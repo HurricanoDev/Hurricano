@@ -42,14 +42,13 @@ module.exports = new Command({
         )
         .setImage(`${data.url}`);
 
-      message.channel.send(embed);
-    } catch {
-      const embed2 = new MessageEmbed()
-        .setTitle(
-          `${client.emotes.error} Something went wrong.\n${client.emotes.error} Note: It won't work if the user has unwanted characters in their username!`
-        )
-        .setColor("RANDOM");
-      message.channel.send(embed2);
+      message.channel.send({ embeds: [embed] });
+    } catch (err) {
+      message.channel.sendError(
+        message,
+        "Something went wrong.",
+        `\`\`\`${err.stack}\`\`\` \n Note: The eject command won't work if the username provided has cancerous characters.`
+      );
     }
   },
 });
