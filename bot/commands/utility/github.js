@@ -1,15 +1,15 @@
 const Command = require("@Command");
 const { MessageEmbed } = require("discord.js");
 const fetch = require('node-fetch');
-
+const Discord = require('discord.js');
 module.exports = new Command({
   name: "github",
   aliases: ["github", "gh"],
   cooldown: 30,
   description: "fetches the github repo of through the information provided by the user",
   async run(message, args) {
-    let user = !args[0] ? "Novus" : args[0];
-    let repo = !args[1] ? "Novus" : args[1];
+    let user = !args[0] ? "Hurricano" : args[0];
+    let repo = !args[1] ? "Hurricano" : args[1];
 
     // Fetch repository from github API
     let uri = await fetch(`https://api.github.com/repos/${user}/${repo}`);
@@ -28,7 +28,7 @@ module.exports = new Command({
         .setColor("#ffff")
       return message.channel.send(embed)
     } else {
-      return message.channel.send("Unable to find the mentioned repository. Please make sure you have entered the correct user/repository. \`.github [user] [repository]\`")
+      return message.channel.send("Unable to find the mentioned repository. Please make sure you have entered the correct user/repository. \`hr!github [user] [repository]\`")
     }
   },
 });
