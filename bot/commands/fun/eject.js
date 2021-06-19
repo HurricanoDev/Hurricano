@@ -29,8 +29,6 @@ module.exports = new Command({
     //get pinged user, if not then use cmd user
     try {
       let member = message.mentions.users.first();
-      if ((member = message.author))
-        return message.reply("You can't eject yourself");
       if (!member) return message.reply("Who do you wanna eject?");
       const data = await fetch(
         `https://vacefron.nl/api//ejected?name=${member.username}&impostor=${imposter}&crewmate=${crewmate}`
