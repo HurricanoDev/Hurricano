@@ -356,7 +356,6 @@ class Client extends Discord.Client {
           guildCount.postStats(this.guilds.cache.size);
         }, 900000);
       });
-    }
     if (this.config.topgg.webhook.enabled) {
       const voteWebhook = new DBL(this.config.topgg.token, {
         webhookPort: this.config.topgg.webhook.webhookPort,
@@ -381,7 +380,7 @@ class Client extends Discord.Client {
         channel.send({ embeds: [embed] });
         this.logger.info(`User with ID ${user.tag} just voted!`);
       });
-    }
+    }}
   }
 }
 function loadStructures() {
