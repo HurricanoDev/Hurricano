@@ -357,36 +357,41 @@ class Client extends Discord.Client {
           guildCount.postStats({
             serverCount: this.guilds.cache.size,
             shardId: this.shard.ids[0], // if you're sharding
-            shardCount: this.options.shardCount
-          })
+            shardCount: this.options.shardCount,
+          });
         }, 900000);
       });
 
-    if (this.config.topgg.webhook.enabled) {
-      const app = (require("express"))();
-      const voteWebhook = new DBL.Webhook(this.config.topgg.webhookPassword);
-      // voteWebhook.on("ready", (hook) => {
-      //   this.logger.info(
-      //     `Vote webhook ready at http://${hook.hostname}:${hook.port}${hook.path}!`
-      //   );
-      // });
-      const channel = await this.channels.resolve(
-        this.config.topgg.webhook.channelID
-      );
-      await app.post('/dblwebhook', voteWebhook.listener(async (vote) => {
-        const user = await this.users.resolve(vote.user);
-        const embed = new Discord.MessageEmbed()
-          .setAuthor(user.username, user.displayAvatarURL())
-          .setDescription(`${user} just voted! POG!`)
-          .setImage(this.user.displayAvatarURL())
-          .setFooter(this.user.tag)
-          .setTimestamp();
-        channel.send({ embeds: [embed] });
-        this.logger.info(`User with ID ${user.tag} just voted!`);
-      }));
-      const port = process.env.PORT || this.config.topgg.webhook.webhookPort;
-      app.listen(port, this.config.topgg.webhook.webhookIP)
-    }}
+      if (this.config.topgg.webhook.enabled) {
+        const app = require("express")();
+        const voteWebhook = new DBL.Webhook(this.config.topgg.webhookPassword);
+        // voteWebhook.on("ready", (hook) => {
+        //   this.logger.info(
+        //     `Vote webhook ready at http://${hook.hostname}:${hook.port}${hook.path}!`
+        //   );
+        // });
+        const thisSelf = this;
+        await app.post(
+          "/dblwebhook",
+          voteWebhook.listener(async (vote) => {
+            const channel = await thisSelf.channels.resolve(
+              this.config.topgg.webhook.channelID
+            );
+            const user = await this.users.resolve(vote.user);
+            const embed = new Discord.MessageEmbed()
+              .setAuthor(user.username, user.displayAvatarURL())
+              .setDescription(`${user} just voted! POG!`)
+              .setImage(this.user.displayAvatarURL())
+              .setFooter(this.user.tag)
+              .setTimestamp();
+            channel.send({ embeds: [embed] });
+            this.logger.info(`User with ID ${user.tag} just voted!`);
+          })
+        );
+        const port = process.env.PORT || this.config.topgg.webhook.webhookPort;
+        app.listen(port, this.config.topgg.webhook.webhookIP);
+      }
+    }
   }
 }
 function loadStructures() {
