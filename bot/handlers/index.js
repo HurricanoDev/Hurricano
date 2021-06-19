@@ -1,7 +1,7 @@
 require("module-alias/register");
 const { Intents, Collection } = require("discord.js"),
   express = require("express"),
-  { Client, loadStructures } = require("@root/bot/Client.js"),
+  { HurricanoClient, loadStructures } = require("@root/bot/Client.js"),
   config = require("@config"),
   intents = new Intents();
 global._Collection = Collection;
@@ -15,7 +15,7 @@ intents.add(
   "GUILD_MESSAGE_REACTIONS"
 );
 
-const client = new Client(config, {
+const client = new HurricanoClient(config, {
     intents: intents,
     allowedMentions: { parse: ["users"], repliedUser: false },
   }),
