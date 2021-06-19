@@ -1,6 +1,8 @@
 const { Intents, Collection } = require("discord.js");
+const express = require("express");
 require("module-alias/register");
 global._Collection = Collection;
+const Topgg = require("@top-gg/sdk");
 const { Client, loadStructures } = require("@root/bot/Client.js");
 loadStructures();
 const config = require("@config");
@@ -19,6 +21,19 @@ const client = new Client(config, {
   allowedMentions: { parse: ["users"], repliedUser: false },
   partials: ["MESSAGE", "REACTION"],
 });
+
+const app = express();
+
+const webhook = new Topgg.Webhook();
+
+app.post(
+  "/dblwebhook",
+  webhook.listener((vote) => {
+    console.log(vote.user);
+  })
+);
+app.listen(3000);
+
 global.client = client;
 // website initialization
 if (client.config.website.enabled) {
