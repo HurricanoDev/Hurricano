@@ -22,7 +22,7 @@
     "dblapi.js": "^2.4.1",
     "discord-giveaways": "^4.5.1",
     "discord-player": "^4.0.7",
-    "discord.js": "^13.0.0-dev.2d12db000f2a0a22a8919d7a63989a6e762ae335",
+    "discord.js": "^13.0.0-dev.807ea2d3c197c7c6556bd1c894114932f6657d49",
     "dotenv": "^8.2.0",
     "ejs": "^3.1.6",
     "express": "^4.17.1",
