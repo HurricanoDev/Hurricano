@@ -1,3 +1,4 @@
+const Discord = require("discord.js");
 const WIDTH = 15;
 const HEIGHT = 10;
 const gameBoard = [];
@@ -72,7 +73,7 @@ class SnakeGame {
       .setDescription(this.gameBoardToString())
       .setTimestamp();
 
-    msg.channel.send(embed).then((emsg) => {
+    msg.channel.send({ embeds: [embed] }).then((emsg) => {
       this.gameEmbed = emsg;
       this.gameEmbed.react("⬅️");
       this.gameEmbed.react("⬆️");
@@ -95,7 +96,7 @@ class SnakeGame {
       .setTitle("Snake Game")
       .setDescription(this.gameBoardToString())
       .setTimestamp();
-    this.gameEmbed.edit(editEmbed);
+    this.gameEmbed.edit({ embeds: [editEmbed] });
 
     this.waitForReaction();
   }
@@ -105,9 +106,9 @@ class SnakeGame {
     const editEmbed = new Discord.MessageEmbed()
       .setColor("#03ad03")
       .setTitle("Snake Game")
-      .setDescription("GAME OVER!\nSCORE: " + this.score)
+      .setDescription("`GAME OVER!`\nSCORE: " + this.score)
       .setTimestamp();
-    this.gameEmbed.edit(editEmbed);
+    this.gameEmbed.edit({ embeds: [editEmbed] });
 
     this.gameEmbed.reactions.removeAll();
   }

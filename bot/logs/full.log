@@ -1,5 +1,5 @@
-[2021-06-19 07:51:27] - [client]: 
-.-----------------------[2021-06-19 07:51:30] - [shard]: [Shard 0] Shard Ready!
+[2021-06-19 23:49:01] - [client]: 
+.-----------------------[2021-06-19 23:49:02] - [shard]: [Shard 0] Shard Ready!
 --------------------------------------------.
 |                                                         Commands                                                          |
 |---------------------------------------------------------------------------------------------------------------------------|
@@ -26,9 +26,12 @@
 | roulette.js          | roulette          | economy          | roul                                          | Loaded!     |
 | slots.js             | slots             | economy          | slotmachine                                   | Loaded!     |
 | withdraw.js          | withdraw          | economy          | with                                          | Loaded!     |
+| 8ball.js             | 8ball             | fun              | None.                                         | Loaded!     |
 | connect4.js          | connect4          | fun              | c4, connectfour                               | Loaded!     |
+| eject.js             | eject             | fun              | None.                                         | Loaded!     |
 | meme.js              | meme              | fun              | None.                                         | Loaded!     |
 | rps.js               | rps               | fun              | rockpaperscissors                             | Loaded!     |
+| snake.js             | snake             | fun              | snek                                          | Loaded!     |
 | snipe.js             | snipe             | fun              | None.                                         | Loaded!     |
 | gend.js              | gend              | giveaways        | , giveawayend, g-end, g-end, gfinish          | Loaded!     |
 | glist.js             | glist             | giveaways        | None.                                         | Loaded!     |
@@ -75,31 +78,40 @@
 | afk.js               | afk               | utility          | None.                                         | Loaded!     |
 | birthdaycheck.js     | birthdate         | utility          | checkbirthday, checkbday, birthdaycheck       | Loaded!     |
 | birthdayset.js       | birthdayset       | utility          | setbirthday, setbday                          | Loaded!     |
+| github.js            | github            | utility          | github, gh                                    | Loaded!     |
 | suggest.js           | suggest           | utility          | None.                                         | Loaded!     |
 | tag.js               | tag               | utility          | None.                                         | Loaded!     |
 '---------------------------------------------------------------------------------------------------------------------------'
-[2021-06-19 07:51:27] - [info]: Provided token: ODI1NTc0NDEyMTc4NDIzODU5.YF_6Fg.***************************
-[2021-06-19 07:51:27] - [info]: Preparing to connect to the gateway...
-[2021-06-19 07:51:28] - [info]: [WS => Manager] Fetched Gateway Information
+[2021-06-19 23:49:01] - [info]: Provided token: ODQ4NDYxMjEwODA1ODYyNDMx.YLM9FA.***************************
+[2021-06-19 23:49:01] - [info]: Preparing to connect to the gateway...
+[2021-06-19 23:49:02] - [info]: [WS => Manager] Fetched Gateway Information
     URL: wss://gateway.discord.gg
     Recommended Shards: 1
-[2021-06-19 07:51:28] - [info]: [WS => Manager] Session Limit Information
+[2021-06-19 23:49:02] - [info]: [WS => Manager] Session Limit Information
     Total: 1000
-    Remaining: 977
-[2021-06-19 07:51:28] - [info]: [WS => Manager] Spawning shards: 0
-[2021-06-19 07:51:28] - [info]: [WS => Shard 0] [CONNECT]
+    Remaining: 995
+[2021-06-19 23:49:02] - [info]: [WS => Manager] Spawning shards: 0
+[2021-06-19 23:49:02] - [info]: [WS => Shard 0] [CONNECT]
     Gateway    : wss://gateway.discord.gg/
     Version    : 8
     Encoding   : json
     Compression: none
-[2021-06-19 07:51:28] - [info]: [WS => Shard 0] Setting a HELLO timeout for 20s.
-[2021-06-19 07:51:28] - [info]: [WS => Shard 0] [CONNECTED] wss://gateway.discord.gg/?v=8&encoding=json in 605ms
-[2021-06-19 07:51:28] - [info]: [WS => Shard 0] Clearing the HELLO timeout.
-[2021-06-19 07:51:28] - [info]: [WS => Shard 0] Setting a heartbeat interval for 41250ms.
-[2021-06-19 07:51:28] - [info]: [WS => Shard 0] [IDENTIFY] Shard 0/1
-[2021-06-19 07:51:29] - [info]: [WS => Shard 0] [READY] Session 6260a02017cdcebd4acc199b2b5151bc.
-[2021-06-19 07:51:29] - [info]: [WS => Shard 0] [ReadyHeartbeat] Sending a heartbeat.
-[2021-06-19 07:51:29] - [db]: Connected to MongoDB!
-[2021-06-19 07:51:30] - [info]: [WS => Shard 0] Shard received all its guilds. Marking as fully ready.
-[2021-06-19 07:51:30] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 1273ms.
-[2021-06-19 07:51:35] - [client]: Hurricano Beta#2437 Successfully Logged in!
+[2021-06-19 23:49:02] - [info]: [WS => Shard 0] Setting a HELLO timeout for 20s.
+[2021-06-19 23:49:02] - [info]: [WS => Shard 0] [CONNECTED] wss://gateway.discord.gg/?v=8&encoding=json in 151ms
+[2021-06-19 23:49:02] - [info]: [WS => Shard 0] Clearing the HELLO timeout.
+[2021-06-19 23:49:02] - [info]: [WS => Shard 0] Setting a heartbeat interval for 41250ms.
+[2021-06-19 23:49:02] - [info]: [WS => Shard 0] [IDENTIFY] Shard 0/1 with intents: 1923
+[2021-06-19 23:49:02] - [db]: Connected to MongoDB!
+[2021-06-19 23:49:02] - [info]: [WS => Shard 0] [READY] Session 4661f4b06e38ee020e49ea590f6f3679.
+[2021-06-19 23:49:02] - [info]: [WS => Shard 0] [ReadyHeartbeat] Sending a heartbeat.
+[2021-06-19 23:49:02] - [info]: [WS => Shard 0] Shard received all its guilds. Marking as fully ready.
+[2021-06-19 23:49:02] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 204ms.
+[2021-06-19 23:49:04] - [client]: HurricanoBeta2#4159 Successfully Logged in!
+[2021-06-19 23:49:43] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2021-06-19 23:49:43] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 81ms.
+[2021-06-19 23:50:24] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2021-06-19 23:50:24] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 81ms.
+[2021-06-19 23:51:06] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2021-06-19 23:51:06] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 91ms.
+[2021-06-19 23:51:47] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2021-06-19 23:51:47] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 84ms.
