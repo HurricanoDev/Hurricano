@@ -17,9 +17,9 @@
   "license": "ISC",
   "dependencies": {
     "@discordjs/opus": "^0.5.0",
+    "@top-gg/sdk": "^3.1.1",
     "ascii-table": "0.0.9",
     "canvacord": "^5.0.8",
-    "dblapi.js": "^2.4.1",
     "discord-giveaways": "^4.5.1",
     "discord-player": "^4.0.7",
     "discord.js": "^13.0.0-dev.807ea2d3c197c7c6556bd1c894114932f6657d49",

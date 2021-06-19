@@ -349,19 +349,23 @@ class Client extends Discord.Client {
   }
   async loadTopgg() {
     if (this.config.topgg.enabled) {
-      const DBL = require("dblapi.js");
-      const guildCount = new DBL(this.config.topgg.token, this);
+      const DBL = require("@top-gg/sdk");
+      const guildCount = new DBL.Api(this.config.topgg.token);
+
       await super.on("ready", () => {
         setInterval(() => {
-          guildCount.postStats(this.guilds.cache.size);
+          guildCount.postStats({
+            serverCount: this.guilds.cache.size,
+            shardId: this.shard.ids[0], // if you're sharding
+            shardCount: this.options.shardCount
+          })
         }, 900000);
       });
+
     if (this.config.topgg.webhook.enabled) {
-      const voteWebhook = new DBL(this.config.topgg.token, {
-        webhookPort: this.config.topgg.webhook.webhookPort,
-        webhookAuth: this.config.topgg.webhook.webhookPassword,
-      });
-      await voteWebhook.on("ready", (hook) => {
+      const app = (require("express"))();
+      const voteWebhook = new DBL.Webhook(this.config.topgg.token);
+      voteWebhook.on("ready", (hook) => {
         this.logger.info(
           `Vote webhook ready at http://${hook.hostname}:${hook.port}${hook.path}!`
         );
@@ -369,7 +373,7 @@ class Client extends Discord.Client {
       const channel = await this.channels.resolve(
         this.config.topgg.webhook.channelID
       );
-      await voteWebhook.webhook.on("vote", async (vote) => {
+      await app.post('/dblwebhook', webhook.listener(async (vote) => {
         const user = await this.users.resolve(vote.user);
         const embed = new MessageEmbed()
           .setAuthor(user.username, user.displayAvatarURL())
@@ -379,7 +383,7 @@ class Client extends Discord.Client {
           .setTimestamp();
         channel.send({ embeds: [embed] });
         this.logger.info(`User with ID ${user.tag} just voted!`);
-      });
+      }));
     }}
   }
 }
