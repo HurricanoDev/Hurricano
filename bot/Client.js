@@ -384,7 +384,8 @@ class Client extends Discord.Client {
         channel.send({ embeds: [embed] });
         this.logger.info(`User with ID ${user.tag} just voted!`);
       }));
-      app.listen(this.config.topgg.webhook.webhookPort, this.config.topgg.webhook.webhookIP)
+      const port = process.env.PORT || this.config.topgg.webhook.webhookPort;
+      app.listen(port, this.config.topgg.webhook.webhookIP)
     }}
   }
 }
