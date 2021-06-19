@@ -1,6 +1,5 @@
 const { MessageEmbed } = require("discord.js");
 const fetch = require("node-fetch");
-const config = require("@config");
 const Command = require("@Command");
 
 module.exports = new Command({
@@ -26,17 +25,17 @@ module.exports = new Command({
       "yellow",
     ];
     const crewmate = crew[Math.floor(Math.random() * crew.length)];
-    //get pinged user, if not then use cmd user
+    const member = args.join(" ");
+    if (!member) return message.reply("Who do you wanna eject?");
     try {
-      let member = message.mentions.users.first();
-      if ((member = message.author))
-        return message.reply("You can't eject yourself");
-      if (!member) return message.reply("Who do you wanna eject?");
       const data = await fetch(
-        `https://vacefron.nl/api//ejected?name=${member.username}&impostor=${imposter}&crewmate=${crewmate}`
+        `https://vacefron.nl/api//ejected?name=${member}&impostor=${imposter}&crewmate=${crewmate}`
       );
       const embed = new MessageEmbed()
-        .setAuthor(message.author.tag, message.author.displayAvatarURL())
+        .setAuthor(
+          message.author.username + "#" + message.author.discriminator,
+          message.author.displayAvatarURL()
+        )
         .setTitle(
           `${message.author.username} decided to eject ${member.username}`
         )
