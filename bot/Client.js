@@ -373,7 +373,7 @@ class Client extends Discord.Client {
       const channel = await this.channels.resolve(
         this.config.topgg.webhook.channelID
       );
-      await app.post('/dblwebhook', webhook.listener(async (vote) => {
+      await app.post('/dblwebhook', voteWebhook.listener(async (vote) => {
         const user = await this.users.resolve(vote.user);
         const embed = new MessageEmbed()
           .setAuthor(user.username, user.displayAvatarURL())
