@@ -396,11 +396,11 @@ class Client extends Discord.Client {
                 `Hey **${user.username}**, thanks so much for your vote! This helps us in unimaginable ways!`
               )
               .setThumbnail(
-                "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/120/openmoji/272/party-popper_1f389.png"
+                "https://raw.githubusercontent.com/HurricanoBot/HurricanoImages/master/other/VotePog.png"
               )
               .setColor("GREEN");
 
-            await user.send({ embeds: [dmEmbed] });
+            await user.send({ embeds: [dmEmbed] }).catch(() => {});
           })
         );
         const port = process.env.PORT || this.config.topgg.webhook.webhookPort;

@@ -29,7 +29,7 @@ module.exports = new Command({
     if (!member) return message.reply("Who do you wanna eject?");
     try {
       const data = await fetch(
-        `https://vacefron.nl/api//ejected?name=${member}&impostor=${imposter}&crewmate=${crewmate}`
+        `https://vacefron.nl/api/ejected?name=${member}&impostor=${imposter}&crewmate=${crewmate}`
       );
       const embed = new MessageEmbed()
         .setAuthor(
@@ -37,7 +37,7 @@ module.exports = new Command({
           message.author.displayAvatarURL()
         )
         .setTitle(
-          `${message.author.username} decided to eject ${member.username}`
+          `${message.author.username} decided to eject ${member}`
         )
         .setImage(`${data.url}`);
 
