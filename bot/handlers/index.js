@@ -1,12 +1,11 @@
-const { Intents, Collection } = require("discord.js");
-const express = require("express");
 require("module-alias/register");
+const { Intents, Collection } = require("discord.js"),
+  express = require("express"),
+  { Client, loadStructures } = require("@root/bot/Client.js"),
+  config = require("@config"),
+  intents = new Intents();
 global._Collection = Collection;
-const Topgg = require("@top-gg/sdk");
-const { Client, loadStructures } = require("@root/bot/Client.js");
 loadStructures();
-const config = require("@config");
-const intents = new Intents();
 intents.add(
   "GUILD_PRESENCES",
   "GUILD_MEMBERS",
@@ -17,32 +16,20 @@ intents.add(
 );
 
 const client = new Client(config, {
-  intents: intents,
-  allowedMentions: { parse: ["users"], repliedUser: false },
-  partials: ["MESSAGE", "REACTION"],
-});
-
-const app = express();
-
-const webhook = new Topgg.Webhook();
-
-app.post(
-  "/dblwebhook",
-  webhook.listener((vote) => {
-    console.log(vote.user);
-  })
-);
-app.listen(3000);
+    intents: intents,
+    allowedMentions: { parse: ["users"], repliedUser: false },
+  }),
+  app = express();
 
 global.client = client;
 // website initialization
 if (client.config.website.enabled) {
   require("@root/website/index.js");
 }
-function init() {
+async function init() {
   client.loadCommands();
   client.loadEvents();
-  client.loadTopgg();
+  await client.loadTopgg();
   client.db.init();
   client.connect();
 }

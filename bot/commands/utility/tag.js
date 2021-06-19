@@ -65,19 +65,21 @@ module.exports = new Command({
             "Cool!",
             "Cool! Now, please provide the tag's description."
           );
-          conf = await message.channel
-            .awaitMessages((x) => x.author.id == message.author.id, {
+          conf = await message.channel.awaitMessages(
+            (x) => x.author.id == message.author.id,
+            {
               max: 1,
               time: 30000,
               errors: ["time"],
-            })
-            .catch(() => {
-              return message.channel.sendError(
-                message,
-                "Time Limit Reached.",
-                "You took too long. Please try again."
-              );
-            });
+            }
+          );
+          let.catch(() => {
+            return message.channel.sendError(
+              message,
+              "Time Limit Reached.",
+              "You took too long. Please try again."
+            );
+          });
           conf = conf.first().content;
           if (conf < 5)
             return message.channel.sendError(

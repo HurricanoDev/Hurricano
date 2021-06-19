@@ -243,7 +243,7 @@ class Client extends Discord.Client {
       },
       createOptionsEmbed: (command, message) => {
         const optionsEmbed = new Discord.MessageEmbed()
-          .setAuthor(`${command.name} Help`, client.user.displayAvatarURL())
+          .setAuthor(`${command.name} Help`, this.user.displayAvatarURL())
           .setColor("#606365")
           .addField(
             "Usage:",
@@ -272,7 +272,7 @@ class Client extends Discord.Client {
       .filter((file) => file.endsWith(".js"));
     for (const file of botevents) {
       let event = require(`./events/bot/${file}`);
-      event = new event(client);
+      event = new event(this);
       if (event.once) {
         super.once(event.name, (...args) => event.run(...args, this));
       } else {
@@ -347,14 +347,39 @@ class Client extends Discord.Client {
       this.commands.get(command) || this.commands.get(this.aliases.get(command))
     );
   }
-  loadTopgg() {
-    if (this.config.topggapi && typeof this.config.topggapi === "boolean") {
-      let DBL = require("dblapi.js");
-      let dbl = new DBL(this.config.toptoken, this);
-      super.on("ready", () => {
+  async loadTopgg() {
+    if (this.config.topgg.enabled) {
+      const DBL = require("dblapi.js");
+      const guildCount = new DBL(this.config.topgg.token, this);
+      await super.on("ready", () => {
         setInterval(() => {
-          dbl.postStats(this.guilds.cache.size);
+          guildCount.postStats(this.guilds.cache.size);
         }, 900000);
+      });
+    }
+    if (this.config.topgg.webhook.enabled) {
+      const voteWebhook = new DBL(this.config.topgg.token, {
+        webhookPort: this.config.topgg.webhook.webhookPort,
+        webhookAuth: this.config.topgg.webhook.webhookPassword,
+      });
+      await voteWebhook.on("ready", (hook) => {
+        this.logger.info(
+          `Vote webhook ready at http://${hook.hostname}:${hook.port}${hook.path}!`
+        );
+      });
+      const channel = await this.channels.resolve(
+        this.config.topgg.webhook.channelID
+      );
+      await voteWebhook.webhook.on("vote", async (vote) => {
+        const user = await this.users.resolve(vote.user);
+        const embed = new MessageEmbed()
+          .setAuthor(user.username, user.displayAvatarURL())
+          .setDescription(`${user} just voted! POG!`)
+          .setImage(this.user.displayAvatarURL())
+          .setFooter(this.user.tag)
+          .setTimestamp();
+        channel.send({ embeds: [embed] });
+        this.logger.info(`User with ID ${user.tag} just voted!`);
       });
     }
   }

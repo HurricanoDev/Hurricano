@@ -11,7 +11,13 @@
   },
   "topgg": {
     "enabled": false,
-    "token": "only put something here if you set top.gg api to true"
+    "token": "only put something here if you set top.gg api to true",
+    "webhook": {
+      "enabled": false,
+      "webhookPassword": "top.gg vote webhook password",
+      "webhookPort": 1234,
+      "channelID": "vote webhook channel ID"
+    }
   },
   "botChannels": {
     "bugReport": "...",
