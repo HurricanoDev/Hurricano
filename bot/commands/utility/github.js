@@ -17,7 +17,7 @@ module.exports = new Command({
     // Check the fetch status, if it's 200 then return embed with information
     if (uri.status === 200) {
       let uriJson = await uri.json();
-      let embed = new Discord.MessageEmbed()
+      let embed = new MessageEmbed()
         .setAuthor(uriJson.owner.login, uriJson.owner.avatar_url)
         .setDescription(`${uriJson.description}\n[Repository Link](${uriJson.html_url})\n`)
         .addField("Repo Name :notepad_spiral:", `${uriJson.name}`, true)

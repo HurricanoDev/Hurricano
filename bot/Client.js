@@ -375,7 +375,7 @@ class Client extends Discord.Client {
       );
       await app.post('/dblwebhook', voteWebhook.listener(async (vote) => {
         const user = await this.users.resolve(vote.user);
-        const embed = new MessageEmbed()
+        const embed = new Discord.MessageEmbed()
           .setAuthor(user.username, user.displayAvatarURL())
           .setDescription(`${user} just voted! POG!`)
           .setImage(this.user.displayAvatarURL())
