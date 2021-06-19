@@ -380,12 +380,27 @@ class Client extends Discord.Client {
             const user = await this.users.resolve(vote.user);
             const embed = new Discord.MessageEmbed()
               .setAuthor(user.username, user.displayAvatarURL())
-              .setDescription(`${user} just voted! POG!`)
-              .setImage(this.user.displayAvatarURL())
-              .setFooter(this.user.tag)
-              .setTimestamp();
+              .setDescription(
+                `${user} just voted! Poggers! Sending them a thank message right now!`
+              )
+              .setThumbnail(user.displayAvatarURL())
+              .setFooter(user.tag)
+              .setTimestamp()
+              .setColor("#FFD700");
             channel.send({ embeds: [embed] });
             this.logger.info(`User with ID ${user.tag} just voted!`);
+
+            const dmEmbed = new Discord.MessageEmbed()
+              .setTitle("Thanks for your vote!")
+              .setDescription(
+                `Hey **${user.username}**, thanks so much for your vote! This helps us in unimaginable ways!`
+              )
+              .setThumbnail(
+                "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/120/openmoji/272/party-popper_1f389.png"
+              )
+              .setColor("GREEN");
+
+            await user.send({ embeds: [dmEmbed] });
           })
         );
         const port = process.env.PORT || this.config.topgg.webhook.webhookPort;
