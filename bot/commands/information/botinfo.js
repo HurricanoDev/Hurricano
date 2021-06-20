@@ -30,6 +30,6 @@ module.exports = new Command({
         "Extra Information",
         `${emojis.signs.ping} Ping: \`${message.client.ws.ping}\`ms\n${emojis.categories.owner} Owners: \`Dragonizedpizza\`, \`Militia21\`. \n${emojis.signs.servers} Servers: \`${message.client.guilds.cache.size} Servers.\`\n${emojis.signs.users} Users: \`${message.client.users.cache.size} Users.\` \n${emojis.signs.reload} Uptime: \`${days}d ${hours}h ${minutes}m ${seconds}s\``
       );
-    message.reply(embed);
+    message.reply({ embeds: [embed] });
   },
 });
