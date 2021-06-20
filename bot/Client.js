@@ -262,6 +262,9 @@ class HurricanoClient extends Discord.Client {
 
         return optionsEmbed;
       },
+      hasNumber: (number) => {
+        return /\d/.test(number);
+      },
     };
   }
   // ---------------------------------------------------   Functions    -------------------------------------------------------------

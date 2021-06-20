@@ -1,13 +1,9 @@
-[2021-06-20 09:03:13] - [client]: 
-.-----------------------[2021-06-20 09:03:20] - [error]: Shard 0's Client took too long to become ready.
-{
-  "stack": "Error [SHARDING_READY_TIMEOUT]: Shard 0's Client took too long to become ready.
-    at Timeout.onTimeout (/home/runner/Hurricano-3/node_modules/discord.js/src/sharding/Shard.js:163:16)
-    at listOnTimeout (internal/timers.js:555:17)
-    at processTimers (internal/timers.js:498:7)"
-}
-[2021-06-20 09:03:34] - [shard]: [Shard 0] Shard Ready!
- Aliases                    | Load status |
+[2021-06-20 09:12:25] - [client]: 
+.-----------------------[2021-06-20 09:12:26] - [shard]: [Shard 0] Shard Ready!
+--------------------------------------------.
+|                                                         Commands                                                          |
+|---------------------------------------------------------------------------------------------------------------------------|
+|     Command File     |   Command Name    | Command Category |                    Aliases                    | Load status |
 |----------------------|-------------------|------------------|-----------------------------------------------|-------------|
 | accept.js            | accept            | config           | None.                                         | Loaded!     |
 | deny.js              | deny              | config           | None.                                         | Loaded!     |
@@ -87,72 +83,30 @@
 | suggest.js           | suggest           | utility          | None.                                         | Loaded!     |
 | tag.js               | tag               | utility          | None.                                         | Loaded!     |
 '---------------------------------------------------------------------------------------------------------------------------'
-[2021-06-20 09:03:13] - [info]: Provided token: ODQ4NDYxMjEwODA1ODYyNDMx.YLM9FA.***************************
-[2021-06-20 09:03:13] - [info]: Preparing to connect to the gateway...
-[2021-06-20 09:03:32] - [info]: [WS => Manager] Fetched Gateway Information
+[2021-06-20 09:12:25] - [info]: Provided token: ODQ4NDYxMjEwODA1ODYyNDMx.YLM9FA.***************************
+[2021-06-20 09:12:25] - [info]: Preparing to connect to the gateway...
+[2021-06-20 09:12:25] - [info]: [WS => Manager] Fetched Gateway Information
     URL: wss://gateway.discord.gg
     Recommended Shards: 1
-[2021-06-20 09:03:32] - [info]: [WS => Manager] Session Limit Information
+[2021-06-20 09:12:25] - [info]: [WS => Manager] Session Limit Information
     Total: 1000
-    Remaining: 981
-[2021-06-20 09:03:32] - [info]: [WS => Manager] Spawning shards: 0
-[2021-06-20 09:03:32] - [info]: [WS => Shard 0] [CONNECT]
+    Remaining: 979
+[2021-06-20 09:12:25] - [info]: [WS => Manager] Spawning shards: 0
+[2021-06-20 09:12:25] - [info]: [WS => Shard 0] [CONNECT]
     Gateway    : wss://gateway.discord.gg/
     Version    : 8
     Encoding   : json
     Compression: none
-[2021-06-20 09:03:32] - [info]: [WS => Shard 0] Setting a HELLO timeout for 20s.
-[2021-06-20 09:03:32] - [db]: Connected to MongoDB!
-[2021-06-20 09:03:33] - [info]: [WS => Shard 0] [CONNECTED] wss://gateway.discord.gg/?v=8&encoding=json in 412ms
-[2021-06-20 09:03:33] - [info]: [WS => Shard 0] Clearing the HELLO timeout.
-[2021-06-20 09:03:33] - [info]: [WS => Shard 0] Setting a heartbeat interval for 41250ms.
-[2021-06-20 09:03:33] - [info]: [WS => Shard 0] [IDENTIFY] Shard 0/1 with intents: 1923
-[2021-06-20 09:03:33] - [info]: [WS => Shard 0] [READY] Session c81afd36cf21ee6a6cf50d41aa3cfe61.
-[2021-06-20 09:03:33] - [info]: [WS => Shard 0] [ReadyHeartbeat] Sending a heartbeat.
-[2021-06-20 09:03:34] - [info]: [WS => Shard 0] Shard received all its guilds. Marking as fully ready.
-[2021-06-20 09:03:35] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 1589ms.
-[2021-06-20 09:03:44] - [client]: HurricanoBeta2#4159 Successfully Logged in!
-[2021-06-20 09:03:59] - [warn]: MessageEmbed is not defined
-{
-  "stack": "ReferenceError: MessageEmbed is not defined
-    at Command.run (/home/runner/Hurricano-3/bot/commands/fun/emojify.js:39:19)
-    at MessageEvent.run (/home/runner/Hurricano-3/bot/events/bot/message.js:430:21)
-    at processTicksAndRejections (internal/process/task_queues.js:95:5)"
-}
-[2021-06-20 09:04:12] - [warn]: Unknown Message
-{
-  "name": "DiscordAPIError",
-  "method": "delete",
-  "path": "/channels/803204453321670700/messages/856097092480401429",
-  "code": 10008,
-  "httpStatus": 404,
-  "requestData": {
-    "files": []
-  },
-  "stack": "DiscordAPIError: Unknown Message
-    at RequestHandler.execute (/home/runner/Hurricano-3/node_modules/discord.js/src/rest/RequestHandler.js:298:13)
-    at processTicksAndRejections (internal/process/task_queues.js:95:5)
-    at async RequestHandler.push (/home/runner/Hurricano-3/node_modules/discord.js/src/rest/RequestHandler.js:50:14)
-    at async MessageManager.delete (/home/runner/Hurricano-3/node_modules/discord.js/src/managers/MessageManager.js:202:5)
-    at async HurricanoMessage.delete (/home/runner/Hurricano-3/node_modules/discord.js/src/structures/Message.js:642:5)"
-}
-[2021-06-20 09:04:12] - [warn]: Cannot send an empty message
-{
-  "name": "DiscordAPIError",
-  "method": "post",
-  "path": "/channels/803204453321670700/messages",
-  "code": 50006,
-  "httpStatus": 400,
-  "requestData": {
-    "json": {
-      "tts": false
-    },
-    "files": []
-  },
-  "stack": "DiscordAPIError: Cannot send an empty message
-    at RequestHandler.execute (/home/runner/Hurricano-3/node_modules/discord.js/src/rest/RequestHandler.js:298:13)
-    at processTicksAndRejections (internal/process/task_queues.js:95:5)
-    at async RequestHandler.push (/home/runner/Hurricano-3/node_modules/discord.js/src/rest/RequestHandler.js:50:14)"
-}
-[2021-06-20 09:04:14] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
-[2021-06-20 09:04:14] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 84ms.
+[2021-06-20 09:12:25] - [info]: [WS => Shard 0] Setting a HELLO timeout for 20s.
+[2021-06-20 09:12:25] - [info]: [WS => Shard 0] [CONNECTED] wss://gateway.discord.gg/?v=8&encoding=json in 262ms
+[2021-06-20 09:12:25] - [info]: [WS => Shard 0] Clearing the HELLO timeout.
+[2021-06-20 09:12:25] - [info]: [WS => Shard 0] Setting a heartbeat interval for 41250ms.
+[2021-06-20 09:12:25] - [info]: [WS => Shard 0] [IDENTIFY] Shard 0/1 with intents: 1923
+[2021-06-20 09:12:25] - [db]: Connected to MongoDB!
+[2021-06-20 09:12:25] - [info]: [WS => Shard 0] [READY] Session f4bd8cb6a64751421adda05ea9b62b50.
+[2021-06-20 09:12:25] - [info]: [WS => Shard 0] [ReadyHeartbeat] Sending a heartbeat.
+[2021-06-20 09:12:26] - [info]: [WS => Shard 0] Shard received all its guilds. Marking as fully ready.
+[2021-06-20 09:12:26] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 335ms.
+[2021-06-20 09:12:28] - [client]: HurricanoBeta2#4159 Successfully Logged in!
+[2021-06-20 09:13:06] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2021-06-20 09:13:07] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 83ms.

@@ -7,15 +7,26 @@ module.exports = new Command({
   description: "Emojify some text!",
   clientPermissions: ["SEND_MESSAGES"],
   async run(message, args) {
-    if (!args[0])
+    if (!args.join(" "))
       return message.channel.sendError(
         message,
         "Error!",
         `Correct Usage: \`${message._usedPrefix}emojify <text>\``
       );
 
+    function hasNumber(myString) {
+      return /\d/.test(myString);
+    }
+
+    if (hasNumber(args.join(" ")))
+      return message.channel.sendError(
+        message,
+        "Error!",
+        "I can't emojify text with numbers in it!"
+      );
+
     let msg = message.content.slice(
-      message.content.indexOf(args[0]),
+      message.content.indexOf(args.join(" ")),
       message.content.length
     );
 
