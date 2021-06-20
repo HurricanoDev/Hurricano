@@ -1,4 +1,4 @@
-const { MessageActionRow, MessageButton } = require("discord.js");
+const { MessageButton } = require("discord.js");
 function split(array, count) {
   const groups = [];
   for (let i = 0; i < array.length; i += count)

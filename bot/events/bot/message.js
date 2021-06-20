@@ -377,11 +377,11 @@ module.exports = class MessageEvent extends BaseEvent {
           (!authorPerms.has(command.userPermissions) &&
             !client.config.ownerIds.includes(message.author.id))
         ) {
-          return message.sendErrorReply("Permission Error."
-                `Stop disturbing me bro, you require the \`${command.userPermissions.join(
-                  ", "
-                )}\` permission(s) to use that command...`,
-                "Smh, imagine trying to use a command without having the perms-"
+          return message.sendErrorReply(
+            "Permission Error."`Stop disturbing me bro, you require the \`${command.userPermissions.join(
+              ", "
+            )}\` permission(s) to use that command...`,
+            "Smh, imagine trying to use a command without having the perms-"
           );
         }
       }

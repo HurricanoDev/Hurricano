@@ -36,9 +36,7 @@ module.exports = new Command({
           message.author.username + "#" + message.author.discriminator,
           message.author.displayAvatarURL()
         )
-        .setTitle(
-          `${message.author.username} decided to eject ${member}`
-        )
+        .setTitle(`${message.author.username} decided to eject ${member}`)
         .setImage(`${data.url}`);
 
       message.channel.send({ embeds: [embed] });
