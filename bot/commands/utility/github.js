@@ -43,7 +43,7 @@ module.exports = new Command({
       return message.channel.send({ embeds: [embed] });
     } else {
       return message.channel.send(
-        "Unable to find the mentioned repository. Please make sure you have entered the correct user/repository. `.github [user] [repository]`"
+        "Unable to find the mentioned repository. Please make sure you have entered the correct user/repository. `hr!github [user] [repository]`"
       );
     }
   },
