@@ -89,14 +89,11 @@ class SnakeGame {
       ["⬆️", "up"],
       disabledButt,
       ["⬅️", "left"],
-      disabledButt,
+      ["❌", "stop"],
       ["➡️", "right"],
       disabledButt,
       ["⬇️", "down"],
       disabledButt,
-      disabledButt,
-      ["❌", "stop"],
-      disabledButt
     ].forEach((em) => {
       let button;
       if (em[0] == "⬛") {
@@ -109,10 +106,10 @@ class SnakeGame {
         button = new Discord.MessageButton()
         .setStyle("DANGER")
         .setCustomID("stop")
-        .setLabel("Stop")
+        .setLabel("Stop.")
       } else {
         button = new Discord.MessageButton()
-          .setStyle("SUCCESS")
+          .setStyle("PRIMARY")
           .setCustomID(em[1])
           .setEmoji(em[0]);
       }
