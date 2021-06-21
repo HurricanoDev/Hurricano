@@ -51,7 +51,8 @@ class SnakeGame {
   }
 
   isLocInSnake(pos) {
-    return this.snake.find((sPos) => sPos.x == pos.x && sPos.y == pos.y);
+    const d = this.snake.find((sPos) => sPos.x == pos.x && sPos.y == pos.y);
+    return d;
   }
 
   newAppleLoc() {
@@ -99,7 +100,7 @@ class SnakeGame {
         button = new Discord.MessageButton()
           .setStyle("SECONDARY")
           .setCustomID("noneRequired")
-          .setLabel("⬛")
+          .setLabel("\u200b")
           .setDisabled(true);
       } else {
         button = new Discord.MessageButton()
@@ -138,12 +139,18 @@ class SnakeGame {
 
   gameOver() {
     this.inGame = false;
-    const editEmbed = new Discord.MessageEmbed()
-      .setColor("#03ad03")
-      .setTitle("Snake Game")
-      .setDescription("`GAME OVER!`\nSCORE: " + this.score)
-      .setTimestamp();
-    this.gameEmbed.edit({ embeds: [editEmbed], components: [] });
+    const embed = new Discord.MessageEmbed({
+      author: {
+        name: "GAME OVER!",
+        iconURL: client.links.errorImage,
+      },
+      description: `Oof. Game over. \n Your Score: \`${this.score}\``,
+      footer: {
+        name: this.message.member.displayName,
+        iconURL: this.message.author.displayAvatarURL()
+      }
+    })
+     this.gameEmbed.edit({ embeds: [embed] })
   }
 
   waitForReaction() {
@@ -165,19 +172,31 @@ class SnakeGame {
       const nextPos = { x: snakeHead.x, y: snakeHead.y };
       if (collected.customID === "left") {
         let nextX = snakeHead.x - 1;
-        if (nextX < 0) nextX = WIDTH - 1;
+        if (nextX < 0) {
+          collected.deferUpdate();
+          return this.gameOver();
+        }
         nextPos.x = nextX;
       } else if (collected.customID === "up") {
         let nextY = snakeHead.y - 1;
-        if (nextY < 0) nextY = HEIGHT - 1;
+        if (nextY < 0) {
+          collected.deferUpdate();
+          return this.gameOver();
+        }
         nextPos.y = nextY;
       } else if (collected.customID === "down") {
         let nextY = snakeHead.y + 1;
-        if (nextY >= HEIGHT) nextY = 0;
+        if (nextY >= HEIGHT) {
+          collected.deferUpdate();
+          return this.gameOver();
+        }
         nextPos.y = nextY;
       } else if (collected.customID === "right") {
         let nextX = snakeHead.x + 1;
-        if (nextX >= WIDTH) nextX = 0;
+        if (nextX >= WIDTH) {
+          collected.deferUpdate();
+          return this.gameOver();
+        }
         nextPos.x = nextX;
       }
       if (this.isLocInSnake(nextPos)) {

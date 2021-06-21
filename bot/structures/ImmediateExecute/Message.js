@@ -20,7 +20,7 @@ module.exports = Structures.extend(
         if (Footer) {
           embed.setFooter(Footer, this.author.displayAvatarURL());
         } else {
-          embed.setFooter(this.author.username, this.author.displayAvatarURL());
+          embed.setFooter(this.member.displayName, this.author.displayAvatarURL());
         }
         if (Fields) embed.addFields(Fields);
         const msg = await this.reply({ embeds: [embed] });
@@ -44,7 +44,7 @@ module.exports = Structures.extend(
         if (Footer) {
           embed.setFooter(Footer, this.author.displayAvatarURL());
         } else {
-          embed.setFooter(this.author.username, this.author.displayAvatarURL());
+          embed.setFooter(this.member.displayName, this.author.displayAvatarURL());
         }
         if (Fields) embed.addFields(Fields);
         const msg = await this.reply({ embeds: [embed] });
