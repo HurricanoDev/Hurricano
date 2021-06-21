@@ -1,4 +1,3 @@
-
 const Discord = require("discord.js"),
   { MessageAttachment, MessageEmbed } = require("discord.js"),
   Command = require("@Command"),
@@ -26,7 +25,11 @@ module.exports = new Command({
     try {
       response = await fetch(url).then((res) => res.json());
     } catch (e) {
-      return message.channel.sendError(message, "An Error Occured.", `Error: \`\`\`js\n${e.stack}\`\`\``);
+      return message.channel.sendError(
+        message,
+        "An Error Occured.",
+        `Error: \`\`\`js\n${e.stack}\`\`\``
+      );
     }
     const embed = new MessageEmbed()
       .setAuthor("Clyde do be talkin' tho-")

@@ -3,9 +3,17 @@ const WIDTH = 15;
 const HEIGHT = 10;
 const gameBoard = [];
 const apple = { x: 1, y: 1 };
+function split(array, count) {
+  const groups = [];
+  for (let i = 0; i < array.length; i += count)
+    groups.push(array.slice(i, i + count));
+
+  return groups;
+}
 
 class SnakeGame {
-  constructor() {
+  constructor(message) {
+    this.message = message;
     this.snake = [{ x: 5, y: 5 }];
     this.snakeLength = 1;
     this.score = 0;
@@ -59,7 +67,7 @@ class SnakeGame {
     apple.y = newApplePos.y;
   }
 
-  newGame(msg) {
+  newGame() {
     if (this.inGame) return;
 
     this.inGame = true;
@@ -73,15 +81,42 @@ class SnakeGame {
       .setDescription(this.gameBoardToString())
       .setTimestamp();
 
-    msg.channel.send({ embeds: [embed] }).then((emsg) => {
-      this.gameEmbed = emsg;
-      this.gameEmbed.react("⬅️");
-      this.gameEmbed.react("⬆️");
-      this.gameEmbed.react("⬇️");
-      this.gameEmbed.react("➡️");
-
-      this.waitForReaction();
+    let array = [];
+    const disabledButt = ["⬛", "disabled"];
+    [
+      disabledButt,
+      ["⬆️", "up"],
+      disabledButt,
+      ["⬅️", "left"],
+      disabledButt,
+      ["➡️", "right"],
+      disabledButt,
+      ["⬇️", "down"],
+      disabledButt,
+    ].forEach((em) => {
+      let button;
+      if (em[0] == "⬛") {
+        button = new Discord.MessageButton()
+          .setStyle("SECONDARY")
+          .setCustomID("noneRequired")
+          .setLabel("⬛")
+          .setDisabled(true);
+      } else {
+        button = new Discord.MessageButton()
+          .setStyle("SUCCESS")
+          .setCustomID(em[1])
+          .setEmoji(em[0]);
+      }
+      array.push(button);
     });
+    array = split(array, 3);
+    this.message.channel
+      .send({ embeds: [embed], components: array })
+      .then((emsg) => {
+        this.gameEmbed = emsg;
+
+        this.waitForReaction();
+      });
   }
 
   step() {
@@ -108,68 +143,59 @@ class SnakeGame {
       .setTitle("Snake Game")
       .setDescription("`GAME OVER!`\nSCORE: " + this.score)
       .setTimestamp();
-    this.gameEmbed.edit({ embeds: [editEmbed] });
-
-    this.gameEmbed.reactions.removeAll();
-  }
-
-  filter(reaction, user) {
-    return (
-      ["⬅️", "⬆️", "⬇️", "➡️"].includes(reaction.emoji.name) &&
-      user.id !== this.gameEmbed.author.id
-    );
+    this.gameEmbed.edit({ embeds: [editEmbed], components: [] });
   }
 
   waitForReaction() {
-    this.gameEmbed
-      .awaitReactions((reaction, user) => this.filter(reaction, user), {
+    const collector = this.gameEmbed.createMessageComponentInteractionCollector(
+      () => true,
+      {
         max: 1,
-        time: 60000,
+        idle: 60000,
         errors: ["time"],
-      })
-      .then((collected) => {
-        const reaction = collected.first();
-
-        const snakeHead = this.snake[0];
-        const nextPos = { x: snakeHead.x, y: snakeHead.y };
-        if (reaction.emoji.name === "⬅️") {
-          let nextX = snakeHead.x - 1;
-          if (nextX < 0) nextX = WIDTH - 1;
-          nextPos.x = nextX;
-        } else if (reaction.emoji.name === "⬆️") {
-          let nextY = snakeHead.y - 1;
-          if (nextY < 0) nextY = HEIGHT - 1;
-          nextPos.y = nextY;
-        } else if (reaction.emoji.name === "⬇️") {
-          let nextY = snakeHead.y + 1;
-          if (nextY >= HEIGHT) nextY = 0;
-          nextPos.y = nextY;
-        } else if (reaction.emoji.name === "➡️") {
-          let nextX = snakeHead.x + 1;
-          if (nextX >= WIDTH) nextX = 0;
-          nextPos.x = nextX;
-        }
-
-        reaction.users
-          .remove(
-            reaction.users.cache
-              .filter((user) => user.id !== this.gameEmbed.author.id)
-              .first().id
-          )
-          .then(() => {
-            if (this.isLocInSnake(nextPos)) {
-              this.gameOver();
-            } else {
-              this.snake.unshift(nextPos);
-              if (this.snake.length > this.snakeLength) this.snake.pop();
-
-              this.step();
-            }
-          });
-      })
-      .catch((collected) => {
+      }
+    );
+    collector.on("collect", (collected) => {
+      if (collected.user.id !== this.message.author.id)
+        return collected.reply({
+          content: "You cannot use this snake game.",
+          ephemeral: true,
+        });
+      const snakeHead = this.snake[0];
+      const nextPos = { x: snakeHead.x, y: snakeHead.y };
+      if (collected.customID === "left") {
+        let nextX = snakeHead.x - 1;
+        if (nextX < 0) nextX = WIDTH - 1;
+        nextPos.x = nextX;
+      } else if (collected.customID === "up") {
+        let nextY = snakeHead.y - 1;
+        if (nextY < 0) nextY = HEIGHT - 1;
+        nextPos.y = nextY;
+      } else if (collected.customID === "down") {
+        let nextY = snakeHead.y + 1;
+        if (nextY >= HEIGHT) nextY = 0;
+        nextPos.y = nextY;
+      } else if (collected.customID === "right") {
+        let nextX = snakeHead.x + 1;
+        if (nextX >= WIDTH) nextX = 0;
+        nextPos.x = nextX;
+      }
+      if (this.isLocInSnake(nextPos)) {
         this.gameOver();
-      });
+      } else {
+        collected.deferUpdate();
+        this.snake.unshift(nextPos);
+        if (this.snake.length > this.snakeLength) this.snake.pop();
+
+        this.step();
+      }
+    });
+    collector.on("end", (x) => {
+      if (x.size && x.size == 0) {
+        this.message.sendErrorReply(message, "Ended.", "This game has ended due to inactivity.")
+        this.gameOver();
+      };
+    })
   }
 }
 

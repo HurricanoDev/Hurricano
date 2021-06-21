@@ -8,7 +8,7 @@ module.exports = new Command({
   description: "Play the snake game!",
   clientPermissions: ["SEND_MESSAGES"],
   async run(message, args) {
-    const snakeGame = new SnakeGame(client);
-    snakeGame.newGame(message);
+    const snakeGame = new SnakeGame(message);
+    snakeGame.newGame();
   },
 });
