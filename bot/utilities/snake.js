@@ -94,14 +94,22 @@ class SnakeGame {
       disabledButt,
       ["⬇️", "down"],
       disabledButt,
+      disabledButt,
+      ["❌", "stop"],
+      disabledButt
     ].forEach((em) => {
       let button;
       if (em[0] == "⬛") {
         button = new Discord.MessageButton()
           .setStyle("SECONDARY")
           .setCustomID("noneRequired")
-          .setLabel("⬛")
+          .setEmoji("⬛")
           .setDisabled(true);
+      } else if (em[0] == "❌") {
+        button = new Discord.MessageButton()
+        .setStyle("DANGER")
+        .setCustomID("stop")
+        .setLabel("Stop")
       } else {
         button = new Discord.MessageButton()
           .setStyle("SUCCESS")
@@ -198,6 +206,9 @@ class SnakeGame {
           return this.gameOver();
         }
         nextPos.x = nextX;
+      } else if (collected.customID === "stop") {
+        collected.deferUpdate();
+        return this.gameOver();
       }
       if (this.isLocInSnake(nextPos)) {
         this.gameOver();
