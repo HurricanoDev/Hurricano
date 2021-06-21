@@ -100,7 +100,7 @@ class SnakeGame {
         button = new Discord.MessageButton()
           .setStyle("SECONDARY")
           .setCustomID("noneRequired")
-          .setLabel("\u200b")
+          .setLabel("⬛")
           .setDisabled(true);
       } else {
         button = new Discord.MessageButton()
