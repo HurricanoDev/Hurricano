@@ -73,7 +73,7 @@ module.exports = model(
     },
     isActive: {
       type: Boolean,
-      default: false,
+      default: true,
     },
     muteRole: {
       type: String,

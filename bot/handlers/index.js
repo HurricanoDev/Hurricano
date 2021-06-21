@@ -1,6 +1,5 @@
 require("module-alias/register");
 const { Intents, Collection } = require("discord.js"),
-  express = require("express"),
   { HurricanoClient, loadStructures } = require("@root/bot/Client.js"),
   config = require("@config"),
   intents = new Intents();
@@ -16,11 +15,9 @@ intents.add(
 );
 
 const client = new HurricanoClient(config, {
-    intents: intents,
-    allowedMentions: { parse: ["users"], repliedUser: false },
-  }),
-  app = express();
-
+  intents: intents,
+  allowedMentions: { parse: ["users"], repliedUser: false },
+});
 global.client = client;
 // website initialization
 if (client.config.website.enabled) {

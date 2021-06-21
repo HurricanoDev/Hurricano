@@ -104,9 +104,9 @@ class SnakeGame {
           .setDisabled(true);
       } else if (em[0] == "❌") {
         button = new Discord.MessageButton()
-        .setStyle("DANGER")
-        .setCustomID("stop")
-        .setLabel("Stop.")
+          .setStyle("DANGER")
+          .setCustomID("stop")
+          .setLabel("Stop.");
       } else {
         button = new Discord.MessageButton()
           .setStyle("PRIMARY")
@@ -152,10 +152,10 @@ class SnakeGame {
       description: `Oof. Game over. \n Your Score: \`${this.score}\``,
       footer: {
         name: this.message.member.displayName,
-        iconURL: this.message.author.displayAvatarURL()
-      }
-    })
-     this.gameEmbed.edit({ embeds: [embed] })
+        iconURL: this.message.author.displayAvatarURL(),
+      },
+    });
+    this.gameEmbed.edit({ embeds: [embed] });
   }
 
   waitForReaction() {
@@ -219,10 +219,14 @@ class SnakeGame {
     });
     collector.on("end", (x) => {
       if (x.size && x.size == 0) {
-        this.message.sendErrorReply(message, "Ended.", "This game has ended due to inactivity.")
+        this.message.sendErrorReply(
+          message,
+          "Ended.",
+          "This game has ended due to inactivity."
+        );
         this.gameOver();
-      };
-    })
+      }
+    });
   }
 }
 
