@@ -1,4 +1,4 @@
-require("module-alias/register");
+require("../utilities/module-alias.js")();
 const { Intents, Collection } = require("discord.js"),
   { HurricanoClient, loadStructures } = require("@root/bot/Client.js"),
   config = require("@config"),

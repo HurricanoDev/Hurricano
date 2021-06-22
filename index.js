@@ -1,4 +1,4 @@
-require("module-alias/register");
+require("./bot/utilities/module-alias.js")();
 const config = require("@config");
 const { ShardingManager } = require("discord.js");
 const logger = require("./bot/utilities/logger.js");
