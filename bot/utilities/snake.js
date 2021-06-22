@@ -209,6 +209,7 @@ class SnakeGame {
       }
       if (this.isLocInSnake(nextPos)) {
         this.gameOver();
+        collected.deferUpdate();
       } else {
         collected.deferUpdate();
         this.snake.unshift(nextPos);
@@ -220,7 +221,6 @@ class SnakeGame {
     collector.on("end", (x) => {
       if (x.size && x.size == 0) {
         this.message.sendErrorReply(
-          message,
           "Ended.",
           "This game has ended due to inactivity."
         );

@@ -7,6 +7,10 @@ module.exports = Structures.extend(
       constructor(...args) {
         super(...args);
       }
+      async say(options) {
+        const msg = await this.channel.send(options);
+        return msg;
+      }
       async sendErrorReply(Header, Msg, Footer, Fields) {
         const embed = new MessageEmbed()
           .setAuthor(

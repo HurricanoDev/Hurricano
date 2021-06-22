@@ -1,12 +1,10 @@
-[2021-06-22 05:05:02] - [client]: 
-.-----------------------[2021-06-22 05:05:06] - [shard]: [Shard 0] Shard Ready!
+[2021-06-22 14:16:46] - [client]: 
+.-----------------------[2021-06-22 14:16:52] - [shard]: [Shard 0] Shard Ready!
 --------------------------------------------.
 |                                                         Commands                                                          |
 |---------------------------------------------------------------------------------------------------------------------------|
 |     Command File     |   Command Name    | Command Category |                    Aliases                    | Load status |
 |----------------------|-------------------|------------------|-----------------------------------------------|-------------|
-| accept.js            | accept            | config           | None.                                         | Loaded!     |
-| deny.js              | deny              | config           | None.                                         | Loaded!     |
 | disable.js           | disable           | config           | None.                                         | Loaded!     |
 | enable.js            | enable            | config           | None.                                         | Loaded!     |
 | msglogs.js           | msglogs           | config           | messagelogs, messagelog                       | Loaded!     |
@@ -19,7 +17,6 @@
 | settings.js          | settings          | config           | None.                                         | Loaded!     |
 | spamdetection.js     | spamdetection     | config           | spamd, antispam                               | Loaded!     |
 | starboard.js         | starboard         | config           | None.                                         | Loaded!     |
-| suggestionchannel.js | suggestionchannel | config           | suggestionschannel                            | Loaded!     |
 | wordblacklist.js     | wordblacklist     | config           | wbl                                           | Loaded!     |
 | balance.js           | balance           | economy          | bal, coins, money                             | Loaded!     |
 | deposit.js           | deposit           | economy          | dep                                           | Loaded!     |
@@ -53,7 +50,6 @@
 | help.js              | help              | information      | cmd, commands, h                              | Loaded!     |
 | invite.js            | invite            | information      | inv                                           | Loaded!     |
 | joinposition.js      | joinposition      | information      | joinp                                         | Loaded!     |
-| lookup.js            | lookup            | information      | None.                                         | Loaded!     |
 | ping.js              | ping              | information      | latency, pong                                 | Loaded!     |
 | serverinfo.js        | serverinfo        | information      | serveri, si, guildinfo, gi                    | Loaded!     |
 | test.js              | test              | information      | None.                                         | Loaded!     |
@@ -79,6 +75,9 @@
 | reload.js            | reload            | owner            | None.                                         | Loaded!     |
 | shutdown.js          | shutdown          | owner            | None.                                         | Loaded!     |
 | unblacklist.js       | unblacklist       | owner            | None.                                         | Loaded!     |
+| accept.js            | accept            | suggestions      | None.                                         | Loaded!     |
+| deny.js              | deny              | suggestions      | None.                                         | Loaded!     |
+| suggestionchannel.js | suggestionchannel | suggestions      | suggestionschannel                            | Loaded!     |
 | afk.js               | afk               | utility          | None.                                         | Loaded!     |
 | birthdaycheck.js     | birthdate         | utility          | checkbirthday, checkbday, birthdaycheck       | Loaded!     |
 | birthdayset.js       | birthdayset       | utility          | setbirthday, setbday                          | Loaded!     |
@@ -86,30 +85,44 @@
 | suggest.js           | suggest           | utility          | None.                                         | Loaded!     |
 | tag.js               | tag               | utility          | None.                                         | Loaded!     |
 '---------------------------------------------------------------------------------------------------------------------------'
-[2021-06-22 05:05:02] - [info]: Provided token: ODI1NTc0NDEyMTc4NDIzODU5.YF_6Fg.***************************
-[2021-06-22 05:05:02] - [info]: Preparing to connect to the gateway...
-[2021-06-22 05:05:03] - [info]: [WS => Manager] Fetched Gateway Information
+[2021-06-22 14:16:46] - [info]: Provided token: ODI1NTc0NDEyMTc4NDIzODU5.YF_6Fg.***************************
+[2021-06-22 14:16:46] - [info]: Preparing to connect to the gateway...
+[2021-06-22 14:16:49] - [info]: [WS => Manager] Fetched Gateway Information
     URL: wss://gateway.discord.gg
     Recommended Shards: 1
-[2021-06-22 05:05:03] - [info]: [WS => Manager] Session Limit Information
+[2021-06-22 14:16:49] - [info]: [WS => Manager] Session Limit Information
     Total: 1000
-    Remaining: 940
-[2021-06-22 05:05:03] - [info]: [WS => Manager] Spawning shards: 0
-[2021-06-22 05:05:03] - [info]: [WS => Shard 0] [CONNECT]
+    Remaining: 1000
+[2021-06-22 14:16:49] - [info]: [WS => Manager] Spawning shards: 0
+[2021-06-22 14:16:49] - [info]: [WS => Shard 0] [CONNECT]
     Gateway    : wss://gateway.discord.gg/
     Version    : 8
     Encoding   : json
     Compression: none
-[2021-06-22 05:05:03] - [info]: [WS => Shard 0] Setting a HELLO timeout for 20s.
-[2021-06-22 05:05:03] - [info]: [WS => Shard 0] [CONNECTED] wss://gateway.discord.gg/?v=8&encoding=json in 596ms
-[2021-06-22 05:05:03] - [info]: [WS => Shard 0] Clearing the HELLO timeout.
-[2021-06-22 05:05:03] - [info]: [WS => Shard 0] Setting a heartbeat interval for 41250ms.
-[2021-06-22 05:05:04] - [info]: [WS => Shard 0] [IDENTIFY] Shard 0/1 with intents: 1923
-[2021-06-22 05:05:04] - [info]: [WS => Shard 0] [READY] Session 98ff4abee9850440d9e0ea2a365f8ac4.
-[2021-06-22 05:05:04] - [info]: [WS => Shard 0] [ReadyHeartbeat] Sending a heartbeat.
-[2021-06-22 05:05:04] - [db]: Connected to MongoDB!
-[2021-06-22 05:05:06] - [info]: [WS => Shard 0] Shard received all its guilds. Marking as fully ready.
-[2021-06-22 05:05:06] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 1646ms.
-[2021-06-22 05:05:08] - [client]: Hurricano Beta#2437 Successfully Logged in!
-[2021-06-22 05:05:45] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
-[2021-06-22 05:05:45] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 374ms.
+[2021-06-22 14:16:49] - [info]: [WS => Shard 0] Setting a HELLO timeout for 20s.
+[2021-06-22 14:16:50] - [info]: [WS => Shard 0] [CONNECTED] wss://gateway.discord.gg/?v=8&encoding=json in 622ms
+[2021-06-22 14:16:50] - [info]: [WS => Shard 0] Clearing the HELLO timeout.
+[2021-06-22 14:16:50] - [info]: [WS => Shard 0] Setting a heartbeat interval for 41250ms.
+[2021-06-22 14:16:50] - [info]: [WS => Shard 0] [IDENTIFY] Shard 0/1 with intents: 1923
+[2021-06-22 14:16:50] - [info]: [WS => Shard 0] [READY] Session c5f7dbc18fcfa5a9a7dfbe59cff99d5a.
+[2021-06-22 14:16:50] - [info]: [WS => Shard 0] [ReadyHeartbeat] Sending a heartbeat.
+[2021-06-22 14:16:51] - [db]: Connected to MongoDB!
+[2021-06-22 14:16:52] - [info]: [WS => Shard 0] Shard received all its guilds. Marking as fully ready.
+[2021-06-22 14:16:52] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 1485ms.
+[2021-06-22 14:16:54] - [client]: Hurricano Beta#2437 Successfully Logged in!
+[2021-06-22 14:17:31] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2021-06-22 14:17:32] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 414ms.
+[2021-06-22 14:18:12] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2021-06-22 14:18:13] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 377ms.
+[2021-06-22 14:18:54] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2021-06-22 14:18:54] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 388ms.
+[2021-06-22 14:19:35] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2021-06-22 14:19:35] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 428ms.
+[2021-06-22 14:20:16] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2021-06-22 14:20:17] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 377ms.
+[2021-06-22 14:20:57] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2021-06-22 14:20:58] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 372ms.
+[2021-06-22 14:21:39] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2021-06-22 14:21:39] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 466ms.
+[2021-06-22 14:22:20] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2021-06-22 14:22:20] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 445ms.

@@ -87,21 +87,17 @@ module.exports = new Command({
           );
       });
       const emojimap = {
-        ["giveaways"]: [
+        ["giveaways"]:
           emojis.categories.giveaways.split(":")[2].split("<")[0].split(">")[0],
-        ],
-        ["owner"]: [
+        ["owner"]: 
           emojis.categories.owner.split(":")[2].split("<")[0].split(">")[0],
-        ],
-        ["music"]: [
+        ["music"]:
           emojis.categories.music.split(":")[2].split("<")[0].split(">")[0],
-        ],
-        ["moderation"]: [
+        ["moderation"]: 
           emojis.categories.moderation
             .split(":")[2]
             .split("<")[0]
             .split(">")[0],
-        ],
         ["config"]: "⚙️",
         ["information"]: emojis.categories.information
           .split(":")[2]
@@ -111,6 +107,7 @@ module.exports = new Command({
         ["image"]: "📷",
         ["levelling"]: "🆙",
         ["utility"]: "842193834922344476",
+        ["suggestions"]: "🗨️",
         ["economy"]: "851348425860710410", //I will change this to an actual emoji later.
       };
       function getEmoji(emoji) {
@@ -169,6 +166,11 @@ module.exports = new Command({
           `> ${getEmoji(emojimap.utility)}  Utility`,
           "Want some handy tools? Well, here you go!",
           inline
+        )
+        .addField(
+          `> ${getEmoji(emojimap.suggestions)} Suggestions`,
+          "Commands related to the server suggestions system!",
+          true
         )
         .addField(
           `> ${getEmoji(emojimap.economy)}  Economy`,
@@ -263,6 +265,14 @@ module.exports = new Command({
         "https://raw.githubusercontent.com/HurricanoBot/HurricanoImages/master/categories/Owner.jpg"
       );
       // -------------------------------------------------------------------------------
+      const suggestions = generateHelpEmbed(
+        "Suggestions",
+        "https://raw.githubusercontent.com/HurricanoBot/HurricanoImages/master/SetAuthorEmojis/Suggestions.png",
+        "Suggestion commands! **React** with other emojis to see what else there is!",
+        cmdmap.suggestions,
+        "https://raw.githubusercontent.com/HurricanoBot/HurricanoImages/master/SetAuthorEmojis/Suggestions.png"
+      )
+      // -----------------------------------------------------------------------------------
       const moderation = generateHelpEmbed(
         "Moderation",
         "https://raw.githubusercontent.com/HurricanoBot/HurricanoImages/master/SetAuthorEmojis/Moderation.png",
@@ -298,6 +308,7 @@ module.exports = new Command({
         [emojimap.levelling]: levelling,
         [emojimap.music]: music,
         [emojimap.utility]: utility,
+        [emojimap.suggestions]: suggestions,
         [emojimap.economy]: economy,
         [emojimap.owner]: client.config.ownerIds.includes(message.author.id)
           ? owner
