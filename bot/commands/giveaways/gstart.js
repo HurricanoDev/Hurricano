@@ -114,6 +114,7 @@ module.exports = new Command({
       return message.sendErrorReply(
         "Invalid Arguments Provided.",
         `Please provide a required role for this giveaway, or if you want none just type none.`,
+        null,
         [
           {
             name: "Examples:",
