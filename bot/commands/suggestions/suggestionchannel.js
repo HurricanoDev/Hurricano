@@ -51,7 +51,7 @@ module.exports = new Command({
         break;
       case "remove":
         if (!suggestionChannel)
-          return message.channel.sendErrorReply(
+          return message.sendErrorReply(
             message,
             "No Suggestions Channel Found!",
             `No suggestion channel was found! If you want to set one, you can use: \`${prefix}suggestionchannel set {channel}\`.`

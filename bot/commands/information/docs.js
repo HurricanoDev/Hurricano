@@ -20,7 +20,9 @@ module.exports = new Command({
             "Please provide what you would like to check docs of in discord.js!"
           );
         let msg;
-        const branch = args.join(" ").includes("--src=") ? args.join(" ").split("--src=")[1].split(/ +/g)[0] : "stable";
+        const branch = args.join(" ").includes("--src=")
+          ? args.join(" ").split("--src=")[1].split(/ +/g)[0]
+          : "stable";
 
         const embed = await fetch(
           `https://djsdocs.sorta.moe/v2/embed?src=${branch}&q=${encodeURIComponent(

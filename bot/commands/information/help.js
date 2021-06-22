@@ -87,17 +87,22 @@ module.exports = new Command({
           );
       });
       const emojimap = {
-        ["giveaways"]:
-          emojis.categories.giveaways.split(":")[2].split("<")[0].split(">")[0],
-        ["owner"]: 
-          emojis.categories.owner.split(":")[2].split("<")[0].split(">")[0],
-        ["music"]:
-          emojis.categories.music.split(":")[2].split("<")[0].split(">")[0],
-        ["moderation"]: 
-          emojis.categories.moderation
-            .split(":")[2]
-            .split("<")[0]
-            .split(">")[0],
+        ["giveaways"]: emojis.categories.giveaways
+          .split(":")[2]
+          .split("<")[0]
+          .split(">")[0],
+        ["owner"]: emojis.categories.owner
+          .split(":")[2]
+          .split("<")[0]
+          .split(">")[0],
+        ["music"]: emojis.categories.music
+          .split(":")[2]
+          .split("<")[0]
+          .split(">")[0],
+        ["moderation"]: emojis.categories.moderation
+          .split(":")[2]
+          .split("<")[0]
+          .split(">")[0],
         ["config"]: "⚙️",
         ["information"]: emojis.categories.information
           .split(":")[2]
@@ -271,7 +276,7 @@ module.exports = new Command({
         "Suggestion commands! **React** with other emojis to see what else there is!",
         cmdmap.suggestions,
         "https://raw.githubusercontent.com/HurricanoBot/HurricanoImages/master/SetAuthorEmojis/Suggestions.png"
-      )
+      );
       // -----------------------------------------------------------------------------------
       const moderation = generateHelpEmbed(
         "Moderation",

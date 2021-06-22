@@ -20,6 +20,6 @@ module.exports = new Command({
       .setImage(
         "https://media.discordapp.net/attachments/770953232318726144/804251677950869514/Untitled_9.jpg?width=1025&height=342"
       );
-    message.reply(embed);
+    message.reply({ embeds: [embed] });
   },
 });

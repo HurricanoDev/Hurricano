@@ -128,7 +128,7 @@ module.exports = new Command({
       message.mentions.roles.first();
 
     if (!role && !args[2].toLowerCase().startsWith("none"))
-      return message.channel.sendErrorReply(
+      return message.sendErrorReply(
         "Invalid Required Role Provided.",
         "Please check if the role you provided exists, or if you spelled none wrong."
       );

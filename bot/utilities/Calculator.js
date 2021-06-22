@@ -309,25 +309,32 @@ module.exports = async (message) => {
       }
       async function lock() {
         msg.edit({
-          embeds: [new MessageEmbed()
-            .setAuthor(
-              message.author.tag,
-              message.author.displayAvatarURL({
-                dynamic: true,
-              })
-            )
-            .setTitle("Button Calculator")
-            .setDescription(stringify)
-            .setColor("RED")
-            .setTimestamp()],
-          components: [[qe1, qe2, quppercase, qpercent, qac], [qseven, qeight, qnine, qslash, qdestroy], [qfour, qfive, qsix, qstar, qbackspace],[qone, qtwo, qthree, qminus, empty],[qdot, qzero, qequal, qplus, empty]],
+          embeds: [
+            new MessageEmbed()
+              .setAuthor(
+                message.author.tag,
+                message.author.displayAvatarURL({
+                  dynamic: true,
+                })
+              )
+              .setTitle("Button Calculator")
+              .setDescription(stringify)
+              .setColor("RED")
+              .setTimestamp(),
+          ],
+          components: [
+            [qe1, qe2, quppercase, qpercent, qac],
+            [qseven, qeight, qnine, qslash, qdestroy],
+            [qfour, qfive, qsix, qstar, qbackspace],
+            [qone, qtwo, qthree, qminus, empty],
+            [qdot, qzero, qequal, qplus, empty],
+          ],
         });
       }
       const calc = msg.createMessageComponentInteractionCollector(filter);
 
       calc.on("collect", async (btn) => {
-        if (btn.user.id !== message.author.id) { 
-
+        if (btn.user.id !== message.author.id) {
           return btn.deferUpdate();
         }
 

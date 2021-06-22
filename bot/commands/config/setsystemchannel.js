@@ -9,7 +9,7 @@ module.exports = new Command({
   async run(message, args) {
     const ch = await client.functions.getChannel(true, message, args[0]);
     if (!ch)
-      return message.channel.sendErrorReply(
+      return message.sendErrorReply(
         message,
         "Error!",
         "Invalid channel provided."
