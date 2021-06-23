@@ -1,0 +1,14 @@
+[2021-06-23 08:57:21] - [warn]: MessageEmbed field values must be non-empty strings.
+{
+  "stack": "RangeError [EMBED_FIELD_VALUE]: MessageEmbed field values must be non-empty strings.
+    at Function.verifyString (/home/runner/Hurricano-3/node_modules/discord.js/src/util/Util.js:399:41)
+    at Function.normalizeField (/home/runner/Hurricano-3/node_modules/discord.js/src/structures/MessageEmbed.js:429:19)
+    at /home/runner/Hurricano-3/node_modules/discord.js/src/structures/MessageEmbed.js:450:14
+    at Array.map (<anonymous>)
+    at Function.normalizeFields (/home/runner/Hurricano-3/node_modules/discord.js/src/structures/MessageEmbed.js:449:8)
+    at MessageEmbed.addFields (/home/runner/Hurricano-3/node_modules/discord.js/src/structures/MessageEmbed.js:278:42)
+    at MessageEmbed.addField (/home/runner/Hurricano-3/node_modules/discord.js/src/structures/MessageEmbed.js:269:17)
+    at Command.run (/home/runner/Hurricano-3/bot/commands/information/serverinfo.js:172:8)
+    at processTicksAndRejections (internal/process/task_queues.js:95:5)
+    at async MessageEvent.run (/home/runner/Hurricano-3/bot/events/bot/message.js:430:7)"
+}
