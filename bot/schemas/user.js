@@ -40,5 +40,9 @@ module.exports = model(
       allowNull: true,
       default: null,
     },
+    voteReminder: {
+      type: Boolean,
+      default: false,
+    },
   })
 );

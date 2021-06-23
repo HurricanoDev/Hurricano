@@ -404,6 +404,14 @@ class HurricanoClient extends Discord.Client {
               .setColor("GREEN");
 
             await user.send({ embeds: [dmEmbed] }).catch(() => {});
+            const userdb = this.db.users.cache.get(user.id);
+            if (userdb.voteReminder) {
+              setTimeout(() => {
+                user.send(
+                  "Hey! You can vote for me again! It's been 12 hours since you last voted. Click [here](https://top.gg/bot/803169312827113483/vote) to vote."
+                );
+              }, 43200000);
+            }
           })
         );
         const port = process.env.PORT || this.config.topgg.webhook.webhookPort;

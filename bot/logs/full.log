@@ -111,3 +111,23 @@
 [2021-06-23 00:13:49] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 158ms.
 [2021-06-23 00:13:49] - [db]: Connected to MongoDB!
 [2021-06-23 00:13:50] - [client]: HurricanoBeta2#4159 Successfully Logged in!
+[2021-06-23 00:14:30] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2021-06-23 00:14:30] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 83ms.
+[2021-06-23 00:15:11] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2021-06-23 00:15:11] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 88ms.
+[2021-06-23 00:15:52] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2021-06-23 00:15:52] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 81ms.
+[2021-06-23 00:16:34] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2021-06-23 00:16:34] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 82ms.
+[2021-06-23 00:17:15] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2021-06-23 00:17:15] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 89ms.
+[2021-06-23 00:17:56] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2021-06-23 00:17:56] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 81ms.
+[2021-06-23 00:18:37] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2021-06-23 00:18:37] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 84ms.
+[2021-06-23 00:19:19] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2021-06-23 00:19:19] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 83ms.
+[2021-06-23 00:20:00] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2021-06-23 00:20:00] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 91ms.
+[2021-06-23 00:20:41] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2021-06-23 00:20:41] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 83ms.
