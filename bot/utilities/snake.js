@@ -149,7 +149,7 @@ class SnakeGame {
         name: "GAME OVER!",
         iconURL: client.links.errorImage,
       },
-      description: `Oof. Game over. \n Your Score: \`${this.score}\``,
+      description: `Bad Luck, you lost! Better luck next time \n Your Score: \`${this.score}\``,
       footer: {
         name: this.message.member.displayName,
         iconURL: this.message.author.displayAvatarURL(),
