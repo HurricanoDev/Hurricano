@@ -112,7 +112,7 @@ module.exports = new Command({
         ["image"]: "📷",
         ["levelling"]: "🆙",
         ["utility"]: "842193834922344476",
-        ["suggestions"]: "🗨️",
+        ["suggestions"]: "💡",
         ["economy"]: "851348425860710410", //I will change this to an actual emoji later.
       };
       function getEmoji(emoji) {
@@ -272,10 +272,10 @@ module.exports = new Command({
       // -------------------------------------------------------------------------------
       const suggestions = generateHelpEmbed(
         "Suggestions",
-        "https://raw.githubusercontent.com/HurricanoBot/HurricanoImages/master/SetAuthorEmojis/Suggestions.png",
+        "https://raw.githubusercontent.com/HurricanoBot/HurricanoImages/master/SetAuthorEmojis/Suggest.png",
         "Suggestion commands! **React** with other emojis to see what else there is!",
         cmdmap.suggestions,
-        "https://raw.githubusercontent.com/HurricanoBot/HurricanoImages/master/SetAuthorEmojis/Suggestions.png"
+        "https://raw.githubusercontent.com/HurricanoBot/HurricanoImages/master/categories/Suggestions.png"
       );
       // -----------------------------------------------------------------------------------
       const moderation = generateHelpEmbed(
