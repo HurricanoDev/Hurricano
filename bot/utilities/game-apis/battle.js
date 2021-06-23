@@ -26,7 +26,7 @@ async function createBattle(member, message) {
   };
   if (member.id === message.author.id)
     return message.sendErrorReply("Error", "You can't play with yourself!");
-  if (member.user.bot) return message.reply("Bots can't play!");
+  if (member.user.bot) return message.sendErrorReply("Error!", "You cannot battle against bots!");
   return start(member, message.channel, message.author.id, member.id, message);
 
   //
