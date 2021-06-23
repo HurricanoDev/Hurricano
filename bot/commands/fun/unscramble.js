@@ -32,6 +32,7 @@ module.exports = new Command({
 
       setSettings.on("collect", async (msg) => {
         if (msg.content.toLowerCase() === randomWord) {
+          setSettings.stop();
           return message.channel.sendSuccess(
             message,
             "Correct!",
