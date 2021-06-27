@@ -9,7 +9,11 @@ module.exports = new Command({
   clientPermissions: ["SEND_MESSAGES"],
   async run(message, args) {
     const member = message.mentions.members.first();
-    if(!member) return message.sendErrorReply("Error!", "Please give me who you want to battle against!");
+    if (!member)
+      return message.sendErrorReply(
+        "Error!",
+        "Please give me who you want to battle against!"
+      );
 
     createBattle(member, message);
   },

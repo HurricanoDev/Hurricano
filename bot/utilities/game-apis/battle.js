@@ -1,5 +1,5 @@
 const { MessageEmbed } = require("discord.js");
-const Button = require('../../utilities/ButtonMenu.js')
+const Button = require("../../utilities/ButtonMenu.js");
 let attacks = ["stab", "attack", "360 no scope", "punch", "kick"];
 let heals = ["heal", "bandage", "chew 5 gum", "potion", "rest"];
 let chance = ["yes", "yes", "no", "yes", "yes", "no", "yes", "yes"];
@@ -25,8 +25,9 @@ async function createBattle(member, message) {
     battleTurn: false,
   };
   if (member.id === message.author.id)
-    return message.sendErrorReply("Error", "You can't play with yourself!");
-  if (member.user.bot) return message.sendErrorReply("Error!", "You cannot battle against bots!");
+    return message.sendErrorReply("Error.", "You can't play with yourself!");
+  if (member.user.bot)
+    return message.sendErrorReply("Error!", "You cannot battle against bots!");
   return start(member, message.channel, message.author.id, member.id, message);
 
   //

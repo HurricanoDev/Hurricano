@@ -10,9 +10,9 @@ module.exports = new Command({
   async run(message, args) {
     const board = new Minesweeper().start();
     const embed = new Discord.MessageEmbed()
-      .setTitle('Minesweeper Game')
+      .setTitle("Minesweeper Game")
       .setColor("RANDOM")
-      .setDescription(board)
+      .setDescription(board);
 
     message.channel.send({ embeds: [embed] });
   },

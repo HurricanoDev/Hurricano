@@ -1,6 +1,6 @@
 const Discord = require("discord.js");
 const Command = require("@Command");
-const Hangman = require('../../utilities/game-apis/hangman.js');
+const Hangman = require("../../utilities/game-apis/hangman.js");
 
 module.exports = new Command({
   name: "hangman",
