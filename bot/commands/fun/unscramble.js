@@ -23,7 +23,7 @@ module.exports = new Command({
       .setDescription(
         `I have scrambled a word for you.\nThis is the scrambled version: **${scrambled}**.\nIn order to win, you need to guess the word correctly, you have 5 tries and you also have **15 seconds**!`
       );
-      let gotWrong = true;
+    let gotWrong = true;
     message.channel.send({ embeds: [prompt] }).then(async (started) => {
       let filter1 = (msg) => msg.author.id === message.author.id;
       let setSettings = message.channel.createMessageCollector(filter1, {
@@ -52,11 +52,11 @@ module.exports = new Command({
 
       setSettings.on("end", async () => {
         if (!gotWrong)
-        return message.channel.sendError(
-          message,
-          "Thanks for playing.",
-          `You either took too long or you ran out of guesses. The word was **${randomWord}**`
-        );
+          return message.channel.sendError(
+            message,
+            "Thanks for playing.",
+            `You either took too long or you ran out of guesses. The word was **${randomWord}**`
+          );
       });
     });
   },

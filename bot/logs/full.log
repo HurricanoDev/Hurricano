@@ -1,5 +1,5 @@
-[2021-06-27 16:30:28] - [client]: 
-.-----------------------[2021-06-27 16:30:31] - [shard]: [Shard 0] Shard Ready!
+[2021-06-27 17:26:28] - [client]: 
+.-----------------------[2021-06-27 17:26:33] - [shard]: [Shard 0] Shard Ready!
 --------------------------------------------.
 |                                                         Commands                                                          |
 |---------------------------------------------------------------------------------------------------------------------------|
@@ -90,148 +90,86 @@
 | suggest.js           | suggest           | utility          | None.                                         | Loaded!     |
 | tag.js               | tag               | utility          | None.                                         | Loaded!     |
 '---------------------------------------------------------------------------------------------------------------------------'
-[2021-06-27 16:30:28] - [info]: Provided token: ODI1NTc0NDEyMTc4NDIzODU5.YF_6Fg.***************************
-[2021-06-27 16:30:28] - [info]: Preparing to connect to the gateway...
-[2021-06-27 16:30:29] - [info]: [WS => Manager] Fetched Gateway Information
+[2021-06-27 17:26:28] - [info]: Provided token: ODI1NTc0NDEyMTc4NDIzODU5.YF_6Fg.***************************
+[2021-06-27 17:26:28] - [info]: Preparing to connect to the gateway...
+[2021-06-27 17:26:30] - [info]: [WS => Manager] Fetched Gateway Information
     URL: wss://gateway.discord.gg
     Recommended Shards: 1
-[2021-06-27 16:30:29] - [info]: [WS => Manager] Session Limit Information
+[2021-06-27 17:26:30] - [info]: [WS => Manager] Session Limit Information
     Total: 1000
-    Remaining: 999
-[2021-06-27 16:30:29] - [info]: [WS => Manager] Spawning shards: 0
-[2021-06-27 16:30:29] - [info]: [WS => Shard 0] [CONNECT]
+    Remaining: 996
+[2021-06-27 17:26:30] - [info]: [WS => Manager] Spawning shards: 0
+[2021-06-27 17:26:30] - [info]: [WS => Shard 0] [CONNECT]
     Gateway    : wss://gateway.discord.gg/
     Version    : 8
     Encoding   : json
     Compression: none
-[2021-06-27 16:30:29] - [info]: [WS => Shard 0] Setting a HELLO timeout for 20s.
-[2021-06-27 16:30:29] - [info]: [WS => Shard 0] [CONNECTED] wss://gateway.discord.gg/?v=8&encoding=json in 622ms
-[2021-06-27 16:30:29] - [info]: [WS => Shard 0] Clearing the HELLO timeout.
-[2021-06-27 16:30:29] - [info]: [WS => Shard 0] Setting a heartbeat interval for 41250ms.
-[2021-06-27 16:30:29] - [info]: [WS => Shard 0] [IDENTIFY] Shard 0/1 with intents: 1923
-[2021-06-27 16:30:30] - [info]: [WS => Shard 0] [READY] Session 5dfbbc391e2db055a8a63fbec2021640.
-[2021-06-27 16:30:30] - [info]: [WS => Shard 0] [ReadyHeartbeat] Sending a heartbeat.
-[2021-06-27 16:30:30] - [db]: Connected to MongoDB!
-[2021-06-27 16:30:31] - [info]: [WS => Shard 0] Shard received all its guilds. Marking as fully ready.
-[2021-06-27 16:30:31] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 1163ms.
-[2021-06-27 16:30:33] - [client]: Hurricano Beta#2437 Successfully Logged in!
-[2021-06-27 16:30:49] - [warn]: Invalid Form Body
-message_reference: Unknown message
+[2021-06-27 17:26:30] - [info]: [WS => Shard 0] Setting a HELLO timeout for 20s.
+[2021-06-27 17:26:32] - [db]: Connected to MongoDB!
+[2021-06-27 17:26:32] - [info]: [WS => Shard 0] [CONNECTED] wss://gateway.discord.gg/?v=8&encoding=json in 1927ms
+[2021-06-27 17:26:32] - [info]: [WS => Shard 0] Clearing the HELLO timeout.
+[2021-06-27 17:26:32] - [info]: [WS => Shard 0] Setting a heartbeat interval for 41250ms.
+[2021-06-27 17:26:32] - [info]: [WS => Shard 0] [IDENTIFY] Shard 0/1 with intents: 1923
+[2021-06-27 17:26:32] - [info]: [WS => Shard 0] [READY] Session f3d656bdbb4b659b997cced67184b033.
+[2021-06-27 17:26:32] - [info]: [WS => Shard 0] [ReadyHeartbeat] Sending a heartbeat.
+[2021-06-27 17:26:33] - [info]: [WS => Shard 0] Shard received all its guilds. Marking as fully ready.
+[2021-06-27 17:26:33] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 830ms.
+[2021-06-27 17:26:36] - [client]: Hurricano Beta#2437 Successfully Logged in!
+[2021-06-27 17:26:46] - [warn]: MessageEmbed field values must be non-empty strings.
 {
-  "name": "DiscordAPIError",
-  "method": "post",
-  "path": "/channels/857584397174439967/messages",
-  "code": 50035,
-  "httpStatus": 400,
-  "requestData": {
-    "json": {
-      "tts": false,
-      "embeds": [
-        {
-          "title": null,
-          "type": "rich",
-          "description": null,
-          "url": null,
-          "timestamp": null,
-          "color": 9498256,
-          "fields": [
-            {
-              "name": "<:Plus:814407403998412800>  Invite Link",
-              "value": "Click [here](https://discord.com/oauth2/authorize?client_id=803169312827113483&scope=bot&permissions=8589934591&scope=applications.commands%20bot) to invite the bot.",
-              "inline": false
-            },
-            {
-              "name": "<:Info:826292582468026429>  Support Server Link",
-              "value": "Click [here](https://discord.gg/dNc3EvABCA) to join the support server.",
-              "inline": false
-            },
-            {
-              "name": "<:HurricanoTopGG:857048686836449280>  Top.gg Vote Link",
-              "value": "Click [here](https://top.gg/bot/803169312827113483/vote) to vote for Hurricano Beta",
-              "inline": false
-            }
-          ],
-          "thumbnail": null,
-          "image": {
-            "url": "https://media.discordapp.net/attachments/770953232318726144/804251677950869514/Untitled_9.jpg?width=1025&height=342"
-          },
-          "author": {
-            "name": "Hurricano™ Links"
-          },
-          "footer": null
-        }
-      ],
-      "allowed_mentions": {
-        "parse": [
-          "users"
-        ],
-        "replied_user": false
-      },
-      "flags": 0,
-      "message_reference": {
-        "message_id": "858715998944493618",
-        "fail_if_not_exists": true
-      }
-    },
-    "files": []
-  },
-  "stack": "DiscordAPIError: Invalid Form Body
-message_reference: Unknown message
-    at RequestHandler.execute (/home/dragonizedpizza/Desktop/Hurricano/node_modules/discord.js/src/rest/RequestHandler.js:298:13)
-    at processTicksAndRejections (internal/process/task_queues.js:95:5)
-    at async RequestHandler.push (/home/dragonizedpizza/Desktop/Hurricano/node_modules/discord.js/src/rest/RequestHandler.js:50:14)"
+  "stack": "RangeError [EMBED_FIELD_VALUE]: MessageEmbed field values must be non-empty strings.
+    at Function.verifyString (/home/dragonizedpizza/Desktop/Hurricano/node_modules/discord.js/src/util/Util.js:399:41)
+    at Function.normalizeField (/home/dragonizedpizza/Desktop/Hurricano/node_modules/discord.js/src/structures/MessageEmbed.js:429:19)
+    at /home/dragonizedpizza/Desktop/Hurricano/node_modules/discord.js/src/structures/MessageEmbed.js:450:14
+    at Array.map (<anonymous>)
+    at Function.normalizeFields (/home/dragonizedpizza/Desktop/Hurricano/node_modules/discord.js/src/structures/MessageEmbed.js:449:8)
+    at MessageEmbed.addFields (/home/dragonizedpizza/Desktop/Hurricano/node_modules/discord.js/src/structures/MessageEmbed.js:278:42)
+    at MessageEmbed.addField (/home/dragonizedpizza/Desktop/Hurricano/node_modules/discord.js/src/structures/MessageEmbed.js:269:17)
+    at messageDeleteEvent.run (/home/dragonizedpizza/Desktop/Hurricano/bot/events/bot/messageDelete.js:67:8)
+    at HurricanoClient.<anonymous> (/home/dragonizedpizza/Desktop/Hurricano/bot/Client.js:294:56)
+    at HurricanoClient.emit (events.js:375:28)
+    at MessageDeleteAction.handle (/home/dragonizedpizza/Desktop/Hurricano/node_modules/discord.js/src/client/actions/MessageDelete.js:21:16)
+    at Object.module.exports [as MESSAGE_DELETE] (/home/dragonizedpizza/Desktop/Hurricano/node_modules/discord.js/src/client/websocket/handlers/MESSAGE_DELETE.js:4:32)
+    at WebSocketManager.handlePacket (/home/dragonizedpizza/Desktop/Hurricano/node_modules/discord.js/src/client/websocket/WebSocketManager.js:345:31)
+    at WebSocketShard.onPacket (/home/dragonizedpizza/Desktop/Hurricano/node_modules/discord.js/src/client/websocket/WebSocketShard.js:443:22)
+    at WebSocketShard.onMessage (/home/dragonizedpizza/Desktop/Hurricano/node_modules/discord.js/src/client/websocket/WebSocketShard.js:300:10)
+    at WebSocket.onMessage (/home/dragonizedpizza/Desktop/Hurricano/node_modules/ws/lib/event-target.js:132:16)"
 }
-[2021-06-27 16:31:11] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
-[2021-06-27 16:31:11] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 393ms.
-[2021-06-27 16:31:27] - [info]: Hurricano has joined cdn, with member count: 3, and owner Dɾαɠσɳιȥҽԃριȥȥα#0317.
-[2021-06-27 16:31:52] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
-[2021-06-27 16:31:52] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 391ms.
-[2021-06-27 16:32:33] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
-[2021-06-27 16:32:34] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 390ms.
-[2021-06-27 16:33:14] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
-[2021-06-27 16:33:15] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 389ms.
-[2021-06-27 16:33:30] - [warn]: Cannot read property 'push' of undefined
-{
-  "stack": "TypeError: Cannot read property 'push' of undefined
-    at /home/dragonizedpizza/Desktop/Hurricano/bot/commands/config/wordblacklist.js:36:55
-    at MessageEvent.run (/home/dragonizedpizza/Desktop/Hurricano/bot/events/bot/message.js:346:17)
-    at processTicksAndRejections (internal/process/task_queues.js:95:5)"
-}
-[2021-06-27 16:33:56] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
-[2021-06-27 16:33:56] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 410ms.
-[2021-06-27 16:34:37] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
-[2021-06-27 16:34:37] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 500ms.
-[2021-06-27 16:35:18] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
-[2021-06-27 16:35:19] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 472ms.
-[2021-06-27 16:35:59] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
-[2021-06-27 16:36:00] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 382ms.
-[2021-06-27 16:36:41] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
-[2021-06-27 16:36:41] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 395ms.
-[2021-06-27 16:37:22] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
-[2021-06-27 16:37:22] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 388ms.
-[2021-06-27 16:38:03] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
-[2021-06-27 16:38:04] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 383ms.
-[2021-06-27 16:38:44] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
-[2021-06-27 16:38:45] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 644ms.
-[2021-06-27 16:39:26] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
-[2021-06-27 16:39:26] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 426ms.
-[2021-06-27 16:40:07] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
-[2021-06-27 16:40:07] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 417ms.
-[2021-06-27 16:40:48] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
-[2021-06-27 16:40:49] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 409ms.
-[2021-06-27 16:41:29] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
-[2021-06-27 16:41:30] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 375ms.
-[2021-06-27 16:42:11] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
-[2021-06-27 16:42:11] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 489ms.
-[2021-06-27 16:42:52] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
-[2021-06-27 16:42:52] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 370ms.
-[2021-06-27 16:43:33] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
-[2021-06-27 16:43:34] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 472ms.
-[2021-06-27 16:44:14] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
-[2021-06-27 16:44:15] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 461ms.
-[2021-06-27 16:44:56] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
-[2021-06-27 16:44:56] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 375ms.
-[2021-06-27 16:45:37] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
-[2021-06-27 16:45:37] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 385ms.
-[2021-06-27 16:46:18] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
-[2021-06-27 16:46:19] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 388ms.
+[2021-06-27 17:27:13] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2021-06-27 17:27:13] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 286ms.
+[2021-06-27 17:27:54] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2021-06-27 17:27:55] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 294ms.
+[2021-06-27 17:28:36] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2021-06-27 17:28:36] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 316ms.
+[2021-06-27 17:29:16] - [info]: [WS => Shard 0] [CLOSE]
+    Event Code: 1006
+    Clean     : false
+    Reason    : No reason received
+[2021-06-27 17:29:16] - [info]: [WS => Shard 0] Clearing the heartbeat interval.
+[2021-06-27 17:29:16] - [info]: [WS => Shard 0] Session ID is present, attempting an immediate reconnect...
+[2021-06-27 17:29:16] - [info]: [WS => Shard 0] A connection object was found. Cleaning up before continuing.
+    State: CLOSED
+[2021-06-27 17:29:16] - [info]: [WS => Shard 0] [DESTROY]
+    Close Code    : 1000
+    Reset         : false
+    Emit DESTROYED: false
+[2021-06-27 17:29:16] - [info]: [WS => Shard 0] WS State: CLOSED
+[2021-06-27 17:29:16] - [info]: [WS => Shard 0] [CONNECT]
+    Gateway    : wss://gateway.discord.gg/
+    Version    : 8
+    Encoding   : json
+    Compression: none
+[2021-06-27 17:29:16] - [info]: [WS => Shard 0] Setting a HELLO timeout for 20s.
+[2021-06-27 17:29:22] - [info]: [WS => Shard 0] [CONNECTED] wss://gateway.discord.gg/?v=8&encoding=json in 5893ms
+[2021-06-27 17:29:22] - [info]: [WS => Shard 0] Clearing the HELLO timeout.
+[2021-06-27 17:29:22] - [info]: [WS => Shard 0] Setting a heartbeat interval for 41250ms.
+[2021-06-27 17:29:22] - [info]: [WS => Shard 0] [RESUME] Session f3d656bdbb4b659b997cced67184b033, sequence 31
+[2021-06-27 17:29:23] - [info]: [WS => Shard 0] [RESUMED] Session f3d656bdbb4b659b997cced67184b033 | Replayed 1 events.
+[2021-06-27 17:29:23] - [info]: [WS => Shard 0] [ResumeHeartbeat] Sending a heartbeat.
+[2021-06-27 17:29:23] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 311ms.
+[2021-06-27 17:30:04] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2021-06-27 17:30:04] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 307ms.
+[2021-06-27 17:30:45] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2021-06-27 17:30:45] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 296ms.
+[2021-06-27 17:31:26] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2021-06-27 17:31:26] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 301ms.

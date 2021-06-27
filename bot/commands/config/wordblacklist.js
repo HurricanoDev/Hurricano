@@ -24,21 +24,21 @@ module.exports = new Command({
               "Error!",
               "Please specify a word to blacklist"
             );
-            const data = message.guild.db.cache();
-                if (data.blacklistedWords.includes(word)) {
-                  return message.sendErrorReply(
-                    "Error!",
-                    "That word is already blacklisted!"
-                  );
-                }
-                data.blacklistedWords.push(word);
-                await data.save();
-                blacklistedWords.set(message.guild.id, data.blacklistedWords);
-              message.channel.sendSuccess(
-                message,
-                "Done!",
-                `The word: \`${word}\` was blacklisted!`
-              );
+          const data = message.guild.db.cache();
+          if (data.blacklistedWords.includes(word)) {
+            return message.sendErrorReply(
+              "Error!",
+              "That word is already blacklisted!"
+            );
+          }
+          data.blacklistedWords.push(word);
+          await data.save();
+          blacklistedWords.set(message.guild.id, data.blacklistedWords);
+          message.channel.sendSuccess(
+            message,
+            "Done!",
+            `The word: \`${word}\` was blacklisted!`
+          );
         },
       ],
       [

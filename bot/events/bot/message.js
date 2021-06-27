@@ -119,14 +119,23 @@ module.exports = class MessageEvent extends BaseEvent {
       message.reply("**Welcome Back!** Your AFK has now been removed!");
     }
     function checkPerm(perm) {
-      return (message.member.permissions.has(perm));
+      return message.member.permissions.has(perm);
     }
     //Word Blacklist System
     let deleting = false;
-    const blacklistedWords = client.db.guilds.cache.get(message.guild.id).blacklistedWords;
-    blacklistedWords.map(x => {
-      if (message.content.toLowerCase().includes(x.toLowerCase()) &&  !message.author.bot && !checkPerm("ADMINISTRATOR") || !checkPerm("MANAGE_GUILD") || !checkPerm("MANAGE_MESSAGES")) deleting = true;
-    })
+    const blacklistedWords = client.db.guilds.cache.get(
+      message.guild.id
+    ).blacklistedWords;
+    blacklistedWords.map((x) => {
+      if (
+        message.content.toLowerCase().includes(x.toLowerCase()) &&
+        !message.author.bot &&
+        (!checkPerm("ADMINISTRATOR") ||
+          !checkPerm("MANAGE_GUILD") ||
+          !checkPerm("MANAGE_MESSAGES"))
+      )
+        deleting = true;
+    });
     if (deleting) message.delete();
 
     //Anti-Spam
@@ -367,8 +376,8 @@ module.exports = class MessageEvent extends BaseEvent {
 
       if (command.conf.userPermissions) {
         if (
-          (!checkPerm(command.userPermissions) &&
-            !client.config.ownerIds.includes(message.author.id))
+          !checkPerm(command.userPermissions) &&
+          !client.config.ownerIds.includes(message.author.id)
         ) {
           return message.sendErrorReply(
             "Permission Error.",
