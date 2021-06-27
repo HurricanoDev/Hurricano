@@ -125,8 +125,7 @@ module.exports = class MessageEvent extends BaseEvent {
     let deleting = false;
     const blacklistedWords = client.db.guilds.cache.get(message.guild.id).blacklistedWords;
     blacklistedWords.map(x => {
-      console.log(x)
-      if (message.content.toLowerCase().includes(x.toLowerCase()) && !checkPerm("ADMINISTRATOR") || !checkPerm("MANAGE_SERVER") || !checkPerm("MANAGE_MESSAGES")) deleting = true;
+      if (message.content.toLowerCase().includes(x.toLowerCase()) &&  !message.author.bot && !checkPerm("ADMINISTRATOR") || !checkPerm("MANAGE_GUILD") || !checkPerm("MANAGE_MESSAGES")) deleting = true;
     })
     if (deleting) message.delete();
 
