@@ -125,7 +125,8 @@ module.exports = class MessageEvent extends BaseEvent {
     let deleting = false;
     const blacklistedWords = client.db.guilds.cache.get(message.guild.id).blacklistedWords;
     blacklistedWords.map(x => {
-      if (message.content.toLowerCase().includes(x.toLowerCase()) && checkPerm("ADMINISTRATOR") || checkPerm("MANAGE_SERVER") || checkPerm("MANAGE_MESSAGES")) deleting = true;
+      console.log(x)
+      if (message.content.toLowerCase().includes(x.toLowerCase()) && !checkPerm("ADMINISTRATOR") || !checkPerm("MANAGE_SERVER") || !checkPerm("MANAGE_MESSAGES")) deleting = true;
     })
     if (deleting) message.delete();
 
@@ -366,14 +367,13 @@ module.exports = class MessageEvent extends BaseEvent {
         return;
 
       if (command.conf.userPermissions) {
-        const authorPerms = message.channel.permissionsFor(author);
         if (
-          !authorPerms ||
-          (!authorPerms.has(command.userPermissions) &&
+          (!checkPerm(command.userPermissions) &&
             !client.config.ownerIds.includes(message.author.id))
         ) {
           return message.sendErrorReply(
-            "Permission Error."`Stop disturbing me bro, you require the \`${command.userPermissions.join(
+            "Permission Error.",
+            `Stop disturbing me bro, you require the \`${command.userPermissions.join(
               ", "
             )}\` permission(s) to use that command...`,
             "Smh, imagine trying to use a command without having the perms-"

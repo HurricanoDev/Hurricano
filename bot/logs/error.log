@@ -1,14 +1,73 @@
-[2021-06-23 08:57:21] - [warn]: MessageEmbed field values must be non-empty strings.
+[2021-06-27 16:30:49] - [warn]: Invalid Form Body
+message_reference: Unknown message
 {
-  "stack": "RangeError [EMBED_FIELD_VALUE]: MessageEmbed field values must be non-empty strings.
-    at Function.verifyString (/home/runner/Hurricano-3/node_modules/discord.js/src/util/Util.js:399:41)
-    at Function.normalizeField (/home/runner/Hurricano-3/node_modules/discord.js/src/structures/MessageEmbed.js:429:19)
-    at /home/runner/Hurricano-3/node_modules/discord.js/src/structures/MessageEmbed.js:450:14
-    at Array.map (<anonymous>)
-    at Function.normalizeFields (/home/runner/Hurricano-3/node_modules/discord.js/src/structures/MessageEmbed.js:449:8)
-    at MessageEmbed.addFields (/home/runner/Hurricano-3/node_modules/discord.js/src/structures/MessageEmbed.js:278:42)
-    at MessageEmbed.addField (/home/runner/Hurricano-3/node_modules/discord.js/src/structures/MessageEmbed.js:269:17)
-    at Command.run (/home/runner/Hurricano-3/bot/commands/information/serverinfo.js:172:8)
+  "name": "DiscordAPIError",
+  "method": "post",
+  "path": "/channels/857584397174439967/messages",
+  "code": 50035,
+  "httpStatus": 400,
+  "requestData": {
+    "json": {
+      "tts": false,
+      "embeds": [
+        {
+          "title": null,
+          "type": "rich",
+          "description": null,
+          "url": null,
+          "timestamp": null,
+          "color": 9498256,
+          "fields": [
+            {
+              "name": "<:Plus:814407403998412800>  Invite Link",
+              "value": "Click [here](https://discord.com/oauth2/authorize?client_id=803169312827113483&scope=bot&permissions=8589934591&scope=applications.commands%20bot) to invite the bot.",
+              "inline": false
+            },
+            {
+              "name": "<:Info:826292582468026429>  Support Server Link",
+              "value": "Click [here](https://discord.gg/dNc3EvABCA) to join the support server.",
+              "inline": false
+            },
+            {
+              "name": "<:HurricanoTopGG:857048686836449280>  Top.gg Vote Link",
+              "value": "Click [here](https://top.gg/bot/803169312827113483/vote) to vote for Hurricano Beta",
+              "inline": false
+            }
+          ],
+          "thumbnail": null,
+          "image": {
+            "url": "https://media.discordapp.net/attachments/770953232318726144/804251677950869514/Untitled_9.jpg?width=1025&height=342"
+          },
+          "author": {
+            "name": "Hurricano™ Links"
+          },
+          "footer": null
+        }
+      ],
+      "allowed_mentions": {
+        "parse": [
+          "users"
+        ],
+        "replied_user": false
+      },
+      "flags": 0,
+      "message_reference": {
+        "message_id": "858715998944493618",
+        "fail_if_not_exists": true
+      }
+    },
+    "files": []
+  },
+  "stack": "DiscordAPIError: Invalid Form Body
+message_reference: Unknown message
+    at RequestHandler.execute (/home/dragonizedpizza/Desktop/Hurricano/node_modules/discord.js/src/rest/RequestHandler.js:298:13)
     at processTicksAndRejections (internal/process/task_queues.js:95:5)
-    at async MessageEvent.run (/home/runner/Hurricano-3/bot/events/bot/message.js:430:7)"
+    at async RequestHandler.push (/home/dragonizedpizza/Desktop/Hurricano/node_modules/discord.js/src/rest/RequestHandler.js:50:14)"
+}
+[2021-06-27 16:33:30] - [warn]: Cannot read property 'push' of undefined
+{
+  "stack": "TypeError: Cannot read property 'push' of undefined
+    at /home/dragonizedpizza/Desktop/Hurricano/bot/commands/config/wordblacklist.js:36:55
+    at MessageEvent.run (/home/dragonizedpizza/Desktop/Hurricano/bot/events/bot/message.js:346:17)
+    at processTicksAndRejections (internal/process/task_queues.js:95:5)"
 }

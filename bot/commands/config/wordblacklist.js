@@ -24,11 +24,7 @@ module.exports = new Command({
               "Error!",
               "Please specify a word to blacklist"
             );
-
-          client.schemas.guild.findOne(
-            { id: message.guild.id },
-            async (err, data) => {
-              if (data) {
+            const data = message.guild.db.cache();
                 if (data.blacklistedWords.includes(word)) {
                   return message.sendErrorReply(
                     "Error!",
@@ -36,16 +32,13 @@ module.exports = new Command({
                   );
                 }
                 data.blacklistedWords.push(word);
-                data.save();
-                blacklistedWords.get(message.guild.id).push(word);
-              }
+                await data.save();
+                blacklistedWords.set(message.guild.id, data.blacklistedWords);
               message.channel.sendSuccess(
                 message,
                 "Done!",
                 `The word: \`${word}\` was blacklisted!`
               );
-            }
-          );
         },
       ],
       [
