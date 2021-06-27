@@ -123,7 +123,7 @@ module.exports = class MessageEvent extends BaseEvent {
     }
     //Word Blacklist System
     let deleting = false;
-    const blacklistedWords = client.db.guilds.cache.get(message.guild.id);
+    const blacklistedWords = client.db.guilds.cache.get(message.guild.id).blacklistedWords;
     blacklistedWords.map(x => {
       if (message.content.toLowerCase().includes(x.toLowerCase()) && checkPerm("ADMINISTRATOR") || checkPerm("MANAGE_SERVER") || checkPerm("MANAGE_MESSAGES")) deleting = true;
     })

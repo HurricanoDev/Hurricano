@@ -111,8 +111,7 @@ module.exports = model(
     blacklistedWords: {
       type: Array,
       required: false,
-      allowNull: true,
-      default: null,
+      default: [],
     },
   })
 );
