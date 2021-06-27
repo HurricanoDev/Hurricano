@@ -23,15 +23,15 @@ module.exports = new Command({
       .setDescription(
         `I have scrambled a word for you.\nThis is the scrambled version: **${scrambled}**.\nIn order to win, you need to guess the word correctly, you have 5 tries and you also have **15 seconds**!`
       );
-
+      let gotWrong = true;
     message.channel.send({ embeds: [prompt] }).then(async (started) => {
       let filter1 = (msg) => msg.author.id === message.author.id;
       let setSettings = message.channel.createMessageCollector(filter1, {
         time: 35000,
       });
-
       setSettings.on("collect", async (msg) => {
         if (msg.content.toLowerCase() === randomWord) {
+          gotWrong = false;
           setSettings.stop();
           return message.channel.sendSuccess(
             message,
@@ -51,6 +51,7 @@ module.exports = new Command({
       });
 
       setSettings.on("end", async () => {
+        if (!gotWrong)
         return message.channel.sendError(
           message,
           "Thanks for playing.",

@@ -12,11 +12,7 @@ module.exports = class readyEvent extends BaseEvent {
     });
   }
   async run(client) {
-    client.schemas.guild.find().then((data) => {
-      data.forEach((val) => {
-        blacklistedWords.set(val.id, val.blacklistedWords);
-      });
-    });
+
     const slashs = client.commands.filter((cmd) => cmd.slash.isSlash);
 
     let slashies = slashs.map((x) => {
@@ -46,6 +42,7 @@ module.exports = class readyEvent extends BaseEvent {
             name: guild.name,
             suggestions: {},
           }).save();
+          blacklistedWords.set(guild.id, data.blacklistedWords);
         client.db.guilds.cache.set(guild.id, data);
       } catch (err) {
         client.logger.warn(err);

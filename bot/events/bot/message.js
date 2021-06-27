@@ -118,20 +118,15 @@ module.exports = class MessageEvent extends BaseEvent {
       client.afk.delete(message.author.id);
       message.reply("**Welcome Back!** Your AFK has now been removed!");
     }
-
+    function checkPerm(perm) {
+      return (message.member.permissions.has(perm));
+    }
     //Word Blacklist System
-    const splitMessages = message.content.split(" ");
     let deleting = false;
-    await Promise.all(
-      splitMessages.map((content) => {
-        if (
-          blacklistedWords
-            .get(message.guild.id)
-            ?.includes(content.toLowerCase())
-        )
-          deleting = true;
-      })
-    );
+    const blacklistedWords = client.db.guilds.cache.get(message.guild.id);
+    blacklistedWords.map(x => {
+      if (message.content.toLowerCase().includes(x.toLowerCase()) && checkPerm("ADMINISTRATOR") || checkPerm("MANAGE_SERVER") || checkPerm("MANAGE_MESSAGES")) deleting = true;
+    })
     if (deleting) message.delete();
 
     //Anti-Spam
