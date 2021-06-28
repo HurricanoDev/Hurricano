@@ -1,20 +1,54 @@
-[2021-06-27 17:26:46] - [warn]: MessageEmbed field values must be non-empty strings.
+[2021-06-28 22:38:12] - [warn]: ch is not defined
 {
-  "stack": "RangeError [EMBED_FIELD_VALUE]: MessageEmbed field values must be non-empty strings.
-    at Function.verifyString (/home/dragonizedpizza/Desktop/Hurricano/node_modules/discord.js/src/util/Util.js:399:41)
-    at Function.normalizeField (/home/dragonizedpizza/Desktop/Hurricano/node_modules/discord.js/src/structures/MessageEmbed.js:429:19)
-    at /home/dragonizedpizza/Desktop/Hurricano/node_modules/discord.js/src/structures/MessageEmbed.js:450:14
-    at Array.map (<anonymous>)
-    at Function.normalizeFields (/home/dragonizedpizza/Desktop/Hurricano/node_modules/discord.js/src/structures/MessageEmbed.js:449:8)
-    at MessageEmbed.addFields (/home/dragonizedpizza/Desktop/Hurricano/node_modules/discord.js/src/structures/MessageEmbed.js:278:42)
-    at MessageEmbed.addField (/home/dragonizedpizza/Desktop/Hurricano/node_modules/discord.js/src/structures/MessageEmbed.js:269:17)
-    at messageDeleteEvent.run (/home/dragonizedpizza/Desktop/Hurricano/bot/events/bot/messageDelete.js:67:8)
-    at HurricanoClient.<anonymous> (/home/dragonizedpizza/Desktop/Hurricano/bot/Client.js:294:56)
-    at HurricanoClient.emit (events.js:375:28)
-    at MessageDeleteAction.handle (/home/dragonizedpizza/Desktop/Hurricano/node_modules/discord.js/src/client/actions/MessageDelete.js:21:16)
-    at Object.module.exports [as MESSAGE_DELETE] (/home/dragonizedpizza/Desktop/Hurricano/node_modules/discord.js/src/client/websocket/handlers/MESSAGE_DELETE.js:4:32)
-    at WebSocketManager.handlePacket (/home/dragonizedpizza/Desktop/Hurricano/node_modules/discord.js/src/client/websocket/WebSocketManager.js:345:31)
-    at WebSocketShard.onPacket (/home/dragonizedpizza/Desktop/Hurricano/node_modules/discord.js/src/client/websocket/WebSocketShard.js:443:22)
-    at WebSocketShard.onMessage (/home/dragonizedpizza/Desktop/Hurricano/node_modules/discord.js/src/client/websocket/WebSocketShard.js:300:10)
-    at WebSocket.onMessage (/home/dragonizedpizza/Desktop/Hurricano/node_modules/ws/lib/event-target.js:132:16)"
+  "stack": "ReferenceError: ch is not defined
+    at /home/runner/Hurricano-3/bot/commands/config/database.js:49:7
+    at Array.forEach (<anonymous>)
+    at Command.run (/home/runner/Hurricano-3/bot/commands/config/database.js:47:21)
+    at MessageEvent.run (/home/runner/Hurricano-3/bot/events/bot/message.js:433:21)
+    at processTicksAndRejections (internal/process/task_queues.js:95:5)"
+}
+[2021-06-28 22:38:43] - [warn]: ch is not defined
+{
+  "stack": "ReferenceError: ch is not defined
+    at /home/runner/Hurricano-3/bot/commands/config/database.js:49:38
+    at Array.forEach (<anonymous>)
+    at Command.run (/home/runner/Hurricano-3/bot/commands/config/database.js:47:21)
+    at MessageEvent.run (/home/runner/Hurricano-3/bot/events/bot/message.js:433:21)
+    at processTicksAndRejections (internal/process/task_queues.js:95:5)"
+}
+[2021-06-28 22:42:29] - [warn]: Invalid Form Body
+embeds[0].description: This field is required
+{
+  "name": "DiscordAPIError",
+  "method": "patch",
+  "path": "/channels/857584397174439967/messages/859202075594588191",
+  "code": 50035,
+  "httpStatus": 400,
+  "requestData": {
+    "json": {
+      "tts": false,
+      "embeds": [
+        {
+          "title": null,
+          "type": "rich",
+          "description": null,
+          "url": null,
+          "timestamp": null,
+          "color": null,
+          "fields": [],
+          "thumbnail": null,
+          "image": null,
+          "author": null,
+          "footer": null
+        }
+      ]
+    },
+    "files": []
+  },
+  "stack": "DiscordAPIError: Invalid Form Body
+embeds[0].description: This field is required
+    at RequestHandler.execute (/home/runner/Hurricano-3/node_modules/discord.js/src/rest/RequestHandler.js:298:13)
+    at processTicksAndRejections (internal/process/task_queues.js:95:5)
+    at async RequestHandler.push (/home/runner/Hurricano-3/node_modules/discord.js/src/rest/RequestHandler.js:50:14)
+    at async MessageManager.edit (/home/runner/Hurricano-3/node_modules/discord.js/src/managers/MessageManager.js:129:15)"
 }

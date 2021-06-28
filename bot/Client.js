@@ -277,6 +277,9 @@ class HurricanoClient extends Discord.Client {
         }
         return a.join("");
       },
+      capitalize: (string) => {
+        return string.charAt(0).toUpperCase() + string.slice(1);
+      },
     };
   }
   // ---------------------------------------------------   Functions    -------------------------------------------------------------
