@@ -51,7 +51,7 @@ module.exports = new Command({
       });
 
       setSettings.on("end", async () => {
-        if (!gotWrong)
+        if (gotWrong)
           return message.channel.sendError(
             message,
             "Thanks for playing.",
