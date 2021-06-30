@@ -22,7 +22,7 @@
     "canvacord": "^5.0.8",
     "discord-giveaways": "^4.5.1",
     "discord-player": "^5.0.0-dev.8d80d82caaaa7432b96b10242e960d0f6080b5a9",
-    "discord.js": "^13.0.0-dev.807ea2d3c197c7c6556bd1c894114932f6657d49",
+    "discord.js": "^13.0.0-dev.5842e35.1625011425",
     "dotenv": "^8.2.0",
     "ejs": "^3.1.6",
     "express": "^4.17.1",
