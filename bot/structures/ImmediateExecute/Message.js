@@ -1,4 +1,4 @@
-const { Structures, APIMessage, MessageEmbed } = require("discord.js");
+const { Structures, MessagePayload, MessageEmbed } = require("discord.js");
 
 module.exports = Structures.extend(
   "Message",
