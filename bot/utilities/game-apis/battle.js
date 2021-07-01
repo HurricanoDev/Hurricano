@@ -244,8 +244,6 @@ async function createBattle(member, message) {
     let nextUp = message.member;
 
     let filter = (msg) => msg.author.id === nowBattling.id;
-    console.log(message.channel);
-    console.log(message.channel);
     let collector = message.channel.createMessageCollector(filter);
     if (playerOneData.battleTurn === true) return;
     playerOneData.battleTurn = true;
@@ -532,7 +530,7 @@ async function createBattle(member, message) {
       )
       .setColor("GREEN")
       .setFooter(won.username ? message.member.displayName : won.displayName, won.username ? won.displayAvatarURL() : won.user.displayAvatarURL());
-    return channel.send({
+    return message.channel.send({
       embeds: [emb16],
     });
   }
