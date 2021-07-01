@@ -229,7 +229,7 @@ async function createBattle(member, message) {
               )}\`\n\nUse \`--end\` on your turn to end`
             )
             .setColor("RED")
-            .setFooter(message.author.username, message.author.avatarURL());
+            .setFooter(message.member.displayName, message.author.avatarURL());
           return message.channel.send({
             embeds: [emb7],
           });
@@ -240,8 +240,8 @@ async function createBattle(member, message) {
 
   // Player 1
   async function first(member, message) {
-    let nowBattling = message.member;
-    let nextUp = member;
+    let nowBattling = member;
+    let nextUp = message.member;
 
     let filter = (msg) => msg.author.id === nowBattling.id;
     console.log(message.channel);
@@ -523,7 +523,7 @@ async function createBattle(member, message) {
     if (winner === message.author.id) wonData = playerOneData;
     if (winner === member.id) {
       wonData = playerTwoData;
-      won = member.user;
+      won = member;
     };
     const emb16 = new MessageEmbed()
       .setTitle("Congratulations!")
@@ -531,7 +531,7 @@ async function createBattle(member, message) {
         `${won} has won the battle with \`${wonData.battleHealth}\` HP Left!`
       )
       .setColor("GREEN")
-      .setFooter(won.displayName, won.displayAvatarURL());
+      .setFooter(won.username ? message.member.displayName : won.displayName, won.displayAvatarURL());
     return channel.send({
       embeds: [emb16],
     });
