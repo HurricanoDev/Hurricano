@@ -1,5 +1,26 @@
 const { Structures, MessagePayload, MessageEmbed } = require("discord.js");
-
+async function sendMsg(message, type, sendType, values) {
+  const error = type.toLowerCase() == "error" ? true : false;
+  const embed = new MessageEmbed()
+    .setAuthor(
+      values.Header,
+      error ? client.links.errorImage : client.links.successImage
+    )
+    .setColor(error ? "RED" : "GREEN")
+    .setDescription(values.Msg)
+    .setFooter(
+      values.Footer ?? message.author.tag,
+      message.author.displayAvatarURL()
+    );
+  if (values.Fields) embed.addFields(values.Fields);
+  const sendObj = {
+    embeds: [embed],
+  };
+  sendObj.components = values.Components;
+  return sendType === "edit"
+    ? await message.reply({ embeds: [embed] })
+    : await message.edit({ embeds: [embed] });
+}
 module.exports = Structures.extend(
   "Message",
   (Message) =>
@@ -7,57 +28,48 @@ module.exports = Structures.extend(
       constructor(...args) {
         super(...args);
       }
+      async editError(Header, Msg, Footer, Fields, Components) {
+        const msg = await sendMsg(this, "error", "edit", {
+          Header,
+          Msg,
+          Footer,
+          Fields,
+          Components,
+        });
+        return msg;
+      }
+      async editSuccess(Header, Msg, Footer, Fields, Components) {
+        const msg = await sendMsg(this, "success", "edit", {
+          Header,
+          Msg,
+          Footer,
+          Fields,
+          Components,
+        });
+        return msg;
+      }
       async say(options) {
         const msg = await this.channel.send(options);
         return msg;
       }
-      async sendErrorReply(Header, Msg, Footer, Fields) {
-        const embed = new MessageEmbed()
-          .setAuthor(
-            Header,
-            "https://raw.githubusercontent.com/HurricanoBot/HurricanoImages/master/SetAuthorEmojis/Error.png"
-          )
-          .setColor("#ff6962");
-        if (Msg) {
-          embed.setDescription(Msg);
-        }
-        if (Footer) {
-          embed.setFooter(Footer, this.author.displayAvatarURL());
-        } else {
-          embed.setFooter(
-            this.member.displayName,
-            this.author.displayAvatarURL()
-          );
-        }
-        if (Fields) embed.addFields(Fields);
-        const msg = await this.reply({ embeds: [embed] });
+      async sendErrorReply(Header, Msg, Footer, Fields, Components) {
+        const msg = await sendMsg(this, "error", "reply", {
+          Header,
+          Msg,
+          Footer,
+          Fields,
+          Components,
+        });
         return msg;
       }
       async sendSuccessReply(Header, Msg, Footer, Fields) {
-        const embed = new MessageEmbed()
-          .setAuthor(
-            Header,
-            "https://raw.githubusercontent.com/HurricanoBot/HurricanoImages/master/SetAuthorEmojis/Success.png"
-          )
-          .setColor("#32ba7c");
-        if (Msg) {
-          embed.setDescription(Msg);
-        }
-        if (Footer) {
-          embed.setFooter(Footer, this.author.displayAvatarURL());
-        } else {
-          embed.setFooter(this.author.username, this.author.displayAvatarURL());
-        }
-        if (Footer) {
-          embed.setFooter(Footer, this.author.displayAvatarURL());
-        } else {
-          embed.setFooter(
-            this.member.displayName,
-            this.author.displayAvatarURL()
-          );
-        }
-        if (Fields) embed.addFields(Fields);
-        const msg = await this.reply({ embeds: [embed] });
+        const msg = await sendMsg(this, "success", "reply", {
+          Header,
+          Msg,
+          Footer,
+          Fields,
+          Components,
+        });
         return msg;
       }
     }

@@ -50,10 +50,10 @@ module.exports = Structures.extend("TextChannel", (channel) => {
               [tokenRegex, mongoUri],
               ["Bot Token.", "MongoDB Uri."]
             );
-            return (await super.send(options));
+      return await super.send(options);
     }
 
-    async sendError(message, Header, Msg, Footer, Fields) {
+    async sendError(message, Header, Msg, Footer, Fields, Components) {
       const embed = new MessageEmbed()
         .setAuthor(
           Header,
@@ -73,10 +73,12 @@ module.exports = Structures.extend("TextChannel", (channel) => {
         );
       }
       if (Fields) embed.addFields(Fields);
-      const msg = await this.send({ embeds: [embed] });
+      const sendObj = { embeds: [embed] };
+      if (Components) sendObj.components = Components;
+      const msg = await this.send(sendObj);
       return msg;
     }
-    async sendSuccess(message, Header, Msg, Footer, Fields) {
+    async sendSuccess(message, Header, Msg, Footer, Fields, Components) {
       const embed = new MessageEmbed()
         .setAuthor(
           Header,
@@ -95,7 +97,9 @@ module.exports = Structures.extend("TextChannel", (channel) => {
         );
       }
       if (Fields) embed.addFields(Fields);
-      const msg = await this.send({ embeds: [embed] });
+      const sendObj = { embeds: [embed] };
+      if (Components) sendObj.components = Components;
+      const msg = await this.send(sendObj);
       return msg;
     }
   }

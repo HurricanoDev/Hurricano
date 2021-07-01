@@ -1,4 +1,4 @@
-const { MessageEmbed } = require("discord.js");
+const { MessageEmbed, MessageButton } = require("discord.js");
 const Button = require("../../utilities/ButtonMenu.js");
 let attacks = ["stab", "attack", "360 no scope", "punch", "kick"];
 let heals = ["heal", "bandage", "chew 5 gum", "potion", "rest"];
@@ -28,57 +28,69 @@ async function createBattle(member, message) {
     return message.sendErrorReply("Error.", "You can't play with yourself!");
   if (member.user.bot)
     return message.sendErrorReply("Error!", "You cannot battle against bots!");
-  return start(member, message.channel, message.author.id, member.id, message);
+  return start(member, message);
 
   //
-  async function start(member, channel, playerOne, playerTwo, message) {
-    await channel
-      .send(
-        `Hey ${member}! ${message.author} has challenged you to a battle, do you accept?`
-      )
-      .then(async (msg) => {
-        await msg.react("✅");
-        await msg.react("❌");
-        const filter = (reaction, user) =>
-          reaction.emoji.name === "❌" && user.id === playerTwo;
-        const no = msg.createReactionCollector(filter, {
-          time: 15000,
-          max: 1,
+  async function start(member, message) {
+    const msg = await message.channel.sendSuccess(
+      message,
+      "Battle!",
+      `Hey ${member}! ${message.author} has challenged you to a battle, do you accept?`,
+      null,
+      null,
+      [
+        [
+          new MessageButton()
+            .setStyle("SUCCESS")
+            .setCustomID("yes")
+            .setEmoji("✅"),
+          new MessageButton()
+            .setStyle("DANGER")
+            .setCustomID("no")
+            .setEmoji("❌"),
+        ],
+      ]
+    );
+    const confir = msg.createMessageComponentInteractionCollector(() => true);
+    let rejectedOof;
+    confir.on("collect", (button) => {
+      if (button.user.id !== message.author.id && button.user.id !== member.id)
+        return button.reply({
+          ephemeral: true,
+          content: "This battle is not meant for you.",
         });
-        const filter2 = (reaction, user) =>
-          reaction.emoji.name === "✅" && user.id === playerTwo;
-        const yes = msg.createReactionCollector(filter2, {
-          time: 15000,
-          max: 1,
-        });
-
-        no.on("collect", async (collected) => {
-          await msg.edit("Sorry, the user has declined your request!");
-          await yes.stop();
-        });
-        yes.on("collect", async (collected) => {
-          if (
-            (playerOneData.battleActive === true &&
-              playerOneData.id === playerOne) ||
-            (playerTwoData.battleActive === true &&
-              playerOneData.id === playerTwo)
-          )
-            return msg.edit("You are already in a battle!");
-          await no.stop();
-          return accept(channel, playerOne, playerTwo, message, member);
-        });
-        setTimeout(() => {
-          if (
-            playerOneData.battleActive === false &&
-            playerOneData.battleActive === false
-          ) {
-            return msg.edit("They didn't react in time :/");
-          }
-        }, 15000);
-      });
-  }
-
-  async function accept(channel, playerOne, playerTwo, message, member) {
+      if (button.customID === "yes") {
+        button.deferUpdate();
+        msg.editSuccess(
+          "Accepted!",
+          `${member} accepted your request, ${message.author}! Battle!`
+        );
+        confir.stop();
+        return accept(member, message);
+      } else {
+        button.deferUpdate();
+        rejectedOof = true;
+        confir.stop();
+        return msg.editError(
+          "Rejected!",
+          `Oof. ${member} rejected your request for battle.`
+        );
+      }
+    });
+    if (rejectedOof) return;
+    setTimeout(() => {
+    if (
+      playerOneData.battleActive === false &&
+      playerOneData.battleActive === false
+    ) {
+      return msg.editError(
+        "Timeout Reached.",
+        "Oof, they didn't react in time."
+      );
+    }  
+  }, 15000);
+  };
+  async function accept(member, message) {
     playerOneData.battleActive = true;
     playerTwoData.battleActive = true;
     const battleEmbed = new MessageEmbed()
@@ -88,9 +100,9 @@ async function createBattle(member, message) {
       )
       .setColor("GREEN")
       .setFooter(message.member.displayName, message.author.displayAvatarURL());
-    channel.send({ embeds: [battleEmbed] }).then(async (started) => {
-      let filter1 = (msg) => msg.author.id === playerOne;
-      let setSettings = channel.createMessageCollector(filter1, {
+    message.channel.send({ embeds: [battleEmbed] }).then(async (started) => {
+      const filter1 = (msg) => msg.author.id === message.author.id;
+      const setSettings = message.channel.createMessageCollector(filter1, {
         time: 120000,
       });
 
@@ -198,13 +210,13 @@ async function createBattle(member, message) {
           }, 1000);
         } else if (args[0] === "start") {
           await setSettings.stop();
-          await first(channel, playerOne, playerTwo, message);
+          await first(message, member);
           const emb7 = new MessageEmbed()
             .setTitle("Battle!")
             .setDescription(
-              `First Player: <@${playerOne}> \`HP: ${
+              `First Player: ${message.author} \`HP: ${
                 playerOneData.battleHealth
-              }\`\nSecond Player: <@${playerTwo}> \`HP: ${
+              }\`\nSecond Player: ${member} \`HP: ${
                 playerTwoData.battleHealth
               }\`\n\nAttacks: \`${attacks.join(
                 ", "
@@ -214,7 +226,7 @@ async function createBattle(member, message) {
             )
             .setColor("RED")
             .setFooter(message.author.username, message.author.avatarURL());
-          return channel.send({
+          return message.channel.send({
             embeds: [emb7],
           });
         }
@@ -223,17 +235,17 @@ async function createBattle(member, message) {
   }
 
   // Player 1
-  async function first(channel, playerOne, playerTwo, message) {
-    let nowBattling = channel.guild.members.cache.get(playerOne);
-    let nextUp = channel.guild.members.cache.get(playerTwo);
+  async function first(member, message) {
+    let nowBattling = message.member;
+    let nextUp = member;
 
     let filter = (msg) => msg.author.id === nowBattling.id;
-    let collector = channel.createMessageCollector(filter);
+    let collector = message.channel.createMessageCollector(filter);
     if (playerOneData.battleTurn === true) return;
     playerOneData.battleTurn = true;
 
     if (playerOneData.battleHealth <= 0) {
-      return end(channel, playerOne, playerTwo, playerTwo);
+      return end(message, member, member.id);
     }
 
     collector.on("collect", async (msg) => {
@@ -243,11 +255,11 @@ async function createBattle(member, message) {
       ) {
         let winner;
         if (playerOneData.battleHealth >= playerTwoData.battleHealth)
-          winner = playerOne;
+          winner = message.author.id;
         if (playerOneData.battleHealth < playerTwoData.battleHealth)
-          winner = playerTwo;
+          winner = member.id;
         await collector.stop();
-        return end(channel, playerOne, playerTwo, winner);
+        return end(message, member, member.id);
       }
 
       //Attacks
@@ -276,10 +288,10 @@ async function createBattle(member, message) {
                 `Next up: ${nextUp.displayName}`,
                 nextUp.user.displayAvatarURL()
               );
-            await channel.send({
+            await message.channel.send({
               embeds: [emb8],
             });
-            return second(channel, playerOne, playerTwo, message);
+            return second(message, member);
           } else if (chance[attackChance] === "no") {
             playerOneData.battleTurn = false;
             await collector.stop();
@@ -296,10 +308,10 @@ async function createBattle(member, message) {
                 `Next up: ${nextUp.displayName}`,
                 nextUp.user.displayAvatarURL()
               );
-            await channel.send({
+            await message.channel.send({
               embeds: [emb9],
             });
-            await second(channel, playerOne, playerTwo, message);
+            await second(message, member);
           }
         }
       }
@@ -329,10 +341,10 @@ async function createBattle(member, message) {
                 `Next up: ${nextUp.displayName}`,
                 nextUp.user.displayAvatarURL()
               );
-            await channel.send({
+            await message.channel.send({
               embeds: [emb10],
             });
-            return second(channel, playerOne, playerTwo, message);
+            return second(message, member);
           } else if (chance[healChance] === "no") {
             playerOneData.battleTurn = false;
             await collector.stop();
@@ -349,10 +361,10 @@ async function createBattle(member, message) {
                 `Next up: ${nextUp.displayName}`,
                 nextUp.user.displayAvatarURL()
               );
-            await channel.send({
+            await message.channel.send({
               embeds: [emb11],
             });
-            return second(channel, playerOne, playerTwo, message);
+            return second(message, member);
           }
         }
       }
@@ -360,19 +372,19 @@ async function createBattle(member, message) {
   }
 
   // Player 2
-  async function second(channel, playerOne, playerTwo, message) {
-    let nowBattling = channel.guild.members.cache.get(playerTwo);
-    let nextUp = channel.guild.members.cache.get(playerOne);
+  async function second(message, member) {
+    let nowBattling = member;
+    let nextUp = message.member;
     let data = playerTwoData;
 
     let filter = (yeet) => yeet.author.id === nowBattling.id;
-    let collector = channel.createMessageCollector(filter);
+    let collector = message.channel.createMessageCollector(filter);
     if (playerTwoData.battleTurn === true) return;
     playerTwoData.battleTurn = true;
 
     //Check if they are dead
     if (playerTwoData.battleHealth <= 0) {
-      return end(channel, playerOne, playerTwo, playerOne);
+      return end(message, member, message.author.id);
     }
 
     collector.on("collect", async (msg) => {
@@ -383,11 +395,11 @@ async function createBattle(member, message) {
       ) {
         let winner;
         if (playerOneData.battleHealth >= playerTwoData.battleHealth)
-          winner = playerOne;
+          winner = message.author.id;
         if (playerOneData.battleHealth < playerTwoData.battleHealth)
-          winner = playerTwo;
+          winner = member.id;
         await collector.stop();
-        return end(channel, playerOne, playerTwo, winner);
+        return end(message, member, winner);
       }
 
       //Attacks
@@ -416,10 +428,10 @@ async function createBattle(member, message) {
                 `Next up: ${nextUp.displayName}`,
                 nextUp.user.displayAvatarURL()
               );
-            await channel.send({
+            await message.channel.send({
               embeds: [emb12],
             });
-            return first(channel, playerOne, playerTwo, message);
+            return first(message, member);
           } else if (chance[attackChance] === "no") {
             playerTwoData.battleTurn = false;
             await collector.stop();
@@ -436,10 +448,10 @@ async function createBattle(member, message) {
                 `Next up: ${nextUp.displayName}`,
                 nextUp.user.displayAvatarURL()
               );
-            await channel.send({
+            await message.channel.send({
               embeds: [emb13],
             });
-            return first(channel, playerOne, playerTwo, message);
+            return first(message, member);
           }
         }
       }
@@ -469,10 +481,10 @@ async function createBattle(member, message) {
                 `Next up: ${nextUp.displayName}`,
                 nextUp.user.displayAvatarURL()
               );
-            await channel.send({
+            await message.channel.send({
               embeds: [emb14],
             });
-            return first(channel, playerOne, playerTwo, message);
+            return first(message, member);
           } else if (chance[healChance] === "no") {
             playerTwoData.battleTurn = false;
             await collector.stop();
@@ -489,33 +501,31 @@ async function createBattle(member, message) {
                 `Next up: ${nextUp.displayName}`,
                 nextUp.user.displayAvatarURL()
               );
-            await channel.send({
+            await message.channel.send({
               embeds: [emb15],
             });
-            return first(channel, playerOne, playerTwo, message);
+            return first(message, member);
           }
         }
       }
     });
   }
 
-  async function end(channel, playerOne, playerTwo, winner) {
+  async function end(message, member, winner) {
     let wonData;
-    let won = channel.guild.members.cache.get(winner);
-    if (winner === playerOne) wonData = playerOneData;
-    if (winner === playerTwo) wonData = playerTwoData;
-    setTimeout(() => {
-      const emb16 = new MessageEmbed()
-        .setTitle("Congratulations!")
-        .setDescription(
-          `${won} has won the battle with \`${wonData.battleHealth}\` HP Left!`
-        )
-        .setColor("GREEN")
-        .setFooter(won.displayName, won.user.displayAvatarURL());
-      return channel.send({
-        embeds: [emb16],
-      });
-    }, 1500);
+    let won = winner;
+    if (winner === message.author.id) wonData = playerOneData;
+    if (winner === member.id) wonData = playerTwoData;
+    const emb16 = new MessageEmbed()
+      .setTitle("Congratulations!")
+      .setDescription(
+        `${won} has won the battle with \`${wonData.battleHealth}\` HP Left!`
+      )
+      .setColor("GREEN")
+      .setFooter(won.displayName, won.user.displayAvatarURL());
+    return channel.send({
+      embeds: [emb16],
+    });
   }
 }
 
