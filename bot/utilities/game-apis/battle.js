@@ -521,14 +521,17 @@ async function createBattle(member, message) {
     let wonData;
     let won = winner;
     if (winner === message.author.id) wonData = playerOneData;
-    if (winner === member.id) wonData = playerTwoData;
+    if (winner === member.id) {
+      wonData = playerTwoData;
+      won = member.user;
+    };
     const emb16 = new MessageEmbed()
       .setTitle("Congratulations!")
       .setDescription(
         `${won} has won the battle with \`${wonData.battleHealth}\` HP Left!`
       )
       .setColor("GREEN")
-      .setFooter(won.displayName, won.user.displayAvatarURL());
+      .setFooter(won.displayName, won.displayAvatarURL());
     return channel.send({
       embeds: [emb16],
     });
