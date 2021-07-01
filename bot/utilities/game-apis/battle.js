@@ -531,7 +531,7 @@ async function createBattle(member, message) {
         `${won} has won the battle with \`${wonData.battleHealth}\` HP Left!`
       )
       .setColor("GREEN")
-      .setFooter(won.username ? message.member.displayName : won.displayName, won.displayAvatarURL());
+      .setFooter(won.username ? message.member.displayName : won.displayName, won.username ? won.displayAvatarURL() : won.user.displayAvatarURL());
     return channel.send({
       embeds: [emb16],
     });
