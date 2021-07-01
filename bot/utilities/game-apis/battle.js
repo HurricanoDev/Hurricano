@@ -79,17 +79,17 @@ async function createBattle(member, message) {
     });
     if (rejectedOof) return;
     setTimeout(() => {
-    if (
-      playerOneData.battleActive === false &&
-      playerOneData.battleActive === false
-    ) {
-      return msg.editError(
-        "Timeout Reached.",
-        "Oof, they didn't react in time."
-      );
-    }  
-  }, 15000);
-  };
+      if (
+        playerOneData.battleActive === false &&
+        playerOneData.battleActive === false
+      ) {
+        return msg.editError(
+          "Timeout Reached.",
+          "Oof, they didn't react in time."
+        );
+      }
+    }, 15000);
+  }
   async function accept(member, message) {
     playerOneData.battleActive = true;
     playerTwoData.battleActive = true;
@@ -210,7 +210,7 @@ async function createBattle(member, message) {
           }, 1000);
         } else if (args[0] === "start") {
           await setSettings.stop();
-          await first(message, member);
+          await first(member, message);
           const emb7 = new MessageEmbed()
             .setTitle("Battle!")
             .setDescription(
@@ -240,6 +240,8 @@ async function createBattle(member, message) {
     let nextUp = member;
 
     let filter = (msg) => msg.author.id === nowBattling.id;
+    console.log(message.channel);
+    console.log(message.channel);
     let collector = message.channel.createMessageCollector(filter);
     if (playerOneData.battleTurn === true) return;
     playerOneData.battleTurn = true;
@@ -291,7 +293,7 @@ async function createBattle(member, message) {
             await message.channel.send({
               embeds: [emb8],
             });
-            return second(message, member);
+            return second(member, message);
           } else if (chance[attackChance] === "no") {
             playerOneData.battleTurn = false;
             await collector.stop();
@@ -311,7 +313,7 @@ async function createBattle(member, message) {
             await message.channel.send({
               embeds: [emb9],
             });
-            await second(message, member);
+            await second(member, message);
           }
         }
       }
@@ -344,7 +346,7 @@ async function createBattle(member, message) {
             await message.channel.send({
               embeds: [emb10],
             });
-            return second(message, member);
+            return second(member, message);
           } else if (chance[healChance] === "no") {
             playerOneData.battleTurn = false;
             await collector.stop();
@@ -364,7 +366,7 @@ async function createBattle(member, message) {
             await message.channel.send({
               embeds: [emb11],
             });
-            return second(message, member);
+            return second(member, message);
           }
         }
       }
@@ -372,7 +374,7 @@ async function createBattle(member, message) {
   }
 
   // Player 2
-  async function second(message, member) {
+  async function second(member, message) {
     let nowBattling = member;
     let nextUp = message.member;
     let data = playerTwoData;
@@ -431,7 +433,7 @@ async function createBattle(member, message) {
             await message.channel.send({
               embeds: [emb12],
             });
-            return first(message, member);
+            return first(member, message);
           } else if (chance[attackChance] === "no") {
             playerTwoData.battleTurn = false;
             await collector.stop();
@@ -451,7 +453,7 @@ async function createBattle(member, message) {
             await message.channel.send({
               embeds: [emb13],
             });
-            return first(message, member);
+            return first(member, message);
           }
         }
       }
@@ -484,7 +486,7 @@ async function createBattle(member, message) {
             await message.channel.send({
               embeds: [emb14],
             });
-            return first(message, member);
+            return first(member, message);
           } else if (chance[healChance] === "no") {
             playerTwoData.battleTurn = false;
             await collector.stop();
@@ -504,7 +506,7 @@ async function createBattle(member, message) {
             await message.channel.send({
               embeds: [emb15],
             });
-            return first(message, member);
+            return first(member, message);
           }
         }
       }

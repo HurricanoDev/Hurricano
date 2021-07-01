@@ -28,7 +28,8 @@ module.exports = new Command({
   },
   description: "Displays a user's avatar.",
   async run(message, args) {
-    const member = (await client.functions.getMember(true, message, args[0])).user;
+    const member = (await client.functions.getMember(true, message, args[0]))
+      .user;
     const embed = new MessageEmbed()
       .setAuthor(member.username, member.displayAvatarURL({ dynamic: true }))
       .setImage(member.displayAvatarURL({ dynamic: true, size: 1024 }))

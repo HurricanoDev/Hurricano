@@ -1,7 +1,7 @@
-[2021-07-01 07:14:54] - [warn]: Cannot read property 'createMessageCollector' of undefined
+[2021-07-01 07:27:16] - [warn]: Cannot read property 'createMessageCollector' of undefined
 {
   "stack": "TypeError: Cannot read property 'createMessageCollector' of undefined
-    at first (/home/dragonizedpizza/Desktop/Hurricano/bot/utilities/game-apis/battle.js:243:37)
+    at first (/home/dragonizedpizza/Desktop/Hurricano/bot/utilities/game-apis/battle.js:245:37)
     at MessageCollector.<anonymous> (/home/dragonizedpizza/Desktop/Hurricano/bot/utilities/game-apis/battle.js:213:17)
     at processTicksAndRejections (internal/process/task_queues.js:95:5)"
 }
