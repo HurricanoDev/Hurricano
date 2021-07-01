@@ -59,7 +59,7 @@ async function createBattle(member, message) {
           ephemeral: true,
           content: "This battle is not meant for you.",
         });
-        if (button.user.id === member.id) return button.reply({
+        if (button.user.id === message.author.id) return button.reply({
           content: "The person you are battling must confirm, not you!",
           ephemeral: true
         })
