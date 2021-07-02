@@ -66,9 +66,9 @@ module.exports = new Command({
         );
       else emb.addField("Examples", "No examples provided.", true);
       emb.setFooter("Copyright Hurricano™");
-      if (cmd.slash) emb.addField("Slash", "Yes.", true);
+      if (cmd.slash?.isSlash) emb.addField("Slash", "Yes.", true);
       else emb.addField("Slash", "No.", true);
-      if (cmd.double) emb.addField("Both Slash And Normal?", "Yes.", true);
+      if (cmd.slash?.isNormal) emb.addField("Both Slash And Normal?", "Yes.", true);
       else emb.addField("Both Slash And Normal?", "No.", true);
       message.channel.send({ embeds: [emb] });
     } else {
@@ -86,34 +86,28 @@ module.exports = new Command({
             `\`[Slash And Normal Command] ${command.name}\`, `
           );
       });
+      function splitEmoji(EmojiRaw) {
+        const EmojiID = emojis.categories[emojiRaw];
+
+        if (/\p{Extended_Pictographic}/u.test(EmojiID)) return EmojiID;
+
+        return EmojiID.split(":")[2]
+        .split("<")[0]
+        .split(">")[0];
+      }
       const emojimap = {
-        ["giveaways"]: emojis.categories.giveaways
-          .split(":")[2]
-          .split("<")[0]
-          .split(">")[0],
-        ["owner"]: emojis.categories.owner
-          .split(":")[2]
-          .split("<")[0]
-          .split(">")[0],
-        ["music"]: emojis.categories.music
-          .split(":")[2]
-          .split("<")[0]
-          .split(">")[0],
-        ["moderation"]: emojis.categories.moderation
-          .split(":")[2]
-          .split("<")[0]
-          .split(">")[0],
-        ["config"]: "⚙️",
-        ["information"]: emojis.categories.information
-          .split(":")[2]
-          .split("<")[0]
-          .split(">")[0],
-        ["fun"]: "🎮",
-        ["image"]: "📷",
-        ["levelling"]: "🆙",
-        ["utility"]: "842193834922344476",
-        ["suggestions"]: "💡",
-        ["economy"]: "851348425860710410", //I will change this to an actual emoji later.
+        ["giveaways"]: splitEmoji("giveaways"),
+        ["owner"]: splitEmoji("owner"),
+        ["music"]: splitEmoji("music"),
+        ["moderation"]: splitEmoji("moderation"),
+        ["config"]: splitEmoji("config"),
+        ["information"]: splitEmoji("information"),
+        ["fun"]: splitEmoji("fun"),
+        ["image"]: splitEmoji("image"),
+        ["levelling"]: splitEmoji("levelling"),
+        ["utility"]: splitEmoji("utility"),
+        ["suggestions"]: splitEmoji("suggestions"),
+        ["economy"]: splitEmoji("economy"),
       };
       function getEmoji(emoji) {
         let emote;

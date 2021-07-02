@@ -21,15 +21,17 @@
     "topgg": "<:HurricanoTopGG:857048686836449280>"
   },
   "categories": {
-    "music": "<a:Music:818328350283399208>",
-    "fun": ":video_game:",
-    "misc": "<:mention:761292264936046613>",
-    "information": "<a:Information:818334840763711500>",
-    "mod": "<:moderation:761292265049686057>",
-    "admin": "<:settings:761301883792654386>",
-    "owner": "<:HurricanoOwner:837567897999114250>",
-    "logs": ":book:",
-    "giveaways": "<a:Giveaway:826334249509715978>",
-    "moderation": "<:Moderation:826315806052843561>"
+    "config": "<:Config:859675238873694258>",
+    "economy": "<:Economy:859675245980024832>",
+    "fun": "<:Fun:859675245828243506>",
+    "giveaways": "<:Giveaways:859675246801453056>",
+    "image": "<:Image:859675240460189737>",
+    "information": "<:Information:859675243454660628>",
+    "levelling": "<:Levelling:859675244993708033>",
+    "moderation": "<:Moderation:859675243999395851>",
+    "music": "<:Music:859675245929037824>",
+    "owner": "<:Owner:859675244183683072>",
+    "suggestions": "<:Suggestions:859675239548977152>",
+    "utility": "<:Utility:859675240064876544>"
   }
 }
