@@ -86,7 +86,7 @@ module.exports = new Command({
             `\`[Slash And Normal Command] ${command.name}\`, `
           );
       });
-      function splitEmoji(EmojiRaw) {
+      function splitEmoji(emojiRaw) {
         const EmojiID = emojis.categories[emojiRaw];
 
         if (/\p{Extended_Pictographic}/u.test(EmojiID)) return EmojiID;
