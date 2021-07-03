@@ -93,7 +93,8 @@ module.exports = new Command({
       .setFooter(`For ${message.author.tag}`);
     message.channel.send({ embeds: [permissionsEmbed] });
     await message.channel
-      .awaitMessages((m) => m.author.id === message.author.id, {
+      .awaitMessages({
+        filter: (m) => m.author.id === message.author.id,
         max: 1,
         time: 20000,
         errors: ["time"],

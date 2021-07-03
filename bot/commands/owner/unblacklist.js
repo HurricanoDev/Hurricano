@@ -23,7 +23,8 @@ module.exports = new Command({
       `Are you sure you would like to unblacklist ${user}? Please respond with \`yes\` or \`no\`.`
     );
     let confirmation = await message.channel
-      .awaitMessages((m) => m.author.id === message.author.id, {
+      .awaitMessages( {
+        filter: (m) => m.author.id === message.author.id,
         max: 1,
         limit: 30000,
         errors: ["time"],

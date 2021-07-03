@@ -42,7 +42,7 @@ module.exports = new Command({
         ],
       });
       let track;
-      const collector = message.channel.createMessageCollector(x => x.author.id === message.author.id);
+      const collector = message.channel.createMessageCollector({ filter: (x) => x.author.id === message.author.id });
 
       collector.on("collect", msg => {
         if (msg.author.id !== message.author.id) return;

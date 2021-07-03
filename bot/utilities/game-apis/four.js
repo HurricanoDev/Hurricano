@@ -98,8 +98,8 @@ class Connect4 {
   waitForReaction(userTurn) {
     this.gameEmbed
       .awaitReactions(
-        (reaction, user) => this.filter(reaction, user, userTurn),
         {
+          filter:         (reaction, user) => this.filter(reaction, user, userTurn),
           max: 1,
           time: 300000,
           errors: ["time"],

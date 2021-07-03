@@ -20,7 +20,8 @@ module.exports = new Command({
        \`${prefix}blacklist user @Dɾαɠσɳιȥҽԃριȥȥα\``
       );
       let conf = await message.channel
-        .awaitMessages((x) => x.author.id == message.author.id, {
+        .awaitMessages({
+          filter: (x) => x.author.id == message.author.id, 
           max: 1,
           time: 30000,
           errors: ["time"],
@@ -58,7 +59,8 @@ module.exports = new Command({
         `Now, please provide the ID of the ${toBlUser ? "user." : "guild."}`
       );
       let conf = await message.channel
-        .awaitMessages((x) => x.author.id === message.author.id, {
+        .awaitMessages({
+          filter: (x) => x.author.id === message.author.id, 
           max: 1,
           time: 20000,
           errors: ["time"],
@@ -113,7 +115,8 @@ module.exports = new Command({
         ]
       );
       let confir = await message.channel
-        .awaitMessages((x) => x.author.id === message.author.id, {
+        .awaitMessages( {
+          filter: (x) => x.author.id === message.author.id,
           max: 1,
           time: 30000,
           errors: ["time"],
@@ -163,7 +166,8 @@ module.exports = new Command({
         ]
       );
       let confir = await message.channel
-        .awaitMessages((x) => x.author.id === message.author.id, {
+        .awaitMessages({
+          filter: (x) => x.author.id === message.author.id,
           max: 1,
           time: 30000,
           errors: ["time"],

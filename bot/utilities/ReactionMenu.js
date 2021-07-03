@@ -230,8 +230,7 @@ module.exports.Menu = class extends EventEmitter {
    */
   awaitReactions() {
     this.reactionCollector = this.menu.createReactionCollector(
-      (reaction, user) => user.id !== this.menu.client.user.id,
-      { idle: this.ms }
+      { idle: this.ms, filter: (reaction, user) => user.id !== this.menu.client.user.id, }
     );
 
     let sameReactions;

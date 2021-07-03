@@ -26,7 +26,8 @@ module.exports = new Command({
     let gotWrong = true;
     message.channel.send({ embeds: [prompt] }).then(async (started) => {
       let filter1 = (msg) => msg.author.id === message.author.id;
-      let setSettings = message.channel.createMessageCollector(filter1, {
+      let setSettings = message.channel.createMessageCollector({
+        filter: filter1,
         time: 35000,
       });
       setSettings.on("collect", async (msg) => {

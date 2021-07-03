@@ -100,8 +100,7 @@ module.exports = new Command({
     currentPage = 1;
     let Pages = { 1: mainEmbed, 2: Page2, 3: Page3, 4: Page4 };
     const collector = msg.createMessageComponentInteractionCollector(
-      (x) => x.user.id == message.author.id,
-      { idle: 30000, errors: ["time"] }
+      { idle: 30000, errors: ["time"], collector: (x) => x.user.id == message.author.id }
     );
     collector.on("collect", (button) => {
       if (button.customID === "DBLeft") {

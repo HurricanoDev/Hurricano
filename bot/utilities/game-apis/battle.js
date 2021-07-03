@@ -51,7 +51,7 @@ async function createBattle(member, message) {
         ],
       ]
     );
-    const confir = msg.createMessageComponentInteractionCollector(() => true);
+    const confir = msg.createMessageComponentInteractionCollector();
     let rejectedOof;
     confir.on("collect", (button) => {
       if (button.user.id !== message.author.id && button.user.id !== member.id)
@@ -107,8 +107,9 @@ async function createBattle(member, message) {
       .setFooter(message.member.displayName, message.author.displayAvatarURL());
     message.channel.send({ embeds: [battleEmbed] }).then(async (started) => {
       const filter1 = (msg) => msg.author.id === message.author.id;
-      const setSettings = message.channel.createMessageCollector(filter1, {
+      const setSettings = message.channel.createMessageCollector({
         time: 120000,
+        filter: filter1,
       });
 
       setSettings.on("collect", async (msg) => {
@@ -245,7 +246,7 @@ async function createBattle(member, message) {
     let nextUp = message.member;
 
     let filter = (msg) => msg.author.id === nowBattling.id;
-    let collector = message.channel.createMessageCollector(filter);
+    let collector = message.channel.createMessageCollector({ filter });
     if (playerOneData.battleTurn === true) return;
     playerOneData.battleTurn = true;
 
@@ -383,7 +384,7 @@ async function createBattle(member, message) {
     let data = playerTwoData;
 
     let filter = (yeet) => yeet.author.id === nowBattling.id;
-    let collector = message.channel.createMessageCollector(filter);
+    let collector = message.channel.createMessageCollector({ filter });
     if (playerTwoData.battleTurn === true) return;
     playerTwoData.battleTurn = true;
 

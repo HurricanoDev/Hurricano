@@ -21,8 +21,8 @@ module.exports = new Command({
         "Different Voice Channel.",
         "Please join the same voice channel as me."
       );
-
-    if (!client.player.getQueue(message))
+      const queue = client.player.getQueue(message.guild);
+    if (!queue)
       return message.channel.sendError(
         message,
         "No Music is Playing.",

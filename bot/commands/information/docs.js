@@ -39,9 +39,9 @@ module.exports = new Command({
         msg.react("🗑️");
         let confirmation = await msg
           .awaitReactions(
-            (reaction, user) =>
-              reaction.emoji.name === "🗑️" && user.id === message.author.id,
             {
+              filter:            (reaction, user) =>
+              reaction.emoji.name === "🗑️" && user.id === message.author.id,
               max: 1,
               time: 10000,
               errors: ["time"],

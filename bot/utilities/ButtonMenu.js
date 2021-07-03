@@ -40,8 +40,7 @@ module.exports = class ButtonMenu {
     });
 
     const collector = message.createMessageComponentInteractionCollector(
-      (x) => x.user.id !== client.user.id,
-      { idle: 45000 }
+      { idle: 45000, filter: (x) => x.user.id !== client.user.id }
     );
     await collector.on("collect", async (button) => {
       if (button.user.id !== this.message.author.id)

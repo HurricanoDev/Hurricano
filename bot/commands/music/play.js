@@ -30,11 +30,11 @@ module.exports = new Command({
       .search(args.join(" "), {
         requestedBy: message.author,
       })).tracks[0];
-      
+
       if (!track) return message.channel.sendError(
         message,
         "No Results Found.",
-        `No results were found on YouTube for ${query}.`
+        `No results were found on YouTube for ${args.join(" ")}.`
       );
 
     queue.play(track);

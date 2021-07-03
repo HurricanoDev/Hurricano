@@ -11,7 +11,8 @@ module.exports = new Command({
       "Are you sure you want to shutdown the bot? Please respond with `yes` if you would like to reboot the bot and `no` if you wouldn't."
     );
     let collected = await message.channel
-      .awaitMessages((m) => m.author.id === message.author.id, {
+      .awaitMessages({
+        filter: (m) => m.author.id === message.author.id,
         max: 1,
         time: 5000,
         errors: ["time"],

@@ -331,7 +331,7 @@ module.exports = async (message) => {
           ],
         });
       }
-      const calc = msg.createMessageComponentInteractionCollector(filter);
+      const calc = msg.createMessageComponentInteractionCollector({ filter });
 
       calc.on("collect", async (btn) => {
         if (btn.user.id !== message.author.id) {

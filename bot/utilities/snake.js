@@ -159,9 +159,7 @@ class SnakeGame {
   }
 
   waitForReaction() {
-    const collector = this.gameEmbed.createMessageComponentInteractionCollector(
-      () => true,
-      {
+    const collector = this.gameEmbed.createMessageComponentInteractionCollector({
         max: 1,
         idle: 60000,
         errors: ["time"],

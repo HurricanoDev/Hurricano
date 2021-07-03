@@ -1300,7 +1300,7 @@ class HangmanGame {
 
   waitForReaction() {
     this.gameEmbed
-      .awaitReactions(() => true, { max: 1, time: 300000, errors: ["time"] })
+      .awaitReactions({ max: 1, time: 300000, errors: ["time"] })
       .then((collected) => {
         const reaction = collected.first();
         this.makeGuess(reaction.emoji.name);
