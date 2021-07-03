@@ -3,7 +3,7 @@ const Command = require("@Command");
 module.exports = new Command({
   name: "stop",
   aliases: ["dc"],
-  async run(message, args) {
+  async run(message) {
     if (!message.member.voice.channel)
       return message.channel.sendError(
         message,
@@ -20,16 +20,16 @@ module.exports = new Command({
         "Different Voice Channel.",
         "Please join the same voice channel as me."
       );
-
-    if (!client.player.getQueue(message))
+      const queue = client.player.getQueue(message.guild);
+    if (!queue)
       return message.channel.sendError(
         message,
         "No Music is Playing.",
         "Please join a voice channel to play music."
       );
 
-    client.player.setRepeatMode(message, false);
-    const success = client.player.stop(message);
+    queue.setRepeatMode(false);
+    const success = queue.stop();
 
     if (success)
       await message.channel.sendSuccess(

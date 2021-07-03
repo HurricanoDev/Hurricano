@@ -52,7 +52,7 @@ module.exports = new Command({
         };
         if (!+msg.content) return message.channel.sendError(message, "Invalid Arguments.", "Please provide a valid number.");
         if (+msg.content <= 0) return message.channel.sendError(message, "Invalid Number Provided.", "Please provide a positive number.");
-        if (+msg.content > tracks.length + 1) return message.channel.sendError(message, "Invalid Number Provided.", `The number you provided is larger than the number tracks the search returned (${tracks.length + 1}).`)
+        if (+msg.content > tracks.length) return message.channel.sendError(message, "Invalid Number Provided.", `The number you provided is larger than the number tracks the search returned (${tracks.length + 1}).`)
         track = tracks[+msg.content - 1];
         collector.stop();
       });
