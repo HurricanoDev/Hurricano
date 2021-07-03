@@ -20,7 +20,7 @@ module.exports = new Command({
       return message.channel.sendError(
         message,
         "Oops!",
-        "Oops! Hurricano couldn't find the lyrics for this song."
+        `Oops! Hurricano couldn't find the lyrics for this song. Perhaps try searching for the song yourself, via \`${message._usedPrefix}lyrics {song name}\``
       );
     function sendLyrics(desc, pageNumber, pageLength) {
       const embed = new MessageEmbed()

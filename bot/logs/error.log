@@ -1,0 +1,8 @@
+[2021-07-03 11:53:50] - [warn]: Cannot destroy VoiceConnection - it has already been destroyed
+{
+  "stack": "Error: Cannot destroy VoiceConnection - it has already been destroyed
+    at VoiceConnection.destroy (/home/dragonizedpizza/Desktop/Hurricano/node_modules/@discordjs/voice/dist/VoiceConnection.js:317:19)
+    at StreamDispatcher.<anonymous> (/home/dragonizedpizza/Desktop/Hurricano/node_modules/discord-player/lib/VoiceInterface/StreamDispatcher.js:53:46)
+    at Generator.throw (<anonymous>)
+    at rejected (/home/dragonizedpizza/Desktop/Hurricano/node_modules/discord-player/lib/VoiceInterface/StreamDispatcher.js:6:65)"
+}
