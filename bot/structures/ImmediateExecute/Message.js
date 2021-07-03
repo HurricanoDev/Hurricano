@@ -62,7 +62,7 @@ module.exports = Structures.extend(
         });
         return msg;
       }
-      async sendSuccessReply(Header, Msg, Footer, Fields) {
+      async sendSuccessReply(Header, Msg, Footer, Fields, Components) {
         const msg = await sendMsg(this, "success", "reply", {
           Header,
           Msg,

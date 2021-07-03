@@ -29,7 +29,8 @@ module.exports = new Command({
         "Please join a voice channel to play music."
       );
 
-    const success = message.client.player.skip(message);
+      let skipTrack = queue.tracks[0]
+      if (args.length)
 
     if (success)
       await message.channel.sendSuccess(

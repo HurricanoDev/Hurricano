@@ -2,8 +2,9 @@ const { MessageEmbed } = require("discord.js");
 
 module.exports = {
   name: "error",
-  run: async (error, queue, ...args) => {
+  run: async (queue, error, ...args) => {
     const message = queue.metadata;
+    console.log(error)
     switch (error) {
       case "NotPlaying":
         message.channel.sendError(
