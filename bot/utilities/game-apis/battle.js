@@ -59,10 +59,11 @@ async function createBattle(member, message) {
           ephemeral: true,
           content: "This battle is not meant for you.",
         });
-        if (button.user.id === message.author.id) return button.reply({
+      if (button.user.id === message.author.id)
+        return button.reply({
           content: "The person you are battling must confirm, not you!",
-          ephemeral: true
-        })
+          ephemeral: true,
+        });
       if (button.customID === "yes") {
         button.deferUpdate();
         msg.editSuccess(
@@ -522,14 +523,17 @@ async function createBattle(member, message) {
     if (winner === member.id) {
       wonData = playerTwoData;
       won = member;
-    };
+    }
     const emb16 = new MessageEmbed()
       .setTitle("Congratulations!")
       .setDescription(
         `${won} has won the battle with \`${wonData.battleHealth}\` HP Left!`
       )
       .setColor("GREEN")
-      .setFooter(won.username ? message.member.displayName : won.displayName, won.username ? won.displayAvatarURL() : won.user.displayAvatarURL());
+      .setFooter(
+        won.username ? message.member.displayName : won.displayName,
+        won.username ? won.displayAvatarURL() : won.user.displayAvatarURL()
+      );
     return message.channel.send({
       embeds: [emb16],
     });

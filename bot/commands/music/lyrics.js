@@ -1,103 +1,46 @@
 const { MessageEmbed } = require("discord.js");
-const lyricsFinder = require("lyrics-finder");
 const Command = require("@Command");
+
 module.exports = new Command({
   name: "lyrics",
   aliases: ["ly"],
   description: "Get a song's lyrics!",
   async run(message, args) {
-    let lyrics = null;
-    const prefix = message._usedPrefix;
-    if (!client.player.getQueue(message))
+    const queue = client.player.getQueue(message.guild.id);
+    let query = queue?.nowPlaying()?.title;
+    if (!queue) query = args.join(" ");
+    if (!query)
       return message.channel.sendError(
         message,
-        "No Music is Playing.",
-        "Please join a voice channel to play music."
+        "Invalid Query.",
+        "Please provide what song you would like to see the lyrics of."
       );
-
-    let track = args;
-    if (!args.length) {
-      track = client.player.getQueue(message).playing;
-    }
-    try {
-      if (!args.length) {
-        lyrics = await lyricsFinder(track.title, "");
-      } else if ((track = args)) {
-        lyrics = await lyricsFinder(args[0], "");
-      }
-      if ((track = message.client.player.nowPlaying(message) && !lyrics)) {
-        message.channel.sendError(
-          message,
-          "No Lyrics Found.",
-          "No lyrics were found for **" +
-            track.title +
-            "**. Try looking for the lyrics yourself by doing `" +
-            prefix +
-            "lyrics {Your song}`."
-        );
-      } else if ((track = args && !lyrics)) {
-        return message.channel.sendError(
-          message,
-          "No Lyrics Found.",
-          "No lyrics were found for **" +
-            track +
-            "**. Try looking for the lyrics yourself by doing `" +
-            prefix +
-            "lyrics {Your song}`."
-        );
-      }
-    } catch (error) {
-      message.channel.sendError(
+    const lyrics = await client.lyricsClient.search(query);
+    if (!lyrics)
+      return message.channel.sendError(
         message,
-        "No Lyrics Found.",
-        "No lyrics were found for **" +
-          track +
-          "**. Try looking for the lyrics yourself by doing `" +
-          prefix +
-          "lyrics {Your song}`."
+        "Oops!",
+        "Oops! Hurricano couldn't find the lyrics for this song."
       );
-    }
-    if ((track = client.player.getQueue(message).playing)) {
-      const lyricsEmbed = new MessageEmbed()
+    function sendLyrics(desc, pageNumber, pageLength) {
+      const embed = new MessageEmbed()
         .setAuthor(
-          "Lyrics for " + track.title,
+          `Lyrics For: ${lyrics.title}, by ${lyrics.artist.name}`,
           "https://raw.githubusercontent.com/HurricanoBot/HurricanoImages/master/SetAuthorEmojis/Music.gif"
         )
-        .setURL(track.url)
-        .setDescription(lyrics)
-        .setFooter(
-          `Requested by ${message.author.username}`,
-          message.author.displayAvatarURL()
-        )
-        .setThumbnail(track.thumbnail);
+        .setThumbnail(lyrics.thumbnail)
+        .setDescription(desc)
 
-      if (lyricsEmbed.description.length >= 2048)
-        lyricsEmbed.description = `${lyricsEmbed.description.substr(
-          0,
-          2045
-        )}...`;
-      return message.channel
-        .send({ embeds: [lyricsEmbed] })
-        .catch((x) => client.logger.warn(x));
-    } else if ((track = args)) {
-      const lyricsEmbed = new MessageEmbed()
-        .setAuthor(
-          `Lyrics found for ${track}`,
-          "https://raw.githubusercontent.com/HurricanoBot/HurricanoImages/master/SetAuthorEmojis/Music.gif"
-        )
-        .setDescription(lyrics)
         .setFooter(
-          `Requested by ${message.author.username}`,
+          `${message.member.displayName} | ${pageNumber + 1}/${pageLength}`,
           message.author.displayAvatarURL()
         );
-      if (lyricsEmbed.description.length >= 2048)
-        lyricsEmbed.description = `${lyricsEmbed.description.substr(
-          0,
-          2045
-        )}...`;
-      return message.channel
-        .send({ embeds: [lyricsEmbed] })
-        .catch((x) => client.logger.warn(x));
+      message.channel.send({ embeds: [embed] });
+    }
+    const lyricWords = lyrics.lyrics.match(/[\s\S]{1,2000}/g);
+
+    for (let x = 0; x < lyricWords.length; x++) {
+      sendLyrics(lyricWords[x], x, lyricWords.length);
     }
   },
 });

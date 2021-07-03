@@ -2,7 +2,8 @@ const { MessageEmbed } = require("discord.js");
 
 module.exports = {
   name: "trackAdd",
-  run: async (message, queue, track) => {
+  run: async (queue, track) => {
+    const message = queue.metadata;
     const embed = new MessageEmbed()
       .setAuthor(
         "Song Added",

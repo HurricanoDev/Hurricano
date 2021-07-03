@@ -2,7 +2,8 @@ const { MessageEmbed } = require("discord.js");
 
 module.exports = {
   name: "noResults",
-  run: async (message, query) => {
+  run: async (queue, query) => {
+    const message = queue.metadata;
     message.channel.sendError(
       message,
       "No Results Found.",

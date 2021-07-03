@@ -68,7 +68,8 @@ module.exports = new Command({
       emb.setFooter("Copyright Hurricano™");
       if (cmd.slash?.isSlash) emb.addField("Slash", "Yes.", true);
       else emb.addField("Slash", "No.", true);
-      if (cmd.slash?.isNormal) emb.addField("Both Slash And Normal?", "Yes.", true);
+      if (cmd.slash?.isNormal)
+        emb.addField("Both Slash And Normal?", "Yes.", true);
       else emb.addField("Both Slash And Normal?", "No.", true);
       message.channel.send({ embeds: [emb] });
     } else {
@@ -91,9 +92,7 @@ module.exports = new Command({
 
         if (/\p{Extended_Pictographic}/u.test(EmojiID)) return EmojiID;
 
-        return EmojiID.split(":")[2]
-        .split("<")[0]
-        .split(">")[0];
+        return EmojiID.split(":")[2].split("<")[0].split(">")[0];
       }
       const emojimap = {
         ["giveaways"]: splitEmoji("giveaways"),

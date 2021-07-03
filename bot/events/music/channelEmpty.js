@@ -1,6 +1,7 @@
 module.exports = {
   name: "channelEmpty",
-  run: async (message) => {
+  run: async (queue) => {
+    const message = queue.metadata;
     message.channel.sendError(
       message,
       "Music Playback Stopped.",

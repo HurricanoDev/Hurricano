@@ -2,7 +2,8 @@ const { MessageEmbed } = require("discord.js");
 
 module.exports = {
   name: "searchResults",
-  run: async (message, query, tracks) => {
+  run: async (queue, query, tracks) => {
+    const message = queue.metadata;
     message.channel.send({
       embeds: [
         new MessageEmbed()

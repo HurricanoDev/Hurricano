@@ -2,7 +2,8 @@ const { MessageEmbed } = require("discord.js");
 const disk = ":Music:";
 module.exports = {
   name: "trackStart",
-  run: async (message, track) => {
+  run: async (queue, track) => {
+    const message = queue.metadata;
     const embed = new MessageEmbed()
       .setTitle(`${track.title}`)
       .setURL(`${track.url}`)

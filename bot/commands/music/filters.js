@@ -11,8 +11,8 @@ module.exports = new Command({
         "Not in A Voice Channel.",
         "Please join a voice channel to play music."
       );
-
-    if (!message.client.player.getQueue(message))
+    const queue = client.player.getQueue(message.guild.id);
+    if (!queue)
       return message.channel.sendError(
         message,
         "No Music is Playing.",
@@ -34,12 +34,11 @@ module.exports = new Command({
 
     const filtersUpdated = {};
 
-    filtersUpdated[filterToUpdate] = message.client.player.getQueue(message)
-      .filters[filterToUpdate]
+    filtersUpdated[filterToUpdate] = queue.filters[filterToUpdate]
       ? false
       : true;
 
-    message.client.player.setFilters(message, filtersUpdated);
+    queue.setFilters(filtersUpdated);
     if (filtersUpdated[filterToUpdate])
       await message.channel.sendSuccess(
         message,

@@ -1,10 +1,12 @@
 module.exports = {
   name: "queueEnd",
-  run: async (message, queue) => {
+  run: async (queue) => {
+    const message = queue.metadata;
+    if (!message.member.voice.channel.members.size) return;
     message.channel.sendError(
       message,
       "Music Ended.",
-      `There is no more songs in the queue.`
+      `There are no more songs in the queue.`
     );
   },
 };

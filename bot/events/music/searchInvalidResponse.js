@@ -1,6 +1,7 @@
 module.exports = {
   name: "searchInvalidResponse",
-  run: async (message, query, tracks, content, collector) => {
+  run: async (queue, query, tracks, content, collector) => {
+    const message = queue.metadata;
     if (content === "cancel") {
       collector.stop();
       return await message.channel.sendSuccess(

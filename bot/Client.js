@@ -1,7 +1,13 @@
-const Discord = require("discord.js");
-const { readdirSync } = require("fs");
-const ascii = require("ascii-table");
-let table = new ascii("Commands");
+const Discord = require("discord.js"),
+  { readdirSync } = require("fs"),
+  ascii = require("ascii-table"),
+  { Player } = require("discord-player"),
+  giveawaysManager = require("./utilities/giveaway"),
+  logger = require("./utilities/logger.js"),
+  Database = require("./handlers/db.js"),
+  { Lyrics } = require("@discord-player/extractor");
+
+const table = new ascii("Commands");
 table.setHeading(
   "Command File",
   "Command Name",
@@ -9,12 +15,6 @@ table.setHeading(
   "Aliases",
   "Load status"
 );
-const fs = require("fs");
-const { Player } = require("discord-player");
-const giveawaysManager = require("./utilities/giveaway");
-const logger = require("./utilities/logger.js");
-const path = require("path");
-const Database = require("./handlers/db.js");
 
 /**
  * Extended Client class
@@ -165,6 +165,12 @@ class HurricanoClient extends Discord.Client {
       "surrounding",
     ];
 
+    /**
+     * Lyrics Client
+     * @param {Object}
+     */
+    this.lyricsClient = Lyrics.init();
+
     this.links = {
       errorImage:
         "https://raw.githubusercontent.com/HurricanoBot/HurricanoImages/master/SetAuthorEmojis/Error.png",
@@ -285,9 +291,9 @@ class HurricanoClient extends Discord.Client {
   // ---------------------------------------------------   Functions    -------------------------------------------------------------
   loadEvents() {
     // BOT EVENTS
-    const botevents = fs
-      .readdirSync("./bot/events/bot")
-      .filter((file) => file.endsWith(".js"));
+    const botevents = readdirSync("./bot/events/bot").filter((file) =>
+      file.endsWith(".js")
+    );
     for (const file of botevents) {
       let event = require(`./events/bot/${file}`);
       event = new event(this);
@@ -298,18 +304,18 @@ class HurricanoClient extends Discord.Client {
       }
     }
     // MUSIC EVENTS
-    const musicevents = fs
-      .readdirSync("./bot/events/music")
-      .filter((file) => file.endsWith(".js"));
+    const musicevents = readdirSync("./bot/events/music").filter((file) =>
+      file.endsWith(".js")
+    );
     for (const file of musicevents) {
       const event = require(`./events/music/${file}`);
       this.player.on(event.name, (...args) => event.run(...args, this));
     }
 
     // GIVEAWAYS EVENTS
-    const giveawaysevents = fs
-      .readdirSync("./bot/events/giveaways")
-      .filter((file) => file.endsWith(".js"));
+    const giveawaysevents = readdirSync("./bot/events/giveaways").filter(
+      (file) => file.endsWith(".js")
+    );
     for (const file of giveawaysevents) {
       const event = require(`./events/giveaways/${file}`);
       this.giveawaysManager.on(event.name, (...args) =>
@@ -436,9 +442,9 @@ class HurricanoClient extends Discord.Client {
   }
 }
 function loadStructures() {
-  const structures = fs
-    .readdirSync("./bot/structures/ImmediateExecute")
-    .filter((file) => file.endsWith(".js"));
+  const structures = readdirSync("./bot/structures/ImmediateExecute").filter(
+    (file) => file.endsWith(".js")
+  );
 
   for (const file of structures) {
     require("./structures/ImmediateExecute/" + file);

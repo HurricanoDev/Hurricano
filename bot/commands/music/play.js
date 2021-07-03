@@ -22,6 +22,15 @@ module.exports = new Command({
         "Please join the same voice channel as me."
       );
 
-    client.player.play(message, args.join(" "), { firstResult: true });
+    const queue = client.player.createQueue(message.guild, {
+      metadata: message,
+    });
+    if (!queue.connection) await queue.connect(message.member.voice.channel);
+    const track = (await client.player
+      .search(args.join(" "), {
+        requestedBy: message.author,
+      })).tracks[0];
+
+    queue.play(track);
   },
 });

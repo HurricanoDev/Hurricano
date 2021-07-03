@@ -1,6 +1,7 @@
 module.exports = {
   name: "playlistAdd",
-  run: async (message, playlist) => {
+  run: async (queue, playlist) => {
+    const message = queue.metadata;
     message.channel.sendError(
       message,
       "Song Successfully Added!",
