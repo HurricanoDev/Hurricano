@@ -1,5 +1,6 @@
 const Command = require("@Command");
 const { MessageEmbed, MessageButton } = require("discord.js");
+const emojis = require('../../utilities/emojis.json');
 module.exports = new Command({
   name: "database",
   aliases: ["db"],
@@ -27,7 +28,7 @@ module.exports = new Command({
     const roleSettings = ["autoRole", "muteRole"];
     const otherSettings = ["antiSpam"];
     const mainEmbed = new MessageEmbed()
-      .setTitle("Database")
+      .setAuthor("Database", "https://cdn.discordapp.com/emojis/860782779896692752.png?v=1")
       .setDescription(
         `**More information:** \`${message._usedPrefix}settings [category]\``
       )
@@ -36,7 +37,7 @@ module.exports = new Command({
       .addField("Role", `\`${roleSettings.length}\` settings`)
       .addField("Other", `\`${otherSettings.length}\` setting(s)`)
       .setTimestamp()
-      .setColor("#6082b6")
+      .setColor("#606365")
       .setFooter(`© Hurricano`);
     let currentPage;
     const Page2 = new MessageEmbed()
@@ -86,11 +87,11 @@ module.exports = new Command({
     const leftButton = new MessageButton()
       .setStyle("PRIMARY")
       .setCustomID("DBLeft")
-      .setEmoji("⬅️");
+      .setEmoji("<:LeftArrow:861058356357365770>");
     const rightButton = new MessageButton()
       .setStyle("PRIMARY")
       .setCustomID("DBRight")
-      .setEmoji("➡️");
+      .setEmoji("<:RightArrow:861058283657494559>");
     const msg = await message.channel.send({
       embeds: [mainEmbed],
       components: [[leftButton, rightButton]],
