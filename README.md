@@ -3,6 +3,7 @@
 <a href="https://github.com/HurricanoBot/Hurricano/blob/main/LICENSE.md"><img alt="GitHub license" src="https://img.shields.io/github/license/HurricanoBot/Hurricano?style=for-the-badge"></a>
 <a href="https://github.com/HurricanoBot/Hurricano/stargazers"><img alt="GitHub stars" src="https://img.shields.io/github/stars/HurricanoBot/Hurricano?style=for-the-badge"></a> 
 <a href="https://github.com/HurricanoBot/Hurricano/network"><img alt="GitHub forks" src="https://img.shields.io/github/forks/HurricanoBot/Hurricano?style=for-the-badge"></a>
+<a href="https://discord.gg/HdYnCvQTxk"><img alt="GitHub forks" src="https://img.shields.io/badge/Discord-7289DA?style=for-the-badge&logo=discord&logoColor=white"></a>
 </p>
 <h3 align="center">An open source Discord bot</h3> 
 
@@ -95,6 +96,7 @@ $ npm install
 
 # Run the bot
 $ node .
+
 ```
 
 <h2>Invite Hurricano 🌀</h2>
@@ -102,10 +104,20 @@ $ node .
     <img src="https://top.gg/api/widget/803169312827113483.svg" alt="HurricanoBot"/>
 </a>
 
-## Credits
+<h2>Star Chart 🌟 </h2>
+<a href="https://github.com/HurricanoBot/Hurricano/stargazers">
+    <img src="https://starchart.cc/HurricanoBot/Hurricano.svg" alt="HurricanoBot"/>
+</a>
 
-Bot developed by:
+## Credits ✨
 
-- [Dragonizedpizza](https://github.com/Dragonizedpizza)
-- [Militia21](https://github.com/Militia21)
-- [Anogh297](https://github.com/Anogh297)
+<table>
+  <tr>
+    <td align="center"><a href="https://github.com/Dragonizedpizza"><img src="https://avatars.githubusercontent.com/u/70718540?v=4" width="100px;" alt=""/><br /><sub><b>Dragonizedpizza
+</b></sub></a></td>
+    <td align="center"><a href="https://github.com/Militia21"><img src="https://avatars.githubusercontent.com/u/70501605?v=4" width="100px;" alt=""/><br /><sub><b>Militia21</b></sub></a></td>
+    <td align="center"><a href="https://github.com/Anogh297"><img src="https://avatars.githubusercontent.com/u/68709171?v=4" width="100px;" alt=""/><br /><sub><b>Anogh297
+</b></sub></a></td>
+  </tr>
+</table>
+
