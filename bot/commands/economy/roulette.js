@@ -3,6 +3,7 @@ const Discord = require("discord.js");
 
 module.exports = new Command({
   name: "roulette",
+  cooldown: 30,
   description: "Come play roulette!",
   aliases: ["roul"],
   async run(message, args) {
