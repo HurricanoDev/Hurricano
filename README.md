@@ -1,37 +1,106 @@
-### Hurricano!
+<h1 align="center"> Hurricano™  🌀</h1>
+<p align="center">
+<a href="https://github.com/HurricanoBot/Hurricano/blob/main/LICENSE.md"><img alt="GitHub license" src="https://img.shields.io/github/license/HurricanoBot/Hurricano?style=for-the-badge"></a>
+<a href="https://github.com/HurricanoBot/Hurricano/stargazers"><img alt="GitHub stars" src="https://img.shields.io/github/stars/HurricanoBot/Hurricano?style=for-the-badge"></a> 
+<a href="https://github.com/HurricanoBot/Hurricano/network"><img alt="GitHub forks" src="https://img.shields.io/github/forks/HurricanoBot/Hurricano?style=for-the-badge"></a>
+</p>
+<h3 align="center">An open source Discord bot</h3> 
 
-An open source Discord bot, with features such as:
+<h2>Features⭐ :</h2>
 
-- Command Cooldowns
-- Command Permissions
-- OwnerOnly Commands
-- Args required or not Option
-- Giveaways (using package `discord-giveaways`) which uses MongoDB
-- Customizable server settings using MongoDB
-- Logging
-- ...And many interesting commands!
+⭐ Command Cooldowns
+<br/>
+⭐ Command Permissions
+<br/>
+⭐ OwnerOnly Commands
+<br/>
+⭐ Args required or not Option
+<br/>
+⭐ Giveaways (using package `discord-giveaways`) which uses MongoDB
+<br/>
+⭐ Customizable server settings using MongoDB
+<br/>
+⭐ Logging
+<br/>
+⭐ a lot of / commands
+<br/>
+⭐ ...And many interesting commands! 
 
-This bot is currently in development, very early stages of it too.
 
-How to host this bot.
+<h1> Getting Started  🚀</h1>
 
-1. Get Node.js from https://nodejs.org.
-2. Clone this repo by:
+These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
 
-- Downloading the zip.
-- Using git and doing `git clone https://github.com/HurricanoBot/Hurricano.git`
-- Using GitHub cli and doing `gh repo clone HurricanoBot/Hurricano`
+<h2> Prerequisites 📋 </h2>
+You'll need Git and Node.js (which comes with NPM) installed on your computer.
+</br>
+</br>
 
-3. Run `npm i` in the bot directory.
-4. Configure [config.example.json](https://github.com/HurricanoBot/Hurricano/blob/main/config.example.json) and rename it to `config.json`
-5. Run the bot by using `node index`, `node index.js` or `node .`!
+```
+node@v14.0.0 or higher
+npm@7.0.0 or higher
+git@2.17.1 or higher
+```
+<hr>
+<h2>Bot setup  🔧</h2>
+1. Lets get started by cloning Hurricano on your local machine
+</br>
+</br>
 
-Please respect the [LICENSE](https://github.com/HurricanoBot/Hurricano/blob/main/LICENSE.md).
+```bash
+# cloning the repository
+$ git clone https://github.com/HurricanoBot/Hurricano.git
 
-This bot is currently a work in progress, don't expect much here yet!
+# go into the repository
+$ cd Hurricano
 
-[Support Server](https://discord.gg/RDEBGXp7sG)
-[Invite](https://discord.com/oauth2/authorize?client_id=803169312827113483&permissions=8&scope=bot)
+```
+2. Now rename the config.example.json file to config.json and the required enviormental variables like bot token ,owner ids etc.
+```json
+{
+  "token": "Your bot token",
+  "mongouri": "Mongodb uri",
+  "prefix": "Your prefix",
+  "ownerIds": ["Owner's USER IDs", "Like this", "can be as many"],
+  "statcordKey": "optional, leave empty if you don't want statcord",
+  "website": {
+    "enabled": false,
+    "ip": "Website IP",
+    "port": "Port"
+  },
+  "topgg": {
+    "enabled": false,
+    "token": "only put something here if you set top.gg api to true",
+    "webhook": {
+      "enabled": false,
+      "webhookPassword": "top.gg vote webhook password",
+      "webhookPort": 1234,
+      "channelID": "vote webhook channel ID",
+      "webhookIP": "vote webhook IP"
+    }
+  },
+  "botChannels": {
+    "bugReport": "...",
+    "feedback": "...",
+    "serverJoinChannel": "..."
+  }
+}
+```
+
+3. Now install all the required dependecies for the bot and run the bot.
+
+```bash
+# install the required dependencies 
+$ npm install
+
+# Run the bot
+$ node .
+```
+
+<h2>Invite Hurricano 🌀</h2>
+<a href="https://top.gg/bot/803169312827113483">
+    <img src="https://top.gg/api/widget/803169312827113483.svg" alt="HurricanoBot"/>
+</a>
 
 ## Credits
 
