@@ -112,9 +112,13 @@ $ npm install
 
 # Run the bot
 $ node .
-
 ```
 
+<h2 align="center"> Hosting ☁️</h2>
+<p align="center">
+<a href="https://heroku.com/"><img alt="heroku" src="https://img.shields.io/badge/Heroku-430098?style=for-the-badge&logo=heroku&logoColor=white"></a>
+</p>
+So you might be thinking how to host your bot on a cloud service so that it remains active 24/7 so currently we are hosting Hurricano on heroku which supports node v14.0.0 and npm v7.0.0 and above. 
 <h2 align="center">Star Chart 🌟 </h2>
 <a href="https://github.com/HurricanoBot/Hurricano/stargazers">
     <img src="https://starchart.cc/HurricanoBot/Hurricano.svg" alt="HurricanoBot"/>
