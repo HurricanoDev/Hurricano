@@ -28,7 +28,7 @@ module.exports = new Command({
           .setURL(json.list[0].permalink)
           .setTimestamp()
           .setFooter('Powered by UrbanDictionary', '');
-        message.channel.send(embed);
+        message.channel.send({ embeds: [embed] });
         return;
       })
   },
