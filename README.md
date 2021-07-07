@@ -8,9 +8,12 @@
 <h3 align="center">An open source Discord bot!</h3> 
 
 <h2>Invite Hurricano 🌀</h2>
-<a href="https://top.gg/bot/803169312827113483">
+<div align=center>
+
+<a href="https://top.gg/bot/803169312827113483"></center>
     <img src="https://top.gg/api/widget/803169312827113483.svg" alt="HurricanoBot"/>
 </a>
+</div>
 
 <h2>Features⭐ :</h2>
 
