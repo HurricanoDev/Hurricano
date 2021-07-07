@@ -20,12 +20,15 @@ module.exports = new Command({
         "Error!",
         "Please give me an amount to withdraw."
       );
-    if (withAmount === "max") {
+    if (
+      (withAmount === "max" && withAmount !== "max") ||
+      withAmount !== "all"
+    ) {
       userData.wallet = +userData.bank + +userData.wallet;
-      userData.bank = 0;
       message.reply(
         `🪙 **${userData.bank}** withdrawn, now you have **${userData.wallet}** in your wallet.`
       );
+      userData.bank = 0;
       await userData.save();
     }
 

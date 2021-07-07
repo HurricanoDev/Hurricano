@@ -22,14 +22,14 @@ module.exports = new Command({
       );
     if (depAmount === "max") {
       userData.bank = +userData.bank + +userData.wallet;
-      userData.wallet = 0;
       message.reply(
         `🪙 **${userData.wallet}** deposited, now you have **${userData.bank}** in your bank.`
       );
+      userData.wallet = 0;
       await userData.save();
     }
 
-    if (isNaN(depAmount))
+    if (isNaN(depAmount) && depAmount !== "max" || depAmount !== "all")
       return message.sendErrorReply(
         "Error!",
         "You have to give me a **number** to deposit."

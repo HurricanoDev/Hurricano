@@ -1,8 +1,8 @@
-[2021-07-07 02:48:13] - [warn]: Cannot edit a message authored by another user
+[2021-07-07 02:56:07] - [warn]: Cannot edit a message authored by another user
 {
   "name": "DiscordAPIError",
   "method": "patch",
-  "path": "/channels/857584571305820200/messages/862163066903986216",
+  "path": "/channels/857584571305820200/messages/862165053942792203",
   "code": 50005,
   "httpStatus": 403,
   "requestData": {
@@ -12,7 +12,7 @@
         {
           "title": null,
           "type": "rich",
-          "description": "You have to give me a **number** to deposit.",
+          "description": "You have to give me a **number** to withdraw.",
           "url": null,
           "timestamp": 0,
           "color": 15548997,
@@ -42,11 +42,11 @@
     at async HurricanoMessage.sendErrorReply (/home/runner/Hurricano-3/bot/structures/ImmediateExecute/Message.js:56:21)
     at async MessageEvent.run (/home/runner/Hurricano-3/bot/events/bot/message.js:433:7)"
 }
-[2021-07-07 02:48:52] - [warn]: Cannot edit a message authored by another user
+[2021-07-07 02:56:16] - [warn]: Cannot edit a message authored by another user
 {
   "name": "DiscordAPIError",
   "method": "patch",
-  "path": "/channels/857584571305820200/messages/862163230461788161",
+  "path": "/channels/857584571305820200/messages/862165092464459796",
   "code": 50005,
   "httpStatus": 403,
   "requestData": {
@@ -56,7 +56,51 @@
         {
           "title": null,
           "type": "rich",
-          "description": "Please give me an amount to deposit.",
+          "description": "You have to give me a **number** to withdraw.",
+          "url": null,
+          "timestamp": 0,
+          "color": 15548997,
+          "fields": [],
+          "thumbnail": null,
+          "image": null,
+          "author": {
+            "name": "Error!",
+            "icon_url": "https://raw.githubusercontent.com/HurricanoBot/HurricanoImages/master/SetAuthorEmojis/Error.png"
+          },
+          "footer": {
+            "text": "Militia21#0001",
+            "icon_url": "https://cdn.discordapp.com/avatars/742972160158728283/a_12c099fe7302bbf424d6bc776c9eab90.webp"
+          }
+        }
+      ],
+      "flags": 0
+    },
+    "files": []
+  },
+  "stack": "DiscordAPIError: Cannot edit a message authored by another user
+    at RequestHandler.execute (/home/runner/Hurricano-3/node_modules/discord.js/src/rest/RequestHandler.js:298:13)
+    at processTicksAndRejections (internal/process/task_queues.js:95:5)
+    at async RequestHandler.push (/home/runner/Hurricano-3/node_modules/discord.js/src/rest/RequestHandler.js:50:14)
+    at async MessageManager.edit (/home/runner/Hurricano-3/node_modules/discord.js/src/managers/MessageManager.js:132:15)
+    at async sendMsg (/home/runner/Hurricano-3/bot/structures/ImmediateExecute/Message.js:22:7)
+    at async HurricanoMessage.sendErrorReply (/home/runner/Hurricano-3/bot/structures/ImmediateExecute/Message.js:56:21)
+    at async MessageEvent.run (/home/runner/Hurricano-3/bot/events/bot/message.js:433:7)"
+}
+[2021-07-07 02:56:21] - [warn]: Cannot edit a message authored by another user
+{
+  "name": "DiscordAPIError",
+  "method": "patch",
+  "path": "/channels/857584571305820200/messages/862165111711203379",
+  "code": 50005,
+  "httpStatus": 403,
+  "requestData": {
+    "json": {
+      "tts": false,
+      "embeds": [
+        {
+          "title": null,
+          "type": "rich",
+          "description": "You have to give me a **number** to deposit.",
           "url": null,
           "timestamp": 0,
           "color": 15548997,
