@@ -39,7 +39,7 @@
 <br/>
 ⭐ Logging
 <br/>
-⭐ a lot of / commands
+⭐ a lot of `/` commands
 <br/>
 ⭐ ...And many interesting commands! 
 
@@ -115,7 +115,7 @@ $ node .
 
 ```
 
-<h2>Star Chart 🌟 </h2>
+<h2 align="center">Star Chart 🌟 </h2>
 <a href="https://github.com/HurricanoBot/Hurricano/stargazers">
     <img src="https://starchart.cc/HurricanoBot/Hurricano.svg" alt="HurricanoBot"/>
 </a>
@@ -132,5 +132,5 @@ $ node .
 
 ## License 📝 
 
-Hurricano Bot is licensed under the GPL 3.0 license. See the file `LICENSE` for more information. If you plan to use any part of this source code in your own bot, We would be grateful if you would include some form of credit somewhere.
+Hurricano™ Bot is licensed under the GPL 3.0 license. See the file `LICENSE` for more information. If you plan to use any part of this source code in your own bot, We would be grateful if you would include some form of credit somewhere.
 
