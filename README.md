@@ -5,21 +5,34 @@
 <a href="https://github.com/HurricanoBot/Hurricano/network"><img alt="GitHub forks" src="https://img.shields.io/github/forks/HurricanoBot/Hurricano?style=for-the-badge"></a>
 <a href="https://discord.gg/HdYnCvQTxk"><img alt="GitHub forks" src="https://img.shields.io/badge/Discord-7289DA?style=for-the-badge&logo=discord&logoColor=white"></a>
 </p>
-<h3 align="center">An open source Discord bot</h3> 
+<h3 align="center">An open source Discord bot!</h3> 
+
+<h2>Invite Hurricano 🌀</h2>
+<a href="https://top.gg/bot/803169312827113483">
+    <img src="https://top.gg/api/widget/803169312827113483.svg" alt="HurricanoBot"/>
+</a>
 
 <h2>Features⭐ :</h2>
 
-⭐ Command Cooldowns
+⭐ Mongoose-Based Command Cooldowns
 <br/>
 ⭐ Command Permissions
+<br/>
+⭐ Slash Command Handler
+<br/>
+⭐ Subcommands system
 <br/>
 ⭐ OwnerOnly Commands
 <br/>
 ⭐ Args required or not Option
 <br/>
-⭐ Giveaways (using package `discord-giveaways`) which uses MongoDB
+⭐ Permissions handler
+<br/>
+⭐ Role-Requirement Giveaways
 <br/>
 ⭐ Customizable server settings using MongoDB
+<br/>
+⭐ Button help-menu
 <br/>
 ⭐ Logging
 <br/>
@@ -44,7 +57,7 @@ git@2.17.1 or higher
 ```
 <hr>
 <h2>Bot setup  🔧</h2>
-1. Lets get started by cloning Hurricano on your local machine
+1. Lets get started by cloning Hurricano on your local machine.
 </br>
 </br>
 
@@ -56,7 +69,7 @@ $ git clone https://github.com/HurricanoBot/Hurricano.git
 $ cd Hurricano
 
 ```
-2. Now rename the config.example.json file to config.json and the required enviormental variables like bot token ,owner ids etc.
+2. Now rename the config.example.json file to config.json and the required enviormental variables like bot token, ownerIds etc.
 ```json
 {
   "token": "Your bot token",
@@ -98,11 +111,6 @@ $ npm install
 $ node .
 
 ```
-
-<h2>Invite Hurricano 🌀</h2>
-<a href="https://top.gg/bot/803169312827113483">
-    <img src="https://top.gg/api/widget/803169312827113483.svg" alt="HurricanoBot"/>
-</a>
 
 <h2>Star Chart 🌟 </h2>
 <a href="https://github.com/HurricanoBot/Hurricano/stargazers">
