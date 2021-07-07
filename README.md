@@ -109,15 +109,13 @@ $ node .
     <img src="https://starchart.cc/HurricanoBot/Hurricano.svg" alt="HurricanoBot"/>
 </a>
 
-## Credits ✨
+## Project Maintainers ✨
 
 <table>
   <tr>
     <td align="center"><a href="https://github.com/Dragonizedpizza"><img src="https://avatars.githubusercontent.com/u/70718540?v=4" width="100px;" alt=""/><br /><sub><b>Dragonizedpizza
 </b></sub></a></td>
     <td align="center"><a href="https://github.com/Militia21"><img src="https://avatars.githubusercontent.com/u/70501605?v=4" width="100px;" alt=""/><br /><sub><b>Militia21</b></sub></a></td>
-    <td align="center"><a href="https://github.com/Anogh297"><img src="https://avatars.githubusercontent.com/u/68709171?v=4" width="100px;" alt=""/><br /><sub><b>Anogh297
-</b></sub></a></td>
   </tr>
 </table>
 
