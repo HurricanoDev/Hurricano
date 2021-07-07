@@ -18,8 +18,8 @@ async function sendMsg(message, type, sendType, values) {
   };
   sendObj.components = values.Components;
   return sendType === "edit"
-    ? await message.reply({ embeds: [embed] })
-    : await message.edit({ embeds: [embed] });
+    ? await message.edit({ embeds: [embed] })
+    : await message.reply({ embeds: [embed] });
 }
 module.exports = Structures.extend(
   "Message",
