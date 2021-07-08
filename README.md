@@ -37,6 +37,8 @@
 <br/>
 ⭐ Button help-menu
 <br/>
+⭐ Starboard
+<br/>
 ⭐ Logging
 <br/>
 ⭐ a lot of `/` commands
