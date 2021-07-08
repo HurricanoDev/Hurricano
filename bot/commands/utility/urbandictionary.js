@@ -3,12 +3,12 @@ const { MessageEmbed } = require("discord.js");
 const fetch = require("node-fetch");
 
 module.exports = new Command({
-  name: "Dictionary",
-  aliases: ["dictionary", "dict"],
+  name: "urbandictionary",
+  aliases: ["urband", "urbandict"],
   cooldown: 30,
-  usage: "github <user> repository",
+  usage: "dictionary <word>",
   description:
-    "fetches some information about a particular word specified by the user.",
+    "Fetches some information about a particular word specified by the user.",
   async run(message, args) {
     const text = args.join(' ');
     fetch(`https://api.urbandictionary.com/v0/define?term=${text}`)
