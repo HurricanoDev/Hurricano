@@ -18,8 +18,8 @@ module.exports = new Command({
         "Different Voice Channel.",
         "Please join the same voice channel as me."
       );
-
-    if (!this.client.player.getQueue(message))
+      const queue = this.client.player.getQueue(message.guild);
+    if (!queue)
       return message.channel.sendError(
         message,
         "No Music is Playing.",
@@ -43,7 +43,7 @@ module.exports = new Command({
         "Please provide a number between 1 - 100."
       );
 
-    const success = this.client.player.setVolume(message, parseInt(args[0]));
+    const success = queue.setVolume(parseInt(args[0]));
 
     if (success)
       await message.channel.sendSuccess(
