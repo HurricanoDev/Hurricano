@@ -55,8 +55,13 @@ module.exports = new Command({
       `Changed ${mentionedMember}'s nickname from ${mentionedMember.displayName} => ${nickName}`
     );
 
-    await mentionedMember
-      .setNickname(nickName)
-      .catch((err) => console.log(err));
+    await mentionedMember.setNickname(nickName).catch((err) => {
+      console.log(err);
+      message.channel.sendError(
+        message,
+        "Error.",
+        `An error was encountered.\nError: \`${err}\``
+      );
+    });
   },
 });

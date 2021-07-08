@@ -1,4 +1,4 @@
-[2021-07-08 00:43:57] - [error]: Command: Dictionary: Name is not lowercase.
+[2021-07-08 00:47:35] - [error]: Command: Dictionary: Name is not lowercase.
 {
   "stack": "Error: Command: Dictionary: Name is not lowercase.
     at Function.validateOpts (/home/runner/Hurricano-3/bot/utilities/Command.js:83:13)

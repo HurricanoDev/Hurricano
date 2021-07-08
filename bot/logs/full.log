@@ -1,4 +1,4 @@
-[2021-07-08 00:43:57] - [error]: Command: Dictionary: Name [2021-07-08 00:44:04] - [shard]: [Shard 0] Shard Ready!
+[2021-07-08 00:47:35] - [error]: Command: Dictionary: Name [2021-07-08 00:47:37] - [shard]: [Shard 0] Shard Ready!
 ry: Name is not lowercase.
     at Function.validateOpts (/home/runner/Hurricano-3/bot/utilities/Command.js:83:13)
     at new Command (/home/runner/Hurricano-3/bot/utilities/Command.js:8:22)
@@ -17,7 +17,7 @@ ry: Name is not lowercase.
     at Module._compile (internal/modules/cjs/loader.js:1068:30)
     at Object.Module._extensions..js (internal/modules/cjs/loader.js:1097:10)"
 }
-[2021-07-08 00:43:57] - [client]: 
+[2021-07-08 00:47:35] - [client]: 
 .---------------------------------------------------------------------------------------------------------------------------.
 |                                                         Commands                                                          |
 |---------------------------------------------------------------------------------------------------------------------------|
@@ -110,32 +110,28 @@ ry: Name is not lowercase.
 | birthdaycheck.js     | birthdate         | utility          | checkbirthday, checkbday, birthdaycheck       | Loaded!     |
 | birthdayset.js       | birthdayset       | utility          | setbirthday, setbday                          | Loaded!     |
 '---------------------------------------------------------------------------------------------------------------------------'
-[2021-07-08 00:43:57] - [info]: Provided token: ODQ4NDYxMjEwODA1ODYyNDMx.YLM9FA.***************************
-[2021-07-08 00:43:57] - [info]: Preparing to connect to the gateway...
-[2021-07-08 00:44:03] - [info]: [WS => Manager] Fetched Gateway Information
+[2021-07-08 00:47:35] - [info]: Provided token: ODQ4NDYxMjEwODA1ODYyNDMx.YLM9FA.***************************
+[2021-07-08 00:47:35] - [info]: Preparing to connect to the gateway...
+[2021-07-08 00:47:36] - [info]: [WS => Manager] Fetched Gateway Information
     URL: wss://gateway.discord.gg
     Recommended Shards: 1
-[2021-07-08 00:44:03] - [info]: [WS => Manager] Session Limit Information
+[2021-07-08 00:47:36] - [info]: [WS => Manager] Session Limit Information
     Total: 1000
-    Remaining: 1000
-[2021-07-08 00:44:03] - [info]: [WS => Manager] Spawning shards: 0
-[2021-07-08 00:44:03] - [info]: [WS => Shard 0] [CONNECT]
+    Remaining: 999
+[2021-07-08 00:47:36] - [info]: [WS => Manager] Spawning shards: 0
+[2021-07-08 00:47:36] - [info]: [WS => Shard 0] [CONNECT]
     Gateway    : wss://gateway.discord.gg/
     Version    : 9
     Encoding   : json
     Compression: none
-[2021-07-08 00:44:03] - [info]: [WS => Shard 0] Setting a HELLO timeout for 20s.
-[2021-07-08 00:44:04] - [info]: [WS => Shard 0] [CONNECTED] wss://gateway.discord.gg/?v=9&encoding=json in 199ms
-[2021-07-08 00:44:04] - [info]: [WS => Shard 0] Clearing the HELLO timeout.
-[2021-07-08 00:44:04] - [info]: [WS => Shard 0] Setting a heartbeat interval for 41250ms.
-[2021-07-08 00:44:04] - [info]: [WS => Shard 0] [IDENTIFY] Shard 0/1 with intents: 1923
-[2021-07-08 00:44:04] - [db]: Connected to MongoDB!
-[2021-07-08 00:44:04] - [info]: [WS => Shard 0] [READY] Session 3ea6f75be81fc6f620178dfbfd63dd54.
-[2021-07-08 00:44:04] - [info]: [WS => Shard 0] [ReadyHeartbeat] Sending a heartbeat.
-[2021-07-08 00:44:04] - [info]: [WS => Shard 0] Shard received all its guilds. Marking as fully ready.
-[2021-07-08 00:44:04] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 84ms.
-[2021-07-08 00:44:04] - [client]: HurricanoBeta2#4159 Successfully Logged in!
-[2021-07-08 00:44:45] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
-[2021-07-08 00:44:45] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 85ms.
-[2021-07-08 00:45:26] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
-[2021-07-08 00:45:26] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 83ms.
+[2021-07-08 00:47:36] - [info]: [WS => Shard 0] Setting a HELLO timeout for 20s.
+[2021-07-08 00:47:36] - [info]: [WS => Shard 0] [CONNECTED] wss://gateway.discord.gg/?v=9&encoding=json in 127ms
+[2021-07-08 00:47:36] - [info]: [WS => Shard 0] Clearing the HELLO timeout.
+[2021-07-08 00:47:36] - [info]: [WS => Shard 0] Setting a heartbeat interval for 41250ms.
+[2021-07-08 00:47:36] - [info]: [WS => Shard 0] [IDENTIFY] Shard 0/1 with intents: 1923
+[2021-07-08 00:47:36] - [db]: Connected to MongoDB!
+[2021-07-08 00:47:36] - [info]: [WS => Shard 0] [READY] Session 8ee7b47fe5e08dee69032802ed1707e2.
+[2021-07-08 00:47:36] - [info]: [WS => Shard 0] [ReadyHeartbeat] Sending a heartbeat.
+[2021-07-08 00:47:37] - [info]: [WS => Shard 0] Shard received all its guilds. Marking as fully ready.
+[2021-07-08 00:47:37] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 89ms.
+[2021-07-08 00:47:37] - [client]: HurricanoBeta2#4159 Successfully Logged in!
