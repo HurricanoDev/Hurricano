@@ -1,132 +1,20 @@
-[2021-07-07 02:56:07] - [warn]: Cannot edit a message authored by another user
+[2021-07-08 00:43:57] - [error]: Command: Dictionary: Name is not lowercase.
 {
-  "name": "DiscordAPIError",
-  "method": "patch",
-  "path": "/channels/857584571305820200/messages/862165053942792203",
-  "code": 50005,
-  "httpStatus": 403,
-  "requestData": {
-    "json": {
-      "tts": false,
-      "embeds": [
-        {
-          "title": null,
-          "type": "rich",
-          "description": "You have to give me a **number** to withdraw.",
-          "url": null,
-          "timestamp": 0,
-          "color": 15548997,
-          "fields": [],
-          "thumbnail": null,
-          "image": null,
-          "author": {
-            "name": "Error!",
-            "icon_url": "https://raw.githubusercontent.com/HurricanoBot/HurricanoImages/master/SetAuthorEmojis/Error.png"
-          },
-          "footer": {
-            "text": "Militia21#0001",
-            "icon_url": "https://cdn.discordapp.com/avatars/742972160158728283/a_12c099fe7302bbf424d6bc776c9eab90.webp"
-          }
-        }
-      ],
-      "flags": 0
-    },
-    "files": []
-  },
-  "stack": "DiscordAPIError: Cannot edit a message authored by another user
-    at RequestHandler.execute (/home/runner/Hurricano-3/node_modules/discord.js/src/rest/RequestHandler.js:298:13)
-    at processTicksAndRejections (internal/process/task_queues.js:95:5)
-    at async RequestHandler.push (/home/runner/Hurricano-3/node_modules/discord.js/src/rest/RequestHandler.js:50:14)
-    at async MessageManager.edit (/home/runner/Hurricano-3/node_modules/discord.js/src/managers/MessageManager.js:132:15)
-    at async sendMsg (/home/runner/Hurricano-3/bot/structures/ImmediateExecute/Message.js:22:7)
-    at async HurricanoMessage.sendErrorReply (/home/runner/Hurricano-3/bot/structures/ImmediateExecute/Message.js:56:21)
-    at async MessageEvent.run (/home/runner/Hurricano-3/bot/events/bot/message.js:433:7)"
-}
-[2021-07-07 02:56:16] - [warn]: Cannot edit a message authored by another user
-{
-  "name": "DiscordAPIError",
-  "method": "patch",
-  "path": "/channels/857584571305820200/messages/862165092464459796",
-  "code": 50005,
-  "httpStatus": 403,
-  "requestData": {
-    "json": {
-      "tts": false,
-      "embeds": [
-        {
-          "title": null,
-          "type": "rich",
-          "description": "You have to give me a **number** to withdraw.",
-          "url": null,
-          "timestamp": 0,
-          "color": 15548997,
-          "fields": [],
-          "thumbnail": null,
-          "image": null,
-          "author": {
-            "name": "Error!",
-            "icon_url": "https://raw.githubusercontent.com/HurricanoBot/HurricanoImages/master/SetAuthorEmojis/Error.png"
-          },
-          "footer": {
-            "text": "Militia21#0001",
-            "icon_url": "https://cdn.discordapp.com/avatars/742972160158728283/a_12c099fe7302bbf424d6bc776c9eab90.webp"
-          }
-        }
-      ],
-      "flags": 0
-    },
-    "files": []
-  },
-  "stack": "DiscordAPIError: Cannot edit a message authored by another user
-    at RequestHandler.execute (/home/runner/Hurricano-3/node_modules/discord.js/src/rest/RequestHandler.js:298:13)
-    at processTicksAndRejections (internal/process/task_queues.js:95:5)
-    at async RequestHandler.push (/home/runner/Hurricano-3/node_modules/discord.js/src/rest/RequestHandler.js:50:14)
-    at async MessageManager.edit (/home/runner/Hurricano-3/node_modules/discord.js/src/managers/MessageManager.js:132:15)
-    at async sendMsg (/home/runner/Hurricano-3/bot/structures/ImmediateExecute/Message.js:22:7)
-    at async HurricanoMessage.sendErrorReply (/home/runner/Hurricano-3/bot/structures/ImmediateExecute/Message.js:56:21)
-    at async MessageEvent.run (/home/runner/Hurricano-3/bot/events/bot/message.js:433:7)"
-}
-[2021-07-07 02:56:21] - [warn]: Cannot edit a message authored by another user
-{
-  "name": "DiscordAPIError",
-  "method": "patch",
-  "path": "/channels/857584571305820200/messages/862165111711203379",
-  "code": 50005,
-  "httpStatus": 403,
-  "requestData": {
-    "json": {
-      "tts": false,
-      "embeds": [
-        {
-          "title": null,
-          "type": "rich",
-          "description": "You have to give me a **number** to deposit.",
-          "url": null,
-          "timestamp": 0,
-          "color": 15548997,
-          "fields": [],
-          "thumbnail": null,
-          "image": null,
-          "author": {
-            "name": "Error!",
-            "icon_url": "https://raw.githubusercontent.com/HurricanoBot/HurricanoImages/master/SetAuthorEmojis/Error.png"
-          },
-          "footer": {
-            "text": "Militia21#0001",
-            "icon_url": "https://cdn.discordapp.com/avatars/742972160158728283/a_12c099fe7302bbf424d6bc776c9eab90.webp"
-          }
-        }
-      ],
-      "flags": 0
-    },
-    "files": []
-  },
-  "stack": "DiscordAPIError: Cannot edit a message authored by another user
-    at RequestHandler.execute (/home/runner/Hurricano-3/node_modules/discord.js/src/rest/RequestHandler.js:298:13)
-    at processTicksAndRejections (internal/process/task_queues.js:95:5)
-    at async RequestHandler.push (/home/runner/Hurricano-3/node_modules/discord.js/src/rest/RequestHandler.js:50:14)
-    at async MessageManager.edit (/home/runner/Hurricano-3/node_modules/discord.js/src/managers/MessageManager.js:132:15)
-    at async sendMsg (/home/runner/Hurricano-3/bot/structures/ImmediateExecute/Message.js:22:7)
-    at async HurricanoMessage.sendErrorReply (/home/runner/Hurricano-3/bot/structures/ImmediateExecute/Message.js:56:21)
-    at async MessageEvent.run (/home/runner/Hurricano-3/bot/events/bot/message.js:433:7)"
+  "stack": "Error: Command: Dictionary: Name is not lowercase.
+    at Function.validateOpts (/home/runner/Hurricano-3/bot/utilities/Command.js:83:13)
+    at new Command (/home/runner/Hurricano-3/bot/utilities/Command.js:8:22)
+    at Object.<anonymous> (/home/runner/Hurricano-3/bot/commands/utility/dictionary.js:5:18)
+    at Module._compile (internal/modules/cjs/loader.js:1068:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1097:10)
+    at Module.load (internal/modules/cjs/loader.js:933:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:774:14)
+    at Module.require (internal/modules/cjs/loader.js:957:19)
+    at require (internal/modules/cjs/helpers.js:88:18)
+    at /home/runner/Hurricano-3/bot/Client.js:333:25
+    at Array.forEach (<anonymous>)
+    at HurricanoClient.loadCommands (/home/runner/Hurricano-3/bot/Client.js:327:35)
+    at init (/home/runner/Hurricano-3/bot/handlers/index.js:27:10)
+    at Object.<anonymous> (/home/runner/Hurricano-3/bot/handlers/index.js:34:1)
+    at Module._compile (internal/modules/cjs/loader.js:1068:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1097:10)"
 }
