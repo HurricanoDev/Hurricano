@@ -1,6 +1,0 @@
-[2021-07-08 00:54:33] - [warn]: Cannot read property '0' of undefined
-{
-  "stack": "TypeError: Cannot read property '0' of undefined
-    at /home/runner/Hurricano-3/bot/commands/utility/dictionary.js:26:26
-    at processTicksAndRejections (internal/process/task_queues.js:95:5)"
-}
