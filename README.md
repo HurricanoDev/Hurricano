@@ -126,7 +126,7 @@ So you might be thinking how to host your bot on a cloud service so that it rema
     <img src="https://starchart.cc/HurricanoBot/Hurricano.svg" alt="HurricanoBot"/>
 </a>
 
-## Project Maintainers ✨
+## Project Maintainers  ✨
 
 <table>
   <tr>
@@ -135,6 +135,10 @@ So you might be thinking how to host your bot on a cloud service so that it rema
     <td align="center"><a href="https://github.com/Militia21"><img src="https://avatars.githubusercontent.com/u/70501605?v=4" width="100px;" alt=""/><br /><sub><b>Militia21</b></sub></a></td>
   </tr>
 </table>
+
+## All Stargazers ✨ 
+
+[![Stargazers repo roster for @Hurricanobot/Hurricano](https://reporoster.com/stars/Hurricanobot/Hurricano)](https://github.com/Hurricanobot/Hurricano/stargazers)
 
 ## License 📝 
 
