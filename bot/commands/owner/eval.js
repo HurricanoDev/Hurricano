@@ -101,11 +101,12 @@ module.exports = new Command({
         components: [[row]],
       });
       let conf = await msg
-        .awaitMessageComponentInteraction(
-          { time: 45000, filter:           (x) =>
+        .awaitMessageComponentInteraction({
+          time: 45000,
+          filter: (x) =>
             client.config.ownerIds.includes(x.user.id) &&
-            x.customID == "toDelete" }
-        )
+            x.customID == "toDelete",
+        })
         .catch(() => {
           msg.edit({ components: [] });
         });
@@ -125,11 +126,12 @@ module.exports = new Command({
         components: [[row]],
       });
       let conf = await msg
-        .awaitMessageComponentInteraction(
-          { time: 45000, filter: (x) =>
+        .awaitMessageComponentInteraction({
+          time: 45000,
+          filter: (x) =>
             client.config.ownerIds.includes(x.user.id) &&
-            x.customID == "toDelete", }
-        )
+            x.customID == "toDelete",
+        })
         .catch(() => {
           msg.edit({ components: [] });
         });

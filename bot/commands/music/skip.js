@@ -21,30 +21,45 @@ module.exports = new Command({
         "Different Voice Channel.",
         "Please join the same voice channel as me."
       );
-      const queue = client.player.getQueue(message.guild);
-      let tracks = queue.tracks;
-      if (!queue)
+    const queue = client.player.getQueue(message.guild);
+    let tracks = queue.tracks;
+    if (!queue)
       return message.channel.sendError(
         message,
         "No Music is Playing.",
         "Please join a voice channel to play music."
       );
 
-      let skipTrack = queue.nowPlaying();
-      tracks.push(skipTrack);
-      if (args.length) {
-        if (!+args[0]) return message.channel.sendError(message, "Invalid Arguments.", "Please provide the number of the song you would like to skip.");
-        if (+args[0] <= 0) return message.channel.sendError(message, "Invalid Arguments.", "Please provide a positive number.");
-        if (+args[0] > tracks.length) return message.channel.sendError(message, "Invalid Arguments.", "Please provide a number that isn't greater than the number of songs in the queue.");
-        skipTrack = tracks[+args[0] - 1];
-      }
+    let skipTrack = queue.nowPlaying();
+    tracks.push(skipTrack);
+    if (args.length) {
+      if (!+args[0])
+        return message.channel.sendError(
+          message,
+          "Invalid Arguments.",
+          "Please provide the number of the song you would like to skip."
+        );
+      if (+args[0] <= 0)
+        return message.channel.sendError(
+          message,
+          "Invalid Arguments.",
+          "Please provide a positive number."
+        );
+      if (+args[0] > tracks.length)
+        return message.channel.sendError(
+          message,
+          "Invalid Arguments.",
+          "Please provide a number that isn't greater than the number of songs in the queue."
+        );
+      skipTrack = tracks[+args[0] - 1];
+    }
 
-      queue.skip(skipTrack);
+    queue.skip(skipTrack);
 
-      message.channel.sendSuccess(
-        message,
-        "Skipped.",
-        "I have successfully skipped that song."
-      );
+    message.channel.sendSuccess(
+      message,
+      "Skipped.",
+      "I have successfully skipped that song."
+    );
   },
 });

@@ -1,7 +1,7 @@
 const Command = require("@Command");
 const {
   generateWordWithMaxLength,
-  generateWordWithLength
+  generateWordWithLength,
 } = require("../../utilities/random-words.js");
 
 module.exports = new Command({

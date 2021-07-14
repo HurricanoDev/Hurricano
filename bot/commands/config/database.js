@@ -1,6 +1,6 @@
 const Command = require("@Command");
 const { MessageEmbed, MessageButton } = require("discord.js");
-const emojis = require('../../utilities/emojis.json');
+const emojis = require("../../utilities/emojis.json");
 module.exports = new Command({
   name: "database",
   aliases: ["db"],
@@ -28,7 +28,10 @@ module.exports = new Command({
     const roleSettings = ["autoRole", "muteRole"];
     const otherSettings = ["antiSpam"];
     const mainEmbed = new MessageEmbed()
-      .setAuthor("Database", "https://cdn.discordapp.com/emojis/860782779896692752.png?v=1")
+      .setAuthor(
+        "Database",
+        "https://cdn.discordapp.com/emojis/860782779896692752.png?v=1"
+      )
       .setDescription(
         `**More information:** \`${message._usedPrefix}settings [category]\``
       )
@@ -100,9 +103,11 @@ module.exports = new Command({
     //Work
     currentPage = 1;
     let Pages = { 1: mainEmbed, 2: Page2, 3: Page3, 4: Page4 };
-    const collector = msg.createMessageComponentInteractionCollector(
-      { idle: 30000, errors: ["time"], collector: (x) => x.user.id == message.author.id }
-    );
+    const collector = msg.createMessageComponentInteractionCollector({
+      idle: 30000,
+      errors: ["time"],
+      collector: (x) => x.user.id == message.author.id,
+    });
     collector.on("collect", (button) => {
       if (button.customID === "DBLeft") {
         --currentPage;

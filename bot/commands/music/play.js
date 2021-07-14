@@ -26,12 +26,14 @@ module.exports = new Command({
       metadata: message,
     });
     if (!queue.connection) await queue.connect(message.member.voice.channel);
-    const track = (await client.player
-      .search(args.join(" "), {
+    const track = (
+      await client.player.search(args.join(" "), {
         requestedBy: message.author,
-      })).tracks[0];
+      })
+    ).tracks[0];
 
-      if (!track) return message.channel.sendError(
+    if (!track)
+      return message.channel.sendError(
         message,
         "No Results Found.",
         `No results were found on YouTube for ${args.join(" ")}.`

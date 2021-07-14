@@ -29,7 +29,7 @@ module.exports = new Command({
       await userData.save();
     }
 
-    if (isNaN(depAmount) && depAmount !== "max" || depAmount !== "all")
+    if ((isNaN(depAmount) && depAmount !== "max") || depAmount !== "all")
       return message.sendErrorReply(
         "Error!",
         "You have to give me a **number** to deposit."

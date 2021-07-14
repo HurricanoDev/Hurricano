@@ -229,9 +229,10 @@ module.exports.Menu = class extends EventEmitter {
    * Start a reaction collector and switch pages where required.
    */
   awaitReactions() {
-    this.reactionCollector = this.menu.createReactionCollector(
-      { idle: this.ms, filter: (reaction, user) => user.id !== this.menu.client.user.id, }
-    );
+    this.reactionCollector = this.menu.createReactionCollector({
+      idle: this.ms,
+      filter: (reaction, user) => user.id !== this.menu.client.user.id,
+    });
 
     let sameReactions;
     this.reactionCollector.on("end", (reactions) => {

@@ -5,14 +5,15 @@
 <a href="https://github.com/HurricanoBot/Hurricano/network"><img alt="GitHub forks" src="https://img.shields.io/github/forks/HurricanoBot/Hurricano?style=for-the-badge"></a>
 <a href="https://discord.gg/HdYnCvQTxk"><img alt="GitHub forks" src="https://img.shields.io/badge/Discord-7289DA?style=for-the-badge&logo=discord&logoColor=white"></a>
 </p>
-<h3 align="center">An open source Discord bot!</h3> 
+<h3 align="center">An open source Discord bot!</h3>
 
 <h2>Invite Hurricano 🌀</h2>
 <div align=center>
 
 <a href="https://top.gg/bot/803169312827113483"></center>
-    <img src="https://top.gg/api/widget/803169312827113483.svg" alt="HurricanoBot"/>
+<img src="https://top.gg/api/widget/803169312827113483.svg" alt="HurricanoBot"/>
 </a>
+
 </div>
 
 <h2>Features⭐ :</h2>
@@ -43,8 +44,7 @@
 <br/>
 ⭐ a lot of `/` commands
 <br/>
-⭐ ...And many interesting commands! 
-
+⭐ ...And many interesting commands!
 
 <h1> Getting Started  🚀</h1>
 
@@ -60,6 +60,7 @@ node@v14.0.0 or higher
 npm@7.0.0 or higher
 git@2.17.1 or higher
 ```
+
 <hr>
 <h2>Bot setup  🔧</h2>
 1. Lets get started by cloning Hurricano on your local machine.
@@ -74,7 +75,9 @@ $ git clone https://github.com/HurricanoBot/Hurricano.git
 $ cd Hurricano
 
 ```
+
 2. Now rename the config.example.json file to config.json and the required enviormental variables like bot token, ownerIds etc.
+
 ```json
 {
   "token": "Your bot token",
@@ -109,7 +112,7 @@ $ cd Hurricano
 3. Now install all the required dependecies for the bot and run the bot.
 
 ```bash
-# install the required dependencies 
+# install the required dependencies
 $ npm install
 
 # Run the bot
@@ -136,11 +139,6 @@ So you might be thinking how to host your bot on a cloud service so that it rema
   </tr>
 </table>
 
-## All Stargazers ✨ 
-
-[![Stargazers repo roster for @Hurricanobot/Hurricano](https://reporoster.com/stars/Hurricanobot/Hurricano)](https://github.com/Hurricanobot/Hurricano/stargazers)
-
-## License 📝 
+## License 📝
 
 Hurricano™ Bot is licensed under the GPL 3.0 license. See the file `LICENSE` for more information. If you plan to use any part of this source code in your own bot, We would be grateful if you would include some form of credit somewhere.
-

@@ -20,7 +20,7 @@ module.exports = new Command({
           let error;
           let conf = await message.channel
             .awaitMessages({
-              filter: (x) => x.author.id === message.author.id, 
+              filter: (x) => x.author.id === message.author.id,
               max: 1,
               time: 30000,
               errors: ["time"],
@@ -66,14 +66,12 @@ module.exports = new Command({
             "Cool!",
             "Cool! Now, please provide the tag's description."
           );
-          conf = await message.channel.awaitMessages(
-            {
-              filter: (x) => x.author.id == message.author.id,
-              max: 1,
-              time: 30000,
-              errors: ["time"],
-            }
-          );
+          conf = await message.channel.awaitMessages({
+            filter: (x) => x.author.id == message.author.id,
+            max: 1,
+            time: 30000,
+            errors: ["time"],
+          });
           let.catch(() => {
             return message.channel.sendError(
               message,
@@ -102,7 +100,7 @@ module.exports = new Command({
           );
           conf = await message.channel
             .awaitMessages({
-              filter: (x) => x.author.id == message.author.id, 
+              filter: (x) => x.author.id == message.author.id,
               max: 1,
               time: 40000,
               errors: ["time"],

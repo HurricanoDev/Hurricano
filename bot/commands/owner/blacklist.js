@@ -21,7 +21,7 @@ module.exports = new Command({
       );
       let conf = await message.channel
         .awaitMessages({
-          filter: (x) => x.author.id == message.author.id, 
+          filter: (x) => x.author.id == message.author.id,
           max: 1,
           time: 30000,
           errors: ["time"],
@@ -60,7 +60,7 @@ module.exports = new Command({
       );
       let conf = await message.channel
         .awaitMessages({
-          filter: (x) => x.author.id === message.author.id, 
+          filter: (x) => x.author.id === message.author.id,
           max: 1,
           time: 20000,
           errors: ["time"],
@@ -115,7 +115,7 @@ module.exports = new Command({
         ]
       );
       let confir = await message.channel
-        .awaitMessages( {
+        .awaitMessages({
           filter: (x) => x.author.id === message.author.id,
           max: 1,
           time: 30000,

@@ -38,15 +38,13 @@ module.exports = new Command({
 
         msg.react("🗑️");
         let confirmation = await msg
-          .awaitReactions(
-            {
-              filter:            (reaction, user) =>
+          .awaitReactions({
+            filter: (reaction, user) =>
               reaction.emoji.name === "🗑️" && user.id === message.author.id,
-              max: 1,
-              time: 10000,
-              errors: ["time"],
-            }
-          )
+            max: 1,
+            time: 10000,
+            errors: ["time"],
+          })
           .catch((e) => msg.reactions.removeAll());
 
         if (confirmation?.size) msg.delete();

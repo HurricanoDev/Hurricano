@@ -1988,5 +1988,5 @@ function randInt(lessThan) {
 
 module.exports = {
   generateWordWithMaxLength,
-  generateWordWithLength
+  generateWordWithLength,
 };

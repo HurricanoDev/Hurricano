@@ -39,11 +39,12 @@ module.exports = new Command({
         components: [[muteRow]],
       });
       let conf = await sendMsg
-        .awaitMessageComponentInteraction(
-          { filter:           (x) =>
+        .awaitMessageComponentInteraction({
+          filter: (x) =>
             (x.user.id === message.author.id) &
-            (x.customID == "muteHelpDelete"),time: 45000 }
-        )
+            (x.customID == "muteHelpDelete"),
+          time: 45000,
+        })
         .catch(() => {
           sendMsg.edit({ components: [] });
         });
