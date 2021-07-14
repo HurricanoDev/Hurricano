@@ -6,7 +6,9 @@ module.exports = new Command({
     "This command could be used by the server moderator to kick a user.",
   userPermissions: ["KICK_MEMBERS"],
   async run(message, args) {
-    const mentionedMember = message.mentions.members.first() || message.guild.users.cache.get(args[0]);
+    const mentionedMember =
+      message.mentions.members.first() ||
+      message.guild.users.cache.get(args[0]);
     let reason = args.slice(1).join(" ") || "No reason provided.";
     const kickEmbed = new MessageEmbed()
       .setTitle(`You were kicked from ${message.guild.name}`)
