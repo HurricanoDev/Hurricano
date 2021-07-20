@@ -141,7 +141,7 @@ So you might be thinking how to host your bot on a cloud service so that it rema
 <img src="https://raw.githubusercontent.com/HurricanoBot/HurricanoImages/d0facab8f7e20042e5f1381525d6a80ada6e62e6/other/undraw_real_time_collaboration_c62i.svg" width="50%" align="right">
 <h2>🤝 Contributing</h2> 
 
-Any idea on how we can make this more awesome ? [Open a new issue](https://github.com/Hurricanobot/Hurricano/issues)! We need all the help we can get to make this project awesome! You can also join the discord server to give suggestions. You can read the [Contributing guidelines](CONTRIBUTING.md)
+Any idea on how we can make this more awesome ? [Open a new issue](https://github.com/Hurricanobot/Hurricano/issues)! We need all the help we can get to make this project awesome! You can also join the discord server to give suggestions. You can read the [Contributing guidelines](CONTRIBUTING.md).
 
 <br/>
 <br/>
