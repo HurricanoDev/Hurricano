@@ -136,6 +136,7 @@ So you might be thinking how to host your bot on a cloud service so that it rema
     <td align="center"><a href="https://github.com/Dragonizedpizza"><img src="https://avatars.githubusercontent.com/u/70718540?v=4" width="100px;" alt=""/><br /><sub><b>Dragonizedpizza
 </b></sub></a></td>
     <td align="center"><a href="https://github.com/Militia21"><img src="https://avatars.githubusercontent.com/u/70501605?v=4" width="100px;" alt=""/><br /><sub><b>Militia21</b></sub></a></td>
+     <td align="center"><a href="https://github.com/achaljhawar"><img src="https://avatars.githubusercontent.com/u/35405812?v=4" width="100px;" alt=""/><br /><sub><b>Achal Jhawar</b></sub></a></td>
   </tr>
 </table>
 <img src="https://raw.githubusercontent.com/HurricanoBot/HurricanoImages/d0facab8f7e20042e5f1381525d6a80ada6e62e6/other/undraw_real_time_collaboration_c62i.svg" width="50%" align="right">
