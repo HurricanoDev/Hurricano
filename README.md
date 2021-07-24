@@ -9,7 +9,7 @@
 
 <h2>Invite Hurricano 🌀</h2>
 <div align=center>
-
+<a href="https://discordbotlist.com/bots/803169312827113483"><img src="https://discordbotlist.com/api/v1/bots/803169312827113483/widget"></a>
 <a href="https://top.gg/bot/803169312827113483"></center>
 <img src="https://top.gg/api/widget/803169312827113483.svg" alt="HurricanoBot"/>
 </a>
