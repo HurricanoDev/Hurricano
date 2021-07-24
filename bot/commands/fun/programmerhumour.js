@@ -1,7 +1,7 @@
 const {
     MessageEmbed
 } = require("discord.js");
-const fetch = require("node-fetch");
+const request = require('node-superfetch');
 const Command = require("@Command");
 
 module.exports = new Command({
