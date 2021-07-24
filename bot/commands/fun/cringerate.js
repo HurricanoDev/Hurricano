@@ -5,7 +5,7 @@ const Command = require("@Command");
 module.exports = new Command({
     name: "cringerate",
     aliases: ["cringer8"],
-    description: "How gay are you? Find out now.",
+    description: "How cringe are you? Find out now.",
     clientPermissions: ["SEND_MESSAGES"],
     async run(message, args) {
         let rate = (Math.floor(Math.random() * Math.floor(100)));
