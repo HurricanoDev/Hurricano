@@ -1,5 +1,6 @@
 const Discord = require("discord.js");
 const Command = require("@Command");
+const fetch = require('node-fetch');
 module.exports = new Command({
     name: "advice",
     userPermissions: ["SEND_MESSAGES"],
