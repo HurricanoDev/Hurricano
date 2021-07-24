@@ -6,9 +6,7 @@ module.exports = new Command({
     cooldown: 20,
     description: "sends a kill message of the user mentioned",
     async run(message, args) {
-        if (!args[0]) return message.channel.send(`Wow, that was great..But who do I kill?`).catch(() => {
-            message.channel.send(`Wow, that was great..But who do I kill?`)
-        });
+        if (!args[0]) return message.channel.send(`Wow, that was great..But who do I kill?`)
         let userr = message.guild.member(message.mentions.users.first());
         if (!userr) return message.channel.send(`Wow, that was great..But who do I kill?`)
         let user = userr.user.username;
@@ -37,11 +35,7 @@ module.exports = new Command({
             `${user} seems too nice, I can't `,
             `${user} got hit by a car `,
         ]
-        if (userr.id === message.author.id) return message.channel.send(`Bruh, you seem depressed.. How can I help?`).catch(() => {
-            message.channel.send(`Wow, that was great..But who do I kill?`)
-        });
-        message.channel.send(`${answers[Math.floor(Math.random() * answers.length)]}`).catch(() => {
-            message.channel.send(`Wow, that was great..But who do I kill?`)
-        });
+        if (userr.id === message.author.id) return message.channel.send(`Bruh, you seem depressed.. How can I help?`)
+        message.channel.send(`${answers[Math.floor(Math.random() * answers.length)]}`)
     },
 });
