@@ -76,7 +76,7 @@ $ cd Hurricano
 
 ```
 
-2. Now rename the config.example.json file to config.json and the required enviormental variables like bot token, ownerIds etc.
+2. Now rename the config.example.json file to config.json and the required enviromental variables like bot token, ownerIds etc.
 
 ```json
 {
