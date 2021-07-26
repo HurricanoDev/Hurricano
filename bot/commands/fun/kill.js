@@ -7,7 +7,7 @@ module.exports = new Command({
     description: "sends a kill message of the user mentioned",
     async run(message, args) {
         if (!args[0]) return message.channel.send(`Wow, that was great..But who do I kill?`)
-        let userr = message.guild.member(message.mentions.users.first());
+        let userr = await client.functions.getMember(false, message, args[0])
         if (!userr) return message.channel.send(`Wow, that was great..But who do I kill?`)
         let user = userr.user.username;
         const answers = [
