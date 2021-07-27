@@ -66,9 +66,9 @@ module.exports = new Command({
         message
           .reply(
             "Giveaway will end in less than " +
-              global.client.giveawaysManager.options.updateCountdownEvery /
-                1000 +
-              " seconds..."
+            global.client.giveawaysManager.options.updateCountdownEvery /
+            1000 +
+            " seconds..."
           )
           .then((m) => m.delete({ timeout: 2000 }));
       })

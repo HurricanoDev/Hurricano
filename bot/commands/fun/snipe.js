@@ -22,16 +22,16 @@ module.exports = new Command({
       );
       messageSnipe.attachments
         ? embed.addField(
-            "Attachments:",
-            messageSnipe.attachments.join(", \n"),
-            true
-          )
+          "Attachments:",
+          messageSnipe.attachments.join(", \n"),
+          true
+        )
         : null;
       embed.setFooter(`Message ${number}/${arrayLength}`);
       return embed;
     }
     if (!args.length) {
-      const array = client.snipes.recent.get(message.channel.id)?.reverse();
+      const array = client.snipes.recent.get(message.channel.id) ?.reverse();
       if (!array)
         return message.channel.sendError(
           message,
@@ -51,7 +51,7 @@ module.exports = new Command({
           "Nothing to Snipe!",
           `There's nothing to snipe, ${message.author}!`
         );
-      if (array?.length < number)
+      if (array ?.length < number)
         return message.channel.sendError(
           message,
           "Invalid Number!",
@@ -73,7 +73,7 @@ module.exports = new Command({
             "Nothing to Snipe!",
             `There's nothing to snipe, ${message.author}!`
           );
-        if (msgs?.length < num)
+        if (msgs ?.length < num)
           return message.channel.sendError(
             message,
             "Invalid Number!",
@@ -87,7 +87,7 @@ module.exports = new Command({
         const msgsE = this.client.snipes.deleted
           .get(message.channel.id)
           .reverse();
-        if (msgsE?.length < num)
+        if (msgsE ?.length < num)
           return message.channel.sendError(
             message,
             "Invalid Number!",

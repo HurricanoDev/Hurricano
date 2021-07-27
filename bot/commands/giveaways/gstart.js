@@ -25,7 +25,7 @@ module.exports = new Command({
       client.giveawaysManager.giveaways.filter(
         (g) => g.guildID === message.guild.id && !g.ended
       ).length +
-        1 >
+      1 >
       10
     )
       return message.sendErrorReply(
@@ -173,7 +173,7 @@ module.exports = new Command({
         noWinner: "Nobody won because of the invalid participations!",
         hostedBy: `Hosted by: {user} \n ${
           role == null ? "" : "Required Role: " + role.toString()
-        }`,
+          }`,
         winners: "winner(s)",
         endedAt: "Ended at",
         units: {

@@ -24,11 +24,11 @@ module.exports = new Command({
         Channel: <#${x.channelID}>,
         Hosted By: <@${x.hostedBy.split("@")[1].split(">")[0]}>,
         ${
-          x.extraData.role == null
-            ? "Required Role: " +
+            x.extraData.role == null
+              ? "Required Role: " +
               message.guild.roles.cache.get(x.extraData.role).toString()
-            : ""
-        }.`,
+              : ""
+            }.`,
             true
           );
         })
