@@ -30,6 +30,9 @@ module.exports = new Command({
         .bulkDelete(fetched)
         .then((messages) =>
           message.channel.send(`Deleted ${messages.size} messages!`)
+            .then(message => {
+              message.delete({ timeout: 5 });
+            })
         );
     } catch (err) {
       console.log(err);
