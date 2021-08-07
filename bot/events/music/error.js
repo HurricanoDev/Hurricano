@@ -1,51 +1,51 @@
-const { MessageEmbed } = require("discord.js");
+const { MessageEmbed } = require('discord.js');
 
 module.exports = {
-  name: "error",
+  name: 'error',
   run: async (queue, error, ...args) => {
     const message = queue.metadata;
     console.log(error);
     switch (error) {
-      case "NotPlaying":
+      case 'NotPlaying':
         message.channel.sendError(
           message,
-          "No Music Being Played.",
-          `There is no music being played in this server.`
+          'No Music Being Played.',
+          `There is no music being played in this server.`,
         );
         break;
-      case "NotConnected":
+      case 'NotConnected':
         message.channel.sendError(
           message,
-          "Not in a Voice Channel.",
-          `You are not in a voice channel.`
+          'Not in a Voice Channel.',
+          `You are not in a voice channel.`,
         );
         break;
-      case "UnableToJoin":
+      case 'UnableToJoin':
         message.channel.sendError(
           message,
-          "Permission Error.",
-          `I am unable to join your voice channel. Please check my permissions.`
+          'Permission Error.',
+          `I am unable to join your voice channel. Please check my permissions.`,
         );
         break;
-      case "VideoUnavailable":
+      case 'VideoUnavailable':
         message.channel.sendError(
           message,
-          "Video Unavailable.",
-          `${args[0].title} is unavailable. Skipping.`
+          'Video Unavailable.',
+          `${args[0].title} is unavailable. Skipping.`,
         );
         break;
-      case "MusicStarting":
+      case 'MusicStarting':
         message.channel.sendError(
           message,
-          "The Song is Starting.",
-          `The song is starting. Please wait or retry.`
+          'The Song is Starting.',
+          `The song is starting. Please wait or retry.`,
         );
         break;
       default:
         message.channel.sendError(
           message,
-          "Something Went Wrong.",
-          `Something went wrong. Error: \`\`\`${error}\`\`\``
+          'Something Went Wrong.',
+          `Something went wrong. Error: \`\`\`${error}\`\`\``,
         );
     }
   },

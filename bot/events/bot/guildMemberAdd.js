@@ -1,11 +1,12 @@
-const mongoose = require("mongoose");
-const { MessageEmbed } = require("discord.js");
-const moment = require("moment");
-const BaseEvent = require("../../structures/BaseEvent.js");
+const mongoose = require('mongoose');
+const { MessageEmbed } = require('discord.js');
+const moment = require('moment');
+const BaseEvent = require('../../structures/internal/BaseEvent.js');
+
 module.exports = class guildMemberAddEvent extends BaseEvent {
   constructor(client) {
-    super("guildMemberAdd", {
-      description: "the guildMemberAdd event is meant for member logs.",
+    super('guildMemberAdd', {
+      description: 'the guildMemberAdd event is meant for member logs.',
       client: client,
     });
   }
@@ -19,24 +20,24 @@ module.exports = class guildMemberAddEvent extends BaseEvent {
       memberLog.viewable &&
       memberLog
         .permissionsFor(member.guild.me)
-        .has(["SEND_MESSAGES", "EMBED_LINKS"])
+        .has(['SEND_MESSAGES', 'EMBED_LINKS'])
     ) {
       const embed = new MessageEmbed()
-        .setTitle("New Member Joined.")
+        .setTitle('New Member Joined.')
         .setAuthor(
           `${member.guild.name}`,
-          member.guild.iconURL({ dynamic: true })
+          member.guild.iconURL({ dynamic: true }),
         )
         .setThumbnail(member.user.displayAvatarURL({ dynamic: true }))
         .setDescription(
-          `${member} (**${member.user.tag}**) [**${member.user.id}**]`
+          `${member} (**${member.user.tag}**) [**${member.user.id}**]`,
         )
         .addField(
-          "Account created on",
-          moment(member.user.createdAt).format("dddd, MMMM Do YYYY")
+          'Account created on',
+          moment(member.user.createdAt).format('dddd, MMMM Do YYYY'),
         )
         .setTimestamp()
-        .setColor("#6082b6");
+        .setColor('#6082b6');
       memberLog.send({ embeds: [embed] });
     }
     const autoRoleId = client.db.guilds.cache.get(member.guild.id);
@@ -47,13 +48,13 @@ module.exports = class guildMemberAddEvent extends BaseEvent {
       } catch (e) {
         const systemChannelId = autoRoleId.systemChannel;
         const systemChannel = member.guild.channels.cache.get(
-          autoRoleId.systemChannel
+          autoRoleId.systemChannel,
         );
         const systemError = new MessageEmbed()
-          .setTitle("Error")
-          .setColor("RED")
+          .setTitle('Error')
+          .setColor('RED')
           .setDescription(
-            `I was unable to assign the autorole to new members.\n\nError: \`${e}\``
+            `I was unable to assign the autorole to new members.\n\nError: \`${e}\``,
           );
         if (systemChannel) await systemChannel.send({ embeds: [systemError] });
       }

@@ -1,8 +1,8 @@
-const Command = require("@Command");
+const Command = require('@Command');
 
 module.exports = new Command({
-  name: "rank",
-  description: "Check your rank in a server!",
+  name: 'rank',
+  description: 'Check your rank in a server!',
   async run(message, args) {
     let target = null;
     if (args[0]) {
@@ -15,8 +15,8 @@ module.exports = new Command({
 
     const user = await client.levels.fetch(target.id, message.guild.id);
 
-    if (!user) return message.channel.send("The provided user has no xp.");
-    const { MessageEmbed } = require("discord.js");
+    if (!user) return message.channel.send('The provided user has no xp.');
+    const { MessageEmbed } = require('discord.js');
     message.channel.send({
       embeds: [
         new MessageEmbed()

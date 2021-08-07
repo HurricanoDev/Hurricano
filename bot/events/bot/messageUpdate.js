@@ -1,10 +1,11 @@
-const { MessageEmbed } = require("discord.js");
-const BaseEvent = require("../../structures/BaseEvent.js");
+const { MessageEmbed } = require('discord.js');
+const BaseEvent = require('../../structures/internal/BaseEvent.js');
+
 module.exports = class messageUpdate extends BaseEvent {
   constructor(client) {
-    super("messageUpdate", {
+    super('messageUpdate', {
       description:
-        "messageUpdate event, meant for snipe command and message logs.",
+        'messageUpdate event, meant for snipe command and message logs.',
       client: client,
     });
   }
@@ -22,7 +23,7 @@ module.exports = class messageUpdate extends BaseEvent {
     };
     snipeArray.push(snipeObject);
     client.snipes.edited.set(newMessage.channel.id, snipeArray);
-    snipeObject.action = "edit";
+    snipeObject.action = 'edit';
     let recentSnipeArray =
       client.snipes.recent.get(newMessage.channel.id) ?? [];
     recentSnipeArray.push(snipeObject);
@@ -30,7 +31,7 @@ module.exports = class messageUpdate extends BaseEvent {
     if (newMessage.webhookID) return;
     let cacheCheck = oldMessage.channel.messages.cache.get(oldMessage.id);
     if (newMessage.member && cacheCheck) {
-      client.emit("message", newMessage);
+      client.emit('message', newMessage);
     }
     const guildSchema = client.db.guilds.cache.get(newMessage.guild.id);
     if (guildSchema.messageLogs) {
@@ -41,26 +42,26 @@ module.exports = class messageUpdate extends BaseEvent {
       let embed = new MessageEmbed()
         .setAuthor(
           `Message Edited By ${oldMessage.author?.tag}! | (ID: ${oldMessage.author?.id})`,
-          oldMessage.author.displayAvatarURL()
+          oldMessage.author.displayAvatarURL(),
         )
         .setDescription(
           `${
             newMessage.content.length > 2034
-              ? "Message content is larger than 2034 characters!"
-              : "**Content:**\n" + newMessage.toString()
-          }`
+              ? 'Message content is larger than 2034 characters!'
+              : '**Content:**\n' + newMessage.toString()
+          }`,
         )
-        .addField("Channel:", `${newMessage.channel}`)
+        .addField('Channel:', `${newMessage.channel}`)
         .setFooter(
-          `Deleted by ${newMessage.author?.tag} | ${newMessage.author?.id}`
+          `Deleted by ${newMessage.author?.tag} | ${newMessage.author?.id}`,
         )
-        .setColor("#6082b6");
+        .setColor('#6082b6');
       oldMessage.attachments.first() &&
       oldMessage.attachments != newMessage.attachments
         ? (() => {
-            embed.addField("Images:", snipeObject.images.join(", \n"));
+            embed.addField('Images:', snipeObject.images.join(', \n'));
           })()
-        : embed.addField("Images:", "No new images attached/edited.");
+        : embed.addField('Images:', 'No new images attached/edited.');
 
       guildChannel.send({ embeds: [embed] });
     }
