@@ -1,39 +1,39 @@
-const Command = require("@Command");
-const { MessageEmbed } = require("discord.js");
+const Command = require('@Command');
+const { MessageEmbed } = require('discord.js');
 
 module.exports = new Command({
-  name: "serverlog",
-  userPermissions: ["ADMINISTRATOR"],
+  name: 'serverlog',
+  userPermissions: ['ADMINISTRATOR'],
   description: "Set/Remove your server's server log channel",
-  aliases: ["serverlogs", "setserverlog", "setserverlogchannel"],
+  aliases: ['serverlogs', 'setserverlog', 'setserverlogchannel'],
   slash: false,
   async run(message, args) {
     const prefix = message._usedPrefix;
     const guildData = client.db.guilds.cache.get(message.guild.id);
     const defaultEmbed = new MessageEmbed()
-      .setTitle("Serverlog Help")
-      .setColor("#606365")
+      .setTitle('Serverlog Help')
+      .setColor('#606365')
       .setDescription(
-        `**Syntax:** \`${prefix}serverlog\`\n**Aliases:** \`serverlogs, setserverlog, setserverlogchannel\``
+        `**Syntax:** \`${prefix}serverlog\`\n**Aliases:** \`serverlogs, setserverlog, setserverlogchannel\``,
       )
-      .addField("Permissions", "`ADMINISTRATOR`")
+      .addField('Permissions', '`ADMINISTRATOR`')
       .addField(
-        "Subcommands:",
-        "`set` Set a serverlog channel.\n`remove` Remove the current server log channel."
+        'Subcommands:',
+        '`set` Set a serverlog channel.\n`remove` Remove the current server log channel.',
       )
       .setFooter(`Use ${prefix}help <command> for more info on a command.`);
 
     if (!args.length) return message.channel.send({ embeds: [defaultEmbed] });
 
     switch (args[0].toLowerCase()) {
-      case "set":
+      case 'set':
         const isLogChannel = message.guild.channels.cache.get(
-          guildData.serverLog
+          guildData.serverLog,
         );
         if (guildData.serverLog && isLogChannel)
           return message.sendError(
-            "Error",
-            `A \`serverlog\` channel already exists in this server. Use \`${prefix}serverlog remove\` to remove the current serverlog channel!`
+            'Error',
+            `A \`serverlog\` channel already exists in this server. Use \`${prefix}serverlog remove\` to remove the current serverlog channel!`,
           );
 
         const serverLogChannel =
@@ -43,11 +43,11 @@ module.exports = new Command({
         if (
           !guildData.serverLog &&
           !serverLog.viewable &&
-          !serverLog.permissionsFor(message.guild.me).has("SEND_MESSAGES")
+          !serverLog.permissionsFor(message.guild.me).has('SEND_MESSAGES')
         )
           return message.sendError(
-            "Error",
-            "Either that channel does not exist or I do not have permissions to send messages in that channel. Retry after fixing these problems"
+            'Error',
+            'Either that channel does not exist or I do not have permissions to send messages in that channel. Retry after fixing these problems',
           );
 
         const setServerLog = await client.schemas.guild.findOneAndUpdate(
@@ -59,19 +59,19 @@ module.exports = new Command({
           },
           {
             upsert: true,
-          }
+          },
         );
         message.channel.sendSuccess(
           message,
-          "Done!",
-          `The server log channel was set => ${serverLogChannel}`
+          'Done!',
+          `The server log channel was set => ${serverLogChannel}`,
         );
         break;
-      case "remove":
+      case 'remove':
         if (!guildData.serverLog)
           return message.sendError(
-            "Error",
-            `There is no channel set to remove! You could use \`${prefix}serverlog set <channel>\` to set one.`
+            'Error',
+            `There is no channel set to remove! You could use \`${prefix}serverlog set <channel>\` to set one.`,
           );
 
         const removeLogChannel = await client.schemas.guild.findOneAndUpdate(
@@ -83,13 +83,13 @@ module.exports = new Command({
           },
           {
             upsert: true,
-          }
+          },
         );
 
         message.channel.sendSuccess(
           message,
-          "Done!",
-          `The serverlog channel was successfully removed! Wanna set another one? Use \`${prefix}serverlog set <channel>\` to do so.`
+          'Done!',
+          `The serverlog channel was successfully removed! Wanna set another one? Use \`${prefix}serverlog set <channel>\` to do so.`,
         );
         break;
     }

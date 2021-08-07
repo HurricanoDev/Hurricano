@@ -1,15 +1,15 @@
-const { MessageEmbed } = require("discord.js");
-const config = require("@config");
-const moment = require("moment");
-const { blacklistedWords } = require("../../collections/blwords.js");
-const leven = require("../../utilities/leven.js");
-const Cooldown = require("../../schemas/cooldown");
+const { MessageEmbed } = require('discord.js');
+const config = require('@config');
+const moment = require('moment');
+const { blacklistedWords } = require('../../collections/blwords.js');
+const leven = require('../../utilities/leven.js');
+const Cooldown = require('../../schemas/cooldown');
 // const stc = require("statcord.js");
 //Spam Variables
 const LIMIT = 10;
 const TIME = 10000;
 const DIFF = 2000;
-const BaseEvent = require("../../structures/BaseEvent.js");
+const BaseEvent = require('../../structures/internal/BaseEvent.js');
 function generateKey(user_id, commandname) {
   return `${user_id}|${commandname}`;
 }
@@ -18,7 +18,7 @@ async function handleCooldown(message, command) {
   const cd = await Cooldown.findOne({
     key: generateKey(message.author.id, command.name),
   });
-  if (!cd) return "allow";
+  if (!cd) return 'allow';
   if (cd) {
     const now = Date.now();
 
@@ -26,14 +26,14 @@ async function handleCooldown(message, command) {
       await Cooldown.deleteMany({
         key: generateKey(message.author.id, command.name),
       });
-      return "allow";
+      return 'allow';
     } else {
       return message.sendErrorReply(
-        "Chillza.",
+        'Chillza.',
         `You need to wait ${Math.floor((cd.expiration - now) / 1000).toFixed(
-          1
+          1,
         )} more second(s) before reusing the \`${command.name}\` command.`,
-        `"Patience is the key my child."`
+        `"Patience is the key my child."`,
       );
     }
   }
@@ -53,43 +53,43 @@ async function makeCooldown(message, command) {
 
 module.exports = class MessageEvent extends BaseEvent {
   constructor(client) {
-    super("message", {
-      description: "Message event, used for handling commands.",
+    super('message', {
+      description: 'Message event, used for handling commands.',
       client: client,
     });
   }
   async run(message, client) {
     const usersMap = client.usersMap;
-    if (message.author.bot || message.channel.type === "dm") return;
+    if (message.author.bot || message.channel.type === 'dm') return;
     if (
       !message.channel
         .permissionsFor(client.user.id)
         .has([
-          "SEND_MESSAGES",
-          "READ_MESSAGE_HISTORY",
-          "EMBED_LINKS",
-          "ADD_REACTIONS",
+          'SEND_MESSAGES',
+          'READ_MESSAGE_HISTORY',
+          'EMBED_LINKS',
+          'ADD_REACTIONS',
         ])
     )
       return message.author
         .sendError(
           message,
-          "Invalid Permissions!",
-          "I don't have enough permissions in this guild! Please ask an admin to give me the following permissions: \n `READ_MESSAGES`, `SEND_MESSAGES`, `EMBED_LINKS`"
+          'Invalid Permissions!',
+          "I don't have enough permissions in this guild! Please ask an admin to give me the following permissions: \n `READ_MESSAGES`, `SEND_MESSAGES`, `EMBED_LINKS`",
         )
         ?.catch(() => {});
     //------------------------------------------------------------------
     let guildSchema = await message.guild.db.fetch();
     const muteRole = guildSchema.muteRole;
     const prefix = guildSchema.prefixes.find((x) =>
-      message.content.startsWith(x)
+      message.content.startsWith(x),
     );
     const { author } = message;
     const prefixRegex = new RegExp(
       `^(<@!?${client.user.id}>|${prefix?.replace(
         /[.*+?^${}()|[\]\\]/g,
-        "\\$&"
-      )})\\s*`
+        '\\$&',
+      )})\\s*`,
     );
     let userSchema = await client.db.users.cache.get(author.id);
     if (!userSchema) userSchema = await client.db.users.fetch(author.id);
@@ -105,10 +105,10 @@ module.exports = class MessageEvent extends BaseEvent {
 
         message.reply(
           new MessageEmbed({
-            title: "AFK!",
+            title: 'AFK!',
             description: `${mentionedMember} is currently AFK! **(${timeAgo})**\nReason: ${reason}`,
-            color: "RANDOM",
-          })
+            color: 'RANDOM',
+          }),
         );
       }
     }
@@ -116,7 +116,7 @@ module.exports = class MessageEvent extends BaseEvent {
     const getData = client.afk.get(message.author.id);
     if (getData) {
       client.afk.delete(message.author.id);
-      message.reply("**Welcome Back!** Your AFK has now been removed!");
+      message.reply('**Welcome Back!** Your AFK has now been removed!');
     }
     function checkPerm(perm) {
       return message.member.permissions.has(perm);
@@ -124,15 +124,15 @@ module.exports = class MessageEvent extends BaseEvent {
     //Word Blacklist System
     let deleting = false;
     const blacklistedWords = client.db.guilds.cache.get(
-      message.guild.id
+      message.guild.id,
     ).blacklistedWords;
     blacklistedWords.map((x) => {
       if (
         message.content.toLowerCase().includes(x.toLowerCase()) &&
         !message.author.bot &&
-        (!checkPerm("ADMINISTRATOR") ||
-          !checkPerm("MANAGE_GUILD") ||
-          !checkPerm("MANAGE_MESSAGES"))
+        (!checkPerm('ADMINISTRATOR') ||
+          !checkPerm('MANAGE_GUILD') ||
+          !checkPerm('MANAGE_MESSAGES'))
       )
         deleting = true;
     });
@@ -145,9 +145,9 @@ module.exports = class MessageEvent extends BaseEvent {
       muteRole &&
       getMuteRole &&
       guildSchema.antiSpam &&
-      message.channel.permissionsFor(client.user.id).has(["MANAGE_ROLES"]) &&
+      message.channel.permissionsFor(client.user.id).has(['MANAGE_ROLES']) &&
       message.member.roles.highest < message.guild.me.roles.highest &&
-      !message.channel.permissionsFor(message.author.id).has(["ADMINISTRATOR"])
+      !message.channel.permissionsFor(message.author.id).has(['ADMINISTRATOR'])
     ) {
       if (usersMap.has(message.author.name)) {
         const userData = usersMap.get(message.author.id);
@@ -167,13 +167,13 @@ module.exports = class MessageEvent extends BaseEvent {
           ++msgCount;
           if (parseInt(msgCount) === LIMIT) {
             const spamEmbed = new MessageEmbed()
-              .setAuthor("Slow Down!", message.member.displayAvatarURL())
-              .setColor("RED")
+              .setAuthor('Slow Down!', message.member.displayAvatarURL())
+              .setColor('RED')
               .setDescription(
-                "**Chillza!** Hey, would you mind slowing down? You've sent 5 messages in 5 seconds."
+                "**Chillza!** Hey, would you mind slowing down? You've sent 5 messages in 5 seconds.",
               )
               .setThumbnail(
-                "https://assets.onlinelabels.com/images/clip-art/Leomarc/Leomarc_stop_sign.png"
+                'https://assets.onlinelabels.com/images/clip-art/Leomarc/Leomarc_stop_sign.png',
               );
 
             message.member.roles.add(muteRole);
@@ -181,13 +181,13 @@ module.exports = class MessageEvent extends BaseEvent {
             setTimeout(async () => {
               message.member.roles.remove(muteRole);
               const unmuteEmbed = new MessageEmbed()
-                .setAuthor("Unmuted!", message.member.displayAvatarURL())
-                .setColor("GREEN")
+                .setAuthor('Unmuted!', message.member.displayAvatarURL())
+                .setColor('GREEN')
                 .setDescription(
-                  "You have been unmuted now, better not spam next time!"
+                  'You have been unmuted now, better not spam next time!',
                 )
                 .setThumbnail(
-                  "https://lh3.googleusercontent.com/proxy/sz_ww5-B0qhs7RPhI7ilQ6Wq06IFvw7aGCl30oqn4KduUYdMz3ElboKF911VVWO0QYwodKSH3p5eEKECTvOQFcsPQeMQ4m0"
+                  'https://lh3.googleusercontent.com/proxy/sz_ww5-B0qhs7RPhI7ilQ6Wq06IFvw7aGCl30oqn4KduUYdMz3ElboKF911VVWO0QYwodKSH3p5eEKECTvOQFcsPQeMQ4m0',
                 );
               const sendUnmute = await message.channel.send({
                 embeds: [unmuteEmbed],
@@ -215,49 +215,49 @@ module.exports = class MessageEvent extends BaseEvent {
     let prefixes = guildSchema.prefixes.map((x) => {
       return `\`${x}\``;
     });
-    prefixes = prefixes?.length ? prefixes.join(", ") : "{mention}";
+    prefixes = prefixes?.length ? prefixes.join(', ') : '{mention}';
     const whichToUse =
       prefixes?.length == 1
         ? guildSchema.prefixes.toString()
-        : "{prefix/mention}";
+        : '{prefix/mention}';
     const embed = new MessageEmbed()
       .setAuthor(
         "Hello, I'm Hurricano™!",
-        "https://raw.githubusercontent.com/HurricanoBot/HurricanoImages/master/SetAuthorEmojis/Wave.png"
+        'https://raw.githubusercontent.com/HurricanoBot/HurricanoImages/master/SetAuthorEmojis/Wave.png',
       )
       .addField(
-        "Forgot my prefix?",
+        'Forgot my prefix?',
         `No worries! My ${
-          guildSchema.prefixes?.length > 1 ? "prefixes are" : "prefix is"
-        } ${prefixes}.`
+          guildSchema.prefixes?.length > 1 ? 'prefixes are' : 'prefix is'
+        } ${prefixes}.`,
       )
       .addField(
-        "Need help?",
-        `Oh! Well, incase you want to see my commands, you can just use \`${whichToUse}help\`, and incase you need a more detailed description, you can use \`${whichToUse}help {command name}\``
+        'Need help?',
+        `Oh! Well, incase you want to see my commands, you can just use \`${whichToUse}help\`, and incase you need a more detailed description, you can use \`${whichToUse}help {command name}\``,
       )
       .addField(
-        "Want to view my info?",
-        `Cool! You can do so by using \`${whichToUse}botinfo\`. By the way, we also support slash commands!`
+        'Want to view my info?',
+        `Cool! You can do so by using \`${whichToUse}botinfo\`. By the way, we also support slash commands!`,
       )
       .addField(
-        "Still need help?",
-        "Feel free to join the Hurricano™ support server, by clicking [here](https://discord.gg/RDEBGXp7sG)!"
+        'Still need help?',
+        'Feel free to join the Hurricano™ support server, by clicking [here](https://discord.gg/RDEBGXp7sG)!',
       )
-      .setColor("#034ea2")
+      .setColor('#034ea2')
       .setImage(
-        "https://raw.githubusercontent.com/HurricanoBot/HurricanoImages/master/other/Wave.png"
+        'https://raw.githubusercontent.com/HurricanoBot/HurricanoImages/master/other/Wave.png',
       )
       .setFooter(`© Hurricano™ v1.0.0`);
     if (prefixRegex.test(message.content.toLowerCase())) {
       if (userSchema.blacklisted)
         return message.sendErrorReply(
-          "You have been blacklisted!",
-          "Damn it! You have been blacklisted by a bot moderator! This means you will be unable to use any of the bot commands."
+          'You have been blacklisted!',
+          'Damn it! You have been blacklisted by a bot moderator! This means you will be unable to use any of the bot commands.',
         );
       if (guildSchema.blacklisted)
         return message.sendErrorReply(
-          "Blacklisted!",
-          "This guild has been blacklisted. It cannot use any commands."
+          'Blacklisted!',
+          'This guild has been blacklisted. It cannot use any commands.',
         );
       if (
         message.content === `<@${client.user.id}>` ||
@@ -278,35 +278,35 @@ module.exports = class MessageEvent extends BaseEvent {
 
       if (userSchema.blacklisted)
         return message.sendErrorReply(
-          "You have been blacklisted!",
-          "Damn it! You have been blacklisted by a bot moderator! This means you will be unable to use any of the bot commands."
+          'You have been blacklisted!',
+          'Damn it! You have been blacklisted by a bot moderator! This means you will be unable to use any of the bot commands.',
         );
       if (!command) {
         const best = [
           ...client.commands.map((cmd) => cmd.name),
           ...client.aliases.keys(),
         ].filter(
-          (c) => leven(cmd.toLowerCase(), c.toLowerCase()) < c.length * 0.4
+          (c) => leven(cmd.toLowerCase(), c.toLowerCase()) < c.length * 0.4,
         );
         const dym =
           best.length == 0
-            ? ""
+            ? ''
             : best.length == 1
             ? `+ ${best[0]}`
             : `${best
                 .slice(0, 3)
                 .map((value) => `+ ${value}`)
-                .join("\n")}`;
+                .join('\n')}`;
 
         return dym
           ? message.channel.sendError(
               message,
-              "Invalid Command!",
-              `Sorry! I don't have that command! Did you happen to mean: \n\`\`\`diff\n${dym}\`\`\``
+              'Invalid Command!',
+              `Sorry! I don't have that command! Did you happen to mean: \n\`\`\`diff\n${dym}\`\`\``,
             )
           : null;
       }
-      message._usedPrefix = message.content.startsWith("<")
+      message._usedPrefix = message.content.startsWith('<')
         ? `{prefix/mention}`
         : prefix;
       if (command.subCommands && args.length) {
@@ -336,10 +336,10 @@ module.exports = class MessageEvent extends BaseEvent {
                   message,
                   args,
                   subArgs,
-                  args[0]
+                  args[0],
                 )
               : null;
-            if (auth && auth !== "allow") return;
+            if (auth && auth !== 'allow') return;
           }
 
           /**
@@ -360,8 +360,8 @@ module.exports = class MessageEvent extends BaseEvent {
       if (command.conf.ownerOnly === true && !checkAdmin)
         return message.channel.sendError(
           message,
-          "Permission Error.",
-          `You are not the owner of Hurricano™, ${author}.`
+          'Permission Error.',
+          `You are not the owner of Hurricano™, ${author}.`,
         );
       if (!message.member)
         message.member = await message.guild.members.fetch(message);
@@ -380,25 +380,25 @@ module.exports = class MessageEvent extends BaseEvent {
           !client.config.ownerIds.includes(message.author.id)
         ) {
           return message.sendErrorReply(
-            "Permission Error.",
+            'Permission Error.',
             `Stop disturbing me bro, you require the \`${command.userPermissions.join(
-              ", "
+              ', ',
             )}\` permission(s) to use that command...`,
-            "Smh, imagine trying to use a command without having the perms-"
+            'Smh, imagine trying to use a command without having the perms-',
           );
         }
       }
       if (command.conf.args && !args.length)
         return message.channel.sendError(
           message,
-          "Arguments Error.",
-          command.conf.args
+          'Arguments Error.',
+          command.conf.args,
         );
 
-      if (disabledModules && !disabledModules.includes("levelling")) {
+      if (disabledModules && !disabledModules.includes('levelling')) {
         const userLevel = await client.levels.fetch(
           message.author.id,
-          message.guild.id
+          message.guild.id,
         );
 
         if (!userLevel)
@@ -407,27 +407,27 @@ module.exports = class MessageEvent extends BaseEvent {
         const hasLeveledUp = await client.levels.appendXp(
           message.author.id,
           message.guild.id,
-          randomAmountOfXp
+          randomAmountOfXp,
         );
         if (hasLeveledUp) {
           const user = await client.levels.fetch(
             message.author.id,
-            message.guild.id
+            message.guild.id,
           );
           await message.sendSuccessReply(
             `Level Up!`,
-            `${message.author}, congratulations! You have leveled up to **${user.level}**! :tada:`
+            `${message.author}, congratulations! You have leveled up to **${user.level}**! :tada:`,
           );
         }
       }
       const auth = await handleCooldown(message, command);
-      if (auth !== "allow") return;
+      if (auth !== 'allow') return;
       if (!client.config.ownerIds.includes(message.author.id))
         await makeCooldown(message, command);
       client.logger.message(
         `${message.author.tag} used the "${command.name}" command in guild ${
           message.guild
-        } with args: "${args.join(" ")}"`
+        } with args: "${args.join(' ')}"`,
       );
 
       await command.run(message, args);

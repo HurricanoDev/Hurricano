@@ -1,14 +1,16 @@
-const Discord = require("discord.js");
-const Command = require("@Command");
+const Discord = require('discord.js');
+const Command = require('@Command');
 module.exports = new Command({
-  name: "kill",
-  userPermissions: ["SEND_MESSAGES"],
+  name: 'kill',
+  userPermissions: ['SEND_MESSAGES'],
   cooldown: 20,
-  description: "sends a kill message of the user mentioned",
+  description: 'sends a kill message of the user mentioned',
   async run(message, args) {
-    if (!args[0]) return message.channel.send(`Wow, that was great..But who do I kill?`)
-    let userr = await client.functions.getMember(false, message, args[0])
-    if (!userr) return message.channel.send(`Wow, that was great..But who do I kill?`)
+    if (!args[0])
+      return message.channel.send(`Wow, that was great..But who do I kill?`);
+    let userr = await client.functions.getMember(false, message, args[0]);
+    if (!userr)
+      return message.channel.send(`Wow, that was great..But who do I kill?`);
     let user = userr.user.username;
     const answers = [
       `${message.author.username} sat on ${user}, as the other sadly *suffocated*`,
@@ -34,8 +36,11 @@ module.exports = new Command({
       `Sorry ${message.author.username}, ${user} seems really innocent`,
       `${user} seems too nice, I can't `,
       `${user} got hit by a car `,
-    ]
-    if (userr.id === message.author.id) return message.channel.send(`Bruh, you seem depressed.. How can I help?`)
-    message.channel.send(`${answers[Math.floor(Math.random() * answers.length)]}`)
+    ];
+    if (userr.id === message.author.id)
+      return message.channel.send(`Bruh, you seem depressed.. How can I help?`);
+    message.channel.send(
+      `${answers[Math.floor(Math.random() * answers.length)]}`,
+    );
   },
 });
