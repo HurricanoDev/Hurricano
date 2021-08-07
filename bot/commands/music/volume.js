@@ -1,13 +1,13 @@
-const Command = require("@Command");
+const Command = require('@Command');
 module.exports = new Command({
-  name: "volume",
-  description: "Set the volume.",
+  name: 'volume',
+  description: 'Set the volume.',
   async run(message, args) {
     if (!message.member.voice.channel)
       return message.channel.sendError(
         message,
-        "Not in A Voice Channel.",
-        "Please join a voice channel to play music."
+        'Not in A Voice Channel.',
+        'Please join a voice channel to play music.',
       );
     if (
       message.guild.me.voice.channel &&
@@ -15,22 +15,22 @@ module.exports = new Command({
     )
       return message.channel.sendError(
         message,
-        "Different Voice Channel.",
-        "Please join the same voice channel as me."
+        'Different Voice Channel.',
+        'Please join the same voice channel as me.',
       );
     const queue = this.client.player.getQueue(message.guild);
     if (!queue)
       return message.channel.sendError(
         message,
-        "No Music is Playing.",
-        "Please join a voice channel to play music."
+        'No Music is Playing.',
+        'Please join a voice channel to play music.',
       );
 
-    if (!args[0] || isNaN(args[0]) || args[0] === "Infinity")
+    if (!args[0] || isNaN(args[0]) || args[0] === 'Infinity')
       return message.channel.sendError(
         message,
-        "Invalid Arguments Provided.",
-        "Please provide a valid number. The number can only be between 1 - 100."
+        'Invalid Arguments Provided.',
+        'Please provide a valid number. The number can only be between 1 - 100.',
       );
 
     if (
@@ -39,8 +39,8 @@ module.exports = new Command({
     )
       return message.channel.sendError(
         message,
-        "Invalid Arguments Provided.",
-        "Please provide a number between 1 - 100."
+        'Invalid Arguments Provided.',
+        'Please provide a number between 1 - 100.',
       );
 
     const success = queue.setVolume(parseInt(args[0]));
@@ -48,8 +48,8 @@ module.exports = new Command({
     if (success)
       await message.channel.sendSuccess(
         message,
-        "Success.",
-        `Volume successfully set to **${parseInt(args[0])}%**!`
+        'Success.',
+        `Volume successfully set to **${parseInt(args[0])}%**!`,
       );
   },
 });

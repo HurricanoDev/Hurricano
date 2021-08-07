@@ -1,17 +1,17 @@
-const Command = require("@Command");
-const { MessageEmbed } = require("discord.js");
+const Command = require('@Command');
+const { MessageEmbed } = require('discord.js');
 
 module.exports = new Command({
-  name: "avatar",
-  aliases: ["profilepic", "pic", "ava", "pfp"],
+  name: 'avatar',
+  aliases: ['profilepic', 'pic', 'ava', 'pfp'],
   args: "Please provide who's avatar you would like to see!",
   slash: {
-    name: "avatar",
+    name: 'avatar',
     isSlash: true,
     options: [
       {
-        name: "user",
-        description: "Which user you would like to see the avatar of.",
+        name: 'user',
+        description: 'Which user you would like to see the avatar of.',
         type: 6,
         required: true,
       },

@@ -19,7 +19,7 @@ class Minesweeper {
     this.mineArray = this.fisherYatesShuffle(this.mineArray);
     this.mineArray = this.singleToMultiDimensionalArray(
       this.mineArray,
-      this.columns
+      this.columns,
     );
 
     return this.mineArray;
@@ -67,36 +67,36 @@ class Minesweeper {
       if (this.mineArray[r + 1] && this.mineArray[r + 1][c] !== 9)
         this.mineArray[r + 1][c]++; // one below
       if (
-        typeof this.mineArray[r][c + 1] !== "undefined" &&
+        typeof this.mineArray[r][c + 1] !== 'undefined' &&
         this.mineArray[r][c + 1] !== 9
       )
         this.mineArray[r][c + 1]++; // one right
       if (
-        typeof this.mineArray[r][c - 1] !== "undefined" &&
+        typeof this.mineArray[r][c - 1] !== 'undefined' &&
         this.mineArray[r][c - 1] !== 9
       )
         this.mineArray[r][c - 1]++; // one left
       if (
-        typeof this.mineArray[r - 1] !== "undefined" &&
-        typeof this.mineArray[r - 1][c - 1] !== "undefined" &&
+        typeof this.mineArray[r - 1] !== 'undefined' &&
+        typeof this.mineArray[r - 1][c - 1] !== 'undefined' &&
         this.mineArray[r - 1][c - 1] !== 9
       )
         this.mineArray[r - 1][c - 1]++;
       if (
-        typeof this.mineArray[r - 1] !== "undefined" &&
-        typeof this.mineArray[r - 1][c + 1] !== "undefined" &&
+        typeof this.mineArray[r - 1] !== 'undefined' &&
+        typeof this.mineArray[r - 1][c + 1] !== 'undefined' &&
         this.mineArray[r - 1][c + 1] !== 9
       )
         this.mineArray[r - 1][c + 1]++;
       if (
-        typeof this.mineArray[r + 1] !== "undefined" &&
-        typeof this.mineArray[r + 1][c + 1] !== "undefined" &&
+        typeof this.mineArray[r + 1] !== 'undefined' &&
+        typeof this.mineArray[r + 1][c + 1] !== 'undefined' &&
         this.mineArray[r + 1][c + 1] !== 9
       )
         this.mineArray[r + 1][c + 1]++;
       if (
-        typeof this.mineArray[r + 1] !== "undefined" &&
-        typeof this.mineArray[r + 1][c - 1] !== "undefined" &&
+        typeof this.mineArray[r + 1] !== 'undefined' &&
+        typeof this.mineArray[r + 1][c - 1] !== 'undefined' &&
         this.mineArray[r + 1][c - 1] !== 9
       )
         this.mineArray[r + 1][c - 1]++;
@@ -110,37 +110,37 @@ class Minesweeper {
       // row
       for (let j = 0; j < this.columns; j++) {
         // column
-        let val = "";
+        let val = '';
         switch (this.mineArray[i][j]) {
           case 0:
-            val = "|| :zero: ||";
+            val = '|| :zero: ||';
             break;
           case 1:
-            val = "|| :one: ||";
+            val = '|| :one: ||';
             break;
           case 2:
-            val = "|| :two: ||";
+            val = '|| :two: ||';
             break;
           case 3:
-            val = "|| :three: ||";
+            val = '|| :three: ||';
             break;
           case 4:
-            val = "|| :four: ||";
+            val = '|| :four: ||';
             break;
           case 5:
-            val = "|| :five: ||";
+            val = '|| :five: ||';
             break;
           case 6:
-            val = "|| :six: ||";
+            val = '|| :six: ||';
             break;
           case 7:
-            val = "|| :seven: ||";
+            val = '|| :seven: ||';
             break;
           case 8:
-            val = "|| :eight: ||";
+            val = '|| :eight: ||';
             break;
           default:
-            val = "|| :bomb: ||";
+            val = '|| :bomb: ||';
             break;
         }
         this.mineArray[i][j] = val;
@@ -152,9 +152,9 @@ class Minesweeper {
       const i = Math.floor(Math.random() * this.rows);
       const j = Math.floor(Math.random() * this.columns);
       if (this.mineArray[i][j] === 9) continue;
-      if (this.mineArray[i][j] !== "|| :zero: ||") continue;
+      if (this.mineArray[i][j] !== '|| :zero: ||') continue;
 
-      this.mineArray[i][j] = " :zero: ";
+      this.mineArray[i][j] = ' :zero: ';
       break;
     }
 
@@ -162,10 +162,10 @@ class Minesweeper {
   }
 
   toEmbedDescription() {
-    let desc = "";
+    let desc = '';
     for (let i = 0; i < this.rows; i++) {
       // row
-      desc += this.mineArray[i].join(" ").trim() + "\n";
+      desc += this.mineArray[i].join(' ').trim() + '\n';
     }
     return desc;
   }

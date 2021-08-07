@@ -1,23 +1,23 @@
-const { MessageEmbed, MessageButton } = require("discord.js");
+const { MessageEmbed, MessageButton } = require('discord.js');
 
 module.exports = async (message) => {
   if (!message)
-    throw new TypeError("Calculator Error: Missing argument message");
+    throw new TypeError('Calculator Error: Missing argument message');
 
   function i(length) {
-    var randomChars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
-    var result = "";
+    var randomChars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+    var result = '';
     for (var i = 0; i < length; i++) {
       result += randomChars.charAt(
-        Math.floor(Math.random() * randomChars.length)
+        Math.floor(Math.random() * randomChars.length),
       );
     }
     return result;
   }
 
   // Button ID generator
-  let str = " ";
-  let stringify = "```\n" + str + "\n```";
+  let str = ' ';
+  let stringify = '```\n' + str + '\n```';
   let calculator_clear = i(20);
   let calculator_e1 = i(20);
   let calculator_e2 = i(20);
@@ -44,217 +44,217 @@ module.exports = async (message) => {
   let calc_percent = i(20);
   // Buttons
   let ac = new MessageButton()
-    .setLabel("AC")
-    .setCustomID(calculator_clear)
-    .setStyle("DANGER");
+    .setLabel('AC')
+    .setcustomId(calculator_clear)
+    .setStyle('DANGER');
   let e1 = new MessageButton()
-    .setLabel("(")
-    .setCustomID(calculator_e1)
-    .setStyle("PRIMARY");
+    .setLabel('(')
+    .setcustomId(calculator_e1)
+    .setStyle('PRIMARY');
   let e2 = new MessageButton()
-    .setLabel(")")
-    .setCustomID(calculator_e2)
-    .setStyle("PRIMARY");
+    .setLabel(')')
+    .setcustomId(calculator_e2)
+    .setStyle('PRIMARY');
   let uppercase = new MessageButton()
-    .setLabel("^")
-    .setCustomID(calculator_uppercase)
-    .setStyle("PRIMARY");
+    .setLabel('^')
+    .setcustomId(calculator_uppercase)
+    .setStyle('PRIMARY');
   let seven = new MessageButton()
-    .setLabel("7️")
-    .setCustomID(calculator_7)
-    .setStyle("SECONDARY");
+    .setLabel('7️')
+    .setcustomId(calculator_7)
+    .setStyle('SECONDARY');
   let eight = new MessageButton()
-    .setLabel("8️")
-    .setCustomID(calculator_8)
-    .setStyle("SECONDARY");
+    .setLabel('8️')
+    .setcustomId(calculator_8)
+    .setStyle('SECONDARY');
   let nine = new MessageButton()
-    .setLabel("9️")
-    .setCustomID(calculator_9)
-    .setStyle("SECONDARY");
+    .setLabel('9️')
+    .setcustomId(calculator_9)
+    .setStyle('SECONDARY');
   let slash = new MessageButton()
-    .setLabel("÷")
-    .setCustomID(calculator_devide)
-    .setStyle("PRIMARY");
+    .setLabel('÷')
+    .setcustomId(calculator_devide)
+    .setStyle('PRIMARY');
   let four = new MessageButton()
-    .setLabel("4️")
-    .setCustomID(calculator_4)
-    .setStyle("SECONDARY");
+    .setLabel('4️')
+    .setcustomId(calculator_4)
+    .setStyle('SECONDARY');
   let five = new MessageButton()
-    .setLabel("5️")
-    .setCustomID(calculator_5)
-    .setStyle("SECONDARY");
+    .setLabel('5️')
+    .setcustomId(calculator_5)
+    .setStyle('SECONDARY');
   let six = new MessageButton()
-    .setLabel("6️")
-    .setCustomID(calculator_6)
-    .setStyle("SECONDARY");
+    .setLabel('6️')
+    .setcustomId(calculator_6)
+    .setStyle('SECONDARY');
   let star = new MessageButton()
-    .setLabel("x")
-    .setCustomID(calculator_star)
-    .setStyle("PRIMARY");
+    .setLabel('x')
+    .setcustomId(calculator_star)
+    .setStyle('PRIMARY');
   let one = new MessageButton()
-    .setLabel("1️")
-    .setCustomID(calculator_1)
-    .setStyle("SECONDARY");
+    .setLabel('1️')
+    .setcustomId(calculator_1)
+    .setStyle('SECONDARY');
   let two = new MessageButton()
-    .setLabel("2️")
-    .setCustomID(calculator_2)
-    .setStyle("SECONDARY");
+    .setLabel('2️')
+    .setcustomId(calculator_2)
+    .setStyle('SECONDARY');
   let three = new MessageButton()
-    .setLabel("3️")
-    .setCustomID(calculator_3)
-    .setStyle("SECONDARY");
+    .setLabel('3️')
+    .setcustomId(calculator_3)
+    .setStyle('SECONDARY');
   let minus = new MessageButton()
-    .setLabel("-")
-    .setCustomID(calculator_minus)
-    .setStyle("PRIMARY");
+    .setLabel('-')
+    .setcustomId(calculator_minus)
+    .setStyle('PRIMARY');
   let zero = new MessageButton()
-    .setLabel("0️")
-    .setCustomID(calculator_0)
-    .setStyle("SECONDARY");
+    .setLabel('0️')
+    .setcustomId(calculator_0)
+    .setStyle('SECONDARY');
   let dot = new MessageButton()
-    .setLabel(".")
-    .setCustomID(calculator_dot)
-    .setStyle("PRIMARY");
+    .setLabel('.')
+    .setcustomId(calculator_dot)
+    .setStyle('PRIMARY');
   let equal = new MessageButton()
-    .setLabel("=")
-    .setCustomID(calculator_equal)
-    .setStyle("SUCCESS");
+    .setLabel('=')
+    .setcustomId(calculator_equal)
+    .setStyle('SUCCESS');
   let plus = new MessageButton()
-    .setLabel("+")
-    .setCustomID(calculator_plus)
-    .setStyle("PRIMARY");
+    .setLabel('+')
+    .setcustomId(calculator_plus)
+    .setStyle('PRIMARY');
   let backspace = new MessageButton()
-    .setLabel("⌫")
-    .setCustomID(calculator_backspace)
-    .setStyle("DANGER");
+    .setLabel('⌫')
+    .setcustomId(calculator_backspace)
+    .setStyle('DANGER');
   let destroy = new MessageButton()
-    .setLabel("DC")
-    .setCustomID(calc_irrc)
-    .setStyle("DANGER");
+    .setLabel('DC')
+    .setcustomId(calc_irrc)
+    .setStyle('DANGER');
   let empty = new MessageButton()
-    .setLabel("\u200b")
-    .setCustomID(empty_irrc)
-    .setStyle("SECONDARY")
+    .setLabel('\u200b')
+    .setcustomId(empty_irrc)
+    .setStyle('SECONDARY')
     .setDisabled(true);
   let percent = new MessageButton()
-    .setLabel("%")
-    .setCustomID(calc_percent)
-    .setStyle("PRIMARY");
+    .setLabel('%')
+    .setcustomId(calc_percent)
+    .setStyle('PRIMARY');
   // Lock
   let qac = new MessageButton()
-    .setLabel("AC")
-    .setCustomID(calculator_clear)
-    .setStyle("DANGER")
+    .setLabel('AC')
+    .setcustomId(calculator_clear)
+    .setStyle('DANGER')
     .setDisabled(true);
   let qe1 = new MessageButton()
-    .setLabel("(")
-    .setCustomID(calculator_e1)
-    .setStyle("PRIMARY")
+    .setLabel('(')
+    .setcustomId(calculator_e1)
+    .setStyle('PRIMARY')
     .setDisabled(true);
   let qe2 = new MessageButton()
-    .setLabel(")")
-    .setCustomID(calculator_e2)
-    .setStyle("PRIMARY")
+    .setLabel(')')
+    .setcustomId(calculator_e2)
+    .setStyle('PRIMARY')
     .setDisabled(true);
   let quppercase = new MessageButton()
-    .setLabel("^")
-    .setCustomID(calculator_uppercase)
-    .setStyle("PRIMARY")
+    .setLabel('^')
+    .setcustomId(calculator_uppercase)
+    .setStyle('PRIMARY')
     .setDisabled(true);
   let qseven = new MessageButton()
-    .setLabel("7️")
-    .setCustomID(calculator_7)
-    .setStyle("SECONDARY")
+    .setLabel('7️')
+    .setcustomId(calculator_7)
+    .setStyle('SECONDARY')
     .setDisabled(true);
   let qeight = new MessageButton()
-    .setLabel("8️")
-    .setCustomID(calculator_8)
-    .setStyle("SECONDARY")
+    .setLabel('8️')
+    .setcustomId(calculator_8)
+    .setStyle('SECONDARY')
     .setDisabled(true);
   let qnine = new MessageButton()
-    .setLabel("9️")
-    .setCustomID(calculator_9)
-    .setStyle("SECONDARY")
+    .setLabel('9️')
+    .setcustomId(calculator_9)
+    .setStyle('SECONDARY')
     .setDisabled(true);
   let qslash = new MessageButton()
-    .setLabel("÷")
-    .setCustomID(calculator_devide)
-    .setStyle("PRIMARY")
+    .setLabel('÷')
+    .setcustomId(calculator_devide)
+    .setStyle('PRIMARY')
     .setDisabled(true);
   let qfour = new MessageButton()
-    .setLabel("4️")
-    .setCustomID(calculator_4)
-    .setStyle("SECONDARY")
+    .setLabel('4️')
+    .setcustomId(calculator_4)
+    .setStyle('SECONDARY')
     .setDisabled(true);
   let qfive = new MessageButton()
-    .setLabel("5️")
-    .setCustomID(calculator_5)
-    .setStyle("SECONDARY")
+    .setLabel('5️')
+    .setcustomId(calculator_5)
+    .setStyle('SECONDARY')
     .setDisabled(true);
   let qsix = new MessageButton()
-    .setLabel("6️")
-    .setCustomID(calculator_6)
-    .setStyle("SECONDARY")
+    .setLabel('6️')
+    .setcustomId(calculator_6)
+    .setStyle('SECONDARY')
     .setDisabled(true);
   let qstar = new MessageButton()
-    .setLabel("x")
-    .setCustomID(calculator_star)
-    .setStyle("PRIMARY")
+    .setLabel('x')
+    .setcustomId(calculator_star)
+    .setStyle('PRIMARY')
     .setDisabled(true);
   let qone = new MessageButton()
-    .setLabel("1️")
-    .setCustomID(calculator_1)
-    .setStyle("SECONDARY")
+    .setLabel('1️')
+    .setcustomId(calculator_1)
+    .setStyle('SECONDARY')
     .setDisabled(true);
   let qtwo = new MessageButton()
-    .setLabel("2️")
-    .setCustomID(calculator_2)
-    .setStyle("SECONDARY")
+    .setLabel('2️')
+    .setcustomId(calculator_2)
+    .setStyle('SECONDARY')
     .setDisabled(true);
   let qthree = new MessageButton()
-    .setLabel("3️")
-    .setCustomID(calculator_3)
-    .setStyle("SECONDARY")
+    .setLabel('3️')
+    .setcustomId(calculator_3)
+    .setStyle('SECONDARY')
     .setDisabled(true);
   let qminus = new MessageButton()
-    .setLabel("-")
-    .setCustomID(calculator_minus)
-    .setStyle("PRIMARY")
+    .setLabel('-')
+    .setcustomId(calculator_minus)
+    .setStyle('PRIMARY')
     .setDisabled(true);
   let qzero = new MessageButton()
-    .setLabel("0️")
-    .setCustomID(calculator_0)
-    .setStyle("SECONDARY")
+    .setLabel('0️')
+    .setcustomId(calculator_0)
+    .setStyle('SECONDARY')
     .setDisabled(true);
   let qdot = new MessageButton()
-    .setLabel(".")
-    .setCustomID(calculator_dot)
-    .setStyle("PRIMARY")
+    .setLabel('.')
+    .setcustomId(calculator_dot)
+    .setStyle('PRIMARY')
     .setDisabled(true);
   let qequal = new MessageButton()
-    .setLabel("=")
-    .setCustomID(calculator_equal)
-    .setStyle("SUCCESS")
+    .setLabel('=')
+    .setcustomId(calculator_equal)
+    .setStyle('SUCCESS')
     .setDisabled(true);
   let qplus = new MessageButton()
-    .setLabel("+")
-    .setCustomID(calculator_plus)
-    .setStyle("PRIMARY")
+    .setLabel('+')
+    .setcustomId(calculator_plus)
+    .setStyle('PRIMARY')
     .setDisabled(true);
   let qbackspace = new MessageButton()
-    .setLabel("⌫")
-    .setCustomID(calculator_backspace)
-    .setStyle("DANGER")
+    .setLabel('⌫')
+    .setcustomId(calculator_backspace)
+    .setStyle('DANGER')
     .setDisabled(true);
   let qdestroy = new MessageButton()
-    .setLabel("DC")
-    .setCustomID(calc_irrc)
-    .setStyle("DANGER")
+    .setLabel('DC')
+    .setcustomId(calc_irrc)
+    .setStyle('DANGER')
     .setDisabled(true);
   let qpercent = new MessageButton()
-    .setLabel("%")
-    .setCustomID(calc_percent)
-    .setStyle("PRIMARY")
+    .setLabel('%')
+    .setcustomId(calc_percent)
+    .setStyle('PRIMARY')
     .setDisabled(true);
   //----------------------------------------------------------------------
   const filter = (m) => m.user.id === message.author.id;
@@ -267,11 +267,11 @@ module.exports = async (message) => {
             message.author.tag,
             message.author.displayAvatarURL({
               dynamic: true,
-            })
+            }),
           )
-          .setTitle("Button Calculator")
+          .setTitle('Button Calculator')
           .setDescription(stringify)
-          .setColor("BLURPLE")
+          .setColor('BLURPLE')
           .setTimestamp(),
       ],
       components: [
@@ -291,11 +291,11 @@ module.exports = async (message) => {
                 message.author.tag,
                 message.author.displayAvatarURL({
                   dynamic: true,
-                })
+                }),
               )
-              .setTitle("Button Calculator")
+              .setTitle('Button Calculator')
               .setDescription(stringify)
-              .setColor("BLURPLE")
+              .setColor('BLURPLE')
               .setTimestamp(),
           ],
           components: [
@@ -315,11 +315,11 @@ module.exports = async (message) => {
                 message.author.tag,
                 message.author.displayAvatarURL({
                   dynamic: true,
-                })
+                }),
               )
-              .setTitle("Button Calculator")
+              .setTitle('Button Calculator')
               .setDescription(stringify)
-              .setColor("RED")
+              .setColor('RED')
               .setTimestamp(),
           ],
           components: [
@@ -331,155 +331,155 @@ module.exports = async (message) => {
           ],
         });
       }
-      const calc = msg.createMessageComponentInteractionCollector({ filter });
+      const calc = msg.createMessageComponentCollector({ filter });
 
-      calc.on("collect", async (btn) => {
+      calc.on('collect', async (btn) => {
         if (btn.user.id !== message.author.id) {
           return btn.deferUpdate();
         }
 
         btn.deferUpdate();
-        switch (btn.customID) {
+        switch (btn.customId) {
           case calculator_0:
-            str += "0";
-            stringify = "```\n" + str + "\n```";
+            str += '0';
+            stringify = '```\n' + str + '\n```';
             edit();
             break;
           case calculator_1:
-            str += "1";
-            stringify = "```\n" + str + "\n```";
+            str += '1';
+            stringify = '```\n' + str + '\n```';
             edit();
             break;
           case calculator_2:
-            str += "2";
-            stringify = "```\n" + str + "\n```";
+            str += '2';
+            stringify = '```\n' + str + '\n```';
             edit();
             break;
           case calculator_3:
-            str += "3";
-            stringify = "```\n" + str + "\n```";
+            str += '3';
+            stringify = '```\n' + str + '\n```';
             edit();
             break;
           case calculator_4:
-            str += "4";
-            stringify = "```\n" + str + "\n```";
+            str += '4';
+            stringify = '```\n' + str + '\n```';
             edit();
             break;
           case calculator_5:
-            str += "5";
-            stringify = "```\n" + str + "\n```";
+            str += '5';
+            stringify = '```\n' + str + '\n```';
             edit();
             break;
           case calculator_6:
-            str += "6";
-            stringify = "```\n" + str + "\n```";
+            str += '6';
+            stringify = '```\n' + str + '\n```';
             edit();
             break;
           case calculator_7:
-            str += "7";
-            stringify = "```\n" + str + "\n```";
+            str += '7';
+            stringify = '```\n' + str + '\n```';
             edit();
             break;
           case calculator_8:
-            str += "8";
-            stringify = "```\n" + str + "\n```";
+            str += '8';
+            stringify = '```\n' + str + '\n```';
             edit();
             break;
           case calculator_9:
-            str += "9";
-            stringify = "```\n" + str + "\n```";
+            str += '9';
+            stringify = '```\n' + str + '\n```';
             edit();
             break;
           case calculator_plus:
-            str += "+";
-            stringify = "```\n" + str + "\n```";
+            str += '+';
+            stringify = '```\n' + str + '\n```';
             edit();
             break;
           case calculator_minus:
-            str += "-";
-            stringify = "```\n" + str + "\n```";
+            str += '-';
+            stringify = '```\n' + str + '\n```';
             edit();
             break;
           case calculator_devide:
-            str += "/";
-            stringify = "```\n" + str + "\n```";
+            str += '/';
+            stringify = '```\n' + str + '\n```';
             edit();
             break;
           case calculator_uppercase:
-            str += "^";
-            stringify = "```\n" + str + "\n```";
+            str += '^';
+            stringify = '```\n' + str + '\n```';
             edit();
             break;
           case calculator_star:
-            str += "*";
-            stringify = "```\n" + str + "\n```";
+            str += '*';
+            stringify = '```\n' + str + '\n```';
             edit();
             break;
           case calculator_dot:
-            str += ".";
-            stringify = "```\n" + str + "\n```";
+            str += '.';
+            stringify = '```\n' + str + '\n```';
             edit();
             break;
           case calculator_clear:
-            str = " ";
-            stringify = "```\n" + str + "\n```";
+            str = ' ';
+            stringify = '```\n' + str + '\n```';
             edit();
             break;
           case calculator_e1:
-            str += "(";
-            stringify = "```\n" + str + "\n```";
+            str += '(';
+            stringify = '```\n' + str + '\n```';
             edit();
             break;
           case calculator_e2:
-            str += ")";
-            stringify = "```\n" + str + "\n```";
+            str += ')';
+            stringify = '```\n' + str + '\n```';
             edit();
             break;
           case calculator_backspace:
             if (
-              str === " " ||
-              str === "" ||
+              str === ' ' ||
+              str === '' ||
               str === null ||
               str === undefined
             ) {
               return;
             } else {
-              str = str.split("");
+              str = str.split('');
               str.pop();
-              str = str.join("");
+              str = str.join('');
 
-              stringify = "```\n" + str + "\n```";
+              stringify = '```\n' + str + '\n```';
               edit();
               break;
             }
           case calc_percent:
-            str += "%";
-            stringify = "```\n" + str + "\n```";
+            str += '%';
+            stringify = '```\n' + str + '\n```';
             edit();
             break;
         }
 
-        if (btn.customID === calculator_equal) {
-          if (str === " " || str === "" || str === null || str === undefined) {
+        if (btn.customId === calculator_equal) {
+          if (str === ' ' || str === '' || str === null || str === undefined) {
             return;
           } else {
             try {
-              str += " = " + require("mathjs").evaluate(str);
-              stringify = "```\n" + str + "\n```";
+              str += ' = ' + require('mathjs').evaluate(str);
+              stringify = '```\n' + str + '\n```';
               edit();
-              str = " ";
-              stringify = "```\n" + str + "\n```";
+              str = ' ';
+              stringify = '```\n' + str + '\n```';
             } catch (e) {
-              str = "Invalid Question Entered";
-              stringify = "```\n" + str + "\n```";
+              str = 'Invalid Question Entered';
+              stringify = '```\n' + str + '\n```';
               edit();
-              str = " ";
-              stringify = "```\n" + str + "\n```";
+              str = ' ';
+              stringify = '```\n' + str + '\n```';
             }
           }
-        } else if (btn.customID === calc_irrc) {
-          str = "Calculator Disabled";
-          stringify = "```\n" + str + "\n```";
+        } else if (btn.customId === calc_irrc) {
+          str = 'Calculator Disabled';
+          stringify = '```\n' + str + '\n```';
           edit();
           calc.stop();
           lock();
