@@ -1,7 +1,7 @@
-const { model, Schema } = require('mongoose');
+const { model, Schema } = require("mongoose");
 
 module.exports = model(
-  'giveaway',
+  "giveaway",
   new Schema({
     messageID: String,
     channelID: String,

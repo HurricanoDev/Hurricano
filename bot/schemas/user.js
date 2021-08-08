@@ -1,7 +1,7 @@
-const { model, Schema } = require('mongoose');
+const { model, Schema } = require("mongoose");
 
 module.exports = model(
-  'user',
+  "user",
   new Schema({
     name: {
       type: String,
@@ -25,7 +25,7 @@ module.exports = model(
     },
     job: {
       type: String,
-      default: 'none',
+      default: "none",
     },
     bank: {
       type: Number,

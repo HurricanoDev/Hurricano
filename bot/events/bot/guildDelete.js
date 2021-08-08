@@ -1,10 +1,10 @@
-const BaseEvent = require('../../structures/internal/BaseEvent.js');
+const BaseEvent = require("../../structures/internal/BaseEvent.js");
 
 module.exports = class guildDeleteEvent extends BaseEvent {
   constructor(client) {
-    super('guildDelete', {
+    super("guildDelete", {
       client: client,
-      description: 'Event meant disabling a guild if left.',
+      description: "Event meant disabling a guild if left.",
     });
   }
   async run(guild) {

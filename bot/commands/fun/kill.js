@@ -1,10 +1,10 @@
-const Discord = require('discord.js');
-const Command = require('@Command');
+const Discord = require("discord.js");
+const Command = require("@Command");
 module.exports = new Command({
-  name: 'kill',
-  userPermissions: ['SEND_MESSAGES'],
+  name: "kill",
+  userPermissions: ["SEND_MESSAGES"],
   cooldown: 20,
-  description: 'sends a kill message of the user mentioned',
+  description: "sends a kill message of the user mentioned",
   async run(message, args) {
     if (!args[0])
       return message.channel.send(`Wow, that was great..But who do I kill?`);

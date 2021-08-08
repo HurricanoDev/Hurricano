@@ -1,10 +1,10 @@
-const Command = require('@Command');
-const { MessageEmbed } = require('discord.js');
+const Command = require("@Command");
+const { MessageEmbed } = require("discord.js");
 
 module.exports = new Command({
-  name: 'suggest',
-  description: 'Suggest something to this server.',
-  args: 'Please provide what you would like to suggest!',
+  name: "suggest",
+  description: "Suggest something to this server.",
+  args: "Please provide what you would like to suggest!",
   async run(message, args) {
     let guildSchema = client.db.guilds.cache.get(message.guild.id);
     const prefix = message._usedPrefix;
@@ -14,11 +14,11 @@ module.exports = new Command({
         : undefined;
     if (!channel)
       return message.sendErrorReply(
-        'An Error Occured.',
+        "An Error Occured.",
         `This server does not have any suggestion channel! Ask an admin to set it up via: \n\`${prefix}suggestionchannel set {channel name}\``,
       );
     const suggestionsObj = guildSchema.suggestions;
-    let idea = args.join(' ');
+    let idea = args.join(" ");
     const embed = new MessageEmbed()
       .setAuthor(
         `Suggestion from: ${message.author.tag} (${message.author.id})`,
@@ -46,7 +46,7 @@ module.exports = new Command({
     client.db.guilds.cache.set(message.guild.id, data);
     await message.channel.sendSuccess(
       message,
-      'Success!',
+      "Success!",
       `Successfully sent a suggestion! You can check it [here](${suggestionSent.url}).`,
     );
   },

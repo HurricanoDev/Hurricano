@@ -1,15 +1,15 @@
-const { MessageEmbed } = require('discord.js');
-const BaseEvent = require('../../structures/internal/BaseEvent.js');
+const { MessageEmbed } = require("discord.js");
+const BaseEvent = require("../../structures/internal/BaseEvent.js");
 
 module.exports = class messageReactionAdd extends BaseEvent {
   constructor(client) {
-    super('messageReactionAdd', {
-      description: 'messageReactionAdd event, meant for starboard.',
+    super("messageReactionAdd", {
+      description: "messageReactionAdd event, meant for starboard.",
       client: client,
     });
   }
   async run(reaction, user) {
-    if (reaction.emoji.name !== '⭐') return;
+    if (reaction.emoji.name !== "⭐") return;
     if (user.bot) return;
     var guildData = await reaction.message.guild.db.fetch();
     if (!guildData.starBoard.channel) return;
@@ -25,7 +25,7 @@ module.exports = class messageReactionAdd extends BaseEvent {
     if (
       !starBoardChannel
         .permissionsFor(reaction.message.guild.me)
-        .has(['SEND_MESSAGES', 'READ_MESSAGE_HISTORY'])
+        .has(["SEND_MESSAGES", "READ_MESSAGE_HISTORY"])
     )
       return;
     const starBoardMsgId = guildData.starBoard.messages.find(
@@ -61,8 +61,8 @@ module.exports = class messageReactionAdd extends BaseEvent {
           reaction.message.author.displayAvatarURL({ dynamic: true }),
         )
         .setDescription(`${reaction.message}`)
-        .addField('URL:', reaction.message.url, true)
-        .setColor('YELLOW')
+        .addField("URL:", reaction.message.url, true)
+        .setColor("YELLOW")
         .setFooter(reaction.message.id)
         .setTimestamp();
       const msg = await starBoardChannel.send({

@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 
 const LevelSchema = new mongoose.Schema({
   userID: { type: String },
@@ -8,4 +8,4 @@ const LevelSchema = new mongoose.Schema({
   lastUpdated: { type: Date, default: new Date() },
 });
 
-module.exports = mongoose.model('Levels', LevelSchema);
+module.exports = mongoose.model("Levels", LevelSchema);

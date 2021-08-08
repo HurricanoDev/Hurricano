@@ -1,9 +1,9 @@
-const { EventEmitter } = require('events');
+const { EventEmitter } = require("events");
 const requiredPerms = [
-  'SEND_MESSAGES',
-  'EMBED_LINKS',
-  'ADD_REACTIONS',
-  'MANAGE_MESSAGES',
+  "SEND_MESSAGES",
+  "EMBED_LINKS",
+  "ADD_REACTIONS",
+  "MANAGE_MESSAGES",
 ];
 
 /**
@@ -57,7 +57,7 @@ module.exports.Menu = class extends EventEmitter {
     if (!this.channel) {
       this.channel.client.users.cache.get(this.userID).createDM(true);
     }
-    if (this.channel.type !== 'dm') {
+    if (this.channel.type !== "dm") {
       requiredPerms.forEach((perm) => {
         if (
           !this.channel
@@ -71,13 +71,13 @@ module.exports.Menu = class extends EventEmitter {
       if (missingPerms.length)
         this.channel.send(
           `Looks like you haven't given the client ${missingPerms.join(
-            ', ',
+            ", ",
           )} permissions in #${
             this.channel
           }. This perm is needed for basic menu operation. You'll probably experience problems using menus in this channel.`,
         );
     } else {
-      throw new Error('ReactionMenu is being sent as a DM.');
+      throw new Error("ReactionMenu is being sent as a DM.");
     }
 
     /**
@@ -114,7 +114,7 @@ module.exports.Menu = class extends EventEmitter {
    * Send the Menu and begin listening for reactions.
    */
   start() {
-    this.emit('pageChange', this.currentPage);
+    this.emit("pageChange", this.currentPage);
     this.channel
       .send({ embeds: [this.currentPage.content] })
       .then((menu) => {
@@ -123,12 +123,12 @@ module.exports.Menu = class extends EventEmitter {
         this.awaitReactions();
       })
       .catch((error) => {
-        if (this.channel.type === 'dm') {
+        if (this.channel.type === "dm") {
           this.channel
             .sendError(
               message,
-              'Error!',
-              'Failed to send the menu in your DMs! Please ensure they are open.',
+              "Error!",
+              "Failed to send the menu in your DMs! Please ensure they are open.",
             )
             .catch((e) => {});
         } else {
@@ -169,7 +169,7 @@ module.exports.Menu = class extends EventEmitter {
   clearReactions() {
     if (this.menu) {
       return this.menu.reactions.removeAll().catch((error) => {
-        if (this.channel.type === 'dm') {
+        if (this.channel.type === "dm") {
           throw new Error(
             `Error due to sending ReactionMenu in DMs: ${error.toString()}.`,
           );
@@ -189,7 +189,7 @@ module.exports.Menu = class extends EventEmitter {
    * @param {Number} page The index of the page the Menu should jump to.
    */
   setPage(page = 0) {
-    this.emit('pageChange', this.pages[page]);
+    this.emit("pageChange", this.pages[page]);
 
     this.pageIndex = page;
     this.currentPage = this.pages[this.pageIndex];
@@ -206,7 +206,7 @@ module.exports.Menu = class extends EventEmitter {
   addReactions() {
     for (const reaction in this.currentPage.reactions) {
       this.menu.react(reaction).catch((error) => {
-        if (error.toString().indexOf('Unknown Emoji') >= 0) {
+        if (error.toString().indexOf("Unknown Emoji") >= 0) {
           throw new Error(
             `${error.toString()} (whilst trying to add reactions to message) | The emoji you were trying to add to page "${
               this.currentPage.name
@@ -235,7 +235,7 @@ module.exports.Menu = class extends EventEmitter {
     });
 
     let sameReactions;
-    this.reactionCollector.on('end', (reactions) => {
+    this.reactionCollector.on("end", (reactions) => {
       // Whether the end was triggered by pressing a reaction or the menu just ended.
       if (reactions.first()) {
         reactions
@@ -244,7 +244,7 @@ module.exports.Menu = class extends EventEmitter {
       }
     });
 
-    this.reactionCollector.on('collect', (reaction, user) => {
+    this.reactionCollector.on("collect", (reaction, user) => {
       // If the name exists, prioritise using that, otherwise, use the ID. If neither are in the list, don't run anything.
       const reactionName = Object.prototype.hasOwnProperty.call(
         this.currentPage.reactions,
@@ -266,19 +266,19 @@ module.exports.Menu = class extends EventEmitter {
         return reaction.users.remove(user);
       }
       if (reactionName) {
-        if (typeof this.currentPage.reactions[reactionName] === 'function') {
+        if (typeof this.currentPage.reactions[reactionName] === "function") {
           return this.currentPage.reactions[reactionName]();
         }
 
         switch (this.currentPage.reactions[reactionName]) {
-          case 'first':
+          case "first":
             sameReactions =
               JSON.stringify(this.menu.reactions.cache.keyArray()) ===
               JSON.stringify(Object.keys(this.pages[0].reactions));
             this.setPage(0);
 
             break;
-          case 'last':
+          case "last":
             sameReactions =
               JSON.stringify(this.menu.reactions.cache.keyArray()) ===
               JSON.stringify(
@@ -286,7 +286,7 @@ module.exports.Menu = class extends EventEmitter {
               );
             this.setPage(this.pages.length - 1);
             break;
-          case 'previous':
+          case "previous":
             if (this.pageIndex > 0) {
               sameReactions =
                 JSON.stringify(this.menu.reactions.cache.keyArray()) ===
@@ -296,7 +296,7 @@ module.exports.Menu = class extends EventEmitter {
               this.setPage(this.pageIndex - 1);
             }
             break;
-          case 'next':
+          case "next":
             if (this.pageIndex < this.pages.length - 1) {
               sameReactions =
                 JSON.stringify(this.menu.reactions.cache.keyArray()) ===
@@ -306,10 +306,10 @@ module.exports.Menu = class extends EventEmitter {
               this.setPage(this.pageIndex + 1);
             }
             break;
-          case 'stop':
+          case "stop":
             this.stop();
             break;
-          case 'delete':
+          case "delete":
             this.delete();
             break;
           default:

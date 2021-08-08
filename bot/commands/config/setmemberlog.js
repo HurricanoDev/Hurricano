@@ -1,12 +1,12 @@
-const Command = require('@Command');
-const { MessageEmbed } = require('discord.js');
+const Command = require("@Command");
+const { MessageEmbed } = require("discord.js");
 
 module.exports = new Command({
-  name: 'setmemberlog',
-  aliases: ['setmemberlogchannel', 'smemberlog'],
-  userPermissions: ['ADMINISTRATOR'],
+  name: "setmemberlog",
+  aliases: ["setmemberlogchannel", "smemberlog"],
+  userPermissions: ["ADMINISTRATOR"],
   cooldown: 15,
-  description: 'Set a channel to log in when members leave/join.',
+  description: "Set a channel to log in when members leave/join.",
   async run(message, args) {
     const channel =
       message.mentions.channels.first() ||
@@ -14,7 +14,7 @@ module.exports = new Command({
     if (!channel) {
       return await message.channel.sendError(
         message,
-        'Error',
+        "Error",
         `Provide a \`valid\` channel/ID to set as the server's memberlog-channel.`,
       );
     } else {
@@ -27,7 +27,7 @@ module.exports = new Command({
           { upsert: true },
         );
         return message.sendSuccessReply(
-          'Memberlog Updated!',
+          "Memberlog Updated!",
           `The guild's memberlog channel was updated from \`None\` ➔ <#${channel.id}>`,
         );
       } else if (data.memberLog) {
@@ -37,7 +37,7 @@ module.exports = new Command({
           { upsert: true },
         );
         return message.sendSuccessReply(
-          'Memberlog Updated!',
+          "Memberlog Updated!",
           `The guild's memberlog channel was updated from <#${currentChannel}> ➔ <#${channel.id}>`,
         );
       }

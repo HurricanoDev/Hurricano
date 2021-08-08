@@ -1,11 +1,11 @@
-const Command = require('@Command'),
-  { MessageSelectMenu } = require('discord.js');
+const Command = require("@Command"),
+  { MessageSelectMenu } = require("discord.js");
 
 module.exports = new Command({
-  name: 'disable',
-  descripton: 'Disable a module.',
-  userPermissions: ['ADMINISTRATOR'],
+  name: "disable",
+  descripton: "Disable a module.",
+  userPermissions: ["ADMINISTRATOR"],
   async run(message) {
-    const embed = await message.channel.sendSuccess('Available Modules:');
+    const embed = await message.channel.sendSuccess("Available Modules:");
   },
 });

@@ -1,16 +1,16 @@
-const { MessageEmbed } = require('discord.js');
-const fetch = require('node-fetch');
-const Command = require('@Command');
+const { MessageEmbed } = require("discord.js");
+const fetch = require("node-fetch");
+const Command = require("@Command");
 
 module.exports = new Command({
-  name: 'meme',
-  userPermissions: ['SEND_MESSAGES'],
+  name: "meme",
+  userPermissions: ["SEND_MESSAGES"],
   cooldown: 20,
   description:
-    'Displays a random meme from the `memes`, `dankmemes`, or `me_irl` subreddits.',
+    "Displays a random meme from the `memes`, `dankmemes`, or `me_irl` subreddits.",
   async run(message, args) {
     try {
-      let res = await fetch('https://meme-api.herokuapp.com/gimme');
+      let res = await fetch("https://meme-api.herokuapp.com/gimme");
       res = await res.json();
       const embed = new MessageEmbed()
         .setTitle(res.title)
@@ -21,7 +21,7 @@ module.exports = new Command({
         .setImage(res.url)
         .setFooter(`${message.member.displayName} | 👍 ${res.ups}`)
         .setTimestamp()
-        .setColor('#0099ff');
+        .setColor("#0099ff");
       message.reply({ embeds: [embed] });
     } catch (err) {
       message.channel.send(

@@ -1,13 +1,13 @@
-const { MessageEmbed } = require('discord.js');
+const { MessageEmbed } = require("discord.js");
 
 module.exports = {
-  name: 'trackAdd',
+  name: "trackAdd",
   run: async (queue, track) => {
     const message = queue.metadata;
     const embed = new MessageEmbed()
       .setAuthor(
-        'Song Added',
-        'https://raw.githubusercontent.com/HurricanoBot/HurricanoImages/master/SetAuthorEmojis/Music.gif',
+        "Song Added",
+        "https://raw.githubusercontent.com/HurricanoBot/HurricanoImages/master/SetAuthorEmojis/Music.gif",
       )
       .setColor(message.guild.me.displayHexColor)
       .setDescription(

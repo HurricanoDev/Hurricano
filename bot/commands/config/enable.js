@@ -1,25 +1,25 @@
-const Command = require('@Command');
-const { MessageEmbed, MessageFlags } = require('discord.js');
-const { readdirSync } = require('fs');
+const Command = require("@Command");
+const { MessageEmbed, MessageFlags } = require("discord.js");
+const { readdirSync } = require("fs");
 module.exports = new Command({
-  name: 'enable',
-  descripton: 'Enable a module.',
-  userPermissions: ['ADMINISTRATOR'],
+  name: "enable",
+  descripton: "Enable a module.",
+  userPermissions: ["ADMINISTRATOR"],
   async run(message, args) {
     let avaliableModules = readdirSync(`${process.cwd()}/bot/commands`);
-    avaliableModules.splice(avaliableModules.indexOf('owner'), 1);
+    avaliableModules.splice(avaliableModules.indexOf("owner"), 1);
     const prefix = message._usedPrefix;
-    const modulesEmbed = new MessageEmbed().setTitle('Avaliable Modules.');
+    const modulesEmbed = new MessageEmbed().setTitle("Avaliable Modules.");
     avaliableModules.forEach((d) =>
       modulesEmbed.addField(d, `\`${prefix}enable ${d}\``, true),
     );
-    modulesEmbed.setFooter('Copyright Hurricano™');
+    modulesEmbed.setFooter("Copyright Hurricano™");
     if (!args.length) return message.channel.send({ embeds: [modulesEmbed] });
     const argss = args.shift().toLowerCase();
     if (!avaliableModules.includes(argss)) {
       const invalidEmbed = new MessageEmbed()
-        .setTitle('Invalid Arguments Provided.')
-        .setDescription('Available Modules:');
+        .setTitle("Invalid Arguments Provided.")
+        .setDescription("Available Modules:");
       avaliableModules.forEach((d) =>
         invalidEmbed.addField(d, `\`${prefix}enable ${d}\``),
       );
@@ -32,8 +32,8 @@ module.exports = new Command({
       if (!disabledModules.includes(argss)) {
         message.channel.sendError(
           message,
-          'Already Enabled.',
-          'The module you provided is already enabled.',
+          "Already Enabled.",
+          "The module you provided is already enabled.",
         );
         return;
       }
@@ -43,7 +43,7 @@ module.exports = new Command({
       const data = await guildSchema.save();
       await message.channel.sendSuccess(
         message,
-        'Module Enabled.',
+        "Module Enabled.",
         `The module \`${argss}\` has been enabled.`,
       );
     }

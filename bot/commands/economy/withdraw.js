@@ -1,28 +1,28 @@
-const Command = require('@Command');
-const { MessageEmbed } = require('discord.js');
+const Command = require("@Command");
+const { MessageEmbed } = require("discord.js");
 
 module.exports = new Command({
-  name: 'withdraw',
-  description: 'Withdraw some money from your bank.',
-  aliases: ['with'],
+  name: "withdraw",
+  description: "Withdraw some money from your bank.",
+  aliases: ["with"],
   cooldown: 10,
   async run(message, args) {
     let userData = await client.db.users.cache.get(message.author.id);
     if (userData.bank === 0)
       return message.sendErrorReply(
-        'Error!',
-        'You have nothing to withdraw, try earning some money first!',
+        "Error!",
+        "You have nothing to withdraw, try earning some money first!",
       );
 
     let withAmount = args[0];
     if (!withAmount)
       return message.sendErrorReply(
-        'Error!',
-        'Please give me an amount to withdraw.',
+        "Error!",
+        "Please give me an amount to withdraw.",
       );
     if (
-      (withAmount === 'max' && withAmount !== 'max') ||
-      withAmount !== 'all'
+      (withAmount === "max" && withAmount !== "max") ||
+      withAmount !== "all"
     ) {
       userData.wallet = +userData.bank + +userData.wallet;
       message.reply(
@@ -34,12 +34,12 @@ module.exports = new Command({
 
     if (isNaN(withAmount))
       return message.sendErrorReply(
-        'Error!',
-        'You have to give me a **number** to withdraw.',
+        "Error!",
+        "You have to give me a **number** to withdraw.",
       );
     if (withAmount > userData.bank)
       return message.sendErrorReply(
-        'Error!',
+        "Error!",
         `You don't have that much money to withdraw. You only have **${userData.bank}** coins in your bank.`,
       );
 

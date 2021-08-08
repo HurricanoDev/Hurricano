@@ -1,19 +1,19 @@
-const Discord = require('discord.js'),
-  { readdirSync } = require('fs'),
-  ascii = require('ascii-table'),
-  { Player } = require('discord-player'),
-  giveawaysManager = require('./utilities/giveaway'),
-  logger = require('./utilities/logger.js'),
-  Database = require('./handlers/db.js'),
-  { Lyrics } = require('@discord-player/extractor');
+const Discord = require("discord.js"),
+  { readdirSync } = require("fs"),
+  ascii = require("ascii-table"),
+  { Player } = require("discord-player"),
+  giveawaysManager = require("./utilities/giveaway"),
+  logger = require("./utilities/logger.js"),
+  Database = require("./handlers/db.js"),
+  { Lyrics } = require("@discord-player/extractor");
 
-const table = new ascii('Commands');
+const table = new ascii("Commands");
 table.setHeading(
-  'Command File',
-  'Command Name',
-  'Command Category',
-  'Aliases',
-  'Load status',
+  "Command File",
+  "Command Name",
+  "Command Category",
+  "Aliases",
+  "Load status",
 );
 
 /**
@@ -42,7 +42,7 @@ class HurricanoClient extends Discord.Client {
      * Default prefix.
      * @type {String}
      */
-    this.globalPrefix = 'hr!';
+    this.globalPrefix = "hr!";
     this.token = config.token;
 
     /**
@@ -76,19 +76,19 @@ class HurricanoClient extends Discord.Client {
      * Logger
      * @type {Object}
      */
-    this.logger = require('./utilities/logger.js');
+    this.logger = require("./utilities/logger.js");
     /**
      * Import Schemas
      * @type {Object}
      */
     this.schemas = {
-      guild: require('./schemas/guild.js'),
-      user: require('./schemas/user'),
+      guild: require("./schemas/guild.js"),
+      user: require("./schemas/user"),
     };
     /*
      * Levelling
      */
-    this.levels = require('./utilities/Levels.js');
+    this.levels = require("./utilities/Levels.js");
 
     /**
      * Snipes
@@ -104,8 +104,8 @@ class HurricanoClient extends Discord.Client {
      * Command types.
      */
 
-    this.commandTypes = readdirSync('./bot/commands').filter((x) =>
-      ['.js', '.json'].some((d) => !x.includes(d)),
+    this.commandTypes = readdirSync("./bot/commands").filter((x) =>
+      [".js", ".json"].some((d) => !x.includes(d)),
     );
 
     /**
@@ -131,8 +131,8 @@ class HurricanoClient extends Discord.Client {
         default: {
           botsCanWin: false,
           exemptPermissions: [],
-          embedColor: '#034ea2',
-          reaction: '🎉',
+          embedColor: "#034ea2",
+          reaction: "🎉",
         },
       },
       false,
@@ -142,7 +142,7 @@ class HurricanoClient extends Discord.Client {
      * E m o j i s
      * @type {Object}
      */
-    this._emojis = require('./utilities/emojis.json');
+    this._emojis = require("./utilities/emojis.json");
 
     /**
      * Music
@@ -153,24 +153,24 @@ class HurricanoClient extends Discord.Client {
      * Filters for Moosik
      */
     this.filters = [
-      '8D',
-      'gate',
-      'haas',
-      'phaser',
-      'treble',
-      'tremolo',
-      'vibrato',
-      'reverse',
-      'karaoke',
-      'flanger',
-      'mcompand',
-      'pulsator',
-      'subboost',
-      'bassboost',
-      'vaporwave',
-      'nightcore',
-      'normalizer',
-      'surrounding',
+      "8D",
+      "gate",
+      "haas",
+      "phaser",
+      "treble",
+      "tremolo",
+      "vibrato",
+      "reverse",
+      "karaoke",
+      "flanger",
+      "mcompand",
+      "pulsator",
+      "subboost",
+      "bassboost",
+      "vaporwave",
+      "nightcore",
+      "normalizer",
+      "surrounding",
     ];
 
     /**
@@ -181,9 +181,9 @@ class HurricanoClient extends Discord.Client {
 
     this.links = {
       errorImage:
-        'https://raw.githubusercontent.com/HurricanoBot/HurricanoImages/master/SetAuthorEmojis/Error.png',
+        "https://raw.githubusercontent.com/HurricanoBot/HurricanoImages/master/SetAuthorEmojis/Error.png",
       successImage:
-        'https://raw.githubusercontent.com/HurricanoBot/HurricanoImages/master/SetAuthorEmojis/Success.png',
+        "https://raw.githubusercontent.com/HurricanoBot/HurricanoImages/master/SetAuthorEmojis/Success.png",
     };
     this.functions = {
       createUserDB: async (userObj) => {
@@ -198,11 +198,11 @@ class HurricanoClient extends Discord.Client {
           throw new Error(`Returning message.author not specified.`);
         if (!message) throw new Error(`Message object not provided.`);
         if (!args.length) throw new Error(`Arguments string not provided.`);
-        if (typeof returnAuthor !== 'boolean')
+        if (typeof returnAuthor !== "boolean")
           throw new Error(
             `Whether to return author or not option is not boolean.`,
           );
-        if (typeof message !== 'object')
+        if (typeof message !== "object")
           throw new Error(`Message provided is not an object.`);
         args = args[0];
         let user;
@@ -220,11 +220,11 @@ class HurricanoClient extends Discord.Client {
           throw new Error(`Returning message.author not specified.`);
         if (!message) throw new Error(`Message object not provided.`);
         if (!args.length) throw new Error(`Arguments string not provided.`);
-        if (typeof returnChannel !== 'boolean')
+        if (typeof returnChannel !== "boolean")
           throw new Error(
             `Whether to return channel or not option is not boolean.`,
           );
-        if (typeof message !== 'object')
+        if (typeof message !== "object")
           throw new Error(`Message provided is not an object.`);
         args = args[0];
         let user;
@@ -241,15 +241,15 @@ class HurricanoClient extends Discord.Client {
         var j = i % 10,
           k = i % 100;
         if (j == 1 && k != 11) {
-          return i + 'st';
+          return i + "st";
         }
         if (j == 2 && k != 12) {
-          return i + 'nd';
+          return i + "nd";
         }
         if (j == 3 && k != 13) {
-          return i + 'rd';
+          return i + "rd";
         }
-        return i + 'th';
+        return i + "th";
       },
       randomInArray: (array) => {
         const shuffledArray = array.sort(() => 0.5 - Math.random());
@@ -258,18 +258,18 @@ class HurricanoClient extends Discord.Client {
       createOptionsEmbed: (command, message) => {
         const optionsEmbed = new Discord.MessageEmbed()
           .setAuthor(`${command.name} Help`, this.user.displayAvatarURL())
-          .setColor('#606365')
+          .setColor("#606365")
           .addField(
-            'Usage:',
-            `${`\`${command.usage}\`` ?? 'No usage provided.'}`,
+            "Usage:",
+            `${`\`${command.usage}\`` ?? "No usage provided."}`,
           )
           .addField(
-            'Permissions',
+            "Permissions",
             command.userPermissions?.length
-              ? command.userPermissions.map((x) => `\`${x}\``).join(', ')
-              : 'No user permissions required.',
+              ? command.userPermissions.map((x) => `\`${x}\``).join(", ")
+              : "No user permissions required.",
           )
-          .addField('Subcommands:', `${options}`)
+          .addField("Subcommands:", `${options}`)
           .setFooter(
             `Type ${message._usedPrefix}help <command> for more info on a command.`,
           );
@@ -280,7 +280,7 @@ class HurricanoClient extends Discord.Client {
         return /\d/.test(number);
       },
       shuffle: (content) => {
-        var a = content.split(''),
+        var a = content.split(""),
           n = a.length;
 
         for (var i = n - 1; i > 0; i--) {
@@ -289,7 +289,7 @@ class HurricanoClient extends Discord.Client {
           a[i] = a[j];
           a[j] = tmp;
         }
-        return a.join('');
+        return a.join("");
       },
       capitalize: (string) => {
         return string.charAt(0).toUpperCase() + string.slice(1);
@@ -299,8 +299,8 @@ class HurricanoClient extends Discord.Client {
   // ---------------------------------------------------   Functions    -------------------------------------------------------------
   loadEvents() {
     // BOT EVENTS
-    const botevents = readdirSync('./bot/events/bot').filter((file) =>
-      file.endsWith('.js'),
+    const botevents = readdirSync("./bot/events/bot").filter((file) =>
+      file.endsWith(".js"),
     );
     for (const file of botevents) {
       let event = require(`./events/bot/${file}`);
@@ -312,8 +312,8 @@ class HurricanoClient extends Discord.Client {
       }
     }
     // MUSIC EVENTS
-    const musicevents = readdirSync('./bot/events/music').filter((file) =>
-      file.endsWith('.js'),
+    const musicevents = readdirSync("./bot/events/music").filter((file) =>
+      file.endsWith(".js"),
     );
     for (const file of musicevents) {
       const event = require(`./events/music/${file}`);
@@ -321,8 +321,8 @@ class HurricanoClient extends Discord.Client {
     }
 
     // GIVEAWAYS EVENTS
-    const giveawaysevents = readdirSync('./bot/events/giveaways').filter(
-      (file) => file.endsWith('.js'),
+    const giveawaysevents = readdirSync("./bot/events/giveaways").filter(
+      (file) => file.endsWith(".js"),
     );
     for (const file of giveawaysevents) {
       const event = require(`./events/giveaways/${file}`);
@@ -332,9 +332,9 @@ class HurricanoClient extends Discord.Client {
     }
   }
   loadCommands() {
-    readdirSync('./bot/commands').forEach((dir) => {
+    readdirSync("./bot/commands").forEach((dir) => {
       const commands = readdirSync(`./bot/commands/${dir}/`).filter((file) =>
-        file.endsWith('.js'),
+        file.endsWith(".js"),
       );
       try {
         for (let file of commands) {
@@ -344,16 +344,16 @@ class HurricanoClient extends Discord.Client {
               file,
               props.name,
               dir,
-              props.aliases ? props.aliases.join(', ') : 'None.',
-              'Loaded!',
+              props.aliases ? props.aliases.join(", ") : "None.",
+              "Loaded!",
             );
           } else {
             table.addRow(
               file,
               props.name,
               dir,
-              props.aliases ? props.aliases.join(', ') : 'None.',
-              'Not Loaded -> Missing a help.name, or help.name is not a string.',
+              props.aliases ? props.aliases.join(", ") : "None.",
+              "Not Loaded -> Missing a help.name, or help.name is not a string.",
             );
             continue;
           }
@@ -369,7 +369,7 @@ class HurricanoClient extends Discord.Client {
         logger.error(e);
       }
     });
-    logger.client('\n' + table.toString());
+    logger.client("\n" + table.toString());
   }
   connect() {
     return this.login(this.config.token);
@@ -381,10 +381,10 @@ class HurricanoClient extends Discord.Client {
   }
   async loadTopgg() {
     if (this.config.topgg.enabled) {
-      const DBL = require('@top-gg/sdk');
+      const DBL = require("@top-gg/sdk");
       const guildCount = new DBL.Api(this.config.topgg.token);
 
-      await super.on('ready', () => {
+      await super.on("ready", () => {
         setInterval(() => {
           guildCount.postStats({
             serverCount: this.guilds.cache.size,
@@ -395,7 +395,7 @@ class HurricanoClient extends Discord.Client {
       });
 
       if (this.config.topgg.webhook.enabled) {
-        const app = require('express')();
+        const app = require("express")();
         const voteWebhook = new DBL.Webhook(this.config.topgg.webhookPassword);
         // voteWebhook.on("ready", (hook) => {
         //   this.logger.info(
@@ -404,7 +404,7 @@ class HurricanoClient extends Discord.Client {
         // });
         const thisSelf = this;
         await app.post(
-          '/dblwebhook',
+          "/dblwebhook",
           voteWebhook.listener(async (vote) => {
             const channel = await thisSelf.channels.resolve(
               this.config.topgg.webhook.channelID,
@@ -418,19 +418,19 @@ class HurricanoClient extends Discord.Client {
               .setThumbnail(user.displayAvatarURL())
               .setFooter(user.tag)
               .setTimestamp()
-              .setColor('#FFD700');
+              .setColor("#FFD700");
             channel.send({ embeds: [embed] });
             this.logger.info(`User with ID ${user.tag} just voted!`);
 
             const dmEmbed = new Discord.MessageEmbed()
-              .setTitle('Thanks for your vote!')
+              .setTitle("Thanks for your vote!")
               .setDescription(
                 `Hey **${user.username}**, thanks so much for your vote! This helps us in unimaginable ways!`,
               )
               .setThumbnail(
-                'https://raw.githubusercontent.com/HurricanoBot/HurricanoImages/master/other/VotePog.png',
+                "https://raw.githubusercontent.com/HurricanoBot/HurricanoImages/master/other/VotePog.png",
               )
-              .setColor('GREEN');
+              .setColor("GREEN");
 
             await user.send({ embeds: [dmEmbed] }).catch(() => {});
             const userdb = this.db.users.cache.get(user.id);
@@ -450,12 +450,12 @@ class HurricanoClient extends Discord.Client {
   }
 }
 function loadStructures() {
-  const structures = readdirSync('./bot/structures/ImmediateExecute').filter(
-    (file) => file.endsWith('.js'),
+  const structures = readdirSync("./bot/structures/ImmediateExecute").filter(
+    (file) => file.endsWith(".js"),
   );
 
   for (const file of structures) {
-    require('./structures/ImmediateExecute/' + file);
+    require("./structures/ImmediateExecute/" + file);
   }
 }
 module.exports = {

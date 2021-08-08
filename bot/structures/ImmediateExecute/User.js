@@ -1,5 +1,5 @@
-const { Structures, MessageEmbed } = require('discord.js');
-module.exports = Structures.extend('User', (User) => {
+const { Structures, MessageEmbed } = require("discord.js");
+module.exports = Structures.extend("User", (User) => {
   class HurricanoUser extends User {
     constructor(...args) {
       super(...args);
@@ -20,9 +20,9 @@ module.exports = Structures.extend('User', (User) => {
       const embed = new MessageEmbed()
         .setAuthor(
           Header,
-          'https://raw.githubusercontent.com/HurricanoBot/HurricanoImages/master/SetAuthorEmojis/Error.png',
+          "https://raw.githubusercontent.com/HurricanoBot/HurricanoImages/master/SetAuthorEmojis/Error.png",
         )
-        .setColor('RED');
+        .setColor("RED");
 
       if (Msg) {
         embed.setDescription(Msg);
@@ -45,9 +45,9 @@ module.exports = Structures.extend('User', (User) => {
       const embed = new MessageEmbed()
         .setAuthor(
           Header,
-          'https://raw.githubusercontent.com/HurricanoBot/HurricanoImages/master/SetAuthorEmojis/Success.png',
+          "https://raw.githubusercontent.com/HurricanoBot/HurricanoImages/master/SetAuthorEmojis/Success.png",
         )
-        .setColor('GREEN');
+        .setColor("GREEN");
       if (Msg) {
         embed.setDescription(Msg);
       }

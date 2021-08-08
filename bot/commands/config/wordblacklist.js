@@ -1,34 +1,34 @@
-const Command = require('@Command');
-const { MessageEmbed } = require('discord.js');
-const { blacklistedWords } = require('../../collections/blwords.js');
+const Command = require("@Command");
+const { MessageEmbed } = require("discord.js");
+const { blacklistedWords } = require("../../collections/blwords.js");
 
 module.exports = new Command({
-  name: 'wordblacklist',
-  description: 'Blacklist/Display/Remove word(s) in your server.',
-  aliases: ['wbl'],
-  userPermissions: ['ADMINISTRATOR'],
+  name: "wordblacklist",
+  description: "Blacklist/Display/Remove word(s) in your server.",
+  aliases: ["wbl"],
+  userPermissions: ["ADMINISTRATOR"],
   examples: [
-    'wordblacklist display',
-    'wordblacklist add',
-    'wordblacklist remove',
+    "wordblacklist display",
+    "wordblacklist add",
+    "wordblacklist remove",
   ],
   subCommands: {
     commands: [
       [
-        'add',
+        "add",
         async (message, args) => {
           const word = args[0]?.toLowerCase();
           if (!word)
             return message.channel.sendError(
               message,
-              'Error!',
-              'Please specify a word to blacklist',
+              "Error!",
+              "Please specify a word to blacklist",
             );
           const data = message.guild.db.cache();
           if (data.blacklistedWords.includes(word)) {
             return message.sendErrorReply(
-              'Error!',
-              'That word is already blacklisted!',
+              "Error!",
+              "That word is already blacklisted!",
             );
           }
           data.blacklistedWords.push(word);
@@ -36,20 +36,20 @@ module.exports = new Command({
           blacklistedWords.set(message.guild.id, data.blacklistedWords);
           message.channel.sendSuccess(
             message,
-            'Done!',
+            "Done!",
             `The word: \`${word}\` was blacklisted!`,
           );
         },
       ],
       [
-        ['remove', 'delete'],
+        ["remove", "delete"],
         async (message, args) => {
           const word = args[0]?.toLowerCase();
           if (!word)
             return message.channel.sendError(
               message,
-              'Error!',
-              'Please specify a word to blacklist',
+              "Error!",
+              "Please specify a word to blacklist",
             );
 
           client.schemas.guild.findOne(
@@ -58,15 +58,15 @@ module.exports = new Command({
               if (!data)
                 return message.channel.sendError(
                   message,
-                  'Error!',
-                  'There is no data saved in the database!',
+                  "Error!",
+                  "There is no data saved in the database!",
                 );
 
               if (!data.blacklistedWords.includes(word))
                 return message.channel.sendError(
                   message,
-                  'Error!',
-                  'That word does not exist in the database.',
+                  "Error!",
+                  "That word does not exist in the database.",
                 );
 
               const filtered = data.blacklistedWords.filter(
@@ -87,13 +87,13 @@ module.exports = new Command({
           );
           message.channel.sendSuccess(
             message,
-            'Done!',
-            'That word has been removed',
+            "Done!",
+            "That word has been removed",
           );
         },
       ],
       [
-        'display',
+        "display",
         async (message, args) => {
           client.schemas.guild.findOne(
             { id: message.guild.id },
@@ -101,14 +101,14 @@ module.exports = new Command({
               if (!data)
                 return message.channel.sendError(
                   message,
-                  'Error!',
-                  'There is no data to display!',
+                  "Error!",
+                  "There is no data to display!",
                 );
 
               const displayEmbed = new MessageEmbed()
-                .setTitle('Blacklisted Words')
-                .setColor('#606365')
-                .setDescription(data.blacklistedWords.join(', '));
+                .setTitle("Blacklisted Words")
+                .setColor("#606365")
+                .setDescription(data.blacklistedWords.join(", "));
               message.channel.send({ embeds: [displayEmbed] });
             },
           );
@@ -116,5 +116,5 @@ module.exports = new Command({
       ],
     ],
   },
-  args: 'Incomplete arguments Provided. \n Possible subcommands: `add, remove, display`',
+  args: "Incomplete arguments Provided. \n Possible subcommands: `add, remove, display`",
 });

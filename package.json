@@ -22,7 +22,7 @@
     "ascii-table": "0.0.9",
     "canvacord": "^5.0.8",
     "discord-giveaways": "github:Androz2091/discord-giveaways#discord.js-v13",
-    "discord-player": "^5.0.0-dev.29489940b64b555e2e791dcf0662bd2d93a22ef6",
+    "discord-player": "^5.0.1",
     "discord.js": "^13.0.0",
     "dotenv": "^8.2.0",
     "ejs": "^3.1.6",
@@ -44,7 +44,7 @@
     "@config": "./bot/utilities/config.js",
     "@root": ".",
     "@Command": "./bot/utilities/Command.js",
-    "@Utils": "./bot/utilities/",
+    "@utils": "./bot/utilities/",
     "@schemas": "./bot/schemas"
   },
   "devDependencies": {

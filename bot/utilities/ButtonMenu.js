@@ -1,4 +1,4 @@
-const { MessageButton } = require('discord.js');
+const { MessageButton } = require("discord.js");
 function split(array, count) {
   const groups = [];
   for (let i = 0; i < array.length; i += count)
@@ -16,8 +16,8 @@ module.exports = class ButtonMenu {
     this.collector = null;
   }
   static validation(message, options) {
-    if (typeof message !== 'object')
-      throw new Error('Message object provided is not an object.');
+    if (typeof message !== "object")
+      throw new Error("Message object provided is not an object.");
   }
   async start() {
     let row = [];
@@ -28,7 +28,7 @@ module.exports = class ButtonMenu {
       if (!totalObj[1]) return;
       const button = new MessageButton()
         .setcustomId(emojiId.toString())
-        .setStyle('SUCCESS')
+        .setStyle("SUCCESS")
         .setEmoji(emojiId.toString());
       row.push(button);
     });
@@ -43,22 +43,22 @@ module.exports = class ButtonMenu {
       idle: 45000,
       filter: (x) => x.user.id !== client.user.id,
     });
-    await collector.on('collect', async (button) => {
+    await collector.on("collect", async (button) => {
       if (button.user.id !== this.message.author.id)
         return button.reply({
-          content: 'You cannot use this menu.',
+          content: "You cannot use this menu.",
           ephemeral: true,
         });
       const embed = this.options[button.customId];
       if (message.embeds[0].description == embed.description)
         return button.reply({
-          content: 'Please choose a different button!',
+          content: "Please choose a different button!",
           ephemeral: true,
         });
 
       message = await message.edit({ embeds: [embed] });
       button.deferUpdate();
     });
-    collector.on('end', () => message.edit({ components: [] }));
+    collector.on("end", () => message.edit({ components: [] }));
   }
 };

@@ -1,35 +1,35 @@
-const Command = require('@Command');
-const { Util, MessageEmbed } = require('discord.js');
-const { parse } = require('twemoji-parser');
+const Command = require("@Command");
+const { Util, MessageEmbed } = require("discord.js");
+const { parse } = require("twemoji-parser");
 module.exports = new Command({
-  name: 'addemoji',
+  name: "addemoji",
   description:
-    'lets the user add a custom emoji through an image URL. (which should be less than 256 KB)',
-  userPermissions: ['MANAGE_EMOJIS'],
+    "lets the user add a custom emoji through an image URL. (which should be less than 256 KB)",
+  userPermissions: ["MANAGE_EMOJIS"],
   async run(message, args) {
     const emoji = args[0];
-    const name = args.slice(1).join(' ');
+    const name = args.slice(1).join(" ");
     if (!emoji) {
       return message.channel.sendError(
         message,
-        'Error.',
+        "Error.",
         `Please give me an emoji!`,
       );
     }
     if (!name) {
       return message.channel.sendError(
         message,
-        'Error.',
+        "Error.",
         `No emoji name specified`,
       );
     }
     try {
-      if (emoji.startsWith('https://cdn.discordapp.com')) {
+      if (emoji.startsWith("https://cdn.discordapp.com")) {
         const fb = await message.guild.emojis.create(emoji, name || name);
 
         return message.channel.sendSuccess(
           message,
-          'Emoji added.',
+          "Emoji added.",
           fb + ` has been added as "${name}"`,
         );
       }
@@ -38,7 +38,7 @@ module.exports = new Command({
 
       if (customEmoji.id) {
         const link = `https://cdn.discordapp.com/emojis/${customEmoji.id}.${
-          customEmoji.animated ? 'gif' : 'png'
+          customEmoji.animated ? "gif" : "png"
         }`;
 
         const emj = await message.guild.emojis.create(
@@ -47,23 +47,23 @@ module.exports = new Command({
         );
         return message.channel.sendSuccess(
           message,
-          'Done!',
+          "Done!",
           `${emj} has been added as ${name}`,
         );
       } else {
-        const foundEmoji = parse(emoji, { assetType: 'png' });
+        const foundEmoji = parse(emoji, { assetType: "png" });
         if (!foundEmoji[1]) {
           return message.channel.sendError(
             message,
-            'Error.',
+            "Error.",
             "Please provide a valid emoji. I can't work with this and it should be under 256 KB",
           );
         }
 
         message.channel.sendError(
           message,
-          'Error!',
-          'Bruv this is a normal emoji what you can use anywhere',
+          "Error!",
+          "Bruv this is a normal emoji what you can use anywhere",
         );
       }
     } catch (e) {
@@ -74,8 +74,8 @@ module.exports = new Command({
       ) {
         return message.channel.sendError(
           message,
-          'Error.',
-          'Maximum emoji count reached for this Server!',
+          "Error.",
+          "Maximum emoji count reached for this Server!",
         );
       }
     }

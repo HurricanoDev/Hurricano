@@ -1,9 +1,9 @@
-const Command = require('@Command');
-const { MessageEmbed } = require('discord.js');
+const Command = require("@Command");
+const { MessageEmbed } = require("discord.js");
 
 module.exports = new Command({
-  name: 'birthdate',
-  aliases: ['checkbirthday', 'checkbday', 'birthdaycheck'],
+  name: "birthdate",
+  aliases: ["checkbirthday", "checkbday", "birthdaycheck"],
   cooldown: 30,
   description: "Check someone's birthday",
   async run(message, args) {
@@ -13,13 +13,13 @@ module.exports = new Command({
     const userData = client.db.users.cache.get(user.id);
     if (!userData.birthday)
       return message.sendErrorReply(
-        'Error',
+        "Error",
         "Sorry! That person hasn't set their birthday yet.",
       );
 
     const birthdayEmbed = new MessageEmbed()
-      .setTitle('Results:')
-      .setColor('RANDOM')
+      .setTitle("Results:")
+      .setColor("RANDOM")
       .setDescription(
         `${user.username}'s birthdate is **${userData.birthday}**`,
       );

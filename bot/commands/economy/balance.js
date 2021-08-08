@@ -1,10 +1,10 @@
-const Command = require('@Command');
-const { MessageEmbed } = require('discord.js');
+const Command = require("@Command");
+const { MessageEmbed } = require("discord.js");
 
 module.exports = new Command({
-  name: 'balance',
-  aliases: ['bal', 'coins', 'money'],
-  description: 'Check how many coins you have.',
+  name: "balance",
+  aliases: ["bal", "coins", "money"],
+  description: "Check how many coins you have.",
   async run(message, args) {
     const target = await client.functions.getMember(true, message, args[0]);
     const userData = client.db.users.cache.get(target.id);
@@ -16,7 +16,7 @@ module.exports = new Command({
       .setTitle(`${target.user.username}'s balance`)
       .setDescription(`**Wallet:** 🪙 ${wallet}\n**Bank:** 🪙 ${bank}`)
       .setTimestamp()
-      .setFooter('🤠');
+      .setFooter("🤠");
 
     message.channel.send({ embeds: [balEmbed] });
   },

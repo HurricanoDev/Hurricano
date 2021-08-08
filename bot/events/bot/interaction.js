@@ -1,9 +1,9 @@
-const BaseEvent = require('../../structures/internal/BaseEvent.js');
+const BaseEvent = require("../../structures/internal/BaseEvent.js");
 
 module.exports = class InteractionEvent extends BaseEvent {
   constructor(client) {
-    super('interaction', {
-      description: 'Interaction event, meant for slash commands as of now.',
+    super("interaction", {
+      description: "Interaction event, meant for slash commands as of now.",
       client: client,
     });
   }

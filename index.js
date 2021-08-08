@@ -1,9 +1,9 @@
-require('./bot/utilities/module-alias.js')();
-const config = require('@config');
-const { ShardingManager } = require('discord.js');
-const logger = require('./bot/utilities/logger.js');
-const manager = new ShardingManager('./bot/handlers/index.js', {
-  totalShards: 'auto',
+require("./bot/utilities/module-alias.js")();
+const config = require("@config");
+const { ShardingManager } = require("discord.js");
+const logger = require("./bot/utilities/logger.js");
+const manager = new ShardingManager("./bot/handlers/index.js", {
+  totalShards: "auto",
   token: config.token,
 });
 // const Statcord = require("statcord.js").ShardingClient;
@@ -15,27 +15,27 @@ const manager = new ShardingManager('./bot/handlers/index.js', {
 //   postNetworkStatistics: true,
 //   autopost: true
 // }) : null;
-manager.on('shardCreate', (shard) => {
+manager.on("shardCreate", (shard) => {
   logger.shard(`[Shard ${shard.id}] Shard Launched!`);
-  shard.on('ready', () => {
+  shard.on("ready", () => {
     logger.shard(`[Shard ${shard.id}] Shard Ready!`);
   });
 
-  shard.on('message', (message) => {
-    if (message === 'kill') return shard.kill();
+  shard.on("message", (message) => {
+    if (message === "kill") return shard.kill();
   });
 
-  shard.on('disconnect', (a, b) => {
+  shard.on("disconnect", (a, b) => {
     logger.shard(`[Shard ${shard.id}] Shard disconnected.`);
     logger.shard(a);
     logger.shard(b);
   });
-  shard.on('reconnecting', (a, b) => {
+  shard.on("reconnecting", (a, b) => {
     logger.shard(`[Shard ${shard.id}] Reconnecting.`);
     logger.shard(a);
     logger.shard(b);
   });
-  shard.on('death', (a, b) => {
+  shard.on("death", (a, b) => {
     logger.shard(`[Shard ${shard.id}] Shard died.`);
     a ? logger.shard(a) : null;
     b ? logger.shard(b) : null;
@@ -43,7 +43,7 @@ manager.on('shardCreate', (shard) => {
 });
 manager.spawn();
 
-process.on('unhandledRejection', (error) => {
+process.on("unhandledRejection", (error) => {
   logger.error(error);
 });
 // if (stat) {

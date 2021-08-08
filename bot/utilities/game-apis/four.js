@@ -1,17 +1,17 @@
-const Discord = require('discord.js');
+const Discord = require("discord.js");
 
 const WIDTH = 7;
 const HEIGHT = 7;
 const gameBoard = [];
 
 const reactions = {
-  '1️⃣': 1,
-  '2️⃣': 2,
-  '3️⃣': 3,
-  '4️⃣': 4,
-  '5️⃣': 5,
-  '6️⃣': 6,
-  '7️⃣': 7,
+  "1️⃣": 1,
+  "2️⃣": 2,
+  "3️⃣": 3,
+  "4️⃣": 4,
+  "5️⃣": 5,
+  "6️⃣": 6,
+  "7️⃣": 7,
 };
 
 class Connect4 {
@@ -25,12 +25,12 @@ class Connect4 {
   }
 
   gameBoardToString() {
-    let str = `|${Object.keys(reactions).join('|')}|\n`;
+    let str = `|${Object.keys(reactions).join("|")}|\n`;
     for (let y = 0; y < HEIGHT; y++) {
       for (let x = 0; x < WIDTH; x++) {
-        str += '|' + gameBoard[y * WIDTH + x];
+        str += "|" + gameBoard[y * WIDTH + x];
       }
-      str += '|\n';
+      str += "|\n";
     }
     return str;
   }
@@ -41,17 +41,17 @@ class Connect4 {
 
     for (let y = 0; y < HEIGHT; y++) {
       for (let x = 0; x < WIDTH; x++) {
-        gameBoard[y * WIDTH + x] = '⚪';
+        gameBoard[y * WIDTH + x] = "⚪";
       }
     }
 
     this.inGame = true;
     let user = this.users[Math.floor(Math.random() * this.users.length)];
     const embed = new Discord.MessageEmbed()
-      .setColor('#000b9e')
-      .setTitle('Connect-4')
+      .setColor("#000b9e")
+      .setTitle("Connect-4")
       .setDescription(this.gameBoardToString())
-      .addField('Turn:', this.getChipFromTurn() + `\n (${user})`)
+      .addField("Turn:", this.getChipFromTurn() + `\n (${user})`)
       .setTimestamp();
     message.channel.send({ embeds: [embed] }).then((emsg) => {
       this.gameEmbed = emsg;
@@ -67,10 +67,10 @@ class Connect4 {
     user = user[0];
     this.redTurn = !this.redTurn;
     const editEmbed = new Discord.MessageEmbed()
-      .setColor('#000b9e')
-      .setTitle('Connect-4')
+      .setColor("#000b9e")
+      .setTitle("Connect-4")
       .setDescription(this.gameBoardToString())
-      .addField('Turn:', this.getChipFromTurn() + `\n (${user})`)
+      .addField("Turn:", this.getChipFromTurn() + `\n (${user})`)
       .setTimestamp();
     this.gameEmbed.edit({ embeds: [editEmbed] });
     this.waitForReaction(user);
@@ -79,9 +79,9 @@ class Connect4 {
   gameOver(winner) {
     this.inGame = false;
     const editEmbed = new Discord.MessageEmbed()
-      .setColor('#000b9e')
-      .setTitle('Connect-4')
-      .setDescription('GAME OVER! ' + this.getWinnerText(winner))
+      .setColor("#000b9e")
+      .setTitle("Connect-4")
+      .setDescription("GAME OVER! " + this.getWinnerText(winner))
       .setTimestamp();
     this.gameEmbed.edit({ embeds: [editEmbed] });
     this.gameEmbed.reactions.removeAll();
@@ -101,7 +101,7 @@ class Connect4 {
         filter: (reaction, user) => this.filter(reaction, user, userTurn),
         max: 1,
         time: 300000,
-        errors: ['time'],
+        errors: ["time"],
       })
       .then((collected) => {
         const reaction = collected.first();
@@ -111,7 +111,7 @@ class Connect4 {
 
         for (let y = HEIGHT - 1; y >= 0; y--) {
           const chip = gameBoard[column + y * WIDTH];
-          if (chip === '⚪') {
+          if (chip === "⚪") {
             gameBoard[column + y * WIDTH] = this.getChipFromTurn();
             placedX = column;
             placedY = y;
@@ -132,7 +132,7 @@ class Connect4 {
             if (this.hasWon(placedX, placedY)) {
               this.gameOver(this.getChipFromTurn());
             } else if (this.isBoardFull()) {
-              this.gameOver('tie');
+              this.gameOver("tie");
             } else {
               this.step(
                 this.users.filter((otherUser) => otherUser.id !== userTurn.id),
@@ -141,12 +141,12 @@ class Connect4 {
           });
       })
       .catch((collected) => {
-        this.gameOver('timeout');
+        this.gameOver("timeout");
       });
   }
 
   getChipFromTurn() {
-    return this.redTurn ? '🔴' : '🟡';
+    return this.redTurn ? "🔴" : "🟡";
   }
 
   hasWon(placedX, placedY) {
@@ -219,14 +219,14 @@ class Connect4 {
   isBoardFull() {
     for (let y = 0; y < HEIGHT; y++)
       for (let x = 0; x < WIDTH; x++)
-        if (gameBoard[y * WIDTH + x] === '⚪') return false;
+        if (gameBoard[y * WIDTH + x] === "⚪") return false;
     return true;
   }
 
   getWinnerText(winner) {
-    if (winner === '🔴' || winner === '🟡') return winner + ' Has Won!';
-    else if (winner == 'tie') return 'It was a tie!';
-    else if (winner == 'timeout') return 'The game went unfinished :(';
+    if (winner === "🔴" || winner === "🟡") return winner + " Has Won!";
+    else if (winner == "tie") return "It was a tie!";
+    else if (winner == "timeout") return "The game went unfinished :(";
   }
 }
 

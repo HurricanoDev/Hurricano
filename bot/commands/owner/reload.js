@@ -1,10 +1,10 @@
-const fs = require('fs');
-const Command = require('@Command');
+const fs = require("fs");
+const Command = require("@Command");
 
 module.exports = new Command({
-  name: 'reload',
-  description: 'Reloads a command',
-  args: 'Please provide which command you would like to reload!',
+  name: "reload",
+  description: "Reloads a command",
+  args: "Please provide which command you would like to reload!",
   ownerOnly: true,
   async run(message, args) {
     const commandName = args[0].toLowerCase();

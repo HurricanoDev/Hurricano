@@ -1,4 +1,4 @@
-const Discord = require('discord.js');
+const Discord = require("discord.js");
 const WIDTH = 15;
 const HEIGHT = 10;
 const gameBoard = [];
@@ -21,31 +21,31 @@ class SnakeGame {
     this.inGame = false;
     for (let y = 0; y < HEIGHT; y++) {
       for (let x = 0; x < WIDTH; x++) {
-        gameBoard[y * WIDTH + x] = '🟦';
+        gameBoard[y * WIDTH + x] = "🟦";
       }
     }
   }
 
   gameBoardToString() {
-    let str = '';
+    let str = "";
     for (let y = 0; y < HEIGHT; y++) {
       for (let x = 0; x < WIDTH; x++) {
         if (x == apple.x && y == apple.y) {
-          str += '🍎';
+          str += "🍎";
           continue;
         }
 
         let flag = true;
         for (let s = 0; s < this.snake.length; s++) {
           if (x == this.snake[s].x && y == this.snake[s].y) {
-            str += '🟩';
+            str += "🟩";
             flag = false;
           }
         }
 
         if (flag) str += gameBoard[y * WIDTH + x];
       }
-      str += '\n';
+      str += "\n";
     }
     return str;
   }
@@ -77,39 +77,39 @@ class SnakeGame {
     this.snake = [{ x: 5, y: 5 }];
     this.newAppleLoc();
     const embed = new Discord.MessageEmbed()
-      .setColor('#03ad03')
-      .setTitle('Snake Game')
+      .setColor("#03ad03")
+      .setTitle("Snake Game")
       .setDescription(this.gameBoardToString())
       .setTimestamp();
 
     let array = [];
-    const disabledButt = ['⬛', 'disabled'];
+    const disabledButt = ["⬛", "disabled"];
     [
       disabledButt,
-      ['⬆️', 'up'],
+      ["⬆️", "up"],
       disabledButt,
-      ['⬅️', 'left'],
-      ['❌', 'stop'],
-      ['➡️', 'right'],
+      ["⬅️", "left"],
+      ["❌", "stop"],
+      ["➡️", "right"],
       disabledButt,
-      ['⬇️', 'down'],
+      ["⬇️", "down"],
       disabledButt,
     ].forEach((em) => {
       let button;
-      if (em[0] == '⬛') {
+      if (em[0] == "⬛") {
         button = new Discord.MessageButton()
-          .setStyle('SECONDARY')
-          .setcustomId('noneRequired')
-          .setEmoji('⬛')
+          .setStyle("SECONDARY")
+          .setcustomId("noneRequired")
+          .setEmoji("⬛")
           .setDisabled(true);
-      } else if (em[0] == '❌') {
+      } else if (em[0] == "❌") {
         button = new Discord.MessageButton()
-          .setStyle('DANGER')
-          .setcustomId('stop')
-          .setLabel('Stop.');
+          .setStyle("DANGER")
+          .setcustomId("stop")
+          .setLabel("Stop.");
       } else {
         button = new Discord.MessageButton()
-          .setStyle('PRIMARY')
+          .setStyle("PRIMARY")
           .setcustomId(em[1])
           .setEmoji(em[0]);
       }
@@ -133,8 +133,8 @@ class SnakeGame {
     }
 
     const editEmbed = new Discord.MessageEmbed()
-      .setColor('#03ad03')
-      .setTitle('Snake Game')
+      .setColor("#03ad03")
+      .setTitle("Snake Game")
       .setDescription(this.gameBoardToString())
       .setTimestamp();
     this.gameEmbed.edit({ embeds: [editEmbed] });
@@ -146,7 +146,7 @@ class SnakeGame {
     this.inGame = false;
     const embed = new Discord.MessageEmbed({
       author: {
-        name: 'GAME OVER!',
+        name: "GAME OVER!",
         iconURL: client.links.errorImage,
       },
       description: `Bad Luck, you lost! Better luck next time \n Your Score: \`${this.score}\``,
@@ -162,45 +162,45 @@ class SnakeGame {
     const collector = this.gameEmbed.createMessageComponentCollector({
       max: 1,
       idle: 60000,
-      errors: ['time'],
+      errors: ["time"],
     });
-    collector.on('collect', (collected) => {
+    collector.on("collect", (collected) => {
       if (collected.user.id !== this.message.author.id)
         return collected.reply({
-          content: 'You cannot use this snake game.',
+          content: "You cannot use this snake game.",
           ephemeral: true,
         });
       const snakeHead = this.snake[0];
       const nextPos = { x: snakeHead.x, y: snakeHead.y };
-      if (collected.customId === 'left') {
+      if (collected.customId === "left") {
         let nextX = snakeHead.x - 1;
         if (nextX < 0) {
           collected.deferUpdate();
           return this.gameOver();
         }
         nextPos.x = nextX;
-      } else if (collected.customId === 'up') {
+      } else if (collected.customId === "up") {
         let nextY = snakeHead.y - 1;
         if (nextY < 0) {
           collected.deferUpdate();
           return this.gameOver();
         }
         nextPos.y = nextY;
-      } else if (collected.customId === 'down') {
+      } else if (collected.customId === "down") {
         let nextY = snakeHead.y + 1;
         if (nextY >= HEIGHT) {
           collected.deferUpdate();
           return this.gameOver();
         }
         nextPos.y = nextY;
-      } else if (collected.customId === 'right') {
+      } else if (collected.customId === "right") {
         let nextX = snakeHead.x + 1;
         if (nextX >= WIDTH) {
           collected.deferUpdate();
           return this.gameOver();
         }
         nextPos.x = nextX;
-      } else if (collected.customId === 'stop') {
+      } else if (collected.customId === "stop") {
         collected.deferUpdate();
         return this.gameOver();
       }
@@ -215,11 +215,11 @@ class SnakeGame {
         this.step();
       }
     });
-    collector.on('end', (x) => {
+    collector.on("end", (x) => {
       if (x.size && x.size == 0) {
         this.message.sendErrorReply(
-          'Ended.',
-          'This game has ended due to inactivity.',
+          "Ended.",
+          "This game has ended due to inactivity.",
         );
         this.gameOver();
       }

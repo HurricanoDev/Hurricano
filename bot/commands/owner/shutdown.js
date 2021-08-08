@@ -1,13 +1,13 @@
-const Command = require('@Command');
+const Command = require("@Command");
 
 module.exports = new Command({
-  name: 'shutdown',
-  description: 'Shut the bot down.',
+  name: "shutdown",
+  description: "Shut the bot down.",
   ownerOnly: true,
   async run(message, args) {
     await message.channel.sendSuccess(
       message,
-      'Confirmation.',
+      "Confirmation.",
       "Are you sure you want to shutdown the bot? Please respond with `yes` if you would like to reboot the bot and `no` if you wouldn't.",
     );
     let collected = await message.channel
@@ -15,31 +15,31 @@ module.exports = new Command({
         filter: (m) => m.author.id === message.author.id,
         max: 1,
         time: 5000,
-        errors: ['time'],
+        errors: ["time"],
       })
       .catch((e) => {
         message.channel.sendError(
           message,
-          'Time Limit Reached.',
-          'You took more than 20 seconds. Please try again.',
+          "Time Limit Reached.",
+          "You took more than 20 seconds. Please try again.",
         );
       });
 
     collected = collected.first();
-    if (collected.content == 'yes') {
-      message.sendSuccessReply('Rebooting...', 'Rebooting the bot now.');
+    if (collected.content == "yes") {
+      message.sendSuccessReply("Rebooting...", "Rebooting the bot now.");
       setTimeout(() => {
-        client.shard.send('kill');
+        client.shard.send("kill");
       }, 2000);
-    } else if (collected.content == 'no') {
+    } else if (collected.content == "no") {
       message.sendSuccessReply(
-        'Cancelling Reboot.',
-        'Cancelling the bot reboot.',
+        "Cancelling Reboot.",
+        "Cancelling the bot reboot.",
       );
     } else {
       message.sendErrorReply(
-        'Invalid Response Provided.',
-        'You did not provide a valid response between `yes` or `no`. Please try again.',
+        "Invalid Response Provided.",
+        "You did not provide a valid response between `yes` or `no`. Please try again.",
       );
     }
   },

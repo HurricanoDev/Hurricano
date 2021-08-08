@@ -1,12 +1,12 @@
-const { Structures, MessagePayload, MessageEmbed } = require('discord.js');
+const { Structures, MessagePayload, MessageEmbed } = require("discord.js");
 async function sendMsg(message, type, sendType, values) {
-  const error = type.toLowerCase() == 'error' ? true : false;
+  const error = type.toLowerCase() == "error" ? true : false;
   const embed = new MessageEmbed()
     .setAuthor(
       values.Header,
       error ? client.links.errorImage : client.links.successImage,
     )
-    .setColor(error ? 'RED' : 'GREEN')
+    .setColor(error ? "RED" : "GREEN")
     .setDescription(values.Msg)
     .setFooter(
       values.Footer ?? message.author.tag,
@@ -17,19 +17,19 @@ async function sendMsg(message, type, sendType, values) {
     embeds: [embed],
   };
   sendObj.components = values.Components;
-  return sendType === 'edit'
+  return sendType === "edit"
     ? await message.edit({ embeds: [embed] })
     : await message.reply({ embeds: [embed] });
 }
 module.exports = Structures.extend(
-  'Message',
+  "Message",
   (Message) =>
     class HurricanoMessage extends Message {
       constructor(...args) {
         super(...args);
       }
       async editError(Header, Msg, Footer, Fields, Components) {
-        const msg = await sendMsg(this, 'error', 'edit', {
+        const msg = await sendMsg(this, "error", "edit", {
           Header,
           Msg,
           Footer,
@@ -39,7 +39,7 @@ module.exports = Structures.extend(
         return msg;
       }
       async editSuccess(Header, Msg, Footer, Fields, Components) {
-        const msg = await sendMsg(this, 'success', 'edit', {
+        const msg = await sendMsg(this, "success", "edit", {
           Header,
           Msg,
           Footer,
@@ -53,7 +53,7 @@ module.exports = Structures.extend(
         return msg;
       }
       async sendErrorReply(Header, Msg, Footer, Fields, Components) {
-        const msg = await sendMsg(this, 'error', 'reply', {
+        const msg = await sendMsg(this, "error", "reply", {
           Header,
           Msg,
           Footer,
@@ -63,7 +63,7 @@ module.exports = Structures.extend(
         return msg;
       }
       async sendSuccessReply(Header, Msg, Footer, Fields, Components) {
-        const msg = await sendMsg(this, 'success', 'reply', {
+        const msg = await sendMsg(this, "success", "reply", {
           Header,
           Msg,
           Footer,

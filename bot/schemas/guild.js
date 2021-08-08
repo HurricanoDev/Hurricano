@@ -1,7 +1,7 @@
-const { model, Schema } = require('mongoose');
+const { model, Schema } = require("mongoose");
 
 module.exports = model(
-  'guild',
+  "guild",
   new Schema({
     id: {
       type: String,
@@ -13,11 +13,11 @@ module.exports = model(
     },
     prefixes: {
       type: Array,
-      default: ['hr!'],
+      default: ["hr!"],
     },
     disabledModules: {
       type: Array,
-      default: ['levelling'],
+      default: ["levelling"],
     },
     tags: {
       type: Array,
@@ -84,7 +84,7 @@ module.exports = model(
     antiSpam: {
       type: String,
       required: false,
-      default: 'off',
+      default: "off",
     },
     serverLog: {
       type: String,

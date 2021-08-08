@@ -1,8 +1,8 @@
-const Command = require('@Command');
+const Command = require("@Command");
 module.exports = new Command({
-  name: 'joinposition',
-  aliases: ['joinp'],
-  description: 'View the position a user joined the server.',
+  name: "joinposition",
+  aliases: ["joinp"],
+  description: "View the position a user joined the server.",
   async run(message, args) {
     let member = parseInt(args[0]);
     if (!member || member.length > 16)
@@ -16,8 +16,8 @@ module.exports = new Command({
     )
       return message.channel.sendError(
         message,
-        'Invalid Number!',
-        'Please provide a valid number!',
+        "Invalid Number!",
+        "Please provide a valid number!",
       );
     let position;
     if (!parseInt(member)) {
@@ -29,14 +29,14 @@ module.exports = new Command({
     }
     if (!parseInt(member)) {
       await message.sendSuccessReply(
-        'Success!',
+        "Success!",
         `${member} is the ${client.functions.getOrdinalSuffix(
           position,
         )} member to join the server!`,
       );
     } else {
       await message.sendSuccessReply(
-        'Success!',
+        "Success!",
         `${position} is the ${client.functions.getOrdinalSuffix(
           member,
         )} to join the server!`,
