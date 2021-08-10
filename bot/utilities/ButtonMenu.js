@@ -18,7 +18,6 @@ module.exports = class ButtonMenu {
   static validation({ message }) {
     if (typeof message !== "object")
       throw new Error("Message object provided is not an object.");
-    
   }
   async start() {
     let row = [];

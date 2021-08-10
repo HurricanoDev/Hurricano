@@ -231,7 +231,7 @@
     "require-await": "off",
     "require-unicode-regexp": "off",
     "rest-spread-spacing": ["error", "never"],
-    "semi": "off",
+    "semi": "error",
     "semi-spacing": [
       "error",
       {
@@ -243,6 +243,7 @@
     "sort-imports": "error",
     "sort-keys": "off",
     "sort-vars": "off",
+    "no-extra-semi": "off",
     "space-before-blocks": "error",
     "space-before-function-paren": "off",
     "space-in-parens": "off",

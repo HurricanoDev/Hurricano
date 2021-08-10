@@ -19,11 +19,7 @@ module.exports = new Command({
 
     switch (args[0].toLowerCase()) {
       case "set":
-        const SBChannel = await client.utils.getChannel(
-          false,
-          message,
-          args,
-        );
+        const SBChannel = await client.utils.getChannel(false, message, args);
 
         if (!SBChannel)
           return message.sendErrorReply(

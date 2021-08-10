@@ -6,26 +6,24 @@ const { HurricanoClient } = require("./Client.js");
  */
 
 module.exports = class ClientFunctionsManager {
+  /**
+   * Initializes the class.
+   * @param {HurricanoClient} client
+   */
 
+  constructor(client) {
     /**
-     * Initializes the class.
-     * @param {HurricanoClient} client 
+     * Hurricano's client.
+     * @type {HurricanoClient}
      */
 
-    constructor(client) {
-        
-        /**
-         * Hurricano's client.
-         * @type {HurricanoClient}
-         */
-
-        this.client = client;
-    }
-    async createUserDB(user) {
-        const data = await (new this.client.schemas.user({
-          name: user.name,
-          id: user.id,
-        })).save();
-        return data;
-    }
+    this.client = client;
+  }
+  async createUserDB(user) {
+    const data = await new this.client.schemas.user({
+      name: user.name,
+      id: user.id,
+    }).save();
+    return data;
+  }
 };

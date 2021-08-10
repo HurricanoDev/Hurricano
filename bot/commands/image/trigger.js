@@ -8,8 +8,7 @@ module.exports = new Command({
   description: "Shows a triggered version of someone's avatar!",
   async run(message, args) {
     const canvacord = require("canvacord");
-    let person = (await client.utils.getMember(true, message, args[0]))
-      .user;
+    let person = (await client.utils.getMember(true, message, args[0])).user;
     let avatar = person.displayAvatarURL({
       dynamic: false,
       format: "png",

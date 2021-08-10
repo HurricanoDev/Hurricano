@@ -7,8 +7,7 @@ module.exports = new Command({
   description: "Make you more beautiful :D",
   async run(message, args) {
     const canvacord = require("canvacord");
-    let person = (await client.utils.getMember(true, message, args[0]))
-      .user;
+    let person = (await client.utils.getMember(true, message, args[0])).user;
     let avatar = person.displayAvatarURL({
       dynamic: false,
       format: "png",

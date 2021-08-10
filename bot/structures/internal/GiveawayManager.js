@@ -3,16 +3,15 @@ const database = require("../schemas/giveaway");
 const { GiveawaysManager: BaseGiveawayManager } = require("discord-giveaways");
 
 module.exports = class GiveawayManager extends BaseGiveawayManager {
-  constructor({ client, ManagerOptions }) {
-    super(client, ManagerOptions);
-    
+  constructor({ client, ManagerOptions, initOnStart }) {
+    super(client, ManagerOptions, initOnStart);
+
     this.client = client;
   }
   async getAllGiveaways() {
     return await database.find({});
   }
   async refreshStorage() {
-    // This should make all shard refreshing their cache with the updated database
     return this.client.shard.broadcastEval(() =>
       this.giveawaysManager.getAllGiveaways(),
     );

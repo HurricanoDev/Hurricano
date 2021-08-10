@@ -8,44 +8,43 @@ module.exports = new Command({
   userPermissions: ["ADMINISTRATOR"],
   async run(message) {
     const guildSchema = message.guild.db.cache(),
-    types = [
-      "messageLogs",
-      "suggestionChannel",
-      "systemChannel",
-      "autoRole",
-      "memberLog",
-      "muteRole",
-      "antiSpam",
-      "serverLog",   
-    ],
-    channelSettings = [
-      "messageLogs",
-      "suggestionChannel",
-      "systemChannel",
-      "memberLog",
-      "serverLog",
-    ],
-    roleSettings = ["autoRole", "muteRole"],
-    otherSettings = ["antiSpam"],
-
-    mainEmbed = new MessageEmbed()
-      .setAuthor(
-        "Database",
-        "https://cdn.discordapp.com/emojis/860782779896692752.png?v=1",
-      )
-      .setDescription(
-        `**More information:** \`${message._usedPrefix}settings [category]\``,
-      )
-      .addField("Total Settings", `\`${types.length}\` settings`)
-      .addField("Channel", `\`${channelSettings.length}\` settings`)
-      .addField("Role", `\`${roleSettings.length}\` settings`)
-      .addField("Other", `\`${otherSettings.length}\` setting(s)`)
-      .setTimestamp()
-      .setColor("#606365")
-      .setFooter(`© Hurricano`);
+      types = [
+        "messageLogs",
+        "suggestionChannel",
+        "systemChannel",
+        "autoRole",
+        "memberLog",
+        "muteRole",
+        "antiSpam",
+        "serverLog",
+      ],
+      channelSettings = [
+        "messageLogs",
+        "suggestionChannel",
+        "systemChannel",
+        "memberLog",
+        "serverLog",
+      ],
+      roleSettings = ["autoRole", "muteRole"],
+      otherSettings = ["antiSpam"],
+      mainEmbed = new MessageEmbed()
+        .setAuthor(
+          "Database",
+          "https://cdn.discordapp.com/emojis/860782779896692752.png?v=1",
+        )
+        .setDescription(
+          `**More information:** \`${message._usedPrefix}settings [category]\``,
+        )
+        .addField("Total Settings", `\`${types.length}\` settings`)
+        .addField("Channel", `\`${channelSettings.length}\` settings`)
+        .addField("Role", `\`${roleSettings.length}\` settings`)
+        .addField("Other", `\`${otherSettings.length}\` setting(s)`)
+        .setTimestamp()
+        .setColor("#606365")
+        .setFooter(`© Hurricano`);
 
     let currentPage;
-    
+
     const Page2 = new MessageEmbed()
       .setTitle("Page 2/4: **`Channel`**")
       .setTimestamp()
@@ -92,27 +91,26 @@ module.exports = new Command({
 
     //Buttons
     const leftButton = new MessageButton()
-      .setStyle("PRIMARY")
-      .setcustomId("DBLeft")
-      .setEmoji("<:LeftArrow:861058356357365770>"),
+        .setStyle("PRIMARY")
+        .setcustomId("DBLeft")
+        .setEmoji("<:LeftArrow:861058356357365770>"),
       rightButton = new MessageButton()
-      .setStyle("PRIMARY")
-      .setcustomId("DBRight")
-      .setEmoji("<:RightArrow:861058283657494559>"),
-      
+        .setStyle("PRIMARY")
+        .setcustomId("DBRight")
+        .setEmoji("<:RightArrow:861058283657494559>"),
       msg = await message.channel.send({
-      embeds: [mainEmbed],
-      components: [[leftButton, rightButton]],
-    });
+        embeds: [mainEmbed],
+        components: [[leftButton, rightButton]],
+      });
 
     //Work
     currentPage = 1;
     const Pages = { 1: mainEmbed, 2: Page2, 3: Page3, 4: Page4 },
-    collector = msg.createMessageComponentCollector({
-      idle: 30000,
-      errors: ["time"],
-      collector: (x) => x.user.id == message.author.id,
-    });
+      collector = msg.createMessageComponentCollector({
+        idle: 30000,
+        errors: ["time"],
+        collector: (x) => x.user.id == message.author.id,
+      });
     collector.on("collect", (button) => {
       if (button.customId === "DBLeft") {
         --currentPage;

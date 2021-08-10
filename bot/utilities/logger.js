@@ -33,9 +33,10 @@ const levels = {
 // Custom log formatting
 const logFormat = format.printf((info) => {
   const { timestamp, level, message: messageRaw, label, stack } = info,
-  message = typeof messageRaw === "object" ? JSON.stringify(messageRaw) : messageRaw;
+    message =
+      typeof messageRaw === "object" ? JSON.stringify(messageRaw) : messageRaw;
   let log = `[${timestamp} in ${label}] - [${level}]: ${message}`;
-  console.log(stack?.split("\n"))
+  console.log(stack?.split("\n"));
   if (stack) log += `\n${stack}`;
   return log;
 });

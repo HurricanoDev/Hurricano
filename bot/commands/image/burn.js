@@ -34,8 +34,7 @@ module.exports = new Command({
   },
   description: "Burn someone's avatar :(",
   async run(message, args) {
-    let person = (await client.utils.getMember(true, message, args[0]))
-      .user;
+    let person = (await client.utils.getMember(true, message, args[0])).user;
     let avatar = person.displayAvatarURL({
       dynamic: false,
       format: "png",

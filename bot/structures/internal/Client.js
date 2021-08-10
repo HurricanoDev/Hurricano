@@ -51,7 +51,7 @@ class HurricanoClient extends Discord.Client {
     this.commands = new Discord.Collection();
 
     /**
-     * AFK
+     * AFK map.
      * @type {Discord.Collection}
      */
     this.afk = new Discord.Collection();
@@ -102,9 +102,10 @@ class HurricanoClient extends Discord.Client {
 
     /**
      * Command types.
+     * @types {Array}
      */
 
-    this.commandTypes = readdirSync("./bot/commands").filter((x) =>
+    this.command.types = readdirSync("./bot/commands").filter((x) =>
       [".js", ".json"].some((d) => !x.includes(d)),
     );
 
@@ -124,9 +125,10 @@ class HurricanoClient extends Discord.Client {
     /**
      * Giveaways Manager
      */
-    this.giveawaysManager = new GiveawayManager(
-      this,
-      {
+    this.giveawaysManager = new GiveawayManager({
+      initOnStart: false,
+      client: this,
+      ManagerOptions: {
         updateCountdownEvery: 6969,
         default: {
           botsCanWin: false,
@@ -135,8 +137,7 @@ class HurricanoClient extends Discord.Client {
           reaction: "🎉",
         },
       },
-      false,
-    );
+    });
 
     /**
      * E m o j i s
