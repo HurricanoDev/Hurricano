@@ -1,7 +1,4 @@
-const logger = require("../utilities/logger.js");
-const config = require("@config");
-const Discord = require("discord.js");
-const permissions = require("./permissions.js");
+const permissions = require("../../utilities/permissions.js");
 let name;
 module.exports = class Command {
   constructor(opts) {

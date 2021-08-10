@@ -4,7 +4,23 @@ const { Collection } = require("discord.js"),
   // eslint-disable-next-line no-unused-vars
   Command = require("./Command.js");
 
+/**
+ * Manager to load commands.
+ * @extends {Map}
+ * @property {String} path 
+ */
+
 module.exports = class ClientCommandsManager extends Collection {
+  constructor(...args) {
+    super(...args);
+
+    /**
+     * Command path.
+     * @type {?String}
+     */
+
+    this.path = null;
+  }
     /**
      * Load the commands.
      * @param {String} pathRaw Path to load commands from.

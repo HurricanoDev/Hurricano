@@ -1,11 +1,14 @@
-const database = require("../schemas/giveaway");
-
-const { GiveawaysManager: BaseGiveawayManager } = require("discord-giveaways");
+const database = require("../schemas/giveaway"),
+  { GiveawaysManager: BaseGiveawayManager } = require("discord-giveaways");
 
 module.exports = class GiveawayManager extends BaseGiveawayManager {
   constructor({ client, ManagerOptions, initOnStart }) {
     super(client, ManagerOptions, initOnStart);
 
+    /**
+     * Hurricano's client.
+     * @type {}
+     */
     this.client = client;
   }
   async getAllGiveaways() {

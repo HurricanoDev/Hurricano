@@ -1,13 +1,14 @@
+const logger = require("@structures/logger");
 let config;
 require("dotenv").config();
 try {
   config = require(`${process.cwd()}/config.json`);
-  module.exports = config;
 } catch (err) {
   config = JSON.parse(process.env.config);
-  module.exports = config;
-}
-let logger = require("./logger.js");
+};
+
+module.exports = config;
+
 if (!config.token) logger.emerg("No bot token provided!");
 if (!config.mongouri) logger.emerg("No MongoDB uri provided!");
 if (!config.website) logger.emerg("No website object provided!");
