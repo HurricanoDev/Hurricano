@@ -32,13 +32,11 @@ const levels = {
 };
 // Custom log formatting
 const logFormat = format.printf((info) => {
-  const { timestamp, level, label, message, ...rest } = info;
-  let log = `[${timestamp}] - [${level}]: ${message}`;
-
-  // Check if rest is an object
-  if (!(Object.keys(rest).length === 0 && rest.constructor === Object)) {
-    log = `${log}\n${JSON.stringify(rest, null, 2)}`.replace(/\\n/g, "\n");
-  }
+  const { timestamp, level, message: messageRaw, label, stack } = info,
+  message = typeof messageRaw === "object" ? JSON.stringify(messageRaw) : messageRaw;
+  let log = `[${timestamp} in ${label}] - [${level}]: ${message}`;
+  console.log(stack?.split("\n"))
+  if (stack) log += `\n${stack}`;
   return log;
 });
 
