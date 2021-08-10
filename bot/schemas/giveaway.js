@@ -40,6 +40,5 @@ module.exports = model(
     embedColor: String,
     embedColorEnd: String,
     exemptPermissions: [],
-    extraData: {},
   }),
 );

@@ -6,7 +6,7 @@ module.exports = new Command({
   description: "Set/remove the starboard channel in your server.",
   async run(message, args) {
     const guildData = client.db.guilds.cache.get(message.guild.id);
-    const optionsEmbed = client.functions.createOptionsEmbed(
+    const optionsEmbed = client.utils.createOptionsEmbed(
       "Starboard",
       "starboard",
       "None",
@@ -19,7 +19,7 @@ module.exports = new Command({
 
     switch (args[0].toLowerCase()) {
       case "set":
-        const SBChannel = await client.functions.getChannel(
+        const SBChannel = await client.utils.getChannel(
           false,
           message,
           args,

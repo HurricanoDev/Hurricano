@@ -8,7 +8,7 @@ module.exports = new Command({
   async run(message, args) {
     if (!args[0])
       return message.channel.send(`Wow, that was great..But who do I kill?`);
-    let userr = await client.functions.getMember(false, message, args[0]);
+    let userr = await client.utils.getMember(false, message, args[0]);
     if (!userr)
       return message.channel.send(`Wow, that was great..But who do I kill?`);
     let user = userr.user.username;

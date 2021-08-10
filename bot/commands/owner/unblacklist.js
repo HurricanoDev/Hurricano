@@ -15,7 +15,7 @@ module.exports = new Command({
         "Invalid user provided! Please provide a valid user.",
       );
     let userSchema = await client.db.users.cache.get(user.id);
-    if (!userSchema) userSchema = await client.functions.createUserDB(user);
+    if (!userSchema) userSchema = await client.utils.createUserDB(user);
 
     await message.channel.sendSuccess(
       message,

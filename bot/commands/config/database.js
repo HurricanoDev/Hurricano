@@ -56,7 +56,7 @@ module.exports = new Command({
       let status = true;
       if (desc == null) status = false;
       let title = type.toString().toLowerCase();
-      title = client.functions.capitalize(title);
+      title = client.utils.capitalize(title);
       Page2.addField(title, status ? `<#${desc}>` : "None");
     });
 
@@ -70,7 +70,7 @@ module.exports = new Command({
       let status = true;
       if (desc == null) status = false;
       let title = type.toString().toLowerCase();
-      title = client.functions.capitalize(title);
+      title = client.utils.capitalize(title);
       Page3.addField(title, status ? `<@&${desc}>` : "None");
     });
     const Page4 = new MessageEmbed()
@@ -83,10 +83,10 @@ module.exports = new Command({
       let status = true;
       if (desc == null) status = false;
       let title = type.toString().toLowerCase();
-      title = client.functions.capitalize(title);
+      title = client.utils.capitalize(title);
       Page4.addField(
         title,
-        status ? `\`${client.functions.capitalize(desc)}\`` : "None",
+        status ? `\`${client.utils.capitalize(desc)}\`` : "None",
       );
     });
 

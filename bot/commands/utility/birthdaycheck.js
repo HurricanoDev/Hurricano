@@ -7,7 +7,7 @@ module.exports = new Command({
   cooldown: 30,
   description: "Check someone's birthday",
   async run(message, args) {
-    const user = (await client.functions.getMember(true, message, args[0]))
+    const user = (await client.utils.getMember(true, message, args[0]))
       .user;
 
     const userData = client.db.users.cache.get(user.id);

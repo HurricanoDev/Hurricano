@@ -131,7 +131,7 @@ module.exports = new Command({
       confir = confir.first().content.toLowerCase();
       if (confir === "yes") {
         var data = client.db.users.cache.get(user.id);
-        data = await client.functions.createUserDB(user);
+        data = await client.utils.createUserDB(user);
         data.blacklisted = true;
         await data.save();
         return message.channel.sendSuccess(

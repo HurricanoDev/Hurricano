@@ -52,7 +52,7 @@ module.exports = new Command({
         "Wrong month format provided, there is only 12 months in a year!",
       );
 
-    const convertedDay = client.functions.getOrdinalSuffix(day);
+    const convertedDay = client.utils.getOrdinalSuffix(day);
     const convertedMonth = months[month];
 
     const birthdayString = `${convertedDay} of ${convertedMonth}`;

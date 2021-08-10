@@ -19,7 +19,7 @@ module.exports = new Command({
     let suggestionChannel = await fetchSuggestionChannel(message.guild.id);
     switch (args[0]) {
       case "set":
-        const channel = await client.functions.getChannel(
+        const channel = await client.utils.getChannel(
           false,
           message,
           args[1],

@@ -7,7 +7,7 @@ module.exports = new Command({
   args: "Provide a system channel to set as your server system channel.",
   userPermissions: ["ADMINISTRATOR"],
   async run(message, args) {
-    const ch = await client.functions.getChannel(true, message, args[0]);
+    const ch = await client.utils.getChannel(true, message, args[0]);
     if (!ch)
       return message.sendErrorReply(
         message,

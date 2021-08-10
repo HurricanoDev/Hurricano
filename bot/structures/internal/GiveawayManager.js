@@ -1,7 +1,8 @@
 const database = require("../schemas/giveaway");
 
-const { GiveawaysManager } = require("discord-giveaways");
-module.exports = class Gmanager extends GiveawaysManager {
+const { GiveawaysManager: BaseGiveawayManager } = require("discord-giveaways");
+
+module.exports = class GiveawayManager extends BaseGiveawayManager {
   async getAllGiveaways() {
     return await database.find({});
   }

@@ -10,14 +10,15 @@ function split(array, count) {
 module.exports = class ButtonMenu {
   constructor(message, mainEmbed, options) {
     this.mainEmbed = mainEmbed;
-    this.constructor.validation(message, options);
+    this.constructor.validation({ message, options });
     this.message = message;
     this.options = options;
     this.collector = null;
   }
-  static validation(message, options) {
+  static validation({ message }) {
     if (typeof message !== "object")
       throw new Error("Message object provided is not an object.");
+    
   }
   async start() {
     let row = [];

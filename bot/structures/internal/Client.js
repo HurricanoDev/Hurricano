@@ -2,9 +2,9 @@ const Discord = require("discord.js"),
   { readdirSync } = require("fs"),
   ascii = require("ascii-table"),
   { Player } = require("discord-player"),
-  giveawaysManager = require("./utilities/giveaway"),
-  logger = require("./utilities/logger.js"),
-  Database = require("./handlers/db.js"),
+  giveawaysManager = require("../../utilities/giveaway"),
+  logger = require("../../utilities/logger.js"),
+  Database = require("../../handlers/db.js"),
   { Lyrics } = require("@discord-player/extractor");
 
 const table = new ascii("Commands");
@@ -18,7 +18,7 @@ table.setHeading(
 
 /**
  * Extended Client class
- * @extends Discord.Client
+ * @extends {Discord.Client}
  */
 class HurricanoClient extends Discord.Client {
   /**
@@ -76,19 +76,19 @@ class HurricanoClient extends Discord.Client {
      * Logger
      * @type {Object}
      */
-    this.logger = require("./utilities/logger.js");
+    this.logger = require("../../utilities/logger.js");
     /**
      * Import Schemas
      * @type {Object}
      */
     this.schemas = {
-      guild: require("./schemas/guild.js"),
-      user: require("./schemas/user"),
+      guild: require("../../schemas/guild.js"),
+      user: require("../../schemas/user"),
     };
     /*
      * Levelling
      */
-    this.levels = require("./utilities/Levels.js");
+    this.levels = require("../../utilities/Levels.js");
 
     /**
      * Snipes
@@ -142,7 +142,7 @@ class HurricanoClient extends Discord.Client {
      * E m o j i s
      * @type {Object}
      */
-    this._emojis = require("./utilities/emojis.json");
+    this._emojis = require("../../utilities/emojis.json");
 
     /**
      * Music

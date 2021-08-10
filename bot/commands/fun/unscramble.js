@@ -14,7 +14,7 @@ module.exports = new Command({
     word = await word.json();
     word = word[0];
     const randomWord = word;
-    const scrambled = client.functions.shuffle(randomWord);
+    const scrambled = client.utils.shuffle(randomWord);
     let guessLimit = 5;
 
     const prompt = new MessageEmbed()

@@ -6,7 +6,7 @@ module.exports = new Command({
   async run(message, args) {
     let member = parseInt(args[0]);
     if (!member || member.length > 16)
-      member = await client.functions.getMember(true, message, args[0]);
+      member = await client.utils.getMember(true, message, args[0]);
     const members = (await message.guild.members.fetch())
       .sort((a, b) => a.joinedTimestamp - b.joinedTimestamp)
       .array();
@@ -30,14 +30,14 @@ module.exports = new Command({
     if (!parseInt(member)) {
       await message.sendSuccessReply(
         "Success!",
-        `${member} is the ${client.functions.getOrdinalSuffix(
+        `${member} is the ${client.utils.getOrdinalSuffix(
           position,
         )} member to join the server!`,
       );
     } else {
       await message.sendSuccessReply(
         "Success!",
-        `${position} is the ${client.functions.getOrdinalSuffix(
+        `${position} is the ${client.utils.getOrdinalSuffix(
           member,
         )} to join the server!`,
       );
