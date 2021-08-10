@@ -1,6 +1,5 @@
 const mongoose = require("mongoose");
-const { Message } = require("discord.js");
-const message = require("../events/bot/message");
+
 class HurricanoDatabase {
   constructor(client, mongoPath) {
     this.constructor.validateCredentials(client, mongoPath),
