@@ -2,7 +2,7 @@ const Discord = require("discord.js"),
   { readdirSync } = require("fs"),
   ascii = require("ascii-table"),
   { Player } = require("discord-player"),
-  giveawaysManager = require("../../utilities/giveaway"),
+  GiveawayManager = require("./GiveawayManager.js"),
   logger = require("../../utilities/logger.js"),
   Database = require("../../handlers/db.js"),
   { Lyrics } = require("@discord-player/extractor");
@@ -124,7 +124,7 @@ class HurricanoClient extends Discord.Client {
     /**
      * Giveaways Manager
      */
-    this.giveawaysManager = new giveawaysManager(
+    this.giveawaysManager = new GiveawayManager(
       this,
       {
         updateCountdownEvery: 6969,
@@ -195,18 +195,18 @@ class HurricanoClient extends Discord.Client {
       },
       getMember: async (returnAuthor, message, ...args) => {
         if (!returnAuthor && returnAuthor !== false)
-          throw new Error(`Returning message.author not specified.`);
-        if (!message) throw new Error(`Message object not provided.`);
-        if (!args.length) throw new Error(`Arguments string not provided.`);
+          throw new Error("Returning message.author not specified.");
+        if (!message) throw new Error("Message object not provided.");
+        if (!args.length) throw new Error("Arguments string not provided.");
         if (typeof returnAuthor !== "boolean")
           throw new Error(
-            `Whether to return author or not option is not boolean.`,
+            "Whether to return author or not option is not boolean.",
           );
         if (typeof message !== "object")
-          throw new Error(`Message provided is not an object.`);
+          throw new Error("Message provided is not an object.");
         args = args[0];
         let user;
-        if (message.mentions.members.first())
+        if (message.mentions?.members.first())
           user = message.mentions.members.first();
         else user = await message.guild.members.fetch(args).catch(() => {});
         if (user && user.size) user = null;
