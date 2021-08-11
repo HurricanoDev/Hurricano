@@ -1,6 +1,6 @@
 const { MessageEmbed } = require("discord.js"),
-moment = require("moment"),
-BaseEvent = require("../../structures/internal/BaseEvent.js");
+  moment = require("moment"),
+  BaseEvent = require("../../structures/internal/BaseEvent.js");
 
 module.exports = class guildMemberAddEvent extends BaseEvent {
   constructor(client) {
@@ -14,7 +14,7 @@ module.exports = class guildMemberAddEvent extends BaseEvent {
     const memberLog = member.guild.channels.cache.get(memberLogId.memberLog);
     const systemChannelId = memberLogId.systemChannel;
     const systemChannel = member.guild.channels.cache.get(systemChannelId);
-    
+
     if (
       memberLog &&
       memberLog.viewable &&

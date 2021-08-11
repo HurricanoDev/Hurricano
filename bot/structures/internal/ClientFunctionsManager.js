@@ -1,6 +1,6 @@
 // eslint-disable-next-line no-unused-vars
 const { HurricanoClient } = require("./Client.js"),
-// eslint-disable-next-line no-unused-vars
+  // eslint-disable-next-line no-unused-vars
   { Message, CommandInteraction, MessageEmbed } = require("discord.js"),
   // eslint-disable-next-line no-unused-vars
   Command = require("./Command.js");
@@ -24,19 +24,16 @@ module.exports = class ClientFunctionsManager {
   }
   /**
    * Creates an embed for invalid arguments.
-   * @param {Command} command 
-   * @param {Message | CommandInteraction} message 
+   * @param {Command} command
+   * @param {Message | CommandInteraction} message
    * @returns {MessageEmbed}
    */
 
-  createOptionsEmbed (command, message) {
+  createOptionsEmbed(command, message) {
     const optionsEmbed = new MessageEmbed()
       .setAuthor(`${command.name} Help`, this.user.displayAvatarURL())
       .setColor("#606365")
-      .addField(
-        "Usage:",
-        `${`\`${command.usage}\`` ?? "No usage provided."}`,
-      )
+      .addField("Usage:", `${`\`${command.usage}\`` ?? "No usage provided."}`)
       .addField(
         "Permissions",
         command.userPermissions?.length
@@ -50,15 +47,13 @@ module.exports = class ClientFunctionsManager {
 
     return optionsEmbed;
   }
-  async getMember (returnAuthor, message, ...args) {
+  async getMember(returnAuthor, message, ...args) {
     if (!returnAuthor && returnAuthor !== false)
       throw new Error("Returning message.author not specified.");
     if (!message) throw new Error("Message object not provided.");
     if (!args.length) throw new Error("Arguments string not provided.");
     if (typeof returnAuthor !== "boolean")
-      throw new Error(
-        "Whether to return author or not option is not boolean.",
-      );
+      throw new Error("Whether to return author or not option is not boolean.");
     if (typeof message !== "object")
       throw new Error("Message provided is not an object.");
     args = args[0];
@@ -72,7 +67,7 @@ module.exports = class ClientFunctionsManager {
     if (user) return user;
     if (!user) return null;
   }
-  async getChannel (returnChannel, message, ...args) {
+  async getChannel(returnChannel, message, ...args) {
     if (!returnChannel && returnChannel !== false)
       throw new Error(`Returning message.author not specified.`);
     if (!message) throw new Error(`Message object not provided.`);
@@ -101,7 +96,7 @@ module.exports = class ClientFunctionsManager {
     }).save();
     return data;
   }
-  getOrdinalSuffix (i) {
+  getOrdinalSuffix(i) {
     var j = i % 10,
       k = i % 100;
     if (j == 1 && k != 11) {
@@ -115,11 +110,11 @@ module.exports = class ClientFunctionsManager {
     }
     return i + "th";
   }
-  capitalize (string) {
+  capitalize(string) {
     return string.charAt(0).toUpperCase() + string.slice(1);
   }
-  
-  shuffle (content) {
+
+  shuffle(content) {
     var a = content.split(""),
       n = a.length;
 
@@ -131,11 +126,11 @@ module.exports = class ClientFunctionsManager {
     }
     return a.join("");
   }
-  
-  hasNumber (number) {
+
+  hasNumber(number) {
     return /\d/.test(number);
   }
-  randomInArray (array) {
+  randomInArray(array) {
     const shuffledArray = array.sort(() => 0.5 - Math.random());
     return shuffledArray;
   }

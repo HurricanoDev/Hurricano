@@ -5,7 +5,7 @@ try {
   config = require(`${process.cwd()}/config.json`);
 } catch (err) {
   config = JSON.parse(process.env.config);
-};
+}
 
 module.exports = config;
 

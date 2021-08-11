@@ -186,8 +186,7 @@ class HurricanoClient extends Discord.Client {
       successImage:
         "https://raw.githubusercontent.com/HurricanoBot/HurricanoImages/master/SetAuthorEmojis/Success.png",
     };
-    this.functions = {
-    };
+    this.functions = {};
   }
   // ---------------------------------------------------   Functions    -------------------------------------------------------------
   loadEvents() {

@@ -9,7 +9,7 @@ const { Collection } = require("discord.js"),
 /**
  * Manager to load commands.
  * @extends {Collection}
- * @property {String} path 
+ * @property {String} path
  */
 
 module.exports = class ClientCommandsManager extends Collection {
@@ -44,27 +44,27 @@ module.exports = class ClientCommandsManager extends Collection {
 
     this.reloaded = 0;
   }
-    /**
-     * Load the commands.
-     * @param {String} pathRaw Path to load commands from.
-     * @returns {Object<String, Command>}
-     */
+  /**
+   * Load the commands.
+   * @param {String} pathRaw Path to load commands from.
+   * @returns {Object<String, Command>}
+   */
 
-    async load(pathRaw) {
+  async load(pathRaw) {
     Object.defineProperty(this, "path", { value: pathRaw });
     const path = resolve(pathRaw || this.path),
-    commandFolders = await readdir(path),
-    commands = {};
+      commandFolders = await readdir(path),
+      commands = {};
 
     for await (const folder of commandFolders) {
-        commands[folder] = [];
-         const commandFiles = await readdir(resolve(path, folder));
-         for (const file of commandFiles) {
-             const command = require(resolve(path, folder, file));
-             commands[folder] = command;
-            super.set(command.name, command);
-         }   
-    };
+      commands[folder] = [];
+      const commandFiles = await readdir(resolve(path, folder));
+      for (const file of commandFiles) {
+        const command = require(resolve(path, folder, file));
+        commands[folder] = command;
+        super.set(command.name, command);
+      }
+    }
 
     this.loaded = true;
     return commands;
@@ -76,8 +76,8 @@ module.exports = class ClientCommandsManager extends Collection {
    */
 
   async reload() {
-      super.clear();
-      this.reloaded++;
-      return await this.load();
+    super.clear();
+    this.reloaded++;
+    return await this.load();
   }
 };
