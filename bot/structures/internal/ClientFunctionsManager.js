@@ -1,7 +1,9 @@
 // eslint-disable-next-line no-unused-vars
 const { HurricanoClient } = require("./Client.js"),
 // eslint-disable-next-line no-unused-vars
-  { Message, CommandInteraction, MessageEmbed } = require("discord.js");
+  { Message, CommandInteraction, MessageEmbed } = require("discord.js"),
+  // eslint-disable-next-line no-unused-vars
+  Command = require("./Command.js");
 /**
  * Manager for all custom client functions.
  */
@@ -20,6 +22,13 @@ module.exports = class ClientFunctionsManager {
 
     this.client = client;
   }
+  /**
+   * Creates an embed for invalid arguments.
+   * @param {Command} command 
+   * @param {Message | CommandInteraction} message 
+   * @returns {MessageEmbed}
+   */
+
   createOptionsEmbed (command, message) {
     const optionsEmbed = new MessageEmbed()
       .setAuthor(`${command.name} Help`, this.user.displayAvatarURL())
@@ -34,7 +43,7 @@ module.exports = class ClientFunctionsManager {
           ? command.userPermissions.map((x) => `\`${x}\``).join(", ")
           : "No user permissions required.",
       )
-      .addField("Subcommands:", `${options}`)
+      .addField("Subcommands:", `${command.subCommands}`)
       .setFooter(
         `Type ${message._usedPrefix}help <command> for more info on a command.`,
       );

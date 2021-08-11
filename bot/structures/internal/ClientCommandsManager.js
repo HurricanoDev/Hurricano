@@ -2,17 +2,19 @@ const { Collection } = require("discord.js"),
   { readdir } = require("fs"),
   { resolve } = require("path"),
   // eslint-disable-next-line no-unused-vars
-  Command = require("./Command.js");
+  Command = require("./Command.js"),
+  // eslint-disable-next-line no-unused-vars
+  { HurricanoClient } = require("./Client.js");
 
 /**
  * Manager to load commands.
- * @extends {Map}
+ * @extends {Collection}
  * @property {String} path 
  */
 
 module.exports = class ClientCommandsManager extends Collection {
-  constructor(...args) {
-    super(...args);
+  constructor({ client }) {
+    super();
 
     /**
      * Command path.
@@ -20,6 +22,27 @@ module.exports = class ClientCommandsManager extends Collection {
      */
 
     this.path = null;
+
+    /**
+     * Whether the commands are loaded.
+     * @type {Boolean}
+     */
+
+    this.loaded = false;
+
+    /**
+     * Hurricano's client.
+     * @type {HurricanoClient}
+     */
+
+    this.client = client;
+
+    /**
+     * How many times the commands have been reloaded.
+     * @type {Number}
+     */
+
+    this.reloaded = 0;
   }
     /**
      * Load the commands.
@@ -42,6 +65,8 @@ module.exports = class ClientCommandsManager extends Collection {
             super.set(command.name, command);
          }   
     };
+
+    this.loaded = true;
     return commands;
   }
 
@@ -52,6 +77,7 @@ module.exports = class ClientCommandsManager extends Collection {
 
   async reload() {
       super.clear();
+      this.reloaded++;
       return await this.load();
   }
 };
