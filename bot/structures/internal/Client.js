@@ -1,21 +1,10 @@
 const Discord = require("discord.js"),
   { readdirSync } = require("fs"),
-  ascii = require("ascii-table"),
   { Player } = require("discord-player"),
   GiveawayManager = require("./GiveawayManager.js"),
-  logger = require("../../utilities/logger.js"),
   Database = require("../../handlers/db.js"),
-  { Lyrics } = require("@discord-player/extractor");
-
-const table = new ascii("Commands");
-table.setHeading(
-  "Command File",
-  "Command Name",
-  "Command Category",
-  "Aliases",
-  "Load status",
-);
-
+  { Lyrics } = require("@discord-player/extractor"),
+  ClientCommandsManager = require("./ClientCommandsManager.js");
 /**
  * Extended Client class
  * @extends {Discord.Client}
@@ -48,7 +37,7 @@ class HurricanoClient extends Discord.Client {
     /**
      * Commands
      */
-    this.commands = new Discord.Collection();
+    this.commands = new ClientCommandsManager({ client: this });
 
     /**
      * AFK map.
@@ -60,12 +49,6 @@ class HurricanoClient extends Discord.Client {
      * Anti-Spam
      */
     this.usersMap = new Map();
-
-    /**
-     * Aliases
-     * @type []
-     */
-    this.aliases = new Discord.Collection();
 
     /**
      * Mongo Database
@@ -222,46 +205,6 @@ class HurricanoClient extends Discord.Client {
         event.run(...args, this),
       );
     }
-  }
-  loadCommands() {
-    readdirSync("./bot/commands").forEach((dir) => {
-      const commands = readdirSync(`./bot/commands/${dir}/`).filter((file) =>
-        file.endsWith(".js"),
-      );
-      try {
-        for (let file of commands) {
-          const props = require(`./commands/${dir}/${file}`);
-          if (props.name) {
-            table.addRow(
-              file,
-              props.name,
-              dir,
-              props.aliases ? props.aliases.join(", ") : "None.",
-              "Loaded!",
-            );
-          } else {
-            table.addRow(
-              file,
-              props.name,
-              dir,
-              props.aliases ? props.aliases.join(", ") : "None.",
-              "Not Loaded -> Missing a help.name, or help.name is not a string.",
-            );
-            continue;
-          }
-          props.category = dir;
-          this.commands.set(props.name, props);
-          if (props.aliases) {
-            props.conf.aliases.forEach((alias) => {
-              this.aliases.set(alias, props.help.name);
-            });
-          }
-        }
-      } catch (e) {
-        logger.error(e);
-      }
-    });
-    logger.client("\n" + table.toString());
   }
   connect() {
     return this.login(this.config.token);

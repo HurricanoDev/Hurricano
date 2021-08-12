@@ -9,8 +9,7 @@
     "ecmaVersion": 12
   },
   "globals": {
-    "client": true,
-    "_Collection": true
+    "client": true
   },
   "rules": {
     "accessor-pairs": "error",

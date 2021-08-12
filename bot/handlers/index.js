@@ -3,7 +3,7 @@ const { Intents, Collection } = require("discord.js"),
   { HurricanoClient, loadStructures } = require("@root/bot/Client.js"),
   config = require("@config"),
   intents = new Intents();
-global._Collection = Collection;
+global.Collection = Collection;
 loadStructures();
 intents.add(
   "GUILD_PRESENCES",

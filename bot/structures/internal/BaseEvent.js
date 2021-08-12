@@ -4,8 +4,12 @@ module.exports = class BaseEvent {
     this.name = name;
     this.client = options.client;
     this.description = options.description;
-    this.once = options.once ?? false;
+    this.once = options.once || false;
   }
+  /**
+   * Validates input.
+   */
+
   static validate(name, options) {
     if (!options) throw new Error("No options provided.");
     if (!name) throw new Error("No event name provided.");

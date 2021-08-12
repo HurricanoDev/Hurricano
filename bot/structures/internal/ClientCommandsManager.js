@@ -1,20 +1,23 @@
-const { Collection } = require("discord.js"),
-  { readdir } = require("fs"),
+const CollectionBasedManager = require("./CollectionBasedManager.js"),
+  { readdir } = require("fs/promises"),
   { resolve } = require("path"),
   // eslint-disable-next-line no-unused-vars
   Command = require("./Command.js"),
-  // eslint-disable-next-line no-unused-vars
-  { HurricanoClient } = require("./Client.js");
+  AsciiTable = require("ascii-table"),
+  ClientAliasesManager = require("./ClientAliasesManager.js");
 
 /**
  * Manager to load commands.
- * @extends {Collection}
- * @property {String} path
+ * @extends {CollectionBasedManager}
+ * @property {?String} path Command path.
+ * @property {Boolean} loaded Whether the commands have been loaded.
+ * @property {ClientAliasesManager} aliases Command aliases.
+ * @property {Boolean} reloaded How many times the commands have been reloaded.
  */
 
-module.exports = class ClientCommandsManager extends Collection {
-  constructor({ client }) {
-    super();
+module.exports = class ClientCommandsManager extends CollectionBasedManager {
+  constructor({ client, input }) {
+    super({ client, input });
 
     /**
      * Command path.
@@ -31,11 +34,11 @@ module.exports = class ClientCommandsManager extends Collection {
     this.loaded = false;
 
     /**
-     * Hurricano's client.
-     * @type {HurricanoClient}
+     * Command aliases.
+     * @type {ClientAliasesManager}
      */
 
-    this.client = client;
+    this.aliases = new ClientAliasesManager({ client, input });
 
     /**
      * How many times the commands have been reloaded.
@@ -52,7 +55,14 @@ module.exports = class ClientCommandsManager extends Collection {
 
   async load(pathRaw) {
     Object.defineProperty(this, "path", { value: pathRaw });
-    const path = resolve(pathRaw || this.path),
+    const table = new AsciiTable("Client Commands").setHeading(
+      "Command File",
+      "Command Name",
+      "Command Category",
+      "Aliases",
+      "Load status",
+    ),
+    path = resolve(pathRaw || this.path),
       commandFolders = await readdir(path),
       commands = {};
 
@@ -60,13 +70,22 @@ module.exports = class ClientCommandsManager extends Collection {
       commands[folder] = [];
       const commandFiles = await readdir(resolve(path, folder));
       for (const file of commandFiles) {
+        try {
         const command = require(resolve(path, folder, file));
-        commands[folder] = command;
+        commands[folder] = command,
+        command.category = folder;
+
+        if (commands.aliases) for (const ali of command.aliases) this.aliases.add(ali, command.name);
+        table.addRow(file, command.name, folder, command.aliases ? command.aliases.join(", ") : "None.", "Loaded!");
         super.set(command.name, command);
+        } catch (e) {
+          this.client.logger.error(e);
+        }
       }
     }
 
     this.loaded = true;
+    this.client.logger.client("\n" + table);
     return commands;
   }
 
@@ -79,5 +98,15 @@ module.exports = class ClientCommandsManager extends Collection {
     super.clear();
     this.reloaded++;
     return await this.load();
+  }
+
+  /**
+   * 
+   * @param {String} string String to find command with.
+   * @returns  {Command}
+   */
+
+  resolve(string) {
+    return this.get(string) || this.get(this.aliases.get(string));
   }
 };

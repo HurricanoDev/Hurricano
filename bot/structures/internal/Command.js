@@ -1,4 +1,5 @@
-const permissions = require("../../utilities/permissions.js");
+const permissions = require("../../utilities/permissions.js"),
+{ Collection } = require("discord.js");
 let name;
 module.exports = class Command {
   constructor(opts) {
@@ -14,7 +15,7 @@ module.exports = class Command {
     this.clientPermissions = opts.clientPermissions || null;
     this.subCommands = opts.subCommands
       ? {
-          commands: new _Collection(opts.subCommands.commands),
+          commands: new Collection(opts.subCommands.commands),
           baseAuthorization: opts.subCommands.baseAuthorization ?? null,
         }
       : null;

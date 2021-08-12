@@ -1,4 +1,5 @@
-const mongoose = require("mongoose");
+const mongoose = require("mongoose"),
+{ Collection } = require("discord.js");
 
 class HurricanoDatabase {
   constructor(client, mongoPath) {
@@ -6,7 +7,7 @@ class HurricanoDatabase {
       (this.client = client);
     this.mongoPath = mongoPath;
     this.users = {
-      cache: new _Collection(),
+      cache: new Collection(),
       fetch: async (userId) => {
         const user = await this.client.users.fetch(userId);
         if (!user || typeof userId !== "string") return null;
@@ -21,7 +22,7 @@ class HurricanoDatabase {
       },
     };
     this.guilds = {
-      cache: new _Collection(),
+      cache: new Collection(),
       fetch: async (guildId) => {
         const guild = this.client.guilds.cache.get(guildId);
         if (!guild || typeof guildId !== "string") return null;
