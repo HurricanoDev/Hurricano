@@ -4,6 +4,7 @@ const Discord = require("discord.js"),
   GiveawayManager = require("./GiveawayManager.js"),
   Database = require("../../handlers/db.js"),
   { Lyrics } = require("@discord-player/extractor"),
+  { resolve } = require("path"),
   ClientCommandsManager = require("./ClientCommandsManager.js");
 /**
  * Extended Client class
@@ -25,7 +26,6 @@ class HurricanoClient extends Discord.Client {
      */
 
     this.config = config;
-    this.map = {};
 
     /**
      * Default prefix.
@@ -59,7 +59,7 @@ class HurricanoClient extends Discord.Client {
      * Logger
      * @type {Object}
      */
-    this.logger = require("../../utilities/logger.js");
+    this.logger = require("./logger.js");
     /**
      * Import Schemas
      * @type {Object}
@@ -82,15 +82,6 @@ class HurricanoClient extends Discord.Client {
       deleted: new Discord.Collection(),
       recent: new Discord.Collection(),
     };
-
-    /**
-     * Command types.
-     * @types {Array}
-     */
-
-    this.command.types = readdirSync("./bot/commands").filter((x) =>
-      [".js", ".json"].some((d) => !x.includes(d)),
-    );
 
     /**
      * Channels
@@ -178,7 +169,7 @@ class HurricanoClient extends Discord.Client {
       file.endsWith(".js"),
     );
     for (const file of botevents) {
-      let event = require(`./events/bot/${file}`);
+      let event = require(`../../events/bot/${file}`);
       event = new event(this);
       if (event.once) {
         super.once(event.name, (...args) => event.run(...args, this));
@@ -191,7 +182,7 @@ class HurricanoClient extends Discord.Client {
       file.endsWith(".js"),
     );
     for (const file of musicevents) {
-      const event = require(`./events/music/${file}`);
+      const event = require(`../../events/music/${file}`);
       this.player.on(event.name, (...args) => event.run(...args, this));
     }
 
@@ -200,7 +191,7 @@ class HurricanoClient extends Discord.Client {
       (file) => file.endsWith(".js"),
     );
     for (const file of giveawaysevents) {
-      const event = require(`./events/giveaways/${file}`);
+      const event = require(`../../events/giveaways/${file}`);
       this.giveawaysManager.on(event.name, (...args) =>
         event.run(...args, this),
       );
@@ -284,13 +275,12 @@ class HurricanoClient extends Discord.Client {
     }
   }
 }
-function loadStructures() {
-  const structures = readdirSync("./bot/structures/ImmediateExecute").filter(
-    (file) => file.endsWith(".js"),
-  );
+function loadStructures(path) {
+  const files = readdirSync(resolve(path));
+  for (const file of files) {
+    const struct = require(resolve(path, file));
 
-  for (const file of structures) {
-    require("./structures/ImmediateExecute/" + file);
+    struct.extend(Discord[struct.name].prototype);
   }
 }
 module.exports = {

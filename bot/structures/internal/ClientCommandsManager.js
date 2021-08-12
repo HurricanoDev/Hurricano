@@ -16,7 +16,9 @@ const CollectionBasedManager = require("./CollectionBasedManager.js"),
  */
 
 module.exports = class ClientCommandsManager extends CollectionBasedManager {
-  constructor({ client, input }) {
+  constructor(a) {
+    console.log(a);
+    const { client, input } = a;
     super({ client, input });
 
     /**
@@ -38,7 +40,7 @@ module.exports = class ClientCommandsManager extends CollectionBasedManager {
      * @type {ClientAliasesManager}
      */
 
-    this.aliases = new ClientAliasesManager({ client, input });
+    this.aliases = new ClientAliasesManager({ client });
 
     /**
      * How many times the commands have been reloaded.
@@ -56,28 +58,39 @@ module.exports = class ClientCommandsManager extends CollectionBasedManager {
   async load(pathRaw) {
     Object.defineProperty(this, "path", { value: pathRaw });
     const table = new AsciiTable("Client Commands").setHeading(
-      "Command File",
-      "Command Name",
-      "Command Category",
-      "Aliases",
-      "Load status",
-    ),
-    path = resolve(pathRaw || this.path),
-      commandFolders = await readdir(path),
+        "Command File",
+        "Command Name",
+        "Command Category",
+        "Aliases",
+        "Load status",
+      ),
+      path = resolve(pathRaw || this.path),
+      commandFolders = (await readdir(path)).filter((dir) =>
+        [".js", ".json", ".md"].some((ending) => dir.endsWith(ending)),
+      ),
       commands = {};
 
     for await (const folder of commandFolders) {
       commands[folder] = [];
       const commandFiles = await readdir(resolve(path, folder));
+
       for (const file of commandFiles) {
         try {
-        const command = require(resolve(path, folder, file));
-        commands[folder] = command,
-        command.category = folder;
+          const command = require(resolve(path, folder, file));
+          (commands[folder] = command), (command.category = folder);
 
-        if (commands.aliases) for (const ali of command.aliases) this.aliases.add(ali, command.name);
-        table.addRow(file, command.name, folder, command.aliases ? command.aliases.join(", ") : "None.", "Loaded!");
-        super.set(command.name, command);
+          if (commands.aliases)
+            for (const ali of command.aliases)
+              this.aliases.add(ali, command.name);
+
+          table.addRow(
+            file,
+            command.name,
+            folder,
+            command.aliases ? command.aliases.join(", ") : "None.",
+            "Loaded!",
+          );
+          super.set(command.name, command);
         } catch (e) {
           this.client.logger.error(e);
         }
@@ -101,7 +114,7 @@ module.exports = class ClientCommandsManager extends CollectionBasedManager {
   }
 
   /**
-   * 
+   *
    * @param {String} string String to find command with.
    * @returns  {Command}
    */

@@ -1,4 +1,4 @@
-const { Structures, MessagePayload, MessageEmbed } = require("discord.js");
+const { MessageEmbed } = require("discord.js");
 async function sendMsg(message, type, sendType, values) {
   const error = type.toLowerCase() == "error" ? true : false;
   const embed = new MessageEmbed()
@@ -21,56 +21,64 @@ async function sendMsg(message, type, sendType, values) {
     ? await message.edit({ embeds: [embed] })
     : await message.reply({ embeds: [embed] });
 }
-module.exports = Structures.extend(
-  "Message",
-  (Message) =>
-    class HurricanoMessage extends Message {
-      constructor(...args) {
-        super(...args);
+
+module.exports = {
+  name: "Message",
+  extend(Message) {
+      Object.defineProperties(Message, {
+        editError: {
+          value: async function editError(Header, Msg, Footer, Fields, Components) {
+            return await sendMsg(this, "error", "edit", {
+              Header,
+              Msg,
+              Footer,
+              Fields,
+              Components,
+            });
+          }
+        },
+        editSuccess: {
+          value: async function editSuccess(Header, Msg, Footer, Fields, Components) {
+            const msg = await sendMsg(this, "success", "edit", {
+              Header,
+              Msg,
+              Footer,
+              Fields,
+              Components,
+            });
+            return msg;
+          }
+        },
+        say: {
+          value: async function say(options) {
+            const msg = await this.channel.send(options);
+            return msg;
+          }
+        },
+        sendErroReply: {
+          value: async function sendErrorReply(Header, Msg, Footer, Fields, Components) {
+          const msg = await sendMsg(this, "error", "reply", {
+            Header,
+            Msg,
+            Footer,
+            Fields,
+            Components,
+          });
+          return msg;
+        }
+      },
+      sendSuccessReply: {
+        value: async function sendSuccessReply(Header, Msg, Footer, Fields, Components) {
+          const msg = await sendMsg(this, "success", "reply", {
+            Header,
+            Msg,
+            Footer,
+            Fields,
+            Components,
+          });
+          return msg;
+        }
       }
-      async editError(Header, Msg, Footer, Fields, Components) {
-        const msg = await sendMsg(this, "error", "edit", {
-          Header,
-          Msg,
-          Footer,
-          Fields,
-          Components,
-        });
-        return msg;
-      }
-      async editSuccess(Header, Msg, Footer, Fields, Components) {
-        const msg = await sendMsg(this, "success", "edit", {
-          Header,
-          Msg,
-          Footer,
-          Fields,
-          Components,
-        });
-        return msg;
-      }
-      async say(options) {
-        const msg = await this.channel.send(options);
-        return msg;
-      }
-      async sendErrorReply(Header, Msg, Footer, Fields, Components) {
-        const msg = await sendMsg(this, "error", "reply", {
-          Header,
-          Msg,
-          Footer,
-          Fields,
-          Components,
-        });
-        return msg;
-      }
-      async sendSuccessReply(Header, Msg, Footer, Fields, Components) {
-        const msg = await sendMsg(this, "success", "reply", {
-          Header,
-          Msg,
-          Footer,
-          Fields,
-          Components,
-        });
-        return msg;
-      }
+      });
     },
-);
+  };

@@ -36,8 +36,7 @@ const logFormat = format.printf((info) => {
     message =
       typeof messageRaw === "object" ? JSON.stringify(messageRaw) : messageRaw;
   let log = `[${timestamp} in ${label}] - [${level}]: ${message}`;
-  console.log(stack?.split("\n"));
-  if (stack) log += `\n${stack}`;
+  if (stack) log += `\n${stack.split("\n").splice(1).join("\n")}`;
   return log;
 });
 
@@ -49,7 +48,7 @@ const logger = createLogger({
   levels: levels.levels,
   format: format.combine(
     format.errors({ stack: true }),
-    format.label({ label: path.basename(process.mainModule.filename) }),
+    format.label({ label: path.basename(require.main.filename) }),
     format.timestamp({ format: "YYYY-MM-DD HH:mm:ss" }),
   ),
   transports: [

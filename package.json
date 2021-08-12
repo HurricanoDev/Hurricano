@@ -41,11 +41,12 @@
     "npm": "7.x"
   },
   "_moduleAliases": {
-    "@config": "./bot/utilities/config.js",
+    "@config": "./bot/handlers/config.js",
     "@root": ".",
-    "@Command": "./bot/utilities/Command.js",
+    "@Command": "./bot/structures/internal/Command.js",
     "@utils": "./bot/utilities/",
-    "@schemas": "./bot/schemas"
+    "@schemas": "./bot/schemas",
+    "@structures": "./bot/structures/internal"
   },
   "devDependencies": {
     "eslint": "^7.32.0"

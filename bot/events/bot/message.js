@@ -274,7 +274,7 @@ module.exports = class MessageEvent extends BaseEvent {
       if (cmd.length == 0) return;
       const command =
         client.commands.get(cmd) ||
-        client.commands.get(client.aliases.get(cmd));
+        client.commands.get(client.commands.aliases.get(cmd));
 
       if (userSchema.blacklisted)
         return message.sendErrorReply(
@@ -284,7 +284,7 @@ module.exports = class MessageEvent extends BaseEvent {
       if (!command) {
         const best = [
           ...client.commands.map((cmd) => cmd.name),
-          ...client.aliases.keys(),
+          ...client.commands.aliases.keys(),
         ].filter(
           (c) => leven(cmd.toLowerCase(), c.toLowerCase()) < c.length * 0.4,
         );

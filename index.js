@@ -1,4 +1,4 @@
-const logger = require("./bot/utilities/logger.js");
+const logger = require("./bot/structures/internal/logger.js");
 
 require("./bot/utilities/module-alias.js")();
 const config = require("@config");

@@ -1,5 +1,5 @@
 const permissions = require("../../utilities/permissions.js"),
-{ Collection } = require("discord.js");
+  { Collection } = require("discord.js");
 let name;
 module.exports = class Command {
   constructor(opts) {
@@ -92,7 +92,7 @@ module.exports = class Command {
         throw new RangeError(`Command: ${name}: Aliases are not lowercase.`);
 
       for (const alias of opts.aliases) {
-        if (client.aliases.get(alias))
+        if (client.commands.aliases.get(alias))
           throw new Error(`Command: ${name}: Alias already exists.`);
       }
     }

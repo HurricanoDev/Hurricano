@@ -1,5 +1,5 @@
 const mongoose = require("mongoose"),
-{ Collection } = require("discord.js");
+  { Collection } = require("discord.js");
 
 class HurricanoDatabase {
   constructor(client, mongoPath) {

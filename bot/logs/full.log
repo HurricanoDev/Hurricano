@@ -1,16 +1,5 @@
-[2021-08-09 15:43:18 in index.js] - [emerg]: No bot token provided!
-[2021-08-09 15:43:18 in index.js] - [emerg]: No MongoDB uri provided!
-[2021-08-09 15:43:18 in index.js] - [emerg]: No website object provided!
-[2021-08-09 15:43:18 in index.js] - [emerg]: No Top.gg object provided!
-[2021-08-09 15:43:18 in index.js] - [emerg]: No bot channels provided!
-[2021-08-09 15:43:19 in index.js] - [error]: Request to use token, but token was unavailable to the client.
-Error [TOKEN_MISSING]: Request to use token, but token was unavailable to the client.
-    at Function.fetchRecommendedShards (/home/dragonizedpizza/Desktop/Hurricano/node_modules/discord.js/src/util/Util.js:271:23)
-    at ShardingManager.spawn (/home/dragonizedpizza/Desktop/Hurricano/node_modules/discord.js/src/sharding/ShardingManager.js:184:27)
-    at Object.<anonymous> (/home/dragonizedpizza/Desktop/Hurricano/index.js:45:9)
-    at Module._compile (node:internal/modules/cjs/loader:1101:14)
-    at Object.Module._extensions..js (node:internal/modules/cjs/loader:1153:10)
-    at Module.load (node:internal/modules/cjs/loader:981:32)
-    at Function.Module._load (node:internal/modules/cjs/loader:822:12)
-    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:79:12)
-    at node:internal/main/run_main_module:17:47
+[2021-08-13 00:02:38 in index.js] - [shard]: [Shard 0] Shard Launched!
+[2021-08-13 00:03:08 in index.js] - [error]: Shard 0's Client took too long to become ready.
+    at Timeout.onTimeout (C:\Users\drago\OneDrive\Desktop\code\DiscordBots\Hurricano\node_modules\discord.js\src\sharding\Shard.js:165:16)
+    at listOnTimeout (node:internal/timers:557:17)
+    at processTimers (node:internal/timers:500:7)

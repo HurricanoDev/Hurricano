@@ -10,7 +10,7 @@ module.exports = class InteractionEvent extends BaseEvent {
   async run(interaction, client) {
     if (!interaction.isCommand()) return;
     const command = client.commands
-      .filter((cmd) => cmd.slash)
+      .filter((cmd) => cmd.slashisSlash)
       .get(interaction.commandName);
     if (!command) return;
     const args = interaction.options.first(interaction.options.size);

@@ -1,4 +1,4 @@
-const database = require("../schemas/giveaway"),
+const database = require("@schemas/giveaway.js"),
   { GiveawaysManager: BaseGiveawayManager } = require("discord-giveaways");
 
 module.exports = class GiveawayManager extends BaseGiveawayManager {

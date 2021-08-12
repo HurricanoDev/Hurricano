@@ -1,10 +1,10 @@
 require("../utilities/module-alias.js")();
 const { Intents, Collection } = require("discord.js"),
-  { HurricanoClient, loadStructures } = require("@root/bot/Client.js"),
+  { HurricanoClient, loadStructures } = require("@structures/Client.js"),
   config = require("@config"),
   intents = new Intents();
 global.Collection = Collection;
-loadStructures();
+loadStructures("./bot/structures/discord.js");
 intents.add(
   "GUILD_PRESENCES",
   "GUILD_MEMBERS",
@@ -24,7 +24,7 @@ if (client.config.website.enabled) {
   require("@root/website/index.js");
 }
 async function init() {
-  client.loadCommands();
+  await client.commands.load("./bot/commands");
   client.loadEvents();
   await client.loadTopgg();
   client.db.init();

@@ -32,7 +32,7 @@ module.exports = new Command({
     if (args.length) {
       const cmd =
         client.commands.get(args[0]) ||
-        client.commands.get(client.aliases.get(args[0]));
+        client.commands.get(client.commands.aliases.get(args[0]));
       if (!cmd)
         return message.sendErrorReply(
           "Invalid Command Provided.",
