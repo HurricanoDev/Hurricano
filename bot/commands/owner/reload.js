@@ -1,10 +1,10 @@
-const fs = require("fs");
-const Command = require("@Command");
+const fs = require('fs');
+const Command = require('@Command');
 
 module.exports = new Command({
-  name: "reload",
-  description: "Reloads a command",
-  args: "Please provide which command you would like to reload!",
+  name: 'reload',
+  description: 'Reloads a command',
+  args: 'Please provide which command you would like to reload!',
   ownerOnly: true,
   async run(message, args) {
     const commandName = args[0].toLowerCase();
@@ -14,7 +14,7 @@ module.exports = new Command({
 
     if (!command) {
       return message.channel.send(
-        `There is no command with name or alias \`${commandName}\`, ${message.author}!`
+        `There is no command with name or alias \`${commandName}\`, ${message.author}!`,
       );
     }
     if (command.aliases)
@@ -31,7 +31,7 @@ module.exports = new Command({
     } catch (error) {
       client.logger.warn(error);
       message.channel.send(
-        `There was an error while reloading a command \`${command.name}\`:\n\`${error.message}\``
+        `There was an error while reloading a command \`${command.name}\`:\n\`${error.message}\``,
       );
     }
   },
