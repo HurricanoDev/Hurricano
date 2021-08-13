@@ -24,7 +24,7 @@ module.exports = {
               "https://raw.githubusercontent.com/HurricanoBot/HurricanoImages/master/SetAuthorEmojis/Error.png",
             )
             .setColor("RED");
-    
+
           if (Msg) {
             embed.setDescription(Msg);
           }
@@ -41,10 +41,16 @@ module.exports = {
             x.send({ embeds: [embed] }),
           );
           return msg;
-        }
+        },
       },
       sendSuccess: {
-        value: async function sendSuccess(message, Header, Msg, Footer, Fields) {
+        value: async function sendSuccess(
+          message,
+          Header,
+          Msg,
+          Footer,
+          Fields,
+        ) {
           const embed = new MessageEmbed()
             .setAuthor(
               Header,
@@ -67,8 +73,8 @@ module.exports = {
             x.send({ embeds: [embed] }),
           );
           return msg;
-        }
-      }
+        },
+      },
     });
-  }
+  },
 };

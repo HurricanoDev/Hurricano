@@ -25,38 +25,56 @@ async function sendMsg(message, type, sendType, values) {
 module.exports = {
   name: "Message",
   extend(Message) {
-      Object.defineProperties(Message, {
-        editError: {
-          value: async function editError(Header, Msg, Footer, Fields, Components) {
-            return await sendMsg(this, "error", "edit", {
-              Header,
-              Msg,
-              Footer,
-              Fields,
-              Components,
-            });
-          }
+    Object.defineProperties(Message, {
+      editError: {
+        value: async function editError(
+          Header,
+          Msg,
+          Footer,
+          Fields,
+          Components,
+        ) {
+          return await sendMsg(this, "error", "edit", {
+            Header,
+            Msg,
+            Footer,
+            Fields,
+            Components,
+          });
         },
-        editSuccess: {
-          value: async function editSuccess(Header, Msg, Footer, Fields, Components) {
-            const msg = await sendMsg(this, "success", "edit", {
-              Header,
-              Msg,
-              Footer,
-              Fields,
-              Components,
-            });
-            return msg;
-          }
+      },
+      editSuccess: {
+        value: async function editSuccess(
+          Header,
+          Msg,
+          Footer,
+          Fields,
+          Components,
+        ) {
+          const msg = await sendMsg(this, "success", "edit", {
+            Header,
+            Msg,
+            Footer,
+            Fields,
+            Components,
+          });
+          return msg;
         },
-        say: {
-          value: async function say(options) {
-            const msg = await this.channel.send(options);
-            return msg;
-          }
+      },
+      say: {
+        value: async function say(options) {
+          const msg = await this.channel.send(options);
+          return msg;
         },
-        sendErroReply: {
-          value: async function sendErrorReply(Header, Msg, Footer, Fields, Components) {
+      },
+      sendErroReply: {
+        value: async function sendErrorReply(
+          Header,
+          Msg,
+          Footer,
+          Fields,
+          Components,
+        ) {
           const msg = await sendMsg(this, "error", "reply", {
             Header,
             Msg,
@@ -65,10 +83,16 @@ module.exports = {
             Components,
           });
           return msg;
-        }
+        },
       },
       sendSuccessReply: {
-        value: async function sendSuccessReply(Header, Msg, Footer, Fields, Components) {
+        value: async function sendSuccessReply(
+          Header,
+          Msg,
+          Footer,
+          Fields,
+          Components,
+        ) {
           const msg = await sendMsg(this, "success", "reply", {
             Header,
             Msg,
@@ -77,8 +101,8 @@ module.exports = {
             Components,
           });
           return msg;
-        }
-      }
-      });
-    },
-  };
+        },
+      },
+    });
+  },
+};

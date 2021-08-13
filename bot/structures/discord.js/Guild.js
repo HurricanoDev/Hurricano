@@ -5,7 +5,8 @@ module.exports = {
       db: {
         value: {
           async fetch() {
-            const data = client.schemas.Guild.findOne({ id: this.id });
+            const data = client.schemas.guild.findOne({ id: this.id });
+            console.log(this);
             client.db.guilds.cache.set(this.id, data);
             return data;
           },

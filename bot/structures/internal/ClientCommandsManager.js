@@ -16,11 +16,8 @@ const CollectionBasedManager = require("./CollectionBasedManager.js"),
  */
 
 module.exports = class ClientCommandsManager extends CollectionBasedManager {
-  constructor(a) {
-    console.log(a);
-    const { client, input } = a;
+  constructor({ client, input }) {
     super({ client, input });
-
     /**
      * Command path.
      * @type {?String}

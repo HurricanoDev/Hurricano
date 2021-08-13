@@ -1,5 +1,71 @@
-[2021-08-13 00:02:38 in index.js] - [shard]: [Shard 0] Shard Launched!
-[2021-08-13 00:03:08 in index.js] - [error]: Shard 0's Client took too long to become ready.
-    at Timeout.onTimeout (C:\Users\drago\OneDrive\Desktop\code\DiscordBots\Hurricano\node_modules\discord.js\src\sharding\Shard.js:165:16)
-    at listOnTimeout (node:internal/timers:557:17)
-    at processTimers (node:internal/timers:500:7)
+[2021-08-13 07:57:07 in index.js] - [client]: 
+.
+||
+|
+ |
+-|
+'
+[2021-08-[2021-08-13 07:57:10 in index.js] - [shard]: [Shard 0] Shard Ready!
+IzODU5.YF_6Fg.***************************
+[2021-08-13 07:57:07 in index.js] - [info]: Preparing to connect to the gateway...
+[2021-08-13 07:57:08 in index.js] - [info]: [WS => Manager] Fetched Gateway Information
+    URL: wss://gateway.discord.gg
+    Recommended Shards: 1
+[2021-08-13 07:57:08 in index.js] - [info]: [WS => Manager] Session Limit Information
+    Total: 1000
+    Remaining: 990
+[2021-08-13 07:57:08 in index.js] - [info]: [WS => Manager] Spawning shards: 0
+[2021-08-13 07:57:08 in index.js] - [info]: [WS => Shard 0] [CONNECT]
+    Gateway    : wss://gateway.discord.gg/
+    Version    : 9
+    Encoding   : json
+    Compression: none
+[2021-08-13 07:57:08 in index.js] - [info]: [WS => Shard 0] Setting a HELLO timeout for 20s.
+[2021-08-13 07:57:08 in index.js] - [info]: [WS => Shard 0] [CONNECTED] Took 636ms
+[2021-08-13 07:57:08 in index.js] - [info]: [WS => Shard 0] Clearing the HELLO timeout.
+[2021-08-13 07:57:08 in index.js] - [info]: [WS => Shard 0] Setting a heartbeat interval for 41250ms.
+[2021-08-13 07:57:08 in index.js] - [info]: [WS => Shard 0] [IDENTIFY] Shard 0/1 with intents: 1923
+[2021-08-13 07:57:09 in index.js] - [info]: [WS => Shard 0] [READY] Session 118991505f36cc4a60573c2389d25f3e.
+[2021-08-13 07:57:09 in index.js] - [info]: [WS => Shard 0] [ReadyHeartbeat] Sending a heartbeat.
+[2021-08-13 07:57:10 in index.js] - [info]: [WS => Shard 0] Shard received all its guilds. Marking as fully ready.
+[2021-08-13 07:57:10 in index.js] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 1248ms.
+[2021-08-13 07:57:16 in index.js] - [db]: Connected to MongoDB!
+[2021-08-13 07:57:20 in index.js] - [client]: Hurricano Beta#2437 Successfully Logged in!
+[2021-08-13 07:57:50 in index.js] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2021-08-13 07:57:50 in index.js] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 409ms.
+[2021-08-13 07:58:09 in index.js] - [warn]: Cannot read property 'muteRole' of null
+    at MessageEvent.run (C:\Users\drago\OneDrive\Desktop\code\DiscordBots\Hurricano\bot\events\bot\message.js:83:34)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+[2021-08-13 07:58:31 in index.js] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2021-08-13 07:58:31 in index.js] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 383ms.
+[2021-08-13 07:59:12 in index.js] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2021-08-13 07:59:13 in index.js] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 380ms.
+[2021-08-13 07:59:16 in index.js] - [warn]: Cannot read property 'muteRole' of null
+    at MessageEvent.run (C:\Users\drago\OneDrive\Desktop\code\DiscordBots\Hurricano\bot\events\bot\message.js:83:34)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+[2021-08-13 07:59:53 in index.js] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2021-08-13 07:59:54 in index.js] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 396ms.
+[2021-08-13 08:00:35 in index.js] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2021-08-13 08:00:35 in index.js] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 382ms.
+[2021-08-13 08:01:16 in index.js] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2021-08-13 08:01:16 in index.js] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 379ms.
+[2021-08-13 08:01:57 in index.js] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2021-08-13 08:01:58 in index.js] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 389ms.
+[2021-08-13 08:02:39 in index.js] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2021-08-13 08:02:39 in index.js] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 389ms.
+[2021-08-13 08:03:20 in index.js] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2021-08-13 08:03:20 in index.js] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 382ms.
+[2021-08-13 08:04:01 in index.js] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2021-08-13 08:04:02 in index.js] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 409ms.
+[2021-08-13 08:04:42 in index.js] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2021-08-13 08:04:43 in index.js] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 396ms.
+[2021-08-13 08:05:24 in index.js] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2021-08-13 08:05:24 in index.js] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 387ms.
+[2021-08-13 08:06:05 in index.js] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2021-08-13 08:06:05 in index.js] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 385ms.
+[2021-08-13 08:06:46 in index.js] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2021-08-13 08:06:47 in index.js] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 393ms.
+[2021-08-13 08:07:27 in index.js] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2021-08-13 08:07:28 in index.js] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 379ms.
+[2021-08-13 08:08:09 in index.js] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2021-08-13 08:08:09 in index.js] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 381ms.

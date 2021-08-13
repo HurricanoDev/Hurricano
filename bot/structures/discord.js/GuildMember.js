@@ -7,7 +7,7 @@ module.exports = {
       db: {
         value: {
           async fetch() {
-            const data = await client.schemas.User.findOne({ id: this.id });
+            const data = await client.schemas.user.findOne({ id: this.id });
             client.db.guilds.cache.set(this.id, data);
             return data;
           },
