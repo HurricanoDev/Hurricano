@@ -1,4 +1,4 @@
-const { Collection } = require('discord.js');
+const { Collection } = require("discord.js");
 
 const blacklistedWords = new Collection();
 

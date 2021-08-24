@@ -1,28 +1,28 @@
-const Command = require('@Command');
-const { MessageEmbed } = require('discord.js');
-const { exec } = require('child_process');
+const Command = require("@Command");
+const { MessageEmbed } = require("discord.js");
+const { exec } = require("child_process");
 
 module.exports = new Command({
-  name: 'pull',
-  description: 'Pull a change from GitHub.',
+  name: "pull",
+  description: "Pull a change from GitHub.",
   ownerOnly: true,
   async run(message, args) {
     try {
       message.channel.startTyping();
-      exec('git reset --hard');
-      exec('git pull' || 'date', function (err, stdout, stderr) {
+      exec("git reset --hard");
+      exec("git pull" || "date", function (err, stdout, stderr) {
         if (err) {
           const emErr = new MessageEmbed()
             .setAuthor(
               `GitHub Pull Successful!`,
-              'https://raw.githubusercontent.com/HurricanoBot/HurricanoImages/master/SetAuthorEmojis/Success.png',
+              "https://raw.githubusercontent.com/HurricanoBot/HurricanoImages/master/SetAuthorEmojis/Success.png"
             )
             .setDescription(
               `\`\`\`xl\n${
                 err.toString().substr(0, 1000).length > 2038
-                  ? 'Pull summary is larger than 2038 characters.'
+                  ? "Pull summary is larger than 2038 characters."
                   : err.toString().substr(0, 1000)
-              }\n\`\`\``,
+              }\n\`\`\``
             )
             .setTimestamp()
             .setFooter(`Requested by: ${message.author.tag}`);
@@ -32,14 +32,14 @@ module.exports = new Command({
         const emSuccess = new MessageEmbed()
           .setAuthor(
             `GitHub Pull Successful!`,
-            'https://raw.githubusercontent.com/HurricanoBot/HurricanoImages/master/SetAuthorEmojis/Success.png',
+            "https://raw.githubusercontent.com/HurricanoBot/HurricanoImages/master/SetAuthorEmojis/Success.png"
           )
           .setDescription(
             `\`\`\`xl\n${
               stdout.length > 2038
-                ? 'Pull summary is larger than 2038 characters.'
+                ? "Pull summary is larger than 2038 characters."
                 : stdout
-            }\n\`\`\``,
+            }\n\`\`\``
           )
           .setTimestamp()
           .setColor(123456)
@@ -49,14 +49,14 @@ module.exports = new Command({
           const emSuccess = new MessageEmbed()
             .setAuthor(
               `GitHub Pull Successful!`,
-              'https://raw.githubusercontent.com/HurricanoBot/HurricanoImages/master/SetAuthorEmojis/Success.png',
+              "https://raw.githubusercontent.com/HurricanoBot/HurricanoImages/master/SetAuthorEmojis/Success.png"
             )
             .setDescription(
               `\`\`\`xl\n${
                 stdout.length > 2038
-                  ? 'Pull summary is larger than 2038 characters.'
+                  ? "Pull summary is larger than 2038 characters."
                   : stdout
-              }\n\`\`\``,
+              }\n\`\`\``
             )
             .setTimestamp()
             .setColor(123456)
@@ -69,14 +69,14 @@ module.exports = new Command({
       const embed = new MessageEmbed()
         .setAuthor(
           `GitHub Pull Successful!`,
-          'https://raw.githubusercontent.com/HurricanoBot/HurricanoImages/master/SetAuthorEmojis/Success.png',
+          "https://raw.githubusercontent.com/HurricanoBot/HurricanoImages/master/SetAuthorEmojis/Success.png"
         )
         .setDescription(
           `\`\`\`xl\n${
             stdout.length > 2038
-              ? 'Pull summary is larger than 2038 characters.'
+              ? "Pull summary is larger than 2038 characters."
               : stdout
-          }\n\`\`\``,
+          }\n\`\`\``
         )
         .setTimestamp()
         .setColor(123456)
@@ -86,9 +86,9 @@ module.exports = new Command({
     }
     let response;
     const permissionEmbed = new MessageEmbed()
-      .setTitle('Would you like to reboot the bot now?')
+      .setTitle("Would you like to reboot the bot now?")
       .setDescription(
-        'If you would like to reboot the bot now, please respond with `yes`, and if not, please respond with `no`. You have 20 seconds.',
+        "If you would like to reboot the bot now, please respond with `yes`, and if not, please respond with `no`. You have 20 seconds."
       )
       .setFooter(`For ${message.author.tag}`);
     message.channel.send({ embeds: [permissionsEmbed] });
@@ -97,35 +97,35 @@ module.exports = new Command({
         filter: (m) => m.author.id === message.author.id,
         max: 1,
         time: 20000,
-        errors: ['time'],
+        errors: ["time"],
       })
       .then((collected) => {
         response = collected.first().content.toLowerCase();
       });
     if (
-      (!response.includes('yes') && !response.includes('no')) ||
-      (!response.includes('no') && !response.includes('yes'))
+      (!response.includes("yes") && !response.includes("no")) ||
+      (!response.includes("no") && !response.includes("yes"))
     ) {
       message.sendErrorReply(
-        'Invalid Response Provided',
-        'You did not provide a valid response (`yes` or `no`). I will not reboot the bot right now.',
+        "Invalid Response Provided",
+        "You did not provide a valid response (`yes` or `no`). I will not reboot the bot right now."
       );
     }
-    if (response.includes('yes')) {
+    if (response.includes("yes")) {
       await message.channel.sendSuccess(
         message,
-        'Rebooting...',
-        'Rebooting the bot now.',
+        "Rebooting...",
+        "Rebooting the bot now."
       );
       setTimeout(() => {
         process.exit();
       }, 1000);
     }
-    if (response.includes('no')) {
+    if (response.includes("no")) {
       await message.channel.sendSuccess(
         message,
-        'Reboot Cancelled.',
-        'Will not reboot the bot now.',
+        "Reboot Cancelled.",
+        "Will not reboot the bot now."
       );
     }
   },

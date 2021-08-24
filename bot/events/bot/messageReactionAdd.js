@@ -1,15 +1,15 @@
-const { MessageEmbed } = require('discord.js');
-const BaseEvent = require('../../structures/internal/BaseEvent.js');
+const { MessageEmbed } = require("discord.js");
+const BaseEvent = require("../../structures/BaseEvent.js");
 
 module.exports = class messageReactionAdd extends BaseEvent {
   constructor(client) {
-    super('messageReactionAdd', {
-      description: 'messageReactionAdd event, meant for starboard.',
+    super("messageReactionAdd", {
+      description: "messageReactionAdd event, meant for starboard.",
       client: client,
     });
   }
   async run(reaction, user) {
-    if (reaction.emoji.name !== '⭐') return;
+    if (reaction.emoji.name !== "⭐") return;
     if (user.bot) return;
     var guildData = await reaction.message.guild.db.fetch();
     if (!guildData.starBoard.channel) return;
@@ -25,25 +25,25 @@ module.exports = class messageReactionAdd extends BaseEvent {
     if (
       !starBoardChannel
         .permissionsFor(reaction.message.guild.me)
-        .has(['SEND_MESSAGES', 'READ_MESSAGE_HISTORY'])
+        .has(["SEND_MESSAGES", "READ_MESSAGE_HISTORY"])
     )
       return;
     const starBoardMsgId = guildData.starBoard.messages.find(
-      (x) => x[0] == reaction.message.id,
+      (x) => x[0] == reaction.message.id
     );
     const sentMessage = starBoardMsgId
       ? await starBoardChannel.messages.fetch(starBoardMsgId[1]).catch(() => {})
       : null;
     if (!sentMessage && starBoardMsgId) {
       let arrayToDelete = guildData.starBoard.messages.filter(
-        (x) => x == starBoardMsgId,
+        (x) => x == starBoardMsgId
       );
       arrayToDelete = arrayToDelete.filter((x) => x !== starBoardMsgId);
       guildData.starBoard.messages = arrayToDelete;
       const DeletedGuildDataSave = await guildData.save();
       client.db.guilds.cache.set(
         reaction.message.guild.id,
-        DeletedGuildDataSave,
+        DeletedGuildDataSave
       );
       guildData = DeletedGuildDataSave;
     }
@@ -58,11 +58,11 @@ module.exports = class messageReactionAdd extends BaseEvent {
       const embed = new MessageEmbed()
         .setAuthor(
           reaction.message.author.tag,
-          reaction.message.author.displayAvatarURL({ dynamic: true }),
+          reaction.message.author.displayAvatarURL({ dynamic: true })
         )
         .setDescription(`${reaction.message}`)
-        .addField('URL:', reaction.message.url, true)
-        .setColor('YELLOW')
+        .addField("URL:", reaction.message.url, true)
+        .setColor("YELLOW")
         .setFooter(reaction.message.id)
         .setTimestamp();
       const msg = await starBoardChannel.send({

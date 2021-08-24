@@ -1,11 +1,11 @@
-'use strict';
+"use strict";
 
-var BuiltinModule = require('module');
+var BuiltinModule = require("module");
 
 // Guard against poorly mocked module constructors
 var Module = module.constructor.length > 1 ? module.constructor : BuiltinModule;
 
-var nodePath = require('path');
+var nodePath = require("path");
 
 var modulePaths = [];
 var moduleAliases = {};
@@ -17,7 +17,7 @@ Module._nodeModulePaths = function (from) {
 
   // Only include the module path for top-level modules
   // that were not installed:
-  if (from.indexOf('node_modules') === -1) {
+  if (from.indexOf("node_modules") === -1) {
     paths = modulePaths.concat(paths);
   }
 
@@ -31,12 +31,12 @@ Module._resolveFilename = function (request, parentModule, isMain, options) {
     if (isPathMatchesAlias(request, alias)) {
       var aliasTarget = moduleAliases[alias];
       // Custom function handler
-      if (typeof moduleAliases[alias] === 'function') {
+      if (typeof moduleAliases[alias] === "function") {
         var fromPath = parentModule.filename;
         aliasTarget = moduleAliases[alias](fromPath, request, alias);
-        if (!aliasTarget || typeof aliasTarget !== 'string') {
+        if (!aliasTarget || typeof aliasTarget !== "string") {
           throw new Error(
-            '[module-alias] Expecting custom handler function to return path.',
+            "[module-alias] Expecting custom handler function to return path."
           );
         }
       }
@@ -53,7 +53,7 @@ function isPathMatchesAlias(path, alias) {
   // Matching /^alias(\/|$)/
   if (path.indexOf(alias) === 0) {
     if (path.length === alias.length) return true;
-    if (path[alias.length] === '/') return true;
+    if (path[alias.length] === "/") return true;
   }
 
   return false;
@@ -149,7 +149,7 @@ function reset() {
  * @param {object} options
  */
 function init(options) {
-  if (typeof options === 'string') {
+  if (typeof options === "string") {
     options = { base: options };
   }
 
@@ -158,14 +158,14 @@ function init(options) {
   var candidatePackagePaths;
   if (options.base) {
     candidatePackagePaths = [
-      nodePath.resolve(options.base.replace(/\/package\.json$/, '')),
+      nodePath.resolve(options.base.replace(/\/package\.json$/, "")),
     ];
   } else {
     // There is probably 99% chance that the project root directory in located
     // above the node_modules directory,
     // Or that package.json is in the node process' current working directory (when
     // running a package manager script, e.g. `yarn start` / `npm run start`)
-    candidatePackagePaths = [nodePath.join(__dirname, '../..'), process.cwd()];
+    candidatePackagePaths = [nodePath.join(__dirname, "../.."), process.cwd()];
   }
 
   var npmPackage;
@@ -174,17 +174,17 @@ function init(options) {
     try {
       base = candidatePackagePaths[i];
 
-      npmPackage = require(nodePath.join(base, 'package.json'));
+      npmPackage = require(nodePath.join(base, "package.json"));
       break;
     } catch (e) {
       // noop
     }
   }
 
-  if (typeof npmPackage !== 'object') {
-    var pathString = candidatePackagePaths.join(',\n');
+  if (typeof npmPackage !== "object") {
+    var pathString = candidatePackagePaths.join(",\n");
     throw new Error(
-      'Unable to find package.json in any of:\n[' + pathString + ']',
+      "Unable to find package.json in any of:\n[" + pathString + "]"
     );
   }
 
@@ -195,7 +195,7 @@ function init(options) {
   var aliases = npmPackage._moduleAliases || {};
 
   for (var alias in aliases) {
-    if (aliases[alias][0] !== '/') {
+    if (aliases[alias][0] !== "/") {
       aliases[alias] = nodePath.join(base, aliases[alias]);
     }
   }
@@ -208,7 +208,7 @@ function init(options) {
 
   if (npmPackage._moduleDirectories instanceof Array) {
     npmPackage._moduleDirectories.forEach(function (dir) {
-      if (dir === 'node_modules') return;
+      if (dir === "node_modules") return;
 
       var modulePath = nodePath.join(base, dir);
       addPath(modulePath);

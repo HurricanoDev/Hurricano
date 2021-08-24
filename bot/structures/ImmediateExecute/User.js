@@ -1,5 +1,5 @@
-const { Structures, MessageEmbed } = require('discord.js');
-module.exports = Structures.extend('User', (User) => {
+const { Structures, MessageEmbed } = require("discord.js");
+module.exports = Structures.extend("User", (User) => {
   class HurricanoUser extends User {
     constructor(...args) {
       super(...args);
@@ -20,9 +20,9 @@ module.exports = Structures.extend('User', (User) => {
       const embed = new MessageEmbed()
         .setAuthor(
           Header,
-          'https://raw.githubusercontent.com/HurricanoBot/HurricanoImages/master/SetAuthorEmojis/Error.png',
+          "https://raw.githubusercontent.com/HurricanoBot/HurricanoImages/master/SetAuthorEmojis/Error.png"
         )
-        .setColor('RED');
+        .setColor("RED");
 
       if (Msg) {
         embed.setDescription(Msg);
@@ -32,12 +32,12 @@ module.exports = Structures.extend('User', (User) => {
       } else {
         embed.setFooter(
           message.author.username,
-          message.author.displayAvatarURL(),
+          message.author.displayAvatarURL()
         );
       }
       if (Fields) embed.addFields(Fields);
       const msg = await this.createDM().then((x) =>
-        x.send({ embeds: [embed] }),
+        x.send({ embeds: [embed] })
       );
       return msg;
     }
@@ -45,9 +45,9 @@ module.exports = Structures.extend('User', (User) => {
       const embed = new MessageEmbed()
         .setAuthor(
           Header,
-          'https://raw.githubusercontent.com/HurricanoBot/HurricanoImages/master/SetAuthorEmojis/Success.png',
+          "https://raw.githubusercontent.com/HurricanoBot/HurricanoImages/master/SetAuthorEmojis/Success.png"
         )
-        .setColor('GREEN');
+        .setColor("GREEN");
       if (Msg) {
         embed.setDescription(Msg);
       }
@@ -56,12 +56,12 @@ module.exports = Structures.extend('User', (User) => {
       } else {
         embed.setFooter(
           message.author.username,
-          message.author.displayAvatarURL(),
+          message.author.displayAvatarURL()
         );
       }
       if (Fields) embed.addFields(Fields);
       const msg = await this.createDM().then((x) =>
-        x.send({ embeds: [embed] }),
+        x.send({ embeds: [embed] })
       );
       return msg;
     }

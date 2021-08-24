@@ -1,9 +1,9 @@
-const Command = require('@Command');
-const Discord = require('discord.js');
+const Command = require("@Command");
+const Discord = require("discord.js");
 module.exports = new Command({
-  name: 'unlock',
-  description: 'Unlocks a channel.',
-  userPermissions: ['MANAGE_CHANNELS'],
+  name: "unlock",
+  description: "Unlocks a channel.",
+  userPermissions: ["MANAGE_CHANNELS"],
   async run(message, args) {
     let channel =
       message.guild.channels.cache.get(args[0]) ||
@@ -13,17 +13,17 @@ module.exports = new Command({
 
     if (!channel) {
       message.channel.sendError(
-        'Invalid Channel Provided.',
-        'Please provide a valid channel.',
+        "Invalid Channel Provided.",
+        "Please provide a valid channel."
       );
     }
     await channel.createOverwrite(message.guild.id, {
       SEND_MESSAGES: null,
     });
     var liftedembed = new Discord.MessageEmbed()
-      .setTitle('🔒 Lockdown')
-      .setDescription('🔓 Lockdown lifted.')
-      .setColor('36393e');
+      .setTitle("🔒 Lockdown")
+      .setDescription("🔓 Lockdown lifted.")
+      .setColor("36393e");
     await channel.send({ embeds: [liftedembed] });
   },
 });

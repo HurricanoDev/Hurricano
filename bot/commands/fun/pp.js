@@ -1,13 +1,13 @@
-const Discord = require('discord.js');
-const Command = require('@Command');
+const Discord = require("discord.js");
+const Command = require("@Command");
 module.exports = new Command({
-  name: 'pp',
-  userPermissions: ['SEND_MESSAGES'],
+  name: "pp",
+  userPermissions: ["SEND_MESSAGES"],
   cooldown: 20,
-  description: 'sends the pp size of the user',
+  description: "sends the pp size of the user",
   async run(message, args) {
-    const target = message.mentions.users.first() || message.author;
-    const targetId = target.id;
+    const target = message.mentions.users.first() || message.author
+    const targetId = target.id
     const emo = [
       `8D`,
       `8=D`,
@@ -70,9 +70,10 @@ module.exports = new Command({
       `8============D`,
       `8=============D`,
       `8==============D`,
-    ];
+
+    ]
     var pp1 = Math.floor(Math.random() * emo.length);
-    var pp = emo[pp1];
-    message.channel.send(pp);
+    var pp = emo[pp1]
+    message.channel.send(pp)
   },
 });

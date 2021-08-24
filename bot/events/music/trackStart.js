@@ -1,7 +1,7 @@
-const { MessageEmbed } = require('discord.js');
-const disk = ':Music:';
+const { MessageEmbed } = require("discord.js");
+const disk = ":Music:";
 module.exports = {
-  name: 'trackStart',
+  name: "trackStart",
   run: async (queue, track) => {
     const message = queue.metadata;
     const embed = new MessageEmbed()
@@ -9,15 +9,15 @@ module.exports = {
       .setURL(`${track.url}`)
       .setAuthor(
         `Now Playing`,
-        'https://raw.githubusercontent.com/HurricanoBot/HurricanoImages/master/SetAuthorEmojis/Music.gif',
+        "https://raw.githubusercontent.com/HurricanoBot/HurricanoImages/master/SetAuthorEmojis/Music.gif"
       )
-      .addField('Duration', `\`${track.duration}\``, true)
-      .addField('Views', `\`${track.views}\``, true)
-      .addField('Channel', `\`${message.member.voice.channel.name}\``, true)
-      .addField('Author', `\`${track.author}\``)
+      .addField("Duration", `\`${track.duration}\``, true)
+      .addField("Views", `\`${track.views}\``, true)
+      .addField("Channel", `\`${message.member.voice.channel.name}\``, true)
+      .addField("Author", `\`${track.author}\``)
       .setFooter(
         `Requested by ${track.requestedBy.username}`,
-        track.requestedBy.displayAvatarURL,
+        track.requestedBy.displayAvatarURL
       )
       .setThumbnail(track.thumbnail);
     return message.channel.send({ embeds: [embed] });

@@ -1,27 +1,27 @@
-require('../utilities/module-alias.js')();
-const { Intents, Collection } = require('discord.js'),
-  { HurricanoClient, loadStructures } = require('@root/bot/Client.js'),
-  config = require('@config'),
+require("../utilities/module-alias.js")();
+const { Intents, Collection } = require("discord.js"),
+  { HurricanoClient, loadStructures } = require("@root/bot/Client.js"),
+  config = require("@config"),
   intents = new Intents();
 global._Collection = Collection;
 loadStructures();
 intents.add(
-  'GUILD_PRESENCES',
-  'GUILD_MEMBERS',
-  'GUILDS',
-  'GUILD_VOICE_STATES',
-  'GUILD_MESSAGES',
-  'GUILD_MESSAGE_REACTIONS',
+  "GUILD_PRESENCES",
+  "GUILD_MEMBERS",
+  "GUILDS",
+  "GUILD_VOICE_STATES",
+  "GUILD_MESSAGES",
+  "GUILD_MESSAGE_REACTIONS"
 );
 
 const client = new HurricanoClient(config, {
   intents: intents,
-  allowedMentions: { parse: ['users'], repliedUser: false },
+  allowedMentions: { parse: ["users"], repliedUser: false },
 });
 global.client = client;
 // website initialization
 if (client.config.website.enabled) {
-  require('@root/website/index.js');
+  require("@root/website/index.js");
 }
 async function init() {
   client.loadCommands();
@@ -33,4 +33,4 @@ async function init() {
 
 init();
 
-process.on('unhandledRejection', (error) => client.logger.warn(error));
+process.on("unhandledRejection", (error) => client.logger.warn(error));

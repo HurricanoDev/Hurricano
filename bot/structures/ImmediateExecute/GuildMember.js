@@ -1,6 +1,6 @@
-const { Structures } = require('discord.js');
+const { Structures } = require("discord.js");
 
-module.exports = Structures.extend('GuildMember', (GuildMember) => {
+module.exports = Structures.extend("GuildMember", (GuildMember) => {
   class HurricanoGuildMember extends GuildMember {
     constructor(...args) {
       super(...args);
@@ -21,9 +21,9 @@ module.exports = Structures.extend('GuildMember', (GuildMember) => {
       const embed = new MessageEmbed()
         .setAuthor(
           Header,
-          'https://raw.githubusercontent.com/HurricanoBot/HurricanoImages/master/SetAuthorEmojis/Error.png',
+          "https://raw.githubusercontent.com/HurricanoBot/HurricanoImages/master/SetAuthorEmojis/Error.png"
         )
-        .setColor('RED');
+        .setColor("RED");
 
       if (Msg) {
         embed.setDescription(Msg);
@@ -33,12 +33,12 @@ module.exports = Structures.extend('GuildMember', (GuildMember) => {
       } else {
         embed.setFooter(
           message.author.username,
-          message.author.displayAvatarURL(),
+          message.author.displayAvatarURL()
         );
       }
       if (Fields) embed.addFields(Fields);
       const msg = await this.createDM().then((x) =>
-        x.send({ embeds: [embed] }),
+        x.send({ embeds: [embed] })
       );
       return msg;
     }
@@ -46,9 +46,9 @@ module.exports = Structures.extend('GuildMember', (GuildMember) => {
       const embed = new MessageEmbed()
         .setAuthor(
           Header,
-          'https://raw.githubusercontent.com/HurricanoBot/HurricanoImages/master/SetAuthorEmojis/Success.png',
+          "https://raw.githubusercontent.com/HurricanoBot/HurricanoImages/master/SetAuthorEmojis/Success.png"
         )
-        .setColor('GREEN');
+        .setColor("GREEN");
       if (Msg) {
         embed.setDescription(Msg);
       }
@@ -57,12 +57,12 @@ module.exports = Structures.extend('GuildMember', (GuildMember) => {
       } else {
         embed.setFooter(
           message.author.username,
-          message.author.displayAvatarURL(),
+          message.author.displayAvatarURL()
         );
       }
       if (Fields) embed.addFields(Fields);
       const msg = await this.createDM().then((x) =>
-        x.send({ embeds: [embed] }),
+        x.send({ embeds: [embed] })
       );
       return msg;
     }

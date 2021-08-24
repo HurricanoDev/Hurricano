@@ -1,22 +1,22 @@
-const Command = require('@Command');
-const { MessageEmbed } = require('discord.js');
+const Command = require("@Command");
+const { MessageEmbed } = require("discord.js");
 
 module.exports = new Command({
-  name: 'scout',
-  aliases: ['find'],
-  description: 'Search places for money!',
+  name: "scout",
+  aliases: ["find"],
+  description: "Search places for money!",
   async run(message, args) {
     const places = [
-      'Street',
-      'Sewer',
-      'Laundry',
-      'Sink',
-      'Home',
-      'Book',
-      'Laptop',
-      'House',
-      'Kettle',
-      'Bag',
+      "Street",
+      "Sewer",
+      "Laundry",
+      "Sink",
+      "Home",
+      "Book",
+      "Laptop",
+      "House",
+      "Kettle",
+      "Bag",
     ];
     const settings = {
       maxPayout: 450,
@@ -33,7 +33,7 @@ module.exports = new Command({
 
     let Amount = getRandomInt(settings.minPayout, settings.maxPayout);
     message.channel.send(
-      `Good Job! You searched a \`${Place}\` and earnt **:coin: ${Amount}**`,
+      `Good Job! You searched a \`${Place}\` and earnt **:coin: ${Amount}**`
     );
 
     const DB = client.db.users.cache.get(message.author.id);

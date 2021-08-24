@@ -1,13 +1,12 @@
-const mongoose = require('mongoose');
-const config = require('@config');
-const { MessageEmbed } = require('discord.js');
-const BaseEvent = require('../../structures/internal/BaseEvent.js');
-
+const mongoose = require("mongoose");
+const config = require("@config");
+const { MessageEmbed } = require("discord.js");
+const BaseEvent = require("../../structures/BaseEvent.js");
 module.exports = class guildCreateEvent extends BaseEvent {
   constructor(client) {
-    super('guildCreate', {
+    super("guildCreate", {
       description:
-        'guildCreate event, meant for saving guilds to db, and server log.',
+        "guildCreate event, meant for saving guilds to db, and server log.",
       client: client,
     });
   }
@@ -25,20 +24,20 @@ module.exports = class guildCreateEvent extends BaseEvent {
       client.logger.warn(err);
     }
     const progressChannel = client.channels.cache.get(
-      config.botChannels.serverJoinChannel,
+      config.botChannels.serverJoinChannel
     );
-    if (!progressChannel) throw new Error('No server join channel found!');
+    if (!progressChannel) throw new Error("No server join channel found!");
     const guildOwner = client.users.cache.get(guild.ownerID);
     client.logger.info(
-      `Hurricano has joined ${guild}, with member count: ${guild.memberCount}, and owner ${guildOwner.tag}.`,
+      `Hurricano has joined ${guild}, with member count: ${guild.memberCount}, and owner ${guildOwner.tag}.`
     );
     const guildEmbed = new MessageEmbed()
-      .setTitle('New Guild!')
+      .setTitle("New Guild!")
       .setImage(guild.iconURL)
-      .addField('Name:', `${guild.name}`)
-      .addField('Owner:', `${guildOwner.tag}`)
-      .addField('Server Count', `${client.guilds.cache.size} servers.`)
-      .setColor('#6082b6');
+      .addField("Name:", `${guild.name}`)
+      .addField("Owner:", `${guildOwner.tag}`)
+      .addField("Server Count", `${client.guilds.cache.size} servers.`)
+      .setColor("#6082b6");
     progressChannel.send({ embeds: [guildEmbed] });
   }
 };

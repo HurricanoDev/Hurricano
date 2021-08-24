@@ -1,7 +1,7 @@
-const { Structures, MessageEmbed } = require('discord.js');
-const { User, GuildMember, MessagePayload } = require('discord.js');
+const { Structures, MessageEmbed } = require("discord.js");
+const { User, GuildMember, MessagePayload } = require("discord.js");
 function RegexEscape(input) {
-  return input.replace(/[\-\[\]\/\{\}\(\)\*\+\?\.\\\^\$\|]/g, '\\$&');
+  return input.replace(/[\-\[\]\/\{\}\(\)\*\+\?\.\\\^\$\|]/g, "\\$&");
 }
 function replaceStringsInObject(objRaw, findStr, replaceStr) {
   let value = objRaw;
@@ -32,23 +32,23 @@ function replaceStringsInObject(objRaw, findStr, replaceStr) {
   }
   return value;
 }
-module.exports = Structures.extend('TextChannel', (channel) => {
+module.exports = Structures.extend("TextChannel", (channel) => {
   class HurricanoChannel extends channel {
     constructor(...args) {
       super(...args);
     }
     async send(optionsRaw) {
-      const tokenRegex = new RegExp(RegexEscape(client.config.token), 'g');
-      const mongoUri = new RegExp(RegexEscape(client.config.mongouri), 'g');
+      const tokenRegex = new RegExp(RegexEscape(client.config.token), "g");
+      const mongoUri = new RegExp(RegexEscape(client.config.mongouri), "g");
       let options =
-        typeof optionsRaw === 'string'
+        typeof optionsRaw === "string"
           ? optionsRaw
-              .replace(tokenRegex, 'Bot Token.')
-              .replace(mongoUri, 'MongoDB Uri.')
+              .replace(tokenRegex, "Bot Token.")
+              .replace(mongoUri, "MongoDB Uri.")
           : replaceStringsInObject(
               optionsRaw,
               [tokenRegex, mongoUri],
-              ['Bot Token.', 'MongoDB Uri.'],
+              ["Bot Token.", "MongoDB Uri."]
             );
       return await super.send(options);
     }
@@ -57,9 +57,9 @@ module.exports = Structures.extend('TextChannel', (channel) => {
       const embed = new MessageEmbed()
         .setAuthor(
           Header,
-          'https://raw.githubusercontent.com/HurricanoBot/HurricanoImages/master/SetAuthorEmojis/Error.png',
+          "https://raw.githubusercontent.com/HurricanoBot/HurricanoImages/master/SetAuthorEmojis/Error.png"
         )
-        .setColor('RED');
+        .setColor("RED");
 
       if (Msg) {
         embed.setDescription(Msg);
@@ -69,7 +69,7 @@ module.exports = Structures.extend('TextChannel', (channel) => {
       } else {
         embed.setFooter(
           message.author.username,
-          message.author.displayAvatarURL(),
+          message.author.displayAvatarURL()
         );
       }
       if (Fields) embed.addFields(Fields);
@@ -82,9 +82,9 @@ module.exports = Structures.extend('TextChannel', (channel) => {
       const embed = new MessageEmbed()
         .setAuthor(
           Header,
-          'https://raw.githubusercontent.com/HurricanoBot/HurricanoImages/master/SetAuthorEmojis/Success.png',
+          "https://raw.githubusercontent.com/HurricanoBot/HurricanoImages/master/SetAuthorEmojis/Success.png"
         )
-        .setColor('GREEN');
+        .setColor("GREEN");
       if (Msg) {
         embed.setDescription(Msg);
       }
@@ -93,7 +93,7 @@ module.exports = Structures.extend('TextChannel', (channel) => {
       } else {
         embed.setFooter(
           message.author.username,
-          message.author.displayAvatarURL(),
+          message.author.displayAvatarURL()
         );
       }
       if (Fields) embed.addFields(Fields);

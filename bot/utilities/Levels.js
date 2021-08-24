@@ -1,5 +1,5 @@
-const mongoose = require('mongoose');
-const levels = require('../schemas/level.js');
+const mongoose = require("mongoose");
+const levels = require("../schemas/level.js");
 class Levels {
   /**
    * @param {string} [dbUrl] - A valid mongo database URI.
@@ -11,8 +11,8 @@ class Levels {
    */
 
   static async createUser(userId, guildId) {
-    if (!userId) throw new TypeError('An user id was not provided.');
-    if (!guildId) throw new TypeError('A guild id was not provided.');
+    if (!userId) throw new TypeError("An user id was not provided.");
+    if (!guildId) throw new TypeError("A guild id was not provided.");
 
     const isUser = await levels.findOne({ userID: userId, guildID: guildId });
     if (isUser) return false;
@@ -35,8 +35,8 @@ class Levels {
    */
 
   static async deleteUser(userId, guildId) {
-    if (!userId) throw new TypeError('An user id was not provided.');
-    if (!guildId) throw new TypeError('A guild id was not provided.');
+    if (!userId) throw new TypeError("An user id was not provided.");
+    if (!guildId) throw new TypeError("A guild id was not provided.");
 
     const user = await levels.findOne({ userID: userId, guildID: guildId });
     if (!user) return false;
@@ -57,10 +57,10 @@ class Levels {
    */
 
   static async appendXp(userId, guildId, xp) {
-    if (!userId) throw new TypeError('An user id was not provided.');
-    if (!guildId) throw new TypeError('A guild id was not provided.');
+    if (!userId) throw new TypeError("An user id was not provided.");
+    if (!guildId) throw new TypeError("A guild id was not provided.");
     if (xp == 0 || !xp || isNaN(parseInt(xp)))
-      throw new TypeError('An amount of xp was not provided/was invalid.');
+      throw new TypeError("An amount of xp was not provided/was invalid.");
 
     const user = await levels.findOne({ userID: userId, guildID: guildId });
 
@@ -97,9 +97,9 @@ class Levels {
    */
 
   static async appendLevel(userId, guildId, levelss) {
-    if (!userId) throw new TypeError('An user id was not provided.');
-    if (!guildId) throw new TypeError('A guild id was not provided.');
-    if (!levelss) throw new TypeError('An amount of levels was not provided.');
+    if (!userId) throw new TypeError("An user id was not provided.");
+    if (!guildId) throw new TypeError("A guild id was not provided.");
+    if (!levelss) throw new TypeError("An amount of levels was not provided.");
 
     const user = await levels.findOne({ userID: userId, guildID: guildId });
     if (!user) return false;
@@ -122,10 +122,10 @@ class Levels {
    */
 
   static async setXp(userId, guildId, xp) {
-    if (!userId) throw new TypeError('An user id was not provided.');
-    if (!guildId) throw new TypeError('A guild id was not provided.');
+    if (!userId) throw new TypeError("An user id was not provided.");
+    if (!guildId) throw new TypeError("A guild id was not provided.");
     if (xp == 0 || !xp || isNaN(parseInt(xp)))
-      throw new TypeError('An amount of xp was not provided/was invalid.');
+      throw new TypeError("An amount of xp was not provided/was invalid.");
 
     const user = await levels.findOne({ userID: userId, guildID: guildId });
     if (!user) return false;
@@ -148,9 +148,9 @@ class Levels {
    */
 
   static async setLevel(userId, guildId, level) {
-    if (!userId) throw new TypeError('An user id was not provided.');
-    if (!guildId) throw new TypeError('A guild id was not provided.');
-    if (!level) throw new TypeError('A level was not provided.');
+    if (!userId) throw new TypeError("An user id was not provided.");
+    if (!guildId) throw new TypeError("A guild id was not provided.");
+    if (!level) throw new TypeError("A level was not provided.");
 
     const user = await levels.findOne({ userID: userId, guildID: guildId });
     if (!user) return false;
@@ -172,8 +172,8 @@ class Levels {
    */
 
   static async fetch(userId, guildId, fetchPosition = false) {
-    if (!userId) throw new TypeError('An user id was not provided.');
-    if (!guildId) throw new TypeError('A guild id was not provided.');
+    if (!userId) throw new TypeError("An user id was not provided.");
+    if (!guildId) throw new TypeError("A guild id was not provided.");
 
     const user = await levels.findOne({
       userID: userId,
@@ -186,7 +186,7 @@ class Levels {
         .find({
           guildID: guildId,
         })
-        .sort([['xp', 'descending']])
+        .sort([["xp", "descending"]])
         .exec();
 
       user.position = leaderboard.findIndex((i) => i.userID === userId) + 1;
@@ -206,10 +206,10 @@ class Levels {
    */
 
   static async subtractXp(userId, guildId, xp) {
-    if (!userId) throw new TypeError('An user id was not provided.');
-    if (!guildId) throw new TypeError('A guild id was not provided.');
+    if (!userId) throw new TypeError("An user id was not provided.");
+    if (!guildId) throw new TypeError("A guild id was not provided.");
     if (xp == 0 || !xp || isNaN(parseInt(xp)))
-      throw new TypeError('An amount of xp was not provided/was invalid.');
+      throw new TypeError("An amount of xp was not provided/was invalid.");
 
     const user = await levels.findOne({ userID: userId, guildID: guildId });
     if (!user) return false;
@@ -232,9 +232,9 @@ class Levels {
    */
 
   static async subtractLevel(userId, guildId, levelss) {
-    if (!userId) throw new TypeError('An user id was not provided.');
-    if (!guildId) throw new TypeError('A guild id was not provided.');
-    if (!levelss) throw new TypeError('An amount of levels was not provided.');
+    if (!userId) throw new TypeError("An user id was not provided.");
+    if (!guildId) throw new TypeError("A guild id was not provided.");
+    if (!levelss) throw new TypeError("An amount of levels was not provided.");
 
     const user = await levels.findOne({ userID: userId, guildID: guildId });
     if (!user) return false;
@@ -256,12 +256,12 @@ class Levels {
    */
 
   static async fetchLeaderboard(guildId, limit) {
-    if (!guildId) throw new TypeError('A guild id was not provided.');
-    if (!limit) throw new TypeError('A limit was not provided.');
+    if (!guildId) throw new TypeError("A guild id was not provided.");
+    if (!limit) throw new TypeError("A limit was not provided.");
 
     var users = await levels
       .find({ guildID: guildId })
-      .sort([['xp', 'descending']])
+      .sort([["xp", "descending"]])
       .exec();
 
     return users.slice(0, limit);
@@ -273,8 +273,8 @@ class Levels {
    */
 
   static async computeLeaderboard(client, leaderboard, fetchUsers = false) {
-    if (!client) throw new TypeError('A client was not provided.');
-    if (!leaderboard) throw new TypeError('A leaderboard id was not provided.');
+    if (!client) throw new TypeError("A client was not provided.");
+    if (!leaderboard) throw new TypeError("A leaderboard id was not provided.");
 
     if (leaderboard.length < 1) return [];
 
@@ -283,8 +283,8 @@ class Levels {
     if (fetchUsers) {
       for (const key of leaderboard) {
         const user = (await client.users.fetch(key.userID)) || {
-          username: 'Unknown',
-          discriminator: '0000',
+          username: "Unknown",
+          discriminator: "0000",
         };
         computedArray.push({
           guildID: key.guildID,
@@ -293,7 +293,7 @@ class Levels {
           level: key.level,
           position:
             leaderboard.findIndex(
-              (i) => i.guildID === key.guildID && i.userID === key.userID,
+              (i) => i.guildID === key.guildID && i.userID === key.userID
             ) + 1,
           username: user.username,
           discriminator: user.discriminator,
@@ -308,15 +308,15 @@ class Levels {
           level: key.level,
           position:
             leaderboard.findIndex(
-              (i) => i.guildID === key.guildID && i.userID === key.userID,
+              (i) => i.guildID === key.guildID && i.userID === key.userID
             ) + 1,
           username: client.users.cache.get(key.userID)
             ? client.users.cache.get(key.userID).username
-            : 'Unknown',
+            : "Unknown",
           discriminator: client.users.cache.get(key.userID)
             ? client.users.cache.get(key.userID).discriminator
-            : '0000',
-        }),
+            : "0000",
+        })
       );
     }
 
@@ -328,10 +328,10 @@ class Levels {
    */
   static xpFor(targetLevel) {
     if (isNaN(targetLevel) || isNaN(parseInt(targetLevel, 10)))
-      throw new TypeError('Target level should be a valid number.');
+      throw new TypeError("Target level should be a valid number.");
     if (isNaN(targetLevel)) targetLevel = parseInt(targetLevel, 10);
     if (targetLevel < 0)
-      throw new RangeError('Target level should be a positive number.');
+      throw new RangeError("Target level should be a positive number.");
     return targetLevel * targetLevel * 100;
   }
 }

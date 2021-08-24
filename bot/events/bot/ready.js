@@ -1,11 +1,12 @@
-const { blacklistedWords } = require('../../collections/blwords.js');
-const BaseEvent = require('../../structures/internal/BaseEvent.js');
-
+const mongoose = require("mongoose");
+const config = require("@config");
+const { blacklistedWords } = require("../../collections/blwords.js");
+const BaseEvent = require("../../structures/BaseEvent.js");
 module.exports = class readyEvent extends BaseEvent {
   constructor(client) {
-    super('ready', {
+    super("ready", {
       description:
-        'Ready event. Meant for status changes, slash commands, guilds setup, db caching, etc.',
+        "Ready event. Meant for status changes, slash commands, guilds setup, db caching, etc.",
       client: client,
       once: true,
     });
@@ -48,8 +49,8 @@ module.exports = class readyEvent extends BaseEvent {
     }
     client.user.setActivity({
       name: `${client.globalPrefix}help`,
-      type: 'STREAMING',
-      url: 'https://twitch.tv/Pewdiepie',
+      type: "STREAMING",
+      url: "https://twitch.tv/Pewdiepie",
     });
     client.logger.client(`${client.user.tag} Successfully Logged in!`);
   }

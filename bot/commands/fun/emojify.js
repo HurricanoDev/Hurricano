@@ -1,59 +1,59 @@
-const Discord = require('discord.js');
-const Command = require('@Command');
+const Discord = require("discord.js");
+const Command = require("@Command");
 
 module.exports = new Command({
-  name: 'emojify',
-  aliases: ['emjfy'],
-  description: 'Emojify some text!',
-  clientPermissions: ['SEND_MESSAGES'],
+  name: "emojify",
+  aliases: ["emjfy"],
+  description: "Emojify some text!",
+  clientPermissions: ["SEND_MESSAGES"],
   async run(message, args) {
-    if (!args.join(' '))
+    if (!args.join(" "))
       return message.channel.sendError(
         message,
-        'Error!',
-        `Correct Usage: \`${message._usedPrefix}emojify <text>\``,
+        "Error!",
+        `Correct Usage: \`${message._usedPrefix}emojify <text>\``
       );
 
     function hasNumber(myString) {
       return /\d/.test(myString);
     }
 
-    if (hasNumber(args.join(' ')))
+    if (hasNumber(args.join(" ")))
       return message.channel.sendError(
         message,
-        'Error!',
-        "I can't emojify text with numbers in it!",
+        "Error!",
+        "I can't emojify text with numbers in it!"
       );
 
     let msg = message.content.slice(
-      message.content.indexOf(args.join(' ')),
-      message.content.length,
+      message.content.indexOf(args.join(" ")),
+      message.content.length
     );
 
     msg = msg
-      .split('')
+      .split("")
       .map((c) => {
-        if (c === ' ') return c;
+        if (c === " ") return c;
         else if (/[0-9]/.test(c)) return numberMap[c];
         else
           return /[a-zA-Z]/.test(c)
-            ? ':regional_indicator_' + c.toLowerCase() + ':'
-            : '';
+            ? ":regional_indicator_" + c.toLowerCase() + ":"
+            : "";
       })
-      .join('');
+      .join("");
 
     if (msg.length > 2048) {
       msg = msg.slice(0, msg.length - (msg.length - 2033));
-      msg = msg.slice(0, msg.lastIndexOf(':')) + '**...**';
+      msg = msg.slice(0, msg.lastIndexOf(":")) + "**...**";
     }
 
     const embed = new Discord.MessageEmbed()
-      .setTitle('Emojify')
-      .setColor('BLUE')
+      .setTitle("Emojify")
+      .setColor("BLUE")
       .setDescription(msg)
       .setFooter(
         message.member.displayName,
-        message.author.displayAvatarURL({ dynamic: true }),
+        message.author.displayAvatarURL({ dynamic: true })
       )
       .setTimestamp();
     message.channel.send({ embeds: [embed] });

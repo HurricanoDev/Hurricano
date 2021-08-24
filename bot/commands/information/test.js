@@ -1,17 +1,17 @@
-const Discord = require('discord.js');
-const Command = require('@Command');
+const Discord = require("discord.js");
+const Command = require("@Command");
 
 module.exports = new Command({
-  name: 'test',
+  name: "test",
   description:
     "Test if the bot's slash commands are working, and make it say something.",
   slash: {
-    name: 'test',
+    name: "test",
     isSlash: true,
     options: [
       {
-        name: 'text',
-        description: 'What you want the bot to say.',
+        name: "text",
+        description: "What you want the bot to say.",
         type: 3,
         required: true,
       },
