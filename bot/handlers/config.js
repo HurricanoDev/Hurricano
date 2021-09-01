@@ -2,9 +2,9 @@ const logger = require("@structures/logger");
 let config;
 require("dotenv").config();
 try {
-  config = require(`${process.cwd()}/config.json`);
+	config = require(`${process.cwd()}/config.json`);
 } catch (err) {
-  config = JSON.parse(process.env.config);
+	config = JSON.parse(process.env.config);
 }
 
 module.exports = config;
