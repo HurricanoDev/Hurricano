@@ -3,8 +3,8 @@ const mongoose = require("mongoose"),
 
 class HurricanoDatabase {
 	constructor(client, mongoPath) {
-		this.constructor.validateCredentials(client, mongoPath),
-			(this.client = client);
+		this.constructor.validateCredentials(client, mongoPath);
+		this.client = client;
 		this.mongoPath = mongoPath;
 		this.users = {
 			cache: new Collection(),
@@ -57,7 +57,7 @@ class HurricanoDatabase {
 			throw new Error("MongoDB provided is not a string.");
 	}
 	init() {
-		mongoose.connect(this.mongoPath, {
+		mongoose.connect(encodeURIComponent(this.mongoPath), {
 			useNewUrlParser: true,
 			useUnifiedTopology: true,
 			useFindAndModify: false,

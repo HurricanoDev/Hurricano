@@ -19,8 +19,6 @@ const client = new HurricanoClient(config, {
 	allowedMentions: { parse: ["users"], repliedUser: false },
 });
 
-client.utils.loadStructures("./src/structures/discord.js/");
-
 global.client = client;
 // website initialization
 if (client.config.website.enabled) {
