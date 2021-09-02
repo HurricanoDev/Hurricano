@@ -3,15 +3,14 @@ const Client = require("./Client.js"),
 
 module.exports = class GuildDatabaseActionsManager {
 	/**
-	 * 
+	 *
 	 * @param {Object} input Provided input.
 	 * @param {Client} input.client
 	 * @param {String} input.guildId
-	 * @param {Guild} input.guild 
+	 * @param {Guild} input.guild
 	 */
 
 	constructor({ client, guildId, guild }) {
-
 		this.client = client;
 
 		this.guildId = guildId;
@@ -24,4 +23,4 @@ module.exports = class GuildDatabaseActionsManager {
 	cache() {
 		return this.client.db.guilds.cache.get(this.id);
 	}
-};	
+};

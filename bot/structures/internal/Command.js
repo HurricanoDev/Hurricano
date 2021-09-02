@@ -15,10 +15,10 @@ module.exports = class Command {
 		this.clientPermissions = opts.clientPermissions || null;
 		this.subCommands = opts.subCommands
 			? {
-					commands: new Collection(opts.subCommands.commands),
-					baseAuthorization:
+				commands: new Collection(opts.subCommands.commands),
+				baseAuthorization:
 						opts.subCommands.baseAuthorization ?? null,
-			  }
+			}
 			: null;
 		this.run =
 			opts.run ??

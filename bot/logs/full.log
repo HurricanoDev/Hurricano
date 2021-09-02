@@ -1,19 +1,208 @@
-[2021-09-01 22:45:13 in index.js] - [shard]: [Shard 0] Shard Launched!
-[2021-09-01 22:45:20 in index.js] - [shard]: [Shard 0] Shard died.
-[2021-09-01 22:45:20 in index.js] - [shard]: {"_events":{},"_eventsCount":3,"_closesNeeded":2,"_closesGot":1,"connected":false,"signalCode":null,"exitCode":1,"killed":false,"spawnfile":"/usr/bin/node","_handle":null,"spawnargs":["/usr/bin/node","/home/dragonizedpizza/Desktop/Hurricano/bot/handlers/index.js"],"pid":37707,"stdin":null,"stdout":null,"stderr":null,"stdio":[null,null,null,null],"channel":null,"_handleQueue":null,"_pendingMessage":null}
-[2021-09-01 22:45:21 in index.js] - [error]: Shard 0's process exited before its Client became ready.
-    at Shard.onDeath (/home/dragonizedpizza/Desktop/Hurricano/node_modules/discord.js/src/sharding/Shard.js:160:16)
-    at Object.onceWrapper (node:events:514:26)
-    at Shard.emit (node:events:406:35)
-    at Shard._handleExit (/home/dragonizedpizza/Desktop/Hurricano/node_modules/discord.js/src/sharding/Shard.js:392:10)
-    at ChildProcess.emit (node:events:394:28)
-    at Process.ChildProcess._handle.onexit (node:internal/child_process:290:12)
-[2021-09-01 22:45:22 in index.js] - [shard]: [Shard 0] Shard died.
-[2021-09-01 22:45:22 in index.js] - [shard]: {"_events":{},"_eventsCount":3,"_closesNeeded":2,"_closesGot":1,"connected":false,"signalCode":null,"exitCode":1,"killed":false,"spawnfile":"/usr/bin/node","_handle":null,"spawnargs":["/usr/bin/node","/home/dragonizedpizza/Desktop/Hurricano/bot/handlers/index.js"],"pid":37799,"stdin":null,"stdout":null,"stderr":null,"stdio":[null,null,null,null],"channel":null,"_handleQueue":null,"_pendingMessage":null}
-[2021-09-01 22:45:22 in index.js] - [error]: Shard 0's process exited before its Client became ready.
-    at Shard.onDeath (/home/dragonizedpizza/Desktop/Hurricano/node_modules/discord.js/src/sharding/Shard.js:160:16)
-    at Object.onceWrapper (node:events:514:26)
-    at Shard.emit (node:events:406:35)
-    at Shard._handleExit (/home/dragonizedpizza/Desktop/Hurricano/node_modules/discord.js/src/sharding/Shard.js:392:10)
-    at ChildProcess.emit (node:events:394:28)
-    at Process.ChildProcess._handle.onexit (node:internal/child_process:290:12)
+[2021-09-02 08:36:16 in index.js] - [error]: Cannot find module 'Utils/S[2021-09-02 08:36:21 in index.js] - [shard]: [Shard 0] Shard Ready!
+DiscordBots\Hurricano\bot\commands\suggestions\accept.js
+- C:\Users\drago\OneDrive\Desktop\code\DiscordBots\Hurricano\bot\structures\internal\ClientCommandsManager.js
+- C:\Users\drago\OneDrive\Desktop\code\DiscordBots\Hurricano\bot\structures\internal\Client.js
+- C:\Users\drago\OneDrive\Desktop\code\DiscordBots\Hurricano\bot\handlers\index.js
+Require stack:
+- C:\Users\drago\OneDrive\Desktop\code\DiscordBots\Hurricano\bot\commands\suggestions\accept.js
+- C:\Users\drago\OneDrive\Desktop\code\DiscordBots\Hurricano\bot\structures\internal\ClientCommandsManager.js
+- C:\Users\drago\OneDrive\Desktop\code\DiscordBots\Hurricano\bot\structures\internal\Client.js
+- C:\Users\drago\OneDrive\Desktop\code\DiscordBots\Hurricano\bot\handlers\index.js
+    at Function.Module._resolveFilename (node:internal/modules/cjs/loader:933:15)
+    at Function.Module._resolveFilename (C:\Users\drago\OneDrive\Desktop\code\DiscordBots\Hurricano\bot\utilities\module-alias.js:49:28)
+    at Function.Module._load (node:internal/modules/cjs/loader:778:27)
+    at Module.require (node:internal/modules/cjs/loader:1005:19)
+    at require (node:internal/modules/cjs/helpers:94:18)
+    at Object.<anonymous> (C:\Users\drago\OneDrive\Desktop\code\DiscordBots\Hurricano\bot\commands\suggestions\accept.js:2:16)
+    at Module._compile (node:internal/modules/cjs/loader:1101:14)
+    at Object.Module._extensions..js (node:internal/modules/cjs/loader:1153:10)
+    at Module.load (node:internal/modules/cjs/loader:981:32)
+    at Function.Module._load (node:internal/modules/cjs/loader:822:12)
+    at Module.require (node:internal/modules/cjs/loader:1005:19)
+    at require (node:internal/modules/cjs/helpers:94:18)
+    at Map.load (C:\Users\drago\OneDrive\Desktop\code\DiscordBots\Hurricano\bot\structures\internal\ClientCommandsManager.js:76:22)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+    at async init (C:\Users\drago\OneDrive\Desktop\code\DiscordBots\Hurricano\bot\handlers\index.js:28:2)
+[2021-09-02 08:36:16 in index.js] - [error]: Cannot find module '@Utils/Suggestions.js'
+Require stack:
+- C:\Users\drago\OneDrive\Desktop\code\DiscordBots\Hurricano\bot\commands\suggestions\deny.js
+- C:\Users\drago\OneDrive\Desktop\code\DiscordBots\Hurricano\bot\structures\internal\ClientCommandsManager.js
+- C:\Users\drago\OneDrive\Desktop\code\DiscordBots\Hurricano\bot\structures\internal\Client.js
+- C:\Users\drago\OneDrive\Desktop\code\DiscordBots\Hurricano\bot\handlers\index.js
+Require stack:
+- C:\Users\drago\OneDrive\Desktop\code\DiscordBots\Hurricano\bot\commands\suggestions\deny.js
+- C:\Users\drago\OneDrive\Desktop\code\DiscordBots\Hurricano\bot\structures\internal\ClientCommandsManager.js
+- C:\Users\drago\OneDrive\Desktop\code\DiscordBots\Hurricano\bot\structures\internal\Client.js
+- C:\Users\drago\OneDrive\Desktop\code\DiscordBots\Hurricano\bot\handlers\index.js
+    at Function.Module._resolveFilename (node:internal/modules/cjs/loader:933:15)
+    at Function.Module._resolveFilename (C:\Users\drago\OneDrive\Desktop\code\DiscordBots\Hurricano\bot\utilities\module-alias.js:49:28)
+    at Function.Module._load (node:internal/modules/cjs/loader:778:27)
+    at Module.require (node:internal/modules/cjs/loader:1005:19)
+    at require (node:internal/modules/cjs/helpers:94:18)
+    at Object.<anonymous> (C:\Users\drago\OneDrive\Desktop\code\DiscordBots\Hurricano\bot\commands\suggestions\deny.js:2:16)
+    at Module._compile (node:internal/modules/cjs/loader:1101:14)
+    at Object.Module._extensions..js (node:internal/modules/cjs/loader:1153:10)
+    at Module.load (node:internal/modules/cjs/loader:981:32)
+    at Function.Module._load (node:internal/modules/cjs/loader:822:12)
+    at Module.require (node:internal/modules/cjs/loader:1005:19)
+    at require (node:internal/modules/cjs/helpers:94:18)
+    at Map.load (C:\Users\drago\OneDrive\Desktop\code\DiscordBots\Hurricano\bot\structures\internal\ClientCommandsManager.js:76:22)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+    at async init (C:\Users\drago\OneDrive\Desktop\code\DiscordBots\Hurricano\bot\handlers\index.js:28:2)
+[2021-09-02 08:36:16 in index.js] - [client]: 
+.---------------------------------------------------------------------------------------------------------------------------.
+|                                                      Client Commands                                                      |
+|---------------------------------------------------------------------------------------------------------------------------|
+|     Command File     |   Command Name    | Command Category |                    Aliases                    | Load status |
+|----------------------|-------------------|------------------|-----------------------------------------------|-------------|
+| database.js          | database          | config           | db                                            | Loaded!     |
+| disable.js           | disable           | config           | None.                                         | Loaded!     |
+| enable.js            | enable            | config           | None.                                         | Loaded!     |
+| msglogs.js           | msglogs           | config           | messagelogs, messagelog                       | Loaded!     |
+| muterole.js          | muterole          | config           | setmuterole                                   | Loaded!     |
+| prefix.js            | prefix            | config           | sp, setp                                      | Loaded!     |
+| serverlog.js         | serverlog         | config           | serverlogs, setserverlog, setserverlogchannel | Loaded!     |
+| setautorole.js       | setautorole       | config           | autorole                                      | Loaded!     |
+| setmemberlog.js      | setmemberlog      | config           | setmemberlogchannel, smemberlog               | Loaded!     |
+| setsystemchannel.js  | setsystemchannel  | config           | setsystemch                                   | Loaded!     |
+| settings.js          | settings          | config           | None.                                         | Loaded!     |
+| spamdetection.js     | spamdetection     | config           | spamd, antispam                               | Loaded!     |
+| starboard.js         | starboard         | config           | None.                                         | Loaded!     |
+| wordblacklist.js     | wordblacklist     | config           | wbl                                           | Loaded!     |
+| balance.js           | balance           | economy          | bal, coins, money                             | Loaded!     |
+| deposit.js           | deposit           | economy          | dep                                           | Loaded!     |
+| roulette.js          | roulette          | economy          | roul                                          | Loaded!     |
+| search.js            | scout             | economy          | find                                          | Loaded!     |
+| slots.js             | slots             | economy          | slotmachine                                   | Loaded!     |
+| withdraw.js          | withdraw          | economy          | with                                          | Loaded!     |
+| 8ball.js             | 8ball             | fun              | None.                                         | Loaded!     |
+| advice.js            | advice            | fun              | None.                                         | Loaded!     |
+| battle.js            | battle            | fun              | fight                                         | Loaded!     |
+| calculator.js        | calculator        | fun              | None.                                         | Loaded!     |
+| catfact.js           | catfact           | fun              | None.                                         | Loaded!     |
+| connect4.js          | connect4          | fun              | c4, connectfour                               | Loaded!     |
+| cringerate.js        | cringerate        | fun              | cringer8                                      | Loaded!     |
+| dankrate.js          | dankrate          | fun              | dankr8, howdank                               | Loaded!     |
+| eject.js             | eject             | fun              | None.                                         | Loaded!     |
+| emojify.js           | emojify           | fun              | emjfy                                         | Loaded!     |
+| fox.js               | fox               | fun              | None.                                         | Loaded!     |
+| hangman.js           | hangman           | fun              | hangm                                         | Loaded!     |
+| howgay.js            | howgay            | fun              | gayrate                                       | Loaded!     |
+| kill.js              | kill              | fun              | None.                                         | Loaded!     |
+| meme.js              | meme              | fun              | None.                                         | Loaded!     |
+| minesweeper.js       | minesweeper       | fun              | mines                                         | Loaded!     |
+| pp.js                | pp                | fun              | None.                                         | Loaded!     |
+| rps.js               | rps               | fun              | rockpaperscissors                             | Loaded!     |
+| snake.js             | snake             | fun              | snek                                          | Loaded!     |
+| snipe.js             | snipe             | fun              | None.                                         | Loaded!     |
+| trump.js             | trump             | fun              | trumpquote                                    | Loaded!     |
+| unscramble.js        | unscramble        | fun              | guessword                                     | Loaded!     |
+| gend.js              | gend              | giveaways        | , giveawayend, g-end, g-end, gfinish          | Loaded!     |
+| glist.js             | glist             | giveaways        | None.                                         | Loaded!     |
+| gstart.js            | gstart            | giveaways        | gs, giveawaystart, g-start, giveaway, gcreate | Loaded!     |
+| achievement.js       | achievement       | image            | None.                                         | Loaded!     |
+| beautify.js          | beautify          | image            | None.                                         | Loaded!     |
+| burn.js              | burn              | image            | None.                                         | Loaded!     |
+| Clyde.js             | clyde             | image            | None.                                         | Loaded!     |
+| facepalm.js          | facepalm          | image            | None.                                         | Loaded!     |
+| pixelate.js          | pixelate          | image            | None.                                         | Loaded!     |
+| rainbow.js           | rainbow           | image            | None.                                         | Loaded!     |
+| rip.js               | rip               | image            | None.                                         | Loaded!     |
+| trigger.js           | trigger           | image            | None.                                         | Loaded!     |
+| wanted.js            | wanted            | image            | None.                                         | Loaded!     |
+| avatar.js            | avatar            | information      | profilepic, pic, ava, pfp                     | Loaded!     |
+| botinfo.js           | botinfo           | information      | info, bi                                      | Loaded!     |
+| docs.js              | docs              | information      | None.                                         | Loaded!     |
+| help.js              | help              | information      | cmd, commands, h                              | Loaded!     |
+| invite.js            | links             | information      | invite, inv, vote                             | Loaded!     |
+| joinposition.js      | joinposition      | information      | joinp                                         | Loaded!     |
+| ping.js              | ping              | information      | latency, pong                                 | Loaded!     |
+| serverinfo.js        | serverinfo        | information      | serveri, si, guildinfo, gi                    | Loaded!     |
+| test.js              | test              | information      | None.                                         | Loaded!     |
+| rank.js              | rank              | levelling        | None.                                         | Loaded!     |
+| addemoji.js          | addemoji          | moderation       | None.                                         | Loaded!     |
+| ban.js               | ban               | moderation       | None.                                         | Loaded!     |
+| decancer.js          | decancer          | moderation       | None.                                         | Loaded!     |
+| kick.js              | kick              | moderation       | None.                                         | Loaded!     |
+| lock.js              | lock              | moderation       | None.                                         | Loaded!     |
+| nickname.js          | nickname          | moderation       | None.                                         | Loaded!     |
+| nuke.js              | nuke              | moderation       | None.                                         | Loaded!     |
+| purge.js             | purge             | moderation       | None.                                         | Loaded!     |
+| slowmode.js          | slowmode          | moderation       | None.                                         | Loaded!     |
+| unlock.js            | unlock            | moderation       | None.                                         | Loaded!     |
+| filters.js           | filters           | music            | filter                                        | Loaded!     |
+| lyrics.js            | lyrics            | music            | ly                                            | Loaded!     |
+| play.js              | play              | music            | p                                             | Loaded!     |
+| search.js            | search            | music            | None.                                         | Loaded!     |
+| skip.js              | skip              | music            | sk                                            | Loaded!     |
+| stop.js              | stop              | music            | dc                                            | Loaded!     |
+| volume.js            | volume            | music            | None.                                         | Loaded!     |
+| blacklist.js         | blacklist         | owner            | None.                                         | Loaded!     |
+| eval.js              | eval              | owner            | None.                                         | Loaded!     |
+| exec.js              | exec              | owner            | None.                                         | Loaded!     |
+| fulleval.js          | fulleval          | owner            | None.                                         | Loaded!     |
+| leaveguild.js        | leaveguild        | owner            | None.                                         | Loaded!     |
+| pull.js              | pull              | owner            | None.                                         | Loaded!     |
+| reboot.js            | reboot            | owner            | None.                                         | Loaded!     |
+| reload.js            | reload            | owner            | None.                                         | Loaded!     |
+| shutdown.js          | shutdown          | owner            | None.                                         | Loaded!     |
+| unblacklist.js       | unblacklist       | owner            | None.                                         | Loaded!     |
+| suggestionchannel.js | suggestionchannel | suggestions      | suggestionschannel                            | Loaded!     |
+| afk.js               | afk               | utility          | None.                                         | Loaded!     |
+| birthdaycheck.js     | birthdate         | utility          | checkbirthday, checkbday, birthdaycheck       | Loaded!     |
+| birthdayset.js       | birthdayset       | utility          | setbirthday, setbday                          | Loaded!     |
+| github.js            | github            | utility          | github, gh                                    | Loaded!     |
+| randomword.js        | randomword        | utility          | rw                                            | Loaded!     |
+| suggest.js           | suggest           | utility          | None.                                         | Loaded!     |
+| tag.js               | tag               | utility          | None.                                         | Loaded!     |
+| urbandictionary.js   | urbandictionary   | utility          | urband, urbandict                             | Loaded!     |
+'---------------------------------------------------------------------------------------------------------------------------'
+[2021-09-02 08:36:16 in index.js] - [info]: Provided token: ODI1NTc0NDEyMTc4NDIzODU5.YF_6Fg.***************************
+[2021-09-02 08:36:16 in index.js] - [info]: Preparing to connect to the gateway...
+[2021-09-02 08:36:16 in index.js] - [db]: Disconnected from MongoDB!
+[2021-09-02 08:36:16 in index.js] - [warn]: Invalid connection string
+    at parseConnectionString (C:\Users\drago\OneDrive\Desktop\code\DiscordBots\Hurricano\node_modules\mongodb\lib\core\uri_parser.js:575:21)
+    at connect (C:\Users\drago\OneDrive\Desktop\code\DiscordBots\Hurricano\node_modules\mongodb\lib\operations\connect.js:282:3)
+    at C:\Users\drago\OneDrive\Desktop\code\DiscordBots\Hurricano\node_modules\mongodb\lib\mongo_client.js:260:5
+    at maybePromise (C:\Users\drago\OneDrive\Desktop\code\DiscordBots\Hurricano\node_modules\mongodb\lib\utils.js:692:3)
+    at MongoClient.connect (C:\Users\drago\OneDrive\Desktop\code\DiscordBots\Hurricano\node_modules\mongodb\lib\mongo_client.js:256:10)
+    at C:\Users\drago\OneDrive\Desktop\code\DiscordBots\Hurricano\node_modules\mongoose\lib\connection.js:835:12
+    at new Promise (<anonymous>)
+    at NativeConnection.Connection.openUri (C:\Users\drago\OneDrive\Desktop\code\DiscordBots\Hurricano\node_modules\mongoose\lib\connection.js:832:19)
+    at C:\Users\drago\OneDrive\Desktop\code\DiscordBots\Hurricano\node_modules\mongoose\lib\index.js:351:10
+    at C:\Users\drago\OneDrive\Desktop\code\DiscordBots\Hurricano\node_modules\mongoose\lib\helpers\promiseOrCallback.js:32:5
+    at new Promise (<anonymous>)
+    at promiseOrCallback (C:\Users\drago\OneDrive\Desktop\code\DiscordBots\Hurricano\node_modules\mongoose\lib\helpers\promiseOrCallback.js:31:10)
+    at Mongoose._promiseOrCallback (C:\Users\drago\OneDrive\Desktop\code\DiscordBots\Hurricano\node_modules\mongoose\lib\index.js:1149:10)
+    at Mongoose.connect (C:\Users\drago\OneDrive\Desktop\code\DiscordBots\Hurricano\node_modules\mongoose\lib\index.js:350:20)
+    at HurricanoDatabase.init (C:\Users\drago\OneDrive\Desktop\code\DiscordBots\Hurricano\bot\handlers\db.js:60:12)
+    at init (C:\Users\drago\OneDrive\Desktop\code\DiscordBots\Hurricano\bot\handlers\index.js:31:12)
+[2021-09-02 08:36:19 in index.js] - [info]: [WS => Manager] Fetched Gateway Information
+    URL: wss://gateway.discord.gg
+    Recommended Shards: 1
+[2021-09-02 08:36:19 in index.js] - [info]: [WS => Manager] Session Limit Information
+    Total: 1000
+    Remaining: 999
+[2021-09-02 08:36:19 in index.js] - [info]: [WS => Manager] Spawning shards: 0
+[2021-09-02 08:36:19 in index.js] - [info]: [WS => Shard 0] [CONNECT]
+    Gateway    : wss://gateway.discord.gg/
+    Version    : 9
+    Encoding   : json
+    Compression: none
+[2021-09-02 08:36:19 in index.js] - [info]: [WS => Shard 0] Setting a HELLO timeout for 20s.
+[2021-09-02 08:36:19 in index.js] - [info]: [WS => Shard 0] [CONNECTED] Took 602ms
+[2021-09-02 08:36:19 in index.js] - [info]: [WS => Shard 0] Clearing the HELLO timeout.
+[2021-09-02 08:36:19 in index.js] - [info]: [WS => Shard 0] Setting a heartbeat interval for 41250ms.
+[2021-09-02 08:36:19 in index.js] - [info]: [WS => Shard 0] [IDENTIFY] Shard 0/1 with intents: 1923
+[2021-09-02 08:36:20 in index.js] - [info]: [WS => Shard 0] [READY] Session 0cf797fc186a8da61827f1fbe9dc2aa9.
+[2021-09-02 08:36:20 in index.js] - [info]: [WS => Shard 0] [ReadyHeartbeat] Sending a heartbeat.
+[2021-09-02 08:36:21 in index.js] - [info]: [WS => Shard 0] Shard received all its guilds. Marking as fully ready.
+[2021-09-02 08:36:21 in index.js] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 925ms.
+[2021-09-02 08:36:31 in index.js] - [warn]: Operation `giveaways.find()` buffering timed out after 10000ms
+    at Timeout.<anonymous> (C:\Users\drago\OneDrive\Desktop\code\DiscordBots\Hurricano\node_modules\mongoose\lib\drivers\node-mongodb-native\collection.js:198:23)
+    at listOnTimeout (node:internal/timers:557:17)
+    at processTimers (node:internal/timers:500:7)
+[2021-09-02 08:36:31 in index.js] - [warn]: Operation `users.find()` buffering timed out after 10000ms
+    at Timeout.<anonymous> (C:\Users\drago\OneDrive\Desktop\code\DiscordBots\Hurricano\node_modules\mongoose\lib\drivers\node-mongodb-native\collection.js:198:23)
+    at listOnTimeout (node:internal/timers:557:17)
+    at processTimers (node:internal/timers:500:7)

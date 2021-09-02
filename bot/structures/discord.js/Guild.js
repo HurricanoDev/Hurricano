@@ -7,7 +7,11 @@ module.exports = {
 			constructor(...args) {
 				super(...args);
 
-				this.db = new GuildDatabaseActionsManager({ client, guildId: this.id, guild: this });
+				this.db = new GuildDatabaseActionsManager({
+					client,
+					guildId: this.id,
+					guild: this,
+				});
 			}
 		};
 	},
