@@ -5,7 +5,7 @@ module.exports = class guildBanAddEvent extends BaseEvent {
 	constructor(client) {
 		super("guildBanAdd", {
 			description: "guildBanAdd event. Meant for server logs.",
-			client: client,
+			client,
 		});
 	}
 	async run(guild, user, client) {

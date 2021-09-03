@@ -5,7 +5,7 @@ module.exports = class InteractionEvent extends BaseEvent {
 		super("interaction", {
 			description:
 				"Interaction event, meant for slash commands as of now.",
-			client: client,
+			client,
 		});
 	}
 	async run(interaction, client) {

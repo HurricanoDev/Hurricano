@@ -224,4 +224,16 @@ module.exports = class ClientFunctionsManager {
 			});
 		}
 	}
+	defineIds(that, propName, value) {
+		const Ids = ["Id", "iD", "id"];
+
+		for (const id of Ids) {
+			const IdProp = [propName, id];
+
+			that[IdProp.join("_")] = value;
+			that[IdProp.join()] = value;
+		};
+
+		return that;
+	}
 };

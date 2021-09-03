@@ -6,7 +6,7 @@ module.exports = class guildMemberAddEvent extends BaseEvent {
 	constructor(client) {
 		super("guildMemberAdd", {
 			description: "the guildMemberAdd event is meant for member logs.",
-			client: client,
+			client,
 		});
 	}
 	async run(member, client) {

@@ -3,7 +3,7 @@ const BaseEvent = require("../../structures/internal/BaseEvent.js");
 module.exports = class guildDeleteEvent extends BaseEvent {
 	constructor(client) {
 		super("guildDelete", {
-			client: client,
+			client,
 			description: "Event meant disabling a guild if left.",
 		});
 	}

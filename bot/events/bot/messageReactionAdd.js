@@ -5,7 +5,7 @@ module.exports = class messageReactionAdd extends BaseEvent {
 	constructor(client) {
 		super("messageReactionAdd", {
 			description: "messageReactionAdd event, meant for starboard.",
-			client: client,
+			client,
 		});
 	}
 	async run(reaction, user) {

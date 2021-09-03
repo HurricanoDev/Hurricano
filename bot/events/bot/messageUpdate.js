@@ -6,7 +6,7 @@ module.exports = class messageUpdate extends BaseEvent {
 		super("messageUpdate", {
 			description:
 				"messageUpdate event, meant for snipe command and message logs.",
-			client: client,
+			client,
 		});
 	}
 	async run(oldMessage, newMessage, client) {

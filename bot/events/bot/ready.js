@@ -6,7 +6,7 @@ module.exports = class readyEvent extends BaseEvent {
 		super("ready", {
 			description:
 				"Ready event. Meant for status changes, slash commands, guilds setup, db caching, etc.",
-			client: client,
+			client,
 			once: true,
 		});
 	}

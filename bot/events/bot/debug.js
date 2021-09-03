@@ -4,7 +4,7 @@ module.exports = class DebugEvent extends BaseEvent {
 	constructor(client) {
 		super("debug", {
 			description: "The debug event, to log extra info.",
-			client: client,
+			client,
 		});
 	}
 	run(info) {

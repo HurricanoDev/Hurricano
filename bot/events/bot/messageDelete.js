@@ -6,7 +6,7 @@ module.exports = class messageDeleteEvent extends BaseEvent {
 		super("messageDelete", {
 			description:
 				"messageDelete event, meant for logs and snipe command.",
-			client: client,
+			client,
 		});
 	}
 	async run(message, client) {

@@ -57,7 +57,7 @@ module.exports = class MessageEvent extends BaseEvent {
 	constructor(client) {
 		super("message", {
 			description: "Message event, used for handling commands.",
-			client: client,
+			client,
 		});
 	}
 	async run(message, client) {

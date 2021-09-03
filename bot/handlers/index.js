@@ -15,7 +15,7 @@ intents.add(
 );
 
 const client = new HurricanoClient(config, {
-	intents: intents,
+	intents,
 	allowedMentions: { parse: ["users"], repliedUser: false },
 });
 

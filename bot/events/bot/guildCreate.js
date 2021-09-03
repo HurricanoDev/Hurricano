@@ -8,7 +8,7 @@ module.exports = class guildCreateEvent extends BaseEvent {
 		super("guildCreate", {
 			description:
 				"guildCreate event, meant for saving guilds to db, and server log.",
-			client: client,
+			client,
 		});
 	}
 	async run(guild, client) {
