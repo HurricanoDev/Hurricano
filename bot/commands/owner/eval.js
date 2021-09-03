@@ -1,7 +1,7 @@
 const Discord = require("discord.js");
 const sourcebin = require("../../utilities/SourcebinPost.js");
 const config = require("@config");
-const Command = require("@Command");
+const Command = require("@structures/Command.js");
 const { MessageEmbed, MessageButton } = require("discord.js");
 module.exports = new Command({
 	name: "eval",

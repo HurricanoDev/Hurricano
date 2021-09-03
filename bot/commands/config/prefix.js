@@ -1,5 +1,5 @@
 const { MessageEmbed } = require("discord.js");
-const Command = require("@Command");
+const Command = require("@structures/Command.js");
 const embed = new MessageEmbed().setAuthor(
 	"Server Settings Change.",
 	"https://raw.githubusercontent.com/HurricanoBot/HurricanoImages/master/SetAuthorEmojis/Success.png",

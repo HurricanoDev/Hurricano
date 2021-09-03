@@ -204,15 +204,14 @@ module.exports = class ClientFunctionsManager {
 			return { ...acc, [key]: obj[key] };
 		}, {});
 	}
-	defineIds(that, propName, value) {
+	defineIds(propName, value, object) {
 		const Ids = ["Id", "iD", "id"];
 
 		for (const id of Ids) {
 			const IdProp = [propName, id];
 
-			that[IdProp.join("_")] = value;
-			that[IdProp.join()] = value;
-		};
+			Object.defineProperty(object, IdProp, {});
+		}
 
 		return that;
 	}

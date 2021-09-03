@@ -1,6 +1,6 @@
 const Discord = require("discord.js"),
 	{ MessageAttachment } = require("discord.js");
-const Command = require("@Command");
+const Command = require("@structures/Command.js");
 module.exports = new Command({
 	name: "facepalm",
 	cooldown: 5,

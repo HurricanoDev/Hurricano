@@ -2,7 +2,7 @@ const { MessageEmbed } = require("discord.js");
 const {
 	fetchSuggestionChannel,
 } = require("@root/bot/utilities/Suggestions.js");
-const Command = require("@Command");
+const Command = require("@structures/Command.js");
 module.exports = new Command({
 	name: "suggestionchannel",
 	aliases: ["suggestionschannel"],

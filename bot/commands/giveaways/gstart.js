@@ -1,6 +1,6 @@
 const ms = require("../../utilities/ms.js");
 const emojis = require("../../utilities/emojis.json");
-const Command = require("@Command");
+const Command = require("@structures/Command.js");
 module.exports = new Command({
 	name: "gstart",
 	aliases: ["gs", "giveawaystart", "g-start", "giveaway", "gcreate"],

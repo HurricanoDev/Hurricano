@@ -1,5 +1,5 @@
 const Discord = require("discord.js");
-const Command = require("@Command");
+const Command = require("@structures/Command.js");
 const { createBattle } = require("../../utilities/game-apis/battle.js");
 
 module.exports = new Command({

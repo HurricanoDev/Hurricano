@@ -1,4 +1,4 @@
-const Command = require("@Command");
+const Command = require("@structures/Command.js");
 const { Util, MessageEmbed } = require("discord.js");
 const { parse } = require("twemoji-parser");
 module.exports = new Command({

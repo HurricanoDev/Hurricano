@@ -1,4 +1,4 @@
-const Command = require("@Command");
+const Command = require("@structures/Command.js");
 const decancer = require("weird-to-normal-chars").weirdToNormalChars;
 module.exports = new Command({
 	name: "decancer",

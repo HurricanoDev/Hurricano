@@ -43,7 +43,6 @@
 	"_moduleAliases": {
 		"@config": "./bot/handlers/config.js",
 		"@root": ".",
-		"@Command": "./bot/structures/internal/Command.js",
 		"@utils": "./bot/utilities/",
 		"@schemas": "./bot/schemas",
 		"@structures": "./bot/structures/internal"

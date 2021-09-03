@@ -1,5 +1,5 @@
 const Discord = require("discord.js");
-const Command = require("@Command");
+const Command = require("@structures/Command.js");
 const { Minesweeper } = require("../../utilities/game-apis/minesweeper.js");
 
 module.exports = new Command({

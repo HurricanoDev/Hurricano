@@ -1,4 +1,4 @@
-const Command = require("@Command");
+const Command = require("@structures/Command.js");
 const moment = require("moment");
 module.exports = new Command({
 	name: "blacklist",

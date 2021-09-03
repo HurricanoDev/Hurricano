@@ -1,6 +1,6 @@
 const Discord = require("discord.js");
 const config = require("@config");
-const Command = require("@Command");
+const Command = require("@structures/Command.js");
 const { MessageEmbed } = require("discord.js");
 module.exports = new Command({
 	name: "fulleval",

@@ -13,16 +13,13 @@ module.exports = class GuildDatabaseActionsManager {
 	 */
 
 	constructor({ client, id, guildId, guild }) {
-
 		id ??= guildId;
 
 		this.client = client;
 
-		this.guildId = id;
-
-		this.id = id;
-
 		this.guild = guild;
+
+		this.client.utils.defineIds("guild", id, this);
 	}
 	async fetch() {
 		return await this.client.db.guilds.fetch(this.id);

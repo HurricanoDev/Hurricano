@@ -1,4 +1,4 @@
-const Command = require("@Command");
+const Command = require("@structures/Command.js");
 const { MessageEmbed, MessageFlags } = require("discord.js");
 const { readdirSync } = require("fs");
 module.exports = new Command({

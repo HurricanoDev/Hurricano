@@ -1,7 +1,7 @@
 const { MessageEmbed } = require("discord.js");
 const rps = ["scissors", "rock", "paper"];
 const res = ["Scissors :scissors:", "Rock :rock:", "Paper :roll_of_paper:"];
-const Command = require("@Command");
+const Command = require("@structures/Command.js");
 
 module.exports = new Command({
 	name: "rps",

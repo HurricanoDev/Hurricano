@@ -1,5 +1,5 @@
 const ms = require("../../utilities/ms.js");
-const Command = require("@Command");
+const Command = require("@structures/Command.js");
 module.exports = new Command({
 	name: "gend",
 	aliases: [, "giveawayend", "g-end", "g-end", "gfinish"],

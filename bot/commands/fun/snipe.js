@@ -1,4 +1,4 @@
-const Command = require("@Command"),
+const Command = require("@structures/Command.js"),
 	Discord = require("discord.js"),
 	{ MessageEmbed } = require("discord.js");
 
@@ -21,7 +21,7 @@ module.exports = new Command({
 				: null;
 			embed.addField(
 				"Action By:",
-				`${messageSnipe.author}, \n ID: ${messageSnipe.author.id}`,
+				`${messageSnipe.author}, \n ID: ${messageSnipe.authorId}`,
 				true,
 			);
 			messageSnipe.attachments

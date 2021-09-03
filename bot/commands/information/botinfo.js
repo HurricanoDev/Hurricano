@@ -1,6 +1,6 @@
 const Discord = require("discord.js");
 const emojis = require("../../utilities/emojis.json");
-const Command = require("@Command");
+const Command = require("@structures/Command.js");
 module.exports = new Command({
 	name: "botinfo",
 	description: "About the bot!",

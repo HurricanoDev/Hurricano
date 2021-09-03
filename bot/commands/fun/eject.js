@@ -1,6 +1,6 @@
 const { MessageEmbed } = require("discord.js");
 const fetch = require("node-fetch");
-const Command = require("@Command");
+const Command = require("@structures/Command.js");
 
 module.exports = new Command({
 	name: "eject",

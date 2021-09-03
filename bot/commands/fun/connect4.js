@@ -1,5 +1,5 @@
 const Discord = require("discord.js");
-const Command = require("@Command");
+const Command = require("@structures/Command.js");
 module.exports = new Command({
 	name: "connect4",
 	aliases: ["c4", "connectfour"],

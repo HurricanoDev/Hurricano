@@ -1,6 +1,6 @@
 const { MessageEmbed } = require("discord.js"),
 	Suggestions = require("@Utils/Suggestions.js"),
-	Command = require("@Command");
+	Command = require("@structures/Command.js");
 
 module.exports = new Command({
 	name: "deny",

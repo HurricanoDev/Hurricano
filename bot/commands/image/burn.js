@@ -1,5 +1,5 @@
 const Discord = require("discord.js");
-const Command = require("@Command");
+const Command = require("@structures/Command.js");
 const canvacord = require("canvacord");
 const { MessageEmbed, MessageAttachment } = require("discord.js");
 module.exports = new Command({
