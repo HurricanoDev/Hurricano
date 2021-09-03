@@ -5,12 +5,12 @@ module.exports = new Command({
 	userPermissions: ["SEND_MESSAGES"],
 	cooldown: 20,
 	description: "sends a kill message of the user mentioned",
-	async run(message, args) {
+	async run({ message, args }) {
 		if (!args[0])
 			return message.channel.send(
 				`Wow, that was great..But who do I kill?`,
 			);
-		let userr = await client.utils.getMember(false, message, args[0]);
+		let userr = await client.utils.getMember(false, { message, args }[0]);
 		if (!userr)
 			return message.channel.send(
 				`Wow, that was great..But who do I kill?`,

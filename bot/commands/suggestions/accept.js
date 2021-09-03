@@ -8,7 +8,7 @@ module.exports = new Command({
 	args: "Please provide which suggestion you would like to approve!",
 	cooldown: 20,
 	description: "Approve a suggestion!",
-	async run(message, args) {
+	async run({ message, args }) {
 		const suggestionChannel = await Suggestions.fetchSuggestionChannel(
 			message.guild.id,
 		);

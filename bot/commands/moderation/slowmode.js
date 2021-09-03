@@ -5,7 +5,7 @@ module.exports = new Command({
 	description:
 		"lets the user add a per-message timeout in the channel the command is used.",
 	userPermissions: ["MANAGE_MESSAGES", "MANAGE_CHANNELS"],
-	async run(message, args) {
+	async run({ message, args }) {
 		String.prototype.toHHMMSS = function () {
 			var sec_num = parseInt(this, 10);
 			var hours = Math.floor(sec_num / 3600);

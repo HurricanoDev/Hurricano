@@ -7,7 +7,7 @@ module.exports = new Command({
 	name: "clyde",
 	cooldown: 5,
 	description: "Sends a clyde message",
-	async run(message, args) {
+	async run({ message, args }) {
 		const text = args.slice().join(" ");
 		if (!text) {
 			return message.channel.sendError(

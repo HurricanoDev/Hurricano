@@ -5,8 +5,8 @@ module.exports = new Command({
 	name: "balance",
 	aliases: ["bal", "coins", "money"],
 	description: "Check how many coins you have.",
-	async run(message, args) {
-		const target = await client.utils.getMember(true, message, args[0]);
+	async run({ message, args }) {
+		const target = await client.utils.getMember(true, { message, args }[0]);
 		const userData = client.db.users.cache.get(target.id);
 
 		const wallet = userData.wallet;

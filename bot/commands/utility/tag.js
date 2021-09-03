@@ -147,7 +147,7 @@ module.exports = new Command({
 			],
 			[
 				"delete",
-				async (message, args) => {
+				async ({ message, args }) => {
 					const guildSchema = client.db.guilds.cache.get(
 						message.guild.id,
 					);

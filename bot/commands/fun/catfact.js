@@ -6,7 +6,7 @@ module.exports = new Command({
 	userPermissions: ["SEND_MESSAGES"],
 	cooldown: 20,
 	description: "gives a random catfact.",
-	async run(message, args) {
+	async run({ message, args }) {
 		const req = await fetch("https://catfact.ninja/fact");
 		const data = await req.json();
 		const embed = new discord.MessageEmbed()

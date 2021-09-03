@@ -4,7 +4,7 @@ module.exports = new Command({
 	name: "filters",
 	aliases: ["filter"],
 	args: `Please provide which filter you would like to use!`,
-	async run(message, args) {
+	async run({ message, args }) {
 		if (!message.member.voice.channel)
 			return message.channel.sendError(
 				message,

@@ -7,7 +7,7 @@ module.exports = new Command({
 	description: "Set/Remove your server's server log channel",
 	aliases: ["serverlogs", "setserverlog", "setserverlogchannel"],
 	slash: false,
-	async run(message, args) {
+	async run({ message, args }) {
 		const prefix = message._usedPrefix;
 		const guildData = client.db.guilds.cache.get(message.guild.id);
 		const defaultEmbed = new MessageEmbed()

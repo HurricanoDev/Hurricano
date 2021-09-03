@@ -7,7 +7,7 @@ module.exports = new Command({
 	userPermissions: ["ADMINISTRATOR"],
 	cooldown: 15,
 	description: "Set a channel to log in when members leave/join.",
-	async run(message, args) {
+	async run({ message, args }) {
 		const channel =
 			message.mentions.channels.first() ||
 			message.guild.channels.cache.get(args[0]);

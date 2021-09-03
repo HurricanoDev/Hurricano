@@ -5,7 +5,7 @@ module.exports = new Command({
 	name: "docs",
 	description: "See docs for npm, mdn or discord.js",
 	args: "Please provide whether you would like to check docs from discord.js, mdn, or npm!",
-	async run(message, args) {
+	async run({ message, args }) {
 		const validDocs = ["discord.js", "djs", "discordjs"];
 		if (!validDocs.includes(args[0]))
 			return message.reply(

@@ -4,7 +4,7 @@ module.exports = new Command({
 	name: "shutdown",
 	description: "Shut the bot down.",
 	ownerOnly: true,
-	async run(message, args) {
+	async run({ message, args }) {
 		await message.channel.sendSuccess(
 			message,
 			"Confirmation.",

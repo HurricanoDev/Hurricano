@@ -6,7 +6,7 @@ module.exports = new Command({
 	name: "snipe",
 	description: "Snipe a deleted message.",
 	ownerOnly: true,
-	async run(message, args) {
+	async run({ message, args }) {
 		function snipeEmbed(messageSnipe, number, arrayLength) {
 			const embed = new MessageEmbed()
 				.setAuthor("Sniped!", messageSnipe.author.displayAvatarURL())

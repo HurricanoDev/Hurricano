@@ -5,7 +5,7 @@ module.exports = new Command({
 	aliases: ["setbirthday", "setbday"],
 	cooldown: 30,
 	description: "Set your birthdate for others to see!",
-	async run(message, args) {
+	async run({ message, args }) {
 		const months = {
 			1: "January",
 			2: "February",

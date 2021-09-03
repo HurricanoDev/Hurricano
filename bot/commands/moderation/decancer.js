@@ -5,8 +5,8 @@ module.exports = new Command({
 	description: "Decancers a user.",
 	args: "Please specify who you would like to decancer!",
 	userPermissions: ["MANAGE_NICKNAMES"],
-	async run(message, args) {
-		let target = await client.utils.getMember(false, message, args[0]);
+	async run({ message, args }) {
+		let target = await client.utils.getMember(false, { message, args }[0]);
 		if (!target)
 			return message.channel.sendError(
 				message,

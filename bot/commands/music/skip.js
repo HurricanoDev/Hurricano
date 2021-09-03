@@ -4,7 +4,7 @@ module.exports = new Command({
 	name: "skip",
 	aliases: ["sk"],
 	cooldown: 20,
-	async run(message, args) {
+	async run({ message, args }) {
 		if (!message.member.voice.channel)
 			if (!message.member.voice.channel)
 				return message.channel.sendError(

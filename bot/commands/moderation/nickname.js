@@ -4,7 +4,7 @@ module.exports = new Command({
 	name: "nickname",
 	description: "Changes nickname of the user specified.",
 	userPermissions: ["CHANGE_NICKNAME", "MANAGE_MESSAGES"],
-	async run(message, args) {
+	async run({ message, args }) {
 		const mentionedMember =
 			message.mentions.members.first() ||
 			message.guild.members.cache.get(args[0]);

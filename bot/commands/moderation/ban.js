@@ -7,9 +7,9 @@ module.exports = new Command({
 	cooldown: 7,
 	userPermissions: ["BAN_MEMBERS"],
 	clientPermissions: ["BAN_MEMBERS"],
-	async run(message, args) {
+	async run({ message, args }) {
 		const members = await message.guild.members.fetch();
-		let member = await client.utils.getMember(false, message, args[0]);
+		let member = await client.utils.getMember(false, { message, args }[0]);
 		if (!member && !members.some((x) => x.id === args[0]))
 			member = args[0] ? await client.users.fetch(args) : undefined;
 		if (!member)

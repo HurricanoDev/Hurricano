@@ -5,7 +5,7 @@ module.exports = new Command({
 	name: "lock",
 	description: "Locks down a channel",
 	userPermissions: ["MANAGE_CHANNELS"],
-	async run(message, args) {
+	async run({ message, args }) {
 		const prefix = message._usedPrefix;
 		if (!args.length) {
 			message.channel.sendError(

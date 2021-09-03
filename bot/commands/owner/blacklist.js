@@ -4,7 +4,7 @@ module.exports = new Command({
 	name: "blacklist",
 	description: "Blacklist a user from the bot.",
 	ownerOnly: true,
-	async run(message, args) {
+	async run({ message, args }) {
 		let guild;
 		let user;
 		let useAwaitMessages = null;

@@ -6,7 +6,7 @@ module.exports = new Command({
 	description:
 		"lets the user add a custom emoji through an image URL. (which should be less than 256 KB)",
 	userPermissions: ["MANAGE_EMOJIS"],
-	async run(message, args) {
+	async run({ message, args }) {
 		const emoji = args[0];
 		const name = args.slice(1).join(" ");
 		if (!emoji) {

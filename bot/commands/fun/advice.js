@@ -6,7 +6,7 @@ module.exports = new Command({
 	userPermissions: ["SEND_MESSAGES"],
 	cooldown: 20,
 	description: "gives a random advice.",
-	async run(message, args) {
+	async run({ message, args }) {
 		fetch("https://api.adviceslip.com/advice")
 			.then((res) => res.json())
 			.then((json) => {

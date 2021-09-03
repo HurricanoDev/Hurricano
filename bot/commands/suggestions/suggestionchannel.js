@@ -9,7 +9,7 @@ module.exports = new Command({
 	userPermissions: ["ADMINISTRATOR"],
 	cooldown: 20,
 	description: "Set/remove your server's custom suggestion channel.",
-	async run(message, args) {
+	async run({ message, args }) {
 		let prefix = message._usedPrefix;
 		if (!args.length)
 			return message.sendErrorReply(

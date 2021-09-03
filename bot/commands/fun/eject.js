@@ -7,7 +7,7 @@ module.exports = new Command({
 	userPermissions: ["SEND_MESSAGES"],
 	cooldown: 20,
 	description: "sends an among us eject image in the chat.",
-	async run(message, args) {
+	async run({ message, args }) {
 		const imp = [true, false];
 		const imposter = imp[Math.floor(Math.random() * imp.length)];
 		const crew = [

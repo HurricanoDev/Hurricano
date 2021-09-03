@@ -6,7 +6,7 @@ module.exports = new Command({
 	description: "Reloads a command",
 	args: "Please provide which command you would like to reload!",
 	ownerOnly: true,
-	async run(message, args) {
+	async run({ message, args }) {
 		const commandName = args[0].toLowerCase();
 		const command =
 			message.client.commands.get(commandName) ||

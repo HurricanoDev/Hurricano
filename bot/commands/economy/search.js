@@ -5,7 +5,7 @@ module.exports = new Command({
 	name: "scout",
 	aliases: ["find"],
 	description: "Search places for money!",
-	async run(message, args) {
+	async run({ message, args }) {
 		const places = [
 			"Street",
 			"Sewer",

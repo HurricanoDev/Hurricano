@@ -6,9 +6,9 @@ module.exports = new Command({
 	name: "wanted",
 	cooldown: 5,
 	description: "Makes someone's avatar wanted.",
-	async run(message, args) {
+	async run({ message, args }) {
 		const canvacord = require("canvacord");
-		let person = (await client.utils.getMember(true, message, args[0]))
+		let person = (await client.utils.getMember(true, { message, args }[0]))
 			.user;
 		let avatar = person.displayAvatarURL({
 			dynamic: false,

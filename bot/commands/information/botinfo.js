@@ -6,7 +6,7 @@ module.exports = new Command({
 	description: "About the bot!",
 	aliases: ["info", "bi"],
 	userPermissions: ["SEND_MESSAGES"],
-	async run(message, args) {
+	async run({ message, args }) {
 		//Uptime
 		let days = Math.floor(client.uptime / 86400000);
 		let hours = Math.floor(client.uptime / 3600000) % 24;

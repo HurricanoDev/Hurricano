@@ -9,7 +9,7 @@ module.exports = new Command({
 	clientPermissions: ["MANAGE_CHANNELS"],
 	cooldown: 30,
 	description: "Set/remove/create your server's mute role!",
-	async run(message, args) {
+	async run({ message, args }) {
 		const guildPrefix = message._usedPrefix;
 
 		const defEmbed = new MessageEmbed()

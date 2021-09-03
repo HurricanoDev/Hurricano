@@ -4,7 +4,7 @@ module.exports = new Command({
 	name: "afk",
 	description: "Set your afk!",
 	slash: false,
-	async run(message, args) {
+	async run({ message, args }) {
 		const reason = args.join(" ") || "No reason provided.";
 
 		client.afk.set(message.author.id, [Date.now(), reason]);

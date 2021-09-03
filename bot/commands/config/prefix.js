@@ -124,7 +124,7 @@ module.exports = new Command({
 			}
 		},
 	},
-	async run(message, args) {
+	async run({ message, args }) {
 		const types = ["add", "remove", "list"];
 		if (!types.includes(args[0].toLowerCase()))
 			return message.sendErrorReply(

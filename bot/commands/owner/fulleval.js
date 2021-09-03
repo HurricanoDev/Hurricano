@@ -7,7 +7,7 @@ module.exports = new Command({
 	description: "Evaluates arbituary JavaScript, with no restrictions.",
 	ownerOnly: true,
 	args: "Please provide what you would like to eval!",
-	async run(message, args) {
+	async run({ message, args }) {
 		const clean = (text) => {
 			if (typeof text === "string")
 				return text

@@ -6,7 +6,7 @@ module.exports = new Command({
 	aliases: ["db"],
 	description: "View the database settings for a guild.",
 	userPermissions: ["ADMINISTRATOR"],
-	async run(message) {
+	async run({ message }) {
 		const guildSchema = message.guild.db.cache(),
 			types = [
 				"messageLogs",

@@ -5,7 +5,7 @@ module.exports = new Command({
 	description: "Search for a song!",
 	args: "Please provide what you would like to search!",
 	cooldown: 15,
-	async run(message, args) {
+	async run({ message, args }) {
 		if (!message.member.voice.channel)
 			return message.channel.sendError(
 				message,

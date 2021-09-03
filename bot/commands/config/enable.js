@@ -5,7 +5,7 @@ module.exports = new Command({
 	name: "enable",
 	descripton: "Enable a module.",
 	userPermissions: ["ADMINISTRATOR"],
-	async run(message, args) {
+	async run({ message, args }) {
 		let avaliableModules = readdirSync(`${process.cwd()}/bot/commands`);
 		avaliableModules.splice(avaliableModules.indexOf("owner"), 1);
 		const prefix = message._usedPrefix;

@@ -8,7 +8,7 @@ module.exports = new Command({
 	cooldown: 15,
 	description:
 		"Set an autorole to give to new members upon joining your server.",
-	async run(message, args) {
+	async run({ message, args }) {
 		//Some stuff
 		const prefix = message._usedPrefix;
 		const role =

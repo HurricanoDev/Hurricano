@@ -4,7 +4,7 @@ module.exports = new Command({
 	name: "starboard",
 	userPermissions: ["ADMINISTRATOR"],
 	description: "Set/remove the starboard channel in your server.",
-	async run(message, args) {
+	async run({ message, args }) {
 		const guildData = client.db.guilds.cache.get(message.guild.id);
 		const optionsEmbed = client.utils.createOptionsEmbed(
 			"Starboard",

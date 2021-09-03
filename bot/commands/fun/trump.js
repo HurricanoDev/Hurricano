@@ -6,7 +6,7 @@ module.exports = new Command({
 	aliases: ["trumpquote"],
 	description: "Sends a random trump quote.",
 	clientPermissions: ["SEND_MESSAGES"],
-	async run(message, args) {
+	async run({ message, args }) {
 		fetch("https://api.tronalddump.io/random/quote")
 			.then((res) => res.json())
 			.then((json) => {

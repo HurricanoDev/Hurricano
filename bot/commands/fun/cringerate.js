@@ -5,7 +5,7 @@ module.exports = new Command({
 	aliases: ["cringer8"],
 	description: "How cringe are you? Find out now.",
 	clientPermissions: ["SEND_MESSAGES"],
-	async run(message, args) {
+	async run({ message, args }) {
 		let rate = Math.floor(Math.random() * Math.floor(100));
 		let user = message.mentions.users.first() || message.author;
 		const embed = new MessageEmbed()

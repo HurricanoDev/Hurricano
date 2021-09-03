@@ -6,7 +6,7 @@ module.exports = new Command({
 	userPermissions: ["ADMINISTRATOR"],
 	cooldown: 20,
 	description: "Set your server's message logs.",
-	async run(message, args) {
+	async run({ message, args }) {
 		const prefix = message._usedPrefix;
 		if (!args.length)
 			return message.channel.sendError(

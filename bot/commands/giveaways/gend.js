@@ -4,7 +4,7 @@ module.exports = new Command({
 	name: "gend",
 	aliases: [, "giveawayend", "g-end", "g-end", "gfinish"],
 	description: "Ends a giveaway.",
-	async run(message, args) {
+	async run({ message, args }) {
 		if (
 			!message.member.hasPermission("MANAGE_GUILD") &&
 			!message.member.roles.cache.includes(

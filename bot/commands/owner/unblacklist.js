@@ -5,7 +5,7 @@ module.exports = new Command({
 	description: "Unblacklist a user from the bot.",
 	ownerOnly: true,
 	args: "Please provide who you would like to unblacklist!",
-	async run(message, args) {
+	async run({ message, args }) {
 		let user =
 			message.mentions.users.first() ||
 			(await message.client.users.fetch(args[0]).catch((e) => {}));

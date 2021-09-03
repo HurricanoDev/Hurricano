@@ -9,7 +9,7 @@ module.exports = new Command({
 	usage: "dictionary <word>",
 	description:
 		"Fetches some information about a particular word specified by the user.",
-	async run(message, args) {
+	async run({ message, args }) {
 		const text = args.join(" ");
 		if (!text)
 			return message.channel.sendError(

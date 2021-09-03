@@ -128,7 +128,7 @@ module.exports = new Command({
 			await interaction.reply(em);
 		},
 	},
-	async run(message, args) {
+	async run({ message, args }) {
 		const oldmem = message.guild.members.cache
 			.filter((m) => !m.user.bot)
 			.sort((a, b) => a.user.createdAt - b.user.createdAt)

@@ -7,7 +7,7 @@ module.exports = new Command({
 		"lets the user bulk delete old messages(upto 100) after last 14 days ",
 	usage: "hr!purge <number_message>",
 	userPermissions: ["MANAGE_MESSAGES"],
-	async run(message, args) {
+	async run({ message, args }) {
 		if (!args[0])
 			return message.channel.send(
 				"You must state a number of messages to purge. `hr!purge <number_message>`",

@@ -6,7 +6,7 @@ module.exports = new Command({
 	aliases: ["spamd", "antispam"],
 	userPermissions: ["ADMINISTRATOR"],
 	description: "Turn anti-spam on/off in your server.",
-	async run(message, args) {
+	async run({ message, args }) {
 		const guildPrefix = message._usedPrefix;
 		const guildData = await client.db.guilds.cache.get(message.guild.id);
 		const optionsEmbed = new MessageEmbed()

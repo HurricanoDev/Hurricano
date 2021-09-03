@@ -16,7 +16,7 @@ module.exports = new Command({
 				required: true,
 			},
 		],
-		async run(message, args) {
+		async run({ message, args }) {
 			await message.reply(args[0].value, { ephemeral: true });
 		},
 	},

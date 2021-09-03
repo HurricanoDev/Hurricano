@@ -5,7 +5,7 @@ module.exports = new Command({
 	name: "links",
 	aliases: ["invite", "inv", "vote"],
 	description: "Important links!",
-	async run(message) {
+	async run({ message }) {
 		const embed = new Discord.MessageEmbed()
 			.setAuthor("Hurricano™ Links")
 			.addField(

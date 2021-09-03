@@ -5,7 +5,7 @@ module.exports = new Command({
 	name: "lyrics",
 	aliases: ["ly"],
 	description: "Get a song's lyrics!",
-	async run(message, args) {
+	async run({ message, args }) {
 		const queue = client.player.getQueue(message.guild.id);
 		let query = queue?.nowPlaying()?.title;
 		if (!queue) query = args.join(" ");

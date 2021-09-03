@@ -5,7 +5,7 @@ module.exports = new Command({
 	name: "gstart",
 	aliases: ["gs", "giveawaystart", "g-start", "giveaway", "gcreate"],
 	description: "Starts a giveaway!",
-	async run(message, args) {
+	async run({ message, args }) {
 		const client = message.client;
 		if (
 			!message.member.permissions.has("MANAGE_MESSAGES") &&

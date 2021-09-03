@@ -6,7 +6,7 @@ module.exports = new Command({
 	aliases: ["gayrate"],
 	description: "How gay are you? Find out now.",
 	clientPermissions: ["SEND_MESSAGES"],
-	async run(message, args) {
+	async run({ message, args }) {
 		const gayrate = Math.floor(Math.random() * 101);
 		const who = args.join(" ") || "You";
 		let desc;

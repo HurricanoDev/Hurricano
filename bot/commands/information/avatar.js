@@ -30,8 +30,8 @@ module.exports = new Command({
 		},
 	},
 	description: "Displays a user's avatar.",
-	async run(message, args) {
-		const member = (await client.utils.getMember(true, message, args[0]))
+	async run({ message, args }) {
+		const member = (await client.utils.getMember(true, { message, args }[0]))
 			.user;
 		const embed = new MessageEmbed()
 			.setAuthor(

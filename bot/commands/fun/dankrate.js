@@ -5,7 +5,7 @@ module.exports = new Command({
 	aliases: ["dankr8", "howdank"],
 	description: "How dank are you? Find out now.",
 	clientPermissions: ["SEND_MESSAGES"],
-	async run(message, args) {
+	async run({ message, args }) {
 		let member = message.mentions.users.first() || message.author;
 
 		let rng = Math.floor(Math.random() * 101);

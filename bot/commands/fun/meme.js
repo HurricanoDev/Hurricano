@@ -8,7 +8,7 @@ module.exports = new Command({
 	cooldown: 20,
 	description:
 		"Displays a random meme from the `memes`, `dankmemes`, or `me_irl` subreddits.",
-	async run(message, args) {
+	async run({ message, args }) {
 		try {
 			let res = await fetch("https://meme-api.herokuapp.com/gimme");
 			res = await res.json();

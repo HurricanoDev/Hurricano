@@ -8,7 +8,7 @@ module.exports = new Command({
 	description: "Evaluates arbituary JavaScript.",
 	ownerOnly: true,
 	args: "Please provide what you would like to eval!",
-	async run(message, args) {
+	async run({ message, args }) {
 		async function sendEmbed(content, input, typeofOut) {
 			const toEval = input;
 			let embed = new MessageEmbed()

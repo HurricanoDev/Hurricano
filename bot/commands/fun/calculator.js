@@ -5,7 +5,7 @@ module.exports = new Command({
 	name: "calculator",
 	description: "Calculate a value.",
 	cooldown: 40,
-	async run(message) {
+	async run({ message }) {
 		await Calc(message);
 	},
 });

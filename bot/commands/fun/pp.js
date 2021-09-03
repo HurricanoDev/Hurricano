@@ -5,7 +5,7 @@ module.exports = new Command({
 	userPermissions: ["SEND_MESSAGES"],
 	cooldown: 20,
 	description: "sends the pp size of the user",
-	async run(message, args) {
+	async run({ message, args }) {
 		const target = message.mentions.users.first() || message.author;
 		const targetId = target.id;
 		const emo = [

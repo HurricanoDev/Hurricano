@@ -6,7 +6,7 @@ module.exports = new Command({
 	description: "Deposit some money into your bank.",
 	aliases: ["dep"],
 	cooldown: 10,
-	async run(message, args) {
+	async run({ message, args }) {
 		let userData = await client.db.users.cache.get(message.author.id);
 		if (userData.wallet === 0)
 			return message.sendErrorReply(

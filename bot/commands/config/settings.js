@@ -6,7 +6,7 @@ module.exports = new Command({
 	cooldown: 5,
 	userPermissions: ["ADMINISTRATOR"],
 	description: "View the server's configuration.",
-	async run(message, args) {
+	async run({ message, args }) {
 		const guildInfo = client.db.guilds.cache.get(message.guild.id);
 		const prefix = message._usedPrefix;
 		//System Settings

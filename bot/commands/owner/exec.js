@@ -8,7 +8,7 @@ module.exports = new Command({
 	description:
 		"Executes the provided code in the bash console and shows the output.",
 	ownerOnly: true,
-	async run(message, args) {
+	async run({ message, args }) {
 		try {
 			message.channel.startTyping();
 			exec(args.join(" ") || "date", function (err, stdout, stderr) {

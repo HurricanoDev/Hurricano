@@ -5,9 +5,9 @@ module.exports = new Command({
 	name: "pixelate",
 	cooldown: 5,
 	description: "Shows a pixelated version of someone's avatar!",
-	async run(message, args) {
+	async run({ message, args }) {
 		const canvacord = require("canvacord");
-		let person = (await client.utils.getMember(true, message, args[0]))
+		let person = (await client.utils.getMember(true, { message, args }[0]))
 			.user;
 		let avatar = person.displayAvatarURL({
 			dynamic: false,

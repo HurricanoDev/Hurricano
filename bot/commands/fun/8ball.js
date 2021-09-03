@@ -27,7 +27,7 @@ module.exports = new Command({
 	userPermissions: ["SEND_MESSAGES"],
 	cooldown: 20,
 	description: "gives a random response to the question asked by the user.",
-	async run(message, args) {
+	async run({ message, args }) {
 		var ques = args.splice(1).join("");
 		if (!ques)
 			return message.reply("This is 8ball. You need to ask a question.");

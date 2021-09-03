@@ -3,7 +3,7 @@ const Command = require("@structures/Command.js");
 module.exports = new Command({
 	name: "stop",
 	aliases: ["dc"],
-	async run(message) {
+	async run({ message }) {
 		if (!message.member.voice.channel)
 			return message.channel.sendError(
 				message,

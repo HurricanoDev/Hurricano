@@ -3,10 +3,10 @@ module.exports = new Command({
 	name: "joinposition",
 	aliases: ["joinp"],
 	description: "View the position a user joined the server.",
-	async run(message, args) {
+	async run({ message, args }) {
 		let member = parseInt(args[0]);
 		if (!member || member.length > 16)
-			member = await client.utils.getMember(true, message, args[0]);
+			member = await client.utils.getMember(true, { message, args }[0]);
 		const members = (await message.guild.members.fetch())
 			.sort((a, b) => a.joinedTimestamp - b.joinedTimestamp)
 			.array();

@@ -6,7 +6,7 @@ module.exports = new Command({
 	aliases: ["emjfy"],
 	description: "Emojify some text!",
 	clientPermissions: ["SEND_MESSAGES"],
-	async run(message, args) {
+	async run({ message, args }) {
 		if (!args.join(" "))
 			return message.channel.sendError(
 				message,

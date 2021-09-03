@@ -9,7 +9,7 @@ module.exports = new Command({
 	usage: "github <user> repository",
 	description:
 		"fetches the github repo of through the information provided by the user",
-	async run(message, args) {
+	async run({ message, args }) {
 		if (!args.length)
 			return message.channel.sendError(
 				message,

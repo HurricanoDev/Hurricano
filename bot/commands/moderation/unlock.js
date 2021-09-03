@@ -4,7 +4,7 @@ module.exports = new Command({
 	name: "unlock",
 	description: "Unlocks a channel.",
 	userPermissions: ["MANAGE_CHANNELS"],
-	async run(message, args) {
+	async run({ message, args }) {
 		let channel =
 			message.guild.channels.cache.get(args[0]) ||
 			message.mentions.channels.first() ||

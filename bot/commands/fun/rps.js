@@ -8,7 +8,7 @@ module.exports = new Command({
 	aliases: ["rockpaperscissors"],
 	description: "Rock, paper, scissors with Hurricano!",
 	args: "Please choose whether you'd like to choose rock paper or scissors!",
-	async run(message, args) {
+	async run({ message, args }) {
 		let userChoice;
 		if (args.length) userChoice = args[0].toLowerCase();
 		userChoice = rps.indexOf(userChoice);

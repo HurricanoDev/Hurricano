@@ -2,7 +2,7 @@ const Command = require("@structures/Command.js");
 module.exports = new Command({
 	name: "volume",
 	description: "Set the volume.",
-	async run(message, args) {
+	async run({ message, args }) {
 		if (!message.member.voice.channel)
 			return message.channel.sendError(
 				message,

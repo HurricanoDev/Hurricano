@@ -7,7 +7,7 @@ module.exports = new Command({
 	aliases: ["guessword"],
 	description: "Unscramble a random word!",
 	clientPermissions: ["SEND_MESSAGES"],
-	async run(message, args) {
+	async run({ message, args }) {
 		let word = await fetch(
 			"https://random-word-api.herokuapp.com/word?number=1",
 		);

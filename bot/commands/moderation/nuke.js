@@ -5,7 +5,7 @@ module.exports = new Command({
 	description:
 		"This command will delete the channel the command is ran in and create a new channel with similar properties.",
 	userPermissions: ["ADMINISTRATOR"],
-	async run(message, args) {
+	async run({ message, args }) {
 		let reason = args.join(" ") || `By ${message.author.tag}`;
 		const nukeChannel = message.channel;
 

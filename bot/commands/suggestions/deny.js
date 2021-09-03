@@ -8,7 +8,7 @@ module.exports = new Command({
 	args: "Please provide which suggestion you would like to decline!",
 	cooldown: 20,
 	description: "Decline a suggestion!",
-	async run(message, args) {
+	async run({ message, args }) {
 		const suggestionChannel = await Suggestions.fetchSuggestionChannel(
 			message.guild.id,
 		);

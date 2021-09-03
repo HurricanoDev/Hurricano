@@ -38,7 +38,7 @@ module.exports = new Command({
 	description:
 		"Shows the commands list and also specific command categories/commands!",
 	aliases: ["cmd", "commands", "h"],
-	async run(message, args) {
+	async run({ message, args }) {
 		let TIP = Math.floor(Math.random() * tips.length);
 		let Fact = tips[TIP];
 		let inline = true;

@@ -7,7 +7,7 @@ module.exports = new Command({
 	cooldown: 30,
 	slash: false,
 	description: "Play the slot machine!",
-	async run(message, args) {
+	async run({ message, args }) {
 		const userInfo = client.db.users.cache.get(message.author.id);
 		if (userInfo.wallet === 0)
 			return message.channel.sendError(

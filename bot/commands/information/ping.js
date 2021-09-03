@@ -7,7 +7,7 @@ module.exports = new Command({
 	cooldown: 5,
 	description: "Returns the bot's ping!",
 	userPermissions: ["SEND_MESSAGES"],
-	async run(message) {
+	async run({ message }) {
 		const msgamount = message.editedTimestamp
 			? message.editedTimestamp
 			: message.createdTimestamp;

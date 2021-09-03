@@ -4,7 +4,7 @@ const moment = require("moment");
 module.exports = new Command({
 	name: "glist",
 	description: "List all giveaways in your server.",
-	async run(message, args) {
+	async run({ message, args }) {
 		const embed = new MessageEmbed().setAuthor(
 			"Giveaway Lists:",
 			"https://raw.githubusercontent.com/HurricanoBot/HurricanoImages/master/SetAuthorEmojis/Giveaway.gif",

@@ -7,7 +7,7 @@ module.exports = new Command({
 	description:
 		"gives the user a minecraft achievement according to text provided by the user.",
 	usage: "achievement <text>",
-	async run(message, args) {
+	async run({ message, args }) {
 		const sentence = args.join("+");
 		if (!sentence) return message.channel.send("Please specify a text.");
 		if (sentence > 22)

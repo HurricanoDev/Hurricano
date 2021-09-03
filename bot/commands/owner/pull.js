@@ -6,7 +6,7 @@ module.exports = new Command({
 	name: "pull",
 	description: "Pull a change from GitHub.",
 	ownerOnly: true,
-	async run(message, args) {
+	async run({ message, args }) {
 		try {
 			message.channel.startTyping();
 			exec("git reset --hard");

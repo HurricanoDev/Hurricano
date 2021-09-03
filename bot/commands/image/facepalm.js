@@ -5,9 +5,9 @@ module.exports = new Command({
 	name: "facepalm",
 	cooldown: 5,
 	description: "Make your own facepalm image with your/mentions avatar.",
-	async run(message, args) {
+	async run({ message, args }) {
 		const canvacord = require("canvacord");
-		let person = (await client.utils.getMember(true, message, args[0]))
+		let person = (await client.utils.getMember(true, { message, args }[0]))
 			.user;
 		let avatar = person.displayAvatarURL({
 			dynamic: false,

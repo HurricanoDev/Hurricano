@@ -8,7 +8,7 @@ module.exports = new Command({
 	name: "randomword",
 	aliases: ["rw"],
 	description: "Generate a random word with a specific length!",
-	async run(message, args) {
+	async run({ message, args }) {
 		const amount = args[0];
 		if (!amount)
 			return message.editError(

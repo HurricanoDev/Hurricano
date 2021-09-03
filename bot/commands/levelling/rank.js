@@ -3,7 +3,7 @@ const Command = require("@structures/Command.js");
 module.exports = new Command({
 	name: "rank",
 	description: "Check your rank in a server!",
-	async run(message, args) {
+	async run({ message, args }) {
 		let target = null;
 		if (args[0]) {
 			target =

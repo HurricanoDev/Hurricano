@@ -6,7 +6,7 @@ module.exports = new Command({
 	cooldown: 30,
 	description: "Come play roulette!",
 	aliases: ["roul"],
-	async run(message, args) {
+	async run({ message, args }) {
 		let user = message.author;
 		let userDB = await client.db.users.cache.get(message.author.id);
 

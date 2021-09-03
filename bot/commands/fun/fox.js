@@ -6,7 +6,7 @@ module.exports = new Command({
 	userPermissions: ["SEND_MESSAGES"],
 	cooldown: 7,
 	description: "Random pictures of a fox",
-	async run(client, message, args) {
+	async run(client, { message, args }) {
 		const req = await fetch("https://foxapi.dev/foxes");
 		const data = await req.json();
 		const embed = new discord.MessageEmbed()
