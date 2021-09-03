@@ -2,5 +2,6 @@ node_modules
 config.json
 /.vscode
 bot/schemas/guild.js
-bot/logs/
+bot/logs/full.log
+bot/logs/error.log
 .env

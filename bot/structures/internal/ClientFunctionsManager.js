@@ -3,9 +3,7 @@ const { HurricanoClient } = require("./Client.js"),
 	// eslint-disable-next-line no-unused-vars
 	{ Message, CommandInteraction, MessageEmbed } = require("discord.js"),
 	// eslint-disable-next-line no-unused-vars
-	Command = require("./Command.js"),
-	{ resolve } = require("path"),
-	{ readdirSync } = require("fs");
+	Command = require("./Command.js");
 
 /**
  * Manager for all custom client functions.
@@ -205,24 +203,6 @@ module.exports = class ClientFunctionsManager {
 
 			return { ...acc, [key]: obj[key] };
 		}, {});
-	}
-
-	/**
-	 * Loads structures.
-	 * @param {String} path Path to discord.js structures.
-	 * @returns {void}
-	 */
-
-	loadStructures(path) {
-		const files = readdirSync(resolve(path));
-		for (const file of files) {
-			const struct = require(resolve(path, file));
-
-			struct.extend({
-				[struct.name]: require("discord.js")[struct.name].prototype,
-				bind: this.bindObject,
-			});
-		}
 	}
 	defineIds(that, propName, value) {
 		const Ids = ["Id", "iD", "id"];

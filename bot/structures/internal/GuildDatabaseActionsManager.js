@@ -1,6 +1,6 @@
 // eslint-disable-next-line
 const Client = require("./Client.js"),
-// eslint-disable-next-line
+	// eslint-disable-next-line
 	{ Guild } = require("discord.js");
 
 module.exports = class GuildDatabaseActionsManager {
@@ -9,7 +9,7 @@ module.exports = class GuildDatabaseActionsManager {
 	 * @param {Object} input Provided input.
 	 * @param {Client} input.client
 	 * @param {String} input.guildId
-	 * @param {Guild} input.guild 
+	 * @param {Guild} input.guild
 	 */
 
 	constructor({ client, id, guildId, guild }) {
@@ -30,4 +30,4 @@ module.exports = class GuildDatabaseActionsManager {
 	cache() {
 		return this.client.db.guilds.cache.get(this.id);
 	}
-};	
+};

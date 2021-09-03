@@ -1,5 +1,5 @@
 const CollectionBasedManager = require("./CollectionBasedManager.js"),
-	{ readdir } = require("fs/promises"),
+	{ readdirSync: readdir } = require("fs"),
 	{ resolve } = require("path"),
 	// eslint-disable-next-line no-unused-vars
 	Command = require("./Command.js"),
@@ -49,7 +49,7 @@ module.exports = class ClientCommandsManager extends CollectionBasedManager {
 	/**
 	 * Load the commands.
 	 * @param {String} pathRaw Path to load commands from.
-	 * @returns {Object<String, Command>}
+	 * @returns {Record<String, Command>}
 	 */
 
 	async load(pathRaw) {
@@ -62,14 +62,16 @@ module.exports = class ClientCommandsManager extends CollectionBasedManager {
 				"Load status",
 			),
 			path = resolve(pathRaw || this.path),
-			commandFolders = (await readdir(path)).filter((dir) =>
-				[".js", ".json", ".md"].some((ending) => dir.endsWith(ending)),
+			commandFolders = readdir(path).filter((dir) =>
+				[".js", ".json", ".md", ".ts"].some(
+					(ending) => !dir.endsWith(ending),
+				),
 			),
 			commands = {};
 
 		for await (const folder of commandFolders) {
 			commands[folder] = [];
-			const commandFiles = await readdir(resolve(path, folder));
+			const commandFiles = readdir(resolve(path, folder));
 
 			for (const file of commandFiles) {
 				try {
