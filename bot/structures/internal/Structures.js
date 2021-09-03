@@ -1,5 +1,8 @@
-const overrides = Object.keys(require("discord.js")),
-	{ resolve } = require("path");
+const Discord = require("discord.js"),
+	overrides = Object.keys(Discord),
+	{ resolve } = require("path"),
+	{ readdirSync } = require("fs"),
+	{ bindObject } = require("./Utils.js");
 
 class Structures {
 	extend(structure, callback) {
@@ -20,6 +23,19 @@ class Structures {
 				require(dependency);
 			}
 		}
+	}
+	loadAll(_path) {
+		const path = _path["path"] ?? _path;
+
+		for (const { name, extend } of readdirSync(resolve(path)).map((file) =>
+			require(file),
+		))
+			this.extend(
+				name,
+				typeof extend === "function"
+					? extend({ [name]: Discord[name], bind: bindObject })
+					: extend,
+			);
 	}
 }
 
