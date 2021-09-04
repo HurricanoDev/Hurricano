@@ -309,17 +309,17 @@ module.exports = class MessageEvent extends BaseEvent {
 					best.length == 0
 						? ""
 						: best.length == 1
-							? `+ ${best[0]}`
-							: `${best
+						? `+ ${best[0]}`
+						: `${best
 								.slice(0, 3)
 								.map((value) => `+ ${value}`)
 								.join("\n")}`;
 
 				return dym
 					? message.channel.sendError(
-						message,
-						"Invalid Command!",
-						`Sorry! I don't have that command! Did you happen to mean: \n\`\`\`diff\n${dym}\`\`\``,
+							message,
+							"Invalid Command!",
+							`Sorry! I don't have that command! Did you happen to mean: \n\`\`\`diff\n${dym}\`\`\``,
 					  )
 					: null;
 			}
@@ -351,10 +351,10 @@ module.exports = class MessageEvent extends BaseEvent {
 					if (subCommands.baseAuthorization) {
 						const auth = subCommands.baseAuthorization
 							? await subCommands.baseAuthorization(
-								message,
-								args,
-								subArgs,
-								args[0],
+									message,
+									args,
+									subArgs,
+									args[0],
 							  )
 							: null;
 						if (auth && auth !== "allow") return;

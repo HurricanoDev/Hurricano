@@ -62,7 +62,8 @@ generateType(
 	"levelling",
 	"Levelling Commands!",
 	"https://raw.githubusercontent.com/HurricanoBot/HurricanoImages/master/SetAuthorEmojis/Levelling.png",
-	(message) => `Levelling commands! You require levelling to be enabled to use these commands. You can enable it via \`${message._usedPrefix}enable levelling\`. \n**React** with other emojis to see what else there is!`,
+	(message) =>
+		`Levelling commands! You require levelling to be enabled to use these commands. You can enable it via \`${message._usedPrefix}enable levelling\`. \n**React** with other emojis to see what else there is!`,
 	"https://raw.githubusercontent.com/HurricanoBot/HurricanoImages/master/categories/Levelling.jpg",
 );
 

@@ -7,7 +7,8 @@ module.exports = new Command({
 	clientPermissions: ["SEND_MESSAGES"],
 	args: "Please provide who you would like to play connect4 against!",
 	async run({ message, args }) {
-		let user = (await client.utils.getMember(false, { message, args }[0])).user;
+		let user = (await client.utils.getMember(false, { message, args }[0]))
+			.user;
 		if (!user)
 			return message.channel.sendError(
 				message,

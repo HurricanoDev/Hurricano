@@ -180,10 +180,10 @@ module.exports = new Command({
 
 			client.config.ownerIds.includes(message.author.id)
 				? main.addField(
-					`> ${emojis.categories.owner}  Owner`,
-					"Commands meant for the bot owners.",
-					inline,
-				)
+						`> ${emojis.categories.owner}  Owner`,
+						"Commands meant for the bot owners.",
+						inline,
+				  )
 				: null;
 
 			main.addField(":bulb:  Fact:", `**${Fact}**`).setFooter(
