@@ -82,7 +82,7 @@ module.exports = new Command({
 				.setColor(guild.me.displayHexColor)
 				.addField(
 					`${emojis.categories.owner} Owner:`,
-					(await client.users.fetch(guild.ownerID)).toString(),
+					(await client.users.fetch(guild.ownerId)).toString(),
 					true,
 				)
 				.addField(
@@ -168,7 +168,7 @@ module.exports = new Command({
 			.setColor(message.guild.me.displayHexColor)
 			.addField(
 				`${emojis.categories.owner} Owner:`,
-				(await client.users.fetch(message.guild.ownerID)).toString(),
+				(await client.users.fetch(message.guild.ownerId)).toString(),
 				true,
 			)
 			.addField(

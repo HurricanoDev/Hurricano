@@ -9,7 +9,7 @@ const Discord = require("discord.js"),
  * Extended Client class
  * @extends {Discord.Client}
  */
-class HurricanoClient extends Discord.Client {
+export default class HurricanoClient extends Discord.Client {
 	/**
 	 * Create a new client
 	 * @param {Object} config
@@ -279,5 +279,4 @@ class HurricanoClient extends Discord.Client {
 			}
 		}
 	}
-}
-module.exports = HurricanoClient;
+};

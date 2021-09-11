@@ -28,7 +28,7 @@ module.exports = class guildCreateEvent extends BaseEvent {
 			config.botChannels.serverJoinChannel,
 		);
 		if (!progressChannel) throw new Error("No server join channel found!");
-		const guildOwner = client.users.cache.get(guild.ownerID);
+		const guildOwner = client.users.cache.get(guild.ownerId);
 		client.logger.info(
 			`Hurricano has joined ${guild}, with member count: ${guild.memberCount}, and owner ${guildOwner.tag}.`,
 		);

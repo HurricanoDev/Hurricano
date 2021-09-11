@@ -1,9 +1,27 @@
-const permissions = require("../../utilities/permissions.js"),
-	{ Collection } = require("discord.js");
-let name;
-module.exports = class Command {
+import permissions from "../../utilities/permissions.js";
+import { Collection } from "discord.js";
+import { default as HurricanoClient } from "./Client";
+
+export default class Command {
+	client: HurricanoClient;
+	name: string;
+	aliases: string[] |void;
+	usage: string | string;
+	description: string | string;
+	ownerOnly: boolean | false;
+	examples: string[] | void;
+	cooldown: number | void;
+	userPermissions: string[] | void;
+	clientPermissions: string[] | void;
+	subCommands: {
+		commands: Collection<string, object>,
+		baseAuthorization: () => {} | void,
+	} | void;
+
 	constructor(opts) {
-		this.constructor.validateOpts(opts), (this.client = client);
+		this.constructor.validateOpts(opts);
+
+		this.client = opts.client;
 		this.name = opts.name || null;
 		this.aliases = opts.aliases || null;
 		this.usage = opts.usage || "No usage provided.";
@@ -75,7 +93,7 @@ module.exports = class Command {
 			examples,
 		};
 	}
-	static validateOpts(opts) {
+	static validateOpts(opts): void {
 		name = opts.name;
 		if (!client) throw new Error("No client was found.");
 		if (typeof opts !== "object")

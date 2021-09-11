@@ -28,7 +28,7 @@ module.exports = class messageUpdate extends BaseEvent {
 			client.snipes.recent.get(newMessage.channel.id) ?? [];
 		recentSnipeArray.push(snipeObject);
 		client.snipes.recent.set(newMessage.channel.id, recentSnipeArray);
-		if (newMessage.webhookID) return;
+		if (newMessage.webhookId) return;
 		let cacheCheck = oldMessage.channel.messages.cache.get(oldMessage.id);
 		if (newMessage.member && cacheCheck) {
 			client.emit("message", newMessage);

@@ -34,15 +34,15 @@ class HurricanoDatabase {
 				this.guilds.cache.set(guildId, data);
 				return data;
 			},
-			updateCache: async (guildID) => {
+			updateCache: async (guildId) => {
 				const data = await this.client.schemas.guilds.findOne({
-					id: guildID,
+					id: guildId,
 				});
-				this.guilds.cache.set(guildID, data);
+				this.guilds.cache.set(guildId, data);
 			},
-			updatePrefix: async (guildID, newPrefix) => {
+			updatePrefix: async (guildId, newPrefix) => {
 				return await this.client.schemas.guild.findOneAndUpdate(
-					{ id: guildID },
+					{ id: guildId },
 					{ prefix: newPrefix },
 				);
 			},

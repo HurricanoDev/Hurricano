@@ -23,7 +23,7 @@ module.exports = new Command({
 		const prefix = message._usedPrefix;
 		if (
 			client.giveawaysManager.giveaways.filter(
-				(g) => g.guildID === message.guild.id && !g.ended,
+				(g) => g.guildId === message.guild.id && !g.ended,
 			).length +
 				1 >
 			10

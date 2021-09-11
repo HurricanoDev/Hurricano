@@ -1,5 +1,5 @@
-const Command = require("@structures/Command.js"),
-	{ MessageEmbed, MessageButton } = require("discord.js");
+import { Command } from "@structures/Command";
+import { MessageEmbed, MessageButton } from "discord.js";
 
 module.exports = new Command({
 	name: "database",
@@ -92,11 +92,11 @@ module.exports = new Command({
 		//Buttons
 		const leftButton = new MessageButton()
 				.setStyle("PRIMARY")
-				.setcustomId("DBLeft")
+				.setCustomId("DBLeft")
 				.setEmoji("<:LeftArrow:861058356357365770>"),
 			rightButton = new MessageButton()
 				.setStyle("PRIMARY")
-				.setcustomId("DBRight")
+				.setCustomId("DBRight")
 				.setEmoji("<:RightArrow:861058283657494559>"),
 			msg = await message.channel.send({
 				embeds: [mainEmbed],

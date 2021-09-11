@@ -10,7 +10,7 @@ module.exports = new Command({
 			"https://raw.githubusercontent.com/HurricanoBot/HurricanoImages/master/SetAuthorEmojis/Giveaway.gif",
 		);
 		const gws = this.client.giveawaysManager.giveaways
-			.filter((g) => g.guildID === message.guild.id)
+			.filter((g) => g.guildId === message.guild.id)
 			.filter((g) => !g.ended);
 		if (gws.length) {
 			await Promise.all(
@@ -21,7 +21,7 @@ module.exports = new Command({
         Ends At: ${moment(x.endAt)},
         URL: [here](${x.messageURL}),
         Winner Count: ${x.winnerCount},
-        Channel: <#${x.channelID}>,
+        Channel: <#${x.channelId}>,
         Hosted By: <@${x.hostedBy.split("@")[1].split(">")[0]}>,
         ${
 			x.extraData.role == null
