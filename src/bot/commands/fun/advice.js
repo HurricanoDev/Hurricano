@@ -1,0 +1,27 @@
+import { MessageEmbed } from "discord.js";
+import Command from "@structures/Command.js";
+import fetch from "node-fetch";
+export default new Command({
+    name: "advice",
+    userPermissions: ["SEND_MESSAGES"],
+    cooldown: 20,
+    description: "gives a random advice.",
+    async run({ message, args }) {
+        fetch("https://api.adviceslip.com/advice")
+            .then((res) => res.json())
+            .then((json) => {
+            const embed = new MessageEmbed()
+                .setColor("#403B3A")
+                .setAuthor("Advice Slip", "https://i.imgur.com/8pIvnmD.png", "https://adviceslip.com/")
+                .setDescription(json.slip.advice)
+                .setTimestamp()
+                .setFooter("Powered by adviceslip.com", "");
+            message.channel.send({ embeds: [embed] });
+            return;
+        })
+            .catch((err) => {
+            message.reply("Failed to deliver advice :sob:");
+            return console.error(err);
+        });
+    },
+});
