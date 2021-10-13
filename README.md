@@ -80,32 +80,32 @@ $ cd Hurricano
 
 ```json
 {
-  "token": "Your bot token",
-  "mongouri": "Mongodb uri",
-  "prefix": "Your prefix",
-  "ownerIds": ["Owner's USER IDs", "Like this", "can be as many"],
-  "statcordKey": "optional, leave empty if you don't want statcord",
-  "website": {
-    "enabled": false,
-    "ip": "Website IP",
-    "port": "Port"
-  },
-  "topgg": {
-    "enabled": false,
-    "token": "only put something here if you set top.gg api to true",
-    "webhook": {
-      "enabled": false,
-      "webhookPassword": "top.gg vote webhook password",
-      "webhookPort": 1234,
-      "channelID": "vote webhook channel ID",
-      "webhookIP": "vote webhook IP"
-    }
-  },
-  "botChannels": {
-    "bugReport": "...",
-    "feedback": "...",
-    "serverJoinChannel": "..."
-  }
+	"token": "Your bot token",
+	"mongouri": "Mongodb uri",
+	"prefix": "Your prefix",
+	"ownerIds": ["Owner's USER IDs", "Like this", "can be as many"],
+	"statcordKey": "optional, leave empty if you don't want statcord",
+	"website": {
+		"enabled": false,
+		"ip": "Website IP",
+		"port": "Port"
+	},
+	"topgg": {
+		"enabled": false,
+		"token": "only put something here if you set top.gg api to true",
+		"webhook": {
+			"enabled": false,
+			"webhookPassword": "top.gg vote webhook password",
+			"webhookPort": 1234,
+			"channelID": "vote webhook channel ID",
+			"webhookIP": "vote webhook IP"
+		}
+	},
+	"botChannels": {
+		"bugReport": "...",
+		"feedback": "...",
+		"serverJoinChannel": "..."
+	}
 }
 ```
 
@@ -140,7 +140,7 @@ So you might be thinking how to host your bot on a cloud service so that it rema
   </tr>
 </table>
 <img src="https://raw.githubusercontent.com/HurricanoBot/HurricanoImages/d0facab8f7e20042e5f1381525d6a80ada6e62e6/other/undraw_real_time_collaboration_c62i.svg" width="50%" align="right">
-<h2>🤝 Contributing</h2> 
+<h2>🤝 Contributing</h2>
 
 Any idea on how we can make this more awesome ? [Open a new issue](https://github.com/Hurricanobot/Hurricano/issues)! We need all the help we can get to make this project awesome! You can also join the discord server to give suggestions. You can read the [Contributing guidelines](CONTRIBUTING.md).
 
