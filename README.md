@@ -1,3 +1,5 @@
+# Attention, Hurricano is being rewritten in the master branch, [here](https://github.com/HurricanoBot/Hurricano/tree/master). Feel free to contribute.
+
 <h1 align="center"> Hurricano™  🌀</h1>
 <p align="center">
 <a href="https://github.com/HurricanoBot/Hurricano/blob/main/LICENSE.md"><img alt="GitHub license" src="https://img.shields.io/github/license/HurricanoBot/Hurricano?style=for-the-badge"></a>
