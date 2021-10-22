@@ -1,45 +1,55 @@
 const { model, Schema } = require("mongoose");
 
-module.exports = model(
-  "giveaway",
-  new Schema({
-    messageID: String,
-    channelID: String,
-    guildID: String,
+module.exports = model(new Schema({
+    messageId: String,
+    channelId: String,
+    guildId: String,
     startAt: Number,
     endAt: Number,
     ended: Boolean,
     winnerCount: Number,
     prize: String,
-    extraData: {
-      role: String,
-    },
     messages: {
-      giveaway: String,
-      giveawayEnded: String,
-      inviteToParticipate: String,
-      timeRemaining: String,
-      winMessage: String,
-      embedFooter: String,
-      noWinner: String,
-      winners: String,
-      endedAt: String,
-      hostedBy: String,
-      units: {
-        seconds: String,
-        minutes: String,
-        hours: String,
-        days: String,
-        pluralS: Boolean,
-      },
+        giveaway: String,
+        giveawayEnded: String,
+        inviteToParticipate: String,
+        drawing: String,
+        dropMessage: String,
+        winMessage: mongoose.Mixed,
+        embedFooter: mongoose.Mixed,
+        noWinner: String,
+        winners: String,
+        endedAt: String,
+        hostedBy: String
     },
+    thumbnail: String,
     hostedBy: String,
-    winnerIDs: [],
-    reaction: String,
+    winnerIds: { type: [String], default: undefined },
+    reaction: mongoose.Mixed,
     botsCanWin: Boolean,
-    embedColor: String,
-    embedColorEnd: String,
-    exemptPermissions: [],
-    extraData: {},
-  })
-);
+    embedColor: mongoose.Mixed,
+    embedColorEnd: mongoose.Mixed,
+    exemptPermissions: { type: [], default: undefined },
+    exemptMembers: String,
+    bonusEntries: String,
+    extraData: mongoose.Mixed,
+    lastChance: {
+        enabled: Boolean,
+        content: String,
+        threshold: Number,
+        embedColor: mongoose.Mixed
+    },
+    pauseOptions: {
+        isPaused: Boolean,
+        content: String,
+        unPauseAfter: Number,
+        embedColor: mongoose.Mixed,
+        durationAfterPause: Number
+    },
+    isDrop: Boolean,
+    allowedMentions: {
+        parse: { type: [String], default: undefined },
+        users: { type: [String], default: undefined },
+        roles: { type: [String], default: undefined }
+    }
+}, { id: false }));
