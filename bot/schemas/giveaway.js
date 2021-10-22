@@ -1,6 +1,6 @@
-const { model, Schema } = require("mongoose");
+const { model, Schema, Mixed } = require("mongoose");
 
-module.exports = model(new Schema({
+module.exports = model("giveaway", new Schema({
     messageId: String,
     channelId: String,
     guildId: String,
@@ -15,8 +15,8 @@ module.exports = model(new Schema({
         inviteToParticipate: String,
         drawing: String,
         dropMessage: String,
-        winMessage: mongoose.Mixed,
-        embedFooter: mongoose.Mixed,
+        winMessage: Mixed,
+        embedFooter: Mixed,
         noWinner: String,
         winners: String,
         endedAt: String,
@@ -25,25 +25,25 @@ module.exports = model(new Schema({
     thumbnail: String,
     hostedBy: String,
     winnerIds: { type: [String], default: undefined },
-    reaction: mongoose.Mixed,
+    reaction: Mixed,
     botsCanWin: Boolean,
-    embedColor: mongoose.Mixed,
-    embedColorEnd: mongoose.Mixed,
+    embedColor: Mixed,
+    embedColorEnd: Mixed,
     exemptPermissions: { type: [], default: undefined },
     exemptMembers: String,
     bonusEntries: String,
-    extraData: mongoose.Mixed,
+    extraData: Mixed,
     lastChance: {
         enabled: Boolean,
         content: String,
         threshold: Number,
-        embedColor: mongoose.Mixed
+        embedColor: Mixed
     },
     pauseOptions: {
         isPaused: Boolean,
         content: String,
         unPauseAfter: Number,
-        embedColor: mongoose.Mixed,
+        embedColor: Mixed,
         durationAfterPause: Number
     },
     isDrop: Boolean,
