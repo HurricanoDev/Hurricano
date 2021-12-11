@@ -1,6 +1,10 @@
-import { HurricanoClient } from "../struct/HurricanoClient.mjs";
 import { Message } from "discord.js";
-import { CommandManager } from "../struct/CommandManager.mjs";
+import {
+	HurricanoClient,
+	CommandManager,
+	Command,
+	False,
+} from "../struct/index.mjs";
 
 export interface CollectionBasedManagerOptions<DataType> {
 	client: HurricanoClient;
@@ -17,6 +21,8 @@ export interface CommandOptions {
 	description: string;
 	aliases?: string[];
 	cooldown?: number;
+	type?: string;
+	path?: string;
 	run({
 		message,
 		args,
@@ -25,3 +31,29 @@ export interface CommandOptions {
 		args: string[];
 	}): Promise<any> | any;
 }
+
+export interface CommandManagerOptions
+	extends CollectionBasedManagerOptions<Command> {
+	path: string;
+}
+
+export type DefaultArgumentTypes = "string" | "number";
+
+export interface ArgumentOptions {
+	parsers?: Record<string, typeof ArgumentResolver>;
+	flagTypes?: Record<string, string>;
+}
+
+export const ArgumentResolver: (
+	key: string,
+) => Promise<any> | any | typeof False;
+
+export interface ArgumentFlags {
+	name: string;
+	exists: boolean;
+	value?: any;
+}
+
+export type ArgumentFlagsConfig = Record<string, string>;
+
+export type UnPromisify<T> = T extends Promise<infer U> ? U : T;
