@@ -37,15 +37,14 @@ export interface CommandManagerOptions
 	path: string;
 }
 
-export type DefaultArgumentTypes = "string" | "number";
-
 export interface ArgumentOptions {
 	parsers?: Record<string, typeof ArgumentResolver>;
 	flagTypes?: Record<string, string>;
 }
 
 export const ArgumentResolver: (
-	key: string,
+	string: string,
+	...args: any[],
 ) => Promise<any> | any | typeof False;
 
 export interface ArgumentFlags {
@@ -57,3 +56,5 @@ export interface ArgumentFlags {
 export type ArgumentFlagsConfig = Record<string, string>;
 
 export type UnPromisify<T> = T extends Promise<infer U> ? U : T;
+
+export type ArgumentTypes<T> = "string" | "number" | T;
