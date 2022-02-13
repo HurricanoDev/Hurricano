@@ -1,10 +1,15 @@
 import { Client } from "discord.js";
-import { CollectionBasedManager } from "./CollectionBasedManager.mjs";
+import { CommandManager } from "./CommandManager.mjs";
 
 export class HurricanoClient extends Client {
-	public commands = CollectionBasedManager;
+	public commands: CommandManager;
 
 	constructor() {
-		super({ intents: 42 });
+		super({ intents: 32767 });
+
+		this.commands = new CommandManager({
+			client: this,
+			path: "./src/commands"
+		});
 	}
 }

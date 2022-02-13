@@ -5,19 +5,30 @@ import { CommandError } from "./CommandError.mjs";
 export class Command {
 	public name: string;
 	public description: string;
-	public aliases?: string[];
+	public aliases: string[] = [];
+	public cooldown: number;
 	public type!: string;
 	public path!: string;
+	public client: HurricanoClient;
 
 	constructor(client: HurricanoClient, options: CommandOptions) {
 		Command.validateOptions(client, options);
 
-		const { name, description, type, path, aliases } = options;
+		const { name, description, aliases, cooldown, type, path } = options;
+		
+		this.client = client;
+		
 		this.name = name;
 
 		this.description = description;
 
-		if (aliases) this.aliases = aliases;
+		if (aliases) for (const ali of aliases) {
+			this.aliases.push(ali);
+
+			this.client.commands.aliases.set(ali, name);
+		};
+
+		this.cooldown = cooldown ?? 3;
 
 		if (type) this.type = type;
 
