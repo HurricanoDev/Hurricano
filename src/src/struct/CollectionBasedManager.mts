@@ -16,4 +16,11 @@ export class CollectionBasedManager<DataType> extends Collection<
 
 		this.client = client;
 	}
+	toObject(): Record<string, DataType> {
+		const obj: Record<string, DataType> = {};
+
+		for (const [key, value] of this.entries()) obj[key] = value;
+
+		return obj;
+	}
 }

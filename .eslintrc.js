@@ -15,13 +15,13 @@ module.exports = {
 	},
 	plugins: ["@typescript-eslint"],
 	rules: {
-		indent: [
-			"error",
-			"tab",
-			{
-				SwitchCase: 1,
-			},
-		],
+		// indent: [
+		// 	"error",
+		// 	"tab",
+		// 	{
+		// 		SwitchCase: 1,
+		// 	},
+		// ],
 		"linebreak-style": ["error", "unix"],
 		quotes: ["error", "double"],
 		semi: ["error", "always"],

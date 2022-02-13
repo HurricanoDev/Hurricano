@@ -1,4 +1,4 @@
-import { Channel, Guild, Message, GuildMember } from "discord.js";
+import { Channel, Guild, Message } from "discord.js";
 import {
 	HurricanoClient,
 	CommandManager,
@@ -47,9 +47,11 @@ export interface ArgumentOptions<guildOptional extends boolean = false> {
 	channel: Channel;
 	client: HurricanoClient;
 	fetch?: boolean;
-};
+}
 
-export function ArgumentResolver(options: ArgumentOptions<true | false>): any | typeof False;
+export function ArgumentResolver(
+	options: ArgumentOptions<boolean>,
+): any | typeof False;
 
 export interface ArgumentFlags {
 	name: string;
@@ -61,7 +63,7 @@ export type ArgumentFlagsConfig = Record<string, string>;
 
 export type UnPromisify<T> = T extends Promise<infer U> ? U : T;
 
-interface ArgumentContent extends Array<string> {
+export interface ArgumentContent extends Array<string> {
 	raw: string[];
 }
 
@@ -70,4 +72,12 @@ export interface ArgumentParserOptions {
 	client: HurricanoClient;
 	message: Message;
 	fetch?: boolean;
+}
+
+export interface ErrorData {
+	type: string | number;
+	message?: string;
+	name?: string;
+	expected?: string;
+	received?: string;
 }
