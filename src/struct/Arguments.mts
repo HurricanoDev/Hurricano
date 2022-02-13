@@ -64,7 +64,10 @@ export class Arguments {
 			},
 		});
 
-		const parsed = this.yargs.parseSync(content.replace(CodeBlocks, "\"$1$2\""));
+		const parsed = this.yargs.parseSync(
+			// eslint-disable-next-line quotes
+			content.replace(CodeBlocks, '"$1$2"'),
+		);
 
 		this.content = parsed["_"].map((x) =>
 			String(x).replace(RemoveYargsQuotes, "$0"),
@@ -78,7 +81,13 @@ export class Arguments {
 		Object.defineProperty(this, "promise", {
 			enumerable: false,
 			value: new Promise<void>(async (resolve) => {
-				await this.makeFlags(Object.fromEntries(Object.keys(parsed).filter(x => !["$0", "_"].includes(x)).map(x => [x, parsed[x]])) as Record<string, string|number>);
+				await this.makeFlags(
+					Object.fromEntries(
+						Object.keys(parsed)
+							.filter((x) => !["$0", "_"].includes(x))
+							.map((x) => [x, parsed[x]]),
+					) as Record<string, string | number>,
+				);
 
 				resolve();
 			}),
@@ -94,7 +103,9 @@ export class Arguments {
 
 		return parsers;
 	}
-	private async makeFlags(obj: Record<string, string | number>): Promise<void> {
+	private async makeFlags(
+		obj: Record<string, string | number>,
+	): Promise<void> {
 		const flags: Record<string, any> = {};
 
 		for (const key of Object.keys(obj)) {
@@ -102,16 +113,19 @@ export class Arguments {
 				flags[key] = obj[key];
 
 				continue;
-		};
+			}
 
-			flags[key] = { name: key, value: await this.parsers![this.flagTypes[key]] };
-		};
+			flags[key] = {
+				name: key,
+				value: await this.parsers![this.flagTypes[key]],
+			};
+		}
 
 		this.flags = flags;
-	};
+	}
 	public wait(): Promise<void> {
 		return this.promise;
-	};
+	}
 	public async pick<T>(
 		type: string,
 		{ fetch }: { fetch?: boolean },
