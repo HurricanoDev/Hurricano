@@ -66,11 +66,9 @@ export class CommandManager extends CollectionBasedManager<Command> {
 		)
 			return;
 
-		/* eslint-disable indent */
 		const { default: command }: { default: Command } = await import(
 				"file://" + path
 			),
-			/* eslint-enable */
 			category = this._resolveCategory(path);
 
 		command.setType(category, true);

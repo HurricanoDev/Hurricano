@@ -15,18 +15,19 @@ export class Command {
 		Command.validateOptions(client, options);
 
 		const { name, description, aliases, cooldown, type, path } = options;
-		
+
 		this.client = client;
-		
+
 		this.name = name;
 
 		this.description = description;
 
-		if (aliases) for (const ali of aliases) {
-			this.aliases.push(ali);
+		if (aliases)
+			for (const ali of aliases) {
+				this.aliases.push(ali);
 
-			this.client.commands.aliases.set(ali, name);
-		};
+				this.client.commands.aliases.set(ali, name);
+			}
 
 		this.cooldown = cooldown ?? 3;
 
@@ -65,11 +66,14 @@ export class Command {
 				received: name,
 			});
 
+		const commandName = name;
+
 		if (!description)
 			throw new CommandError({
 				name: "description",
 				type: "NoParameter",
 				expected: "String",
+				commandName,
 			});
 
 		if (typeof description !== "string")
@@ -78,6 +82,7 @@ export class Command {
 				type: "InvalidCommandParameter",
 				expected: "String",
 				received: description,
+				commandName,
 			});
 
 		if (aliases) {
@@ -87,6 +92,7 @@ export class Command {
 					type: "InvalidCommandParameter",
 					expected: "Array<string>",
 					received: aliases,
+					commandName,
 				});
 
 			for (const ali of aliases)
@@ -96,6 +102,7 @@ export class Command {
 						type: "InvalidCommandParameter",
 						expected: "String",
 						received: ali,
+						commandName,
 					});
 		}
 
@@ -105,6 +112,7 @@ export class Command {
 				type: "InvalidCommandParameter",
 				expected: "String",
 				received: type,
+				commandName,
 			});
 
 		if (path && typeof path !== "string")
@@ -113,6 +121,7 @@ export class Command {
 				type: "InvalidCommandParameter",
 				expected: "String",
 				received: path,
+				commandName,
 			});
 	}
 }

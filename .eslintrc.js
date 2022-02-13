@@ -29,5 +29,7 @@ module.exports = {
 		"@typescript-eslint/no-non-null-assertion": "off",
 		"@typescript-eslint/no-extra-semi": "off",
 		"@typescript-eslint/ban-types": "off",
+		"no-redeclare": "off",
+		"@typescript-eslint/no-empty-interface": "off",
 	},
 };

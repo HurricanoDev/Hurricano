@@ -17,6 +17,7 @@ import { TextChannel } from "discord.js";
 import type { ArgumentResolver, ArgumentOptions } from "../types/index.mjs";
 import { HurricanoClient } from "./HurricanoClient.mjs";
 
+export { Config, ConfigOptions } from "./Config.mjs";
 export { AliasesManager } from "./AliasesManager.mjs";
 export { CollectionBasedManager } from "./CollectionBasedManager.mjs";
 export { Command } from "./Command.mjs";

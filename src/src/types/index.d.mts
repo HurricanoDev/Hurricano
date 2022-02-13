@@ -5,6 +5,7 @@ import {
 	Command,
 	False,
 } from "../struct/index.mjs";
+import { Config } from "../struct/Config.mjs";
 
 export interface CollectionBasedManagerOptions<DataType> {
 	client: HurricanoClient;
@@ -80,4 +81,9 @@ export interface ErrorData {
 	name?: string;
 	expected?: string;
 	received?: string;
+	commandName?: string;
+}
+
+export interface ClientOptions {
+	config: Config;
 }
