@@ -1,0 +1,8 @@
+#!/bin/sh
+. "$(dirname "$0")/_/husky.sh"
+
+echo -e "\033[1mFormatting...\033[0m";
+npx prettier --write .;
+echo -e "\033[1mCompiling/Building...\033[0m";
+tsc;
+echo -e "\033[1mDone!\033[0m";
