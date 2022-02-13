@@ -4,3 +4,4 @@ config.json
 bot/schemas/guild.js
 bot/logs/
 .env
+dist/

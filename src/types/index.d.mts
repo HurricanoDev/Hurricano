@@ -40,9 +40,9 @@ export interface CommandManagerOptions
 
 export interface ArgumentOptions<guildOptional extends boolean = false> {
 	parsers?: Record<string, typeof ArgumentResolver>;
-	flagTypes: Record<string, string>;
+	flagTypes?: Record<string, string>;
 	arg: string;
-	args: string[];
+	content: Message["content"];
 	guild: guildOptional extends true ? Guild : undefined;
 	message: Message;
 	channel: Channel;
@@ -56,7 +56,6 @@ export function ArgumentResolver(
 
 export interface ArgumentFlags {
 	name: string;
-	exists: boolean;
 	value?: any;
 }
 
@@ -65,7 +64,7 @@ export type ArgumentFlagsConfig = Record<string, string>;
 export type UnPromisify<T> = T extends Promise<infer U> ? U : T;
 
 export interface ArgumentContent extends Array<string> {
-	raw: string[];
+	raw: string;
 }
 
 export interface ArgumentParserOptions {

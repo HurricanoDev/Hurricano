@@ -71,4 +71,9 @@ export function resolveErrorMessage(data: ErrorData): {
 	}
 
 	return { message, code };
-}
+};
+
+export const Regexes = {
+	CodeBlocks: /```(\w*)(.+)```/ms,
+	RemoveYargsQuotes: /^["'](.+(?=["']$))["']$/,
+};

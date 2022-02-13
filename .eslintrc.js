@@ -31,5 +31,6 @@ module.exports = {
 		"@typescript-eslint/ban-types": "off",
 		"no-redeclare": "off",
 		"@typescript-eslint/no-empty-interface": "off",
+		"no-async-promise-executor": "off"
 	},
 };
