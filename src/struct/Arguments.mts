@@ -85,8 +85,8 @@ export class Arguments {
 					Object.fromEntries(
 						Object.keys(parsed)
 							.filter((x) => !["$0", "_"].includes(x))
-							.map((x) => [x, parsed[x]]),
-					) as Record<string, string | number>,
+							.map((x) => [x, String(parsed[x])]),
+					) as Record<string, string>,
 				);
 
 				resolve();
@@ -104,7 +104,7 @@ export class Arguments {
 		return parsers;
 	}
 	private async makeFlags(
-		obj: Record<string, string | number>,
+		obj: Record<string, string>,
 	): Promise<void> {
 		const flags: Record<string, any> = {};
 
@@ -117,7 +117,15 @@ export class Arguments {
 
 			flags[key] = {
 				name: key,
-				value: await this.parsers![this.flagTypes[key]],
+				value: await this.parsers![this.flagTypes[key]]({
+					arg: obj[key],
+					content: this.content.raw,
+					flagTypes: this.flagTypes,
+					message: this.message,
+					guild: this.guild as undefined,
+					client: this.client,
+					channel: this.channel,
+				}),
 			};
 		}
 
@@ -131,6 +139,7 @@ export class Arguments {
 		{ fetch }: { fetch?: boolean },
 	): Promise<T | null> {
 		const parser = this.parsers![type]!;
+		
 		for (const arg of this.content) {
 			const value = await parser({
 				arg,

@@ -57,7 +57,7 @@ export class Arguments {
             value: new Promise(async (resolve) => {
                 await this.makeFlags(Object.fromEntries(Object.keys(parsed)
                     .filter((x) => !["$0", "_"].includes(x))
-                    .map((x) => [x, parsed[x]])));
+                    .map((x) => [x, String(parsed[x])])));
                 resolve();
             }),
         });
@@ -79,7 +79,15 @@ export class Arguments {
             }
             flags[key] = {
                 name: key,
-                value: await this.parsers[this.flagTypes[key]],
+                value: await this.parsers[this.flagTypes[key]]({
+                    arg: obj[key],
+                    content: this.content.raw,
+                    flagTypes: this.flagTypes,
+                    message: this.message,
+                    guild: this.guild,
+                    client: this.client,
+                    channel: this.channel,
+                }),
             };
         }
         this.flags = flags;
