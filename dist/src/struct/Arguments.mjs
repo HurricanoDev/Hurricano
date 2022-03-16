@@ -63,9 +63,7 @@ export class Arguments {
         });
     }
     makeParsers(otherParsers) {
-        let parsers = {};
-        if (otherParsers)
-            Object.assign(parsers, otherParsers);
+        const parsers = otherParsers ?? {};
         for (const defaultParser of Object.keys(DefaultArgumentParsers))
             parsers[defaultParser] ??= DefaultArgumentParsers[defaultParser];
         return parsers;

@@ -1,11 +1,14 @@
 lockfileVersion: 5.3
 
 specifiers:
+    "@discordjs/collection": ^0.5.0
     "@sapphire/type": ^2.1.2
+    "@types/node": ^17.0.21
     "@types/yargs": ^17.0.7
     "@typescript-eslint/eslint-plugin": ^5.6.0
     "@typescript-eslint/parser": ^5.6.0
-    discord.js: ^13.4.0
+    eris: ^0.16.1
+    eris-util: ^1.0.0
     eslint: ^8.4.1
     eslint-config-prettier: ^8.3.0
     husky: ^7.0.4
@@ -14,11 +17,14 @@ specifiers:
     yargs: ^17.3.0
 
 dependencies:
+    "@discordjs/collection": 0.5.0
     "@sapphire/type": 2.1.2
-    discord.js: 13.6.0
+    eris: 0.16.1
+    eris-util: 1.0.0
     yargs: 17.3.1
 
 devDependencies:
+    "@types/node": 17.0.21
     "@types/yargs": 17.0.8
     "@typescript-eslint/eslint-plugin": 5.11.0_15a231715447500ed5c06da64c8aef1c
     "@typescript-eslint/parser": 5.11.0_eslint@8.9.0+typescript@4.5.5
@@ -29,26 +35,12 @@ devDependencies:
     typescript: 4.5.5
 
 packages:
-    /@discordjs/builders/0.11.0:
+    /@discordjs/collection/0.5.0:
         resolution:
             {
-                integrity: sha512-ZTB8yJdJKrKlq44dpWkNUrAtEJEq0gqpb7ASdv4vmq6/mZal5kOv312hQ56I/vxwMre+VIkoHquNUAfnTbiYtg==,
+                integrity: sha512-3Vr3y4/Kl6ThOsD/cbXkK4JmjawQahbM3ojHpD6XyTEOG4fwZFMYH/NTWKFd5WZUw38iQsvGC4Kt4VkL++1hFQ==,
             }
-        engines: { node: ">=16.0.0", npm: ">=7.0.0" }
-        dependencies:
-            "@sindresorhus/is": 4.4.0
-            discord-api-types: 0.26.1
-            ts-mixer: 6.0.0
-            tslib: 2.3.1
-            zod: 3.11.6
-        dev: false
-
-    /@discordjs/collection/0.4.0:
-        resolution:
-            {
-                integrity: sha512-zmjq+l/rV35kE6zRrwe8BHqV78JvIh2ybJeZavBi5NySjWXqN3hmmAKg7kYMMXSeiWtSsMoZ/+MQi0DiQWy2lw==,
-            }
-        engines: { node: ">=16.0.0", npm: ">=7.0.0" }
+        engines: { node: ">=16.9.0" }
         dev: false
 
     /@discordjs/node-pre-gyp/0.4.2:
@@ -143,14 +135,6 @@ packages:
             fastq: 1.13.0
         dev: true
 
-    /@sapphire/async-queue/1.2.0:
-        resolution:
-            {
-                integrity: sha512-O5ND5Ljpef86X5oy8zXorQ754TMjWALcPSAgPBu4+76HLtDTrNoDyzU2uGE2G4A8Wv51u0MXHzGQ0WZ4GMtpIw==,
-            }
-        engines: { node: ">=v14.0.0", npm: ">=7.0.0" }
-        dev: false
-
     /@sapphire/type/2.1.2:
         resolution:
             {
@@ -167,14 +151,6 @@ packages:
             - supports-color
         dev: false
 
-    /@sindresorhus/is/4.4.0:
-        resolution:
-            {
-                integrity: sha512-QppPM/8l3Mawvh4rn9CNEYIU9bxpXUCRMaX9yUpvBk1nMKusLKpfXGDEKExKaPhLzcn3lzil7pR6rnJ11HgeRQ==,
-            }
-        engines: { node: ">=10" }
-        dev: false
-
     /@types/json-schema/7.0.9:
         resolution:
             {
@@ -182,31 +158,12 @@ packages:
             }
         dev: true
 
-    /@types/node-fetch/2.5.12:
+    /@types/node/17.0.21:
         resolution:
             {
-                integrity: sha512-MKgC4dlq4kKNa/mYrwpKfzQMB5X3ee5U6fSprkKpToBqBmX4nFZL9cW5jl6sWn+xpRJ7ypWh2yyqqr8UUCstSw==,
+                integrity: sha512-DBZCJbhII3r90XbQxI8Y9IjjiiOGlZ0Hr32omXIZvwwZ7p4DMMXGrKXVyPfuoBOri9XNtL0UK69jYIBIsRX3QQ==,
             }
-        dependencies:
-            "@types/node": 17.0.17
-            form-data: 3.0.1
-        dev: false
-
-    /@types/node/17.0.17:
-        resolution:
-            {
-                integrity: sha512-e8PUNQy1HgJGV3iU/Bp2+D/DXh3PYeyli8LgIwsQcs1Ar1LoaWHSIT6Rw+H2rNJmiq6SNWiDytfx8+gYj7wDHw==,
-            }
-        dev: false
-
-    /@types/ws/8.2.2:
-        resolution:
-            {
-                integrity: sha512-NOn5eIcgWLOo6qW8AcuLZ7G8PycXu0xTxxkS6Q18VWFxgPUSOwV0pBj2a/4viNZVu25i7RIB7GttdkAIUUXOOg==,
-            }
-        dependencies:
-            "@types/node": 17.0.17
-        dev: false
+        dev: true
 
     /@types/yargs-parser/20.2.1:
         resolution:
@@ -554,10 +511,6 @@ packages:
         engines: { node: ">=8" }
         dev: true
 
-    /asynckit/0.4.0:
-        resolution: { integrity: sha1-x57Zf380y48robyXkLzDZkdLS3k= }
-        dev: false
-
     /babel-code-frame/6.26.0:
         resolution: { integrity: sha1-Y/1D99weO7fONZR9uP42mj9Yx0s= }
         dependencies:
@@ -745,16 +698,6 @@ packages:
         hasBin: true
         dev: false
 
-    /combined-stream/1.0.8:
-        resolution:
-            {
-                integrity: sha512-FQN4MRfuJeHf7cBbBMJFXhKSDq+2kAArBlmRBvcvFE5BB1HZKXtSFASDhdlz9zOYwxh8lDdnvmMOe/+5cdoEdg==,
-            }
-        engines: { node: ">= 0.8" }
-        dependencies:
-            delayed-stream: 1.0.0
-        dev: false
-
     /common-tags/1.8.2:
         resolution:
             {
@@ -849,11 +792,6 @@ packages:
             }
         dev: true
 
-    /delayed-stream/1.0.0:
-        resolution: { integrity: sha1-3zrhmayt+31ECqrgsp4icrJOxhk= }
-        engines: { node: ">=0.4.0" }
-        dev: false
-
     /delegates/1.0.0:
         resolution: { integrity: sha1-hMbhWbgZBP3KWaDvRM2HDTElD5o= }
         dev: false
@@ -873,36 +811,6 @@ packages:
         dependencies:
             path-type: 4.0.0
         dev: true
-
-    /discord-api-types/0.26.1:
-        resolution:
-            {
-                integrity: sha512-T5PdMQ+Y1MEECYMV5wmyi9VEYPagEDEi4S0amgsszpWY0VB9JJ/hEvM6BgLhbdnKky4gfmZEXtEEtojN8ZKJQQ==,
-            }
-        engines: { node: ">=12" }
-        dev: false
-
-    /discord.js/13.6.0:
-        resolution:
-            {
-                integrity: sha512-tXNR8zgsEPxPBvGk3AQjJ9ljIIC6/LOPjzKwpwz8Y1Q2X66Vi3ZqFgRHYwnHKC0jC0F+l4LzxlhmOJsBZDNg9g==,
-            }
-        engines: { node: ">=16.6.0", npm: ">=7.0.0" }
-        dependencies:
-            "@discordjs/builders": 0.11.0
-            "@discordjs/collection": 0.4.0
-            "@sapphire/async-queue": 1.2.0
-            "@types/node-fetch": 2.5.12
-            "@types/ws": 8.2.2
-            discord-api-types: 0.26.1
-            form-data: 4.0.0
-            node-fetch: 2.6.7
-            ws: 8.5.0
-        transitivePeerDependencies:
-            - bufferutil
-            - encoding
-            - utf-8-validate
-        dev: false
 
     /dlv/1.1.3:
         resolution:
@@ -936,6 +844,34 @@ packages:
             {
                 integrity: sha512-MSjYzcWNOA0ewAHpz0MxpYFvwg6yjy1NG3xteoqz644VCo/RPgnr1/GGt+ic3iJTzQ8Eu3TdM14SawnVUmGE6A==,
             }
+        dev: false
+
+    /eris-util/1.0.0:
+        resolution:
+            {
+                integrity: sha512-ZRvgwGv1kDURSx+1FK5xv7DIhh4U3XaYnDncxlPdRufg8D6/VS6sF9eU6CEIRwMEiYQWYptjqaTm94JJo4ntEA==,
+            }
+        dependencies:
+            eris: 0.16.1
+        transitivePeerDependencies:
+            - bufferutil
+            - utf-8-validate
+        dev: false
+
+    /eris/0.16.1:
+        resolution:
+            {
+                integrity: sha512-fqjgaddSvUlUjA7s85OvZimLrgCwX58Z6FXOIxdNFJdT6XReJ/LOWZKdew2CaalM8BvN2JKzn98HmKYb3zMhKg==,
+            }
+        engines: { node: ">=10.4.0" }
+        dependencies:
+            ws: 8.5.0
+        optionalDependencies:
+            opusscript: 0.0.8
+            tweetnacl: 1.0.3
+        transitivePeerDependencies:
+            - bufferutil
+            - utf-8-validate
         dev: false
 
     /escalade/3.1.1:
@@ -1334,30 +1270,6 @@ packages:
                 integrity: sha512-WIWGi2L3DyTUvUrwRKgGi9TwxQMUEqPOPQBVi71R96jZXJdFskXEmf54BoZaS1kknGODoIGASGEzBUYdyMCBJg==,
             }
         dev: true
-
-    /form-data/3.0.1:
-        resolution:
-            {
-                integrity: sha512-RHkBKtLWUVwd7SqRIvCZMEvAMoGUp0XU+seQiZejj0COz3RI3hWP4sCv3gZWWLjJTd7rGwcsF5eKZGii0r/hbg==,
-            }
-        engines: { node: ">= 6" }
-        dependencies:
-            asynckit: 0.4.0
-            combined-stream: 1.0.8
-            mime-types: 2.1.34
-        dev: false
-
-    /form-data/4.0.0:
-        resolution:
-            {
-                integrity: sha512-ETEklSGi5t0QMZuiXoA/Q6vcnxcLQP5vdugSpuAyi6SVGi2clPPp+xgEhuMaHC+zGgn31Kd235W35f7Hykkaww==,
-            }
-        engines: { node: ">= 6" }
-        dependencies:
-            asynckit: 0.4.0
-            combined-stream: 1.0.8
-            mime-types: 2.1.34
-        dev: false
 
     /fs-minipass/2.1.0:
         resolution:
@@ -1800,24 +1712,6 @@ packages:
             picomatch: 2.3.1
         dev: true
 
-    /mime-db/1.51.0:
-        resolution:
-            {
-                integrity: sha512-5y8A56jg7XVQx2mbv1lu49NR4dokRnhZYTtL+KGfaa27uq4pSTXkwQkFJl4pkRMyNFz/EtYDSkiiEHx3F7UN6g==,
-            }
-        engines: { node: ">= 0.6" }
-        dev: false
-
-    /mime-types/2.1.34:
-        resolution:
-            {
-                integrity: sha512-6cP692WwGIs9XXdOO4++N+7qjqv0rqxxVvJ3VHPh/Sc9mVZcQP+ZGhkKiTvWMQRr2tbHkJP/Yn7Y0npb3ZBs4A==,
-            }
-        engines: { node: ">= 0.6" }
-        dependencies:
-            mime-db: 1.51.0
-        dev: false
-
     /mimic-fn/1.2.0:
         resolution:
             {
@@ -1992,6 +1886,15 @@ packages:
             type-check: 0.4.0
             word-wrap: 1.2.3
         dev: true
+
+    /opusscript/0.0.8:
+        resolution:
+            {
+                integrity: sha512-VSTi1aWFuCkRCVq+tx/BQ5q9fMnQ9pVZ3JU4UHKqTkf0ED3fKEPdr+gKAAl3IA2hj9rrP6iyq3hlcJq3HELtNQ==,
+            }
+        requiresBuild: true
+        dev: false
+        optional: true
 
     /os-tmpdir/1.0.2:
         resolution: { integrity: sha1-u+Z0BseaqFxc/sdm/lc0VV36EnQ= }
@@ -2540,13 +2443,6 @@ packages:
         resolution: { integrity: sha1-gYT9NH2snNwYWZLzpmIuFLnZq2o= }
         dev: false
 
-    /ts-mixer/6.0.0:
-        resolution:
-            {
-                integrity: sha512-nXIb1fvdY5CBSrDIblLn73NW0qRDk5yJ0Sk1qPBF560OdJfQp9jhl+0tzcY09OZ9U+6GpeoI9RjwoIKFIoB9MQ==,
-            }
-        dev: false
-
     /tslib/1.14.1:
         resolution:
             {
@@ -2573,6 +2469,15 @@ packages:
             tslib: 1.14.1
             typescript: 4.5.5
         dev: true
+
+    /tweetnacl/1.0.3:
+        resolution:
+            {
+                integrity: sha512-6rt+RN7aOi1nGMyC4Xa5DdYiukl2UWCbcJft7YhxReBGQD7OAM8Pbxw6YMo4r2diNEA8FEmu32YOn9rhaiE5yw==,
+            }
+        requiresBuild: true
+        dev: false
+        optional: true
 
     /type-check/0.3.2:
         resolution: { integrity: sha1-WITKtRLPHTVeP7eE8wgEsrUg23I= }
@@ -2799,11 +2704,4 @@ packages:
             string-width: 4.2.3
             y18n: 5.0.8
             yargs-parser: 21.0.0
-        dev: false
-
-    /zod/3.11.6:
-        resolution:
-            {
-                integrity: sha512-daZ80A81I3/9lIydI44motWe6n59kRBfNzTuS2bfzVh1nAXi667TOTWWtatxyG+fwgNUiagSj/CWZwRRbevJIg==,
-            }
         dev: false

@@ -1,4 +1,4 @@
-import { Channel, Guild, Message } from "discord.js";
+import { Channel, Guild, Message } from "eris";
 import {
 	HurricanoClient,
 	CommandManager,
@@ -6,6 +6,8 @@ import {
 	False,
 } from "../struct/index.mjs";
 import { Config } from "../struct/Config.mjs";
+
+export type valueof<T> = T[keyof T];
 
 export interface CollectionBasedManagerOptions<DataType> {
 	client: HurricanoClient;
@@ -85,4 +87,10 @@ export interface ErrorData {
 
 export interface ClientOptions {
 	config: Config;
+}
+
+declare module "eris" {
+	interface Guild {
+		getRESTChannel(ID: string): Promise<Channel | void>;
+	}
 }

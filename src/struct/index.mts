@@ -12,8 +12,8 @@ export function isFunctionVariant(
 		: "arrow";
 }
 
-import type { Channel } from "discord.js";
-import { TextChannel } from "discord.js";
+import type { Channel } from "eris";
+import { TextChannel } from "eris";
 import type { ArgumentResolver, ArgumentOptions } from "../types/index.mjs";
 import { HurricanoClient } from "./HurricanoClient.mjs";
 

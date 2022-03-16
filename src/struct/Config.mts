@@ -1,5 +1,3 @@
-import { Snowflake } from "discord.js";
-
 export interface ConfigOptions {
 	token: string;
 	prefixes: string[];
@@ -9,9 +7,9 @@ export interface ConfigOptions {
 	};
 	MongoDBUri: string;
 	botChannels: {
-		bugReport: Snowflake;
-		feedback: Snowflake;
-		serverJoin: Snowflake;
+		bugReport: string;
+		feedback: string;
+		serverJoin: string;
 	};
 	isModified: boolean;
 }

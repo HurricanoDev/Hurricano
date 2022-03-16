@@ -1,4 +1,4 @@
-import type { Message, Guild, Channel } from "discord.js";
+import type { Message, Guild, Channel } from "eris";
 import Yargs, { Argv } from "yargs";
 import type {
 	ArgumentOptions,
@@ -94,18 +94,15 @@ export class Arguments {
 		});
 	}
 	private makeParsers(otherParsers?: ArgumentOptions["parsers"]) {
-		let parsers: Record<string, typeof ArgumentResolver> = {};
-
-		if (otherParsers) Object.assign(parsers, otherParsers);
+		const parsers: Record<string, typeof ArgumentResolver> =
+			otherParsers ?? {};
 
 		for (const defaultParser of Object.keys(DefaultArgumentParsers))
 			parsers[defaultParser] ??= DefaultArgumentParsers[defaultParser];
 
 		return parsers;
 	}
-	private async makeFlags(
-		obj: Record<string, string>,
-	): Promise<void> {
+	private async makeFlags(obj: Record<string, string>): Promise<void> {
 		const flags: Record<string, any> = {};
 
 		for (const key of Object.keys(obj)) {
@@ -139,7 +136,7 @@ export class Arguments {
 		{ fetch }: { fetch?: boolean },
 	): Promise<T | null> {
 		const parser = this.parsers![type]!;
-		
+
 		for (const arg of this.content) {
 			const value = await parser({
 				arg,

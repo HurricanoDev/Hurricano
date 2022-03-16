@@ -1,4 +1,4 @@
-import { Client } from "discord.js";
+import { Client } from "eris";
 import { CommandManager } from "./CommandManager.mjs";
 import { AliasesManager } from "./AliasesManager.mjs";
 import { ClientOptions } from "../types/index.mjs";

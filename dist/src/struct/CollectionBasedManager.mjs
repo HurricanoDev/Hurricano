@@ -1,4 +1,4 @@
-import { Collection } from "discord.js";
+import { Collection } from "@discordjs/collection";
 export class CollectionBasedManager extends Collection {
     client;
     constructor({ client, data = [], }) {

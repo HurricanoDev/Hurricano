@@ -21,6 +21,10 @@ export function resolveErrorType(type: string | number) {
 		case 2:
 			return "NoParameter";
 		case 3:
+			return "ChannelNotOwnedByGuild";
+		case 4:
+			return "ChannelNotFound";
+		case 5:
 			return "Custom";
 	}
 }
@@ -59,6 +63,18 @@ export function resolveErrorMessage(data: ErrorData): {
 		case "NoParameter": {
 			message = `[${CommandErrors.NoParameter}] Property "${name}" is required, but its value was not provided, or is falsey.`;
 			code = CommandErrors.NoParameter;
+
+			break;
+		}
+		case "ChannelNotOwnedByGuild": {
+			message = `[${CommandErrors.ChannelNotOwnedByGuild}] The channel you provided is not owned by the guild.`;
+			code = CommandErrors.ChannelNotOwnedByGuild;
+
+			break;
+		}
+		case "ChannelNotFound": {
+			message = `[${CommandErrors.ChannelNotFound}] The channel you provided was not found.`;
+			code = CommandErrors.ChannelNotFound;
 
 			break;
 		}
