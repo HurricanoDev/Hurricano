@@ -1,7 +1,7 @@
 import Yargs from "yargs";
 import { DefaultArgumentParsers } from "./index.mjs";
 import { Regexes } from "../util/index.mjs";
-const { CodeBlocks, RemoveYargsQuotes } = Regexes;
+const { CodeBlocks, UnescapedQuotes } = Regexes;
 export class Arguments {
     yargs;
     content;
@@ -47,7 +47,7 @@ export class Arguments {
         const parsed = this.yargs.parseSync(
         // eslint-disable-next-line quotes
         content.replace(CodeBlocks, '"$1$2"'));
-        this.content = parsed["_"].map((x) => String(x).replace(RemoveYargsQuotes, "$0"));
+        this.content = parsed["_"].map((x) => String(x).replace(new RegExp(UnescapedQuotes, "g"), "$0"));
         Object.defineProperty(this.content, "raw", {
             enumerable: false,
             value: content,

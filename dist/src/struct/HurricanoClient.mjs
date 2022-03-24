@@ -5,7 +5,7 @@ export class HurricanoClient extends Client {
     aliases;
     config;
     constructor({ config }) {
-        super({ intents: 32767 });
+        super(config.token, { intents: 32767 });
         this.commands = new CommandManager({
             client: this,
             path: "./src/commands",

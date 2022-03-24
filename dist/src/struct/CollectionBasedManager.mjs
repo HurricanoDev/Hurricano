@@ -1,7 +1,7 @@
 import { Collection } from "@discordjs/collection";
 export class CollectionBasedManager extends Collection {
     client;
-    constructor({ client, data = [], }) {
+    constructor({ client, data = [] }) {
         super(data);
         this.client = client;
     }

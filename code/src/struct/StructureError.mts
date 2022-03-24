@@ -1,11 +1,10 @@
-import { resolveErrorMessage } from "../util/index.mjs";
-import { ErrorData } from "../types/index.mjs";
+import { resolveErrorMessage } from "#util";
+import { ErrorData } from "#types";
 
-export class CommandError extends Error {
+export class StructureError extends Error {
 	public name: string;
 	public code: string | null;
 	public type: string;
-	public commandName?: string;
 
 	constructor(data: ErrorData) {
 		const { message, code } = resolveErrorMessage(data);
@@ -17,7 +16,5 @@ export class CommandError extends Error {
 		this.code = code;
 
 		this.type = data.type as string;
-
-		if (data.commandName) this.commandName = data.commandName;
 	}
 }

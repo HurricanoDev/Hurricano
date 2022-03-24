@@ -7,6 +7,9 @@ import {
 } from "../struct/index.mjs";
 import { Config } from "../struct/Config.mjs";
 
+export { ErisExports } from "./ErisExports.mjs";
+export { ErrorEnums } from "./Enums.d.mjs";
+
 export type valueof<T> = T[keyof T];
 
 export interface CollectionBasedManagerOptions<DataType> {
@@ -76,21 +79,24 @@ export interface ArgumentParserOptions {
 	fetch?: boolean;
 }
 
-export interface ErrorData {
-	type: string | number;
-	message?: string;
-	name?: string;
-	expected?: string;
-	received?: string;
-	commandName?: string;
+export interface BaseErrorArgs {
+	type: number;
+	args?: Record<string, any>;
 }
+
+export type ErrorArgsMerger<T> = BaseErrorArgs & { args: T };
 
 export interface ClientOptions {
 	config: Config;
 }
 
 declare module "eris" {
+	interface Message {
+		guild: Guild | null;
+	}
 	interface Guild {
 		getRESTChannel(ID: string): Promise<Channel | void>;
 	}
 }
+
+export type ObjectKeys = number | string | symbol;

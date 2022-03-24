@@ -1,4 +1,4 @@
-import { valueof } from "src/types/index.mjs";
+import { ObjectKeys, ErisExports } from "#types";
 
 export interface DefinePropertyOptions {
 	enumerable?: boolean;
@@ -11,7 +11,10 @@ export interface DefineOptions {
 	[x: string]: DefinePropertyOptions;
 }
 
-function define(props: { [x: string]: any }, options: DefineOptions = {}) {
+function define<T extends ErisExportsKeys>(
+	props: { [x: ObjectKeys]: any } & ThisType<ErisExports[T]>,
+	options: DefineOptions = {},
+): void {
 	for (const key of Object.keys(props)) {
 		if (options[key]) {
 			const option = options[key] as DefinePropertyOptions & {
@@ -25,17 +28,16 @@ function define(props: { [x: string]: any }, options: DefineOptions = {}) {
 	}
 }
 
-export type ErisExports = typeof import("eris");
 export type ErisExportsKeys = keyof ErisExports;
-export type ErisExtensionExtender<T> = (
+export type ErisExtensionExtender<T, StructKey extends ErisExportsKeys> = (
 	this: T,
-	struct: { Structure: valueof<ErisExports>; define: typeof define },
+	struct: { Structure: ErisExports[StructKey]; define: typeof define },
 ) => any;
 
 export class ErisExtension<T extends ErisExportsKeys> {
-	public extend!: ErisExtensionExtender<this>;
+	public extend!: ErisExtensionExtender<this, T>;
 	public define!: typeof define;
-	private promise: Promise<void>;
+	public promise: Promise<void>;
 
 	public constructor(
 		public name: ErisExportsKeys,
@@ -43,7 +45,7 @@ export class ErisExtension<T extends ErisExportsKeys> {
 	) {
 		this.promise = this.defineProps(extend);
 	}
-	private defineProps(extend: ErisExtensionExtender<this>): Promise<void> {
+	private defineProps(extend: ErisExtensionExtender<this, T>): Promise<void> {
 		return new Promise(async (resolve) => {
 			const { name } = this;
 

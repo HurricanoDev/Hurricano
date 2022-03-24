@@ -1,4 +1,4 @@
-import { CommandOptions } from "../types/index.mjs";
+import { CommandOptions, ErrorEnums } from "#types";
 import { HurricanoClient } from "./HurricanoClient.mjs";
 import { CommandError } from "./CommandError.mjs";
 
@@ -47,81 +47,86 @@ export class Command {
 
 		return true;
 	}
+    private static notThere(key: string, object: any): boolean {
+        return key in object;
+    }
 	private static validateOptions(
 		client: HurricanoClient,
-		{ name, description, aliases, type, path }: CommandOptions,
+		Options: CommandOptions,
 	): void {
+        const { name, description, aliases, type, path } = Options;
+
 		if (!name)
 			throw new CommandError({
 				name: "name",
-				type: "NoParameter",
+				type: ErrorEnums.ParameterNotProvided,
 				expected: "String",
 			});
 
 		if (typeof name !== "string")
 			throw new CommandError({
 				name: "name	",
-				type: "InvalidCommandParameter",
+				type: ErrorEnums.IncorrectParameterType,
 				expected: "String",
 				received: name,
 			});
 
-		const commandName = name;
+		const command = name;
 
 		if (!description)
 			throw new CommandError({
 				name: "description",
-				type: "NoParameter",
+				type: ErrorEnums.ParameterNotProvided,
 				expected: "String",
-				commandName,
+				command,
 			});
 
 		if (typeof description !== "string")
 			throw new CommandError({
 				name: "description",
-				type: "InvalidCommandParameter",
+				type: ErrorEnums.IncorrectParameterType,
 				expected: "String",
 				received: description,
-				commandName,
+				command,
 			});
 
 		if (aliases) {
 			if (!Array.isArray(aliases))
 				throw new CommandError({
 					name: "aliases",
-					type: "InvalidCommandParameter",
+					type: ErrorEnums.IncorrectParameterType,
 					expected: "Array<string>",
 					received: aliases,
-					commandName,
+					command,
 				});
 
 			for (const ali of aliases)
 				if (typeof ali !== "string")
 					throw new CommandError({
 						name: "aliases[0]",
-						type: "InvalidCommandParameter",
+						type: ErrorEnums.IncorrectParameterType,
 						expected: "String",
 						received: ali,
-						commandName,
+						command,
 					});
 		}
 
 		if (type && typeof type !== "string")
 			throw new CommandError({
 				name: "type",
-				type: "InvalidCommandParameter",
+				type: ErrorEnums.IncorrectParameterType,
 				expected: "String",
 				received: type,
-				commandName,
+				command,
 			});
 
 		if (path && typeof path !== "string")
 			throw new CommandError({
 				name: "path",
-				type: "InvalidCommandParameter",
+				type: ErrorEnums.IncorrectParameterType,
 				expected: "String",
 				received: path,
-				commandName,
+				command,
 			});
 	}
 }

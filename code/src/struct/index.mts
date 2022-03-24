@@ -23,6 +23,7 @@ export { CollectionBasedManager } from "./CollectionBasedManager.mjs";
 export { Command } from "./Command.mjs";
 export { CommandManager } from "./CommandManager.mjs";
 export { HurricanoClient };
+export { ErisExtension } from "./ErisExtension.mjs";
 
 export class False {}
 
@@ -47,9 +48,9 @@ export const DefaultArgumentParsers: Record<string, typeof ArgumentResolver> = {
 		message,
 	}: ArgumentOptions<true>): Promise<Channel | typeof False> {
 		const channel =
-			message.mentions.channels.first() ?? fetch
-				? await guild.channels.fetch(arg)
-				: guild.channels.cache.get(arg);
+			message.channelMentions ?? fetch
+				? await guild.getRESTChannel(arg)
+				: guild.channels.get(arg);
 
 		return channel ?? False;
 	},

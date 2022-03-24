@@ -16,6 +16,7 @@ export { CollectionBasedManager } from "./CollectionBasedManager.mjs";
 export { Command } from "./Command.mjs";
 export { CommandManager } from "./CommandManager.mjs";
 export { HurricanoClient };
+export { ErisExtension } from "./ErisExtension.mjs";
 export class False {
 }
 export const DefaultArgumentParsers = {
@@ -36,9 +37,9 @@ export const DefaultArgumentParsers = {
             return False;
     },
     async channel({ arg, guild, fetch, message, }) {
-        const channel = message.mentions.channels.first() ?? fetch
-            ? await guild.channels.fetch(arg)
-            : guild.channels.cache.get(arg);
+        const channel = message.channelMentions ?? fetch
+            ? await guild.getRESTChannel(arg)
+            : guild.channels.get(arg);
         return channel ?? False;
     },
     async TextChannel({ arg, guild, fetch, }) {

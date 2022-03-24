@@ -41,5 +41,12 @@
 		"husky": "^7.0.4",
 		"prettier-eslint": "^8.2.2",
 		"typescript": "^4.5.5"
+	},
+	"imports": {
+		"#util": "./dist/src/util/index.mjs",
+		"#util/*": "./dist/src/util/*",
+		"#struct": "./dist/src/struct",
+		"#struct/*": "./dist/src/struct/*",
+		"config": "./dist/src/config.mjs"
 	}
 }

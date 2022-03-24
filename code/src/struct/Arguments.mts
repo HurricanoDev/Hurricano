@@ -10,7 +10,7 @@ import { DefaultArgumentParsers } from "./index.mjs";
 import { HurricanoClient } from "../struct/index.mjs";
 import { Regexes } from "../util/index.mjs";
 
-const { CodeBlocks, RemoveYargsQuotes } = Regexes;
+const { CodeBlocks, UnescapedQuotes } = Regexes;
 
 export class Arguments {
 	public yargs!: Argv;
@@ -70,7 +70,7 @@ export class Arguments {
 		);
 
 		this.content = parsed["_"].map((x) =>
-			String(x).replace(RemoveYargsQuotes, "$0"),
+			String(x).replace(new RegExp(UnescapedQuotes, "g"), "$0"),
 		) as any as ArgumentContent;
 
 		Object.defineProperty(this.content, "raw", {

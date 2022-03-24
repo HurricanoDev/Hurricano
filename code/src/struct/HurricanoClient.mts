@@ -10,7 +10,7 @@ export class HurricanoClient extends Client {
 	public config: Config;
 
 	constructor({ config }: ClientOptions) {
-		super({ intents: 32767 });
+		super(config.token, { intents: 32767 });
 
 		this.commands = new CommandManager({
 			client: this,

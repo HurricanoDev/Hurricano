@@ -2,7 +2,7 @@ import { AnyGuildChannel } from "eris";
 import { ErisExtension } from "../ErisExtension.mjs";
 import { StructureError } from "../StructureError.mjs";
 
-export default new ErisExtension<"Guild">("Guild", ({ define }) => {
+export default new ErisExtension<"Guild">("Guild", ({ define }) =>
 	define({
 		async getRESTChannel(id: string): Promise<AnyGuildChannel> {
 			const channel = this.client.getChannel(id);
@@ -18,5 +18,5 @@ export default new ErisExtension<"Guild">("Guild", ({ define }) => {
 
 			return channel;
 		},
-	});
-});
+	}),
+);

@@ -34,22 +34,11 @@ export class CommandManager extends CollectionBasedManager<Command> {
 		for await (const file of dir)
 			switch (true) {
 				case file.isFile(): {
-					if (
-						!file.name.endsWith(".mjs") ||
-						file.name.endsWith(".except.mjs") ||
-						file.name.endsWith(".mts")
-					)
-						continue;
+					const command = await this.read(resolve(path, file.name));
 
-					const { default: command }: { default: Command } =
-						await import("file://" + resolve(path, file.name));
+					if (command) yield command!;
 
-					command.setType(category, true);
-					command.setPath(resolve(path, file.name), true);
-
-					yield command;
-
-					break;
+					continue;
 				}
 				case file.isDirectory(): {
 					if (file.name.includes(".except")) continue;
@@ -72,7 +61,7 @@ export class CommandManager extends CollectionBasedManager<Command> {
 			category = this._resolveCategory(path);
 
 		command.setType(category, true);
-		command.setPath(path);
+		command.setPath(path, true);
 
 		return command;
 	}
