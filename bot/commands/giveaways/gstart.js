@@ -72,7 +72,7 @@ module.exports = new Command({
       );
     let winners =
       args[1] && args[1].toLowerCase().endsWith("w")
-        ? +args[1].split("w")[0]
+        ? +args[1].replace("w", "")
         : +args[1];
     if (!winners)
       return message.sendErrorReply(
