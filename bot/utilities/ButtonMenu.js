@@ -1,7 +1,9 @@
 const { MessageButton } = require("discord.js");
+
 function split(array, count) {
 	const groups = [];
-	for (let i = 0; i < array.length; i += count) groups.push(array.slice(i, i + count));
+
+    for (let i = 0; i < array.length; i += count) groups.push(array.slice(i, i + count));
 
 	return groups;
 }
