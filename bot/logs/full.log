@@ -1,10 +1,9 @@
-[2021-07-09 11:35:37] - [client]: 
-.-----------------------[2021-07-09 11:35:43] - [shard]: [Shard 0] Shard Ready!
---------------------------------------------.
+[2022-08-02 12:22:16] - [client]: 
+.---------------------------------------------------------------------------------------------------------------------------.
 |                                                         Commands                                                          |
 |---------------------------------------------------------------------------------------------------------------------------|
-|     Command File     |   Command Name    | Command Category |                    Aliases                    | Load status |
-|----------------------|-------------------|------------------|-----------------------------------------------|-------------|
+|     Command File     |   Command Name    | Command Category |                [2022-08-02 12:22:20] - [shard]: [Shard 0] Shard Ready!
+--------------|-------------------|------------------|-----------------------------------------------|-------------|
 | database.js          | database          | config           | db                                            | Loaded!     |
 | disable.js           | disable           | config           | None.                                         | Loaded!     |
 | enable.js            | enable            | config           | None.                                         | Loaded!     |
@@ -26,23 +25,32 @@
 | slots.js             | slots             | economy          | slotmachine                                   | Loaded!     |
 | withdraw.js          | withdraw          | economy          | with                                          | Loaded!     |
 | 8ball.js             | 8ball             | fun              | None.                                         | Loaded!     |
+| advice.js            | advice            | fun              | None.                                         | Loaded!     |
 | battle.js            | battle            | fun              | fight                                         | Loaded!     |
 | calculator.js        | calculator        | fun              | None.                                         | Loaded!     |
+| catfact.js           | catfact           | fun              | None.                                         | Loaded!     |
 | connect4.js          | connect4          | fun              | c4, connectfour                               | Loaded!     |
+| cringerate.js        | cringerate        | fun              | cringer8                                      | Loaded!     |
+| dankrate.js          | dankrate          | fun              | dankr8, howdank                               | Loaded!     |
 | eject.js             | eject             | fun              | None.                                         | Loaded!     |
 | emojify.js           | emojify           | fun              | emjfy                                         | Loaded!     |
+| fox.js               | fox               | fun              | None.                                         | Loaded!     |
 | hangman.js           | hangman           | fun              | hangm                                         | Loaded!     |
 | howgay.js            | howgay            | fun              | gayrate                                       | Loaded!     |
+| kill.js              | kill              | fun              | None.                                         | Loaded!     |
 | meme.js              | meme              | fun              | None.                                         | Loaded!     |
 | minesweeper.js       | minesweeper       | fun              | mines                                         | Loaded!     |
+| pp.js                | pp                | fun              | None.                                         | Loaded!     |
 | rps.js               | rps               | fun              | rockpaperscissors                             | Loaded!     |
 | snake.js             | snake             | fun              | snek                                          | Loaded!     |
 | snipe.js             | snipe             | fun              | None.                                         | Loaded!     |
+| trump.js             | trump             | fun              | trumpquote                                    | Loaded!     |
 | unscramble.js        | unscramble        | fun              | guessword                                     | Loaded!     |
 | gend.js              | gend              | giveaways        | , giveawayend, g-end, g-end, gfinish          | Loaded!     |
 | glist.js             | glist             | giveaways        | None.                                         | Loaded!     |
 | gstart.js            | gstart            | giveaways        | gs, giveawaystart, g-start, giveaway, gcreate | Loaded!     |
 | Clyde.js             | clyde             | image            | None.                                         | Loaded!     |
+| achievement.js       | achievement       | image            | None.                                         | Loaded!     |
 | beautify.js          | beautify          | image            | None.                                         | Loaded!     |
 | burn.js              | burn              | image            | None.                                         | Loaded!     |
 | facepalm.js          | facepalm          | image            | None.                                         | Loaded!     |
@@ -100,60 +108,1579 @@
 | tag.js               | tag               | utility          | None.                                         | Loaded!     |
 | urbandictionary.js   | urbandictionary   | utility          | urband, urbandict                             | Loaded!     |
 '---------------------------------------------------------------------------------------------------------------------------'
-[2021-07-09 11:35:37] - [info]: Provided token: ODQ4NDYxMjEwODA1ODYyNDMx.YLM9FA.***************************
-[2021-07-09 11:35:37] - [info]: Preparing to connect to the gateway...
-[2021-07-09 11:35:42] - [info]: [WS => Manager] Fetched Gateway Information
+[2022-08-02 12:22:16] - [info]: Provided token: ODI1NTc0NDEyMTc4NDIzODU5.GX3GFL.**************************************
+[2022-08-02 12:22:16] - [info]: Preparing to connect to the gateway...
+[2022-08-02 12:22:17] - [info]: [WS => Manager] Fetched Gateway Information
     URL: wss://gateway.discord.gg
     Recommended Shards: 1
-[2021-07-09 11:35:42] - [info]: [WS => Manager] Session Limit Information
+[2022-08-02 12:22:17] - [info]: [WS => Manager] Session Limit Information
     Total: 1000
-    Remaining: 986
-[2021-07-09 11:35:42] - [info]: [WS => Manager] Spawning shards: 0
-[2021-07-09 11:35:42] - [info]: [WS => Shard 0] [CONNECT]
+    Remaining: 984
+[2022-08-02 12:22:17] - [info]: [WS => Manager] Spawning shards: 0
+[2022-08-02 12:22:17] - [info]: [WS => Shard 0] [CONNECT]
     Gateway    : wss://gateway.discord.gg/
     Version    : 9
     Encoding   : json
     Compression: none
-[2021-07-09 11:35:42] - [info]: [WS => Shard 0] Setting a HELLO timeout for 20s.
-[2021-07-09 11:35:43] - [info]: [WS => Shard 0] [CONNECTED] wss://gateway.discord.gg/?v=9&encoding=json in 202ms
-[2021-07-09 11:35:43] - [info]: [WS => Shard 0] Clearing the HELLO timeout.
-[2021-07-09 11:35:43] - [info]: [WS => Shard 0] Setting a heartbeat interval for 41250ms.
-[2021-07-09 11:35:43] - [info]: [WS => Shard 0] [IDENTIFY] Shard 0/1 with intents: 1923
-[2021-07-09 11:35:43] - [db]: Connected to MongoDB!
-[2021-07-09 11:35:43] - [info]: [WS => Shard 0] [READY] Session 47f69023bde6ec1f0b68f9bd6ff3bb65.
-[2021-07-09 11:35:43] - [info]: [WS => Shard 0] [ReadyHeartbeat] Sending a heartbeat.
-[2021-07-09 11:35:43] - [info]: [WS => Shard 0] Shard received all its guilds. Marking as fully ready.
-[2021-07-09 11:35:43] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 107ms.
-[2021-07-09 11:35:44] - [client]: HurricanoBeta2#4159 Successfully Logged in!
-[2021-07-09 11:36:24] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
-[2021-07-09 11:36:24] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 81ms.
-[2021-07-09 11:37:05] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
-[2021-07-09 11:37:05] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 81ms.
-[2021-07-09 11:37:46] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
-[2021-07-09 11:37:46] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 80ms.
-[2021-07-09 11:38:28] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
-[2021-07-09 11:38:28] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 81ms.
-[2021-07-09 11:39:09] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
-[2021-07-09 11:39:09] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 83ms.
-[2021-07-09 11:39:50] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
-[2021-07-09 11:39:50] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 89ms.
-[2021-07-09 11:40:31] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
-[2021-07-09 11:40:31] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 83ms.
-[2021-07-09 11:41:13] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
-[2021-07-09 11:41:13] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 81ms.
-[2021-07-09 11:41:54] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
-[2021-07-09 11:41:54] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 92ms.
-[2021-07-09 11:42:35] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
-[2021-07-09 11:42:35] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 83ms.
-[2021-07-09 11:43:16] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
-[2021-07-09 11:43:16] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 81ms.
-[2021-07-09 11:43:58] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
-[2021-07-09 11:43:58] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 81ms.
-[2021-07-09 11:44:39] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
-[2021-07-09 11:44:39] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 80ms.
-[2021-07-09 11:45:20] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
-[2021-07-09 11:45:20] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 82ms.
-[2021-07-09 11:46:01] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
-[2021-07-09 11:46:01] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 80ms.
-[2021-07-09 11:46:43] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
-[2021-07-09 11:46:43] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 81ms.
+[2022-08-02 12:22:17] - [info]: [WS => Shard 0] Setting a HELLO timeout for 20s.
+[2022-08-02 12:22:18] - [info]: [WS => Shard 0] [CONNECTED] Took 873ms
+[2022-08-02 12:22:18] - [info]: [WS => Shard 0] Clearing the HELLO timeout.
+[2022-08-02 12:22:18] - [info]: [WS => Shard 0] Setting a heartbeat interval for 41250ms.
+[2022-08-02 12:22:18] - [info]: [WS => Shard 0] [IDENTIFY] Shard 0/1 with intents: 1923
+[2022-08-02 12:22:18] - [db]: Connected to MongoDB!
+[2022-08-02 12:22:19] - [info]: [WS => Shard 0] [READY] Session 76c6c3980b7858eb7f0beff5277df22f.
+[2022-08-02 12:22:19] - [info]: [WS => Shard 0] [ReadyHeartbeat] Sending a heartbeat.
+[2022-08-02 12:22:20] - [info]: [WS => Shard 0] Shard received all its guilds. Marking as fully ready.
+[2022-08-02 12:22:20] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 971ms.
+[2022-08-02 12:22:22] - [client]: Hurricano Beta#2437 Successfully Logged in!
+[2022-08-02 12:22:59] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2022-08-02 12:23:00] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 345ms.
+[2022-08-02 12:23:41] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2022-08-02 12:23:41] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 343ms.
+[2022-08-02 12:24:22] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2022-08-02 12:24:22] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 335ms.
+[2022-08-02 12:24:28] - [warn]: (intermediate value).setCustomID is not a function
+{
+  "stack": "TypeError: (intermediate value).setCustomID is not a function
+    at /home/arch/Code/HurricanoOld/bot/utilities/ButtonMenu.js:30:10
+    at Array.forEach (<anonymous>)
+    at ButtonMenu.start (/home/arch/Code/HurricanoOld/bot/utilities/ButtonMenu.js:26:15)
+    at Command.run (/home/arch/Code/HurricanoOld/bot/commands/information/help.js:315:16)
+    at MessageEvent.run (/home/arch/Code/HurricanoOld/bot/events/bot/message.js:433:21)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)"
+}
+[2022-08-02 12:25:03] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2022-08-02 12:25:03] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 337ms.
+[2022-08-02 12:25:44] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2022-08-02 12:25:45] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 345ms.
+[2022-08-02 12:26:26] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2022-08-02 12:26:26] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 338ms.
+[2022-08-02 12:27:07] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2022-08-02 12:27:07] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 337ms.
+[2022-08-02 12:27:48] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2022-08-02 12:27:48] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 338ms.
+[2022-08-02 12:28:29] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2022-08-02 12:28:30] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 348ms.
+[2022-08-02 12:29:11] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2022-08-02 12:29:11] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 335ms.
+[2022-08-02 12:29:52] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2022-08-02 12:29:52] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 350ms.
+[2022-08-02 12:30:33] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2022-08-02 12:30:33] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 336ms.
+[2022-08-02 12:31:14] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2022-08-02 12:31:15] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 347ms.
+[2022-08-02 12:31:56] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2022-08-02 12:31:56] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 341ms.
+[2022-08-02 12:32:37] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2022-08-02 12:32:37] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 345ms.
+[2022-08-02 12:33:18] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2022-08-02 12:33:19] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 342ms.
+[2022-08-02 12:33:59] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2022-08-02 12:34:00] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 336ms.
+[2022-08-02 12:34:04] - [warn]: MessageEmbed footer text must be a string.
+{
+  "stack": "RangeError [EMBED_FOOTER_TEXT]: MessageEmbed footer text must be a string.
+    at Util.verifyString (/home/arch/Code/HurricanoOld/node_modules/.pnpm/discord.js@13.9.2/node_modules/discord.js/src/util/Util.js:427:41)
+    at MessageEmbed.setFooter (/home/arch/Code/HurricanoOld/node_modules/.pnpm/discord.js@13.9.2/node_modules/discord.js/src/structures/MessageEmbed.js:462:32)
+    at TextChannel.sendError (/home/arch/Code/HurricanoOld/bot/structures/ImmediateExecute/TextChannel.js:62:11)
+    at MessageEvent.run (/home/arch/Code/HurricanoOld/bot/events/bot/message.js:302:29)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)"
+}
+[2022-08-02 12:34:41] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2022-08-02 12:34:41] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 336ms.
+[2022-08-02 12:35:22] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2022-08-02 12:35:22] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 340ms.
+[2022-08-02 12:36:03] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2022-08-02 12:36:04] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 336ms.
+[2022-08-02 12:36:44] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2022-08-02 12:36:45] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 662ms.
+[2022-08-02 12:37:26] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2022-08-02 12:37:26] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 564ms.
+[2022-08-02 12:38:07] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2022-08-02 12:38:08] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 903ms.
+[2022-08-02 12:38:48] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2022-08-02 12:38:49] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 707ms.
+[2022-08-02 12:39:29] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2022-08-02 12:39:30] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 524ms.
+[2022-08-02 12:40:11] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2022-08-02 12:40:11] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 522ms.
+[2022-08-02 12:40:52] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2022-08-02 12:40:52] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 337ms.
+[2022-08-02 12:41:33] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2022-08-02 12:41:34] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 332ms.
+[2022-08-02 12:42:14] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2022-08-02 12:42:15] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 331ms.
+[2022-08-02 12:42:56] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2022-08-02 12:42:56] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 331ms.
+[2022-08-02 12:43:37] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2022-08-02 12:43:37] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 340ms.
+[2022-08-02 12:44:18] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2022-08-02 12:44:19] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 333ms.
+[2022-08-02 12:44:59] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2022-08-02 12:45:00] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 331ms.
+[2022-08-02 12:45:41] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2022-08-02 12:45:41] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 334ms.
+[2022-08-02 12:46:22] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2022-08-02 12:46:22] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 333ms.
+[2022-08-02 12:47:03] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2022-08-02 12:47:04] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 336ms.
+[2022-08-02 12:47:44] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2022-08-02 12:47:45] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 346ms.
+[2022-08-02 12:48:26] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2022-08-02 12:48:26] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 341ms.
+[2022-08-02 12:49:07] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2022-08-02 12:49:07] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 332ms.
+[2022-08-02 12:49:48] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2022-08-02 12:49:49] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 339ms.
+[2022-08-02 12:50:29] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2022-08-02 12:50:30] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 335ms.
+[2022-08-02 12:51:11] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2022-08-02 12:51:11] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 344ms.
+[2022-08-02 12:51:52] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2022-08-02 12:51:52] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 338ms.
+[2022-08-02 12:52:33] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2022-08-02 12:52:34] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 338ms.
+[2022-08-02 12:53:14] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2022-08-02 12:53:15] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 339ms.
+[2022-08-02 12:53:56] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2022-08-02 12:53:56] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 337ms.
+[2022-08-02 12:54:37] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2022-08-02 12:54:37] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 339ms.
+[2022-08-02 12:55:18] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2022-08-02 12:55:19] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 336ms.
+[2022-08-02 12:55:59] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2022-08-02 12:56:00] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 334ms.
+[2022-08-02 12:56:41] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2022-08-02 12:56:41] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 333ms.
+[2022-08-02 12:57:22] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2022-08-02 12:57:22] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 338ms.
+[2022-08-02 12:58:03] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2022-08-02 12:58:04] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 342ms.
+[2022-08-02 12:58:44] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2022-08-02 12:58:45] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 332ms.
+[2022-08-02 12:59:26] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2022-08-02 12:59:26] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 334ms.
+[2022-08-02 13:00:07] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2022-08-02 13:00:07] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 337ms.
+[2022-08-02 13:00:48] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2022-08-02 13:00:49] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 334ms.
+[2022-08-02 13:01:29] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2022-08-02 13:01:30] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 345ms.
+[2022-08-02 13:02:11] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2022-08-02 13:02:11] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 341ms.
+[2022-08-02 13:02:52] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2022-08-02 13:02:52] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 338ms.
+[2022-08-02 13:03:33] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2022-08-02 13:03:34] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 335ms.
+[2022-08-02 13:04:14] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2022-08-02 13:04:15] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 339ms.
+[2022-08-02 13:04:56] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2022-08-02 13:04:56] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 337ms.
+[2022-08-02 13:05:37] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2022-08-02 13:05:37] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 337ms.
+[2022-08-02 13:06:18] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2022-08-02 13:06:19] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 345ms.
+[2022-08-02 13:06:59] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2022-08-02 13:07:00] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 333ms.
+[2022-08-02 13:07:41] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2022-08-02 13:07:41] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 344ms.
+[2022-08-02 13:08:22] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2022-08-02 13:08:22] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 337ms.
+[2022-08-02 13:09:03] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2022-08-02 13:09:04] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 340ms.
+[2022-08-02 13:09:45] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2022-08-02 13:09:45] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 334ms.
+[2022-08-02 13:10:26] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2022-08-02 13:10:26] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 338ms.
+[2022-08-02 13:11:07] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2022-08-02 13:11:07] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 335ms.
+[2022-08-02 13:11:48] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2022-08-02 13:11:49] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 333ms.
+[2022-08-02 13:12:30] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2022-08-02 13:12:30] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 334ms.
+[2022-08-02 13:13:11] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2022-08-02 13:13:11] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 352ms.
+[2022-08-02 13:13:52] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2022-08-02 13:13:52] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 336ms.
+[2022-08-02 13:14:33] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2022-08-02 13:14:34] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 336ms.
+[2022-08-02 13:15:15] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2022-08-02 13:15:15] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 339ms.
+[2022-08-02 13:15:56] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2022-08-02 13:15:56] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 333ms.
+[2022-08-02 13:16:37] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2022-08-02 13:16:37] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 347ms.
+[2022-08-02 13:17:18] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2022-08-02 13:17:19] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 342ms.
+[2022-08-02 13:18:00] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2022-08-02 13:18:00] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 335ms.
+[2022-08-02 13:18:41] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2022-08-02 13:18:41] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 337ms.
+[2022-08-02 13:19:22] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2022-08-02 13:19:22] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 334ms.
+[2022-08-02 13:20:03] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2022-08-02 13:20:04] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 334ms.
+[2022-08-02 13:20:45] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2022-08-02 13:20:45] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 333ms.
+[2022-08-02 13:21:26] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2022-08-02 13:21:26] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 342ms.
+[2022-08-02 13:22:07] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2022-08-02 13:22:07] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 339ms.
+[2022-08-02 13:22:48] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2022-08-02 13:22:49] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 341ms.
+[2022-08-02 13:23:30] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2022-08-02 13:23:30] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 335ms.
+[2022-08-02 13:24:11] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2022-08-02 13:24:11] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 337ms.
+[2022-08-02 13:24:52] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2022-08-02 13:24:52] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 356ms.
+[2022-08-02 13:25:33] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2022-08-02 13:25:34] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 346ms.
+[2022-08-02 13:26:15] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2022-08-02 13:26:15] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 344ms.
+[2022-08-02 13:26:56] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2022-08-02 13:26:56] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 338ms.
+[2022-08-02 13:27:37] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2022-08-02 13:27:37] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 335ms.
+[2022-08-02 13:28:18] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2022-08-02 13:28:19] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 341ms.
+[2022-08-02 13:29:00] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2022-08-02 13:29:00] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 333ms.
+[2022-08-02 13:29:41] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2022-08-02 13:29:41] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 340ms.
+[2022-08-02 13:30:22] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2022-08-02 13:30:22] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 333ms.
+[2022-08-02 13:31:03] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2022-08-02 13:31:04] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 341ms.
+[2022-08-02 13:31:45] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2022-08-02 13:31:45] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 337ms.
+[2022-08-02 13:32:26] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2022-08-02 13:32:26] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 339ms.
+[2022-08-02 13:33:07] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2022-08-02 13:33:07] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 345ms.
+[2022-08-02 13:33:48] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2022-08-02 13:33:49] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 333ms.
+[2022-08-02 13:34:30] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2022-08-02 13:34:30] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 338ms.
+[2022-08-02 13:35:11] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2022-08-02 13:35:11] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 342ms.
+[2022-08-02 13:35:52] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2022-08-02 13:35:52] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 343ms.
+[2022-08-02 13:36:33] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2022-08-02 13:36:34] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 337ms.
+[2022-08-02 13:37:15] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2022-08-02 13:37:15] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 377ms.
+[2022-08-02 13:37:56] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2022-08-02 13:37:56] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 338ms.
+[2022-08-02 13:38:37] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2022-08-02 13:38:37] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 337ms.
+[2022-08-02 13:39:18] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2022-08-02 13:39:19] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 331ms.
+[2022-08-02 13:40:00] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2022-08-02 13:40:00] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 343ms.
+[2022-08-02 13:40:41] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2022-08-02 13:40:41] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 332ms.
+[2022-08-02 13:41:22] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2022-08-02 13:41:22] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 333ms.
+[2022-08-02 13:42:03] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2022-08-02 13:42:04] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 340ms.
+[2022-08-02 13:42:45] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2022-08-02 13:42:45] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 339ms.
+[2022-08-02 13:43:26] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2022-08-02 13:43:26] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 340ms.
+[2022-08-02 13:44:07] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2022-08-02 13:44:07] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 364ms.
+[2022-08-02 13:44:48] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2022-08-02 13:44:49] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 338ms.
+[2022-08-02 13:45:30] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2022-08-02 13:45:30] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 337ms.
+[2022-08-02 13:46:11] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2022-08-02 13:46:11] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 338ms.
+[2022-08-02 13:46:52] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2022-08-02 13:46:52] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 333ms.
+[2022-08-02 13:47:33] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2022-08-02 13:47:34] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 343ms.
+[2022-08-02 13:48:15] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2022-08-02 13:48:15] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 338ms.
+[2022-08-02 13:48:56] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2022-08-02 13:48:56] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 341ms.
+[2022-08-02 13:49:37] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2022-08-02 13:49:37] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 338ms.
+[2022-08-02 13:50:18] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2022-08-02 13:50:19] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 352ms.
+[2022-08-02 13:51:00] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2022-08-02 13:51:00] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 334ms.
+[2022-08-02 13:51:41] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2022-08-02 13:51:41] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 334ms.
+[2022-08-02 13:52:22] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2022-08-02 13:52:22] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 338ms.
+[2022-08-02 13:53:03] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2022-08-02 13:53:04] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 338ms.
+[2022-08-02 13:53:45] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2022-08-02 13:53:45] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 343ms.
+[2022-08-02 13:54:26] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2022-08-02 13:54:26] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 342ms.
+[2022-08-02 13:55:07] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2022-08-02 13:55:07] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 347ms.
+[2022-08-02 13:55:48] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2022-08-02 13:55:49] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 332ms.
+[2022-08-02 13:56:30] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2022-08-02 13:56:30] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 334ms.
+[2022-08-02 13:57:11] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2022-08-02 13:57:11] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 340ms.
+[2022-08-02 13:57:52] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2022-08-02 13:57:53] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 351ms.
+[2022-08-02 13:58:33] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2022-08-02 13:58:34] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 337ms.
+[2022-08-02 13:59:15] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2022-08-02 13:59:15] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 337ms.
+[2022-08-02 13:59:56] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2022-08-02 13:59:56] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 339ms.
+[2022-08-02 14:00:37] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2022-08-02 14:00:38] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 336ms.
+[2022-08-02 14:01:18] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2022-08-02 14:01:19] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 341ms.
+[2022-08-02 14:02:00] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2022-08-02 14:02:00] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 342ms.
+[2022-08-02 14:02:41] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2022-08-02 14:02:41] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 336ms.
+[2022-08-02 14:03:22] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2022-08-02 14:03:23] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 343ms.
+[2022-08-02 14:04:03] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2022-08-02 14:04:04] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 337ms.
+[2022-08-02 14:04:45] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2022-08-02 14:04:45] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 335ms.
+[2022-08-02 14:05:26] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2022-08-02 14:05:26] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 331ms.
+[2022-08-02 14:06:07] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2022-08-02 14:06:08] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 339ms.
+[2022-08-02 14:06:48] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2022-08-02 14:06:49] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 336ms.
+[2022-08-02 14:07:30] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2022-08-02 14:07:30] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 337ms.
+[2022-08-02 14:08:11] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2022-08-02 14:08:11] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 334ms.
+[2022-08-02 14:08:52] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2022-08-02 14:08:53] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 334ms.
+[2022-08-02 14:09:33] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2022-08-02 14:09:34] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 336ms.
+[2022-08-02 14:10:15] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2022-08-02 14:10:15] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 341ms.
+[2022-08-02 14:10:56] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2022-08-02 14:10:56] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 341ms.
+[2022-08-02 14:11:37] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2022-08-02 14:11:38] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 351ms.
+[2022-08-02 14:12:18] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2022-08-02 14:12:19] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 344ms.
+[2022-08-02 14:13:00] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2022-08-02 14:13:00] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 332ms.
+[2022-08-02 14:13:41] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2022-08-02 14:13:41] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 335ms.
+[2022-08-02 14:14:22] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2022-08-02 14:14:23] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 348ms.
+[2022-08-02 14:15:03] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2022-08-02 14:15:04] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 350ms.
+[2022-08-02 14:15:45] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2022-08-02 14:15:45] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 352ms.
+[2022-08-02 14:16:26] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2022-08-02 14:16:26] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 350ms.
+[2022-08-02 14:17:07] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2022-08-02 14:17:08] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 346ms.
+[2022-08-02 14:17:48] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2022-08-02 14:17:49] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 353ms.
+[2022-08-02 14:18:30] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2022-08-02 14:18:30] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 348ms.
+[2022-08-02 14:19:11] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2022-08-02 14:19:11] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 349ms.
+[2022-08-02 14:19:52] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2022-08-02 14:19:53] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 352ms.
+[2022-08-02 14:20:33] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2022-08-02 14:20:34] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 348ms.
+[2022-08-02 14:21:15] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2022-08-02 14:21:15] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 349ms.
+[2022-08-02 14:21:56] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2022-08-02 14:21:56] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 369ms.
+[2022-08-02 14:22:37] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2022-08-02 14:22:38] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 354ms.
+[2022-08-02 14:23:18] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2022-08-02 14:23:19] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 352ms.
+[2022-08-02 14:24:00] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2022-08-02 14:24:00] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 351ms.
+[2022-08-02 14:24:41] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2022-08-02 14:24:41] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 351ms.
+[2022-08-02 14:25:22] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2022-08-02 14:25:23] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 350ms.
+[2022-08-02 14:26:03] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2022-08-02 14:26:04] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 355ms.
+[2022-08-02 14:26:45] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2022-08-02 14:26:45] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 357ms.
+[2022-08-02 14:27:26] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2022-08-02 14:27:26] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 354ms.
+[2022-08-02 14:28:07] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2022-08-02 14:28:08] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 352ms.
+[2022-08-02 14:28:48] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2022-08-02 14:28:49] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 350ms.
+[2022-08-02 14:29:30] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2022-08-02 14:29:30] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 348ms.
+[2022-08-02 14:30:11] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2022-08-02 14:30:11] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 359ms.
+[2022-08-02 14:30:52] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2022-08-02 14:30:53] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 353ms.
+[2022-08-02 14:31:33] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2022-08-02 14:31:34] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 350ms.
+[2022-08-02 14:32:15] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2022-08-02 14:32:15] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 351ms.
+[2022-08-02 14:32:56] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2022-08-02 14:32:56] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 348ms.
+[2022-08-02 14:33:37] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2022-08-02 14:33:38] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 352ms.
+[2022-08-02 14:34:19] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2022-08-02 14:34:19] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 441ms.
+[2022-08-02 14:35:00] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2022-08-02 14:35:00] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 377ms.
+[2022-08-02 14:35:41] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2022-08-02 14:35:41] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 401ms.
+[2022-08-02 14:36:22] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2022-08-02 14:36:23] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 355ms.
+[2022-08-02 14:37:04] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2022-08-02 14:37:04] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 347ms.
+[2022-08-02 14:37:45] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2022-08-02 14:37:45] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 356ms.
+[2022-08-02 14:38:26] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2022-08-02 14:38:26] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 385ms.
+[2022-08-02 14:39:07] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2022-08-02 14:39:08] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 350ms.
+[2022-08-02 14:39:49] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2022-08-02 14:39:49] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 350ms.
+[2022-08-02 14:40:30] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2022-08-02 14:40:30] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 354ms.
+[2022-08-02 14:41:11] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2022-08-02 14:41:11] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 360ms.
+[2022-08-02 14:41:52] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2022-08-02 14:41:53] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 349ms.
+[2022-08-02 14:42:34] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2022-08-02 14:42:34] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 353ms.
+[2022-08-02 14:43:15] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2022-08-02 14:43:15] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 348ms.
+[2022-08-02 14:43:56] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2022-08-02 14:43:56] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 348ms.
+[2022-08-02 14:44:37] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2022-08-02 14:44:38] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 349ms.
+[2022-08-02 14:45:19] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2022-08-02 14:45:19] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 360ms.
+[2022-08-02 14:46:00] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2022-08-02 14:46:00] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 353ms.
+[2022-08-02 14:46:41] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2022-08-02 14:46:41] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 351ms.
+[2022-08-02 14:47:22] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2022-08-02 14:47:23] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 347ms.
+[2022-08-02 14:48:04] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2022-08-02 14:48:04] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 357ms.
+[2022-08-02 14:48:45] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2022-08-02 14:48:45] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 351ms.
+[2022-08-02 14:49:26] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2022-08-02 14:49:26] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 370ms.
+[2022-08-02 14:50:07] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2022-08-02 14:50:08] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 351ms.
+[2022-08-02 14:50:49] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2022-08-02 14:50:49] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 351ms.
+[2022-08-02 14:51:30] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2022-08-02 14:51:30] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 355ms.
+[2022-08-02 14:52:11] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2022-08-02 14:52:11] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 351ms.
+[2022-08-02 14:52:52] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2022-08-02 14:52:53] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 350ms.
+[2022-08-02 14:53:34] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2022-08-02 14:53:34] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 354ms.
+[2022-08-02 14:54:15] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2022-08-02 14:54:15] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 348ms.
+[2022-08-02 14:54:56] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2022-08-02 14:54:56] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 350ms.
+[2022-08-02 14:55:37] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2022-08-02 14:55:38] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 350ms.
+[2022-08-02 14:56:19] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2022-08-02 14:56:19] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 359ms.
+[2022-08-02 14:57:00] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2022-08-02 14:57:00] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 346ms.
+[2022-08-02 14:57:41] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2022-08-02 14:57:41] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 354ms.
+[2022-08-02 14:58:22] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2022-08-02 14:58:23] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 354ms.
+[2022-08-02 14:59:04] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2022-08-02 14:59:04] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 362ms.
+[2022-08-02 14:59:45] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2022-08-02 14:59:45] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 350ms.
+[2022-08-02 15:00:26] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2022-08-02 15:00:26] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 346ms.
+[2022-08-02 15:01:07] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2022-08-02 15:01:08] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 344ms.
+[2022-08-02 15:01:49] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2022-08-02 15:01:49] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 346ms.
+[2022-08-02 15:02:30] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2022-08-02 15:02:30] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 355ms.
+[2022-08-02 15:03:11] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2022-08-02 15:03:11] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 350ms.
+[2022-08-02 15:03:52] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2022-08-02 15:03:53] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 350ms.
+[2022-08-02 15:04:34] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2022-08-02 15:04:34] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 363ms.
+[2022-08-02 15:05:15] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2022-08-02 15:05:15] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 349ms.
+[2022-08-02 15:05:56] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2022-08-02 15:05:56] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 348ms.
+[2022-08-02 15:06:37] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2022-08-02 15:06:38] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 349ms.
+[2022-08-02 15:07:19] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2022-08-02 15:07:19] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 357ms.
+[2022-08-02 15:08:00] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2022-08-02 15:08:00] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 345ms.
+[2022-08-02 15:08:41] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2022-08-02 15:08:41] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 360ms.
+[2022-08-02 15:09:22] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2022-08-02 15:09:23] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 367ms.
+[2022-08-02 15:10:04] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2022-08-02 15:10:04] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 352ms.
+[2022-08-02 15:10:45] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2022-08-02 15:10:45] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 349ms.
+[2022-08-02 15:11:26] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2022-08-02 15:11:26] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 353ms.
+[2022-08-02 15:12:07] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2022-08-02 15:12:08] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 359ms.
+[2022-08-02 15:12:49] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2022-08-02 15:12:49] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 344ms.
+[2022-08-02 15:13:30] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2022-08-02 15:13:30] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 355ms.
+[2022-08-02 15:14:11] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2022-08-02 15:14:11] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 349ms.
+[2022-08-02 15:14:52] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2022-08-02 15:14:53] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 350ms.
+[2022-08-02 15:15:34] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2022-08-02 15:15:34] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 353ms.
+[2022-08-02 15:16:15] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2022-08-02 15:16:15] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 354ms.
+[2022-08-02 15:16:56] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2022-08-02 15:16:56] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 351ms.
+[2022-08-02 15:17:37] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2022-08-02 15:17:38] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 351ms.
+[2022-08-02 15:18:19] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2022-08-02 15:18:19] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 351ms.
+[2022-08-02 15:19:00] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2022-08-02 15:19:00] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 360ms.
+[2022-08-02 15:19:41] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2022-08-02 15:19:41] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 354ms.
+[2022-08-02 15:20:22] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2022-08-02 15:20:23] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 351ms.
+[2022-08-02 15:21:04] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2022-08-02 15:21:04] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 350ms.
+[2022-08-02 15:21:45] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2022-08-02 15:21:45] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 381ms.
+[2022-08-02 15:22:26] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2022-08-02 15:22:26] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 350ms.
+[2022-08-02 15:23:07] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2022-08-02 15:23:08] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 350ms.
+[2022-08-02 15:23:49] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2022-08-02 15:23:49] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 349ms.
+[2022-08-02 15:24:30] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2022-08-02 15:24:30] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 349ms.
+[2022-08-02 15:25:11] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2022-08-02 15:25:11] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 357ms.
+[2022-08-02 15:25:52] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2022-08-02 15:25:53] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 348ms.
+[2022-08-02 15:26:34] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2022-08-02 15:26:34] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 364ms.
+[2022-08-02 15:27:15] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2022-08-02 15:27:15] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 347ms.
+[2022-08-02 15:27:56] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2022-08-02 15:27:56] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 346ms.
+[2022-08-02 15:28:37] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2022-08-02 15:28:38] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 351ms.
+[2022-08-02 15:29:19] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2022-08-02 15:29:19] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 349ms.
+[2022-08-02 15:30:00] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2022-08-02 15:30:00] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 355ms.
+[2022-08-02 15:30:41] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2022-08-02 15:30:41] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 347ms.
+[2022-08-02 15:31:22] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2022-08-02 15:31:23] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 346ms.
+[2022-08-02 15:32:04] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2022-08-02 15:32:04] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 349ms.
+[2022-08-02 15:32:45] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2022-08-02 15:32:45] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 347ms.
+[2022-08-02 15:33:26] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2022-08-02 15:33:27] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 351ms.
+[2022-08-02 15:34:07] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2022-08-02 15:34:08] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 346ms.
+[2022-08-02 15:34:49] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2022-08-02 15:34:49] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 351ms.
+[2022-08-02 15:35:30] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2022-08-02 15:35:30] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 348ms.
+[2022-08-02 15:36:11] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2022-08-02 15:36:12] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 348ms.
+[2022-08-02 15:36:52] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2022-08-02 15:36:53] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 351ms.
+[2022-08-02 15:37:34] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2022-08-02 15:37:34] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 348ms.
+[2022-08-02 15:38:15] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2022-08-02 15:38:15] - [info]: [WS => Shard 0] Heartbeat acknowledged, latency of 352ms.
+[2022-08-02 15:38:56] - [info]: [WS => Shard 0] [HeartbeatTimer] Sending a heartbeat.
+[2022-08-02 15:39:00] - [db]: Disconnected from MongoDB!
+[2022-08-02 15:39:37] - [info]: [WS => Shard 0] [HeartbeatTimer] Didn't receive a heartbeat ack last time, assuming zombie connection. Destroying and reconnecting.
+    Status          : READY
+    Sequence        : 314
+    Connection State: OPEN
+[2022-08-02 15:39:37] - [info]: [WS => Shard 0] [DESTROY]
+    Close Code    : 4009
+    Reset         : true
+    Emit DESTROYED: true
+[2022-08-02 15:39:37] - [info]: [WS => Shard 0] Clearing the heartbeat interval.
+[2022-08-02 15:39:37] - [info]: [WS => Shard 0] [WebSocket] Destroy: Attempting to close the WebSocket. | WS State: OPEN
+[2022-08-02 15:39:37] - [info]: [WS => Shard 0] [WebSocket] Close: Tried closing. | WS State: CLOSING
+[2022-08-02 15:39:37] - [info]: [WS => Shard 0] [WebSocket] Adding a WebSocket close timeout to ensure a correct WS reconnect.
+        Timeout: 5000ms
+[2022-08-02 15:39:42] - [info]: [WS => Shard 0] [WebSocket] Clearing the close timeout.
+[2022-08-02 15:39:42] - [info]: [WS => Shard 0] [WebSocket] Close Emitted: false
+[2022-08-02 15:39:42] - [info]: [WS => Shard 0] [WebSocket] did not close properly, assuming a zombie connection.
+Emitting close and reconnecting again.
+[2022-08-02 15:39:42] - [info]: [WS => Shard 0] [CLOSE]
+    Event Code: 1011
+    Clean     : false
+    Reason    : INTERNAL_ERROR
+[2022-08-02 15:39:42] - [info]: [WS => Shard 0] [CONNECT]
+    Gateway    : wss://gateway.discord.gg/
+    Version    : 9
+    Encoding   : json
+    Compression: none
+[2022-08-02 15:39:42] - [info]: [WS => Shard 0] Setting a HELLO timeout for 20s.
+[2022-08-02 15:39:43] - [info]: [WS => Shard 0] Clearing the HELLO timeout.
+[2022-08-02 15:39:43] - [info]: [WS => Shard 0] [WebSocket] Destroy: Attempting to close the WebSocket. | WS State: CLOSED
+[2022-08-02 15:39:43] - [info]: [WS => Shard 0] WS State: CLOSED
+[2022-08-02 15:39:43] - [info]: [WS => Shard 0] [WebSocket] Adding a WebSocket close timeout to ensure a correct WS reconnect.
+        Timeout: 5000ms
+[2022-08-02 15:39:43] - [info]: [WS => Shard 0] [CLOSE]
+    Event Code: 1006
+    Clean     : false
+    Reason    : 
+[2022-08-02 15:39:43] - [info]: [WS => Shard 0] Failed to connect to the gateway, requeueing...
+[2022-08-02 15:39:43] - [info]: [WS => Manager] Shard Queue Size: 1; continuing in 5 seconds...
+[2022-08-02 15:39:48] - [info]: [WS => Shard 0] [WebSocket] Clearing the close timeout.
+[2022-08-02 15:39:48] - [info]: [WS => Shard 0] [WebSocket] Close Emitted: false
+[2022-08-02 15:39:48] - [info]: [WS => Shard 0] [WebSocket] did not close properly, assuming a zombie connection.
+Emitting close and reconnecting again.
+[2022-08-02 15:39:48] - [info]: [WS => Shard 0] [CLOSE]
+    Event Code: 1011
+    Clean     : false
+    Reason    : INTERNAL_ERROR
+[2022-08-02 15:39:48] - [info]: [WS => Shard 0] [CONNECT]
+    Gateway    : wss://gateway.discord.gg/
+    Version    : 9
+    Encoding   : json
+    Compression: none
+[2022-08-02 15:39:48] - [info]: [WS => Shard 0] Setting a HELLO timeout for 20s.
+[2022-08-02 15:39:48] - [info]: [WS => Shard 0] Clearing the HELLO timeout.
+[2022-08-02 15:39:48] - [info]: [WS => Shard 0] [WebSocket] Destroy: Attempting to close the WebSocket. | WS State: CLOSED
+[2022-08-02 15:39:48] - [info]: [WS => Shard 0] WS State: CLOSED
+[2022-08-02 15:39:48] - [info]: [WS => Shard 0] [WebSocket] Adding a WebSocket close timeout to ensure a correct WS reconnect.
+        Timeout: 5000ms
+[2022-08-02 15:39:48] - [info]: [WS => Shard 0] [CLOSE]
+    Event Code: 1006
+    Clean     : false
+    Reason    : 
+[2022-08-02 15:39:48] - [info]: [WS => Shard 0] Failed to connect to the gateway, requeueing...
+[2022-08-02 15:39:48] - [info]: [WS => Manager] Shard Queue Size: 1; continuing in 5 seconds...
+[2022-08-02 15:39:53] - [info]: [WS => Shard 0] [WebSocket] Clearing the close timeout.
+[2022-08-02 15:39:53] - [info]: [WS => Shard 0] [WebSocket] Close Emitted: false
+[2022-08-02 15:39:53] - [info]: [WS => Shard 0] [WebSocket] did not close properly, assuming a zombie connection.
+Emitting close and reconnecting again.
+[2022-08-02 15:39:53] - [info]: [WS => Shard 0] [CLOSE]
+    Event Code: 1011
+    Clean     : false
+    Reason    : INTERNAL_ERROR
+[2022-08-02 15:39:53] - [info]: [WS => Shard 0] [CONNECT]
+    Gateway    : wss://gateway.discord.gg/
+    Version    : 9
+    Encoding   : json
+    Compression: none
+[2022-08-02 15:39:53] - [info]: [WS => Shard 0] Setting a HELLO timeout for 20s.
+[2022-08-02 15:39:54] - [info]: [WS => Shard 0] Clearing the HELLO timeout.
+[2022-08-02 15:39:54] - [info]: [WS => Shard 0] [WebSocket] Destroy: Attempting to close the WebSocket. | WS State: CLOSED
+[2022-08-02 15:39:54] - [info]: [WS => Shard 0] WS State: CLOSED
+[2022-08-02 15:39:54] - [info]: [WS => Shard 0] [WebSocket] Adding a WebSocket close timeout to ensure a correct WS reconnect.
+        Timeout: 5000ms
+[2022-08-02 15:39:54] - [info]: [WS => Shard 0] [CLOSE]
+    Event Code: 1006
+    Clean     : false
+    Reason    : 
+[2022-08-02 15:39:54] - [info]: [WS => Shard 0] Failed to connect to the gateway, requeueing...
+[2022-08-02 15:39:54] - [info]: [WS => Manager] Shard Queue Size: 1; continuing in 5 seconds...
+[2022-08-02 15:39:59] - [info]: [WS => Shard 0] [WebSocket] Clearing the close timeout.
+[2022-08-02 15:39:59] - [info]: [WS => Shard 0] [WebSocket] Close Emitted: false
+[2022-08-02 15:39:59] - [info]: [WS => Shard 0] [WebSocket] did not close properly, assuming a zombie connection.
+Emitting close and reconnecting again.
+[2022-08-02 15:39:59] - [info]: [WS => Shard 0] [CLOSE]
+    Event Code: 1011
+    Clean     : false
+    Reason    : INTERNAL_ERROR
+[2022-08-02 15:39:59] - [info]: [WS => Shard 0] [CONNECT]
+    Gateway    : wss://gateway.discord.gg/
+    Version    : 9
+    Encoding   : json
+    Compression: none
+[2022-08-02 15:39:59] - [info]: [WS => Shard 0] Setting a HELLO timeout for 20s.
+[2022-08-02 15:39:59] - [info]: [WS => Shard 0] Clearing the HELLO timeout.
+[2022-08-02 15:39:59] - [info]: [WS => Shard 0] [WebSocket] Destroy: Attempting to close the WebSocket. | WS State: CLOSED
+[2022-08-02 15:39:59] - [info]: [WS => Shard 0] WS State: CLOSED
+[2022-08-02 15:39:59] - [info]: [WS => Shard 0] [WebSocket] Adding a WebSocket close timeout to ensure a correct WS reconnect.
+        Timeout: 5000ms
+[2022-08-02 15:39:59] - [info]: [WS => Shard 0] [CLOSE]
+    Event Code: 1006
+    Clean     : false
+    Reason    : 
+[2022-08-02 15:39:59] - [info]: [WS => Shard 0] Failed to connect to the gateway, requeueing...
+[2022-08-02 15:39:59] - [info]: [WS => Manager] Shard Queue Size: 1; continuing in 5 seconds...
+[2022-08-02 15:40:04] - [info]: [WS => Shard 0] [WebSocket] Clearing the close timeout.
+[2022-08-02 15:40:04] - [info]: [WS => Shard 0] [WebSocket] Close Emitted: false
+[2022-08-02 15:40:04] - [info]: [WS => Shard 0] [WebSocket] did not close properly, assuming a zombie connection.
+Emitting close and reconnecting again.
+[2022-08-02 15:40:04] - [info]: [WS => Shard 0] [CLOSE]
+    Event Code: 1011
+    Clean     : false
+    Reason    : INTERNAL_ERROR
+[2022-08-02 15:40:04] - [info]: [WS => Shard 0] [CONNECT]
+    Gateway    : wss://gateway.discord.gg/
+    Version    : 9
+    Encoding   : json
+    Compression: none
+[2022-08-02 15:40:04] - [info]: [WS => Shard 0] Setting a HELLO timeout for 20s.
+[2022-08-02 15:40:04] - [info]: [WS => Shard 0] Clearing the HELLO timeout.
+[2022-08-02 15:40:04] - [info]: [WS => Shard 0] [WebSocket] Destroy: Attempting to close the WebSocket. | WS State: CLOSED
+[2022-08-02 15:40:04] - [info]: [WS => Shard 0] WS State: CLOSED
+[2022-08-02 15:40:04] - [info]: [WS => Shard 0] [WebSocket] Adding a WebSocket close timeout to ensure a correct WS reconnect.
+        Timeout: 5000ms
+[2022-08-02 15:40:04] - [info]: [WS => Shard 0] [CLOSE]
+    Event Code: 1006
+    Clean     : false
+    Reason    : 
+[2022-08-02 15:40:04] - [info]: [WS => Shard 0] Failed to connect to the gateway, requeueing...
+[2022-08-02 15:40:04] - [info]: [WS => Manager] Shard Queue Size: 1; continuing in 5 seconds...
+[2022-08-02 15:40:07] - [info]: [WS => Shard 0] [WebSocket] Clearing the close timeout.
+[2022-08-02 15:40:07] - [info]: [WS => Shard 0] [CLOSE]
+    Event Code: 1006
+    Clean     : false
+    Reason    : 
+[2022-08-02 15:40:09] - [info]: [WS => Shard 0] [CONNECT]
+    Gateway    : wss://gateway.discord.gg/
+    Version    : 9
+    Encoding   : json
+    Compression: none
+[2022-08-02 15:40:09] - [info]: [WS => Shard 0] Setting a HELLO timeout for 20s.
+[2022-08-02 15:40:09] - [info]: [WS => Shard 0] Clearing the HELLO timeout.
+[2022-08-02 15:40:09] - [info]: [WS => Shard 0] [WebSocket] Destroy: Attempting to close the WebSocket. | WS State: CLOSED
+[2022-08-02 15:40:09] - [info]: [WS => Shard 0] WS State: CLOSED
+[2022-08-02 15:40:09] - [info]: [WS => Shard 0] [WebSocket] Adding a WebSocket close timeout to ensure a correct WS reconnect.
+        Timeout: 5000ms
+[2022-08-02 15:40:09] - [info]: [WS => Shard 0] [CLOSE]
+    Event Code: 1006
+    Clean     : false
+    Reason    : 
+[2022-08-02 15:40:09] - [info]: [WS => Shard 0] Failed to connect to the gateway, requeueing...
+[2022-08-02 15:40:09] - [info]: [WS => Manager] Shard Queue Size: 1; continuing in 5 seconds...
+[2022-08-02 15:40:14] - [info]: [WS => Shard 0] [WebSocket] Clearing the close timeout.
+[2022-08-02 15:40:14] - [info]: [WS => Shard 0] [WebSocket] Close Emitted: false
+[2022-08-02 15:40:14] - [info]: [WS => Shard 0] [WebSocket] did not close properly, assuming a zombie connection.
+Emitting close and reconnecting again.
+[2022-08-02 15:40:14] - [info]: [WS => Shard 0] [CLOSE]
+    Event Code: 1011
+    Clean     : false
+    Reason    : INTERNAL_ERROR
+[2022-08-02 15:40:14] - [info]: [WS => Shard 0] [CONNECT]
+    Gateway    : wss://gateway.discord.gg/
+    Version    : 9
+    Encoding   : json
+    Compression: none
+[2022-08-02 15:40:14] - [info]: [WS => Shard 0] Setting a HELLO timeout for 20s.
+[2022-08-02 15:40:14] - [info]: [WS => Shard 0] Clearing the HELLO timeout.
+[2022-08-02 15:40:14] - [info]: [WS => Shard 0] [WebSocket] Destroy: Attempting to close the WebSocket. | WS State: CLOSED
+[2022-08-02 15:40:14] - [info]: [WS => Shard 0] WS State: CLOSED
+[2022-08-02 15:40:14] - [info]: [WS => Shard 0] [WebSocket] Adding a WebSocket close timeout to ensure a correct WS reconnect.
+        Timeout: 5000ms
+[2022-08-02 15:40:14] - [info]: [WS => Shard 0] [CLOSE]
+    Event Code: 1006
+    Clean     : false
+    Reason    : 
+[2022-08-02 15:40:14] - [info]: [WS => Shard 0] Failed to connect to the gateway, requeueing...
+[2022-08-02 15:40:14] - [info]: [WS => Manager] Shard Queue Size: 1; continuing in 5 seconds...
+[2022-08-02 15:40:19] - [info]: [WS => Shard 0] [WebSocket] Clearing the close timeout.
+[2022-08-02 15:40:19] - [info]: [WS => Shard 0] [WebSocket] Close Emitted: false
+[2022-08-02 15:40:19] - [info]: [WS => Shard 0] [WebSocket] did not close properly, assuming a zombie connection.
+Emitting close and reconnecting again.
+[2022-08-02 15:40:19] - [info]: [WS => Shard 0] [CLOSE]
+    Event Code: 1011
+    Clean     : false
+    Reason    : INTERNAL_ERROR
+[2022-08-02 15:40:19] - [info]: [WS => Shard 0] [CONNECT]
+    Gateway    : wss://gateway.discord.gg/
+    Version    : 9
+    Encoding   : json
+    Compression: none
+[2022-08-02 15:40:19] - [info]: [WS => Shard 0] Setting a HELLO timeout for 20s.
+[2022-08-02 15:40:19] - [info]: [WS => Shard 0] Clearing the HELLO timeout.
+[2022-08-02 15:40:19] - [info]: [WS => Shard 0] [WebSocket] Destroy: Attempting to close the WebSocket. | WS State: CLOSED
+[2022-08-02 15:40:19] - [info]: [WS => Shard 0] WS State: CLOSED
+[2022-08-02 15:40:19] - [info]: [WS => Shard 0] [WebSocket] Adding a WebSocket close timeout to ensure a correct WS reconnect.
+        Timeout: 5000ms
+[2022-08-02 15:40:19] - [info]: [WS => Shard 0] [CLOSE]
+    Event Code: 1006
+    Clean     : false
+    Reason    : 
+[2022-08-02 15:40:19] - [info]: [WS => Shard 0] Failed to connect to the gateway, requeueing...
+[2022-08-02 15:40:19] - [info]: [WS => Manager] Shard Queue Size: 1; continuing in 5 seconds...
+[2022-08-02 15:40:24] - [info]: [WS => Shard 0] [WebSocket] Clearing the close timeout.
+[2022-08-02 15:40:24] - [info]: [WS => Shard 0] [WebSocket] Close Emitted: false
+[2022-08-02 15:40:24] - [info]: [WS => Shard 0] [WebSocket] did not close properly, assuming a zombie connection.
+Emitting close and reconnecting again.
+[2022-08-02 15:40:24] - [info]: [WS => Shard 0] [CLOSE]
+    Event Code: 1011
+    Clean     : false
+    Reason    : INTERNAL_ERROR
+[2022-08-02 15:40:24] - [info]: [WS => Shard 0] [CONNECT]
+    Gateway    : wss://gateway.discord.gg/
+    Version    : 9
+    Encoding   : json
+    Compression: none
+[2022-08-02 15:40:24] - [info]: [WS => Shard 0] Setting a HELLO timeout for 20s.
+[2022-08-02 15:40:24] - [info]: [WS => Shard 0] Clearing the HELLO timeout.
+[2022-08-02 15:40:24] - [info]: [WS => Shard 0] [WebSocket] Destroy: Attempting to close the WebSocket. | WS State: CLOSED
+[2022-08-02 15:40:24] - [info]: [WS => Shard 0] WS State: CLOSED
+[2022-08-02 15:40:24] - [info]: [WS => Shard 0] [WebSocket] Adding a WebSocket close timeout to ensure a correct WS reconnect.
+        Timeout: 5000ms
+[2022-08-02 15:40:24] - [info]: [WS => Shard 0] [CLOSE]
+    Event Code: 1006
+    Clean     : false
+    Reason    : 
+[2022-08-02 15:40:24] - [info]: [WS => Shard 0] Failed to connect to the gateway, requeueing...
+[2022-08-02 15:40:24] - [info]: [WS => Manager] Shard Queue Size: 1; continuing in 5 seconds...
+[2022-08-02 15:40:29] - [info]: [WS => Shard 0] [WebSocket] Clearing the close timeout.
+[2022-08-02 15:40:29] - [info]: [WS => Shard 0] [WebSocket] Close Emitted: false
+[2022-08-02 15:40:29] - [info]: [WS => Shard 0] [WebSocket] did not close properly, assuming a zombie connection.
+Emitting close and reconnecting again.
+[2022-08-02 15:40:29] - [info]: [WS => Shard 0] [CLOSE]
+    Event Code: 1011
+    Clean     : false
+    Reason    : INTERNAL_ERROR
+[2022-08-02 15:40:29] - [info]: [WS => Shard 0] [CONNECT]
+    Gateway    : wss://gateway.discord.gg/
+    Version    : 9
+    Encoding   : json
+    Compression: none
+[2022-08-02 15:40:29] - [info]: [WS => Shard 0] Setting a HELLO timeout for 20s.
+[2022-08-02 15:40:29] - [info]: [WS => Shard 0] Clearing the HELLO timeout.
+[2022-08-02 15:40:29] - [info]: [WS => Shard 0] [WebSocket] Destroy: Attempting to close the WebSocket. | WS State: CLOSED
+[2022-08-02 15:40:29] - [info]: [WS => Shard 0] WS State: CLOSED
+[2022-08-02 15:40:29] - [info]: [WS => Shard 0] [WebSocket] Adding a WebSocket close timeout to ensure a correct WS reconnect.
+        Timeout: 5000ms
+[2022-08-02 15:40:29] - [info]: [WS => Shard 0] [CLOSE]
+    Event Code: 1006
+    Clean     : false
+    Reason    : 
+[2022-08-02 15:40:29] - [info]: [WS => Shard 0] Failed to connect to the gateway, requeueing...
+[2022-08-02 15:40:29] - [info]: [WS => Manager] Shard Queue Size: 1; continuing in 5 seconds...
+[2022-08-02 15:40:34] - [info]: [WS => Shard 0] [WebSocket] Clearing the close timeout.
+[2022-08-02 15:40:34] - [info]: [WS => Shard 0] [WebSocket] Close Emitted: false
+[2022-08-02 15:40:34] - [info]: [WS => Shard 0] [WebSocket] did not close properly, assuming a zombie connection.
+Emitting close and reconnecting again.
+[2022-08-02 15:40:34] - [info]: [WS => Shard 0] [CLOSE]
+    Event Code: 1011
+    Clean     : false
+    Reason    : INTERNAL_ERROR
+[2022-08-02 15:40:34] - [info]: [WS => Shard 0] [CONNECT]
+    Gateway    : wss://gateway.discord.gg/
+    Version    : 9
+    Encoding   : json
+    Compression: none
+[2022-08-02 15:40:34] - [info]: [WS => Shard 0] Setting a HELLO timeout for 20s.
+[2022-08-02 15:40:34] - [info]: [WS => Shard 0] Clearing the HELLO timeout.
+[2022-08-02 15:40:34] - [info]: [WS => Shard 0] [WebSocket] Destroy: Attempting to close the WebSocket. | WS State: CLOSED
+[2022-08-02 15:40:34] - [info]: [WS => Shard 0] WS State: CLOSED
+[2022-08-02 15:40:34] - [info]: [WS => Shard 0] [WebSocket] Adding a WebSocket close timeout to ensure a correct WS reconnect.
+        Timeout: 5000ms
+[2022-08-02 15:40:34] - [info]: [WS => Shard 0] [CLOSE]
+    Event Code: 1006
+    Clean     : false
+    Reason    : 
+[2022-08-02 15:40:34] - [info]: [WS => Shard 0] Failed to connect to the gateway, requeueing...
+[2022-08-02 15:40:34] - [info]: [WS => Manager] Shard Queue Size: 1; continuing in 5 seconds...
+[2022-08-02 15:40:39] - [info]: [WS => Shard 0] [WebSocket] Clearing the close timeout.
+[2022-08-02 15:40:39] - [info]: [WS => Shard 0] [WebSocket] Close Emitted: false
+[2022-08-02 15:40:39] - [info]: [WS => Shard 0] [WebSocket] did not close properly, assuming a zombie connection.
+Emitting close and reconnecting again.
+[2022-08-02 15:40:39] - [info]: [WS => Shard 0] [CLOSE]
+    Event Code: 1011
+    Clean     : false
+    Reason    : INTERNAL_ERROR
+[2022-08-02 15:40:39] - [info]: [WS => Shard 0] [CONNECT]
+    Gateway    : wss://gateway.discord.gg/
+    Version    : 9
+    Encoding   : json
+    Compression: none
+[2022-08-02 15:40:39] - [info]: [WS => Shard 0] Setting a HELLO timeout for 20s.
+[2022-08-02 15:40:39] - [info]: [WS => Shard 0] Clearing the HELLO timeout.
+[2022-08-02 15:40:39] - [info]: [WS => Shard 0] [WebSocket] Destroy: Attempting to close the WebSocket. | WS State: CLOSED
+[2022-08-02 15:40:39] - [info]: [WS => Shard 0] WS State: CLOSED
+[2022-08-02 15:40:39] - [info]: [WS => Shard 0] [WebSocket] Adding a WebSocket close timeout to ensure a correct WS reconnect.
+        Timeout: 5000ms
+[2022-08-02 15:40:39] - [info]: [WS => Shard 0] [CLOSE]
+    Event Code: 1006
+    Clean     : false
+    Reason    : 
+[2022-08-02 15:40:39] - [info]: [WS => Shard 0] Failed to connect to the gateway, requeueing...
+[2022-08-02 15:40:39] - [info]: [WS => Manager] Shard Queue Size: 1; continuing in 5 seconds...
+[2022-08-02 15:40:44] - [info]: [WS => Shard 0] [WebSocket] Clearing the close timeout.
+[2022-08-02 15:40:44] - [info]: [WS => Shard 0] [WebSocket] Close Emitted: false
+[2022-08-02 15:40:44] - [info]: [WS => Shard 0] [WebSocket] did not close properly, assuming a zombie connection.
+Emitting close and reconnecting again.
+[2022-08-02 15:40:44] - [info]: [WS => Shard 0] [CLOSE]
+    Event Code: 1011
+    Clean     : false
+    Reason    : INTERNAL_ERROR
+[2022-08-02 15:40:44] - [info]: [WS => Shard 0] [CONNECT]
+    Gateway    : wss://gateway.discord.gg/
+    Version    : 9
+    Encoding   : json
+    Compression: none
+[2022-08-02 15:40:44] - [info]: [WS => Shard 0] Setting a HELLO timeout for 20s.
+[2022-08-02 15:40:44] - [info]: [WS => Shard 0] Clearing the HELLO timeout.
+[2022-08-02 15:40:44] - [info]: [WS => Shard 0] [WebSocket] Destroy: Attempting to close the WebSocket. | WS State: CLOSED
+[2022-08-02 15:40:44] - [info]: [WS => Shard 0] WS State: CLOSED
+[2022-08-02 15:40:44] - [info]: [WS => Shard 0] [WebSocket] Adding a WebSocket close timeout to ensure a correct WS reconnect.
+        Timeout: 5000ms
+[2022-08-02 15:40:44] - [info]: [WS => Shard 0] [CLOSE]
+    Event Code: 1006
+    Clean     : false
+    Reason    : 
+[2022-08-02 15:40:44] - [info]: [WS => Shard 0] Failed to connect to the gateway, requeueing...
+[2022-08-02 15:40:44] - [info]: [WS => Manager] Shard Queue Size: 1; continuing in 5 seconds...
+[2022-08-02 15:40:49] - [info]: [WS => Shard 0] [WebSocket] Clearing the close timeout.
+[2022-08-02 15:40:49] - [info]: [WS => Shard 0] [WebSocket] Close Emitted: false
+[2022-08-02 15:40:49] - [info]: [WS => Shard 0] [WebSocket] did not close properly, assuming a zombie connection.
+Emitting close and reconnecting again.
+[2022-08-02 15:40:49] - [info]: [WS => Shard 0] [CLOSE]
+    Event Code: 1011
+    Clean     : false
+    Reason    : INTERNAL_ERROR
+[2022-08-02 15:40:49] - [info]: [WS => Shard 0] [CONNECT]
+    Gateway    : wss://gateway.discord.gg/
+    Version    : 9
+    Encoding   : json
+    Compression: none
+[2022-08-02 15:40:49] - [info]: [WS => Shard 0] Setting a HELLO timeout for 20s.
+[2022-08-02 15:40:49] - [info]: [WS => Shard 0] Clearing the HELLO timeout.
+[2022-08-02 15:40:49] - [info]: [WS => Shard 0] [WebSocket] Destroy: Attempting to close the WebSocket. | WS State: CLOSED
+[2022-08-02 15:40:49] - [info]: [WS => Shard 0] WS State: CLOSED
+[2022-08-02 15:40:49] - [info]: [WS => Shard 0] [WebSocket] Adding a WebSocket close timeout to ensure a correct WS reconnect.
+        Timeout: 5000ms
+[2022-08-02 15:40:49] - [info]: [WS => Shard 0] [CLOSE]
+    Event Code: 1006
+    Clean     : false
+    Reason    : 
+[2022-08-02 15:40:49] - [info]: [WS => Shard 0] Failed to connect to the gateway, requeueing...
+[2022-08-02 15:40:49] - [info]: [WS => Manager] Shard Queue Size: 1; continuing in 5 seconds...
+[2022-08-02 15:40:54] - [info]: [WS => Shard 0] [WebSocket] Clearing the close timeout.
+[2022-08-02 15:40:54] - [info]: [WS => Shard 0] [WebSocket] Close Emitted: false
+[2022-08-02 15:40:54] - [info]: [WS => Shard 0] [WebSocket] did not close properly, assuming a zombie connection.
+Emitting close and reconnecting again.
+[2022-08-02 15:40:54] - [info]: [WS => Shard 0] [CLOSE]
+    Event Code: 1011
+    Clean     : false
+    Reason    : INTERNAL_ERROR
+[2022-08-02 15:40:54] - [info]: [WS => Shard 0] [CONNECT]
+    Gateway    : wss://gateway.discord.gg/
+    Version    : 9
+    Encoding   : json
+    Compression: none
+[2022-08-02 15:40:54] - [info]: [WS => Shard 0] Setting a HELLO timeout for 20s.
+[2022-08-02 15:40:54] - [info]: [WS => Shard 0] Clearing the HELLO timeout.
+[2022-08-02 15:40:54] - [info]: [WS => Shard 0] [WebSocket] Destroy: Attempting to close the WebSocket. | WS State: CLOSED
+[2022-08-02 15:40:54] - [info]: [WS => Shard 0] WS State: CLOSED
+[2022-08-02 15:40:54] - [info]: [WS => Shard 0] [WebSocket] Adding a WebSocket close timeout to ensure a correct WS reconnect.
+        Timeout: 5000ms
+[2022-08-02 15:40:54] - [info]: [WS => Shard 0] [CLOSE]
+    Event Code: 1006
+    Clean     : false
+    Reason    : 
+[2022-08-02 15:40:54] - [info]: [WS => Shard 0] Failed to connect to the gateway, requeueing...
+[2022-08-02 15:40:54] - [info]: [WS => Manager] Shard Queue Size: 1; continuing in 5 seconds...
+[2022-08-02 15:40:59] - [info]: [WS => Shard 0] [WebSocket] Clearing the close timeout.
+[2022-08-02 15:40:59] - [info]: [WS => Shard 0] [WebSocket] Close Emitted: false
+[2022-08-02 15:40:59] - [info]: [WS => Shard 0] [WebSocket] did not close properly, assuming a zombie connection.
+Emitting close and reconnecting again.
+[2022-08-02 15:40:59] - [info]: [WS => Shard 0] [CLOSE]
+    Event Code: 1011
+    Clean     : false
+    Reason    : INTERNAL_ERROR
+[2022-08-02 15:40:59] - [info]: [WS => Shard 0] [CONNECT]
+    Gateway    : wss://gateway.discord.gg/
+    Version    : 9
+    Encoding   : json
+    Compression: none
+[2022-08-02 15:40:59] - [info]: [WS => Shard 0] Setting a HELLO timeout for 20s.
+[2022-08-02 15:40:59] - [info]: [WS => Shard 0] Clearing the HELLO timeout.
+[2022-08-02 15:40:59] - [info]: [WS => Shard 0] [WebSocket] Destroy: Attempting to close the WebSocket. | WS State: CLOSED
+[2022-08-02 15:40:59] - [info]: [WS => Shard 0] WS State: CLOSED
+[2022-08-02 15:40:59] - [info]: [WS => Shard 0] [WebSocket] Adding a WebSocket close timeout to ensure a correct WS reconnect.
+        Timeout: 5000ms
+[2022-08-02 15:40:59] - [info]: [WS => Shard 0] [CLOSE]
+    Event Code: 1006
+    Clean     : false
+    Reason    : 
+[2022-08-02 15:40:59] - [info]: [WS => Shard 0] Failed to connect to the gateway, requeueing...
+[2022-08-02 15:40:59] - [info]: [WS => Manager] Shard Queue Size: 1; continuing in 5 seconds...
+[2022-08-02 15:41:04] - [info]: [WS => Shard 0] [WebSocket] Clearing the close timeout.
+[2022-08-02 15:41:04] - [info]: [WS => Shard 0] [WebSocket] Close Emitted: false
+[2022-08-02 15:41:04] - [info]: [WS => Shard 0] [WebSocket] did not close properly, assuming a zombie connection.
+Emitting close and reconnecting again.
+[2022-08-02 15:41:04] - [info]: [WS => Shard 0] [CLOSE]
+    Event Code: 1011
+    Clean     : false
+    Reason    : INTERNAL_ERROR
+[2022-08-02 15:41:04] - [info]: [WS => Shard 0] [CONNECT]
+    Gateway    : wss://gateway.discord.gg/
+    Version    : 9
+    Encoding   : json
+    Compression: none
+[2022-08-02 15:41:04] - [info]: [WS => Shard 0] Setting a HELLO timeout for 20s.
+[2022-08-02 15:41:04] - [info]: [WS => Shard 0] Clearing the HELLO timeout.
+[2022-08-02 15:41:04] - [info]: [WS => Shard 0] [WebSocket] Destroy: Attempting to close the WebSocket. | WS State: CLOSED
+[2022-08-02 15:41:04] - [info]: [WS => Shard 0] WS State: CLOSED
+[2022-08-02 15:41:04] - [info]: [WS => Shard 0] [WebSocket] Adding a WebSocket close timeout to ensure a correct WS reconnect.
+        Timeout: 5000ms
+[2022-08-02 15:41:04] - [info]: [WS => Shard 0] [CLOSE]
+    Event Code: 1006
+    Clean     : false
+    Reason    : 
+[2022-08-02 15:41:04] - [info]: [WS => Shard 0] Failed to connect to the gateway, requeueing...
+[2022-08-02 15:41:04] - [info]: [WS => Manager] Shard Queue Size: 1; continuing in 5 seconds...
+[2022-08-02 15:41:09] - [info]: [WS => Shard 0] [WebSocket] Clearing the close timeout.
+[2022-08-02 15:41:09] - [info]: [WS => Shard 0] [WebSocket] Close Emitted: false
+[2022-08-02 15:41:09] - [info]: [WS => Shard 0] [WebSocket] did not close properly, assuming a zombie connection.
+Emitting close and reconnecting again.
+[2022-08-02 15:41:09] - [info]: [WS => Shard 0] [CLOSE]
+    Event Code: 1011
+    Clean     : false
+    Reason    : INTERNAL_ERROR
+[2022-08-02 15:41:09] - [info]: [WS => Shard 0] [CONNECT]
+    Gateway    : wss://gateway.discord.gg/
+    Version    : 9
+    Encoding   : json
+    Compression: none
+[2022-08-02 15:41:09] - [info]: [WS => Shard 0] Setting a HELLO timeout for 20s.
+[2022-08-02 15:41:09] - [info]: [WS => Shard 0] Clearing the HELLO timeout.
+[2022-08-02 15:41:09] - [info]: [WS => Shard 0] [WebSocket] Destroy: Attempting to close the WebSocket. | WS State: CLOSED
+[2022-08-02 15:41:09] - [info]: [WS => Shard 0] WS State: CLOSED
+[2022-08-02 15:41:09] - [info]: [WS => Shard 0] [WebSocket] Adding a WebSocket close timeout to ensure a correct WS reconnect.
+        Timeout: 5000ms
+[2022-08-02 15:41:09] - [info]: [WS => Shard 0] [CLOSE]
+    Event Code: 1006
+    Clean     : false
+    Reason    : 
+[2022-08-02 15:41:09] - [info]: [WS => Shard 0] Failed to connect to the gateway, requeueing...
+[2022-08-02 15:41:09] - [info]: [WS => Manager] Shard Queue Size: 1; continuing in 5 seconds...
+[2022-08-02 15:41:14] - [info]: [WS => Shard 0] [WebSocket] Clearing the close timeout.
+[2022-08-02 15:41:14] - [info]: [WS => Shard 0] [WebSocket] Close Emitted: false
+[2022-08-02 15:41:14] - [info]: [WS => Shard 0] [WebSocket] did not close properly, assuming a zombie connection.
+Emitting close and reconnecting again.
+[2022-08-02 15:41:14] - [info]: [WS => Shard 0] [CLOSE]
+    Event Code: 1011
+    Clean     : false
+    Reason    : INTERNAL_ERROR
+[2022-08-02 15:41:14] - [info]: [WS => Shard 0] [CONNECT]
+    Gateway    : wss://gateway.discord.gg/
+    Version    : 9
+    Encoding   : json
+    Compression: none
+[2022-08-02 15:41:14] - [info]: [WS => Shard 0] Setting a HELLO timeout for 20s.
+[2022-08-02 15:41:14] - [info]: [WS => Shard 0] Clearing the HELLO timeout.
+[2022-08-02 15:41:14] - [info]: [WS => Shard 0] [WebSocket] Destroy: Attempting to close the WebSocket. | WS State: CLOSED
+[2022-08-02 15:41:14] - [info]: [WS => Shard 0] WS State: CLOSED
+[2022-08-02 15:41:14] - [info]: [WS => Shard 0] [WebSocket] Adding a WebSocket close timeout to ensure a correct WS reconnect.
+        Timeout: 5000ms
+[2022-08-02 15:41:14] - [info]: [WS => Shard 0] [CLOSE]
+    Event Code: 1006
+    Clean     : false
+    Reason    : 
+[2022-08-02 15:41:14] - [info]: [WS => Shard 0] Failed to connect to the gateway, requeueing...
+[2022-08-02 15:41:14] - [info]: [WS => Manager] Shard Queue Size: 1; continuing in 5 seconds...
+[2022-08-02 15:41:19] - [info]: [WS => Shard 0] [WebSocket] Clearing the close timeout.
+[2022-08-02 15:41:19] - [info]: [WS => Shard 0] [WebSocket] Close Emitted: false
+[2022-08-02 15:41:19] - [info]: [WS => Shard 0] [WebSocket] did not close properly, assuming a zombie connection.
+Emitting close and reconnecting again.
+[2022-08-02 15:41:19] - [info]: [WS => Shard 0] [CLOSE]
+    Event Code: 1011
+    Clean     : false
+    Reason    : INTERNAL_ERROR
+[2022-08-02 15:41:19] - [info]: [WS => Shard 0] [CONNECT]
+    Gateway    : wss://gateway.discord.gg/
+    Version    : 9
+    Encoding   : json
+    Compression: none
+[2022-08-02 15:41:19] - [info]: [WS => Shard 0] Setting a HELLO timeout for 20s.
+[2022-08-02 15:41:19] - [info]: [WS => Shard 0] Clearing the HELLO timeout.
+[2022-08-02 15:41:19] - [info]: [WS => Shard 0] [WebSocket] Destroy: Attempting to close the WebSocket. | WS State: CLOSED
+[2022-08-02 15:41:19] - [info]: [WS => Shard 0] WS State: CLOSED
+[2022-08-02 15:41:19] - [info]: [WS => Shard 0] [WebSocket] Adding a WebSocket close timeout to ensure a correct WS reconnect.
+        Timeout: 5000ms
+[2022-08-02 15:41:19] - [info]: [WS => Shard 0] [CLOSE]
+    Event Code: 1006
+    Clean     : false
+    Reason    : 
+[2022-08-02 15:41:19] - [info]: [WS => Shard 0] Failed to connect to the gateway, requeueing...
+[2022-08-02 15:41:19] - [info]: [WS => Manager] Shard Queue Size: 1; continuing in 5 seconds...
+[2022-08-02 15:41:24] - [info]: [WS => Shard 0] [WebSocket] Clearing the close timeout.
+[2022-08-02 15:41:24] - [info]: [WS => Shard 0] [WebSocket] Close Emitted: false
+[2022-08-02 15:41:24] - [info]: [WS => Shard 0] [WebSocket] did not close properly, assuming a zombie connection.
+Emitting close and reconnecting again.
+[2022-08-02 15:41:24] - [info]: [WS => Shard 0] [CLOSE]
+    Event Code: 1011
+    Clean     : false
+    Reason    : INTERNAL_ERROR
+[2022-08-02 15:41:24] - [info]: [WS => Shard 0] [CONNECT]
+    Gateway    : wss://gateway.discord.gg/
+    Version    : 9
+    Encoding   : json
+    Compression: none
+[2022-08-02 15:41:24] - [info]: [WS => Shard 0] Setting a HELLO timeout for 20s.
+[2022-08-02 15:41:24] - [info]: [WS => Shard 0] Clearing the HELLO timeout.
+[2022-08-02 15:41:24] - [info]: [WS => Shard 0] [WebSocket] Destroy: Attempting to close the WebSocket. | WS State: CLOSED
+[2022-08-02 15:41:24] - [info]: [WS => Shard 0] WS State: CLOSED
+[2022-08-02 15:41:24] - [info]: [WS => Shard 0] [WebSocket] Adding a WebSocket close timeout to ensure a correct WS reconnect.
+        Timeout: 5000ms
+[2022-08-02 15:41:24] - [info]: [WS => Shard 0] [CLOSE]
+    Event Code: 1006
+    Clean     : false
+    Reason    : 
+[2022-08-02 15:41:24] - [info]: [WS => Shard 0] Failed to connect to the gateway, requeueing...
+[2022-08-02 15:41:24] - [info]: [WS => Manager] Shard Queue Size: 1; continuing in 5 seconds...
+[2022-08-02 15:41:29] - [info]: [WS => Shard 0] [WebSocket] Clearing the close timeout.
+[2022-08-02 15:41:29] - [info]: [WS => Shard 0] [WebSocket] Close Emitted: false
+[2022-08-02 15:41:29] - [info]: [WS => Shard 0] [WebSocket] did not close properly, assuming a zombie connection.
+Emitting close and reconnecting again.
+[2022-08-02 15:41:29] - [info]: [WS => Shard 0] [CLOSE]
+    Event Code: 1011
+    Clean     : false
+    Reason    : INTERNAL_ERROR
+[2022-08-02 15:41:29] - [info]: [WS => Shard 0] [CONNECT]
+    Gateway    : wss://gateway.discord.gg/
+    Version    : 9
+    Encoding   : json
+    Compression: none
+[2022-08-02 15:41:29] - [info]: [WS => Shard 0] Setting a HELLO timeout for 20s.
+[2022-08-02 15:41:29] - [info]: [WS => Shard 0] Clearing the HELLO timeout.
+[2022-08-02 15:41:29] - [info]: [WS => Shard 0] [WebSocket] Destroy: Attempting to close the WebSocket. | WS State: CLOSED
+[2022-08-02 15:41:29] - [info]: [WS => Shard 0] WS State: CLOSED
+[2022-08-02 15:41:29] - [info]: [WS => Shard 0] [WebSocket] Adding a WebSocket close timeout to ensure a correct WS reconnect.
+        Timeout: 5000ms
+[2022-08-02 15:41:29] - [info]: [WS => Shard 0] [CLOSE]
+    Event Code: 1006
+    Clean     : false
+    Reason    : 
+[2022-08-02 15:41:29] - [info]: [WS => Shard 0] Failed to connect to the gateway, requeueing...
+[2022-08-02 15:41:29] - [info]: [WS => Manager] Shard Queue Size: 1; continuing in 5 seconds...
+[2022-08-02 15:41:34] - [info]: [WS => Shard 0] [WebSocket] Clearing the close timeout.
+[2022-08-02 15:41:34] - [info]: [WS => Shard 0] [WebSocket] Close Emitted: false
+[2022-08-02 15:41:34] - [info]: [WS => Shard 0] [WebSocket] did not close properly, assuming a zombie connection.
+Emitting close and reconnecting again.
+[2022-08-02 15:41:34] - [info]: [WS => Shard 0] [CLOSE]
+    Event Code: 1011
+    Clean     : false
+    Reason    : INTERNAL_ERROR
+[2022-08-02 15:41:34] - [info]: [WS => Shard 0] [CONNECT]
+    Gateway    : wss://gateway.discord.gg/
+    Version    : 9
+    Encoding   : json
+    Compression: none
+[2022-08-02 15:41:34] - [info]: [WS => Shard 0] Setting a HELLO timeout for 20s.
+[2022-08-02 15:41:34] - [info]: [WS => Shard 0] Clearing the HELLO timeout.
+[2022-08-02 15:41:34] - [info]: [WS => Shard 0] [WebSocket] Destroy: Attempting to close the WebSocket. | WS State: CLOSED
+[2022-08-02 15:41:34] - [info]: [WS => Shard 0] WS State: CLOSED
+[2022-08-02 15:41:34] - [info]: [WS => Shard 0] [WebSocket] Adding a WebSocket close timeout to ensure a correct WS reconnect.
+        Timeout: 5000ms
+[2022-08-02 15:41:34] - [info]: [WS => Shard 0] [CLOSE]
+    Event Code: 1006
+    Clean     : false
+    Reason    : 
+[2022-08-02 15:41:34] - [info]: [WS => Shard 0] Failed to connect to the gateway, requeueing...
+[2022-08-02 15:41:34] - [info]: [WS => Manager] Shard Queue Size: 1; continuing in 5 seconds...
+[2022-08-02 15:41:39] - [info]: [WS => Shard 0] [WebSocket] Clearing the close timeout.
+[2022-08-02 15:41:39] - [info]: [WS => Shard 0] [WebSocket] Close Emitted: false
+[2022-08-02 15:41:39] - [info]: [WS => Shard 0] [WebSocket] did not close properly, assuming a zombie connection.
+Emitting close and reconnecting again.
+[2022-08-02 15:41:39] - [info]: [WS => Shard 0] [CLOSE]
+    Event Code: 1011
+    Clean     : false
+    Reason    : INTERNAL_ERROR
+[2022-08-02 15:41:39] - [info]: [WS => Shard 0] [CONNECT]
+    Gateway    : wss://gateway.discord.gg/
+    Version    : 9
+    Encoding   : json
+    Compression: none
+[2022-08-02 15:41:39] - [info]: [WS => Shard 0] Setting a HELLO timeout for 20s.
+[2022-08-02 15:41:39] - [info]: [WS => Shard 0] Clearing the HELLO timeout.
+[2022-08-02 15:41:39] - [info]: [WS => Shard 0] [WebSocket] Destroy: Attempting to close the WebSocket. | WS State: CLOSED
+[2022-08-02 15:41:39] - [info]: [WS => Shard 0] WS State: CLOSED
+[2022-08-02 15:41:39] - [info]: [WS => Shard 0] [WebSocket] Adding a WebSocket close timeout to ensure a correct WS reconnect.
+        Timeout: 5000ms
+[2022-08-02 15:41:39] - [info]: [WS => Shard 0] [CLOSE]
+    Event Code: 1006
+    Clean     : false
+    Reason    : 
+[2022-08-02 15:41:39] - [info]: [WS => Shard 0] Failed to connect to the gateway, requeueing...
+[2022-08-02 15:41:39] - [info]: [WS => Manager] Shard Queue Size: 1; continuing in 5 seconds...
+[2022-08-02 15:41:44] - [info]: [WS => Shard 0] [WebSocket] Clearing the close timeout.
+[2022-08-02 15:41:44] - [info]: [WS => Shard 0] [WebSocket] Close Emitted: false
+[2022-08-02 15:41:44] - [info]: [WS => Shard 0] [WebSocket] did not close properly, assuming a zombie connection.
+Emitting close and reconnecting again.
+[2022-08-02 15:41:44] - [info]: [WS => Shard 0] [CLOSE]
+    Event Code: 1011
+    Clean     : false
+    Reason    : INTERNAL_ERROR
+[2022-08-02 15:41:44] - [info]: [WS => Shard 0] [CONNECT]
+    Gateway    : wss://gateway.discord.gg/
+    Version    : 9
+    Encoding   : json
+    Compression: none
+[2022-08-02 15:41:44] - [info]: [WS => Shard 0] Setting a HELLO timeout for 20s.
+[2022-08-02 15:41:44] - [info]: [WS => Shard 0] Clearing the HELLO timeout.
+[2022-08-02 15:41:44] - [info]: [WS => Shard 0] [WebSocket] Destroy: Attempting to close the WebSocket. | WS State: CLOSED
+[2022-08-02 15:41:44] - [info]: [WS => Shard 0] WS State: CLOSED
+[2022-08-02 15:41:44] - [info]: [WS => Shard 0] [WebSocket] Adding a WebSocket close timeout to ensure a correct WS reconnect.
+        Timeout: 5000ms
+[2022-08-02 15:41:44] - [info]: [WS => Shard 0] [CLOSE]
+    Event Code: 1006
+    Clean     : false
+    Reason    : 
+[2022-08-02 15:41:44] - [info]: [WS => Shard 0] Failed to connect to the gateway, requeueing...
+[2022-08-02 15:41:44] - [info]: [WS => Manager] Shard Queue Size: 1; continuing in 5 seconds...
+[2022-08-02 15:41:49] - [info]: [WS => Shard 0] [WebSocket] Clearing the close timeout.
+[2022-08-02 15:41:49] - [info]: [WS => Shard 0] [WebSocket] Close Emitted: false
+[2022-08-02 15:41:49] - [info]: [WS => Shard 0] [WebSocket] did not close properly, assuming a zombie connection.
+Emitting close and reconnecting again.
+[2022-08-02 15:41:49] - [info]: [WS => Shard 0] [CLOSE]
+    Event Code: 1011
+    Clean     : false
+    Reason    : INTERNAL_ERROR
+[2022-08-02 15:41:49] - [info]: [WS => Shard 0] [CONNECT]
+    Gateway    : wss://gateway.discord.gg/
+    Version    : 9
+    Encoding   : json
+    Compression: none
+[2022-08-02 15:41:49] - [info]: [WS => Shard 0] Setting a HELLO timeout for 20s.
+[2022-08-02 15:41:49] - [info]: [WS => Shard 0] Clearing the HELLO timeout.
+[2022-08-02 15:41:49] - [info]: [WS => Shard 0] [WebSocket] Destroy: Attempting to close the WebSocket. | WS State: CLOSED
+[2022-08-02 15:41:49] - [info]: [WS => Shard 0] WS State: CLOSED
+[2022-08-02 15:41:49] - [info]: [WS => Shard 0] [WebSocket] Adding a WebSocket close timeout to ensure a correct WS reconnect.
+        Timeout: 5000ms
+[2022-08-02 15:41:49] - [info]: [WS => Shard 0] [CLOSE]
+    Event Code: 1006
+    Clean     : false
+    Reason    : 
+[2022-08-02 15:41:49] - [info]: [WS => Shard 0] Failed to connect to the gateway, requeueing...
+[2022-08-02 15:41:49] - [info]: [WS => Manager] Shard Queue Size: 1; continuing in 5 seconds...
+[2022-08-02 15:41:54] - [info]: [WS => Shard 0] [WebSocket] Clearing the close timeout.
+[2022-08-02 15:41:54] - [info]: [WS => Shard 0] [WebSocket] Close Emitted: false
+[2022-08-02 15:41:54] - [info]: [WS => Shard 0] [WebSocket] did not close properly, assuming a zombie connection.
+Emitting close and reconnecting again.
+[2022-08-02 15:41:54] - [info]: [WS => Shard 0] [CLOSE]
+    Event Code: 1011
+    Clean     : false
+    Reason    : INTERNAL_ERROR
+[2022-08-02 15:41:54] - [info]: [WS => Shard 0] [CONNECT]
+    Gateway    : wss://gateway.discord.gg/
+    Version    : 9
+    Encoding   : json
+    Compression: none
+[2022-08-02 15:41:54] - [info]: [WS => Shard 0] Setting a HELLO timeout for 20s.
+[2022-08-02 15:41:54] - [info]: [WS => Shard 0] Clearing the HELLO timeout.
+[2022-08-02 15:41:54] - [info]: [WS => Shard 0] [WebSocket] Destroy: Attempting to close the WebSocket. | WS State: CLOSED
+[2022-08-02 15:41:54] - [info]: [WS => Shard 0] WS State: CLOSED
+[2022-08-02 15:41:54] - [info]: [WS => Shard 0] [WebSocket] Adding a WebSocket close timeout to ensure a correct WS reconnect.
+        Timeout: 5000ms
+[2022-08-02 15:41:54] - [info]: [WS => Shard 0] [CLOSE]
+    Event Code: 1006
+    Clean     : false
+    Reason    : 
+[2022-08-02 15:41:54] - [info]: [WS => Shard 0] Failed to connect to the gateway, requeueing...
+[2022-08-02 15:41:54] - [info]: [WS => Manager] Shard Queue Size: 1; continuing in 5 seconds...
+[2022-08-02 15:41:59] - [info]: [WS => Shard 0] [WebSocket] Clearing the close timeout.
+[2022-08-02 15:41:59] - [info]: [WS => Shard 0] [WebSocket] Close Emitted: false
+[2022-08-02 15:41:59] - [info]: [WS => Shard 0] [WebSocket] did not close properly, assuming a zombie connection.
+Emitting close and reconnecting again.
+[2022-08-02 15:41:59] - [info]: [WS => Shard 0] [CLOSE]
+    Event Code: 1011
+    Clean     : false
+    Reason    : INTERNAL_ERROR
+[2022-08-02 15:41:59] - [info]: [WS => Shard 0] [CONNECT]
+    Gateway    : wss://gateway.discord.gg/
+    Version    : 9
+    Encoding   : json
+    Compression: none
+[2022-08-02 15:41:59] - [info]: [WS => Shard 0] Setting a HELLO timeout for 20s.
+[2022-08-02 15:41:59] - [info]: [WS => Shard 0] Clearing the HELLO timeout.
+[2022-08-02 15:41:59] - [info]: [WS => Shard 0] [WebSocket] Destroy: Attempting to close the WebSocket. | WS State: CLOSED
+[2022-08-02 15:41:59] - [info]: [WS => Shard 0] WS State: CLOSED
+[2022-08-02 15:41:59] - [info]: [WS => Shard 0] [WebSocket] Adding a WebSocket close timeout to ensure a correct WS reconnect.
+        Timeout: 5000ms
+[2022-08-02 15:41:59] - [info]: [WS => Shard 0] [CLOSE]
+    Event Code: 1006
+    Clean     : false
+    Reason    : 
+[2022-08-02 15:41:59] - [info]: [WS => Shard 0] Failed to connect to the gateway, requeueing...
+[2022-08-02 15:41:59] - [info]: [WS => Manager] Shard Queue Size: 1; continuing in 5 seconds...
+[2022-08-02 15:42:04] - [info]: [WS => Shard 0] [WebSocket] Clearing the close timeout.
+[2022-08-02 15:42:04] - [info]: [WS => Shard 0] [WebSocket] Close Emitted: false
+[2022-08-02 15:42:04] - [info]: [WS => Shard 0] [WebSocket] did not close properly, assuming a zombie connection.
+Emitting close and reconnecting again.
+[2022-08-02 15:42:04] - [info]: [WS => Shard 0] [CLOSE]
+    Event Code: 1011
+    Clean     : false
+    Reason    : INTERNAL_ERROR
+[2022-08-02 15:42:04] - [info]: [WS => Shard 0] [CONNECT]
+    Gateway    : wss://gateway.discord.gg/
+    Version    : 9
+    Encoding   : json
+    Compression: none
+[2022-08-02 15:42:04] - [info]: [WS => Shard 0] Setting a HELLO timeout for 20s.
+[2022-08-02 15:42:04] - [info]: [WS => Shard 0] Clearing the HELLO timeout.
+[2022-08-02 15:42:04] - [info]: [WS => Shard 0] [WebSocket] Destroy: Attempting to close the WebSocket. | WS State: CLOSED
+[2022-08-02 15:42:04] - [info]: [WS => Shard 0] WS State: CLOSED
+[2022-08-02 15:42:04] - [info]: [WS => Shard 0] [WebSocket] Adding a WebSocket close timeout to ensure a correct WS reconnect.
+        Timeout: 5000ms
+[2022-08-02 15:42:04] - [info]: [WS => Shard 0] [CLOSE]
+    Event Code: 1006
+    Clean     : false
+    Reason    : 
+[2022-08-02 15:42:04] - [info]: [WS => Shard 0] Failed to connect to the gateway, requeueing...
+[2022-08-02 15:42:04] - [info]: [WS => Manager] Shard Queue Size: 1; continuing in 5 seconds...
+[2022-08-02 15:42:09] - [info]: [WS => Shard 0] [WebSocket] Clearing the close timeout.
+[2022-08-02 15:42:09] - [info]: [WS => Shard 0] [WebSocket] Close Emitted: false
+[2022-08-02 15:42:09] - [info]: [WS => Shard 0] [WebSocket] did not close properly, assuming a zombie connection.
+Emitting close and reconnecting again.
+[2022-08-02 15:42:09] - [info]: [WS => Shard 0] [CLOSE]
+    Event Code: 1011
+    Clean     : false
+    Reason    : INTERNAL_ERROR
+[2022-08-02 15:42:09] - [info]: [WS => Shard 0] [CONNECT]
+    Gateway    : wss://gateway.discord.gg/
+    Version    : 9
+    Encoding   : json
+    Compression: none
+[2022-08-02 15:42:09] - [info]: [WS => Shard 0] Setting a HELLO timeout for 20s.
+[2022-08-02 15:42:09] - [info]: [WS => Shard 0] Clearing the HELLO timeout.
+[2022-08-02 15:42:09] - [info]: [WS => Shard 0] [WebSocket] Destroy: Attempting to close the WebSocket. | WS State: CLOSED
+[2022-08-02 15:42:09] - [info]: [WS => Shard 0] WS State: CLOSED
+[2022-08-02 15:42:09] - [info]: [WS => Shard 0] [WebSocket] Adding a WebSocket close timeout to ensure a correct WS reconnect.
+        Timeout: 5000ms
+[2022-08-02 15:42:09] - [info]: [WS => Shard 0] [CLOSE]
+    Event Code: 1006
+    Clean     : false
+    Reason    : 
+[2022-08-02 15:42:09] - [info]: [WS => Shard 0] Failed to connect to the gateway, requeueing...
+[2022-08-02 15:42:09] - [info]: [WS => Manager] Shard Queue Size: 1; continuing in 5 seconds...
+[2022-08-02 15:42:14] - [info]: [WS => Shard 0] [WebSocket] Clearing the close timeout.
+[2022-08-02 15:42:14] - [info]: [WS => Shard 0] [WebSocket] Close Emitted: false
+[2022-08-02 15:42:14] - [info]: [WS => Shard 0] [WebSocket] did not close properly, assuming a zombie connection.
+Emitting close and reconnecting again.
+[2022-08-02 15:42:14] - [info]: [WS => Shard 0] [CLOSE]
+    Event Code: 1011
+    Clean     : false
+    Reason    : INTERNAL_ERROR
+[2022-08-02 15:42:14] - [info]: [WS => Shard 0] [CONNECT]
+    Gateway    : wss://gateway.discord.gg/
+    Version    : 9
+    Encoding   : json
+    Compression: none
+[2022-08-02 15:42:14] - [info]: [WS => Shard 0] Setting a HELLO timeout for 20s.
+[2022-08-02 15:42:14] - [info]: [WS => Shard 0] Clearing the HELLO timeout.
+[2022-08-02 15:42:14] - [info]: [WS => Shard 0] [WebSocket] Destroy: Attempting to close the WebSocket. | WS State: CLOSED
+[2022-08-02 15:42:14] - [info]: [WS => Shard 0] WS State: CLOSED
+[2022-08-02 15:42:14] - [info]: [WS => Shard 0] [WebSocket] Adding a WebSocket close timeout to ensure a correct WS reconnect.
+        Timeout: 5000ms
+[2022-08-02 15:42:14] - [info]: [WS => Shard 0] [CLOSE]
+    Event Code: 1006
+    Clean     : false
+    Reason    : 
+[2022-08-02 15:42:14] - [info]: [WS => Shard 0] Failed to connect to the gateway, requeueing...
+[2022-08-02 15:42:14] - [info]: [WS => Manager] Shard Queue Size: 1; continuing in 5 seconds...
+[2022-08-02 15:42:19] - [info]: [WS => Shard 0] [WebSocket] Clearing the close timeout.
+[2022-08-02 15:42:19] - [info]: [WS => Shard 0] [WebSocket] Close Emitted: false
+[2022-08-02 15:42:19] - [info]: [WS => Shard 0] [WebSocket] did not close properly, assuming a zombie connection.
+Emitting close and reconnecting again.
+[2022-08-02 15:42:19] - [info]: [WS => Shard 0] [CLOSE]
+    Event Code: 1011
+    Clean     : false
+    Reason    : INTERNAL_ERROR
+[2022-08-02 15:42:19] - [info]: [WS => Shard 0] [CONNECT]
+    Gateway    : wss://gateway.discord.gg/
+    Version    : 9
+    Encoding   : json
+    Compression: none
+[2022-08-02 15:42:19] - [info]: [WS => Shard 0] Setting a HELLO timeout for 20s.
+[2022-08-02 15:42:19] - [info]: [WS => Shard 0] Clearing the HELLO timeout.
+[2022-08-02 15:42:19] - [info]: [WS => Shard 0] [WebSocket] Destroy: Attempting to close the WebSocket. | WS State: CLOSED
+[2022-08-02 15:42:19] - [info]: [WS => Shard 0] WS State: CLOSED
+[2022-08-02 15:42:19] - [info]: [WS => Shard 0] [WebSocket] Adding a WebSocket close timeout to ensure a correct WS reconnect.
+        Timeout: 5000ms
+[2022-08-02 15:42:19] - [info]: [WS => Shard 0] [CLOSE]
+    Event Code: 1006
+    Clean     : false
+    Reason    : 
+[2022-08-02 15:42:19] - [info]: [WS => Shard 0] Failed to connect to the gateway, requeueing...
+[2022-08-02 15:42:19] - [info]: [WS => Manager] Shard Queue Size: 1; continuing in 5 seconds...
+[2022-08-02 15:42:24] - [info]: [WS => Shard 0] [WebSocket] Clearing the close timeout.
+[2022-08-02 15:42:24] - [info]: [WS => Shard 0] [WebSocket] Close Emitted: false
+[2022-08-02 15:42:24] - [info]: [WS => Shard 0] [WebSocket] did not close properly, assuming a zombie connection.
+Emitting close and reconnecting again.
+[2022-08-02 15:42:24] - [info]: [WS => Shard 0] [CLOSE]
+    Event Code: 1011
+    Clean     : false
+    Reason    : INTERNAL_ERROR
+[2022-08-02 15:42:24] - [info]: [WS => Shard 0] [CONNECT]
+    Gateway    : wss://gateway.discord.gg/
+    Version    : 9
+    Encoding   : json
+    Compression: none
+[2022-08-02 15:42:24] - [info]: [WS => Shard 0] Setting a HELLO timeout for 20s.
+[2022-08-02 15:42:24] - [info]: [WS => Shard 0] Clearing the HELLO timeout.
+[2022-08-02 15:42:24] - [info]: [WS => Shard 0] [WebSocket] Destroy: Attempting to close the WebSocket. | WS State: CLOSED
+[2022-08-02 15:42:24] - [info]: [WS => Shard 0] WS State: CLOSED
+[2022-08-02 15:42:24] - [info]: [WS => Shard 0] [WebSocket] Adding a WebSocket close timeout to ensure a correct WS reconnect.
+        Timeout: 5000ms
+[2022-08-02 15:42:24] - [info]: [WS => Shard 0] [CLOSE]
+    Event Code: 1006
+    Clean     : false
+    Reason    : 
+[2022-08-02 15:42:24] - [info]: [WS => Shard 0] Failed to connect to the gateway, requeueing...
+[2022-08-02 15:42:24] - [info]: [WS => Manager] Shard Queue Size: 1; continuing in 5 seconds...
+[2022-08-02 15:42:29] - [info]: [WS => Shard 0] [WebSocket] Clearing the close timeout.
+[2022-08-02 15:42:29] - [info]: [WS => Shard 0] [WebSocket] Close Emitted: false
+[2022-08-02 15:42:29] - [info]: [WS => Shard 0] [WebSocket] did not close properly, assuming a zombie connection.
+Emitting close and reconnecting again.
+[2022-08-02 15:42:29] - [info]: [WS => Shard 0] [CLOSE]
+    Event Code: 1011
+    Clean     : false
+    Reason    : INTERNAL_ERROR
+[2022-08-02 15:42:29] - [info]: [WS => Shard 0] [CONNECT]
+    Gateway    : wss://gateway.discord.gg/
+    Version    : 9
+    Encoding   : json
+    Compression: none
+[2022-08-02 15:42:29] - [info]: [WS => Shard 0] Setting a HELLO timeout for 20s.
+[2022-08-02 15:42:29] - [info]: [WS => Shard 0] Clearing the HELLO timeout.
+[2022-08-02 15:42:29] - [info]: [WS => Shard 0] [WebSocket] Destroy: Attempting to close the WebSocket. | WS State: CLOSED
+[2022-08-02 15:42:29] - [info]: [WS => Shard 0] WS State: CLOSED
+[2022-08-02 15:42:29] - [info]: [WS => Shard 0] [WebSocket] Adding a WebSocket close timeout to ensure a correct WS reconnect.
+        Timeout: 5000ms
+[2022-08-02 15:42:29] - [info]: [WS => Shard 0] [CLOSE]
+    Event Code: 1006
+    Clean     : false
+    Reason    : 
+[2022-08-02 15:42:29] - [info]: [WS => Shard 0] Failed to connect to the gateway, requeueing...
+[2022-08-02 15:42:29] - [info]: [WS => Manager] Shard Queue Size: 1; continuing in 5 seconds...
+[2022-08-02 15:42:34] - [info]: [WS => Shard 0] [WebSocket] Clearing the close timeout.
+[2022-08-02 15:42:34] - [info]: [WS => Shard 0] [WebSocket] Close Emitted: false
+[2022-08-02 15:42:34] - [info]: [WS => Shard 0] [WebSocket] did not close properly, assuming a zombie connection.
+Emitting close and reconnecting again.
+[2022-08-02 15:42:34] - [info]: [WS => Shard 0] [CLOSE]
+    Event Code: 1011
+    Clean     : false
+    Reason    : INTERNAL_ERROR
+[2022-08-02 15:42:34] - [info]: [WS => Shard 0] [CONNECT]
+    Gateway    : wss://gateway.discord.gg/
+    Version    : 9
+    Encoding   : json
+    Compression: none
+[2022-08-02 15:42:34] - [info]: [WS => Shard 0] Setting a HELLO timeout for 20s.
+[2022-08-02 15:42:34] - [info]: [WS => Shard 0] Clearing the HELLO timeout.
+[2022-08-02 15:42:34] - [info]: [WS => Shard 0] [WebSocket] Destroy: Attempting to close the WebSocket. | WS State: CLOSED
+[2022-08-02 15:42:34] - [info]: [WS => Shard 0] WS State: CLOSED
+[2022-08-02 15:42:34] - [info]: [WS => Shard 0] [WebSocket] Adding a WebSocket close timeout to ensure a correct WS reconnect.
+        Timeout: 5000ms
+[2022-08-02 15:42:34] - [info]: [WS => Shard 0] [CLOSE]
+    Event Code: 1006
+    Clean     : false
+    Reason    : 
+[2022-08-02 15:42:34] - [info]: [WS => Shard 0] Failed to connect to the gateway, requeueing...
+[2022-08-02 15:42:34] - [info]: [WS => Manager] Shard Queue Size: 1; continuing in 5 seconds...
+[2022-08-02 15:42:39] - [info]: [WS => Shard 0] [WebSocket] Clearing the close timeout.
+[2022-08-02 15:42:39] - [info]: [WS => Shard 0] [WebSocket] Close Emitted: false
+[2022-08-02 15:42:39] - [info]: [WS => Shard 0] [WebSocket] did not close properly, assuming a zombie connection.
+Emitting close and reconnecting again.
+[2022-08-02 15:42:39] - [info]: [WS => Shard 0] [CLOSE]
+    Event Code: 1011
+    Clean     : false
+    Reason    : INTERNAL_ERROR
+[2022-08-02 15:42:39] - [info]: [WS => Shard 0] [CONNECT]
+    Gateway    : wss://gateway.discord.gg/
+    Version    : 9
+    Encoding   : json
+    Compression: none
+[2022-08-02 15:42:39] - [info]: [WS => Shard 0] Setting a HELLO timeout for 20s.
+[2022-08-02 15:42:39] - [info]: [WS => Shard 0] Clearing the HELLO timeout.
+[2022-08-02 15:42:39] - [info]: [WS => Shard 0] [WebSocket] Destroy: Attempting to close the WebSocket. | WS State: CLOSED
+[2022-08-02 15:42:39] - [info]: [WS => Shard 0] WS State: CLOSED
+[2022-08-02 15:42:39] - [info]: [WS => Shard 0] [WebSocket] Adding a WebSocket close timeout to ensure a correct WS reconnect.
+        Timeout: 5000ms
+[2022-08-02 15:42:39] - [info]: [WS => Shard 0] [CLOSE]
+    Event Code: 1006
+    Clean     : false
+    Reason    : 
+[2022-08-02 15:42:39] - [info]: [WS => Shard 0] Failed to connect to the gateway, requeueing...
+[2022-08-02 15:42:39] - [info]: [WS => Manager] Shard Queue Size: 1; continuing in 5 seconds...
+[2022-08-02 15:42:44] - [info]: [WS => Shard 0] [WebSocket] Clearing the close timeout.
+[2022-08-02 15:42:44] - [info]: [WS => Shard 0] [WebSocket] Close Emitted: false
+[2022-08-02 15:42:44] - [info]: [WS => Shard 0] [WebSocket] did not close properly, assuming a zombie connection.
+Emitting close and reconnecting again.
+[2022-08-02 15:42:44] - [info]: [WS => Shard 0] [CLOSE]
+    Event Code: 1011
+    Clean     : false
+    Reason    : INTERNAL_ERROR
+[2022-08-02 15:42:44] - [info]: [WS => Shard 0] [CONNECT]
+    Gateway    : wss://gateway.discord.gg/
+    Version    : 9
+    Encoding   : json
+    Compression: none
+[2022-08-02 15:42:44] - [info]: [WS => Shard 0] Setting a HELLO timeout for 20s.
+[2022-08-02 15:42:44] - [info]: [WS => Shard 0] Clearing the HELLO timeout.
+[2022-08-02 15:42:44] - [info]: [WS => Shard 0] [WebSocket] Destroy: Attempting to close the WebSocket. | WS State: CLOSED
+[2022-08-02 15:42:44] - [info]: [WS => Shard 0] WS State: CLOSED
+[2022-08-02 15:42:44] - [info]: [WS => Shard 0] [WebSocket] Adding a WebSocket close timeout to ensure a correct WS reconnect.
+        Timeout: 5000ms
+[2022-08-02 15:42:44] - [info]: [WS => Shard 0] [CLOSE]
+    Event Code: 1006
+    Clean     : false
+    Reason    : 
+[2022-08-02 15:42:44] - [info]: [WS => Shard 0] Failed to connect to the gateway, requeueing...
+[2022-08-02 15:42:44] - [info]: [WS => Manager] Shard Queue Size: 1; continuing in 5 seconds...
+[2022-08-02 15:42:49] - [info]: [WS => Shard 0] [WebSocket] Clearing the close timeout.
+[2022-08-02 15:42:49] - [info]: [WS => Shard 0] [WebSocket] Close Emitted: false
+[2022-08-02 15:42:49] - [info]: [WS => Shard 0] [WebSocket] did not close properly, assuming a zombie connection.
+Emitting close and reconnecting again.
+[2022-08-02 15:42:49] - [info]: [WS => Shard 0] [CLOSE]
+    Event Code: 1011
+    Clean     : false
+    Reason    : INTERNAL_ERROR
+[2022-08-02 15:42:49] - [info]: [WS => Shard 0] [CONNECT]
+    Gateway    : wss://gateway.discord.gg/
+    Version    : 9
+    Encoding   : json
+    Compression: none
+[2022-08-02 15:42:49] - [info]: [WS => Shard 0] Setting a HELLO timeout for 20s.
+[2022-08-02 15:42:49] - [info]: [WS => Shard 0] Clearing the HELLO timeout.
+[2022-08-02 15:42:49] - [info]: [WS => Shard 0] [WebSocket] Destroy: Attempting to close the WebSocket. | WS State: CLOSED
+[2022-08-02 15:42:49] - [info]: [WS => Shard 0] WS State: CLOSED
+[2022-08-02 15:42:49] - [info]: [WS => Shard 0] [WebSocket] Adding a WebSocket close timeout to ensure a correct WS reconnect.
+        Timeout: 5000ms
+[2022-08-02 15:42:49] - [info]: [WS => Shard 0] [CLOSE]
+    Event Code: 1006
+    Clean     : false
+    Reason    : 
+[2022-08-02 15:42:49] - [info]: [WS => Shard 0] Failed to connect to the gateway, requeueing...
+[2022-08-02 15:42:49] - [info]: [WS => Manager] Shard Queue Size: 1; continuing in 5 seconds...

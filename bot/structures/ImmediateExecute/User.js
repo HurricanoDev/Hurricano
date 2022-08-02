@@ -3,12 +3,12 @@ const { MessageEmbed } = require("discord.js");
 module.exports = ({ merge }) =>
 	merge({
 		db: {
-			async fetch() {
+			fetch: async () => {
 				const data = await client.schemas.user.findOne({ id: this.id });
 				client.db.users.cache.set(this.id, data);
 				return data;
 			},
-			cache() {
+			cache: () => {
 				return client.db.users.cache.get(this.id);
 			},
 		},
@@ -16,8 +16,7 @@ module.exports = ({ merge }) =>
 			const embed = new MessageEmbed()
 				.setAuthor({
 					name: header,
-					iconURL:
-						"https://raw.githubusercontent.com/HurricanoBot/HurricanoImages/master/SetAuthorEmojis/Error.png",
+					iconURL: "https://raw.githubusercontent.com/HurricanoBot/HurricanoImages/master/SetAuthorEmojis/Error.png",
 				})
 				.setColor("RED");
 
@@ -36,8 +35,7 @@ module.exports = ({ merge }) =>
 			const embed = new MessageEmbed()
 				.setAuthor({
 					name: header,
-					iconURL:
-						"https://raw.githubusercontent.com/HurricanoBot/HurricanoImages/master/SetAuthorEmojis/Success.png",
+					iconURL: "https://raw.githubusercontent.com/HurricanoBot/HurricanoImages/master/SetAuthorEmojis/Success.png",
 				})
 				.setColor("GREEN");
 

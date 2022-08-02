@@ -1,11 +1,11 @@
 let config;
 require("dotenv").config();
 try {
-  config = require(`${process.cwd()}/config.json`);
-  module.exports = config;
+	config = require(`${process.cwd()}/config.json`);
+	module.exports = config;
 } catch (err) {
-  config = JSON.parse(process.env.config);
-  module.exports = config;
+	config = JSON.parse(process.env.config);
+	module.exports = config;
 }
 let logger = require("./logger.js");
 if (!config.token) logger.emerg("No bot token provided!");

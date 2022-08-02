@@ -1,0 +1,19 @@
+[2022-08-02 12:24:28] - [warn]: (intermediate value).setCustomID is not a function
+{
+  "stack": "TypeError: (intermediate value).setCustomID is not a function
+    at /home/arch/Code/HurricanoOld/bot/utilities/ButtonMenu.js:30:10
+    at Array.forEach (<anonymous>)
+    at ButtonMenu.start (/home/arch/Code/HurricanoOld/bot/utilities/ButtonMenu.js:26:15)
+    at Command.run (/home/arch/Code/HurricanoOld/bot/commands/information/help.js:315:16)
+    at MessageEvent.run (/home/arch/Code/HurricanoOld/bot/events/bot/message.js:433:21)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)"
+}
+[2022-08-02 12:34:04] - [warn]: MessageEmbed footer text must be a string.
+{
+  "stack": "RangeError [EMBED_FOOTER_TEXT]: MessageEmbed footer text must be a string.
+    at Util.verifyString (/home/arch/Code/HurricanoOld/node_modules/.pnpm/discord.js@13.9.2/node_modules/discord.js/src/util/Util.js:427:41)
+    at MessageEmbed.setFooter (/home/arch/Code/HurricanoOld/node_modules/.pnpm/discord.js@13.9.2/node_modules/discord.js/src/structures/MessageEmbed.js:462:32)
+    at TextChannel.sendError (/home/arch/Code/HurricanoOld/bot/structures/ImmediateExecute/TextChannel.js:62:11)
+    at MessageEvent.run (/home/arch/Code/HurricanoOld/bot/events/bot/message.js:302:29)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)"
+}

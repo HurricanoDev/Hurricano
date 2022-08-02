@@ -1,7 +1,7 @@
 module.exports = ({ merge }) =>
 	merge({
 		db: {
-			async fetch() {
+			fetch: async () => {
 				if (this.user.bot) return;
 
 				const data = await client.schemas.user.findOne({ id: this.id });
@@ -9,54 +9,33 @@ module.exports = ({ merge }) =>
 
 				return data;
 			},
-			cache() {
+			cache: () => {
 				return client.db.users.cache.get(this.id);
 			},
 		},
-		async sendError(message, header, msg, footer, fields) {
+		sendError(message, header, msg, footer, fields) {
 			const embed = new MessageEmbed()
-				.setAuthor(
-					header,
-					"https://raw.githubusercontent.com/HurricanoBot/HurricanoImages/master/SetAuthorEmojis/Error.png"
-				)
+				.setAuthor(header, "https://raw.githubusercontent.com/HurricanoBot/HurricanoImages/master/SetAuthorEmojis/Error.png")
 				.setColor("RED");
 
 			if (msg) embed.setDescription(msg);
 			if (footer) embed.setFooter(...footer);
 			else {
-				embed.setFooter(
-					message.author.username,
-					message.author.displayAvatarURL()
-				);
+				embed.setFooter(message.author.username, message.author.displayAvatarURL());
 			}
 			if (fields) embed.addFields(fields);
 
-			const msg = await this.createDM().then((x) =>
-				x.send({ embeds: [embed] })
-			);
-
-			return msg;
+			return this.createDM().then((x) => x.send({ embeds: [embed] }));
 		},
-		async sendSuccess(message, header, msg, footer, fields) {
+		sendSuccess(message, header, msg, footer, fields) {
 			const embed = new MessageEmbed()
-				.setAuthor(
-					Header,
-					"https://raw.githubusercontent.com/HurricanoBot/HurricanoImages/master/SetAuthorEmojis/Success.png"
-				)
+				.setAuthor(Header, "https://raw.githubusercontent.com/HurricanoBot/HurricanoImages/master/SetAuthorEmojis/Success.png")
 				.setColor("GREEN");
 			if (msg) embed.setDescription(Msg);
 			if (Footer) embed.setFooter(Footer);
-			else
-				embed.setFooter(
-					message.author.username,
-					message.author.displayAvatarURL()
-				);
+			else embed.setFooter(message.author.username, message.author.displayAvatarURL());
 			if (fields) embed.addFields(fields);
 
-			const msg = await this.createDM().then((x) =>
-				x.send({ embeds: [embed] })
-			);
-
-			return msg;
+			return this.createDM().then((x) => x.send({ embeds: [embed] }));
 		},
 	});
