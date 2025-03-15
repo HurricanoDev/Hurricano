@@ -1,4 +1,4 @@
-# Development for this bot has been paused indefinitely. It probably will not be continued. Feel free to hit me up at `dragonizedpizza` on Discord if you want to hire me for a commission.
+# Development for this bot has been paused indefinitely. It probably will not be continued. Feel free to hit me up at `vbwr` on Discord if you want to hire me for a commission.
 
 <h1 align="center"> Hurricano™  🌀</h1>
 <p align="center">
